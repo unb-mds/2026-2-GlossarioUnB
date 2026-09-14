@@ -38,10 +38,8 @@ A disciplina MDS 2026/2 estrutura o semestre em **9 sprints de 2 semanas**, com 
 | 2 | Metodologias ágeis aplicadas ao projeto (Scrum vs Kanban, o que o time vai usar e por quê) | Pessoa B | `docs/metodologia.md` |
 | 3 | Ciclo de vida e Processo Unificado — comparação rápida e justificativa da escolha (incremental/evolutivo) para o projeto | Pessoa C | `docs/processo.md` |
 | 4 | Modelagem inicial dos dados de um termo (sigla, gíria, categoria, definição, exemplo de uso, fonte) — olhando o schema do glossario-ufcg como referência | Pessoa D | `docs/database.md` ou `schema.json` |
-| 5 | Esqueleto do Backend/API (ou camada de dados estática) + 1 rota/endpoint de exemplo | Pessoa E | `backend/` inicial rodando |
-| 6 | Esqueleto do Frontend + tela "Hello Glossário" | Pessoa F | `frontend/` inicial rodando |
-| 7 | Setup do repositório: `README.md`, `LICENSE` (MIT), `CODE_OF_CONDUCT.md`, templates de issue/PR | Dividir entre 2 pessoas | Arquivos na raiz + `.github/` |
-| 8 | Abrir `AI-USAGE.md` (registro de uso de IA, exigido pela política da disciplina) | Quem fizer a task 1 | `AI-USAGE.md` |
+| 5 | Setup do repositório: `README.md`, `LICENSE` (MIT), `CODE_OF_CONDUCT.md`, templates de issue/PR | Dividir entre 2 pessoas | Arquivos na raiz + `.github/` |
+| 6 | Abrir `AI-USAGE.md` (registro de uso de IA, exigido pela política da disciplina) | Quem fizer a task 1 | `AI-USAGE.md` |
 
 > Referência de padrão real: no SuaGradeUnB, a Sprint 0 definiu horário de reunião, 3 "coelhos" estudando Git/GitHub, GitHub Flow e Metodologias Ágeis, e já fechou tema, requisitos iniciais, stack e divisão de setores (mobile/design, back-end, DevOps) — tudo na primeira semana.
 
