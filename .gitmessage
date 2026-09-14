@@ -1,0 +1,9 @@
+# <tipo>(<escopo opcional>): <descrição curta, no imperativo>
+#
+# tipos válidos: feat | fix | docs | chore | test | refactor
+# exemplo: feat(dados): adiciona termo PPAES
+#
+# Corpo (opcional, apagar se não precisar):
+# o quê mudou e por quê — não repita "como", isso já está no diff
+
+# Closes #
