@@ -51,11 +51,11 @@ A disciplina MDS 2026/2 estrutura o semestre em **9 sprints de 2 semanas**, com 
 
 | # | Tarefa | Responsável                                                                                      | Entregável |
 |---|---|--------------------------------------------------------------------------------------------------|---|
-| 1 | Skill individual: estudar 1 tecnologia do projeto (React/Vue, testes automatizados, PWA/service worker, lib de i18n, Docker, GitHub Actions) | Ítalo - PWA + i18n / Alex Git Actions e Testes Automatizados / Jéssyca Docker / Allan - Frontend | `docs/skills/<nome>.md` |
+| 1 | Skill individual: estudar 1 tecnologia do projeto (React/Vue, testes automatizados, PWA/service worker, lib de i18n, Docker, GitHub Actions) | Ítalo - PWA + i18n / Alex Git Actions e Testes Automatizados / Jéssyca Docker / Allan - Frontend / José - React/Vue | `docs/skills/<nome>.md` |
 | 2 | Molde de milestone + board Kanban no GitHub Projects, já com as sprints seguintes cadastradas | Ítalo                                                                                            | Board configurado |
 | 3 | Benchmark: comparar o Glossário UnB com o glossario-ufcg (e opcionalmente outro glossário institucional) — o que copiar, o que melhorar (PWA, a11y, i18n) | Ítalo                                                                                            | `docs/benchmark.md` |
 | 4 | Git como artefato de engenharia: convenção de commits (Conventional Commits) + fluxo de branches do time | Pedro                                                                                            | `CONTRIBUTING.md` (seção de Git) |
-| 5 | Requisitos ágeis: primeiros épicos e user stories com critério de aceitação (formato Gherkin) | Pessoa Z (ou PO)                                                                                 | `docs/requisitos.md` (rascunho) |
+| 5 | Requisitos ágeis: primeiros épicos e user stories com critério de aceitação (formato Gherkin) | José                                                                                 | `docs/requisitos.md` (rascunho) |
 | 6 | Spec-driven development I: escrever o primeiro rascunho da "constituição" do projeto (specify) — o que o Glossário UnB é e não é | PO                                                                                               | `specs/constitution.md` |
 
 ---
