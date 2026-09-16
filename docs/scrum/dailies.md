@@ -40,3 +40,13 @@ horários em [`horarios.md`](horarios.md).
 13h20 até 14h10
 
 ---
+
+### Terça, 15/09
+
+**Presentes: Jéssyca, Ítalo, Alex, Pedro, Allan, José Gabriel**
+
+**Progresso: organizamos o story map no figma e preparamos a apresentação de amanhã**
+
+**Pendências / próximos passos: terminar de preencher o figma**
+
+---
