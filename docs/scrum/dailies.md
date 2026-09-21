@@ -50,3 +50,13 @@ horários em [`horarios.md`](horarios.md).
 **Pendências / próximos passos: terminar de preencher o figma**
 
 ---
+
+### Domingo, 20/09
+
+**Presentes: Italo, Allan, Pedro**
+
+**Progresso: foi apresentado a kanban, definimos prazo de entrega da sprint 01 e 02 e prazo para apresentar o figma para a monitora **
+
+**Pendências / próximos passos: apresentar figma para a monitora, definir issuea que cada membro irá fazer e terminar issues da print 01 e 02 **
+21:10 até 21:55
+---
