@@ -74,3 +74,15 @@ horários em [`horarios.md`](horarios.md).
 20:10 até 21:15
 
 ---
+
+### [Sabado], 26/09
+
+**Presentes:Italo, Allan, Pedro**
+
+**Progresso:finalizamos o MVP e decidimos  quem irá apresentar na proxima aula o MVP e o storymap**
+
+**Pendências / próximos passos: apresentar as entregas em aula**
+
+20:10 até 21:30
+
+---
