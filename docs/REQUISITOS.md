@@ -17,7 +17,7 @@ Coleta inicial via [planilha colaborativa](https://docs.google.com/spreadsheets/
 - **RF02** — Consulta de termos por categoria (sigla / gíria / expressão)
 - **RF03** — Cadastro de termos a partir da planilha de coleta (dataset inicial do projeto)
 - **RF04** — Contribuição externa via Pull Request, seguindo o schema de dados (fluxo em `CONTRIBUTING.md`)
-- **RF05** — Contribuição externa via Issue, para quem não sabe Git (template `sugerir-termo.md`)
+- **RF05** — Contribuição externa via Issue, para quem não sabe Git (templates `adicionar-termo.md` e `corrigir-definicao.md`)
 
 ## 4. Requisitos Não-Funcionais
 

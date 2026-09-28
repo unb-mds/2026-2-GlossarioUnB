@@ -14,7 +14,7 @@ Cada entrada deve conter: data, pessoa, ferramenta usada, o que foi pedido, o qu
 
 | Data | Pessoa | Ferramenta | O que foi feito | Aceito/ajustado/rejeitado |
 |---|---|---|---|---|
-| | | | | |
+| 28/09/2026 | José Gabriel | Antigravity | Criação dos templates de issue para adição e correção de termos (`.github/ISSUE_TEMPLATE`) para atender à issue #24 | Aceito |
 
 
 <!-- Exemplo de linha preenchida:
