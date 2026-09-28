@@ -13,21 +13,24 @@ Coleta inicial via [planilha colaborativa](https://docs.google.com/spreadsheets/
 
 ## 3. Requisitos Funcionais
 
-- **RF01** — Consulta de termos por busca textual
-- **RF02** — Consulta de termos por categoria (sigla / gíria / expressão)
-- **RF03** — Cadastro de termos a partir da planilha de coleta (dataset inicial do projeto)
-- **RF04** — Contribuição externa via Pull Request, seguindo o schema de dados (fluxo em `CONTRIBUTING.md`)
-- **RF05** — Contribuição externa via Issue, para quem não sabe Git (template `sugerir-termo.md`)
+| ID | Nome | Release |
+| --- | --- | --- |
+| RF01 | Busca textual de termos | Busca textual de termos | R1 |
+| RF02 | Listagem e filtro por categoria | R1 (lista) -> R2 (filtro) |
+| RF03 | Arquivo Json da Planilha | R1 (parcial) -> R2 |
+| RF04 | Sugestão de termo via Pull Request e Issue | R1 |
+| RF05 | Detalhe do termo (significado, definição, exemplo, fonte) | R1 |
+| RF06 | Validação automática das contribuições (schema, fonte, duplicidade) | R2 -> R2+ |
+| RF07 | Sinalização de termo desatualizado | R2+ |
+| RF08 | Autocomplete na busca | R2+ |
+| RF09 | Termos parecidos e busca sem resultado | R2+ |
+| RF10 | Formulário de sugestão no site | R2+ |
 
 ## 4. Requisitos Não-Funcionais
 
-| ID | Requisito | Descrição |
-|---|---|---|
-| RNF01 | PWA | Instalável, funciona offline para consulta |
-| RNF02 | Acessibilidade | Navegação por teclado, contraste, leitor de tela |
-| RNF03 | i18n | Estrutura preparada para múltiplos idiomas (não traduzido no MVP) |
-| RNF04 | Testes | Cobertura no módulo de dados (parsing/validação de termo) |
-| RNF05 | Doc viva | `AI-USAGE.md`, `PROCESSO.md` e este arquivo refletem o estado real do projeto |
+| ID | Nome | Release |
+| --- | --- | --- |
+| RNF01 | PWA com offline | R1+ |
 
 ## 5. Fora de escopo (MVP)
 
@@ -35,6 +38,7 @@ Coleta inicial via [planilha colaborativa](https://docs.google.com/spreadsheets/
 - Edição de termo diretamente pelo site (sem passar por PR/issue)
 - Tradução de fato para outro idioma
 - App nativo mobile (o PWA cobre isso)
+- Favoritar termos
 
 ## 6. Equipe
 
@@ -43,7 +47,6 @@ Coleta inicial via [planilha colaborativa](https://docs.google.com/spreadsheets/
 | Ítalo | Scrum Master | — | smitalo |
 | Jéssyca | Product Owner | — | Jessy2126 |
 | Pedro | Dev | Git e GitHub + Metodologias Ágeis | p-magno |
-| Alex Kurokawa | Dev | a confirmar | Alexkurokawa |
 | Allan | Dev | a confirmar (estudo já entregue) | MrD4ntas |
 | Zé (José Gabriel) | Dev | a confirmar | josegabriel-iw |
 
