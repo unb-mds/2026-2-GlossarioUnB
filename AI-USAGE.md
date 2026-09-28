@@ -14,7 +14,7 @@ Cada entrada deve conter: data, pessoa, ferramenta usada, o que foi pedido, o qu
 
 | Data | Pessoa | Ferramenta | O que foi feito | Aceito/ajustado/rejeitado |
 |---|---|---|---|---|
-| | | | | |
+| 28/09/2026 | José Gabriel | Antigravity | Redação do rascunho da constituição do projeto (`specs/constitution.md`) definindo o que o projeto é e não é para a issue #19 | Aceito |
 
 
 <!-- Exemplo de linha preenchida:
