@@ -1,0 +1,423 @@
+/* ===== Tokens ===== */
+:root {
+  --azul: #0f4c81;
+  --azul-escuro: #0a3660;
+  --verde: #17735c; /* era #1e8a6e: 4,3:1 sobre branco; agora 5,8:1 (WCAG AA) */
+  --verde-claro: #3fbf95;
+  --fundo: #f4f7f2;
+  --superficie: #ffffff;
+  --texto: #1b2430;
+  --texto-suave: #5b6b73;
+  --borda: #dfe6e0;
+  --sombra: rgba(15, 76, 129, 0.12);
+  color-scheme: light;
+}
+
+:root[data-tema="escuro"] {
+  --azul: #2f6fad; /* era #4c8fd1: texto branco 3,4:1; agora 5,3:1 (WCAG AA) */
+  --azul-escuro: #163a5c;
+  --verde: #3fbf95;
+  --verde-claro: #57d6ac;
+  --fundo: #10181b;
+  --superficie: #17232a;
+  --texto: #e8f1ec;
+  --texto-suave: #a3b3ae;
+  --borda: #2a3a3e;
+  --sombra: rgba(0, 0, 0, 0.35);
+  color-scheme: dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-tema="claro"]) {
+    --azul: #2f6fad; /* era #4c8fd1: texto branco 3,4:1; agora 5,3:1 (WCAG AA) */
+    --azul-escuro: #163a5c;
+    --verde: #3fbf95;
+    --verde-claro: #57d6ac;
+    --fundo: #10181b;
+    --superficie: #17232a;
+    --texto: #e8f1ec;
+    --texto-suave: #a3b3ae;
+    --borda: #2a3a3e;
+    --sombra: rgba(0, 0, 0, 0.35);
+    color-scheme: dark;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background-color: var(--fundo);
+  color: var(--texto);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+a { color: inherit; }
+
+/* Visível só para leitor de tela (rótulos e avisos de status). */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Foco visível para quem navega por teclado (RNF02). */
+a:focus-visible,
+button:focus-visible,
+select:focus-visible {
+  outline: 3px solid var(--azul);
+  outline-offset: 3px;
+}
+
+/* ===== Cabeçalho ===== */
+.link-cabecalho {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.cabecalho {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  min-height: 22vh;
+  padding: 24px 60px 24px 24px;
+  background: linear-gradient(120deg, var(--azul-escuro), var(--azul) 60%, var(--verde) 130%);
+}
+
+.logo {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+}
+
+.titulo {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #f4f7f2;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.botao-tema {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.12);
+  color: #f4f7f2;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.botao-tema:hover { background: rgba(255, 255, 255, 0.22); }
+
+/* No cabeçalho azul, o contorno de foco precisa ser claro para aparecer. */
+.link-cabecalho:focus-visible,
+.botao-tema:focus-visible {
+  outline-color: #f4f7f2;
+}
+
+.link-cabecalho:focus-visible { outline-offset: -6px; }
+
+/* ===== Busca ===== */
+.pesquisa {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  padding: 64px 20px 40px;
+  text-align: center;
+}
+
+.pesquisa-form {
+  position: relative;
+  display: flex;
+  width: 100%;
+  max-width: 560px;
+}
+
+.pesquisa input {
+  flex: 1;
+  min-width: 0;
+  height: 50px;
+  padding: 0 20px;
+  font-size: 17px;
+  color: var(--texto);
+  background: var(--superficie);
+  border: 2px solid var(--borda);
+  border-radius: 25px 0 0 25px;
+  border-right: none;
+  outline: none;
+}
+
+.pesquisa input:focus {
+  border-color: var(--azul);
+}
+
+.pesquisa button {
+  height: 50px;
+  padding: 0 28px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  background: var(--azul);
+  border: none;
+  border-radius: 0 25px 25px 0;
+  cursor: pointer;
+}
+
+.pesquisa button:hover { background: var(--azul-escuro); }
+
+.sugestoes {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 56px;
+  left: 0;
+  right: 0;
+  background: var(--superficie);
+  border: 1px solid var(--borda);
+  border-radius: 16px;
+  box-shadow: 0 12px 28px var(--sombra);
+  overflow: hidden;
+  z-index: 10;
+  text-align: left;
+}
+
+.sugestoes:empty { display: none; }
+
+.sugestao {
+  display: block;
+  width: 100%;
+  padding: 12px 20px;
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--borda);
+  text-align: left;
+  font-size: 16px;
+  color: var(--texto);
+  cursor: pointer;
+}
+
+.sugestao:last-child { border-bottom: none; }
+.sugestao:hover, .sugestao.ativa { background: var(--fundo); }
+.sugestao strong { color: var(--verde); }
+
+.sugestao-vazia {
+  padding: 14px 20px;
+  color: var(--texto-suave);
+  font-size: 15px;
+}
+
+.link-todas-siglas {
+  display: inline-block;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--verde);
+  text-decoration: none;
+  padding-bottom: 60px;
+}
+
+.link-todas-siglas:hover { text-decoration: underline; }
+
+/* ===== Todas as Siglas ===== */
+.barra-filtro {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+  max-width: 900px;
+  margin: 28px auto;
+  padding: 0 20px;
+}
+
+.barra-filtro label {
+  font-weight: 600;
+  color: var(--texto-suave);
+}
+
+.barra-filtro select {
+  height: 42px;
+  padding: 0 16px;
+  font-size: 15px;
+  color: var(--texto);
+  background: var(--superficie);
+  border: 2px solid var(--borda);
+  border-radius: 21px;
+}
+
+.lista-termos {
+  max-width: 900px;
+  margin: 20px auto 60px;
+  padding: 0 20px;
+}
+
+.letra {
+  margin-bottom: 30px;
+}
+
+.letra h2 {
+  box-sizing: border-box;
+  background: linear-gradient(100deg, var(--azul), var(--verde));
+  text-align: left;
+  color: #ffffff;
+  padding: 12px 0 12px 26px;
+  margin: 0 0 14px 0;
+  border-radius: 22px;
+  font-size: 22px;
+}
+
+.cartao-termo {
+  display: block;
+  padding: 14px 20px;
+  margin-bottom: 10px;
+  background: var(--superficie);
+  border: 1px solid var(--borda);
+  border-radius: 14px;
+  text-decoration: none;
+  color: var(--texto);
+}
+
+.cartao-termo:hover { border-color: var(--verde); }
+
+.cartao-termo .nome-termo {
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.cartao-termo .etiqueta-cartao {
+  display: inline-block;
+  margin-left: 10px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--verde);
+}
+
+.aviso-vazio {
+  text-align: center;
+  color: var(--texto-suave);
+  padding: 40px 20px;
+}
+
+/* ===== Página de Termo ===== */
+.conteudo-termo {
+  max-width: 720px;
+  margin: 40px auto;
+  padding: 0 24px 60px;
+}
+
+.conteudo-termo h1 {
+  font-size: 2.2rem;
+  margin: 0 0 6px;
+}
+
+.etiquetas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 20px;
+}
+
+.etiqueta {
+  display: inline-block;
+  padding: 4px 14px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--fundo); /* era #ffffff: no tema escuro ficava 2,3:1 sobre o verde */
+  background: var(--verde);
+  border-radius: 14px;
+}
+
+.bloco {
+  margin-bottom: 26px;
+}
+
+.bloco h2 {
+  margin: 0 0 8px;
+  font-size: 0.95rem;
+  text-transform: none;
+  color: var(--texto-suave);
+}
+
+.bloco p {
+  margin: 0;
+  font-size: 1.1rem;
+  line-height: 1.55;
+}
+
+.exemplo-frase {
+  font-style: italic;
+  padding-left: 16px;
+  border-left: 3px solid var(--verde-claro);
+}
+
+.mapa {
+  height: 280px;
+  border-radius: 16px;
+  border: 1px solid var(--borda);
+  margin-bottom: 14px;
+  overflow: hidden;
+}
+
+.link-como-chegar {
+  display: inline-block;
+  padding: 10px 22px;
+  font-weight: 600;
+  color: #ffffff;
+  background: var(--azul);
+  border-radius: 22px;
+  text-decoration: none;
+}
+
+.link-como-chegar:hover { background: var(--azul-escuro); }
+
+.mapa-offline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 280px;
+  border-radius: 16px;
+  background: var(--superficie);
+  border: 1px dashed var(--borda);
+  color: var(--texto-suave);
+  text-align: center;
+  padding: 20px;
+  margin-bottom: 14px;
+}
+
+.nao-encontrado {
+  text-align: center;
+  padding: 60px 24px;
+}
+
+.nao-encontrado a {
+  color: var(--verde);
+  font-weight: 600;
+}
+
+@media (max-width: 560px) {
+  .cabecalho { padding: 20px 56px 20px 16px; }
+  .titulo { font-size: 1.5rem; }
+  .logo { width: 48px; height: 48px; }
+  .pesquisa { padding: 40px 16px 28px; }
+  .pesquisa input { padding: 0 14px; font-size: 16px; }
+  .pesquisa button { padding: 0 16px; font-size: 15px; }
+}
