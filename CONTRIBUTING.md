@@ -24,9 +24,19 @@ Sem `develop`, `release/*` ou `hotfix/*` por enquanto, caso haja necessidade de 
 5. Abra um Pull Request **para `main`**
 6. Peça revisão de pelo menos 1 pessoa. **Ninguém aprova o próprio PR.**
 
-## Se você não é do time (quer sugerir um termo)
+## Se você não é do time (quer sugerir ou corrigir um termo)
 
-Você não precisa e não tem acesso de escrita a este repositório, use fork:
+Você pode contribuir de duas formas:
+
+### 1. Pelo GitHub Issues (sem precisar usar Git)
+Se você não sabe usar Git ou prefere rapidez, basta abrir uma issue:
+- **[Adicionar termo](https://github.com/unb-mds/2026-2-GlossarioUnB/issues/new?template=adicionar-termo.md)**: para propor uma nova sigla, gíria ou expressão que esteja faltando.
+- **[Corrigir definição](https://github.com/unb-mds/2026-2-GlossarioUnB/issues/new?template=corrigir-definicao.md)**: para sugerir correções, ajustes de fonte ou atualizações em termos existentes.
+
+Um membro do time revisará a sugestão e fará a inclusão no projeto!
+
+### 2. Via Pull Request (com Git e Fork)
+Você não precisa e não tem acesso de escrita direto a este repositório, use fork:
 
 1. Clique em **Fork** neste repositório (canto superior direito no GitHub)
 2. Clone o *seu fork*: `git clone <url-do-seu-fork>`

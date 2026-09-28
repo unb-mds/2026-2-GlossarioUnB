@@ -2,4 +2,4 @@ blank_issues_enabled: false
 contact_links:
   - name: 💬 Dúvida geral
     url: https://exemplo.com/canal-do-grupo
-    about: "TODO: trocar pelo link real do canal do G10 (WhatsApp/Telegram) — para dúvidas que não são bug, feature, tarefa técnica ou sugestão de termo"
+    about: "TODO: trocar pelo link real do canal do G10 (WhatsApp/Telegram) — para dúvidas que não são bug, feature, tarefa técnica, adição ou correção de termos"
