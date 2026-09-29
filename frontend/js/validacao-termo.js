@@ -42,7 +42,8 @@ export function validarTermo(termo) {
   if (textoPreenchido(termo.id) && !PADRAO_ID.test(termo.id)) {
     erros.push(`id "${termo.id}" deve usar só letras minúsculas sem acento, números e hífens`);
   }
-  if (textoPreenchido(termo.tipo) && !(termo.tipo in TIPOS)) {
+  // Object.hasOwn e não `in`: `in` aceitaria chaves herdadas como "toString".
+  if (textoPreenchido(termo.tipo) && !Object.hasOwn(TIPOS, termo.tipo)) {
     erros.push(`tipo "${termo.tipo}" inválido (use: ${Object.keys(TIPOS).join(", ")})`);
   }
   if (termo.tipo === "sigla" && !textoPreenchido(termo.significado)) {
