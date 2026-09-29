@@ -14,6 +14,7 @@ Cada entrada deve conter: data, pessoa, ferramenta usada, o que foi pedido, o qu
 
 | Data | Pessoa | Ferramenta | O que foi feito | Aceito/ajustado/rejeitado |
 |---|---|---|---|---|
+| 20/09/2026 | Italo | Claude | pedi ajuda para elaborar os documentos de estudos sobre PWA e i18n | ajustado para um formato mais didatico e ajuste em algumas informações |
 | | | | | |
 
 
