@@ -1,6 +1,7 @@
 // Estratégias de cache: ver docs/adr/0003-pwa-com-service-worker-proprio.md.
 // Ao mudar qualquer arquivo do app shell, incremente VERSAO_CACHE.
-const VERSAO_CACHE = "glossario-unb-v4";
+const PREFIXO_CACHE = "glossario-unb-";
+const VERSAO_CACHE = `${PREFIXO_CACHE}v13`;
 
 const ARQUIVO_DADOS = "data/termos.json";
 
@@ -36,7 +37,9 @@ self.addEventListener("activate", (evento) => {
       .then((chaves) =>
         Promise.all(
           chaves
-            .filter((chave) => chave !== VERSAO_CACHE)
+            // Só caches deste app: em unb-mds.github.io outros projetos da organização
+            // dividem a mesma origem, e apagar os caches deles quebraria o offline alheio.
+            .filter((chave) => chave.startsWith(PREFIXO_CACHE) && chave !== VERSAO_CACHE)
             .map((chave) => caches.delete(chave))
         )
       )
