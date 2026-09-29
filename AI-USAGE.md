@@ -15,7 +15,8 @@ Cada entrada deve conter: data, pessoa, ferramenta usada, o que foi pedido, o qu
 | Data | Pessoa | Ferramenta | O que foi feito | Aceito/ajustado/rejeitado |
 |---|---|---|---|---|
 | 20/09/2026 | Italo | Claude | pedi ajuda para elaborar os documentos de estudos sobre PWA e i18n | ajustado para um formato mais didatico e ajuste em algumas informações |
-| | | | | |
+| 28/09/2026 | Pedro | Claude Code (Claude Opus 5.5) | Arquivos do frontend: interface, busca, filtros, validação do tipo, service worker, ícones e README | Aceito; revisão registrada no PR #28 |
+| 28/09/2026 | Pedro | Claude (chat no claude.ai) | Divisão dos arquivos do projeto em blocos e commits por pessoa, sob orientação do Pedro | Aceito |
 
 
 <!-- Exemplo de linha preenchida:
