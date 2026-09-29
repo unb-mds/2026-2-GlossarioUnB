@@ -6,26 +6,47 @@
   <title>Termo — Glossário UnB</title>
   <link rel="manifest" href="manifest.json">
   <link rel="icon" href="favicon.png">
-  <meta name="theme-color" content="#0f4c81">
+  <meta name="theme-color" content="#0a3660">
+  <script>try { var tema = localStorage.getItem("glossario-unb:tema"); if (tema) document.documentElement.setAttribute("data-tema", tema); } catch (erro) { /* sem localStorage: segue o tema do sistema */ }</script>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
 </head>
 <body>
 
-  <header>
-    <a href="index.html" class="link-cabecalho">
-      <div class="cabecalho">
-        <img class="logo" src="icons/icon-192.png" alt="">
-        <p class="titulo">Glossário UnB</p>
-      </div>
-    </a>
-    <button id="botao-tema" class="botao-tema" type="button" aria-label="Alternar tema claro/escuro">🌙</button>
+  <header class="barra">
+    <div class="barra-conteudo">
+      <a class="marca" href="index.html">
+        <img src="icons/icon-192.png" alt="" width="36" height="36">
+        <span>Glossário UnB</span>
+      </a>
+      <nav class="barra-nav" aria-label="Principal">
+        <a href="todas-siglas.html"><span class="so-desktop">Todas as siglas</span><span class="so-celular">Siglas</span></a>
+        <a href="../sobre/index.html">Sobre</a>
+        <button id="botao-tema" class="botao-tema" type="button" aria-pressed="false" aria-label="Tema escuro">
+          <svg class="icone icone-lua" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+          <svg class="icone icone-sol" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 1.5v3M12 19.5v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M1.5 12h3M19.5 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg>
+        </button>
+      </nav>
+    </div>
   </header>
 
-  <main id="conteudo-termo" class="conteudo-termo">
-    <p>Carregando...</p>
+  <main class="pagina pagina-estreita">
+    <a class="voltar" href="todas-siglas.html"><span aria-hidden="true">←</span> Todas as siglas</a>
+
+    <article id="conteudo-termo" class="ficha">
+      <p>Carregando…</p>
+    </article>
+
+    <p class="corrigir">Encontrou algo errado? <a id="link-corrigir" href="https://github.com/unb-mds/2026-2-GlossarioUnB/issues/new?template=corrigir-definicao.md">Sugira uma correção</a>.</p>
   </main>
+
+  <footer class="rodape">
+    <div class="rodape-conteudo">
+      <p><strong>Não achou um termo?</strong> <a href="https://github.com/unb-mds/2026-2-GlossarioUnB/issues/new?template=adicionar-termo.md">Sugira pelo formulário no GitHub</a>.</p>
+      <p>Projeto aberto do grupo G10 · MDS/UnB 2026/2 · <a href="https://github.com/unb-mds/2026-2-GlossarioUnB">Código-fonte</a></p>
+    </div>
+  </footer>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
           integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
