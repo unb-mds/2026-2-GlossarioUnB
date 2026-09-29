@@ -59,14 +59,6 @@ npm test
 - **Precisa de internet:** o mapa (Leaflet via CDN e tiles do OpenStreetMap). Offline, aparece um aviso no lugar do mapa.
 - **Ao mudar qualquer arquivo do app shell**, incremente `VERSAO_CACHE` em `sw.js`. Sem isso, quem já instalou continua vendo a versão antiga.
 
-## Ícone
-
-Desde 28/09 o ícone é o logotipo da UnB. Antes de publicar, confira as regras de uso da marca em [marca.unb.br](https://marca.unb.br/). Para trocar o ícone:
-
-1. Substitua `icons/icon-192.png` (192×192), `icons/icon-512.png` (512×512) e `favicon.png`.
-2. Copie os mesmos arquivos para a página Sobre: `sobre/icone.png` e `sobre/favicon.png`.
-3. Incremente `VERSAO_CACHE` em `sw.js`.
-
 ## Publicação
 
 É um site estático sem build. O workflow `.github/workflows/pages.yml` publica esta pasta em `/frontend/` e a página "Sobre o projeto" em `/sobre/`, com as mesmas pastas do repositório. Por isso o link "Sobre" (`../sobre/index.html`) funciona em qualquer forma de abrir. Detalhes na [ADR 0007](../docs/adr/0007-github-pages-e-ci-com-actions.md).
