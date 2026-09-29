@@ -1,0 +1,9 @@
+# Arquivos do sistema e de editores
+.DS_Store
+Thumbs.db
+.~lock.*#
+
+# Gerados localmente
+node_modules/
+_site/
+coverage/

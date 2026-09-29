@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sobre o projeto — Glossário UnB</title>
+  <meta name="description" content="O que é o Glossário UnB, como contribuir e como o projeto está organizado no GitHub.">
+  <link rel="icon" href="favicon.png">
+  <meta name="theme-color" content="#0a3660">
+  <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+  <!-- GitPage do projeto: HTML e CSS puros, sem JavaScript (ADR 0007 e ADR 0008).
+       O glossário (produto) é outro site, na pasta irmã frontend/. -->
+
+  <header class="barra">
+    <div class="barra-conteudo">
+      <a class="marca" href="./">
+        <img src="icone.png" alt="" width="36" height="36">
+        <span>Glossário UnB</span>
+      </a>
+      <nav class="barra-nav" aria-label="Principal">
+        <a href="../frontend/index.html"><span class="so-desktop">Abrir o glossário</span><span class="so-celular">Glossário</span></a>
+        <a href="https://github.com/unb-mds/2026-2-GlossarioUnB">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===== Abertura ===== -->
+    <section class="sobre-topo">
+      <div class="sobre-topo-conteudo">
+        <p class="sobre-sobretitulo">Sobre o projeto</p>
+        <h1>Glossário UnB</h1>
+        <p class="sobre-lema">Um dicionário colaborativo e de código aberto das siglas, gírias e expressões da Universidade de Brasília, feito por estudantes para estudantes.</p>
+        <div class="botoes">
+          <a class="botao" href="../frontend/index.html">Abrir o glossário</a>
+          <a class="botao botao-secundario" href="https://github.com/unb-mds/2026-2-GlossarioUnB">Ver no GitHub</a>
+        </div>
+        <!-- Atualizar o total junto com frontend/data/termos.json (esta página não usa JavaScript). -->
+        <ul class="fatos">
+          <li><strong>41 termos</strong> com fonte</li>
+          <li><strong>Offline</strong> depois da 1ª visita</li>
+          <li><strong>Aberto</strong> a sugestões de qualquer pessoa</li>
+          <li><strong>G10</strong> MDS/UnB 2026/2</li>
+        </ul>
+      </div>
+    </section>
+
+    <div class="sobre-layout">
+      <nav class="sumario" aria-labelledby="titulo-sumario">
+        <h2 id="titulo-sumario">Nesta página</h2>
+        <ol>
+          <li><a href="#projeto">O projeto</a></li>
+          <li><a href="#para-quem">Para quem</a></li>
+          <li><a href="#funciona">O que já funciona</a></li>
+          <li><a href="#contribuir">Como contribuir</a></li>
+          <li><a href="#github">O repositório no GitHub</a></li>
+          <li><a href="#processo">Como a equipe trabalha</a></li>
+          <li><a href="#arquitetura">Arquitetura e decisões</a></li>
+          <li><a href="#linha-do-tempo">Linha do tempo</a></li>
+          <li><a href="#equipe">Equipe</a></li>
+          <li><a href="#rodar">Rodar no seu computador</a></li>
+        </ol>
+      </nav>
+
+      <div class="sobre-conteudo">
+
+        <!-- ===== 1. Projeto ===== -->
+        <section id="projeto" class="secao" aria-labelledby="titulo-projeto">
+          <h2 id="titulo-projeto">O projeto</h2>
+          <p>Quem chega à UnB tropeça em siglas e apelidos: <strong>DEG</strong>, <strong>BCE</strong>, <strong>FCTE</strong>, "menção SR", "trancamento geral". A explicação costuma estar espalhada em sites e documentos diferentes e, muitas vezes, usa mais jargão para explicar o jargão.</p>
+          <blockquote class="citacao">
+            <p>“O objetivo do produto é auxiliar estudantes da UnB, especialmente calouros, a compreender siglas e termos exclusivos da universidade, oferecendo consultas rápidas e confiáveis, para reduzir a confusão e o tempo perdido navegando por documentos e sistemas institucionais.”</p>
+            <footer>Objetivo do produto, definido pela equipe no Figma</footer>
+          </blockquote>
+          <p>O projeto é inspirado no <a href="https://github.com/OpenDevUFCG/glossario-ufcg">glossario-ufcg</a>, da Universidade Federal de Campina Grande. Ele nasce na disciplina <a href="https://mds.lappis.rocks/">Métodos de Desenvolvimento de Software</a> (MDS) da UnB, onde o foco é tanto o produto quanto a qualidade do processo de desenvolvimento.</p>
+          <p class="nota-bloco">São <strong>duas páginas</strong>: esta, que apresenta o projeto, e o <a href="../frontend/index.html">glossário</a>, que é o produto usado pelos estudantes.</p>
+        </section>
+
+        <!-- ===== 2. Para quem ===== -->
+        <section id="para-quem" class="secao" aria-labelledby="titulo-para-quem">
+          <h2 id="titulo-para-quem">Para quem</h2>
+          <p class="secao-intro">Três perfis de estudante, definidos pela equipe, guiam as decisões de tela:</p>
+          <div class="grade-cartoes">
+            <article class="cartao-info">
+              <h3>Calouro jovem <span class="nota">17–22 anos</span></h3>
+              <p>Cresceu usando celular e apps. Quer uma busca rápida, “tipo Google”: digitar e ter a resposta na hora.</p>
+            </article>
+            <article class="cartao-info">
+              <h3>Calouro adulto <span class="nota">60+</span></h3>
+              <p>Tem menos familiaridade com sistemas digitais. Precisa de explicações didáticas, letra maior e navegação simples.</p>
+            </article>
+            <article class="cartao-info">
+              <h3>Veterano</h3>
+              <p>Já conhece o básico e usa o glossário para dúvidas pontuais, como uma sigla nova. Valoriza o autocompletar.</p>
+            </article>
+          </div>
+        </section>
+
+        <!-- ===== 3. O que funciona ===== -->
+        <section id="funciona" class="secao" aria-labelledby="titulo-funciona">
+          <h2 id="titulo-funciona">O que já funciona</h2>
+          <p class="secao-intro">Os requisitos estão em <a href="https://github.com/unb-mds/2026-2-GlossarioUnB/blob/main/docs/REQUISITOS.md"><code>docs/REQUISITOS.md</code></a>, cada um com a release em que foi planejado. Alguns foram entregues antes do previsto.</p>
+          <div class="tabela-rolagem" role="region" aria-label="Requisitos e situação" tabindex="0">
+            <table class="tabela">
+              <thead>
+                <tr><th scope="col">Requisito</th><th scope="col">Planejado</th><th scope="col">Situação</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><strong>RF01</strong> Busca textual de termos</td><td>R1</td><td><span class="status status-ok">Disponível</span></td></tr>
+                <tr><td><strong>RF02</strong> Lista e filtro por categoria</td><td>R1 (lista), R2 (filtro)</td><td><span class="status status-ok">Disponível</span> <span class="nota">filtro por tipo e por campus já entregue; hoje são 40 siglas e 1 gíria</span></td></tr>
+                <tr><td><strong>RF03</strong> Termos da planilha em JSON</td><td>R1 (parcial), R2</td><td><span class="status status-parcial">Em andamento</span> <span class="nota">40 siglas e 1 gíria; mais gírias e expressões a caminho</span></td></tr>
+                <tr><td><strong>RF04</strong> Sugestão de termo por Pull Request e por issue</td><td>R1</td><td><span class="status status-ok">Disponível</span> <span class="nota">a issue exige conta no GitHub</span></td></tr>
+                <tr><td><strong>RF05</strong> Detalhe do termo: significado, definição, exemplo e fonte</td><td>R1</td><td><span class="status status-ok">Disponível</span></td></tr>
+                <tr><td><strong>RF06</strong> Validação automática das contribuições</td><td>R2</td><td><span class="status status-parcial">Parcial</span> <span class="nota">o CI já confere formato, fonte e id repetido; termo repetido com outro id ainda não</span></td></tr>
+                <tr><td><strong>RF07</strong> Sinalização de termo desatualizado</td><td>R2+</td><td><span class="status status-planejado">Planejado</span></td></tr>
+                <tr><td><strong>RF08</strong> Autocomplete na busca</td><td>R2+</td><td><span class="status status-ok">Disponível</span> <span class="nota">entregue antes do previsto</span></td></tr>
+                <tr><td><strong>RF09</strong> Termos parecidos e busca sem resultado</td><td>R2+</td><td><span class="status status-parcial">Parcial</span> <span class="nota">busca sem resultado já oferece sugerir o termo; termos parecidos ainda não</span></td></tr>
+                <tr><td><strong>RF10</strong> Formulário de sugestão no próprio site</td><td>R2+</td><td><span class="status status-planejado">Planejado</span> <span class="nota">hoje o formulário é a issue do GitHub</span></td></tr>
+                <tr><td><strong>RNF01</strong> PWA com funcionamento offline</td><td>R1+</td><td><span class="status status-ok">Disponível</span> <span class="nota">instalável quando aberto pelo endereço publicado (HTTPS)</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <h3>Qualidade, além dos requisitos</h3>
+          <ul class="lista-simples">
+            <li><strong>Acessibilidade:</strong> busca e navegação por teclado, compatível com leitor de tela e contraste WCAG AA. A auditoria automática (axe-core) não encontrou violações.</li>
+            <li><strong>Testes automatizados:</strong> 26 testes, que rodam no CI a cada Pull Request, incluindo a validação de todos os termos.</li>
+            <li><strong>Outros idiomas:</strong> ainda não. A tradução está fora do escopo e o preparo da interface para outros idiomas é trabalho futuro.</li>
+          </ul>
+          <p class="nota-bloco"><strong>Fora do escopo por enquanto:</strong> login de usuário, favoritos, tradução do conteúdo, edição de termos direto pelo site e aplicativo nativo (o PWA cobre o celular).</p>
+        </section>
+
+        <!-- ===== 4. Contribuir ===== -->
+        <section id="contribuir" class="secao" aria-labelledby="titulo-contribuir">
+          <h2 id="titulo-contribuir">Como contribuir</h2>
+          <p class="secao-intro">O glossário cresce com a comunidade. Toda sugestão é pública e passa por revisão antes de entrar no site.</p>
+          <div class="grade-cartoes grade-2">
+            <article class="cartao-info">
+              <h3>Não sei usar Git</h3>
+              <ol class="passos">
+                <li>Abra o formulário <a href="https://github.com/unb-mds/2026-2-GlossarioUnB/issues/new?template=adicionar-termo.md">“Adicionar termo”</a> (ou <a href="https://github.com/unb-mds/2026-2-GlossarioUnB/issues/new?template=corrigir-definicao.md">“Corrigir definição”</a>, para um termo que já existe).</li>
+                <li>Preencha termo, tipo, significado, definição, exemplo de uso e fonte.</li>
+                <li>Alguém da equipe revisa e publica o termo.</li>
+              </ol>
+              <p class="nota">É preciso ter uma conta gratuita no GitHub.</p>
+            </article>
+            <article class="cartao-info">
+              <h3>Sei usar Git</h3>
+              <ol class="passos">
+                <li>Faça um <strong>fork</strong> do repositório e crie a branch <code>add-termo-&lt;nome&gt;</code>.</li>
+                <li>Edite <code>frontend/data/termos.json</code> seguindo o modelo abaixo.</li>
+                <li>Rode <code>npm test</code> e abra um Pull Request para a <code>main</code>.</li>
+              </ol>
+              <p class="nota">PR só de dados precisa de 1 aprovação do time.</p>
+            </article>
+          </div>
+
+          <h3>Como é um termo</h3>
+          <pre class="codigo"><code>{
+  "id": "deg",
+  "termo": "DEG",
+  "tipo": "sigla",
+  "significado": "Decanato de Ensino de Graduação",
+  "definicao": "Decanato responsável por assuntos relacionados ao ensino de graduação, incluindo acompanhamento acadêmico, currículos e matrícula.",
+  "exemplo_uso": "Minha dúvida sobre matrícula foi encaminhada para o DEG.",
+  "fonte": "https://deg.unb.br/",
+  "campus": "Geral"
+}</code></pre>
+          <ul class="lista-simples">
+            <li><strong>Nenhum termo entra sem <code>fonte</code></strong>: um link oficial ou “conhecimento comum verificado pelo grupo”.</li>
+            <li><code>tipo</code> é <code>sigla</code>, <code>giria</code> ou <code>expressao</code>; <code>significado</code> (por extenso) é obrigatório só para siglas.</li>
+            <li><code>campus</code> é Darcy Ribeiro, Ceilândia, Gama, Planaltina ou Geral. Lugares físicos podem ter <code>localizacao</code> e ganham um mapa.</li>
+            <li>O CI confere todo Pull Request: termo fora do padrão ou <code>id</code> repetido não passa.</li>
+          </ul>
+          <p>Regras completas em <a href="https://github.com/unb-mds/2026-2-GlossarioUnB/blob/main/CONTRIBUTING.md"><code>CONTRIBUTING.md</code></a>. Viu algo errado num termo? <a href="https://github.com/unb-mds/2026-2-GlossarioUnB/issues/new/choose">Abra uma issue</a>.</p>
+        </section>
+
+        <!-- ===== 5. GitHub ===== -->
+        <section id="github" class="secao" aria-labelledby="titulo-github">
+          <h2 id="titulo-github">O repositório no GitHub</h2>
+          <p class="secao-intro">Tudo o que o projeto produz, de código a atas de reunião, fica em <a href="https://github.com/unb-mds/2026-2-GlossarioUnB">unb-mds/2026-2-GlossarioUnB</a>. Este é o mapa para se localizar.</p>
+
+          <h3>Atalhos</h3>
+          <ul class="atalhos-github">
+            <li><a href="https://github.com/unb-mds/2026-2-GlossarioUnB"><strong>Código</strong><span>arquivos e documentação</span></a></li>
+            <li><a href="https://github.com/unb-mds/2026-2-GlossarioUnB/issues"><strong>Issues</strong><span>tarefas, bugs e sugestões de termo</span></a></li>
+            <li><a href="https://github.com/unb-mds/2026-2-GlossarioUnB/pulls"><strong>Pull requests</strong><span>mudanças em revisão</span></a></li>
+            <li><a href="https://github.com/unb-mds/2026-2-GlossarioUnB/milestones"><strong>Milestones</strong><span>uma por sprint</span></a></li>
+            <li><a href="https://github.com/unb-mds/2026-2-GlossarioUnB/actions"><strong>Actions</strong><span>testes e publicação automáticos</span></a></li>
+            <li><a href="https://github.com/unb-mds/2026-2-GlossarioUnB/releases"><strong>Releases</strong><span>notas de cada entrega</span></a></li>
+          </ul>
+
+          <h3>Onde fica cada coisa</h3>
+          <div class="tabela-rolagem" role="region" aria-label="Mapa do repositório" tabindex="0">
+            <table class="tabela tabela-arquivos">
+              <thead>
+                <tr><th scope="col">Caminho</th><th scope="col">O que tem lá</th></tr>
+              </thead>
+              <tbody>
+                <tr class="grupo"><th scope="rowgroup" colspan="2">Porta de entrada</th></tr>
+                <tr><td><a href="https://github.com/unb-mds/2026-2-GlossarioUnB/blob/main/README.md"><code>README.md</code></a></td><td>O que é o projeto, como rodar e links para o resto</td></tr>
+                <tr><td><a href="https://github.com/unb-mds/2026-2-GlossarioUnB/blob/main/CONTRIBUTING.md"><code>CONTRIBUTING.md</code></a></td><td>Como contribuir (time e pessoas de fora), formato do termo e padrão de commits</td></tr>
+                <tr><td><a href="https://github.com/unb-mds/2026-2-GlossarioUnB/blob/main/AI-USAGE.md"><code>AI-USAGE.md</code></a></td><td>Registro de onde e como a IA foi usada, como pede a política da disciplina</td></tr>
+                <tr><td><a href="https://github.com/unb-mds/2026-2-GlossarioUnB/blob/main/LICENSE"><code>LICENSE</code></a></td><td>Licença MIT: o código pode ser usado e adaptado por qualquer pessoa</td></tr>
+                <tr class="grupo"><th scope="rowgroup" colspan="2">As duas páginas publicadas</th></tr>
+                <tr><td><a href="https://github.com/unb-mds/2026-2-GlossarioUnB/tree/main/frontend"><code>frontend/</code></a></td><td>O glossário (produto): páginas HTML, <code>styles.css</code>, <code>js/</code> e o service worker (offline)</td></tr>
+                <tr><td><a href="https://github.com/unb-mds/2026-2-GlossarioUnB/blob/main/frontend/data/termos.json"><code>frontend/data/termos.json</code></a></td><td><strong>Os termos do glossário</strong>, o arquivo que as contribuições editam</td></tr>
+                <tr><td><a href="https://github.com/unb-mds/2026-2-GlossarioUnB/tree/main/sobre"><code>sobre/</code></a></td><td>Esta página de apresentação. A raiz do endereço (<code>index.html</code>) redireciona para ela</td></tr>
+                <tr class="grupo"><th scope="rowgroup" colspan="2">Qualidade e ferramentas</th></tr>
+                <tr><td><a href="https://github.com/unb-mds/2026-2-GlossarioUnB/tree/main/tests"><code>tests/</code></a></td><td>Testes automatizados, incluindo a validação de todos os termos</td></tr>
+                <tr><td><a href="https://github.com/unb-mds/2026-2-GlossarioUnB/blob/main/package.json"><code>package.json</code></a></td><td>Os comandos <code>npm run dev</code> e <code>npm test</code>; não há dependências para instalar</td></tr>
+                <tr><td><a href="https://github.com/unb-mds/2026-2-GlossarioUnB/blob/main/scripts/servidor-local.mjs"><code>scripts/servidor-local.mjs</code></a></td><td>Servidor local que monta as duas páginas como ficam publicadas</td></tr>
+                <tr class="grupo"><th scope="rowgroup" colspan="2">Automação e padrões do GitHub</th></tr>
+                <tr><td><a href="https://github.com/unb-mds/2026-2-GlossarioUnB/tree/main/.github/ISSUE_TEMPLATE"><code>.github/ISSUE_TEMPLATE/</code></a></td><td>Os modelos de issue: adicionar termo, corrigir definição, bug, feature e tarefa técnica</td></tr>
+                <tr><td><a href="https://github.com/unb-mds/2026-2-GlossarioUnB/blob/main/.github/PULL_REQUEST_TEMPLATE.md"><code>.github/PULL_REQUEST_TEMPLATE.md</code></a></td><td>O checklist que todo Pull Request preenche</td></tr>
+                <tr><td><a href="https://github.com/unb-mds/2026-2-GlossarioUnB/blob/main/.github/workflows/ci.yml"><code>.github/workflows/ci.yml</code></a></td><td>O CI: roda os testes em todo Pull Request e em todo push na <code>main</code></td></tr>
+                <tr><td><a href="https://github.com/unb-mds/2026-2-GlossarioUnB/blob/main/.github/workflows/pages.yml"><code>.github/workflows/pages.yml</code></a></td><td>A publicação: a cada push na <code>main</code>, testa e publica as duas páginas no GitHub Pages</td></tr>
+                <tr><td><a href="https://github.com/unb-mds/2026-2-GlossarioUnB/blob/main/.gitmessage"><code>.gitmessage</code></a></td><td>Modelo de mensagem de commit</td></tr>
+                <tr class="grupo"><th scope="rowgroup" colspan="2">Documentação (<code>docs/</code>)</th></tr>
+                <tr><td><a href="https://github.com/unb-mds/2026-2-GlossarioUnB/blob/main/docs/REQUISITOS.md"><code>docs/REQUISITOS.md</code></a></td><td>Requisitos funcionais e não funcionais, com a release de cada um</td></tr>
+                <tr><td><a href="https://github.com/unb-mds/2026-2-GlossarioUnB/blob/main/docs/ARQUITETURA.md"><code>docs/ARQUITETURA.md</code></a></td><td>Visão geral da arquitetura e da estrutura de pastas</td></tr>
+                <tr><td><a href="https://github.com/unb-mds/2026-2-GlossarioUnB/tree/main/docs/adr"><code>docs/adr/</code></a></td><td>As decisões de arquitetura (ADRs), uma por arquivo</td></tr>
+                <tr><td><a href="https://github.com/unb-mds/2026-2-GlossarioUnB/blob/main/docs/PROCESSO.md"><code>docs/PROCESSO.md</code></a></td><td>Como o time trabalha: Git, issues, Pull Requests e ADRs</td></tr>
+                <tr><td><a href="https://github.com/unb-mds/2026-2-GlossarioUnB/blob/main/docs/GUIA-FLUXO-DE-TRABALHO.md"><code>docs/GUIA-FLUXO-DE-TRABALHO.md</code></a></td><td>Git passo a passo, inclusive como resolver conflito de merge</td></tr>
+                <tr><td><a href="https://github.com/unb-mds/2026-2-GlossarioUnB/tree/main/docs/scrum"><code>docs/scrum/</code></a></td><td>Planejamento das sprints, registro das dailies e horários de reunião</td></tr>
+                <tr><td><a href="https://github.com/unb-mds/2026-2-GlossarioUnB/tree/main/docs/storymap"><code>docs/storymap/</code></a></td><td>Story Map (histórias do MVP e da Release 2) e material do Figma</td></tr>
+                <tr><td><a href="https://github.com/unb-mds/2026-2-GlossarioUnB/tree/main/docs/estudos"><code>docs/estudos/</code></a></td><td>Estudos: Git e GitHub, metodologias ágeis, banco de dados e frontend</td></tr>
+                <tr><td><a href="https://github.com/unb-mds/2026-2-GlossarioUnB/tree/main/docs/skills"><code>docs/skills/</code></a></td><td>Estudos aplicados ao projeto: GitHub Actions e testes, Docker</td></tr>
+                <tr><td><a href="https://github.com/unb-mds/2026-2-GlossarioUnB/blob/main/docs/CONVENCAO-GIT.md"><code>docs/CONVENCAO-GIT.md</code></a></td><td>Convenção de commits e de nomes de branch</td></tr>
+                <tr><td><a href="https://github.com/unb-mds/2026-2-GlossarioUnB/blob/main/specs/constitution.md"><code>specs/constitution.md</code></a></td><td>Constituição do projeto: o que o Glossário UnB é e o que não é</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>Da tarefa ao site: o caminho de toda mudança</h3>
+          <p>O time usa o <strong>GitHub Flow</strong>: a <code>main</code> é sempre estável e toda mudança nasce numa branch própria.</p>
+          <ol class="fluxo">
+            <li><strong>Issue</strong><span>A tarefa, com modelo, tamanho (S/M/L/XL) e a milestone da sprint.</span></li>
+            <li><strong>Branch</strong><span><code>feature/issue-12</code>, criada a partir da <code>main</code> atualizada.</span></li>
+            <li><strong>Commits</strong><span>Pequenos e no padrão Conventional Commits.</span></li>
+            <li><strong>Pull Request</strong><span>Usa o modelo e fecha a issue com <code>Closes #12</code>.</span></li>
+            <li><strong>Revisão + CI</strong><span>Ao menos 1 pessoa aprova (ninguém aprova o próprio) e os testes passam.</span></li>
+            <li><strong>Merge e publicação</strong><span>A mudança entra na <code>main</code> e as duas páginas são publicadas.</span></li>
+          </ol>
+          <p class="nota-bloco">Por que não Git-Flow completo (<code>develop</code>, <code>release</code>, <code>hotfix</code>)? O time é pequeno e tem poucas branches ao mesmo tempo, então o fluxo mais simples basta. Se isso mudar, a troca será registrada numa ADR.</p>
+
+          <div class="grade-cartoes grade-2">
+            <article class="cartao-info">
+              <h3>Mensagens de commit</h3>
+              <table class="tabela tabela-compacta">
+                <tbody>
+                  <tr><td><code>feat:</code></td><td>nova funcionalidade</td></tr>
+                  <tr><td><code>fix:</code></td><td>correção de bug</td></tr>
+                  <tr><td><code>docs:</code></td><td>só documentação</td></tr>
+                  <tr><td><code>test:</code></td><td>testes automatizados</td></tr>
+                  <tr><td><code>refactor:</code></td><td>reorganização sem mudar comportamento</td></tr>
+                  <tr><td><code>chore:</code></td><td>configuração, dependências, infraestrutura</td></tr>
+                </tbody>
+              </table>
+              <p class="nota">Exemplo: <code>feat(dados): adiciona termo PPAES</code></p>
+            </article>
+            <article class="cartao-info">
+              <h3>Checklist de todo Pull Request</h3>
+              <ul class="lista-check">
+                <li>Commits no padrão Conventional Commits</li>
+                <li>Termo novo segue o formato e tem fonte</li>
+                <li>Testes adicionados ou atualizados</li>
+                <li>Documentação atualizada, se preciso</li>
+                <li>Uso de IA registrado no <code>AI-USAGE.md</code></li>
+                <li>CI verde</li>
+                <li>Decisão de arquitetura? Existe uma ADR</li>
+              </ul>
+            </article>
+          </div>
+
+          <h3>Modelos de issue</h3>
+          <ul class="lista-simples">
+            <li><strong>Adicionar termo</strong> e <strong>Corrigir definição:</strong> para qualquer pessoa, sem precisar de Git.</li>
+            <li><strong>Feature:</strong> funcionalidade nova, sempre ligada a um requisito (RF/RNF).</li>
+            <li><strong>Bug:</strong> comportamento errado, com passos para reproduzir.</li>
+            <li><strong>Tarefa técnica:</strong> estudo, configuração ou infraestrutura.</li>
+          </ul>
+          <p>Os modelos de bug, feature e tarefa técnica pedem <strong>critério de aceitação</strong>, <strong>release</strong> (R1 ou R2) e <strong>tamanho</strong>. Os de adicionar e corrigir termo pedem só os campos do termo e a fonte. Cada sprint é uma <a href="https://github.com/unb-mds/2026-2-GlossarioUnB/milestones">milestone</a>.</p>
+        </section>
+
+        <!-- ===== 6. Processo ===== -->
+        <section id="processo" class="secao" aria-labelledby="titulo-processo">
+          <h2 id="titulo-processo">Como a equipe trabalha</h2>
+          <ul class="lista-simples">
+            <li><strong>Scrum</strong> com sprints de 2 semanas e um limite de tarefas em andamento emprestado do Kanban.</li>
+            <li><strong>Papéis:</strong> Ítalo é o Scrum Master, Jéssyca é a Product Owner e o restante do grupo desenvolve.</li>
+            <li><strong>Reuniões:</strong> domingo às 20h (fechar a sprint e planejar a próxima) e sexta às 20h (acompanhar bloqueios). As dailies ficam registradas em <a href="https://github.com/unb-mds/2026-2-GlossarioUnB/blob/main/docs/scrum/dailies.md"><code>docs/scrum/dailies.md</code></a>.</li>
+            <li><strong>Uma tarefa, uma pessoa, um Pull Request:</strong> assim cada entrega é rastreável.</li>
+            <li><strong>Uso de IA</strong> é esperado e registrado em <code>AI-USAGE.md</code>. Código ou termo gerado com IA passa pela mesma revisão que qualquer outro.</li>
+          </ul>
+        </section>
+
+        <!-- ===== 7. Arquitetura ===== -->
+        <section id="arquitetura" class="secao" aria-labelledby="titulo-arquitetura">
+          <h2 id="titulo-arquitetura">Arquitetura e decisões</h2>
+          <p class="secao-intro">É um <strong>site estático, sem servidor nem banco de dados</strong>. Os termos ficam num arquivo JSON dentro do próprio repositório, e o navegador faz a busca, os filtros e guarda tudo para funcionar sem internet.</p>
+          <ol class="fluxo">
+            <li><strong>Contribuição</strong><span>Pull Request ou issue com um termo.</span></li>
+            <li><strong>Validação</strong><span>O CI confere o formato e a fonte.</span></li>
+            <li><strong><code>termos.json</code></strong><span>O termo entra na <code>main</code>.</span></li>
+            <li><strong>Publicação</strong><span>O GitHub Pages publica as duas páginas, com as mesmas pastas do repositório.</span></li>
+            <li><strong>Consulta</strong><span>No navegador, inclusive offline.</span></li>
+          </ol>
+          <h3>Tecnologias</h3>
+          <ul class="etiquetas etiquetas-tecnologia">
+            <li class="etiqueta etiqueta-contorno">HTML + CSS</li>
+            <li class="etiqueta etiqueta-contorno">JavaScript (módulos ES, sem framework)</li>
+            <li class="etiqueta etiqueta-contorno">JSON</li>
+            <li class="etiqueta etiqueta-contorno">Service Worker + Web App Manifest</li>
+            <li class="etiqueta etiqueta-contorno">Leaflet + OpenStreetMap</li>
+            <li class="etiqueta etiqueta-contorno">GitHub Actions + node:test</li>
+            <li class="etiqueta etiqueta-contorno">GitHub Pages</li>
+          </ul>
+
+          <h3>Decisões de arquitetura (ADRs)</h3>
+          <p>Cada decisão importante tem um registro com contexto, alternativas descartadas e consequências. <strong>Todas ainda são propostas</strong>, esperando a validação da equipe.</p>
+          <ol class="lista-adr">
+            <li><a href="https://github.com/unb-mds/2026-2-GlossarioUnB/blob/main/docs/adr/0001-termos-em-json-estatico.md"><span class="adr-numero">0001</span><span class="adr-texto"><strong>Termos em JSON estático</strong><span>Sem backend: o Git faz o papel de banco, com histórico e revisão.</span></span></a></li>
+            <li><a href="https://github.com/unb-mds/2026-2-GlossarioUnB/blob/main/docs/adr/0002-frontend-sem-framework.md"><span class="adr-numero">0002</span><span class="adr-texto"><strong>Frontend sem framework</strong><span>HTML, CSS e JS puros; React ou Vue serão reavaliados na Release 2.</span></span></a></li>
+            <li><a href="https://github.com/unb-mds/2026-2-GlossarioUnB/blob/main/docs/adr/0003-pwa-com-service-worker-proprio.md"><span class="adr-numero">0003</span><span class="adr-texto"><strong>PWA com service worker próprio</strong><span>Termos disponíveis offline desde a primeira visita.</span></span></a></li>
+            <li><a href="https://github.com/unb-mds/2026-2-GlossarioUnB/blob/main/docs/adr/0004-schema-unico-do-termo.md"><span class="adr-numero">0004</span><span class="adr-texto"><strong>Formato único do termo</strong><span>Um só modelo, validado pela mesma função no site e no CI.</span></span></a></li>
+            <li><a href="https://github.com/unb-mds/2026-2-GlossarioUnB/blob/main/docs/adr/0005-mapa-de-locais-com-leaflet.md"><span class="adr-numero">0005</span><span class="adr-texto"><strong>Mapa com Leaflet e OpenStreetMap</strong><span>Só para termos que são lugares físicos.</span></span></a></li>
+            <li><a href="https://github.com/unb-mds/2026-2-GlossarioUnB/blob/main/docs/adr/0006-contribuicao-por-pr-e-issue.md"><span class="adr-numero">0006</span><span class="adr-texto"><strong>Contribuição por PR e por issue</strong><span>Dois caminhos, ambos no GitHub, sem formulário com servidor.</span></span></a></li>
+            <li><a href="https://github.com/unb-mds/2026-2-GlossarioUnB/blob/main/docs/adr/0007-github-pages-e-ci-com-actions.md"><span class="adr-numero">0007</span><span class="adr-texto"><strong>GitHub Pages e CI com Actions</strong><span>Testes em todo PR; duas páginas publicadas com HTTPS.</span></span></a></li>
+            <li><a href="https://github.com/unb-mds/2026-2-GlossarioUnB/blob/main/docs/adr/0008-interface-com-css-puro-e-tokens.md"><span class="adr-numero">0008</span><span class="adr-texto"><strong>Interface com CSS puro</strong><span>Cores em tokens, fontes do sistema, contraste WCAG AA.</span></span></a></li>
+          </ol>
+        </section>
+
+        <!-- ===== 8. Linha do tempo ===== -->
+        <section id="linha-do-tempo" class="secao" aria-labelledby="titulo-linha">
+          <h2 id="titulo-linha">Linha do tempo</h2>
+          <ol class="linha-tempo">
+            <li><span class="quando">Sprint 00</span><span>Estudos de Git, metodologias ágeis, banco de dados e frontend. Tema aprovado.</span></li>
+            <li><span class="quando">13–14/09</span><span>Repositório reorganizado: pasta <code>docs/</code>, modelos de issue e PR, GitHub Flow.</span></li>
+            <li><span class="quando">15–23/09</span><span>Story Map e protótipo no Figma; requisitos definidos.</span></li>
+            <li><span class="quando">26/09</span><span>Primeira versão navegável, com testes automatizados e CI.</span></li>
+            <li><span class="quando">27–28/09</span><span>Requisitos revisados, com a release de cada funcionalidade.</span></li>
+            <li class="marco"><span class="quando">28/09/2026</span><span><strong>Release 1:</strong> escopo, arquitetura e tecnologias funcionando juntos.</span></li>
+            <li class="futuro"><span class="quando">25/11/2026</span><span><strong>Release 2:</strong> produto completo.</span></li>
+          </ol>
+          <h3>Na fila para as próximas releases</h3>
+          <ul class="lista-simples">
+            <li>Completar a carga da planilha, com gírias e expressões (RF03).</li>
+            <li>Aviso quando alguém sugere um termo que já existe (RF06).</li>
+            <li>Sinalizar termo desatualizado e mudanças de nome, como FGA → FCTE (RF07).</li>
+            <li>Sugerir termos parecidos quando a pessoa digita errado (RF09).</li>
+            <li>Formulário de sugestão no próprio site (RF10).</li>
+          </ul>
+        </section>
+
+        <!-- ===== 9. Equipe ===== -->
+        <section id="equipe" class="secao" aria-labelledby="titulo-equipe">
+          <h2 id="titulo-equipe">Equipe</h2>
+          <p class="secao-intro">Grupo G10 da disciplina Métodos de Desenvolvimento de Software, UnB, 2026/2.</p>
+          <ul class="equipe">
+            <li><strong>Ítalo</strong><span>Scrum Master</span><a href="https://github.com/smitalo">@smitalo</a></li>
+            <li><strong>Jéssyca</strong><span>Product Owner</span><a href="https://github.com/Jessy2126">@Jessy2126</a></li>
+            <li><strong>Pedro</strong><span>Desenvolvimento</span><a href="https://github.com/p-magno">@p-magno</a></li>
+            <li><strong>Allan</strong><span>Desenvolvimento</span><a href="https://github.com/MrD4ntas">@MrD4ntas</a></li>
+            <li><strong>José Gabriel</strong><span>Desenvolvimento</span><a href="https://github.com/josegabriel-iw">@josegabriel-iw</a></li>
+          </ul>
+        </section>
+
+        <!-- ===== 10. Rodar ===== -->
+        <section id="rodar" class="secao" aria-labelledby="titulo-rodar">
+          <h2 id="titulo-rodar">Rodar no seu computador</h2>
+          <p>Você só precisa do <strong>Node 22 ou mais novo</strong>. Não há dependências para instalar.</p>
+          <pre class="codigo"><code>git clone https://github.com/unb-mds/2026-2-GlossarioUnB.git
+cd 2026-2-GlossarioUnB
+npm run dev    # glossário em http://localhost:8080/frontend/ e esta página em /sobre/
+npm test       # roda os testes e valida todos os termos</code></pre>
+          <p>Mais detalhes sobre o glossário em <a href="https://github.com/unb-mds/2026-2-GlossarioUnB/blob/main/frontend/README.md"><code>frontend/README.md</code></a>.</p>
+        </section>
+
+      </div>
+    </div>
+  </main>
+
+  <footer class="rodape">
+    <div class="rodape-conteudo">
+      <p><strong>Quer consultar um termo?</strong> <a href="../frontend/index.html">Abra o glossário</a>. Não achou? <a href="https://github.com/unb-mds/2026-2-GlossarioUnB/issues/new?template=adicionar-termo.md">Sugira pelo formulário no GitHub</a>.</p>
+      <p>Projeto aberto do grupo G10 · MDS/UnB 2026/2 · <a href="https://github.com/unb-mds/2026-2-GlossarioUnB">Código-fonte</a></p>
+    </div>
+  </footer>
+</body>
+</html>
