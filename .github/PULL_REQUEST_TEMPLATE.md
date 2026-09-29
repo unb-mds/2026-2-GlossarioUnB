@@ -26,7 +26,7 @@ Closes #
 ## Checklist antes de pedir revisão
 
 - [ ] Segue o padrão de commits (Conventional Commits)
-- [ ] Se adiciona/edita termo, segue o schema de dados e tem `fonte` preenchida (ver `skills/glossario-unb-dev/SKILL.md`)
+- [ ] Se adiciona/edita termo, segue o schema de dados e tem `fonte` preenchida (ver `docs/adr/0004-schema-unico-do-termo.md`)
 - [ ] Testes adicionados/atualizados, se aplicável
 - [ ] Documentação atualizada, se aplicável (README, docs/REQUISITOS.md, docs/ARQUITETURA.md)
 - [ ] Se usou IA neste PR (implementação, testes, docs, dados), está registrado em `AI-USAGE.md`

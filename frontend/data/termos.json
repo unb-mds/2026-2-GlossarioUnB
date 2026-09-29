@@ -1,0 +1,412 @@
+[
+  {
+    "id": "ace",
+    "termo": "ACE",
+    "tipo": "sigla",
+    "significado": "Arquivo Central",
+    "definicao": "Unidade responsável pela gestão, preservação e organização dos documentos arquivísticos da UnB.",
+    "exemplo_uso": "Precisei consultar o ACE para encontrar alguns documentos antigos da UnB.",
+    "fonte": "https://arquivocentral.unb.br/",
+    "campus": "Geral"
+  },
+  {
+    "id": "bce",
+    "termo": "BCE",
+    "tipo": "sigla",
+    "significado": "Biblioteca Central",
+    "definicao": "Unidade responsável pela organização e disponibilização do acervo bibliográfico e de serviços de informação da UnB.",
+    "exemplo_uso": "Vou ali na BCE estudar e depois pegar um livro.",
+    "fonte": "https://bce.unb.br/",
+    "campus": "Geral"
+  },
+  {
+    "id": "fcts",
+    "termo": "FCTS",
+    "tipo": "sigla",
+    "significado": "Campus UnB Ceilândia, Faculdade de Ciências e Tecnologias em Saúde",
+    "definicao": "Campus da UnB localizada em Ceilândia, voltada ao ensino, pesquisa e extensão na área de saúde.",
+    "exemplo_uso": "Tenho aula na FCTS hoje à tarde.",
+    "fonte": "https://fcts.unb.br/",
+    "campus": "Geral"
+  },
+  {
+    "id": "fcte",
+    "termo": "FCTE",
+    "tipo": "sigla",
+    "significado": "Campus UnB Gama, Faculdade de Ciências e Tecnologias em Engenharia",
+    "definicao": "Campus da UnB no Gama dedicada ao ensino, pesquisa e extensão relacionados às áreas de engenharia e tecnologia.",
+    "exemplo_uso": "Faço Engenharia de Software na FCTE.",
+    "fonte": "https://fcte.unb.br/",
+    "campus": "Geral"
+  },
+  {
+    "id": "cds",
+    "termo": "CDS",
+    "tipo": "sigla",
+    "significado": "Centro de Desenvolvimento Sustentável",
+    "definicao": "Centro dedicado a estudos, pesquisas e atividades relacionadas ao desenvolvimento sustentável.",
+    "exemplo_uso": "Um projeto do CDS foi apresentado na semana universitária.",
+    "fonte": "https://cds.unb.br/",
+    "campus": "Geral"
+  },
+  {
+    "id": "cead",
+    "termo": "CEAD",
+    "tipo": "sigla",
+    "significado": "Centro de Educação a Distância e Tecnologias Educacionais",
+    "definicao": "Unidade voltada ao desenvolvimento e apoio de atividades de educação a distância.",
+    "exemplo_uso": "O CEAD abriu novas vagas para os cursos a distância.",
+    "fonte": "https://cead.unb.br/",
+    "campus": "Geral"
+  },
+  {
+    "id": "cet",
+    "termo": "CET",
+    "tipo": "sigla",
+    "significado": "Centro de Excelência em Turismo",
+    "definicao": "Centro da UnB dedicado ao ensino, pesquisa e extensão relacionados ao turismo.",
+    "exemplo_uso": "Vi um cartaz do CET sobre uma palestra de turismo no corredor.",
+    "fonte": "https://cet.unb.br/",
+    "campus": "Geral"
+  },
+  {
+    "id": "ceam",
+    "termo": "CEAM",
+    "tipo": "sigla",
+    "significado": "Centro de Estudos Avançados Multidisciplinar",
+    "definicao": "Centro que reúne estudos e atividades acadêmicas de caráter multidisciplinar.",
+    "exemplo_uso": "O CEAM está com inscrições abertas para um projeto sobre desenvolvimento sustentável.",
+    "fonte": "https://ceam.unb.br/",
+    "campus": "Geral"
+  },
+  {
+    "id": "dac",
+    "termo": "DAC",
+    "tipo": "sigla",
+    "significado": "Decanato de Assuntos Comunitarios",
+    "definicao": "Decanato responsável por políticas e ações relacionadas à assistência, permanência, saúde, esporte, acessibilidade e assuntos comunitários.",
+    "exemplo_uso": "Fui ao DAC tirar uma dúvida sobre assistência estudantil.",
+    "fonte": "https://dac.unb.br/",
+    "campus": "Geral"
+  },
+  {
+    "id": "deg",
+    "termo": "DEG",
+    "tipo": "sigla",
+    "significado": "Decanato de Ensino de Graduação",
+    "definicao": "Órgão executivo da Reitoria responsável pelo planejamento, supervisão, coordenação e acompanhamento das atividades de ensino de graduação da UnB.",
+    "exemplo_uso": "Minha dúvida sobre matrícula foi encaminhada para o DEG.",
+    "fonte": "https://deg.unb.br/",
+    "campus": "Geral"
+  },
+  {
+    "id": "dpo",
+    "termo": "DPO",
+    "tipo": "sigla",
+    "significado": "Decanato de Planejamento, Orçamento e Avaliação",
+    "definicao": "Decanato responsável pelo planejamento institucional, orçamento e avaliação da UnB",
+    "exemplo_uso": "Os dados do Anuário Estatístico são organizados pelo DPO.",
+    "fonte": "https://dpo.unb.br/",
+    "campus": "Geral"
+  },
+  {
+    "id": "dex",
+    "termo": "DEX",
+    "tipo": "sigla",
+    "significado": "Decanato de Extensão",
+    "definicao": "Unidade responsável pela política de extensão universitária e pelo desenvolvimento de ações de extensão da UnB.",
+    "exemplo_uso": "Achei um projeto de extensão interessante no site do DEX.",
+    "fonte": "https://dex.unb.br/",
+    "campus": "Geral"
+  },
+  {
+    "id": "fav",
+    "termo": "FAV",
+    "tipo": "sigla",
+    "significado": "Faculdade de Agronomia e Medicina Veterinária",
+    "definicao": "Unidade acadêmica dedicada ao ensino, pesquisa e extensão nas áreas de agronomia e medicina veterinária.",
+    "exemplo_uso": "Meu colega faz Agronomia na FAV.",
+    "fonte": "https://fav.unb.br/",
+    "campus": "Geral"
+  },
+  {
+    "id": "fau",
+    "termo": "FAU",
+    "tipo": "sigla",
+    "significado": "Faculdade de Arquitetura e Urbanismo",
+    "definicao": "Unidade acadêmica dedicada ao ensino, pesquisa e extensão em arquitetura e urbanismo.",
+    "exemplo_uso": "A palestra de arquitetura vai acontecer na FAU.",
+    "fonte": "https://fau.unb.br/",
+    "campus": "Geral"
+  },
+  {
+    "id": "fci",
+    "termo": "FCI",
+    "tipo": "sigla",
+    "significado": "Faculdade de Ciência da Informação",
+    "definicao": "Unidade acadêmica voltada ao ensino e pesquisa nas áreas de ciência da informação, biblioteconomia e áreas relacionadas.",
+    "exemplo_uso": "Tive aula de Arquivologia na FCI.",
+    "fonte": "https://fci.unb.br/",
+    "campus": "Geral"
+  },
+  {
+    "id": "fs",
+    "termo": "FS",
+    "tipo": "sigla",
+    "significado": "Faculdade de Ciências da Saúde",
+    "definicao": "Unidade acadêmica que reúne atividades de ensino, pesquisa e extensão relacionadas às ciências da saúde.",
+    "exemplo_uso": "Minha amiga estuda na FS e faz um curso da área da saúde.",
+    "fonte": "https://fs.unb.br/",
+    "campus": "Geral"
+  },
+  {
+    "id": "fac",
+    "termo": "FAC",
+    "tipo": "sigla",
+    "significado": "Faculdade de Comunicação",
+    "definicao": "Unidade acadêmica dedicada ao ensino, pesquisa e extensão nas áreas de comunicação",
+    "exemplo_uso": "A apresentação do trabalho será na FAC.",
+    "fonte": "https://fac.unb.br/",
+    "campus": "Geral"
+  },
+  {
+    "id": "fd",
+    "termo": "FD",
+    "tipo": "sigla",
+    "significado": "Faculdade de Direito",
+    "definicao": "Unidade acadêmica responsável pelo ensino, pesquisa e extensão na área do Direito.",
+    "exemplo_uso": "Meu amigo estuda Direito na FD.",
+    "fonte": "https://direito.unb.br/",
+    "campus": "Geral"
+  },
+  {
+    "id": "fe",
+    "termo": "FE",
+    "tipo": "sigla",
+    "significado": "Faculdade de Educação",
+    "definicao": "Unidade acadêmica dedicada ao ensino, pesquisa e extensão na área da educação.",
+    "exemplo_uso": "Professores da FE desenvolveram uma pesquisa sobre educação.",
+    "fonte": "https://fe.unb.br/",
+    "campus": "Geral"
+  },
+  {
+    "id": "fef",
+    "termo": "FEF",
+    "tipo": "sigla",
+    "significado": "Faculdade de Educação Física",
+    "definicao": "Unidade acadêmica voltada ao ensino, pesquisa e extensão relacionados à educação física e às atividades esportivas.",
+    "exemplo_uso": "Amanhã de manhã tenho uma atividade na FEF.",
+    "fonte": "https://fef.unb.br/",
+    "campus": "Geral"
+  },
+  {
+    "id": "fm",
+    "termo": "FM",
+    "tipo": "sigla",
+    "significado": "Faculdade de Medicina",
+    "definicao": "Unidade acadêmica dedicada ao ensino, pesquisa e extensão na área da medicina.",
+    "exemplo_uso": "Meu colega está cursando Medicina na FM.",
+    "fonte": "https://fm.unb.br/",
+    "campus": "Geral"
+  },
+  {
+    "id": "fup",
+    "termo": "FUP",
+    "tipo": "sigla",
+    "significado": "Faculdade de Planaltina",
+    "definicao": "Campus da UnB localizada em Planaltina, voltada ao ensino, pesquisa e extensão na área de agrárias.",
+    "exemplo_uso": "Hoje tenho uma atividade da universidade na FUP.",
+    "fonte": "https://fup.unb.br/",
+    "campus": "Geral"
+  },
+  {
+    "id": "ft",
+    "termo": "FT",
+    "tipo": "sigla",
+    "significado": "Faculdade de Tecnologia",
+    "definicao": "Unidade acadêmica que reúne cursos e atividades de ensino, pesquisa e extensão nas áreas de engenharia e tecnologia.",
+    "exemplo_uso": "Depois do almoço tenho aula na FT.",
+    "fonte": "http://ft.unb.br/",
+    "campus": "Geral"
+  },
+  {
+    "id": "face",
+    "termo": "FACE",
+    "tipo": "sigla",
+    "significado": "Faculdade de Economia, Administração, Contabilidade e Gestão Públicas",
+    "definicao": "Unidade acadêmica que reúne áreas relacionadas à economia, administração, contabilidade e gestão de políticas públicas.",
+    "exemplo_uso": "A palestra de economia será realizada na FACE.",
+    "fonte": "https://face.unb.br/",
+    "campus": "Geral"
+  },
+  {
+    "id": "ida",
+    "termo": "IDA",
+    "tipo": "sigla",
+    "significado": "Instituto de Artes",
+    "definicao": "Unidade acadêmica dedicada ao ensino, pesquisa e extensão nas áreas de artes.",
+    "exemplo_uso": "Minha amiga participa de um projeto artístico no IdA.",
+    "fonte": "https://ida.unb.br/",
+    "campus": "Geral"
+  },
+  {
+    "id": "ipol",
+    "termo": "IPOL",
+    "tipo": "sigla",
+    "significado": "Instituto de Ciências Políticas",
+    "definicao": "Unidade acadêmica dedicada ao ensino e pesquisa em ciência política.",
+    "exemplo_uso": "Li um artigo publicado por pesquisadores do IPOL.",
+    "fonte": "https://ipol.unb.br/",
+    "campus": "Geral"
+  },
+  {
+    "id": "ib",
+    "termo": "IB",
+    "tipo": "sigla",
+    "significado": "Instituto de Ciências Biológicas",
+    "definicao": "Unidade acadêmica voltada ao ensino, pesquisa e extensão nas áreas das ciências biológicas.",
+    "exemplo_uso": "A aula prática de Biologia será no IB.",
+    "fonte": "https://icb.unb.br/",
+    "campus": "Geral"
+  },
+  {
+    "id": "ie",
+    "termo": "IE",
+    "tipo": "sigla",
+    "significado": "Instituto de Ciências Exatas",
+    "definicao": "Unidade acadêmica relacionada às áreas de matemática, estatística e computação.",
+    "exemplo_uso": "Vou estudar Cálculo no IE antes da prova.",
+    "fonte": "https://exatas.unb.br/",
+    "campus": "Geral"
+  },
+  {
+    "id": "ich",
+    "termo": "ICH",
+    "tipo": "sigla",
+    "significado": "Instituto de Ciências Humanas",
+    "definicao": "Unidade acadêmica que reúne atividades de ensino e pesquisa nas áreas das ciências humanas.",
+    "exemplo_uso": "O evento de História vai acontecer no ICH.",
+    "fonte": "https://ich.unb.br/",
+    "campus": "Geral"
+  },
+  {
+    "id": "ics",
+    "termo": "ICS",
+    "tipo": "sigla",
+    "significado": "Instituto de Ciências Sociais",
+    "definicao": "Unidade acadêmica voltada ao ensino e à pesquisa nas áreas das ciências sociais.",
+    "exemplo_uso": "Uma palestra organizada pelo ICS acontece amanhã.",
+    "fonte": "https://ics.unb.br/",
+    "campus": "Geral"
+  },
+  {
+    "id": "if",
+    "termo": "IF",
+    "tipo": "sigla",
+    "significado": "Instituto de Física",
+    "definicao": "Unidade acadêmica dedicada ao ensino, pesquisa e extensão na área de física.",
+    "exemplo_uso": "Preciso estudar Física no IF antes da prova.",
+    "fonte": "https://if.unb.br/",
+    "campus": "Geral"
+  },
+  {
+    "id": "ig",
+    "termo": "IG",
+    "tipo": "sigla",
+    "significado": "Instituto de Geociências",
+    "definicao": "Unidade acadêmica dedicada ao estudo e à pesquisa nas áreas relacionadas às geociências.",
+    "exemplo_uso": "Meu colega está fazendo uma pesquisa no IG.",
+    "fonte": "https://ig.unb.br/",
+    "campus": "Geral"
+  },
+  {
+    "id": "il",
+    "termo": "IL",
+    "tipo": "sigla",
+    "significado": "Instituto de Letras",
+    "definicao": "Unidade acadêmica dedicada ao ensino, pesquisa e extensão nas áreas de letras e linguística.",
+    "exemplo_uso": "Tenho aula de uma disciplina de Letras no IL.",
+    "fonte": "https://il.unb.br/",
+    "campus": "Geral"
+  },
+  {
+    "id": "ip",
+    "termo": "IP",
+    "tipo": "sigla",
+    "significado": "Instituto de Psicologia",
+    "definicao": "Unidade acadêmica voltada ao ensino, pesquisa e extensão na área de psicologia.",
+    "exemplo_uso": "Um projeto de pesquisa foi desenvolvido no IP.",
+    "fonte": "https://ip.unb.br/",
+    "campus": "Geral"
+  },
+  {
+    "id": "iq",
+    "termo": "IQ",
+    "tipo": "sigla",
+    "significado": "Instituto de Química",
+    "definicao": "Unidade acadêmica dedicada ao ensino, pesquisa e extensão na área de química.",
+    "exemplo_uso": "A aula prática de Química será realizada no IQ.",
+    "fonte": "https://iq.unb.br/",
+    "campus": "Geral"
+  },
+  {
+    "id": "irel",
+    "termo": "IREL",
+    "tipo": "sigla",
+    "significado": "Instituto de Relações Internacionais",
+    "definicao": "Unidade acadêmica dedicada ao ensino e à pesquisa em relações internacionais.",
+    "exemplo_uso": "Uma palestra do IREL foi divulgada no mural do departamento.",
+    "fonte": "https://irel.unb.br/",
+    "campus": "Geral"
+  },
+  {
+    "id": "pctec",
+    "termo": "PCTEC",
+    "tipo": "sigla",
+    "significado": "Parque Científico e Tecnológico da UnB",
+    "definicao": "Estrutura destinada a promover inovação, pesquisa, desenvolvimento tecnológico e interação entre universidade e sociedade.",
+    "exemplo_uso": "Uma startup desenvolveu um projeto em parceria com o PCTEC.",
+    "fonte": "https://pctec.unb.br/",
+    "campus": "Geral"
+  },
+  {
+    "id": "unbtv",
+    "termo": "UNBTV",
+    "tipo": "sigla",
+    "significado": "Rádio e Televisão Universitárias",
+    "definicao": "Estrutura de comunicação universitária responsável pela produção e divulgação de conteúdos relacionados à UnB.",
+    "exemplo_uso": "A UnBTV fez uma reportagem sobre um projeto da universidade.",
+    "fonte": "https://unbtv.unb.br/",
+    "campus": "Geral"
+  },
+  {
+    "id": "infra",
+    "termo": "INFRA",
+    "tipo": "sigla",
+    "significado": "Secretaria de Infraestrutura",
+    "definicao": "Secretaria responsável por atividades relacionadas à infraestrutura física, manutenção e gestão de espaços da Universidade.",
+    "exemplo_uso": "Avisei a INFRA sobre uma lâmpada queimada no prédio.",
+    "fonte": "https://infra.unb.br/",
+    "campus": "Geral"
+  },
+  {
+    "id": "sema",
+    "termo": "SEMA",
+    "tipo": "sigla",
+    "significado": "Secretaria de Meio Ambiente",
+    "definicao": "Secretaria responsável por ações relacionadas à gestão ambiental e sustentabilidade na UnB.",
+    "exemplo_uso": "A SEMA está promovendo uma ação de sustentabilidade no campus.",
+    "fonte": "https://sema.unb.br/",
+    "campus": "Geral"
+  },
+  {
+    "id": "ceubinho",
+    "termo": "Ceubinho",
+    "tipo": "giria",
+    "categoria": "locais-campus",
+    "definicao": "Área de convivência e praça de alimentação localizada no ICC Norte (Instituto Central de Ciências) do campus Darcy Ribeiro da UnB, tradicional ponto de encontro e refeição de estudantes.",
+    "exemplo_uso": "Bora almoçar no Ceubinho antes da reunião da Sprint de MDS?",
+    "fonte": "Conhecimento comum e vivência prática da comunidade acadêmica da UnB (issue #30).",
+    "campus": "Darcy Ribeiro"
+  }
+]

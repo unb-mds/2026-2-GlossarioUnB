@@ -1,0 +1,14 @@
+{
+  "name": "glossario-unb",
+  "private": true,
+  "description": "Dicionário colaborativo de siglas, gírias e expressões da UnB (G10 — MDS 2026/2).",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node --test",
+    "test:cobertura": "node --test --experimental-test-coverage",
+    "dev": "node scripts/servidor-local.mjs"
+  }
+}

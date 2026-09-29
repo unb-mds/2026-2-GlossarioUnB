@@ -1,7 +1,7 @@
 # Glossário UnB
 
 Análise de requisitos e planejamento — MDS, UnB
-Equipe: Pedro, Ítalo, Jéssyca, Alex Kurokawa, Allan, Zé (José Gabriel)
+Equipe: Pedro, Ítalo, Jéssyca, Allan, Zé (José Gabriel)
 
 ## 1. Objetivo
 
@@ -9,13 +9,13 @@ Dicionário colaborativo de siglas, gírias e jargões da UnB (DEG, DPO, PPAES, 
 
 ## 2. Fonte de dados
 
-Coleta inicial via [planilha colaborativa](https://docs.google.com/spreadsheets/d/1XciIDY79FAyY32bC4GDgQAWgyy-B5UahVMKZvdry0WY/edit?usp=sharing), depois migrada para o dataset estruturado do projeto. Ver `skills/glossario-unb-dev/SKILL.md` para o schema de cada termo.
+Coleta inicial via [planilha colaborativa](https://docs.google.com/spreadsheets/d/1XciIDY79FAyY32bC4GDgQAWgyy-B5UahVMKZvdry0WY/edit?usp=sharing), depois migrada para o dataset estruturado do projeto. Ver [`adr/0004-schema-unico-do-termo.md`](adr/0004-schema-unico-do-termo.md) para o schema de cada termo.
 
 ## 3. Requisitos Funcionais
 
 | ID | Nome | Release |
 | --- | --- | --- |
-| RF01 | Busca textual de termos | Busca textual de termos | R1 |
+| RF01 | Busca textual de termos | R1 |
 | RF02 | Listagem e filtro por categoria | R1 (lista) -> R2 (filtro) |
 | RF03 | Arquivo Json da Planilha | R1 (parcial) -> R2 |
 | RF04 | Sugestão de termo via Pull Request e Issue | R1 |
