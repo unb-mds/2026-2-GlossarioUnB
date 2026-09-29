@@ -3,11 +3,27 @@
 // Todo dado de termo entra na página via textContent, nunca via innerHTML:
 // termos chegam por PR de terceiros (RF04) e não podem injetar HTML.
 
-import { CAMPI, TIPOS, agruparPorLetra, buscarTermos, encontrarTermo, filtrarTermos, normalizar } from "./termos.js";
+import {
+  CAMPI, CAMPUS_GERAL, TIPOS, agruparPorLetra, buscarTermos, contarPorTipo, encontrarTermo,
+  filtrarTermos, filtrosDaUrl, normalizar, resumoDoTermo,
+} from "./termos.js";
 import { urlSegura, validarTermo } from "./validacao-termo.js";
 
 const URL_DADOS = "data/termos.json";
+const URL_REPOSITORIO = "https://github.com/unb-mds/2026-2-GlossarioUnB";
 const MENSAGEM_ERRO_CARGA = "Não foi possível carregar os termos. Verifique sua conexão e tente de novo.";
+const TIPOS_NO_PLURAL = { sigla: "Siglas", giria: "Gírias", expressao: "Expressões" };
+// Com prefixo: unb-mds.github.io é uma origem compartilhada por todos os projetos da organização.
+const CHAVE_TEMA = "glossario-unb:tema";
+
+// Modelos de issue "Adicionar termo" e "Corrigir definição" (ADR 0006), já com o termo no título.
+function urlModeloIssue(modelo, prefixoTitulo, termo = "") {
+  const base = `${URL_REPOSITORIO}/issues/new?template=${modelo}`;
+  return termo ? `${base}&title=${encodeURIComponent(`${prefixoTitulo} ${termo}`)}` : base;
+}
+
+const urlAdicionarTermo = (termo) => urlModeloIssue("adicionar-termo.md", "[Adicionar Termo]", termo);
+const urlCorrigirDefinicao = (termo) => urlModeloIssue("corrigir-definicao.md", "[Corrigir Definição]", termo);
 
 // ===== Utilidades de DOM =====
 
@@ -24,6 +40,14 @@ function preencherOpcoes(seletor, opcoes) {
   for (const [valor, rotulo] of opcoes) seletor.append(criarElemento("option", { texto: rotulo, atributos: { value: valor } }));
 }
 
+function rotuloCampus(campus) {
+  return campus === CAMPUS_GERAL ? "Todos os campi" : `Campus ${campus}`;
+}
+
+function urlDoTermo(termo) {
+  return `termo.html?id=${encodeURIComponent(termo.id)}`;
+}
+
 async function carregarTermos() {
   const resposta = await fetch(URL_DADOS);
   if (!resposta.ok) throw new Error(`Não foi possível carregar ${URL_DADOS} (HTTP ${resposta.status})`);
@@ -38,28 +62,18 @@ async function carregarTermos() {
 }
 
 // ===== Tema claro/escuro =====
-
-function lerTemaSalvo() {
-  try {
-    return localStorage.getItem("tema");
-  } catch (erro) {
-    console.warn("Preferência de tema indisponível:", erro);
-    return null;
-  }
-}
+// O tema salvo é aplicado por um script curto no <head> de cada página (evita piscar);
+// aqui só tratamos o botão. O ícone (lua/sol) é trocado pelo CSS.
 
 function salvarTema(tema) {
   try {
-    localStorage.setItem("tema", tema);
+    localStorage.setItem(CHAVE_TEMA, tema);
   } catch (erro) {
     console.warn("Não foi possível salvar a preferência de tema:", erro);
   }
 }
 
 function iniciarTema() {
-  const salvo = lerTemaSalvo();
-  if (salvo) document.documentElement.setAttribute("data-tema", salvo);
-
   const botao = document.getElementById("botao-tema");
   if (!botao) return;
 
@@ -67,18 +81,16 @@ function iniciarTema() {
     const atual = document.documentElement.getAttribute("data-tema");
     return atual === "escuro" || (!atual && window.matchMedia("(prefers-color-scheme: dark)").matches);
   };
-  const atualizarIcone = () => {
-    botao.textContent = escuroAtivo() ? "☀️" : "🌙";
-  };
+  const atualizarBotao = () => botao.setAttribute("aria-pressed", String(escuroAtivo()));
 
   botao.addEventListener("click", () => {
     const novo = escuroAtivo() ? "claro" : "escuro";
     document.documentElement.setAttribute("data-tema", novo);
     salvarTema(novo);
-    atualizarIcone();
+    atualizarBotao();
   });
 
-  atualizarIcone();
+  atualizarBotao();
 }
 
 // ===== Service worker =====
@@ -92,20 +104,21 @@ function registrarServiceWorker() {
   });
 }
 
-// ===== Tela inicial: busca com autocomplete (padrão ARIA combobox) =====
+// ===== Início: busca com autocomplete (padrão ARIA combobox) =====
 
 function iniciarBusca(termos) {
   const input = document.getElementById("campo-busca");
   const form = document.getElementById("form-busca");
   const lista = document.getElementById("sugestoes");
   const status = document.getElementById("busca-status");
-  if (!input || !form || !lista || !status) return;
+  const avisoVazio = document.getElementById("busca-vazia");
+  if (!input || !form || !lista || !status || !avisoVazio) return;
 
   let sugestoesAtuais = [];
   let indiceAtivo = -1;
 
-  function irParaTermo(id) {
-    window.location.href = `termo.html?id=${encodeURIComponent(id)}`;
+  function irParaTermo(termo) {
+    window.location.href = urlDoTermo(termo);
   }
 
   function fecharSugestoes() {
@@ -114,6 +127,13 @@ function iniciarBusca(termos) {
     indiceAtivo = -1;
     input.setAttribute("aria-expanded", "false");
     input.removeAttribute("aria-activedescendant");
+  }
+
+  // Fora da listbox, para o link "Sugerir" ser alcançável pelo teclado.
+  function mostrarAvisoVazio(consulta) {
+    const link = criarElemento("a", { texto: "Sugerir este termo", atributos: { href: urlAdicionarTermo(consulta.trim()) } });
+    avisoVazio.replaceChildren(`Nenhum termo encontrado para “${consulta.trim()}”. `, link);
+    avisoVazio.hidden = false;
   }
 
   function marcarAtiva(novoIndice) {
@@ -132,6 +152,7 @@ function iniciarBusca(termos) {
 
   function renderizarSugestoes() {
     fecharSugestoes();
+    avisoVazio.hidden = true;
     if (!normalizar(input.value)) {
       status.textContent = "";
       return;
@@ -139,8 +160,8 @@ function iniciarBusca(termos) {
 
     sugestoesAtuais = buscarTermos(termos, input.value);
     if (sugestoesAtuais.length === 0) {
-      lista.append(criarElemento("li", { classe: "sugestao-vazia", texto: "Nenhum termo encontrado.", atributos: { "aria-hidden": "true" } }));
       status.textContent = "Nenhum termo encontrado.";
+      mostrarAvisoVazio(input.value);
       return;
     }
 
@@ -149,8 +170,11 @@ function iniciarBusca(termos) {
         classe: "sugestao",
         atributos: { id: `sugestao-${i}`, role: "option", "aria-selected": "false" },
       });
-      opcao.append(criarElemento("strong", { texto: termo.termo }));
-      opcao.addEventListener("click", () => irParaTermo(termo.id));
+      opcao.append(
+        criarElemento("span", { classe: "sugestao-termo", texto: termo.termo }),
+        criarElemento("span", { classe: "sugestao-resumo", texto: resumoDoTermo(termo) }),
+      );
+      opcao.addEventListener("click", () => irParaTermo(termo));
       lista.append(opcao);
     });
     input.setAttribute("aria-expanded", "true");
@@ -177,11 +201,11 @@ function iniciarBusca(termos) {
   form.addEventListener("submit", (evento) => {
     evento.preventDefault();
     if (indiceAtivo >= 0 && sugestoesAtuais[indiceAtivo]) {
-      irParaTermo(sugestoesAtuais[indiceAtivo].id);
+      irParaTermo(sugestoesAtuais[indiceAtivo]);
       return;
     }
     const [primeiro] = buscarTermos(termos, input.value);
-    if (primeiro) irParaTermo(primeiro.id);
+    if (primeiro) irParaTermo(primeiro);
   });
 
   document.addEventListener("click", (evento) => {
@@ -189,15 +213,42 @@ function iniciarBusca(termos) {
   });
 }
 
-// ===== Todas as siglas: lista + filtros por campus e por tipo (RF02) =====
+// ===== Início: total de termos e atalhos por tipo =====
+
+function iniciarAtalhos(termos) {
+  const total = document.getElementById("total-termos");
+  const atalhos = document.getElementById("atalhos-tipo");
+  if (!total || !atalhos) return;
+
+  total.textContent = String(termos.length);
+
+  for (const [tipo, quantidade] of contarPorTipo(termos)) {
+    const link = criarElemento("a", { classe: "atalho", atributos: { href: `todas-siglas.html?tipo=${tipo}` } });
+    link.append(TIPOS_NO_PLURAL[tipo], criarElemento("span", { classe: "atalho-total", texto: String(quantidade) }));
+    const item = criarElemento("li");
+    item.append(link);
+    atalhos.append(item);
+  }
+}
+
+// ===== Todas as siglas: índice, filtros por tipo (RF02) e campus =====
+
+function idDaLetra(letra) {
+  return letra === "#" ? "letra-outros" : `letra-${letra}`;
+}
 
 function criarCartaoTermo(termo) {
-  const cartao = criarElemento("a", { classe: "cartao-termo", atributos: { href: `termo.html?id=${encodeURIComponent(termo.id)}` } });
-  cartao.append(
-    criarElemento("span", { classe: "nome-termo", texto: termo.termo }),
-    criarElemento("span", { classe: "etiqueta-cartao", texto: TIPOS[termo.tipo] }),
-    criarElemento("span", { classe: "etiqueta-cartao", texto: termo.campus }),
-  );
+  const etiquetas = criarElemento("span", { classe: "etiquetas" });
+  etiquetas.append(criarElemento("span", { classe: "etiqueta", texto: TIPOS[termo.tipo] }));
+  // "Geral" vale para todos: repetir a etiqueta em todo cartão só gera ruído.
+  if (termo.campus !== CAMPUS_GERAL) {
+    etiquetas.append(criarElemento("span", { classe: "etiqueta etiqueta-contorno", texto: termo.campus }));
+  }
+
+  const topo = criarElemento("span", { classe: "cartao-topo" });
+  topo.append(criarElemento("span", { classe: "cartao-nome", texto: termo.termo }), etiquetas);
+  const cartao = criarElemento("a", { classe: "cartao", atributos: { href: urlDoTermo(termo) } });
+  cartao.append(topo, criarElemento("span", { classe: "cartao-resumo", texto: resumoDoTermo(termo) }));
   return cartao;
 }
 
@@ -205,33 +256,58 @@ function iniciarListaCompleta(termos) {
   const container = document.getElementById("lista-termos");
   const seletorCampus = document.getElementById("filtro-campus");
   const seletorTipo = document.getElementById("filtro-tipo");
+  const indice = document.getElementById("indice-letras");
   const status = document.getElementById("filtro-status");
-  if (!container) return;
+  if (!container || !seletorCampus || !seletorTipo) return;
+
+  preencherOpcoes(seletorTipo, Object.entries(TIPOS));
+  preencherOpcoes(seletorCampus, CAMPI.map((campus) => [campus, campus]));
+
+  // Filtros vêm da URL (atalhos da página inicial) e voltam para ela: o link pode ser compartilhado.
+  const inicial = filtrosDaUrl(new URLSearchParams(window.location.search));
+  seletorTipo.value = inicial.tipo ?? "";
+  seletorCampus.value = inicial.campus ?? "";
+
+  function atualizarUrl() {
+    const parametros = new URLSearchParams();
+    if (seletorTipo.value) parametros.set("tipo", seletorTipo.value);
+    if (seletorCampus.value) parametros.set("campus", seletorCampus.value);
+    const busca = parametros.toString();
+    history.replaceState(null, "", busca ? `?${busca}` : window.location.pathname);
+  }
 
   function renderizar() {
-    const filtrados = filtrarTermos(termos, {
-      campus: seletorCampus?.value || null,
-      tipo: seletorTipo?.value || null,
-    });
+    const filtrados = filtrarTermos(termos, { campus: seletorCampus.value || null, tipo: seletorTipo.value || null });
+    const grupos = agruparPorLetra(filtrados);
     container.replaceChildren();
-    if (status) status.textContent = filtrados.length === 1 ? "1 termo encontrado." : `${filtrados.length} termos encontrados.`;
+    indice?.replaceChildren();
+    if (status) status.textContent = filtrados.length === 1 ? "1 termo" : `${filtrados.length} termos`;
 
     if (filtrados.length === 0) {
       container.append(criarElemento("p", { classe: "aviso-vazio", texto: "Nenhum termo encontrado para esse filtro." }));
       return;
     }
 
-    for (const [letra, doGrupo] of agruparPorLetra(filtrados)) {
-      const secao = criarElemento("section", { classe: "letra", atributos: { id: `letra-${letra}` } });
-      secao.append(criarElemento("h2", { texto: letra }), ...doGrupo.map(criarCartaoTermo));
+    for (const [letra, doGrupo] of grupos) {
+      indice?.append(criarElemento("a", {
+        texto: letra,
+        atributos: { href: `#${idDaLetra(letra)}`, "aria-label": letra === "#" ? "Outros símbolos" : `Letra ${letra}` },
+      }));
+
+      const secao = criarElemento("section", { classe: "grupo-letra", atributos: { id: idDaLetra(letra) } });
+      const grade = criarElemento("div", { classe: "grade" });
+      grade.append(...doGrupo.map(criarCartaoTermo));
+      secao.append(criarElemento("h2", { texto: letra }), grade);
       container.append(secao);
     }
   }
 
-  preencherOpcoes(seletorCampus, CAMPI.map((campus) => [campus, campus]));
-  preencherOpcoes(seletorTipo, Object.entries(TIPOS));
-  seletorCampus?.addEventListener("change", renderizar);
-  seletorTipo?.addEventListener("change", renderizar);
+  for (const seletor of [seletorTipo, seletorCampus]) {
+    seletor.addEventListener("change", () => {
+      atualizarUrl();
+      renderizar();
+    });
+  }
   renderizar();
 }
 
@@ -244,12 +320,15 @@ function criarBloco(titulo, ...conteudo) {
 }
 
 // Fonte pode ser um link ou um texto ("conhecimento comum verificado pelo grupo").
+// Links aparecem sem "https://" e sem a barra final, que só atrapalham a leitura.
 function criarFonte(fonte) {
   const url = urlSegura(fonte);
   if (!url) return criarElemento("p", { texto: fonte });
 
+  const { hostname, pathname } = new URL(url);
+  const texto = `${hostname}${pathname === "/" ? "" : pathname}`;
   const paragrafo = criarElemento("p");
-  paragrafo.append(criarElemento("a", { texto: fonte, atributos: { href: url, target: "_blank", rel: "noopener" } }));
+  paragrafo.append(criarElemento("a", { texto, atributos: { href: url, target: "_blank", rel: "noopener" } }));
   return paragrafo;
 }
 
@@ -290,28 +369,29 @@ function iniciarPaginaTermo(termos) {
   container.replaceChildren();
 
   if (!termo) {
-    const aviso = criarElemento("div", { classe: "nao-encontrado" });
-    aviso.append(
+    container.classList.add("nao-encontrado");
+    container.append(
       criarElemento("h1", { texto: "Termo não encontrado" }),
       criarElemento("p", { texto: "Não achamos esse termo no glossário." }),
       criarElemento("a", { texto: "Ver todas as siglas", atributos: { href: "todas-siglas.html" } }),
     );
-    container.append(aviso);
     return;
   }
 
   document.title = `${termo.termo} — Glossário UnB`;
+  document.getElementById("link-corrigir")?.setAttribute("href", urlCorrigirDefinicao(termo.termo));
+  container.append(criarElemento("h1", { texto: termo.termo }));
+  if (termo.significado) container.append(criarElemento("p", { classe: "subtitulo", texto: termo.significado }));
+
   const etiquetas = criarElemento("p", { classe: "etiquetas" });
   etiquetas.append(
     criarElemento("span", { classe: "etiqueta", texto: TIPOS[termo.tipo] }),
-    criarElemento("span", { classe: "etiqueta", texto: termo.campus }),
+    criarElemento("span", { classe: "etiqueta etiqueta-contorno", texto: rotuloCampus(termo.campus) }),
   );
-  container.append(criarElemento("h1", { texto: termo.termo }), etiquetas);
-
-  if (termo.significado) container.append(criarBloco("Significado", criarElemento("p", { texto: termo.significado })));
   container.append(
-    criarBloco("Definição", criarElemento("p", { texto: termo.definicao })),
-    criarBloco("Como se usa", criarElemento("p", { classe: "exemplo-frase", texto: termo.exemplo_uso })),
+    etiquetas,
+    criarBloco("O que é", criarElemento("p", { texto: termo.definicao })),
+    criarBloco("Exemplo de uso", criarElemento("p", { classe: "exemplo-frase", texto: termo.exemplo_uso })),
     criarBloco("Fonte", criarFonte(termo.fonte)),
   );
 
@@ -341,6 +421,7 @@ registrarServiceWorker();
 try {
   const termos = await carregarTermos();
   iniciarBusca(termos);
+  iniciarAtalhos(termos);
   iniciarListaCompleta(termos);
   iniciarPaginaTermo(termos);
 } catch (erro) {

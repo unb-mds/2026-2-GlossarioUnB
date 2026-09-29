@@ -66,3 +66,25 @@ export function agruparPorLetra(termos) {
 export function encontrarTermo(termos, id) {
   return termos.find((termo) => termo.id === id);
 }
+
+// Filtros vindos da URL (ex.: todas-siglas.html?tipo=sigla); valor desconhecido é ignorado.
+export function filtrosDaUrl(parametros) {
+  const campus = parametros.get("campus");
+  const tipo = parametros.get("tipo");
+  return {
+    campus: CAMPI.includes(campus) ? campus : null,
+    tipo: tipo && Object.hasOwn(TIPOS, tipo) ? tipo : null,
+  };
+}
+
+// Quantos termos existem de cada tipo, na ordem de TIPOS; tipos sem termos ficam de fora.
+export function contarPorTipo(termos) {
+  return Object.keys(TIPOS)
+    .map((tipo) => [tipo, termos.filter((termo) => termo.tipo === tipo).length])
+    .filter(([, total]) => total > 0);
+}
+
+// Linha curta que resume o termo em listas: a forma por extenso da sigla, ou a definição.
+export function resumoDoTermo(termo) {
+  return termo.significado || termo.definicao;
+}
