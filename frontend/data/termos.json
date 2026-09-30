@@ -407,6 +407,11 @@
     "definicao": "Área de convivência e praça de alimentação localizada no ICC Norte (Instituto Central de Ciências) do campus Darcy Ribeiro da UnB, tradicional ponto de encontro e refeição de estudantes.",
     "exemplo_uso": "Bora almoçar no Ceubinho antes da reunião da Sprint de MDS?",
     "fonte": "Conhecimento comum e vivência prática da comunidade acadêmica da UnB (issue #30).",
-    "campus": "Darcy Ribeiro"
+    "campus": "Darcy Ribeiro",
+    "localizacao": {
+    "lat": -15.7634,
+    "lng": -47.8670,
+    "link_como_chegar": "https://www.google.com/maps/search/?api=1&query=-15.7634,-47.8670"
   }
+}
 ]
