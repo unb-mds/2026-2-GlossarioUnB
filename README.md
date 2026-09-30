@@ -31,7 +31,7 @@ Detalhes do glossário em [`frontend/README.md`](frontend/README.md).
 
 - [Requisitos do sistema](docs/REQUISITOS.md)
 - [Arquitetura do sistema](docs/ARQUITETURA.md) e [decisões (ADRs)](docs/adr/)
-- [Story Map](docs/storymap/story-map.md) e [quadro do Figma](https://www.figma.com/board/oz0fZUVEhd1tCFegxVybE4/Template-MDS--c%C3%B3pia-limpa---c%C3%B3pia-?node-id=2044-1060&t=DtFGVXxLTmBRKyXd-0)
+- [Story Map](docs/storymap/story-map.md) e [quadro do Figma](https://www.figma.com/board/dk8nBcFiFEWo1AkOvn1554/Template-MDS--c%C3%B3pia-limpa---c%C3%B3pia---c%C3%B3pia-?node-id=0-1&t=IS5erq77oDUXUtei-1)
 - [Processo do time](docs/PROCESSO.md)
 - [Como contribuir](CONTRIBUTING.md)
 - [Guia de fluxo de trabalho (Git passo a passo)](docs/GUIA-FLUXO-DE-TRABALHO.md)
