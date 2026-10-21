@@ -20,7 +20,7 @@ Coleta inicial via [planilha colaborativa](https://docs.google.com/spreadsheets/
 | RF03 | Arquivo Json da Planilha | R1 (parcial) -> R2 |
 | RF04 | Sugestão de termo via Pull Request e Issue | R1 |
 | RF05 | Detalhe do termo (significado, definição, exemplo, fonte) | R1 |
-| RF06 | Validação automática das contribuições (schema, fonte, duplicidade) | R2 -> R2+ |
+| RF06 | Validação automática das contribuições (schema, fonte, duplicidade) | R2 |
 | RF07 | Sinalização de termo desatualizado | R2+ |
 | RF08 | Autocomplete na busca | R2+ |
 | RF09 | Termos parecidos e busca sem resultado | R2+ |
