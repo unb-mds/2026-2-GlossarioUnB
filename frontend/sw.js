@@ -1,7 +1,7 @@
 // Estratégias de cache: ver docs/adr/0003-pwa-com-service-worker-proprio.md.
 // Ao mudar qualquer arquivo do app shell, incremente VERSAO_CACHE.
 const PREFIXO_CACHE = "glossario-unb-";
-const VERSAO_CACHE = `${PREFIXO_CACHE}v13`;
+const VERSAO_CACHE = `${PREFIXO_CACHE}v14`;
 
 const ARQUIVO_DADOS = "data/termos.json";
 
