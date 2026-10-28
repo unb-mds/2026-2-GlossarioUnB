@@ -37,7 +37,15 @@
     "definicao": "Campus da UnB no Gama dedicada ao ensino, pesquisa e extensão relacionados às áreas de engenharia e tecnologia.",
     "exemplo_uso": "Faço Engenharia de Software na FCTE.",
     "fonte": "https://fcte.unb.br/",
-    "campus": "Geral"
+    "campus": "Geral",
+    "sinonimos": [
+      "FGA"
+    ],
+    "relacionados": [
+      "fcts",
+      "fup"
+    ],
+    "saiba_mais": "https://fcte.unb.br/"
   },
   {
     "id": "cds",
@@ -409,9 +417,9 @@
     "fonte": "Conhecimento comum e vivência prática da comunidade acadêmica da UnB (issue #30).",
     "campus": "Darcy Ribeiro",
     "localizacao": {
-    "lat": -15.7634,
-    "lng": -47.8670,
-    "link_como_chegar": "https://www.google.com/maps/search/?api=1&query=-15.7634,-47.8670"
+      "lat": -15.7634,
+      "lng": -47.867,
+      "link_como_chegar": "https://www.google.com/maps/search/?api=1&query=-15.7634,-47.8670"
+    }
   }
-}
 ]

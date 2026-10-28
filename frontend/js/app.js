@@ -170,8 +170,12 @@ function iniciarBusca(termos) {
         classe: "sugestao",
         atributos: { id: `sugestao-${i}`, role: "option", "aria-selected": "false" },
       });
+      const sinCorrespondente = !normalizar(termo.termo).includes(normalizar(input.value))
+        ? termo.sinonimos?.find((s) => normalizar(s).includes(normalizar(input.value)))
+        : null;
+      const textoTermo = sinCorrespondente ? `${termo.termo} (${sinCorrespondente})` : termo.termo;
       opcao.append(
-        criarElemento("span", { classe: "sugestao-termo", texto: termo.termo }),
+        criarElemento("span", { classe: "sugestao-termo", texto: textoTermo }),
         criarElemento("span", { classe: "sugestao-resumo", texto: resumoDoTermo(termo) }),
       );
       opcao.addEventListener("click", () => irParaTermo(termo));
@@ -394,6 +398,13 @@ function iniciarPaginaTermo(termos) {
     criarBloco("Exemplo de uso", criarElemento("p", { classe: "exemplo-frase", texto: termo.exemplo_uso })),
     criarBloco("Fonte", criarFonte(termo.fonte)),
   );
+
+  if (Array.isArray(termo.sinonimos) && termo.sinonimos.length > 0) {
+    container.append(criarBloco("Também conhecido como", criarElemento("p", { texto: termo.sinonimos.join(", ") })));
+  }
+  if (termo.saiba_mais) {
+    container.append(criarBloco("Saiba mais", criarFonte(termo.saiba_mais)));
+  }
 
   if (!termo.localizacao) return;
   const { bloco, montar } = criarBlocoMapa(termo.localizacao);

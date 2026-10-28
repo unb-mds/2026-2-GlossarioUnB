@@ -11,24 +11,38 @@ export const TIPOS = {
   expressao: "Expressão",
 };
 
+// Valores aceitos em `origem` (proveniência do dado).
+export const ORIGENS = ["manual", "coleta"];
+
 export function normalizar(texto) {
   return texto
     .toString()
     .normalize("NFD")
-    .replace(/[̀-ͯ]/g, "")
+    .replace(/[\u0300-\u036f]/g, "")
     .toLowerCase()
     .trim();
 }
 
-// Termos cujo nome contém a consulta; os que começam com ela vêm primeiro.
+// Termos cujo nome ou sinônimos contêm a consulta; os que começam com ela vêm primeiro.
 export function buscarTermos(termos, consulta, limite = 8) {
   const q = normalizar(consulta);
   if (!q) return [];
 
-  const naoComecaCom = (termo) => Number(!normalizar(termo.termo).startsWith(q));
+  const pontuacao = (termo) => {
+    if (normalizar(termo.termo).startsWith(q)) return 0;
+    if (Array.isArray(termo.sinonimos) && termo.sinonimos.some((s) => normalizar(s).startsWith(q))) return 1;
+    return 2;
+  };
+
+  const corresponde = (termo) => {
+    if (normalizar(termo.termo).includes(q)) return true;
+    if (Array.isArray(termo.sinonimos) && termo.sinonimos.some((s) => normalizar(s).includes(q))) return true;
+    return false;
+  };
+
   return termos
-    .filter((termo) => normalizar(termo.termo).includes(q))
-    .sort((a, b) => naoComecaCom(a) - naoComecaCom(b))
+    .filter(corresponde)
+    .sort((a, b) => pontuacao(a) - pontuacao(b))
     .slice(0, limite);
 }
 

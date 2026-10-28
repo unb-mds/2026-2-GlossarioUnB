@@ -26,6 +26,31 @@ test("buscarTermos coloca primeiro quem começa com a consulta", () => {
   assert.deepEqual(buscarTermos(termos, "pa").map((t) => t.id), ["pa", "ppaes"]);
 });
 
+test("buscarTermos encontra termo pelos sinônimos (ex.: buscar FGA leva à FCTE)", () => {
+  const termos = [
+    termo("fcte", "FCTE", { sinonimos: ["FGA"] }),
+    termo("fcts", "FCTS", { sinonimos: ["FCE"] }),
+    termo("ru", "RU"),
+  ];
+  const resultado = buscarTermos(termos, "FGA");
+  assert.deepEqual(resultado.map((t) => t.id), ["fcte"]);
+
+  // Também encontra sem diferenciar maiúsculas
+  assert.deepEqual(buscarTermos(termos, "fga").map((t) => t.id), ["fcte"]);
+  assert.deepEqual(buscarTermos(termos, "fce").map((t) => t.id), ["fcts"]);
+});
+
+test("buscarTermos prioriza nome que começa com a busca, seguido por sinônimo que começa", () => {
+  const termos = [
+    termo("outra-sigla", "XPTO", { sinonimos: ["Gama Faculdade"] }),
+    termo("fcte", "FCTE", { sinonimos: ["FGA"] }),
+    termo("gama-termo", "GAMA", {}),
+  ];
+  // "ga": GAMA começa com "ga" (prioridade 0), Gama Faculdade começa com "ga" (prioridade 1), FGA contém "ga" (prioridade 2)
+  const resultado = buscarTermos(termos, "ga");
+  assert.deepEqual(resultado.map((t) => t.id), ["gama-termo", "outra-sigla", "fcte"]);
+});
+
 test("buscarTermos respeita o limite de sugestões", () => {
   const termos = Array.from({ length: 12 }, (_, i) => termo(`t${i}`, `Termo ${i}`));
   assert.equal(buscarTermos(termos, "termo").length, 8);

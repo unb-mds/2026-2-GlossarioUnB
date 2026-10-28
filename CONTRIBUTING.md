@@ -44,15 +44,21 @@ Você não precisa e não tem acesso de escrita a este repositório, use fork:
   "tipo": "sigla",
   "significado": "Decanato de Ensino de Graduação",
   "definicao": "Explicação em português simples do que é/faz.",
-  "exemplo_uso": "Frase real mostrando o termo em uso.",
-  "fonte": "URL ou 'conhecimento comum verificado pelo grupo'",
+  "exemplo_uso": "Minha dúvida sobre matrícula foi encaminhada para o DEG.",
+  "fonte": "https://deg.unb.br/",
   "campus": "Geral"
 }
 ```
 
 - `tipo`: `sigla`, `giria` ou `expressao`. `significado` (por extenso) só é obrigatório para siglas.
 - `campus`: `Darcy Ribeiro`, `Ceilândia`, `Gama`, `Planaltina` ou `Geral`.
-- Opcionais: `categoria` (tema) e `localizacao` (`lat`, `lng`, `link_como_chegar`) para lugares físicos.
+- **Campos opcionais:**
+  - `sinonimos`: lista de nomes alternativos ou variações anteriores (ex.: `["FGA"]` na FCTE). A busca encontra os termos também pelos sinônimos.
+  - `relacionados`: lista de ids de outros termos do glossário que possuem relação semântica (ex.: `["fcts", "fup"]`). Validados no CI para garantir que existem no glossário.
+  - `saiba_mais`: link oficial complementar para aprofundamento (link absoluto `http(s)`).
+  - `origem` e `coletado_em`: proveniência do dado (`manual` ou `coleta`; quando for `coleta`, informar a data no formato `AAAA-MM-DD`).
+  - `categoria`: tema em kebab-case.
+  - `localizacao`: `{ "lat", "lng", "link_como_chegar" }` para lugares físicos (adiciona mapa na página).
 
 Nenhum termo é aceito sem `fonte` preenchida. O CI valida todo PR contra esse schema;
 regras completas em [`docs/adr/0004-schema-unico-do-termo.md`](docs/adr/0004-schema-unico-do-termo.md).
