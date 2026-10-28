@@ -8,37 +8,48 @@ Dicionário colaborativo de termos da UnB. Requisitos completos em [`REQUISITOS.
 Planilha de coleta (Google Sheets)
         │
         ▼
-  Dataset de termos (formato a definir — ver Decisões pendentes)
+  frontend/data/termos.json (JSON estático — ADR 0001, proposta)
         │
         ▼
-   Aplicação de consulta (PWA)
+   Aplicação de consulta (PWA) — publicada em /frontend/
         │
         ├── Busca por texto
         └── Filtro por categoria
+
+   Página "Sobre o projeto" — publicada em /sobre/, site separado (a raiz redireciona para ela)
 ```
 
-## Estrutura de pastas (proposta inicial)
+## Estrutura de pastas
 
 ```
 G10-2026-2/
-├── frontend/           # aplicação de consulta (PWA)
-├── data/                # dataset de termos — ou backend/, conforme ADR 0001
+├── index.html          # raiz do site publicado: redireciona para sobre/
+│   ├── data/           # termos.json — dataset (ADR 0001, proposta)
+│   └── js/             # termos.js, validacao-termo.js (domínio) + app.js (DOM)
+├── sobre/              # GitPage 2: apresentação do projeto, só HTML e CSS → /sobre/
+├── frontend/           # GitPage 1: o glossário (PWA), sem build → /frontend/
+├── scripts/            # servidor-local.mjs: as duas páginas no mesmo layout do Pages
+├── tests/              # node:test — domínio + validação do dataset
 ├── docs/
 │   ├── adr/
 │   ├── estudos/
 │   └── scrum/
-├── skills/
-│   └── glossario-unb-dev/
 └── .github/
+    └── workflows/      # ci.yml (testes em todo PR) e pages.yml (publicação)
 ```
 
-Ajustar assim que a ADR 0001 (abaixo) for fechada.
+O dataset ficou dentro de `frontend/` para o glossário ser publicado copiando uma única pasta (ver ADR 0001). A pasta `skills/`, citada em versões anteriores deste documento, não existe no repositório.
 
-## Decisões pendentes (registrar como ADR em `docs/adr/` assim que fechadas)
+## Decisões pendentes 
 
-- **ADR 0001 — JSON estático vs. backend com banco de dados.** O glossario-ufcg (referência direta do projeto) usa JSON estático servido pelo próprio front. Dado o volume pequeno de termos, essa opção evita infraestrutura desnecessária, mas precisa ser decidida formalmente pelo time responsável por Backend/Banco de Dados, não assumida por padrão.
-- **ADR 0002 — Framework de frontend.** A definir.
-- **ADR 0003 — Ferramenta de PWA/service worker.** Depende da escolha de framework (ADR 0002).
+> - [ADR 0001 — Termos em JSON estático](adr/0001-termos-em-json-estatico.md)
+> - [ADR 0002 — Frontend sem framework](adr/0002-frontend-sem-framework.md)
+> - [ADR 0003 — PWA com service worker próprio](adr/0003-pwa-com-service-worker-proprio.md)
+> - [ADR 0004 — Schema único do termo](adr/0004-schema-unico-do-termo.md)
+> - [ADR 0005 — Mapa com Leaflet/OSM](adr/0005-mapa-de-locais-com-leaflet.md)
+> - [ADR 0006 — Contribuição por PR e Issue](adr/0006-contribuicao-por-pr-e-issue.md)
+> - [ADR 0007 — GitHub Pages e CI](adr/0007-github-pages-e-ci-com-actions.md)
+> - [ADR 0008 — Interface com CSS puro e tokens](adr/0008-interface-com-css-puro-e-tokens.md) (28/09)
 
 ## Padrões de código (a manter desde o primeiro commit)
 
@@ -49,5 +60,5 @@ Ajustar assim que a ADR 0001 (abaixo) for fechada.
 
 ## Referências
 
-- Escopo detalhado e schema de termo: [`skills/glossario-unb-dev/SKILL.md`](../skills/glossario-unb-dev/SKILL.md)
+- Schema de termo: [`adr/0004-schema-unico-do-termo.md`](adr/0004-schema-unico-do-termo.md)
 - Fluxo de contribuição: [`CONTRIBUTING.md`](../CONTRIBUTING.md)

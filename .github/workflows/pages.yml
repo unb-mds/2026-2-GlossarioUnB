@@ -1,0 +1,47 @@
+name: Pages
+
+# Publica as duas GitPages (ADR 0007) a cada push na main, com as MESMAS pastas
+# do repositório, para os links relativos entre elas funcionarem em qualquer lugar:
+#   /frontend/  → o glossário
+#   /sobre/     → a apresentação do projeto
+#   /           → index.html, que redireciona para /sobre/
+# Para funcionar, ative uma vez: Settings → Pages → Source: GitHub Actions.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  publicar:
+    name: Testar e publicar as duas páginas
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      # Nada é publicado se algum teste ou termo estiver inválido.
+      - run: npm test
+      - name: Montar o site (mesmo layout do npm run dev)
+        run: |
+          mkdir -p _site
+          cp index.html _site/
+          cp -R frontend sobre _site/
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - id: deploy
+        uses: actions/deploy-pages@v4

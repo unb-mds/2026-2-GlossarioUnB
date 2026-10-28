@@ -1,6 +1,6 @@
 # Convenção de Commits e Branches — Glossário UnB
 
-> **Status:** Documento Oficial de Engenharia  
+> **Status:** Proposta, aguardando aprovação do time (#17)  
 > **Referência:** Issue #17 — Convenção de commits e branches  
 > **Padrões adotados:** GitHub Flow e [Conventional Commits v1.0.0](https://www.conventionalcommits.org/pt-br/v1.0.0/)
 
@@ -11,8 +11,7 @@
 Em projetos de software colaborativos, branches desorganizadas e commits com mensagens vagas (ex.: *"ajustes"*, *"update"*, *"corrigindo"*) causam:
 - Dificuldade para rastrear a origem e a motivação de alterações;
 - Conflitos frequentes de merge difíceis de inspecionar;
-- Impossibilidade de gerar *changelogs* e notas de release automáticas;
-- Falta de evidência de engenharia de software avaliada na disciplina MDS.
+- Impossibilidade de gerar *changelogs* e notas de release automáticas.
 
 Esta convenção formaliza o modelo que todos os integrantes do time devem seguir.
 
@@ -32,6 +31,8 @@ Toda branch de desenvolvimento deve seguir o padrão:
 - **Letras minúsculas:** sempre em minúsculas, sem caracteres especiais ou acentos.
 - **Hífen como separador (`kebab-case`):** use hífen para separar palavras.
 - **Vínculo com a Issue:** inclua obrigatoriamente o número da issue que a branch resolve.
+
+> **Dica para edições via web (GitHub):** ao editar arquivos diretamente pela interface web do GitHub, o sistema sugere nomes como `usuario-patch-N`. Altere sempre o nome da branch para o padrão antes de criá-la.
 
 #### Tabela de Prefixos
 
@@ -81,15 +82,15 @@ Seguimos a especificação internacional **Conventional Commits v1.0.0**.
 | `docs` | Alterações exclusivamente em documentação | `docs(specs): adiciona constituicao do projeto` |
 | `chore` | Configurações, build, dependências, templates | `chore(github): atualiza templates de issue` |
 | `test` | Criação ou modificação de testes automatizados | `test(schema): adiciona testes de validacao de termos` |
-| `refactor` | Mudança de código que não altera comportamento | `refactor(front): extrai componente TermCard` |
-| `style` | Formatação, pontuação, linting visual | `style(front): formata arquivos com prettier` |
-| `perf` | Melhoria de desempenho ou otimização de recursos | `perf(front): reduz tamanho do bundle com lazy loading` |
+| `refactor` | Mudança de código que não altera comportamento | `refactor(frontend): extrai componente TermCard` |
+| `style` | Formatação, pontuação, linting visual | `style(frontend): formata arquivos com prettier` |
+| `perf` | Melhoria de desempenho ou otimização de recursos | `perf(frontend): reduz tamanho do bundle com lazy loading` |
 
 ### 3.3 Escopos Padronizados do Glossário UnB
 
 O escopo situa em qual módulo do projeto a mudança ocorreu:
 - `dados`: arquivos de dados do glossário (`data/*.json`) e schemas.
-- `front` ou `frontend`: componentes de interface, CSS, páginas.
+- `frontend`: componentes de interface, páginas HTML, CSS e scripts do app.
 - `pwa`: service worker, manifesto e estratégias de cache offline.
 - `i18n`: internacionalização e arquivos de tradução.
 - `github`: workflows, templates de issue/PR e actions.
@@ -107,7 +108,7 @@ O escopo situa em qual módulo do projeto a mudança ocorreu:
 | ✅ Como fazer | ❌ Como NÃO fazer |
 |---|---|
 | `feat(dados): adiciona termo PPAES com fontes verificadas` | `ajustes no json` |
-| `fix(ui): corrige overflow de texto no card do termo` | `consertando bug` |
+| `fix(frontend): corrige overflow de texto no card do termo` | `consertando bug` |
 | `docs(processo): atualiza fluxo de revisao de PR` | `docs` |
 | `chore(ci): configura pipeline de testes no github actions` | `subindo arquivos` |
 

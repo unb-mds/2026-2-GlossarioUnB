@@ -44,7 +44,7 @@ Você não precisa e não tem acesso de escrita a este repositório, use fork:
 1. Clique em **Fork** neste repositório (canto superior direito no GitHub)
 2. Clone o *seu fork*: `git clone <url-do-seu-fork>`
 3. Crie uma branch: `git checkout -b add-termo-<nome-do-termo>`
-4. Edite o arquivo de dados do termo seguindo o schema abaixo
+4. Edite `frontend/data/termos.json` seguindo o schema abaixo e rode `npm test`
 5. `git push` para o seu fork e abra um Pull Request para o nosso `main`
 6. Alguém do G10 revisa e mergeia
 
@@ -52,18 +52,23 @@ Você não precisa e não tem acesso de escrita a este repositório, use fork:
 
 ```json
 {
+  "id": "deg",
   "termo": "DEG",
   "tipo": "sigla",
-  "categoria": "estrutura-administrativa",
   "significado": "Decanato de Ensino de Graduação",
   "definicao": "Explicação em português simples do que é/faz.",
-  "exemplo_uso": "Frase real mostrando o termo em uso.",
-  "fonte": "URL ou 'conhecimento comum verificado pelo grupo'"
+  "exemplo_uso": "Minha dúvida sobre matrícula foi encaminhada para o DEG.",
+  "fonte": "URL ou 'conhecimento comum verificado pelo grupo'",
+  "campus": "Geral"
 }
 ```
 
-Nenhum termo é aceito sem `fonte` preenchida. Ver `skills/glossario-unb-dev/SKILL.md`
-para as regras completas do modelo de dados.
+- `tipo`: `sigla`, `giria` ou `expressao`. `significado` (por extenso) só é obrigatório para siglas.
+- `campus`: `Darcy Ribeiro`, `Ceilândia`, `Gama`, `Planaltina` ou `Geral`.
+- Opcionais: `categoria` (tema) e `localizacao` (`lat`, `lng`, `link_como_chegar`) para lugares físicos.
+
+Nenhum termo é aceito sem `fonte` preenchida. O CI valida todo PR contra esse schema;
+regras completas em [`docs/adr/0004-schema-unico-do-termo.md`](docs/adr/0004-schema-unico-do-termo.md).
 
 ## Convenção de commits
 
@@ -96,7 +101,7 @@ Adotamos a especificação [Conventional Commits v1.0.0](https://www.conventiona
 
 O escopo entre parênteses indica a área afetada:
 - `dados`: arquivos do dataset de termos e schemas JSON
-- `frontend` ou `ui`: componentes de interface, páginas e estilização
+- `frontend`: componentes de interface, páginas HTML, CSS e scripts do app
 - `pwa`: service worker, manifest e rotinas de cache offline
 - `i18n`: suporte e bibliotecas de internacionalização
 - `github`: workflows, actions, templates de issue/PR

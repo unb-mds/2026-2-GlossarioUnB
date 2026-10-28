@@ -86,3 +86,15 @@ horários em [`horarios.md`](horarios.md).
 20:10 até 21:30
 
 ---
+
+### [Segunda], 12/10
+
+**Presentes:Italo, Allan, Pedro, José**
+
+**Progresso:Definimos as issues da sprint 4 a 9 e dividimos entre os membros**
+
+**Pendências / próximos passos:Entregar Sprint 04, definir nova data da reunião e entregar issues pendentes**
+
+20:10 até 20:46
+
+---

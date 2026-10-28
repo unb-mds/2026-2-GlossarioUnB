@@ -14,7 +14,9 @@ Cada entrada deve conter: data, pessoa, ferramenta usada, o que foi pedido, o qu
 
 | Data | Pessoa | Ferramenta | O que foi feito | Aceito/ajustado/rejeitado |
 |---|---|---|---|---|
+| 20/09/2026 | Italo | Claude | pedi ajuda para elaborar os documentos de estudos sobre PWA e i18n | ajustado para um formato mais didatico e ajuste em algumas informações |
 | 28/09/2026 | José Gabriel | Antigravity | Elaboração e formalização da convenção de commits e branches (`docs/CONVENCAO-GIT.md` e `CONTRIBUTING.md`) para a issue #17 | Aceito |
+| | | | | |
 
 
 <!-- Exemplo de linha preenchida:
@@ -25,9 +27,10 @@ Cada entrada deve conter: data, pessoa, ferramenta usada, o que foi pedido, o qu
 
 | Data | Pessoa | Ferramenta | O que foi feito | Aceito/ajustado/rejeitado |
 |---|---|---|---|---|
+| 18/10/2026 | Allan | Claude | Pedi ajuda com o documento .env.example e como subir o pull request pelo cmd | ajustei o texto do pull request, o resto foi aceito |
 | | | | | |
 
 ## Observações gerais
 
 - Código/dado gerado por IA passa pela mesma revisão de PR que qualquer outro (ver `docs/PROCESSO.md`)
-- Termo sugerido com ajuda de IA precisa ter `fonte` verificada por uma pessoa antes de aceito 
+- Termo sugerido com ajuda de IA precisa ter `fonte` verificada por uma pessoa antes de aceito
