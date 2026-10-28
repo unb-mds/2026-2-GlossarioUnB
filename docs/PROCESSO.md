@@ -4,12 +4,12 @@ Como o time trabalha: fluxo de Git, padrões de qualidade e governança do repos
 
 ## 1. Repositório e fluxo de Git
 
-Repositório: `github.com/unb-mds/G10-2026-2`
+Repositório: `github.com/unb-mds/2026-2-GlossarioUnB`
 
 - Um único repositório
-- Branches: `main` (estável) → `feature/nome-da-tarefa`, **GitHub Flow**, sem `develop`/`release`/`hotfix`. Optamos por simplificar em relação ao Git-Flow completo porque o time é pequeno e o volume de branches simultâneas é baixo; se isso mudar, revisitar via ADR.
+- Branches: `main` (estável) → `feature/nome-da-tarefa` (ou `fix/`, `docs/`, `chore/`), **GitHub Flow**, sem `develop`/`release`/`hotfix`. Convenção detalhada em [`CONTRIBUTING.md`](../CONTRIBUTING.md).
 - Contribuidor externo (fora do G10): fluxo por fork, documentado em [`CONTRIBUTING.md`](../CONTRIBUTING.md)
-- Commits em Conventional Commits (`feat:`, `fix:`, `docs:`, `chore:`, `test:`, `refactor:`)
+- Commits em Conventional Commits (`feat:`, `fix:`, `docs:`, `chore:`, `test:`, `refactor:`, `style:`, `perf:`)
 - Organização de tarefas via Issues + Milestones (1 Milestone = 1 Sprint) + board (Projects) do GitHub
 
 ## 2. Padrão de Issues e Pull Requests
