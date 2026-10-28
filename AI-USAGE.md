@@ -27,9 +27,10 @@ Cada entrada deve conter: data, pessoa, ferramenta usada, o que foi pedido, o qu
 | Data | Pessoa | Ferramenta | O que foi feito | Aceito/ajustado/rejeitado |
 |---|---|---|---|---|
 | 18/10/2026 | Allan | Claude | Pedi ajuda com o documento .env.example e como subir o pull request pelo cmd | ajustei o texto do pull request, o resto foi aceito |
+| 28/10/2026 | José | Antigravity | Resolução da issue #64: schema (sinônimos, relacionados, saiba mais, proveniência), busca por sinônimos, testes com particionamento de equivalência e atualização de documentação | Aceito integralmente após testes de unidade e cobertura total dos novos campos |
 | | | | | |
 
 ## Observações gerais
 
 - Código/dado gerado por IA passa pela mesma revisão de PR que qualquer outro (ver `docs/PROCESSO.md`)
-- Termo sugerido com ajuda de IA precisa ter `fonte` verificada por uma pessoa antes de aceito 
+- Termo sugerido com ajuda de IA precisa ter `fonte` verificada por uma pessoa antes de aceito

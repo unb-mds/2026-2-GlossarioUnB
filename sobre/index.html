@@ -125,7 +125,7 @@
           <h3>Qualidade, além dos requisitos</h3>
           <ul class="lista-simples">
             <li><strong>Acessibilidade:</strong> busca e navegação por teclado, compatível com leitor de tela e contraste WCAG AA. A auditoria automática (axe-core) não encontrou violações.</li>
-            <li><strong>Testes automatizados:</strong> 26 testes, que rodam no CI a cada Pull Request, incluindo a validação de todos os termos.</li>
+            <li><strong>Testes automatizados:</strong> 33 testes, que rodam no CI a cada Pull Request, incluindo a validação de todos os termos.</li>
             <li><strong>Outros idiomas:</strong> ainda não. A tradução está fora do escopo e o preparo da interface para outros idiomas é trabalho futuro.</li>
           </ul>
           <p class="nota-bloco"><strong>Fora do escopo por enquanto:</strong> login de usuário, favoritos, tradução do conteúdo, edição de termos direto pelo site e aplicativo nativo (o PWA cobre o celular).</p>
@@ -171,7 +171,8 @@
             <li><strong>Nenhum termo entra sem <code>fonte</code></strong>: um link oficial ou “conhecimento comum verificado pelo grupo”.</li>
             <li><code>tipo</code> é <code>sigla</code>, <code>giria</code> ou <code>expressao</code>; <code>significado</code> (por extenso) é obrigatório só para siglas.</li>
             <li><code>campus</code> é Darcy Ribeiro, Ceilândia, Gama, Planaltina ou Geral. Lugares físicos podem ter <code>localizacao</code> e ganham um mapa.</li>
-            <li>O CI confere todo Pull Request: termo fora do padrão ou <code>id</code> repetido não passa.</li>
+            <li><strong>Campos opcionais:</strong> <code>sinonimos</code> (nomes anteriores/variações como FGA na FCTE, encontrados pela busca), <code>relacionados</code> (outros ids do glossário), <code>saiba_mais</code> (link oficial) e <code>origem</code>/<code>coletado_em</code> (proveniência dos dados).</li>
+            <li>O CI confere todo Pull Request: termo fora do padrão, <code>id</code> repetido ou <code>relacionados</code> inexistente não passa.</li>
           </ul>
           <p>Regras completas em <a href="https://github.com/unb-mds/2026-2-GlossarioUnB/blob/main/CONTRIBUTING.md"><code>CONTRIBUTING.md</code></a>. Viu algo errado num termo? <a href="https://github.com/unb-mds/2026-2-GlossarioUnB/issues/new/choose">Abra uma issue</a>.</p>
         </section>

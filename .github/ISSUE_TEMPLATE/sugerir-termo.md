@@ -29,6 +29,18 @@ labels: ["contribuicao-externa", "dados"]
 
 <!-- Link oficial da UnB, ou "conhecimento comum" se for gíria/expressão do dia a dia -->
 
+## Sinônimos ou nomes alternativos (opcional)
+
+<!-- Nomes antigos, apelidos ou variações. Ex.: FGA para FCTE -->
+
+## Termos relacionados (opcional)
+
+<!-- Outros termos do glossário com os quais este se conecta -->
+
+## Saiba mais (opcional)
+
+<!-- Link oficial adicional para aprofundamento -->
+
 ---
 
 **Não sabe usar Git/GitHub?** Sem problema — é só preencher esta issue.

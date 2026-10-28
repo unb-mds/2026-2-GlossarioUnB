@@ -32,6 +32,11 @@ Um único schema, validado por uma única função (`frontend/js/validacao-termo
 | `campus` | sim | `Darcy Ribeiro` / `Ceilândia` / `Gama` / `Planaltina` / `Geral` | MVP do colega |
 | `categoria` | não | tema em kebab-case (lista **a definir pela equipe**) | CONTRIBUTING |
 | `localizacao` | não | `{ "lat", "lng", "link_como_chegar" }` (link só `http(s)`) | MVP do colega |
+| `sinonimos` | não | lista de nomes alternativos ou variações (ex.: `["FGA"]`) | Issue #64 (Sprint 05) |
+| `relacionados` | não | lista de ids válidos e existentes no glossário | Issue #64 (Sprint 05) |
+| `saiba_mais` | não | URL oficial adicional (`http(s)`) | Issue #64 (Sprint 05) |
+| `origem` | não | `manual` ou `coleta` | Issue #64 (Sprint 05) |
+| `coletado_em` | só se `origem` = `coleta` | data no formato `AAAA-MM-DD` | Issue #64 (Sprint 05) |
 
 Regras:
 
@@ -39,6 +44,8 @@ Regras:
 - O mapa aparece quando existe `localizacao`, sem depender de "categoria".
 - Chaves em `snake_case`.
 - `id` é único no arquivo.
+- Termos em `relacionados` devem referenciar apenas IDs válidos existentes no glossário (validado no CI).
+- A busca textual encontra termos tanto pelo nome principal quanto por seus `sinonimos`.
 
 ## Alternativas descartadas
 - **Manter o schema do MVP.** Não tem `fonte`, o que viola a regra "nenhum termo é aceito sem fonte" do CONTRIBUTING, e `categoria: "local"` mistura classificação com renderização.
@@ -50,3 +57,4 @@ Regras:
 - Os modelos `adicionar-termo.md` e `corrigir-definicao.md` (PR #29) não pedem `campus`: quem converte a issue em termo preenche.
 - O modelo `adicionar-termo.md` oferece o tipo `local`, que este schema **não aceita**. Um lugar é uma sigla, gíria ou expressão com `categoria` (ex.: `locais-campus`) e, se houver coordenadas, `localizacao`. Foi o caso do termo "Ceubinho" (issue #30).
 - A lista de valores de `categoria` e a redação do RF02 ("categoria" → "tipo") continuam em aberto. **PRECISA VALIDAÇÃO DA EQUIPE.**
+- Evolução na Sprint 05 (Issue #64): inclusão dos campos `sinonimos`, `relacionados`, `saiba_mais`, `origem` e `coletado_em`. A busca passou a considerar os sinônimos e o CI passou a validar a integridade de `relacionados`.
