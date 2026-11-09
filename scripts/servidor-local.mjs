@@ -10,6 +10,13 @@ import { extname, join, normalize, sep } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const RAIZ = fileURLToPath(new URL("..", import.meta.url));
+try {
+  process.loadEnvFile?.();
+} catch (erro) {
+  if (erro?.code !== "ENOENT") {
+    console.warn("Aviso ao carregar .env:", erro.message);
+  }
+}
 const PORTA = Number(process.env.PORT) || 8080;
 const PASTAS_PUBLICADAS = ["frontend", "sobre"];
 const TIPOS = {

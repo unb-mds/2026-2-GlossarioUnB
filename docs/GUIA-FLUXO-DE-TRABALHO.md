@@ -15,8 +15,8 @@ git config commit.template .gitmessage
 
 Se ainda não clonou o repositório:
 ```bash
-git clone https://github.com/unb-mds/G10-2026-2.git
-cd G10-2026-2
+git clone https://github.com/unb-mds/2026-2-GlossarioUnB.git
+cd 2026-2-GlossarioUnB
 ```
 `clone` baixa o repositório inteiro (com todo o histórico) pra sua máquina, dentro de uma pasta com o nome do repositório. `cd` entra nela.
 

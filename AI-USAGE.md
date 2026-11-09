@@ -27,6 +27,7 @@ Cada entrada deve conter: data, pessoa, ferramenta usada, o que foi pedido, o qu
 | Data | Pessoa | Ferramenta | O que foi feito | Aceito/ajustado/rejeitado |
 |---|---|---|---|---|
 | 18/10/2026 | Allan | Claude | Pedi ajuda com o documento .env.example e como subir o pull request pelo cmd | ajustei o texto do pull request, o resto foi aceito |
+| 09/11/2026 | José Gabriel | Antigravity | Elaboração do README.md completo para a Release 2 (arquitetura, tecnologias, guia de instalação, .env e seção de coleta de termos) para a issue #97 | Aceito |
 | | | | | |
 
 ## Observações gerais
