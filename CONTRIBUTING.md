@@ -6,34 +6,26 @@ UnB** que queira sugerir ou corrigir um termo (via fork).
 
 ## Modelo de branches
 
-Adotamos o **GitHub Flow** — um modelo ágil, seguro e simplificado em relação ao Git-Flow tradicional. Todo o trabalho do time é integrado diretamente na `main` através de Pull Requests revisados.
+Adotamos o **GitHub Flow** — simplificado em relação ao Git-Flow completo, porque
+o time é pequeno e não mantemos uma versão em produção separada da que está
+em desenvolvimento (ver o porquê em `docs/PROCESSO.md`, seção 1). Sem `develop`,
+`release/*` ou `hotfix/*` por enquanto (se houver necessidade de mudança, entra como ADR).
 
 ### Nomenclatura de branches
 
-Toda branch deve ser criada a partir da `main` atualizada, escrita em letras minúsculas (`kebab-case`) e seguir os prefixos semânticos abaixo:
+Toda branch deve ser criada a partir da `main` atualizada, escrita em minúsculas (`kebab-case`) com prefixo por tipo, número da issue e descrição curta:
+```text
+<prefixo>/issue-<ID>-<descricao-curta>
+```
 
-| Prefixo | Finalidade | Exemplo |
-|---|---|---|
-| `feature/` | Nova funcionalidade, épico ou user story | `feature/issue-14-busca-termo` |
-| `fix/` | Correção de bug ou falha de sistema | `fix/issue-35-alinhamento-card` |
-| `docs/` | Documentação, requisitos, ADRs, estudos | `docs/issue-19-constituicao` |
-| `chore/` | Configurações, dependências, templates, CI/CD | `chore/issue-24-templates-issue` |
-| `refactor/` | Reorganização de código sem mudar comportamento | `refactor/issue-42-modularizacao-busca` |
-| `test/` | Adição ou reestruturação de testes | `test/issue-50-cobertura-schema` |
-
-### Regras do ciclo de vida da branch
-
-1. **`main` é protegida:** Nenhum integrante realiza commits diretamente na `main`. Todo código entra via Pull Request revisado por pelo menos 1 integrante.
-2. **Branches temporárias e focadas:** Cada branch resolve uma issue/tarefa específica e deve ser excluída remotamente após o merge do PR.
-3. **Sincronização:** Mantenha sua branch sincronizada com a `main` antes de abrir o PR para evitar conflitos (`git pull origin main`).
-4. **Sem branches complexas:** Não usamos `develop`, `release/*` ou `hotfix/*` por enquanto (qualquer alteração será avaliada via ADR).
+Prefixos válidos: `feature/`, `fix/`, `docs/`, `chore/`, `refactor/`, `test/`. Detalhes e exemplos completos em [`docs/CONVENCAO-GIT.md`](docs/CONVENCAO-GIT.md).
 
 ## Se você é do time G10
 
 1. `git checkout main && git pull origin main`
-2. `git checkout -b feature/issue-XX`
+2. `git checkout -b <prefixo>/issue-XX-<descricao-curta>` (ex.: `feature/issue-14-busca-termo`, `docs/issue-19-constituicao`)
 3. Commits pequenos, seguindo a convenção abaixo
-4. `git push origin feature/issue-XX`
+4. `git push origin <prefixo>/issue-XX-<descricao-curta>`
 5. Abra um Pull Request **para `main`**
 6. Peça revisão de pelo menos 1 pessoa. **Ninguém aprova o próprio PR.**
 
@@ -72,47 +64,20 @@ regras completas em [`docs/adr/0004-schema-unico-do-termo.md`](docs/adr/0004-sch
 
 ## Convenção de commits
 
-Adotamos a especificação [Conventional Commits v1.0.0](https://www.conventionalcommits.org/pt-br/v1.0.0/). Cada mensagem de commit deve ser clara, contextualizada e padronizada.
-
-### Formato da mensagem
+Adotamos a especificação [Conventional Commits v1.0.0](https://www.conventionalcommits.org/pt-br/v1.0.0/). Cada mensagem deve seguir a estrutura:
 
 ```text
 <tipo>(<escopo opcional>): <descrição no imperativo e em minúsculas>
 
 [corpo opcional explicando o que mudou e por quê]
 
-[rodapé opcional com referência à issue]
+[rodapé opcional com Closes #XX]
 ```
 
-### Tipos permitidos
+- **Tipos permitidos:** `feat`, `fix`, `docs`, `chore`, `test`, `refactor`, `style`, `perf`.
+- **Escopos:** livres para indicar o módulo alterado (ex.: `dados`, `frontend`, `pwa`, `github`, `specs`, etc.).
 
-| Prefixo | Significado | Quando usar |
-|---|---|---|
-| `feat:` | Nova funcionalidade | Adiciona nova funcionalidade ou novos termos ao sistema |
-| `fix:` | Correção de bug | Corrige um erro, link quebrado ou comportamento incorreto |
-| `docs:` | Documentação | Alterações exclusivamente em documentação (`docs/`, `specs/`, `README.md`) |
-| `chore:` | Tarefas de suporte | Atualizações de infra, dependências, build, templates de issue/PR |
-| `test:` | Testes automatizados | Adição, correção ou refatoração de testes e schemas de validação |
-| `refactor:` | Refatoração | Mudança interna no código que não altera o comportamento externo |
-| `style:` | Estilo e formatação | Ajustes de formatação, pontuação, espaços, sem impacto funcional |
-| `perf:` | Desempenho | Mudanças voltadas à melhoria de performance ou carregamento offline |
-
-### Escopos padronizados do projeto
-
-O escopo entre parênteses indica a área afetada:
-- `dados`: arquivos do dataset de termos e schemas JSON
-- `frontend`: componentes de interface, páginas HTML, CSS e scripts do app
-- `pwa`: service worker, manifest e rotinas de cache offline
-- `i18n`: suporte e bibliotecas de internacionalização
-- `github`: workflows, actions, templates de issue/PR
-- `specs`: constituição, requisitos e ADRs
-
-### Fechamento de issues no rodapé
-
-Para fechar automaticamente a issue correspondente quando o PR for mergeado em `main`, inclua no rodapé do commit ou do PR:
-```text
-Closes #<número da issue>
-```
+Para a especificação completa, boas práticas, ciclo de vida da branch e exemplos práticos de commits, consulte o guia oficial em [**`docs/CONVENCAO-GIT.md`**](docs/CONVENCAO-GIT.md).
 
 ### Template local do Git
 

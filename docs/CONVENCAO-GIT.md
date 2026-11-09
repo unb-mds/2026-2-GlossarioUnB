@@ -19,7 +19,7 @@ Esta convenção formaliza o modelo que todos os integrantes do time devem segui
 
 ## 2. Modelo de Branches (GitHub Flow)
 
-O time utiliza o **GitHub Flow**: um modelo ágil, focado em integração contínua na branch principal (`main`), sem a complexidade de ramos intermediários (`develop`, `release/*` ou `hotfix/*`).
+O time utiliza o **GitHub Flow**: um modelo ágil, focado em integração contínua na branch principal (`main`). Optamos por simplificar em relação ao Git-Flow tradicional porque o time é pequeno, o volume de branches simultâneas é baixo e não mantemos uma versão em produção separada da que está em desenvolvimento. Por isso, não utilizamos branches intermediárias como `develop`, `release/*` ou `hotfix/*`; qualquer mudança futura nesse sentido será avaliada e registrada via ADR.
 
 ### 2.1 Regras de Nomenclatura de Branches
 
@@ -86,11 +86,11 @@ Seguimos a especificação internacional **Conventional Commits v1.0.0**.
 | `style` | Formatação, pontuação, linting visual | `style(frontend): formata arquivos com prettier` |
 | `perf` | Melhoria de desempenho ou otimização de recursos | `perf(frontend): reduz tamanho do bundle com lazy loading` |
 
-### 3.3 Escopos Padronizados do Glossário UnB
+### 3.3 Escopos
 
-O escopo situa em qual módulo do projeto a mudança ocorreu:
-- `dados`: arquivos de dados do glossário (`data/*.json`) e schemas.
-- `frontend`: componentes de interface, páginas HTML, CSS e scripts do app.
+O escopo é opcional e contextualiza o módulo ou área do projeto afetada pela alteração. A lista abaixo traz **exemplos comuns** no projeto e **não é fechada** (outros escopos pertinentes podem ser utilizados, como `validacao`, `sw`, `schema`, `ui`, `ci`, `processo`, `ai-usage`, etc.):
+- `dados`: arquivos do dataset de termos (`frontend/data/*.json`) e regras de dados.
+- `frontend`: componentes de interface, páginas HTML, CSS e scripts da aplicação.
 - `pwa`: service worker, manifesto e estratégias de cache offline.
 - `i18n`: internacionalização e arquivos de tradução.
 - `github`: workflows, templates de issue/PR e actions.

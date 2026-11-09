@@ -1,6 +1,6 @@
 # <tipo>(<escopo opcional>): <descrição curta, no imperativo>
 #
-# tipos válidos: feat | fix | docs | chore | test | refactor
+# tipos válidos: feat | fix | docs | chore | test | refactor | style | perf
 # exemplo: feat(dados): adiciona termo PPAES
 #
 # Corpo (opcional, apagar se não precisar):
