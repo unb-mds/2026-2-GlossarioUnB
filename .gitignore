@@ -7,3 +7,8 @@ Thumbs.db
 node_modules/
 _site/
 coverage/
+
+# Variáveis de ambiente locais
+.env
+.env.local
+.env.*.local
