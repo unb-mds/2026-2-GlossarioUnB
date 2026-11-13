@@ -31,6 +31,7 @@ Detalhes do glossário em [`frontend/README.md`](frontend/README.md).
 
 - [Requisitos do sistema](docs/REQUISITOS.md)
 - [Arquitetura do sistema](docs/ARQUITETURA.md) e [decisões (ADRs)](docs/adr/)
+- [Estratégia de testes](docs/estrategia-de-testes.md)
 - [Story Map](docs/storymap/story-map.md) e [quadro do Figma](https://www.figma.com/board/dk8nBcFiFEWo1AkOvn1554/Template-MDS--c%C3%B3pia-limpa---c%C3%B3pia---c%C3%B3pia-?node-id=0-1&t=IS5erq77oDUXUtei-1)
 - [Processo do time](docs/PROCESSO.md)
 - [Como contribuir](CONTRIBUTING.md)
