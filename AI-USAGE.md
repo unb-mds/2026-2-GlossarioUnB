@@ -28,6 +28,7 @@ Cada entrada deve conter: data, pessoa, ferramenta usada, o que foi pedido, o qu
 | Data | Pessoa | Ferramenta | O que foi feito | Aceito/ajustado/rejeitado |
 |---|---|---|---|---|
 | 18/10/2026 | Allan | Claude | Pedi ajuda com o documento .env.example e como subir o pull request pelo cmd | ajustei o texto do pull request, o resto foi aceito |
+| 13/11/2026 | Allan | opencode | Elaboração do `docs/estrategia-de-testes.md` para a issue #43, com base nos testes e workflows reais do repositório | Gerado; revisão pendente no PR |
 | | | | | |
 
 ## Observações gerais
