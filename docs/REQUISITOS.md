@@ -55,4 +55,4 @@ Coleta inicial via [planilha colaborativa](https://docs.google.com/spreadsheets/
 Estrutura detalhada sprint a sprint em [`scrum/sprint-planning.md`](scrum/sprint-planning.md).
 
 - **Release 1** (28/09/2026): escopo e arquitetura validados, protótipo funcional, tecnologias testadas com código rodando
-- **Release 2** (25/11/2026): produto completo conforme RF01-05 e RNF01-05
+- **Release 2** (25/11/2026): produto completo conforme RF01–RF06 e RNF01
