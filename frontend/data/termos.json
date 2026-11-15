@@ -23,21 +23,21 @@
     "id": "fcts",
     "termo": "FCTS",
     "tipo": "sigla",
-    "significado": "Campus UnB Ceilândia, Faculdade de Ciências e Tecnologias em Saúde",
+    "significado": "Faculdade de Ciências e Tecnologias em Saúde",
     "definicao": "Campus da UnB localizada em Ceilândia, voltada ao ensino, pesquisa e extensão na área de saúde.",
     "exemplo_uso": "Tenho aula na FCTS hoje à tarde.",
     "fonte": "https://fcts.unb.br/",
-    "campus": "Geral"
+    "campus": "Ceilândia"
   },
   {
     "id": "fcte",
     "termo": "FCTE",
     "tipo": "sigla",
-    "significado": "Campus UnB Gama, Faculdade de Ciências e Tecnologias em Engenharia",
+    "significado": "Faculdade de Ciências e Tecnologias em Engenharia",
     "definicao": "Campus da UnB no Gama dedicada ao ensino, pesquisa e extensão relacionados às áreas de engenharia e tecnologia.",
     "exemplo_uso": "Faço Engenharia de Software na FCTE.",
     "fonte": "https://fcte.unb.br/",
-    "campus": "Geral"
+    "campus": "Gama"
   },
   {
     "id": "cds",
@@ -83,7 +83,7 @@
     "id": "dac",
     "termo": "DAC",
     "tipo": "sigla",
-    "significado": "Decanato de Assuntos Comunitarios",
+    "significado": "Decanato de Assuntos Comunitários",
     "definicao": "Decanato responsável por políticas e ações relacionadas à assistência, permanência, saúde, esporte, acessibilidade e assuntos comunitários.",
     "exemplo_uso": "Fui ao DAC tirar uma dúvida sobre assistência estudantil.",
     "fonte": "https://dac.unb.br/",
@@ -217,7 +217,7 @@
     "definicao": "Campus da UnB localizada em Planaltina, voltada ao ensino, pesquisa e extensão na área de agrárias.",
     "exemplo_uso": "Hoje tenho uma atividade da universidade na FUP.",
     "fonte": "https://fup.unb.br/",
-    "campus": "Geral"
+    "campus": "Planaltina"
   },
   {
     "id": "ft",
@@ -226,7 +226,7 @@
     "significado": "Faculdade de Tecnologia",
     "definicao": "Unidade acadêmica que reúne cursos e atividades de ensino, pesquisa e extensão nas áreas de engenharia e tecnologia.",
     "exemplo_uso": "Depois do almoço tenho aula na FT.",
-    "fonte": "http://ft.unb.br/",
+    "fonte": "https://ft.unb.br/",
     "campus": "Geral"
   },
   {
@@ -409,9 +409,9 @@
     "fonte": "Conhecimento comum e vivência prática da comunidade acadêmica da UnB (issue #30).",
     "campus": "Darcy Ribeiro",
     "localizacao": {
-    "lat": -15.7634,
-    "lng": -47.8670,
-    "link_como_chegar": "https://www.google.com/maps/search/?api=1&query=-15.7634,-47.8670"
+      "lat": -15.762411,
+      "lng": -47.869627,
+      "link_como_chegar": "https://www.google.com/maps/search/?api=1&query=-15.762411,-47.869627"
+    }
   }
-}
 ]
