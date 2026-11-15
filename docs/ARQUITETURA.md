@@ -5,10 +5,17 @@ Dicionário colaborativo de termos da UnB. Requisitos completos em [`REQUISITOS.
 ## Visão geral 
 
 ```
-Planilha de coleta (Google Sheets)
+Fontes oficiais da UnB (coleta/fontes.json: páginas de siglas; o PDF entra com a #55)
         │
         ▼
-  frontend/data/termos.json (JSON estático — ADR 0001, proposta)
+  Pipeline de coleta no GitHub Actions (ADR 0009)
+  coletores → normalizar e deduplicar → validarGlossario()
+        │
+        ▼
+  Pull Request automático → revisão humana → merge na main
+        │
+        ▼
+  frontend/data/termos.json (JSON estático — ADR 0001)
         │
         ▼
    Aplicação de consulta (PWA) — publicada em /frontend/
@@ -28,7 +35,8 @@ G10-2026-2/
 │   └── js/             # termos.js, validacao-termo.js (domínio) + app.js (DOM)
 ├── sobre/              # GitPage 2: apresentação do projeto, só HTML e CSS → /sobre/
 ├── frontend/           # GitPage 1: o glossário (PWA), sem build → /frontend/
-├── scripts/            # servidor-local.mjs: as duas páginas no mesmo layout do Pages
+├── coleta/             # o robô: fontes, coletor, deduplicação, classificador; pode usar bibliotecas (ADR 0010)
+├── scripts/            # servidor-local.mjs (as duas páginas no mesmo layout do Pages) e coletar.mjs (roda o robô)
 ├── tests/              # node:test — domínio + validação do dataset
 ├── docs/
 │   ├── adr/
@@ -50,6 +58,8 @@ O dataset ficou dentro de `frontend/` para o glossário ser publicado copiando u
 > - [ADR 0006 — Contribuição por PR e Issue](adr/0006-contribuicao-por-pr-e-issue.md)
 > - [ADR 0007 — GitHub Pages e CI](adr/0007-github-pages-e-ci-com-actions.md)
 > - [ADR 0008 — Interface com CSS puro e tokens](adr/0008-interface-com-css-puro-e-tokens.md) (28/09)
+> - [ADR 0009 — Coleta automatizada por pipeline com PR revisado](adr/0009-coleta-automatizada-por-pipeline.md) (11/11)
+> - [ADR 0010 — Bibliotecas npm nos scripts do robô](adr/0010-bibliotecas-nos-scripts-do-robo.md) (13/11, proposta)
 
 ## Padrões de código (a manter desde o primeiro commit)
 

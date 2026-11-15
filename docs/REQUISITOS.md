@@ -9,7 +9,7 @@ Dicionário colaborativo de siglas, gírias e jargões da UnB (DEG, DPO, PPAES, 
 
 ## 2. Fonte de dados
 
-Coleta inicial via [planilha colaborativa](https://docs.google.com/spreadsheets/d/1XciIDY79FAyY32bC4GDgQAWgyy-B5UahVMKZvdry0WY/edit?usp=sharing), depois migrada para o dataset estruturado do projeto. Ver [`adr/0004-schema-unico-do-termo.md`](adr/0004-schema-unico-do-termo.md) para o schema de cada termo.
+Desde a Release 2, os termos vêm de fontes oficiais da UnB por um pipeline de coleta que abre um Pull Request revisado por uma pessoa ([`adr/0009-coleta-automatizada-por-pipeline.md`](adr/0009-coleta-automatizada-por-pipeline.md)). A [planilha colaborativa](https://docs.google.com/spreadsheets/d/1XciIDY79FAyY32bC4GDgQAWgyy-B5UahVMKZvdry0WY/edit?usp=sharing) foi a coleta inicial da Release 1 e não recebe mais termos. Ver [`adr/0004-schema-unico-do-termo.md`](adr/0004-schema-unico-do-termo.md) para o schema de cada termo.
 
 ## 3. Requisitos Funcionais
 
