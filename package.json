@@ -9,6 +9,12 @@
   "scripts": {
     "test": "node --test",
     "test:cobertura": "node --test --experimental-test-coverage",
-    "dev": "node scripts/servidor-local.mjs"
+    "dev": "node scripts/servidor-local.mjs",
+    "coleta": "node scripts/coletar.mjs"
+  },
+  "dependencies": {
+    "@google/genai": "^3.3.0",
+    "cheerio": "^1.2.0",
+    "robots-parser": "^3.0.1"
   }
 }
