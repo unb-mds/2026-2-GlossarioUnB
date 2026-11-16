@@ -42,14 +42,19 @@ function elementosDoTrecho(html, extracao, idFonte) {
 
 const LEITORES = {
   // "Decanato de Ensino de Graduação (DEG)". A sigla pode ter minúsculas (Sema, Secom), mas começa com maiúscula.
+  // A sigla é procurada só no fim do texto, e o nome é o que vem antes: sem regex com partes que disputam os mesmos
+  // espaços, que o SonarQube aponta como lenta em texto grande (backtracking).
   "nome-sigla": (texto) => {
-    const achado = /^(.+?)\s*\((\p{Lu}[\p{L}\d]{1,11})\)$/u.exec(texto);
-    return achado && { termo: achado[2], significado: achado[1] };
+    const fim = /\((\p{Lu}[\p{L}\d]{1,11})\)$/u.exec(texto);
+    if (!fim) return null;
+    const significado = texto.slice(0, fim.index).trimEnd();
+    if (!significado || significado.includes("\n")) return null;
+    return { termo: fim[1], significado };
   },
   // "DEG – Decanato de Ensino de Graduação" (hífen, travessão ou dois-pontos). Aqui a sigla é toda maiúscula,
   // senão qualquer frase com hífen viraria termo.
   "sigla-nome": (texto) => {
-    const achado = /^([\p{Lu}\d]{2,12})\s*[-–—:]\s*(.+)$/u.exec(texto);
+    const achado = /^([\p{Lu}\d]{2,12})\s*[-–—:]\s*(\S.*)$/u.exec(texto);
     return achado && { termo: achado[1], significado: achado[2] };
   },
 };
