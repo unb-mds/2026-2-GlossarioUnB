@@ -28,6 +28,7 @@ Cada entrada deve conter: data, pessoa, ferramenta usada, o que foi pedido, o qu
 |---|---|---|---|---|
 | 18/10/2026 | Allan | Claude | Pedi ajuda com o documento .env.example e como subir o pull request pelo cmd | ajustei o texto do pull request, o resto foi aceito |
 | 09/11/2026 | José Gabriel | Antigravity | Elaboração do README.md completo para a Release 2 (arquitetura, tecnologias, guia de instalação, .env e seção de coleta de termos) para a issue #97 | Aceito |
+| 16/11/2026 | Pedro | Claude | README.md reescrito no padrão do README do Flutter (badges de CI e Pages, Documentação, Serviços externos, Sobre por qualidades), a partir da versão do José Gabriel, para a issue #97 | Aceito; a escolha do Flutter como modelo (a professora indicou os badges dele) e de fazer o commit no PR #99 foi minha |
 | | | | | |
 
 ## Observações gerais

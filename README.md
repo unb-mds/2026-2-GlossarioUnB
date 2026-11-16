@@ -1,288 +1,123 @@
-# Glossário UnB
+<a href="https://unb-mds.github.io/2026-2-GlossarioUnB/frontend/">
+  <h1 align="center">
+    <img alt="" src="frontend/icons/icon-192.png" width="96"><br>
+    Glossário UnB
+  </h1>
+</a>
 
-[![CI](https://github.com/unb-mds/2026-2-GlossarioUnB/actions/workflows/ci.yml/badge.svg)](https://github.com/unb-mds/2026-2-GlossarioUnB/actions/workflows/ci.yml)
-[![Pages](https://github.com/unb-mds/2026-2-GlossarioUnB/actions/workflows/pages.yml/badge.svg)](https://github.com/unb-mds/2026-2-GlossarioUnB/actions/workflows/pages.yml)
-[![Node.js](https://img.shields.io/badge/node-%3E%3D22.0.0-brightgreen.svg)](https://nodejs.org/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![CI][CI badge]][CI]
+[![GitHub Pages][Pages badge]][Pages]
 
-Dicionário colaborativo e de código aberto das siglas, gírias e expressões da **Universidade de Brasília (UnB)**, desenvolvido pelo **Grupo G10** na disciplina de Métodos de Desenvolvimento de Software (MDS 2026/2).
+O Glossário UnB é um dicionário das siglas, gírias e expressões da Universidade
+de Brasília, feito para quem chega à UnB e tropeça em DEG, BCE, FCTE, "menção SR"
+ou "trancamento geral". Ele roda no navegador do celular ou do computador,
+funciona sem internet e mostra a fonte de cada termo. É um projeto de código
+aberto do Grupo G10, da disciplina Métodos de Desenvolvimento de Software
+(MDS 2026/2).
 
-🔗 **Acesse as páginas publicadas no GitHub Pages:**
-- **[Glossário UnB (Aplicação PWA)](https://unb-mds.github.io/2026-2-GlossarioUnB/frontend/)**: o produto em funcionamento com busca rápida e funcionamento offline.
-- **[Sobre o Projeto (Visão Institucional)](https://unb-mds.github.io/2026-2-GlossarioUnB/sobre/)**: apresentação, objetivos, personas e governança.
+## Documentação
 
----
+* [Usar o glossário][app]
+* [Sobre o projeto][sobre]: o problema, os perfis de quem usa e a equipe
+* [Requisitos](docs/REQUISITOS.md), [arquitetura](docs/ARQUITETURA.md) e [decisões de arquitetura (ADRs)](docs/adr/)
+* [Processo do time](docs/PROCESSO.md) e [planejamento das sprints](docs/scrum/sprint-planning.md)
+* [Contribuir com o Glossário UnB](CONTRIBUTING.md)
 
-## Sumário
+As datas das entregas (Release 1 e Release 2) estão na
+[seção 7 dos requisitos](docs/REQUISITOS.md#7-releases), e o que entra em cada
+sprint, no [planejamento das sprints](docs/scrum/sprint-planning.md). O uso de
+IA no projeto fica registrado no [AI-USAGE.md](AI-USAGE.md).
 
-1. [O que é o Glossário UnB](#1-o-que-é-o-glossário-unb)
-2. [O Problema](#2-o-problema)
-3. [Público-Alvo](#3-público-alvo)
-4. [Arquitetura em Alto Nível](#4-arquitetura-em-alto-nível)
-5. [Tecnologias Utilizadas](#5-tecnologias-utilizadas)
-6. [Como Rodar Localmente (Guia Passo a Passo)](#6-como-rodar-localmente-guia-passo-a-passo)
-   - [6.1 Pré-requisitos](#61-pré-requisitos)
-   - [6.2 Clonar o repositório](#62-clonar-o-repositório)
-   - [6.3 Configurar variáveis de ambiente (.env)](#63-configurar-variáveis-de-ambiente-env)
-   - [6.4 Executar o servidor da aplicação](#64-executar-o-servidor-da-aplicação)
-   - [6.5 Executar os testes automatizados e cobertura](#65-executar-os-testes-automatizados-e-cobertura)
-   - [6.6 Verificação e análise de código (Lint)](#66-verificação-e-análise-de-código-lint)
-7. [Como Rodar a Coleta de Termos (Pipeline de Dados)](#7-como-rodar-a-coleta-de-termos-pipeline-de-dados)
-8. [Como Contribuir](#8-como-contribuir)
-9. [Mapa de Documentação](#9-mapa-de-documentação)
-10. [Licença](#10-licença)
+## Rodar no seu computador
 
----
-
-## 1. O que é o Glossário UnB
-
-O **Glossário UnB** é um dicionário acadêmico e comunitário voltado a desmistificar a linguagem do dia a dia da Universidade de Brasília. O projeto catalogou siglas institucionais, jargões acadêmicos, termos regulamentares e apelidos de locais físicos nos quatro campi da UnB (Darcy Ribeiro, Ceilândia, Gama e Planaltina).
-
-Inspirado no projeto [glossario-ufcg](https://github.com/OpenDevUFCG/glossario-ufcg), o Glossário UnB foca na simplicidade de uso, alta acessibilidade e rigor metodológico no processo de engenharia de software.
-
----
-
-## 2. O Problema
-
-Quem chega à UnB encontra uma verdadeira "sopa de letrinhas" e jargões:
-- **Siglas institucionais complexas:** DEG, BCE, FCTE, DAC, DPO, PPAES, CEAD.
-- **Expressões normativas e acadêmicas:** "menção SR", "trancamento geral", "matrícula extraordinária", "créditos".
-- **Gírias e locais físicos:** "Ceubinho", "Minhocão", "Bandejão", "Udefinho".
-
-Tradicionalmente, essas informações estão dispersas em resoluções burocráticas de dezenas de páginas em PDF, sites departamentais desatualizados ou dependem exclusivamente da transmissão oral entre veteranos. Isso gera insegurança, perda de prazos e sobrecarga no atendimento presencial das secretarias. O Glossário UnB centraliza essas definições de forma didática, rápida e confiável.
-
----
-
-## 3. Público-Alvo
-
-O produto foi desenhado a partir de três perfis principais mapeados pela equipe:
-
-1. **Calouro Jovem (17 a 22 anos):** acostumado com busca instantânea no celular ("tipo Google"). Prioriza velocidade, autocompletar ágil e respostas diretas sem fricção.
-2. **Calouro Adulto / Terceira Idade (60+):** estudantes que necessitam de navegação clara, botões com áreas de toque generosas (mínimo 44 px), alto contraste (WCAG AA), tipografia legível e explicações em linguagem simples, sem "usar jargão para explicar jargão".
-3. **Veteranos, Servidores e Comunidade Externa:** realizam consultas pontuais sobre setores específicos, desambiguação entre campi e buscam links oficiais para aprofundamento.
-4. **Novos Contribuidores:** estudantes que desejam sugerir novos termos, correções ou colaborar com código aberto.
-
----
-
-## 4. Arquitetura em Alto Nível
-
-O sistema foi arquitetado como uma aplicação puramente estática e sem dependências pesadas, garantindo alta performance, resiliência e custo zero de infraestrutura:
-
-```text
- ┌────────────────────────────────────────────────────────┐
- │                   FONTES DE DADOS                      │
- │  - PDFs Oficiais da DPO (Lista de Siglas)              │
- │  - Páginas Institucionais da UnB (FAQ SAA, Decanatos)  │
- │  - Sugestões da Comunidade (Issues e Pull Requests)    │
- └───────────────────────────┬────────────────────────────┘
-                             │
-                             ▼
- ┌────────────────────────────────────────────────────────┐
- │                 PIPELINE DE DADOS                      │
- │  - Ingestão e extração de candidatos                   │
- │  - Normalização e deduplicação semântica               │
- │  - Validação estrita de schema (validacao-termo.js)    │
- └───────────────────────────┬────────────────────────────┘
-                             │
-                             ▼
- ┌────────────────────────────────────────────────────────┐
- │               frontend/data/termos.json                │
- │         Dataset estruturado com fonte oficial          │
- └─────────────┬────────────────────────────┬─────────────┘
-               │                            │
-               ▼                            ▼
- ┌───────────────────────────┐ ┌───────────────────────────┐
- │   PRODUTO: GLOSSÁRIO PWA  │ │     SOBRE O PROJETO       │
- │       (/frontend/)        │ │         (/sobre/)         │
- │ - Busca com Autocomplete  │ │ - Visão do produto        │
- │ - Índice A-Z e Filtros    │ │ - Guia de contribuição    │
- │ - Mapa de locais (Leaflet)│ │ - Personas e requisitos   │
- │ - Offline (Service Worker)│ │ - HTML/CSS puro sem JS    │
- └─────────────┬─────────────┘ └────────────┬──────────────┘
-               │                            │
-               └──────────────┬─────────────┘
-                              │
-                              ▼
- ┌────────────────────────────────────────────────────────┐
- │                 INTEGRAÇÃO CONTÍNUA                    │
- │  - GitHub Actions: testes nativos (node --test)        │
- │  - Validação do schema do dataset no CI                │
- │  - Deploy automatizado no GitHub Pages                 │
- └────────────────────────────────────────────────────────┘
-```
-
-### As Duas Páginas Publicadas
-
-O repositório publica simultaneamente dois sites irmãos estáticos via GitHub Pages:
-- **`frontend/`**: a aplicação PWA do Glossário, com service worker para navegação offline, mapas dinâmicos e busca instantânea.
-- **`sobre/`**: a página institucional de apresentação do projeto, construída exclusivamente em HTML e CSS puros sem JavaScript (ADR 0008).
-- **`index.html` (raiz)**: redireciona automaticamente o visitante para a página `sobre/`.
-
----
-
-## 5. Tecnologias Utilizadas
-
-A escolha técnica priorizou a ausência de *build steps* e a longevidade do código (ADR 0002):
-
-- **Runtime & Testes:** [Node.js](https://nodejs.org/) (versão `>=22.0.0`) com test runner nativo (`node:test`) e cobertura nativa (`--experimental-test-coverage`).
-- **Linguagem:** JavaScript moderno nativo (Vanilla ES Modules). Sem bundlers (Webpack, Vite) e sem frameworks (React, Vue).
-- **Estilização:** CSS3 puro baseado em variáveis CSS / *Design Tokens*, com suporte nativo a temas Claro/Escuro e conformidade de contraste WCAG AA.
-- **PWA & Offline:** Web App Manifest e Service Worker nativos com estratégia de cache *stale-while-revalidate* para dados e *cache-first* para o App Shell (ADR 0003).
-- **Mapas Interativos:** [Leaflet](https://leafletjs.com/) e [OpenStreetMap](https://www.openstreetmap.org/) carregados sob demanda apenas quando o termo possui coordenadas geográficas (`localizacao`), com fallback gracioso em modo offline (ADR 0005).
-- **CI/CD:** [GitHub Actions](https://github.com/features/actions) para integração contínua e [GitHub Pages](https://pages.github.com/) para distribuição.
-
----
-
-## 6. Como Rodar Localmente (Guia Passo a Passo)
-
-Siga este passo a passo para executar o projeto em qualquer máquina local ou ambiente de nuvem (ex.: GitHub Codespaces).
-
-### 6.1 Pré-requisitos
-
-- **Node.js**: versão **22.0.0** ou superior instalada (`node -v`).
-- **Git**: instalado e configurado (`git --version`).
-- **Nenhuma dependência externa**: o projeto não requer comandos como `npm install` para executar a aplicação principal.
-
-### 6.2 Clonar o repositório
+Pré-requisito: [Node.js](https://nodejs.org/) 22 ou mais novo. Não há
+dependências para instalar.
 
 ```bash
 git clone https://github.com/unb-mds/2026-2-GlossarioUnB.git
 cd 2026-2-GlossarioUnB
+npm run dev             # glossário em http://localhost:8080/frontend/ e Sobre em /sobre/
+npm test                # testes + validação de todos os termos
+npm run test:cobertura  # os mesmos testes, com relatório de cobertura
 ```
 
-### 6.3 Configurar variáveis de ambiente (.env)
+Para usar outra porta, crie um arquivo `.env` com `PORT=` e o número da porta
+(o `npm run dev` lê o `.env` sozinho). Detalhes do app, página por página, em
+[`frontend/README.md`](frontend/README.md).
 
-Crie o arquivo `.env` a partir do modelo disponível:
+## Serviços externos
 
-```bash
-# No Linux / macOS / Git Bash:
-cp .env.example .env
+A página de um lugar físico, como o Ceubinho, mostra um mapa. Para isso, o
+navegador baixa o [Leaflet] 1.9.4 do unpkg.com e as imagens do mapa dos
+servidores do [OpenStreetMap], que têm uma [política de uso][OSM tiles] e pedem
+o crédito que aparece no canto do mapa. Sem internet, ou com esses endereços
+bloqueados, a página mostra um aviso no lugar do mapa e o resto continua
+funcionando ([ADR 0005][ADR 0005]).
 
-# No Windows PowerShell:
-Copy-Item .env.example .env
-```
+Fora isso, o glossário só carrega arquivos do próprio site. Não há login,
+cadastro nem servidor próprio do projeto.
 
-O arquivo `.env` permite customizar o comportamento local:
-```env
-# Porta do servidor de desenvolvimento local (padrão: 8080)
-PORT=8080
-NODE_ENV=development
+## Sobre o Glossário UnB
 
-# Chaves de API para integrações do pipeline de coleta (opcional)
-GEMINI_API_KEY=
-API_KEY=
-```
+Achamos que o Glossário UnB ajuda quem chega à universidade a entender a
+linguagem dela sem depender de um veterano por perto, e que ele pode crescer com
+a ajuda de quem já conhece essa linguagem.
 
-### 6.4 Executar o servidor da aplicação
+### Resposta enquanto você digita
 
-Como a aplicação faz uso de ES Modules e Service Workers, ela precisa ser servida via protocolo HTTP/HTTPS:
+A busca sugere termos enquanto você digita e já mostra o significado de cada
+sugestão. A lista completa tem índice de A a Z e filtros por tipo e por campus,
+que ficam no endereço da página (por exemplo, `todas-siglas.html?tipo=sigla`)
+e podem ser compartilhados.
 
-```bash
-npm run dev
-```
+### Funciona sem internet
 
-O servidor local (`scripts/servidor-local.mjs`) reproduz exatamente a mesma estrutura de diretórios do GitHub Pages:
-- **Glossário (PWA):** [http://localhost:8080/frontend/](http://localhost:8080/frontend/)
-- **Sobre o projeto:** [http://localhost:8080/sobre/](http://localhost:8080/sobre/)
+O glossário é um PWA: pode ser instalado na tela inicial do celular e, depois da
+primeira visita, abre mesmo sem conexão. O cache é feito por um service worker
+próprio, sem biblioteca ([ADR 0003][ADR 0003]).
 
-> **Dica:** O projeto também pode ser servido perfeitamente pela extensão **Live Server** do VS Code, abrindo a pasta raiz do repositório.
+### Feito para quem nunca ouviu falar
 
-### 6.5 Executar os testes automatizados e cobertura
+Três perfis de estudante guiam as decisões de tela: o calouro jovem, que quer a
+resposta na hora; o calouro com mais de 60 anos, que precisa de explicação
+didática e navegação simples; e o veterano, que tira dúvidas pontuais. Por isso,
+cada termo é explicado em português simples, sem usar jargão para explicar
+jargão, com um exemplo de uso e, quando é um lugar, o mapa. O site tem tema
+claro e escuro ([ADR 0008][ADR 0008]).
 
-Os testes utilizam o módulo nativo `node:test` e validam tanto a lógica de domínio quanto a conformidade de todo o dataset contra o schema:
+### Aberto e verificável
 
-```bash
-# Executa todos os testes unitários e de integração
-npm test
+Nenhum termo entra sem `fonte`: um link oficial da UnB ou "conhecimento comum
+verificado pelo grupo". Toda sugestão é pública, passa pela revisão de alguém do
+time, e o CI confere todos os termos contra o [schema][ADR 0004] a cada pull
+request. Por dentro, os termos ficam num arquivo JSON estático
+([ADR 0001][ADR 0001]), e o site é feito em JavaScript e CSS puros, sem
+framework e sem etapa de build ([ADR 0002][ADR 0002]). Os testes usam o
+`node:test`, do próprio Node, e o GitHub Actions publica o site no GitHub Pages
+a cada push na `main` ([ADR 0007][ADR 0007]).
 
-# Executa os testes exibindo o relatório detalhado de cobertura de linhas e branches
-npm run test:cobertura
-```
+O Glossário UnB é um projeto de código aberto, e contribuições são bem-vindas.
+Quem não usa Git pode sugerir um termo pelo [modelo de issue][sugerir], e quem
+usa encontra o passo a passo no [guia de contribuição](CONTRIBUTING.md).
 
-### 6.6 Verificação e análise de código (Lint)
+## Licença
 
-Para inspecionar a integridade sintática de todos os arquivos do projeto sem dependências:
+O Glossário UnB é distribuído sob a [licença MIT](LICENSE).
 
-```bash
-# Verificação de sintaxe de todos os arquivos JS/MJS
-node --check frontend/js/*.js scripts/*.mjs tests/*.js
-```
-
-Quando o linter formal for acionado pelo pipeline de qualidade:
-```bash
-npm run lint
-```
-
----
-
-## 7. Como Rodar a Coleta de Termos (Pipeline de Dados)
-
-Na Release 1, os termos iniciais foram inseridos com base em uma planilha colaborativa. Na Release 2, a ingestão de termos evoluiu para um **pipeline de dados automatizado** (Épico E1 e ADR 0009).
-
-### 7.1 Como funciona o fluxo de coleta
-
-1. **Extração das Fontes:** Os coletores extraem termos de fontes públicas oficiais da UnB (como a Lista de Siglas em PDF da DPO e páginas institucionais da SAA e Decanatos).
-2. **Normalização e Deduplicação:** O robô limpa caracteres, remove redundâncias e compara o termo extraído com o dataset existente em `frontend/data/termos.json`.
-3. **Enriquecimento e Classificação:** O pipeline categoriza o termo (`sigla`, `giria` ou `expressao`) e gera rascunhos de definições claras e exemplos reais.
-4. **Validação Determinística de Schema:** O arquivo gerado deve passar com 100% de conformidade pelas regras de [`frontend/js/validacao-termo.js`](frontend/js/validacao-termo.js).
-5. **Abertura de Pull Request Automático:** As alterações nunca entram diretamente na `main`; o bot abre um PR com a procedência e links de cada fonte para **revisão humana obrigatória**.
-
-### 7.2 Execução e Validação Local do Dataset
-
-Para validar se o arquivo `frontend/data/termos.json` cumpre todas as regras do schema (todos os campos obrigatórios preenchidos, fontes válidas, sem IDs duplicados e com integridade de termos relacionados):
-
-```bash
-node --test tests/dados.test.js
-```
-
-Se algum termo violar as diretrizes do projeto (ex.: termo sem fonte verificada ou ID com caracteres maiúsculos), o teste indicará o índice e o motivo do erro detalhadamente.
-
----
-
-## 8. Como Contribuir
-
-Contribuições são muito bem-vindas! Existem duas formas principais de contribuir:
-
-### Para quem não sabe programar ou não usa Git
-1. Acesse a aba **[Issues](https://github.com/unb-mds/2026-2-GlossarioUnB/issues)** deste repositório.
-2. Clique em **New Issue** e escolha o modelo **📖 Sugerir um termo** (ou *Corrigir definição*).
-3. Preencha o formulário com o termo, significado, exemplo e fonte. A equipe fará a revisão e inclusão no site.
-
-### Para desenvolvedores e colaboradores com Git
-Seguimos o **GitHub Flow** com **Conventional Commits**:
-1. Faça um Fork do repositório.
-2. Crie uma branch semântica: `git checkout -b feature/issue-XX-descricao` (ou `fix/`, `docs/`, `chore/`).
-3. Adicione ou edite o termo em `frontend/data/termos.json` respeitando o schema único.
-4. Execute `npm test` para garantir que o CI passará.
-5. Faça o commit padronizado: `git commit -m "feat(dados): adiciona termo PPAES"`.
-6. Envie para o seu fork (`git push origin ...`) e abra um Pull Request para a branch `main`.
-
-Consulte o guia completo em [**CONTRIBUTING.md**](CONTRIBUTING.md) e a convenção detalhada em [**docs/CONVENCAO-GIT.md**](docs/CONVENCAO-GIT.md).
-
-> **Atenção:** Qualquer uso relevante de ferramentas de IA (geração de código, testes ou redação) deve ser registrado em [**AI-USAGE.md**](AI-USAGE.md), conforme a política da disciplina MDS.
-
----
-
-## 9. Mapa de Documentação
-
-Toda a documentação do projeto está versionada na pasta [`docs/`](docs/):
-
-| Documento | Descrição |
-|---|---|
-| [**CONTRIBUTING.md**](CONTRIBUTING.md) | Guia de contribuição, schema de termos e regras de PR |
-| [**docs/CONVENCAO-GIT.md**](docs/CONVENCAO-GIT.md) | Padrões de nomenclatura de branch e Conventional Commits |
-| [**docs/REQUISITOS.md**](docs/REQUISITOS.md) | Requisitos funcionais (RF), não funcionais (RNF) e personas |
-| [**docs/ARQUITETURA.md**](docs/ARQUITETURA.md) | Visão de arquitetura de software e organização de diretórios |
-| [**docs/adr/**](docs/adr/) | Registros de Decisões de Arquitetura (ADR 0001 a 0008) |
-| [**docs/PROCESSO.md**](docs/PROCESSO.md) | Metodologia de trabalho ágil do time G10 |
-| [**docs/GUIA-FLUXO-DE-TRABALHO.md**](docs/GUIA-FLUXO-DE-TRABALHO.md) | Passo a passo prático de Git e resolução de conflitos |
-| [**docs/BENCHMARK.md**](docs/BENCHMARK.md) | Comparativo com outros glossários acadêmicos e diferenciais |
-| [**docs/scrum/sprint-planning.md**](docs/scrum/sprint-planning.md) | Planejamento das sprints e backlog da equipe |
-| [**docs/scrum/dailies.md**](docs/scrum/dailies.md) | Registro de presença e notas das reuniões diárias/semanais |
-| [**AI-USAGE.md**](AI-USAGE.md) | Registro de transparência do uso de Inteligência Artificial |
-
----
-
-## 10. Licença
-
-Este projeto é distribuído sob a licença de código aberto **MIT**. Consulte o arquivo [LICENSE](LICENSE) para obter mais informações.
+[app]: https://unb-mds.github.io/2026-2-GlossarioUnB/frontend/
+[sobre]: https://unb-mds.github.io/2026-2-GlossarioUnB/sobre/
+[sugerir]: https://github.com/unb-mds/2026-2-GlossarioUnB/issues/new?template=sugerir-termo.md
+[CI]: https://github.com/unb-mds/2026-2-GlossarioUnB/actions/workflows/ci.yml
+[CI badge]: https://github.com/unb-mds/2026-2-GlossarioUnB/actions/workflows/ci.yml/badge.svg
+[Pages]: https://github.com/unb-mds/2026-2-GlossarioUnB/actions/workflows/pages.yml
+[Pages badge]: https://github.com/unb-mds/2026-2-GlossarioUnB/actions/workflows/pages.yml/badge.svg
+[Leaflet]: https://leafletjs.com/
+[OpenStreetMap]: https://www.openstreetmap.org/copyright
+[OSM tiles]: https://operations.osmfoundation.org/policies/tiles/
+[ADR 0001]: docs/adr/0001-termos-em-json-estatico.md
+[ADR 0002]: docs/adr/0002-frontend-sem-framework.md
+[ADR 0003]: docs/adr/0003-pwa-com-service-worker-proprio.md
+[ADR 0004]: docs/adr/0004-schema-unico-do-termo.md
+[ADR 0005]: docs/adr/0005-mapa-de-locais-com-leaflet.md
+[ADR 0007]: docs/adr/0007-github-pages-e-ci-com-actions.md
+[ADR 0008]: docs/adr/0008-interface-com-css-puro-e-tokens.md
