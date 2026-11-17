@@ -32,7 +32,7 @@ O PWA (instalável, com service worker) é a decisão técnica da [ADR 0003](adr
 
 | ID | Requisito | Métrica e critério de aceitação | Como verificar | Release |
 | --- | --- | --- | --- | --- |
-| RNF01 | Disponibilidade: consulta offline | Depois da primeira visita, consultar termos em `frontend/` funciona sem rede, com o dataset em cache |  | R1+ |
+| RNF01 | Disponibilidade: consulta offline | Depois da primeira visita, consultar termos em `frontend/` funciona sem rede, com o dataset em cache | Teste E2E offline ([#78](https://github.com/unb-mds/2026-2-GlossarioUnB/issues/78)) | R1+ |
 | RNF02 | Desempenho | Página inicial carrega em até 2 s em 4G lento e Lighthouse Performance ≥ 90 | Lighthouse CI ([#80](https://github.com/unb-mds/2026-2-GlossarioUnB/issues/80)) | R2 |
 | RNF03 | Acessibilidade | WCAG 2.1 AA, sem violações do axe-core nas três páginas, nos temas claro e escuro | axe-core no CI ([#78](https://github.com/unb-mds/2026-2-GlossarioUnB/issues/78)) e Lighthouse ([#80](https://github.com/unb-mds/2026-2-GlossarioUnB/issues/80)) | R2 |
 | RNF04 | Usabilidade | Texto base de pelo menos 17 px e alvos de toque de pelo menos 44 px | Revisão de interface e teste E2E ([#78](https://github.com/unb-mds/2026-2-GlossarioUnB/issues/78)) | R2 |
