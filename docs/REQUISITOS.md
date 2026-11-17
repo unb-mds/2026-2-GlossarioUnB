@@ -20,7 +20,7 @@ Desde a Release 2, os termos vêm de fontes oficiais da UnB por um pipeline de c
 | RF03 | Arquivo Json da Planilha | R1 (parcial) -> R2 |
 | RF04 | Sugestão de termo via Pull Request e Issue | R1 |
 | RF05 | Detalhe do termo (significado, definição, exemplo, fonte) | R1 |
-| RF06 | Validação automática das contribuições (schema, fonte, duplicidade) | R2 -> R2+ |
+| RF06 | Validação automática das contribuições (schema, fonte, duplicidade) | R2 |
 | RF07 | Sinalização de termo desatualizado | R2+ |
 | RF08 | Autocomplete na busca | R2+ |
 | RF09 | Termos parecidos e busca sem resultado | R2+ |
@@ -55,4 +55,4 @@ Desde a Release 2, os termos vêm de fontes oficiais da UnB por um pipeline de c
 Estrutura detalhada sprint a sprint em [`scrum/sprint-planning.md`](scrum/sprint-planning.md).
 
 - **Release 1** (28/09/2026): escopo e arquitetura validados, protótipo funcional, tecnologias testadas com código rodando
-- **Release 2** (25/11/2026): produto completo conforme RF01-05 e RNF01-05
+- **Release 2** (25/11/2026): produto completo conforme RF01–RF06 e RNF01
