@@ -98,3 +98,25 @@ horários em [`horarios.md`](horarios.md).
 20:10 até 20:46
 
 ---
+
+### [Quarta], 11/11
+
+**Presentes:Italo, Allan, Pedro, José, Jessyca**
+
+**Progresso:Definimos as issues da sprint 4 a 9 e dividimos entre os membros
+
+Pedro mostrou do zero o fluxo para fechar as issues: git clone, git config e branch, uso de IA (Antigravity, Claude ou OpenCode com DeepSeek), npm run dev, teste, commit e PR pelo template. Ficou definido que cada issue = 1 branch = 1 PR, com merge em ordem e conflitos resolvidos antes; cada pessoa revisa pelo menos 1 PR até 13/11, testando na máquina e lendo o diff. A R2 foi confirmada, com tudo na main até 17/11; a apresentação é em 25/11. O robô começa por decanatos e secretarias e ganhará novas fontes da UnB; O grupo vai rediscutir a ADR 0002 e a ADR 0008 no Telegram e fazer simulação de arguição na segunda (16/11).
+**
+
+**Pendências / próximos passos:
+- cada um fechar as próprias issues até 17/11.
+- revisar 1 PR até 13/11,
+- Fluxo: 1 issue = 1 branch = 1 PR; merge em ordem, resolvendo conflitos.
+- Revisão: 1 PR por pessoa até sexta (13/11).
+- Prazo: tudo da R2 na main até 17/11; de 18/11 em diante, preparar a apresentação (25/11).
+- Robô: decanatos e secretarias primeiro, depois novas fontes no fontes.json.
+**
+
+13h25 até 13h52
+
+---
