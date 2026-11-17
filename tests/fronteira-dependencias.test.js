@@ -4,8 +4,9 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readdir, readFile } from "node:fs/promises";
 import { join, relative } from "node:path";
+import { fileURLToPath } from "node:url";
 
-const RAIZ = new URL("..", import.meta.url).pathname;
+const RAIZ = fileURLToPath(new URL("..", import.meta.url));
 const PERMITIDAS = ["cheerio", "robots-parser", "@google/genai"];
 const IMPORTS = [
   /\bimport\s[^"']*?\bfrom\s*["']([^"']+)["']/g,
