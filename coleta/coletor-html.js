@@ -141,9 +141,14 @@ export async function coletar(fontes, opcoes = {}) {
       const origem = new URL(fonte.url).origin;
       if (!robotsPorOrigem.has(origem)) {
         const resposta = await pedir(`${origem}/robots.txt`);
-        robotsPorOrigem.set(origem, resposta.ok ? await resposta.text() : "");
+        const robots = { texto: "", erro: null };
+        if (resposta.ok) robots.texto = await resposta.text();
+        else if (resposta.status >= 500) robots.erro = `o robots.txt de ${origem} respondeu ${resposta.status}`;
+        robotsPorOrigem.set(origem, robots);
       }
-      if (!permitidoPeloRobots(robotsPorOrigem.get(origem), fonte.url)) {
+      const robots = robotsPorOrigem.get(origem);
+      if (robots.erro) throw new Error(`fonte "${fonte.id}": ${robots.erro}`);
+      if (!permitidoPeloRobots(robots.texto, fonte.url)) {
         throw new Error(`fonte "${fonte.id}": o robots.txt de ${origem} não permite coletar ${fonte.url}`);
       }
       const resposta = await pedir(fonte.url);

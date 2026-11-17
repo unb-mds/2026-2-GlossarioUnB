@@ -222,6 +222,22 @@ test("coletar: fonte bloqueada pelo robots.txt ou com erro não para as outras",
   ]);
 });
 
+test("coletar: robots.txt com 5xx bloqueia a fonte e não para as outras", async () => {
+  const quebrada = { ...decanatos, id: "robots-500", url: "https://instavel.br/pagina", prioridade: 2 };
+  const resultado = await coletar([quebrada, decanatos], {
+    buscar: async (url) => {
+      if (url === "https://instavel.br/robots.txt") return respostaFalsa(500);
+      if (url === decanatos.url) return respostaFalsa(200, htmlDecanatos);
+      return respostaFalsa(404);
+    },
+    esperar: async () => {},
+    hoje: () => "2026-11-11",
+  });
+
+  assert.deepEqual(resultado.por_fonte, { "unb-decanatos": 8, "robots-500": 0 });
+  assert.deepEqual(resultado.erros, ['fonte "robots-500": o robots.txt de https://instavel.br respondeu 500']);
+});
+
 test("validarFontes aponta cada problema com a fonte e o campo", () => {
   const ruim = {
     fontes: [
