@@ -28,3 +28,8 @@ O que pesa, extraído do material do time:
 - (−) Toda alteração passa por PR, ou por uma issue que alguém do time converte.
 - (−) PRs de termos em paralelo podem conflitar no mesmo arquivo.
 - (−) Histórias da Release 2 como "avisar se alguém tentar sugerir um termo que já existe" viram checagens de CI no PR, não regras de servidor (ver ADR 0007).
+
+## Atualização (11/11/2026, ADR 0009)
+- A planilha colaborativa deixa de ser a fonte da verdade. Ela foi a coleta inicial da Release 1 e não recebe mais termos.
+- Termos novos chegam pelo pipeline de coleta da [ADR 0009](0009-coleta-automatizada-por-pipeline.md), sempre por Pull Request revisado por uma pessoa.
+- O `frontend/data/termos.json` continua sendo o único lugar dos termos, e o Git continua fazendo o papel de banco.
