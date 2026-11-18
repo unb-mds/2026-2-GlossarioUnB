@@ -8,7 +8,7 @@
 - **Estado atual:** `.github/workflows/` só tinha um `.gitkeep`.
 
 ## Decisão
-- **CI** (`.github/workflows/ci.yml`), em todo PR e push para `main`, roda `npm test`. Os testes usam `node:test`, sem dependências, e cobrem:
+- **CI** (`.github/workflows/ci.yml`), em todo PR e push para `main`, roda `npm run lint` e `npm run test:cobertura`. O lint usa ESLint (devDependency) e a cobertura mínima é de 90% de linhas, funções e branches em `frontend/js/termos.js`, `frontend/js/validacao-termo.js` e `coleta/`. Os testes usam `node:test`, sem dependências de runtime, e cobrem:
   - a lógica de domínio (busca, filtros, agrupamento, links seguros);
   - a validação de **todos** os termos de `frontend/data/termos.json` contra o schema da ADR 0004 (incluindo `id` duplicado).
 - **Publicação em duas GitPages** (`.github/workflows/pages.yml`, 28/09). A cada push na `main`, o workflow roda `npm test` e só então publica:
@@ -31,6 +31,6 @@
 
 ## Consequências
 - (+) Um PR com termo inválido (sem `fonte`, `tipo` fora da lista, `id` repetido) fica vermelho no CI antes da revisão humana. Isso adianta parte da ideia futura "bot que confere schema, duplicidade e fonte" do Story Map.
-- (−) Ainda não há lint no CI; é um próximo passo.
-- (−) A página Sobre é escrita à mão, então números como "40 siglas" e "26 testes" precisam ser atualizados junto com o projeto.
+- (+) O CI barra código fora do padrão (ESLint) e cobertura abaixo de 90% nos módulos de domínio e do pipeline.
+- (−) A página Sobre é escrita à mão, então números como a contagem de siglas e de testes precisam ser atualizados junto com o projeto.
 - (−) `unb-mds.github.io` é uma origem compartilhada com os outros projetos da organização (ver ADR 0003).
