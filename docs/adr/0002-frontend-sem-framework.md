@@ -1,5 +1,7 @@
 # ADR 0002 — Frontend em HTML, CSS e JavaScript sem framework na Release 1
 
+> Alcance revisto pela [ADR 0010](0010-bibliotecas-nos-scripts-do-robo.md) (13/11/2026): esta decisão continua valendo para o front; os scripts do robô de coleta podem usar as bibliotecas listadas lá.
+
 
 ## Contexto
 `docs/ARQUITETURA.md` reserva esta ADR como "Framework de frontend. A definir". O estudo comparando React e Vue está na issue #13 (Sprint 01, aberta), a skill de React/Vue ficou com o José e o estudo de frontend do Allan está no PR #25 (aberto). Até 26/09 não havia recomendação registrada.

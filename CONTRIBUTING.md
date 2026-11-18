@@ -6,21 +6,26 @@ UnB** que queira sugerir ou corrigir um termo (via fork).
 
 ## Modelo de branches
 
-Usamos **GitHub Flow** — simplificado em relação ao Git-Flow completo, porque
+Adotamos o **GitHub Flow** — simplificado em relação ao Git-Flow completo, porque
 o time é pequeno e não mantemos uma versão em produção separada da que está
-em desenvolvimento (ver o porquê em `docs/PROCESSO.md`, seção 1):
+em desenvolvimento (ver o porquê em `docs/PROCESSO.md`, seção 1). Sem `develop`,
+`release/*` ou `hotfix/*` por enquanto (se houver necessidade de mudança, entra como ADR).
 
-- `main` — estável e protegida, só recebe código já revisado via PR
-- `feature/*` — uma branch por issue/tarefa (ex.: `feature/issue-12`)
+### Nomenclatura de branches
 
-Sem `develop`, `release/*` ou `hotfix/*` por enquanto, caso haja necessidade de mudança entra como ADR.
+Toda branch deve ser criada a partir da `main` atualizada, escrita em minúsculas (`kebab-case`) com prefixo por tipo, número da issue e descrição curta:
+```text
+<prefixo>/issue-<ID>-<descricao-curta>
+```
+
+Prefixos válidos: `feature/`, `fix/`, `docs/`, `chore/`, `refactor/`, `test/`. Detalhes e exemplos completos em [`docs/CONVENCAO-GIT.md`](docs/CONVENCAO-GIT.md).
 
 ## Se você é do time G10
 
 1. `git checkout main && git pull origin main`
-2. `git checkout -b feature/issue-XX`
+2. `git checkout -b <prefixo>/issue-XX-<descricao-curta>` (ex.: `feature/issue-14-busca-termo`, `docs/issue-19-constituicao`)
 3. Commits pequenos, seguindo a convenção abaixo
-4. `git push origin feature/issue-XX`
+4. `git push origin <prefixo>/issue-XX-<descricao-curta>`
 5. Abra um Pull Request **para `main`**
 6. Peça revisão de pelo menos 1 pessoa. **Ninguém aprova o próprio PR.**
 
@@ -44,7 +49,7 @@ Você não precisa e não tem acesso de escrita a este repositório, use fork:
   "tipo": "sigla",
   "significado": "Decanato de Ensino de Graduação",
   "definicao": "Explicação em português simples do que é/faz.",
-  "exemplo_uso": "Frase real mostrando o termo em uso.",
+  "exemplo_uso": "Minha dúvida sobre matrícula foi encaminhada para o DEG.",
   "fonte": "URL ou 'conhecimento comum verificado pelo grupo'",
   "campus": "Geral"
 }
@@ -59,16 +64,27 @@ regras completas em [`docs/adr/0004-schema-unico-do-termo.md`](docs/adr/0004-sch
 
 ## Convenção de commits
 
-| Prefixo | Uso |
-|---|---|
-| `feat:` | Nova funcionalidade |
-| `fix:` | Correção de bug |
-| `docs:` | Só documentação |
-| `chore:` | Configuração, dependências, infra |
-| `test:` | Testes automatizados |
-| `refactor:` | Reorganização sem mudar comportamento |
+Adotamos a especificação [Conventional Commits v1.0.0](https://www.conventionalcommits.org/pt-br/v1.0.0/). Cada mensagem deve seguir a estrutura:
 
-Exemplo: `feat(dados): adiciona termo PPAES`
+```text
+<tipo>(<escopo opcional>): <descrição no imperativo e em minúsculas>
+
+[corpo opcional explicando o que mudou e por quê]
+
+[rodapé opcional com Closes #XX]
+```
+
+- **Tipos permitidos:** `feat`, `fix`, `docs`, `chore`, `test`, `refactor`, `style`, `perf`.
+- **Escopos:** livres para indicar o módulo alterado (ex.: `dados`, `frontend`, `pwa`, `github`, `specs`, etc.).
+
+Para a especificação completa, boas práticas, ciclo de vida da branch e exemplos práticos de commits, consulte o guia oficial em [**`docs/CONVENCAO-GIT.md`**](docs/CONVENCAO-GIT.md).
+
+### Template local do Git
+
+Para preencher a mensagem de commit de forma guiada no terminal, ative o template do repositório:
+```bash
+git config commit.template .gitmessage
+```
 
 ## Regras de revisão de PR
 
