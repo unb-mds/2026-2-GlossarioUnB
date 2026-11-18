@@ -2,9 +2,9 @@
 
 Os termos que o calouro precisa conhecer na primeira semana, agrupados pelo que ele precisa fazer. A página inicial mostra esta lista na seção "Primeiros passos na UnB" (#70), lida de `frontend/data/trilha-calouro.json`.
 
-Lista de 17/11/2026, montada a partir do **[Manual do Calouro 2026/2](https://deg.unb.br/wp-content/uploads/manual_do_calouro_2026_2.pdf)** do DEG (134 páginas, de 25/05/2026) e dos sites oficiais de cada serviço. As páginas citadas são as do PDF. O catálogo completo das fontes está em [`FONTES-DE-DADOS.md`](FONTES-DE-DADOS.md).
+Lista de 17/11/2026, com as gírias do campus acrescentadas em 18/11/2026, montada a partir do **[Manual do Calouro 2026/2](https://deg.unb.br/wp-content/uploads/manual_do_calouro_2026_2.pdf)** do DEG (134 páginas, de 25/05/2026) e dos sites oficiais de cada serviço e de cada lugar. As páginas citadas são as do PDF. O catálogo completo das fontes está em [`FONTES-DE-DADOS.md`](FONTES-DE-DADOS.md).
 
-## Os 17 termos
+## Os 20 termos
 
 | Grupo | Termo | Na base? | Fonte oficial |
 |---|---|---|---|
@@ -25,20 +25,24 @@ Lista de 17/11/2026, montada a partir do **[Manual do Calouro 2026/2](https://de
 | | **DDS** (Diretoria de Desenvolvimento Social) | falta | [Manual, p. 87](https://deg.unb.br/wp-content/uploads/manual_do_calouro_2026_2.pdf#page=87) |
 | | **Auxílio Socioeconômico** (PASeUnB) | falta | [Manual, p. 86](https://deg.unb.br/wp-content/uploads/manual_do_calouro_2026_2.pdf#page=86) |
 | | **DASU** (Diretoria de Atenção à Saúde da Comunidade Universitária) | falta | [dasu.unb.br](https://dasu.unb.br/) |
+| Gírias do campus | **Ceubinho** (o vão da ala norte do ICC) | já existe, com fonte e definição a corrigir | [UnB Notícias](https://noticias.unb.br/112-extensao-e-comunidade/753-comunidade-academica-repudia-atos-violentos-na-unb) |
+| | **Minhocão** (o ICC) | falta | [CEPLAN](https://ceplan.unb.br/campus-universitario-darcy-ribeiro/) |
+| | **Beijódromo** (o Memorial Darcy Ribeiro) | falta | [CEPLAN](https://ceplan.unb.br/campus-universitario-darcy-ribeiro/) |
 
-**Na base:** 2 dos 17 (BCE e DAC). Os 15 que faltam entram à mão pelo PR da #70, cada um com a fonte da tabela, porque o robô de coleta ainda não lê o manual (é PDF, ver `FONTES-DE-DADOS.md` nº 4).
+**Na base:** dos 17 primeiros, a BCE e o DAC já existiam, e os outros 15 entraram à mão pelo PR da #70 (o #124), cada um com a fonte da tabela, porque o robô de coleta ainda não lê o manual (é PDF, ver `FONTES-DE-DADOS.md` nº 4). Das 3 gírias, o Ceubinho já existia, com a fonte "conhecimento comum"; ele ganha a fonte da UnB e a definição corrigida, e o Minhocão e o Beijódromo entram à mão. As mesmas páginas entram nas fontes do robô (`coleta/fontes.json`), para a coleta real (#62) confirmar as 3 gírias.
 
 ## Por que estes
 
 - **Um grupo por necessidade da primeira semana**, como pede a issue: comer e estudar, entender a nota, entrar nos sistemas, montar a grade e pedir apoio.
 - **De 3 a 4 termos por grupo**, para a seção caber numa tela de celular sem virar a lista completa.
 - **Só termos com fonte oficial** (`*.unb.br`). O teste `tests/trilha.test.js` confere isso.
+- **Um grupo de gírias do campus**: os apelidos que os veteranos usam para os lugares, que o calouro escuta na primeira semana e não acha com esse nome nos documentos da secretaria. Cada um tem uma página da UnB que usa o apelido, então a regra da fonte oficial continua a mesma para eles. A definição do Ceubinho segue essas páginas: o vão da ala norte do ICC, onde acontecem atos e eventos, e não uma praça de alimentação.
 
 ## O que ficou de fora e por quê
 
-- **Ceubinho:** a issue #70 cita, mas a fonte dele na base é "conhecimento comum" (issue #30), não um site da UnB. O Correio Braziliense (2022) também o descreve de outro jeito: como o corredor entre as alas Norte e Central do ICC, e não como praça de alimentação. Fica como sugestão para a #65 (correção dos termos atuais).
 - **PPAES:** a issue #70 e o `REQUISITOS.md` §1 citam, mas esse nome não aparece no Manual do Calouro 2026/2. Os programas de lá são o Auxílio Socioeconômico (PASeUnB), o PACreche, o Auxílio Alimentação no RU e os outros da p. 86 e 87. Por isso a trilha usa o Auxílio Socioeconômico.
 - **Cada menção separada (SS, MS, MM, MI, II):** a definição de "Menção" já traz a escala, e a busca encontra "MM" dentro dela. Só o **SR** ganhou termo próprio, porque é o que mais confunde (reprovação por falta).
+- **Udefinho** (o vão da ala sul do ICC): a página da UnB que cita o apelido (a Revista Darcy) não traz o nome do lugar numa frase que o robô consiga ler e confirmar, como faz com as outras 3 gírias. Pode entrar à mão depois.
 - **Calendário acadêmico, coordenação, créditos:** importam, mas a definição de "Matrícula" já aponta para o calendário. Ficam para a lista completa.
 
 ## Validação
