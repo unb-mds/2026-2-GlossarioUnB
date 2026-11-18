@@ -6,7 +6,7 @@ A escolha entre "JSON estático" e "backend com banco de dados" está registrada
 O que pesa, extraído do material do time:
 
 - **Story Map (MVP):** "Quero consultar termos offline", "Queremos que qualquer pessoa da UnB possa sugerir um termo por Pull Request", "queremos adicionar termos em nosso glossário (RF03)". **Fora do escopo:** "Login de Usuário".
-- **Requisitos:** RNF01 (PWA offline); REQUISITOS §1 "domínio pequeno de propósito"; §5 sem edição de termo direto pelo site.
+- **Requisitos:** RNF01 (disponibilidade offline); REQUISITOS §1 "domínio pequeno de propósito"; §5 sem edição de termo direto pelo site.
 - **Referência:** o glossario-ufcg usa JSON estático servido pelo próprio front (ARQUITETURA.md; benchmark no PR #26).
 - **Estado atual:** o MVP feito por um colega (26/09) já consome um `termos.json` estático.
 

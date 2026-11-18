@@ -3,7 +3,7 @@
 ## Contexto
 - **Critérios de avaliação (Release 1):** "Gitpage – visão de produto (com foco no usuário)" vale 10%; "Deploy" vale 5% na avaliação coletiva.
 - **Sprint 03 (`sprint-planning.md`):** "Pipeline CI/CD básico (lint + testes) verde" e "Feature rodando em deploy".
-- **Requisitos:** RNF01 (PWA offline) exige HTTPS para o service worker (ADR 0003). Testes no módulo de dados eram o RNF04 até a revisão de 28/09 (PR #27), que deixou só o RNF01; o time mantém os testes como prática de qualidade.
+- **Requisitos:** RNF01 (disponibilidade offline) exige HTTPS para o service worker (ADR 0003). Testes no módulo de dados e cobertura são os RNF05 e RNF06 (eram o RNF04 até a revisão de 28/09, PR #27).
 - **Repositórios de referência** (SuaGradeUnB 2023-2, LicitaBSB 24.1, NoFluxoUnB 2025-1): usam GitHub Actions e publicam documentação no GitHub Pages com MkDocs Material.
 - **Estado atual:** `.github/workflows/` só tinha um `.gitkeep`.
 

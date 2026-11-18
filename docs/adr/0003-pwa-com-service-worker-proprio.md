@@ -5,7 +5,7 @@
 `docs/ARQUITETURA.md` reserva esta ADR como "Ferramenta de PWA/service worker. Depende da escolha de framework (ADR 0002)".
 
 - **Story Map (MVP):** "Quero consultar termos offline"; "queremos implementar PWA, permitindo o usuário instalar um app nativo em única base de código".
-- **Requisito:** RNF01, instalável e funcionando offline para consulta.
+- **Requisito:** RNF01 (consulta offline depois da primeira visita); ser instalável é decisão desta ADR.
 - **Estudo de PWA (PR #26):** lista os três pilares (HTTPS, manifest, service worker) e as estratégias de cache (cache primeiro, rede primeiro, cache com atualização em segundo plano).
 - **Estado atual:** o MVP do colega já tem `manifest.json` e `sw.js` escritos à mão.
 
