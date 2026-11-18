@@ -1,0 +1,15 @@
+{
+  "provisoria": true,
+  "origem": "proposta da issue #63 (taxonomia, da Jéssyca), ainda aberta; quando ela entrar, troque só este arquivo",
+  "categorias": [
+    { "id": "vida-academica", "nome": "Vida acadêmica", "descricao": "Notas, menções, matrícula, trancamento e índices (SS, MS, IRA, trancamento, reoferta)." },
+    { "id": "unidades-academicas", "nome": "Unidades acadêmicas", "descricao": "Faculdades, institutos e campi (FT, IE, FCTE, FUP, IL)." },
+    { "id": "administracao", "nome": "Administração", "descricao": "Decanatos, secretarias e órgãos da gestão da universidade (DEG, DAC, DPO, SAA, INFRA)." },
+    { "id": "colegiados", "nome": "Colegiados", "descricao": "Conselhos que decidem pela universidade (CONSUNI, CEPE)." },
+    { "id": "locais-campus", "nome": "Locais do campus", "descricao": "Prédios e lugares do campus (ICC, BCE, RU, Ceubinho)." },
+    { "id": "sistemas", "nome": "Sistemas", "descricao": "Sistemas e plataformas online da UnB (SIGAA, Aprender)." },
+    { "id": "assistencia-estudantil", "nome": "Assistência estudantil", "descricao": "Programas e auxílios para estudantes (PPAES, auxílios, DDS)." },
+    { "id": "representacao-estudantil", "nome": "Representação estudantil", "descricao": "Entidades que representam os estudantes (DCE, CA)." },
+    { "id": "girias", "nome": "Gírias", "descricao": "Gírias e expressões informais usadas na UnB." }
+  ]
+}
