@@ -31,6 +31,57 @@
         "padrao": "nome-sigla",
         "minimo": 6
       }
+    },
+    {
+      "id": "ceplan-minhocao",
+      "nome": "CEPLAN: o campus Darcy Ribeiro (ICC, o Minhocão)",
+      "url": "https://ceplan.unb.br/campus-universitario-darcy-ribeiro/",
+      "tipo": "html",
+      "prioridade": 3,
+      "frequencia": "mensal",
+      "campus": "Darcy Ribeiro",
+      "tipo_termo": "giria",
+      "extracao": {
+        "trecho": ".entry-content",
+        "elemento": "p",
+        "padrao": "regex",
+        "expressao": "O (?<significado>Instituto Central de Ciências \\(ICC\\)) é um edifício[^“]*conhecido como “(?<termo>Minhocão)”",
+        "minimo": 1
+      }
+    },
+    {
+      "id": "ceplan-beijodromo",
+      "nome": "CEPLAN: o campus Darcy Ribeiro (Memorial Darcy Ribeiro, o Beijódromo)",
+      "url": "https://ceplan.unb.br/campus-universitario-darcy-ribeiro/",
+      "tipo": "html",
+      "prioridade": 3,
+      "frequencia": "mensal",
+      "campus": "Darcy Ribeiro",
+      "tipo_termo": "giria",
+      "extracao": {
+        "trecho": ".entry-content",
+        "elemento": "p",
+        "padrao": "regex",
+        "expressao": "Conhecido como (?<termo>Beijódromo), o (?<significado>Memorial Darcy Ribeiro)",
+        "minimo": 1
+      }
+    },
+    {
+      "id": "noticias-ceubinho",
+      "nome": "UnB Notícias: ato no Ceubinho, ala norte do ICC (2016)",
+      "url": "https://noticias.unb.br/112-extensao-e-comunidade/753-comunidade-academica-repudia-atos-violentos-na-unb",
+      "tipo": "html",
+      "prioridade": 3,
+      "frequencia": "mensal",
+      "campus": "Darcy Ribeiro",
+      "tipo_termo": "giria",
+      "extracao": {
+        "trecho": "[itemprop=\"articleBody\"]",
+        "elemento": "p",
+        "padrao": "regex",
+        "expressao": "chamado (?<termo>Ceubinho), localizado na (?<significado>ala norte do Instituto Central de Ciências \\(ICC\\))",
+        "minimo": 1
+      }
     }
   ]
 }

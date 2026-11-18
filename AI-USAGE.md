@@ -45,6 +45,7 @@ Cada entrada deve conter: data, pessoa, ferramenta usada, o que foi pedido, o qu
 | 18/11/2026 | Pedro | Claude Code | Texto do RNF08 (privacidade) e do RNF09 (coleta responsável), conferido contra o `coleta/coletor-html.js` e os testes dele, e a atualização da equipe no `REQUISITOS.md` | Aceito após a minha revisão |
 | 18/11/2026 | Pedro | Claude Code (Claude Opus 5.5) | Atualização da ADR 0010 com a segunda lista fechada (Playwright, axe-core, StrykerJS e ESLint, só em devDependencies) e do teste da fronteira de dependências | Aceito após a minha revisão, com o `npm test` passando e o `package.json` do #120 conferido |
 | 18/11/2026 | Pedro | Claude Code (Claude Opus 5.5) | Correção do redirecionamento aberto (S5146) e dos 2 avisos de crossorigin apontados pelo SonarQube Cloud, com os testes do servidor local | Aceito após a minha revisão, com o `npm test` passando |
+| 18/11/2026 | Pedro | Claude Code (Claude Opus 5.5) | Gírias do campus na trilha: busca das páginas da UnB que citam o Ceubinho, o Minhocão e o Beijódromo, correção da definição do Ceubinho, as 3 fontes do robô com o padrão regex e os testes com as páginas salvas, a partir das minhas decisões de 18/11 | Aceito após a minha revisão, com o `npm test` passando |
 | | | | | |
 
 ## Observações gerais
