@@ -4,11 +4,17 @@
   "description": "Dicionário colaborativo de siglas, gírias e expressões da UnB (G10 — MDS 2026/2).",
   "type": "module",
   "engines": {
-    "node": ">=22.9"
+    "node": ">=22.13"
   },
   "scripts": {
+    "lint": "eslint .",
     "test": "node --test",
-    "test:cobertura": "node --test --experimental-test-coverage",
+    "test:cobertura": "node --test --experimental-test-coverage --test-coverage-include=\"frontend/js/termos.js\" --test-coverage-include=\"frontend/js/validacao-termo.js\" --test-coverage-include=\"coleta/**/*.js\" --test-coverage-lines=90 --test-coverage-functions=90 --test-coverage-branches=90",
     "dev": "node --env-file-if-exists=.env scripts/servidor-local.mjs"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.15.0",
+    "globals": "^17.14.0"
   }
 }
