@@ -40,6 +40,7 @@ Cada entrada deve conter: data, pessoa, ferramenta usada, o que foi pedido, o qu
 | 13/11/2026 | Pedro | Claude Code | Classificador com LLM: `coleta/classificador.js`, `coleta/cliente-gemini.js`, o prompt versionado, as categorias provisórias, `scripts/classificar.mjs` e os testes com cliente simulado (#58) | Aceito após a minha revisão, com o `npm test` passando |
 | 13/11/2026 | Pedro | Claude Code | Página Sobre reescrita como página de produto, com o teste da página (#75) | Aceito após a minha revisão, com o `npm test` passando |
 | 13/11/2026 | Pedro | Claude Code | Configuração do SonarQube Cloud no CI (`sonar-project.properties` e `.github/workflows/sonar.yml`) e o texto da issue | Aceito após a minha revisão |
+| 13/11/2026 | Allan | opencode | Elaboração do `docs/estrategia-de-testes.md` para a issue #43, com base nos testes e workflows reais do repositório; atualização em 17/11 para os 52 testes, a deduplicação, a página Sobre e o estado atual do CI | Aceito após revisão no PR |
 | | | | | |
 
 ## Observações gerais
