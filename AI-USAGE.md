@@ -43,6 +43,7 @@ Cada entrada deve conter: data, pessoa, ferramenta usada, o que foi pedido, o qu
 | 13/11/2026 | Pedro | Claude Code | Configuração do SonarQube Cloud no CI (`sonar-project.properties` e `.github/workflows/sonar.yml`) e o texto da issue | Aceito após a minha revisão |
 | 17/11/2026 | Allan | opencode | Revisão e correções do PR #104: caminho do script no Windows e remoção do `temperature` não suportado no Gemini 3.8 (#58) | Aceito após revisão no PR |
 | 18/11/2026 | Pedro | Claude Code | Texto do RNF08 (privacidade) e do RNF09 (coleta responsável), conferido contra o `coleta/coletor-html.js` e os testes dele, e a atualização da equipe no `REQUISITOS.md` | Aceito após a minha revisão |
+| 18/11/2026 | José Gabriel | Antigravity | Migração dos templates de sugestão e correção para GitHub Issue Forms YAML (`adicionar-termo.yml`, `corrigir-definicao.yml`), substituição do placeholder em `config.yml`, atualização dos links no app/sobre/ADR 0006 e testes automatizados (#71) | Aceito após revisão |
 | | | | | |
 
 ## Observações gerais
