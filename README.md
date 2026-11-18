@@ -65,6 +65,20 @@ e se identifica como `GlossarioUnB-coletor`. O comando não muda o
 entra por um pull request revisado por uma pessoa. Para incluir uma fonte nova,
 basta uma entrada a mais no `coleta/fontes.json`.
 
+Depois da coleta, um classificador com IA sugere, para cada termo, a categoria,
+o tipo e um rascunho da definição e do exemplo, e marca o termo como "revisar"
+([ADR 0009][ADR 0009]). Ele usa o Gemini, com a sua chave do
+[Google AI Studio](https://aistudio.google.com/apikey) na linha
+`GEMINI_API_KEY=` do `.env`:
+
+```bash
+npm run --silent coleta | node --env-file-if-exists=.env scripts/classificar.mjs > classificados.json
+```
+
+Sem a chave, o comando roda do mesmo jeito e os termos saem "sem
+classificação". A sugestão nunca vira a definição sozinha: quem escreve o texto
+final é quem revisa o pull request.
+
 ## Serviços externos
 
 A página de um lugar físico, como o Ceubinho, mostra um mapa. Para isso, o
