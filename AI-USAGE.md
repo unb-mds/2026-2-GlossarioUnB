@@ -18,6 +18,7 @@ Cada entrada deve conter: data, pessoa, ferramenta usada, o que foi pedido, o qu
 | 28/09/2026 | José Gabriel | Antigravity | Elaboração e formalização da convenção de commits e branches (`docs/CONVENCAO-GIT.md` e `CONTRIBUTING.md`) para a issue #17 | Aceito |
 | 28/09/2026 | Pedro | Claude Code (Claude Opus 5.5) | Arquivos do frontend: interface, busca, filtros, validação do tipo, service worker, ícones e README | Aceito; revisão registrada no PR #28 (o front entrou na main pelo PR #39) |
 | 28/09/2026 | Pedro | Claude (chat no claude.ai) | Divisão dos arquivos do projeto em blocos e commits por pessoa, sob orientação do Pedro | Aceito |
+| 18/11/2026 | Pedro | Claude Code (Claude Opus 5.5) | Refatoração da coletar (complexidade cognitiva) e do idLivre, apontados pelas regras do SonarQube | Aceito após a minha revisão, com o `npm test` passando |
 | | | | | |
 
 
