@@ -81,4 +81,4 @@ Commits por pessoa no período: Allan 0, Ítalo 0, Jéssyca 0, José 0, Pedro 0.
 
 ## Atas
 
-Não há reunião registrada entre 19 e 25/10, então esta sprint não tem ata em `docs/scrum/atas/`.
+Não há reunião registrada entre 19 e 25/10, então esta sprint não tem ata no `docs/scrum/dailies.md`.
