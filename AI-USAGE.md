@@ -43,6 +43,7 @@ Cada entrada deve conter: data, pessoa, ferramenta usada, o que foi pedido, o qu
 | 13/11/2026 | Pedro | Claude Code | Configuração do SonarQube Cloud no CI (`sonar-project.properties` e `.github/workflows/sonar.yml`) e o texto da issue | Aceito após a minha revisão |
 | 17/11/2026 | Allan | opencode | Revisão e correções do PR #104: caminho do script no Windows e remoção do `temperature` não suportado no Gemini 3.8 (#58) | Aceito após revisão no PR |
 | 18/11/2026 | Pedro | Claude Code | Texto do RNF08 (privacidade) e do RNF09 (coleta responsável), conferido contra o `coleta/coletor-html.js` e os testes dele, e a atualização da equipe no `REQUISITOS.md` | Aceito após a minha revisão |
+| 18/11/2026 | José Gabriel | Antigravity | Definição da taxonomia fechada de `categoria` na ADR 0004, obrigatoriedade no schema (`termos.js`, `validacao-termo.js`, `CONTRIBUTING.md`), classificação dos termos atuais em `termos.json`, sincronização de `coleta/categorias.json` e atualização dos testes (#63) | Aceito após revisão |
 | | | | | |
 
 ## Observações gerais

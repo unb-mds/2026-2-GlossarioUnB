@@ -8,7 +8,7 @@ import { readFile } from "node:fs/promises";
 import { promisify } from "node:util";
 import { fileURLToPath } from "node:url";
 
-import { TIPOS } from "../frontend/js/termos.js";
+import { CATEGORIAS, TIPOS } from "../frontend/js/termos.js";
 import {
   MAX_TEXTO,
   REVISAR,
@@ -213,22 +213,23 @@ test("resumirClassificacao conta quantos vão para revisar e por que o resto fic
   assert.deepEqual(resumirClassificacao(lista), { revisar: 1, sem_classificacao: 2, motivos: { "sem chave da API": 2 } });
 });
 
-// As categorias provisórias (até a #63 entrar) e o cliente do Gemini.
+// As categorias fechadas na #63 (ADR 0004) e o cliente do Gemini.
 
-test("coleta/categorias.json: provisório, ids únicos e cada categoria descrita", () => {
+test("coleta/categorias.json: ids únicos, descritos e sincronizados com CATEGORIAS", () => {
   const arquivo = JSON.parse(JSON.stringify({ categorias }));
   const ids = arquivo.categorias.map((c) => c.id);
   assert.ok(ids.length >= 2);
   assert.equal(new Set(ids).size, ids.length, "id repetido");
+  assert.deepEqual(ids, Object.keys(CATEGORIAS));
   for (const c of arquivo.categorias) {
     assert.match(c.id, /^[a-z]+(-[a-z]+)*$/, `id fora do padrão: ${c.id}`);
     assert.ok(c.nome?.trim() && c.descricao?.trim(), `categoria sem nome ou descrição: ${c.id}`);
   }
 });
 
-test("o arquivo de categorias diz que é provisório e de onde vem", async () => {
+test("o arquivo de categorias registra a taxonomia fechada na #63", async () => {
   const arquivo = JSON.parse(await lerArquivo("../coleta/categorias.json"));
-  assert.equal(arquivo.provisoria, true);
+  assert.equal(arquivo.provisoria, false);
   assert.match(arquivo.origem, /#63/);
 });
 
