@@ -21,11 +21,13 @@ Levantamento de 17 e 18/11/2026. Cada endereço foi aberto nesses dias, e as dat
 | 11 | SIGAA, páginas públicas | HTML gerado na hora | siglas de departamentos e cursos | **Não** | 11 |
 | 12 | Lista de termos do Arquivo Central | PDF | 0 (é índice de assuntos) | **Não** | fora |
 | 13 | Centro Lexterm (terminologia, IL/UnB) | não encontrado | ? | **Não** | referência |
+| 14 | Páginas da UnB sobre os lugares do campus (CEPLAN e UnB Notícias), para as gírias | HTML | 3 gírias (Ceubinho, Minhocão, Beijódromo) | **Sim** | 1 |
 
 Fora do catálogo, mas citados como referência de **formato** (não são da UnB): o [glossario-ufcg](https://github.com/OpenDevUFCG/glossario-ufcg) e o Guia Viver UFMG, comparados no [`BENCHMARK.md`](BENCHMARK.md).
 
 ## Regras que valem para todas
 
+- **Como o robô lê cada fonte:** todo termo entra pelo robô, com a fonte. Numa fonte em forma de lista (nome e sigla em cada item), o coletor usa um padrão fixo (#56). Numa fonte de texto corrido, o Gemini extrai os candidatos só nas fontes marcadas como texto corrido, sempre com o trecho de origem, e uma pessoa revisa cada termo no PR do robô (ADR 0009). Um PDF precisa antes do leitor de PDF da #55. A coluna "Coleta automática" diz se a fonte já funciona assim (**sim**), se depende de uma dessas peças (**parcial**) ou se não serve (**não**).
 - **`robots.txt`:** os sites em WordPress da UnB (`deg`, `dpo`, `saa`, `ru`, `bce`, `dds.dac`, `boasvindas`, `arquivocentral`) só bloqueiam `/wp-admin/`. O portal `unb.br` (Joomla) só bloqueia pastas de sistema (`/administrator/`, `/cache/`, `/components/`, `/modules/` e outras). O `sigaa.unb.br` não tem `robots.txt` (404). O coletor lê o `robots.txt` antes de cada página (`robots-parser`, ADR 0010).
 - **Termos de uso:** os sites trazem "Copyright © 2026 - Universidade de Brasília. Todos os direitos reservados." e nenhum mostra licença aberta. Por isso o glossário escreve a definição com as próprias palavras e guarda o link da fonte em `fonte`. Não copiamos trechos longos.
 - **Frequência:** quase nenhuma página mostra a data da última mudança. Os PDFs, sim. Por isso a tabela usa a data de criação do arquivo.
@@ -75,7 +77,7 @@ A DPO publica uma lista de siglas no Relatório de Gestão e outra no Plano de D
 - **Formato:** PDF de 134 páginas (13,6 MB), criado em 25/05/2026.
 - **Termos:** cerca de 30 termos da vida acadêmica, cada um explicado em linguagem de calouro: menções (p. 46 do PDF), IRA (p. 49), fluxo (p. 24), matrícula, rematrícula e matrícula extraordinária (p. 38), trancamento e TGM (p. 58 e 59), auxílios da assistência estudantil (p. 86 e 87), e-mail institucional, SIGAA e Aprender 3 (p. 14 e 15).
 - **Atualização:** uma edição por semestre.
-- **Coleta automática: parcial.** O texto sai do PDF, mas a diagramação em colunas mistura frases, e as definições são texto corrido. A pessoa cura o termo e o robô só confere se a página citada continua no ar.
+- **Coleta automática: parcial.** O texto sai do PDF (depois do leitor de PDF da #55), mas a diagramação em colunas mistura frases, e as definições são texto corrido. Por isso é uma fonte de texto corrido: o Gemini extrai os candidatos com o trecho e a página de origem, e cada um passa pela revisão no PR do robô.
 - **Prioridade 4:** é a fonte principal da trilha do calouro (`docs/TRILHA-CALOURO.md`, #69).
 
 ### 5. Sites dos serviços
@@ -94,7 +96,7 @@ A DPO publica uma lista de siglas no Relatório de Gestão e outra no Plano de D
 
 - **Formato:** HTML (WordPress, menos o SIGAA e o Aprender 3).
 - **Termos:** um por site, mais os serviços que ele lista.
-- **Coleta automática: parcial.** O robô confirma que a página existe e lê o título. A definição é curada.
+- **Coleta automática: parcial.** O robô confirma que a página existe e lê o título. A definição está em texto corrido: o Gemini propõe o rascunho a partir do trecho da página, e a revisão no PR aprova ou corrige.
 - **Prioridade 5:** é o `fonte` mais direto de cada termo, o link que o calouro vai abrir.
 
 ### 6. Estatuto e Regimento Geral da UnB
@@ -157,6 +159,15 @@ A DPO publica uma lista de siglas no Relatório de Gestão e outra no Plano de D
 - **Coleta automática: não.**
 - **Referência de método:** como se escreve uma definição terminológica.
 - **Outros grupos:** os demais glossários do IL e do POSTRAD achados em 18/11 (2016 a 2023) são temáticos, em Libras e português (matemática, história, saúde suplementar), e nenhum tem siglas da UnB.
+
+### 14. Páginas da UnB sobre os lugares do campus (gírias)
+
+- **Endereços:** <https://ceplan.unb.br/campus-universitario-darcy-ribeiro/> (CEPLAN, a descrição dos prédios do campus Darcy Ribeiro) e <https://noticias.unb.br/112-extensao-e-comunidade/753-comunidade-academica-repudia-atos-violentos-na-unb> (UnB Notícias, 2016).
+- **Formato:** HTML. São textos corridos, mas cada gíria aparece numa frase fixa junto com o nome oficial do lugar: "Também conhecido como 'Minhocão'", "Conhecido como Beijódromo, o Memorial Darcy Ribeiro" e "o chamado Ceubinho, localizado na ala norte do Instituto Central de Ciências (ICC)".
+- **Termos:** 3 gírias da trilha do calouro (ver `TRILHA-CALOURO.md`). A Revista Darcy (UnB) também cita o Udefinho, o vão da ala sul do ICC, mas sem o nome do lugar numa frase que o robô consiga ler.
+- **Atualização:** páginas institucionais, sem data de mudança; o robô confere uma vez por mês.
+- **Coleta automática: sim.** Entram no `coleta/fontes.json` pelo PR das gírias do campus, com o padrão `regex` do coletor (#56), uma fonte por gíria. O teste confere que a coleta confirma as 3 gírias da base sem propor mudança.
+- **Prioridade 1:** já funciona, e é o que mantém as gírias da trilha com uma fonte da UnB.
 
 ## Pendências
 
