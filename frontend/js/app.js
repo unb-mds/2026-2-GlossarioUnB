@@ -7,9 +7,11 @@ import {
   CAMPI, CAMPUS_GERAL, TIPOS, agruparPorLetra, buscarTermos, contarPorTipo, encontrarTermo,
   filtrarTermos, filtrosDaUrl, normalizar, resumoDoTermo,
 } from "./termos.js";
+import { montarTrilha } from "./trilha.js";
 import { urlSegura, validarTermo } from "./validacao-termo.js";
 
 const URL_DADOS = "data/termos.json";
+const URL_TRILHA = "data/trilha-calouro.json";
 const URL_REPOSITORIO = "https://github.com/unb-mds/2026-2-GlossarioUnB";
 const MENSAGEM_ERRO_CARGA = "Não foi possível carregar os termos. Verifique sua conexão e tente de novo.";
 const TIPOS_NO_PLURAL = { sigla: "Siglas", giria: "Gírias", expressao: "Expressões" };
@@ -231,6 +233,44 @@ function iniciarAtalhos(termos) {
   }
 }
 
+// ===== Início: trilha do calouro (#70, ADR 0011) =====
+// A lista vem de data/trilha-calouro.json (ids), e os dados de cada termo do termos.json.
+// Se o arquivo não carregar, a seção continua escondida e o resto da página funciona.
+
+async function iniciarTrilha(termos) {
+  const secao = document.getElementById("trilha-calouro");
+  const lista = document.getElementById("trilha-grupos");
+  if (!secao || !lista) return;
+
+  try {
+    const resposta = await fetch(URL_TRILHA);
+    if (!resposta.ok) throw new Error(`Não foi possível carregar ${URL_TRILHA} (HTTP ${resposta.status})`);
+    const grupos = montarTrilha(await resposta.json(), termos);
+    if (grupos.length === 0) return;
+
+    for (const grupo of grupos) {
+      const itemGrupo = criarElemento("li", { classe: "trilha-grupo" });
+      const titulo = criarElemento("h3", { classe: "trilha-grupo-nome", texto: grupo.nome, atributos: { id: `trilha-${grupo.id}` } });
+      const termosDoGrupo = criarElemento("ul", { classe: "trilha-termos", atributos: { "aria-labelledby": `trilha-${grupo.id}` } });
+      for (const termo of grupo.termos) {
+        const link = criarElemento("a", { classe: "trilha-termo", atributos: { href: urlDoTermo(termo) } });
+        link.append(
+          criarElemento("span", { classe: "trilha-termo-nome", texto: termo.termo }),
+          criarElemento("span", { classe: "trilha-termo-resumo", texto: resumoDoTermo(termo) }),
+        );
+        const item = criarElemento("li");
+        item.append(link);
+        termosDoGrupo.append(item);
+      }
+      itemGrupo.append(titulo, termosDoGrupo);
+      lista.append(itemGrupo);
+    }
+    secao.hidden = false;
+  } catch (erro) {
+    console.warn("Trilha do calouro não carregada:", erro);
+  }
+}
+
 // ===== Todas as siglas: índice, filtros por tipo (RF02) e campus =====
 
 function idDaLetra(letra) {
@@ -422,6 +462,7 @@ try {
   const termos = await carregarTermos();
   iniciarBusca(termos);
   iniciarAtalhos(termos);
+  await iniciarTrilha(termos);
   iniciarListaCompleta(termos);
   iniciarPaginaTermo(termos);
 } catch (erro) {
