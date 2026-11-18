@@ -1,0 +1,36 @@
+{
+  "fontes": [
+    {
+      "id": "unb-decanatos",
+      "nome": "Decanatos da UnB",
+      "url": "https://unb.br/administrativo-rodape/decanatos",
+      "tipo": "html",
+      "prioridade": 1,
+      "frequencia": "semanal",
+      "campus": "Geral",
+      "tipo_termo": "sigla",
+      "extracao": {
+        "trecho": "[itemprop=\"articleBody\"]",
+        "elemento": "a",
+        "padrao": "nome-sigla",
+        "minimo": 6
+      }
+    },
+    {
+      "id": "unb-secretarias",
+      "nome": "Assessorias e secretarias da UnB",
+      "url": "https://unb.br/administrativo-rodape/secretarias",
+      "tipo": "html",
+      "prioridade": 1,
+      "frequencia": "semanal",
+      "campus": "Geral",
+      "tipo_termo": "sigla",
+      "extracao": {
+        "trecho": "[itemprop=\"articleBody\"]",
+        "elemento": "a",
+        "padrao": "nome-sigla",
+        "minimo": 6
+      }
+    }
+  ]
+}
