@@ -23,7 +23,7 @@ Regras para qualquer agente de IA que mexa neste repositório. Leia antes de mud
 ## Regras que o agente não pode quebrar
 
 1. **Todo termo passa pela `validarTermo` (ADR 0004).** Campos obrigatórios: `id`, `termo`, `tipo`, `definicao`, `exemplo_uso`, `fonte`, `campus`. O `id` usa só minúsculas sem acento, números e hífens; sigla precisa de `significado`. Nunca copie essa regra para outro arquivo.
-2. **Sem framework e sem build no front (ADR 0002).** JavaScript puro com ES Modules e CSS puro com tokens. Biblioteca npm só em `coleta/` e `scripts/`, e só as da lista da ADR 0010; qualquer outra precisa de ADR.
+2. **Sem framework e sem build no front (ADR 0002).** JavaScript puro com ES Modules e CSS puro com tokens. Biblioteca npm só pelas duas listas fechadas da ADR 0010: as do robô, em `coleta/` e `scripts/`, e as de teste e qualidade, só em `devDependencies`. Qualquer outra precisa de ADR.
 3. **Nenhum segredo no front nem no repositório.** O site é público no GitHub Pages (ADR 0007). Chave de API fica no `.env`, que não é commitado.
 4. **Conventional Commits e branch com issue** (`docs/CONVENCAO-GIT.md`): `tipo(escopo): descrição no imperativo` e `<prefixo>/issue-<N>-<descricao>`. Quem faz o commit é a pessoa: o agente não roda `git commit` nem `git push`.
 5. **Uso de IA registrado no `AI-USAGE.md`**: data, pessoa, ferramenta, o que foi feito e se foi aceito, ajustado ou rejeitado.
