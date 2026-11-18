@@ -31,8 +31,8 @@ Fontes oficiais da UnB (coleta/fontes.json: páginas de siglas; o PDF entra com 
 ```
 G10-2026-2/
 ├── index.html          # raiz do site publicado: redireciona para sobre/
-│   ├── data/           # termos.json — dataset (ADR 0001, proposta)
-│   └── js/             # termos.js, validacao-termo.js (domínio) + app.js (DOM)
+│   ├── data/           # termos.json — dataset (ADR 0001, proposta); trilha-calouro.json (ADR 0011)
+│   └── js/             # termos.js, trilha.js, validacao-termo.js (domínio) + app.js (DOM)
 ├── sobre/              # GitPage 2: apresentação do projeto, só HTML e CSS → /sobre/
 ├── frontend/           # GitPage 1: o glossário (PWA), sem build → /frontend/
 ├── coleta/             # o robô: fontes, coletor, deduplicação, classificador; pode usar bibliotecas (ADR 0010)
@@ -60,6 +60,7 @@ O dataset ficou dentro de `frontend/` para o glossário ser publicado copiando u
 > - [ADR 0008 — Interface com CSS puro e tokens](adr/0008-interface-com-css-puro-e-tokens.md) (28/09)
 > - [ADR 0009 — Coleta automatizada por pipeline com PR revisado](adr/0009-coleta-automatizada-por-pipeline.md) (11/11)
 > - [ADR 0010 — Bibliotecas npm nos scripts do robô](adr/0010-bibliotecas-nos-scripts-do-robo.md) (13/11, proposta)
+> - [ADR 0011 — Trilha do calouro num arquivo próprio](adr/0011-trilha-do-calouro-em-arquivo-proprio.md) (17/11)
 
 ## Padrões de código (a manter desde o primeiro commit)
 
