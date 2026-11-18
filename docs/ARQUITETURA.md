@@ -59,7 +59,7 @@ C4Container
         Container(sobre, "Página Sobre / GitPage", "HTML e CSS", "Apresenta o projeto, as personas e como contribuir.")
         Container(pipeline, "Pipeline de coleta", "Node.js no GitHub Actions", "Lê as fontes, extrai candidatos, deduplica, usa o classificador/LLM e abre um PR.")
         ContainerDb(termos, "termos.json", "JSON estático versionado", "É a fonte única dos termos publicados.")
-        Container(ci, "CI", "GitHub Actions", "Roda lint, testes e cobertura em todo Pull Request.")
+        Container(ci, "CI", "GitHub Actions", "Roda testes e, a partir da #79, lint e cobertura em todo Pull Request.")
     }
 
     System_Ext(fontes, "Fontes oficiais da UnB", "Páginas e PDF da DPO.")
@@ -90,7 +90,7 @@ C4Container
 | Página Sobre / GitPage | HTML e CSS | Apresenta o projeto, as personas e os caminhos de contribuição, sem JavaScript. |
 | Pipeline de coleta | Node.js no GitHub Actions | Lê as fontes, extrai candidatos, deduplica, usa o classificador/LLM e abre um PR. |
 | termos.json | JSON estático versionado | Guarda os termos publicados e é a fonte única do app. |
-| CI | GitHub Actions | Roda lint, testes e cobertura em todo Pull Request. |
+| CI | GitHub Actions | Roda testes e, a partir da #79, lint e cobertura em todo Pull Request. |
 
 ### Fluxo de dados
 
@@ -99,11 +99,12 @@ C4Container
 3. O classificador/LLM sugere categoria, tipo e rascunhos; `validarGlossario()` confere o schema.
 4. O workflow abre um Pull Request; uma pessoa revisa, escreve a definição e o exemplo e faz o merge.
 5. O `termos.json` na `main` é copiado para o GitHub Pages; o app PWA consulta e o service worker guarda os dados para uso offline.
-6. O CI roda lint, testes e cobertura em todo Pull Request; o Pages só publica depois que os testes passam.
+6. O CI roda os testes em todo Pull Request; com a #79, também roda lint e cobertura. O Pages só publica depois que os testes passam.
 
 ### Limites do desenho
 
 - O nível 2 reflete a [ADR 0009](adr/0009-coleta-automatizada-por-pipeline.md). Os contêineres do pipeline são implementados pelas issues #55, #56, #58 e #59; hoje a `main` já tem a deduplicação (#57).
+- O lint e a cobertura mínima no CI entram com a #79; até lá, o CI roda os testes.
 - Não há backend nem banco de dados: o GitHub Pages serve arquivos estáticos e o `termos.json` é versionado (ADR 0001 e ADR 0007).
 - O LLM não decide nada sozinho: ele sugere categoria, tipo e rascunhos, e a revisão humana escreve e aprova o texto final (ADR 0009).
 - Bibliotecas npm são permitidas só em `coleta/`, `scripts/` e nos testes do robô (ADR 0010).
