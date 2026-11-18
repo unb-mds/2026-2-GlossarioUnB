@@ -40,6 +40,7 @@ Cada entrada deve conter: data, pessoa, ferramenta usada, o que foi pedido, o qu
 | 13/11/2026 | Pedro | Claude Code | Classificador com LLM: `coleta/classificador.js`, `coleta/cliente-gemini.js`, o prompt versionado, as categorias provisórias, `scripts/classificar.mjs` e os testes com cliente simulado (#58) | Aceito após a minha revisão, com o `npm test` passando |
 | 13/11/2026 | Pedro | Claude Code | Página Sobre reescrita como página de produto, com o teste da página (#75) | Aceito após a minha revisão, com o `npm test` passando |
 | 13/11/2026 | Pedro | Claude Code | Configuração do SonarQube Cloud no CI (`sonar-project.properties` e `.github/workflows/sonar.yml`) e o texto da issue | Aceito após a minha revisão |
+| 17/11/2026 | Allan | opencode | Revisão e correções do PR #104: caminho do script no Windows e remoção do `temperature` não suportado no Gemini 3.8 (#58) | Aceito após revisão no PR |
 | | | | | |
 
 ## Observações gerais

@@ -13,12 +13,12 @@ export function criarClienteGemini({ chave, GoogleGenAI, modelo = MODELO_PADRAO 
   const ia = new GoogleGenAI({ apiKey: chave });
   return {
     modelo,
-    // Pede a resposta em JSON, presa ao schema, e com temperatura 0 (a mesma pergunta dá a mesma resposta).
+    // Pede a resposta em JSON, presa ao schema. O Gemini 3.8 não aceita mais `temperature`.
     async gerar(prompt, esquema) {
       const resposta = await ia.models.generateContent({
         model: modelo,
         contents: prompt,
-        config: { responseMimeType: "application/json", responseJsonSchema: esquema, temperature: 0 },
+        config: { responseMimeType: "application/json", responseJsonSchema: esquema },
       });
       if (typeof resposta?.text !== "string") throw new Error("a API não devolveu texto");
       return resposta.text;

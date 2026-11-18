@@ -6,6 +6,7 @@ import assert from "node:assert/strict";
 import { execFile } from "node:child_process";
 import { readFile } from "node:fs/promises";
 import { promisify } from "node:util";
+import { fileURLToPath } from "node:url";
 
 import { TIPOS } from "../frontend/js/termos.js";
 import {
@@ -237,7 +238,7 @@ test("criarClienteGemini: sem chave devolve null, com chave e sem a classe é er
   assert.throws(() => criarClienteGemini({ chave: "chave-de-teste" }), /precisa da classe GoogleGenAI/);
 });
 
-test("criarClienteGemini repassa a chave, o modelo, o prompt e o schema, com temperatura 0", async () => {
+test("criarClienteGemini repassa a chave, o modelo, o prompt e o schema", async () => {
   const recebido = {};
   class GoogleGenAIFalso {
     constructor(config) {
@@ -257,7 +258,7 @@ test("criarClienteGemini repassa a chave, o modelo, o prompt e o schema, com tem
   assert.deepEqual(recebido.pedido, {
     model: "gemini-teste",
     contents: "o prompt",
-    config: { responseMimeType: "application/json", responseJsonSchema: { type: "object" }, temperature: 0 },
+    config: { responseMimeType: "application/json", responseJsonSchema: { type: "object" } },
   });
   assert.equal(criarClienteGemini({ chave: "x", GoogleGenAI: GoogleGenAIFalso }).modelo, MODELO_PADRAO);
 });
@@ -281,7 +282,7 @@ test("o classificador e o cliente não importam o SDK nem leem o ambiente", asyn
 });
 
 test("scripts/classificar.mjs sem chave: devolve todos sem classificação e o resumo no stderr", async () => {
-  const script = new URL("../scripts/classificar.mjs", import.meta.url).pathname;
+  const script = fileURLToPath(new URL("../scripts/classificar.mjs", import.meta.url));
   const filho = execFile(process.execPath, [script], { env: { PATH: process.env.PATH } });
   filho.stdin.end(JSON.stringify({ candidatos: [DEG, DEX], erros: [] }));
   const { stdout, stderr } = await new Promise((resolve, reject) => {
