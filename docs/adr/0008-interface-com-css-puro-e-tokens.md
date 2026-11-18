@@ -9,8 +9,8 @@ A interface precisava respeitar quatro coisas:
   - o calouro jovem quer "busca rápida, tipo Google";
   - o calouro 60+ precisa de "fonte maior, navegação mais simples";
   - o veterano "não quer navegar por menus, quer digitar e achar rápido".
-- **Acessibilidade**, com contraste, teclado e leitor de tela. Era o RNF02 até a revisão dos requisitos de 28/09 (PR #27); o time mantém como prática de qualidade.
-- **RNF01 / ADR 0003:** a interface precisa funcionar **offline**, e o service worker só guarda arquivos da mesma origem.
+- **Acessibilidade**, com contraste, teclado e leitor de tela: RNF03 (era o RNF02 até a revisão dos requisitos de 28/09, PR #27).
+- **RNF01 (disponibilidade offline) / ADR 0003:** a interface precisa funcionar **offline**, e o service worker só guarda arquivos da mesma origem.
 - **ADR 0002:** sem framework e sem etapa de build.
 
 ## Decisão

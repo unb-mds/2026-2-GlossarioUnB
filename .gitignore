@@ -8,5 +8,5 @@ node_modules/
 _site/
 coverage/
 
-# Chaves de API (GEMINI_API_KEY) para rodar o classificador local; nunca vão para o repositório
+# Arquivo de variáveis de ambiente com dados sensíveis
 .env
