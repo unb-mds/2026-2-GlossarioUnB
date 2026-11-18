@@ -26,7 +26,7 @@ test("pasta sem a barra no fim redireciona para a mesma pasta, com a barra", asy
 });
 
 test("o destino do redirecionamento sai da lista de pastas, nunca do endereço pedido", async () => {
-  for (const caminho of ["//exemplo.com/frontend", "/%2F%2Fexemplo.com", "/frontendx", "/frontend%2F..%2F..", "/sobre?ir=//exemplo.com"]) {
+  for (const caminho of ["//exemplo.com/frontend", "/%2F%2Fexemplo.com", "/%2F%2Fexemplo.com/frontend", "/x/frontend", "/frontendx", "/frontend%2F..%2F..", "/sobre?ir=//exemplo.com"]) {
     const resposta = await pedir(caminho);
     const destino = resposta.headers.get("location");
     if (destino !== null) assert.ok(["/frontend/", "/sobre/"].includes(destino), `${caminho} redirecionou para ${destino}`);
