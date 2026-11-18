@@ -41,6 +41,9 @@ Cada entrada deve conter: data, pessoa, ferramenta usada, o que foi pedido, o qu
 | 13/11/2026 | Pedro | Claude Code | Página Sobre reescrita como página de produto, com o teste da página (#75) | Aceito após a minha revisão, com o `npm test` passando |
 | 13/11/2026 | Pedro | Claude Code | Configuração do SonarQube Cloud no CI (`sonar-project.properties` e `.github/workflows/sonar.yml`) e o texto da issue | Aceito após a minha revisão |
 | 17/11/2026 | Allan | opencode | Revisão e correções do PR #104: caminho do script no Windows e remoção do `temperature` não suportado no Gemini 3.8 (#58) | Aceito após revisão no PR |
+| 17/11/2026 | Pedro | Claude Code | Catálogo das fontes de dados (`docs/FONTES-DE-DADOS.md`): cada endereço aberto, o `robots.txt` e a data de cada PDF conferidos (#52) | Aceito após a minha revisão |
+| 17/11/2026 | Pedro | Claude Code | Lista da trilha do calouro a partir do Manual do Calouro 2026/2 (`docs/TRILHA-CALOURO.md`, #69) | Aceito após a minha revisão; a validação com calouros fica registrada na issue |
+| 17/11/2026 | Pedro | Claude Code | Trilha na página inicial: `frontend/data/trilha-calouro.json`, os termos novos com fonte oficial, `frontend/js/trilha.js`, o teste de integridade referencial e a ADR 0011, a partir da minha decisão de guardar a trilha num arquivo próprio (#70) | Aceito após a minha revisão, com o `npm test` passando |
 | | | | | |
 
 ## Observações gerais
