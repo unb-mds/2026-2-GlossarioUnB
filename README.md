@@ -20,7 +20,8 @@ aberto do Grupo G10, da disciplina Métodos de Desenvolvimento de Software
 * [Usar o glossário][app]
 * [Sobre o projeto][sobre]: o problema, os perfis de quem usa e a equipe
 * [Requisitos](docs/REQUISITOS.md), [arquitetura](docs/ARQUITETURA.md) e [decisões de arquitetura (ADRs)](docs/adr/)
-* [Processo do time](docs/PROCESSO.md) e [planejamento das sprints](docs/scrum/sprint-planning.md)
+* [Processo do time](docs/PROCESSO.md), [guia do fluxo de trabalho (Git passo a passo)](docs/GUIA-FLUXO-DE-TRABALHO.md) e [planejamento das sprints](docs/scrum/sprint-planning.md)
+* [Story map](docs/storymap/story-map.png) e [quadro do Figma][figma]
 * [Contribuir com o Glossário UnB](CONTRIBUTING.md)
 
 As datas das entregas (Release 1 e Release 2) estão na
@@ -30,20 +31,39 @@ IA no projeto fica registrado no [AI-USAGE.md](AI-USAGE.md).
 
 ## Rodar no seu computador
 
-Pré-requisito: [Node.js](https://nodejs.org/) 22 ou mais novo. Não há
-dependências para instalar.
+Pré-requisito: [Node.js](https://nodejs.org/) 22.9 ou mais novo. O site não tem
+dependências; o robô de coleta usa as bibliotecas da [ADR 0010][ADR 0010], que o
+`npm ci` instala.
 
 ```bash
 git clone https://github.com/unb-mds/2026-2-GlossarioUnB.git
 cd 2026-2-GlossarioUnB
+npm ci                  # instala as bibliotecas do robô, nas versões do package-lock.json
 npm run dev             # glossário em http://localhost:8080/frontend/ e Sobre em /sobre/
 npm test                # testes + validação de todos os termos
 npm run test:cobertura  # os mesmos testes, com relatório de cobertura
 ```
 
-Para usar outra porta, crie um arquivo `.env` com `PORT=` e o número da porta
-(o `npm run dev` lê o `.env` sozinho). Detalhes do app, página por página, em
+Para usar outra porta, copie o `.env.example` para `.env` e ajuste a `PORT`
+(o `npm run dev` lê o `.env` sozinho, e o `.gitignore` deixa o `.env` fora do
+Git). Detalhes do app, página por página, em
 [`frontend/README.md`](frontend/README.md).
+
+## Rodar a coleta
+
+O robô de coleta lê as páginas oficiais da UnB listadas em
+[`coleta/fontes.json`](coleta/fontes.json) e lista os termos que encontrou, cada
+um com a URL, o trecho da página e a data em que foi coletado:
+
+```bash
+npm run coleta > candidatos.json
+```
+
+Ele respeita o robots.txt de cada site, espera 1 segundo entre um pedido e outro
+e se identifica como `GlossarioUnB-coletor`. O comando não muda o
+`frontend/data/termos.json`: pela [ADR 0009][ADR 0009], um termo coletado só
+entra por um pull request revisado por uma pessoa. Para incluir uma fonte nova,
+basta uma entrada a mais no `coleta/fontes.json`.
 
 ## Serviços externos
 
@@ -121,3 +141,6 @@ O Glossário UnB é distribuído sob a [licença MIT](LICENSE).
 [ADR 0005]: docs/adr/0005-mapa-de-locais-com-leaflet.md
 [ADR 0007]: docs/adr/0007-github-pages-e-ci-com-actions.md
 [ADR 0008]: docs/adr/0008-interface-com-css-puro-e-tokens.md
+[ADR 0009]: docs/adr/0009-coleta-automatizada-por-pipeline.md
+[ADR 0010]: docs/adr/0010-bibliotecas-nos-scripts-do-robo.md
+[figma]: https://www.figma.com/board/dk8nBcFiFEWo1AkOvn1554/Template-MDS--c%C3%B3pia-limpa---c%C3%B3pia---c%C3%B3pia-?node-id=0-1&t=IS5erq77oDUXUtei-1
