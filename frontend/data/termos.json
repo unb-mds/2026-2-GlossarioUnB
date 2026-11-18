@@ -13,6 +13,7 @@
     "id": "bce",
     "termo": "BCE",
     "tipo": "sigla",
+    "categoria": "locais-campus",
     "significado": "Biblioteca Central",
     "definicao": "Unidade responsável pela organização e disponibilização do acervo bibliográfico e de serviços de informação da UnB.",
     "exemplo_uso": "Vou ali na BCE estudar e depois pegar um livro.",
@@ -83,6 +84,7 @@
     "id": "dac",
     "termo": "DAC",
     "tipo": "sigla",
+    "categoria": "administracao",
     "significado": "Decanato de Assuntos Comunitarios",
     "definicao": "Decanato responsável por políticas e ações relacionadas à assistência, permanência, saúde, esporte, acessibilidade e assuntos comunitários.",
     "exemplo_uso": "Fui ao DAC tirar uma dúvida sobre assistência estudantil.",
@@ -413,5 +415,164 @@
     "lng": -47.8670,
     "link_como_chegar": "https://www.google.com/maps/search/?api=1&query=-15.7634,-47.8670"
   }
-}
+},
+  {
+    "id": "ru",
+    "termo": "RU",
+    "tipo": "sigla",
+    "categoria": "locais-campus",
+    "significado": "Restaurante Universitário",
+    "definicao": "Restaurante da UnB, com unidades no Darcy Ribeiro, em Ceilândia, no Gama, em Planaltina e na Fazenda Água Limpa. O cardápio de cada unidade e o valor da refeição de cada grupo de acesso ficam no site do RU.",
+    "exemplo_uso": "Bora almoçar no RU antes da aula das duas?",
+    "fonte": "https://ru.unb.br/",
+    "campus": "Geral"
+  },
+  {
+    "id": "icc",
+    "termo": "ICC",
+    "tipo": "sigla",
+    "categoria": "locais-campus",
+    "significado": "Instituto Central de Ciências",
+    "definicao": "Prédio do campus Darcy Ribeiro onde ficam salas de aula e departamentos, como o de Matemática. Os endereços de sala citam a ala do prédio, como \"ICC Centro\".",
+    "exemplo_uso": "A monitoria de Cálculo 1 é no ICC Centro, no subsolo do Departamento de Matemática.",
+    "fonte": "https://deg.unb.br/wp-content/uploads/manual_do_calouro_2026_2.pdf#page=84",
+    "campus": "Darcy Ribeiro"
+  },
+  {
+    "id": "mencao",
+    "termo": "Menção",
+    "tipo": "expressao",
+    "categoria": "vida-academica",
+    "definicao": "Na UnB, o histórico registra menções, e não notas: SS (de 9 a 10), MS (de 7 a 8,9), MM (de 5 a 6,9), MI (de 3 a 4,9), II (abaixo de 3) e SR (zero). Passa na disciplina quem tira MM ou mais e tem pelo menos 75% de presença.",
+    "exemplo_uso": "Fiquei com MS em Cálculo 1, então passei.",
+    "fonte": "https://deg.unb.br/wp-content/uploads/manual_do_calouro_2026_2.pdf#page=46",
+    "campus": "Geral"
+  },
+  {
+    "id": "sr",
+    "termo": "SR",
+    "tipo": "sigla",
+    "categoria": "vida-academica",
+    "significado": "Sem Rendimento",
+    "definicao": "Menção que vale zero. Aparece quando o estudante reprova por falta (menos de 75% de presença) ou abandona a disciplina.",
+    "exemplo_uso": "Parei de ir às aulas no meio do semestre e fiquei com SR.",
+    "fonte": "https://deg.unb.br/wp-content/uploads/manual_do_calouro_2026_2.pdf#page=46",
+    "campus": "Geral"
+  },
+  {
+    "id": "ira",
+    "termo": "IRA",
+    "tipo": "sigla",
+    "categoria": "vida-academica",
+    "significado": "Índice de Rendimento Acadêmico",
+    "definicao": "Número de 0 a 5 que resume o desempenho no curso inteiro, calculado a partir das menções, com pesos diferentes para disciplinas obrigatórias, optativas e de módulo livre. Serve em seleções internas e para desempatar pedidos de matrícula.",
+    "exemplo_uso": "Meu IRA subiu depois que passei em todas as disciplinas do semestre.",
+    "fonte": "https://deg.unb.br/wp-content/uploads/manual_do_calouro_2026_2.pdf#page=49",
+    "campus": "Geral"
+  },
+  {
+    "id": "sigaa",
+    "termo": "SIGAA",
+    "tipo": "sigla",
+    "categoria": "sistemas",
+    "significado": "Sistema Integrado de Gestão de Atividades Acadêmicas",
+    "definicao": "Sistema onde o estudante faz a matrícula nas disciplinas e consulta notas, frequência, turmas e histórico. Também emite documentos, como o atestado de matrícula.",
+    "exemplo_uso": "A matrícula abre amanhã cedo no SIGAA.",
+    "fonte": "https://deg.unb.br/wp-content/uploads/manual_do_calouro_2026_2.pdf#page=15",
+    "campus": "Geral"
+  },
+  {
+    "id": "aprender-3",
+    "termo": "Aprender 3",
+    "tipo": "expressao",
+    "categoria": "sistemas",
+    "definicao": "Ambiente virtual da UnB, feito no Moodle, com os materiais, as atividades e os fóruns das disciplinas. O acesso é com o e-mail institucional.",
+    "exemplo_uso": "O professor postou a lista de exercícios no Aprender 3.",
+    "fonte": "https://deg.unb.br/wp-content/uploads/manual_do_calouro_2026_2.pdf#page=14",
+    "campus": "Geral"
+  },
+  {
+    "id": "email-institucional",
+    "termo": "E-mail institucional",
+    "tipo": "expressao",
+    "categoria": "sistemas",
+    "definicao": "E-mail que a UnB dá a cada estudante, formado pelo número de matrícula seguido de @aluno.unb.br. É o principal canal de comunicação com a universidade e dá acesso aos sistemas, como o Aprender 3.",
+    "exemplo_uso": "O aviso da coordenação chegou no meu e-mail institucional.",
+    "fonte": "https://deg.unb.br/wp-content/uploads/manual_do_calouro_2026_2.pdf#page=14",
+    "campus": "Geral"
+  },
+  {
+    "id": "matricula",
+    "termo": "Matrícula",
+    "tipo": "expressao",
+    "categoria": "vida-academica",
+    "definicao": "Pedido de vaga nas turmas do semestre, feito no SIGAA em etapas: matrícula, rematrícula (com as vagas que sobraram) e matrícula extraordinária. As datas ficam no calendário acadêmico. No semestre de ingresso, a SAA matricula o calouro automaticamente.",
+    "exemplo_uso": "Não consegui a turma na matrícula, vou tentar na rematrícula.",
+    "fonte": "https://deg.unb.br/wp-content/uploads/manual_do_calouro_2026_2.pdf#page=38",
+    "campus": "Geral"
+  },
+  {
+    "id": "fluxo",
+    "termo": "Fluxo",
+    "tipo": "expressao",
+    "categoria": "vida-academica",
+    "definicao": "O mapa oficial das disciplinas do curso, semestre por semestre, com a sequência recomendada para montar a grade. No SIGAA, aparece como estrutura curricular.",
+    "exemplo_uso": "Pelo fluxo, Cálculo 2 fica no segundo semestre.",
+    "fonte": "https://deg.unb.br/wp-content/uploads/manual_do_calouro_2026_2.pdf#page=24",
+    "campus": "Geral"
+  },
+  {
+    "id": "tgm",
+    "termo": "TGM",
+    "tipo": "sigla",
+    "categoria": "vida-academica",
+    "significado": "Trancamento Geral de Matrícula",
+    "definicao": "Pedido para suspender o curso por um tempo sem perder o vínculo com a UnB. É feito no SIGAA, e o DEG recomenda conversar antes com a coordenação do curso. Também existe o trancamento parcial, de só algumas disciplinas.",
+    "exemplo_uso": "Pensei em pedir TGM, mas a coordenação me ajudou a reorganizar as disciplinas.",
+    "fonte": "https://deg.unb.br/wp-content/uploads/manual_do_calouro_2026_2.pdf#page=58",
+    "campus": "Geral"
+  },
+  {
+    "id": "saa",
+    "termo": "SAA",
+    "tipo": "sigla",
+    "categoria": "administracao",
+    "significado": "Secretaria de Administração Acadêmica",
+    "definicao": "Secretaria que cuida do registro acadêmico dos estudantes. No semestre de ingresso, é ela que matricula o calouro nas disciplinas.",
+    "exemplo_uso": "Mandei a dúvida sobre o meu histórico para a SAA.",
+    "fonte": "https://deg.unb.br/wp-content/uploads/manual_do_calouro_2026_2.pdf#page=18",
+    "campus": "Geral"
+  },
+  {
+    "id": "dds",
+    "termo": "DDS",
+    "tipo": "sigla",
+    "categoria": "assistencia-estudantil",
+    "significado": "Diretoria de Desenvolvimento Social",
+    "definicao": "Diretoria do DAC que cuida da assistência estudantil: publica os editais dos auxílios e faz a avaliação socioeconômica. O primeiro passo para pedir um auxílio é o cadastro único no SIGAA.",
+    "exemplo_uso": "Saiu o edital da DDS para o auxílio transporte.",
+    "fonte": "https://deg.unb.br/wp-content/uploads/manual_do_calouro_2026_2.pdf#page=87",
+    "campus": "Geral"
+  },
+  {
+    "id": "auxilio-socioeconomico",
+    "termo": "Auxílio Socioeconômico",
+    "tipo": "expressao",
+    "categoria": "assistencia-estudantil",
+    "definicao": "Apoio mensal (PASeUnB) para estudantes de graduação em situação de vulnerabilidade socioeconômica, um dos auxílios da assistência estudantil. A inscrição é pelo SIGAA, depois do edital da DDS.",
+    "exemplo_uso": "Fui aprovado no Auxílio Socioeconômico e agora recebo todo mês.",
+    "fonte": "https://deg.unb.br/wp-content/uploads/manual_do_calouro_2026_2.pdf#page=86",
+    "campus": "Geral"
+  },
+  {
+    "id": "dasu",
+    "termo": "DASU",
+    "tipo": "sigla",
+    "categoria": "assistencia-estudantil",
+    "significado": "Diretoria de Atenção à Saúde da Comunidade Universitária",
+    "definicao": "Diretoria do DAC que cuida da saúde da comunidade da UnB, com atenção psicossocial, prevenção e promoção da saúde.",
+    "exemplo_uso": "Procurei a DASU para conversar sobre a ansiedade com as provas.",
+    "fonte": "https://dasu.unb.br/",
+    "campus": "Geral"
+  }
 ]

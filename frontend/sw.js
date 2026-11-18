@@ -3,7 +3,8 @@
 const PREFIXO_CACHE = "glossario-unb-";
 const VERSAO_CACHE = `${PREFIXO_CACHE}v14`;
 
-const ARQUIVO_DADOS = "data/termos.json";
+// Arquivos de dados: respondem do cache e se atualizam em segundo plano (stale-while-revalidate).
+const ARQUIVOS_DADOS = ["data/termos.json", "data/trilha-calouro.json"];
 
 const ARQUIVOS_APP_SHELL = [
   "index.html",
@@ -12,13 +13,14 @@ const ARQUIVOS_APP_SHELL = [
   "styles.css",
   "js/app.js",
   "js/termos.js",
+  "js/trilha.js",
   "js/validacao-termo.js",
   "manifest.json",
   "favicon.png",
   "icons/icon-192.png",
   "icons/icon-512.png",
-  // Pré-cacheado também: sem isso, a primeira visita não deixava os termos disponíveis offline.
-  ARQUIVO_DADOS,
+  // Pré-cacheados também: sem isso, a primeira visita não deixava os termos e a trilha disponíveis offline.
+  ...ARQUIVOS_DADOS,
 ];
 
 self.addEventListener("install", (evento) => {
@@ -54,7 +56,7 @@ self.addEventListener("fetch", (evento) => {
   // Tiles de mapa e bibliotecas externas seguem direto pra rede.
   if (url.origin !== self.location.origin) return;
 
-  if (url.pathname.endsWith(ARQUIVO_DADOS)) {
+  if (ARQUIVOS_DADOS.some((arquivo) => url.pathname.endsWith(arquivo))) {
     // Stale-while-revalidate: responde rápido do cache, atualiza em segundo plano.
     const respostaCache = caches.open(VERSAO_CACHE).then((cache) => cache.match(evento.request));
     const buscaRede = fetch(evento.request).then(async (respostaRede) => {
