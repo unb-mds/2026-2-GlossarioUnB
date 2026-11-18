@@ -17,13 +17,15 @@ Dicionário colaborativo de siglas, gírias e jargões da UnB.
 
 ## Como rodar
 
-Pré-requisito: Node 22 ou mais novo. Não há dependências para instalar.
+Pré-requisito: Node 22.9 ou mais novo. Não há dependências para instalar.
 
 ```bash
 npm run dev             # glossário em http://localhost:8080/frontend/ e Sobre em /sobre/
 npm test                # testes de domínio + validação de todos os termos
 npm run test:cobertura  # os mesmos testes, com relatório de cobertura
 ```
+
+Para usar outra porta, copie `.env.example` para `.env` e ajuste `PORT` (o `npm run dev` lê o `.env` automaticamente).
 
 Detalhes do glossário em [`frontend/README.md`](frontend/README.md).
 

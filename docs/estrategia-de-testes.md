@@ -22,8 +22,9 @@ Princípios adotados:
 
 | Camada | O que verifica | Onde | Situação |
 |---|---|---|---|
-| **Unitário de domínio** | Normalização, busca, filtros, agrupamento, contagens e validação de um termo isolado | `tests/termos.test.js` e `tests/validacao-termo.test.js` | Automatizado |
+| **Unitário de domínio** | Normalização, busca, filtros, agrupamento, contagens, validação de um termo isolado e deduplicação | `tests/termos.test.js`, `tests/validacao-termo.test.js` e `tests/deduplicar.test.js` | Automatizado |
 | **Contrato de dados** | Todos os termos reais de `frontend/data/termos.json` contra o schema da ADR 0004, incluindo `id` duplicado | `tests/dados.test.js` | Automatizado |
+| **Estrutura da página** | Idioma, conteúdo sem JS, imagens com `alt`, ids únicos, um `h1`, links e resumo das ADRs na página Sobre | `tests/sobre.test.js` | Automatizado |
 | **Integração** | Várias partes juntas (por exemplo, app + `fetch` + DOM) | — | Não automatizado |
 | **Ponta a ponta (E2E)** | Fluxos reais no navegador e acessibilidade | — | Planejado na #78 |
 | **Aceitação (BDD)** | Cenários Gherkin das histórias de usuário | — | Planejado na #81 |
@@ -38,8 +39,8 @@ A prioridade segue o risco:
 
 ## 3. Ferramentas e comandos
 
-- **Node.js 22 ou mais novo** (`engines` do `package.json`); o CI usa Node 24.
-- **`node:test`** para os testes e **`node:assert/strict`** para as asserções. Não há dependências para instalar, o que combina com a ADR 0002.
+- **Node.js 22.9 ou mais novo** (`engines` do `package.json`; a #79 eleva o mínimo para 22.13 por causa do ESLint 10); o CI usa Node 24.
+- **`node:test`** para os testes e **`node:assert/strict`** para as asserções. Não há dependências para os testes, o que combina com a ADR 0002; a #79 adiciona o ESLint como devDependency só para o lint.
 - **Sem Jest ou Vitest:** ambos exigiriam dependências e build, sem ganho para o tamanho atual do projeto.
 
 Comandos, executados na raiz do repositório:
@@ -51,7 +52,7 @@ node --test tests/termos.test.js  # um arquivo específico
 npm run dev                       # app em http://localhost:8080/frontend/
 ```
 
-A cobertura usa `--experimental-test-coverage` do Node e mede **apenas os módulos importados pelos testes**. `app.js`, `sw.js`, HTML e CSS não entram no relatório.
+A cobertura usa `--experimental-test-coverage` do Node e mede **apenas os módulos importados pelos testes**: hoje, `termos.js`, `validacao-termo.js` e `coleta/deduplicar.js`. `app.js`, `sw.js`, HTML e CSS não entram no relatório. O `npm run lint` é adicionado pela #79; os comandos acima já existem na `main`.
 
 ## 4. O que está coberto hoje
 
@@ -60,27 +61,30 @@ A cobertura usa `--experimental-test-coverage` do Node e mede **apenas os módul
 | `tests/termos.test.js` | Normalização, busca com prioridade para prefixo e limite de sugestões, filtros por campus e tipo, agrupamento por letra, contagem por tipo, filtros da URL e resumo do termo | 13 |
 | `tests/validacao-termo.test.js` | Campos obrigatórios, tipos aceitos, `significado` para siglas, campus, formato do `id`, `localizacao`, `id` duplicado, arquivo que não é lista e links seguros | 12 |
 | `tests/dados.test.js` | Validação de **todos** os termos reais contra a ADR 0004 | 1 |
+| `tests/deduplicar.test.js` | Normalização de chave, similaridade, decisão entre caso novo/igual/alterado/conflito, mesclagem e repetidos no glossário | 18 |
+| `tests/sobre.test.js` | Estrutura da página Sobre: idioma, conteúdo sem JS, imagens com `alt`, ids únicos, um `h1`, links e resumo das ADRs | 8 |
 
-Situação na última execução local (13/11/2026):
+Situação na última execução local (17/11/2026):
 
 | Métrica | Resultado |
 |---|---|
-| Testes | 26 passando, 0 falhando |
+| Testes | 52 passando, 0 falhando |
 | Cobertura de linhas* | 100% |
-| Cobertura de branches* | 92,54% |
-| Cobertura de funções* | 96,55% |
+| Cobertura de branches* | 94,66% |
+| Cobertura de funções* | 98,11% |
 
-\* Somente `termos.js` e `validacao-termo.js`, os módulos carregados pelos testes. Os números devem ser atualizados quando o relatório da #84 for gerado.
+\* Somente `termos.js`, `validacao-termo.js` e `coleta/deduplicar.js`, os módulos carregados pelos testes. Os números devem ser atualizados quando o relatório da #84 for gerado.
 
 ## 5. Lacunas conhecidas
 
 - **`app.js`** (DOM, `fetch`, tema, mapa, registro do service worker) não tem teste automatizado.
 - **`sw.js`** (cache e comportamento offline) não tem teste automatizado.
-- **HTML, CSS, acessibilidade e layout** dependem de verificação manual.
+- **HTML, CSS, acessibilidade e layout** dependem de verificação manual; a página Sobre tem só o teste de estrutura.
 - **Integração e E2E** ainda não existem; os fluxos reais no navegador não são verificados a cada PR.
-- **Não há lint** nem limite mínimo de cobertura no CI (previsto na #79).
+- **Coletores e classificador** ainda não estão na `main`; quando as #56 e #58 entrarem, precisam de testes de contrato com páginas salvas e cliente simulado.
+- **A #79 adiciona lint e limite mínimo de cobertura ao CI**; enquanto o PR não entra, o CI só roda os testes.
 - **Não há teste de mutação** (previsto na #82); cobertura alta não garante testes bons.
-- A cobertura de 100% de linhas **não inclui** `app.js` e `sw.js`, justamente as partes sem teste.
+- A cobertura de 100% de linhas **não inclui** `app.js`, `sw.js` nem os coletores/classificador, justamente as partes sem teste na `main`.
 
 ## 6. O que cada tipo de mudança exige
 
@@ -88,8 +92,10 @@ Situação na última execução local (13/11/2026):
 |---|---|
 | Nova regra ou função em `termos.js` | Teste unitário em `tests/termos.test.js` |
 | Mudança em `validacao-termo.js` ou no schema | Atualizar `tests/validacao-termo.test.js`, atualizar a ADR 0004 se a regra mudar e garantir `tests/dados.test.js` verde |
+| Mudança em `coleta/deduplicar.js` | Atualizar `tests/deduplicar.test.js`; rodar `npm test` |
 | Novo termo ou edição em `frontend/data/termos.json` | `npm test` verde; conferir `fonte`, `id` único e campos obrigatórios |
 | Mudança em `app.js`, HTML ou CSS | Checklist manual da seção 7; adicionar E2E quando a #78 estiver disponível |
+| Mudança em `sobre/` | Atualizar `tests/sobre.test.js` e revisar o checklist manual de acessibilidade/responsividade |
 | Mudança em `sw.js` ou nos arquivos do app shell | Checklist offline da seção 7 e incremento de `VERSAO_CACHE` |
 | Correção de bug | Teste de regressão que falha antes da correção e passa depois |
 | Apenas documentação | Nenhum teste novo; o CI ainda precisa passar |
@@ -137,7 +143,7 @@ test("buscarTermos prioriza quem começa com a consulta", () => {
 
 ## 9. CI e fluxo de PR
 
-- **`ci.yml`:** roda `npm test` em todo `pull_request` e em push na `main`, com Node 24.
+- **`ci.yml`:** roda `npm test` em todo `pull_request` e em push na `main`, com Node 24. Com a #79, passa a rodar também `npm run lint` e `npm run test:cobertura`.
 - **`pages.yml`:** em push na `main`, roda `npm test` e só publica as duas páginas se tudo passar. Teste vermelho significa **nada publicado**.
 - **No PR:** CI verde, revisão registrada e testes correspondentes à mudança. O revisor confere se o comportamento novo ou corrigido tem evidência automatizada.
 - **Falha de dados:** a mensagem indica o item do arquivo, por exemplo `termo #12 (ru): campo obrigatório ausente ou vazio: fonte`.

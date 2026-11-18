@@ -1,7 +1,8 @@
-/* Página "Sobre o projeto" — CSS puro, sem JavaScript (ADRs 0007 e 0008).
+/* Página Sobre: a página de produto do Glossário UnB. CSS puro, sem JavaScript (ADRs 0002 e 0008).
    Usa os mesmos tokens do glossário (frontend/styles.css). Se a paleta mudar lá,
    mude aqui também: as duas páginas são sites independentes de propósito.
-   O tema escuro segue só a preferência do sistema, já que não há botão de tema. */
+   O tema escuro segue só a preferência do sistema, já que não há botão de tema.
+   Cores só nos blocos :root. Todo par de texto e fundo tem contraste WCAG AA (4,5:1 ou mais). */
 
 :root {
   --fundo: #f5f7f4;
@@ -20,8 +21,24 @@
   --foco: #0f4c81;
   --hero: linear-gradient(135deg, #0a3660 0%, #0f4c81 60%, #17735c 135%);
   --sombra-1: 0 1px 2px rgba(16, 24, 40, 0.06), 0 1px 3px rgba(16, 24, 40, 0.08);
+  --sombra-2: 0 12px 32px rgba(4, 16, 32, 0.28);
   --raio: 14px;
   --fonte: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  /* Sobre o topo azul e a barra: iguais nos dois temas. */
+  --sobre-azul: #ffffff;
+  --sobre-azul-suave: #dbe7f2;
+  --sobre-azul-sobretitulo: #bfe9d9;
+  --sobre-azul-vidro: rgba(255, 255, 255, 0.08);
+  --sobre-azul-vidro-forte: rgba(255, 255, 255, 0.14);
+  --sobre-azul-linha: rgba(255, 255, 255, 0.6);
+  --sobre-azul-borda: rgba(255, 255, 255, 0.2);
+  --botao-claro-texto: #0a3660;
+  --botao-claro-fundo: #ffffff;
+  --botao-claro-hover: #e6eef6;
+  /* Botão cheio e números dos passos, sobre o fundo da página. */
+  --botao-cheio-texto: #ffffff;
+  --botao-cheio-fundo: #0f4c81;
+  --botao-cheio-hover: #0a3660;
   color-scheme: light dark;
 }
 
@@ -43,6 +60,10 @@
     --foco: #8cc1f2;
     --hero: linear-gradient(135deg, #0b2540 0%, #10385c 60%, #11513f 135%);
     --sombra-1: 0 1px 2px rgba(0, 0, 0, 0.3);
+    --sombra-2: 0 12px 32px rgba(0, 0, 0, 0.45);
+    --botao-cheio-texto: #0e1519;
+    --botao-cheio-fundo: #8cc1f2;
+    --botao-cheio-hover: #b5d7f6;
   }
 }
 
@@ -62,22 +83,57 @@ body {
 }
 
 main { flex: 1; }
+main:focus { outline: none; }
 a { color: var(--link); }
-h1, h2 { line-height: 1.2; }
+h1, h2, h3 { line-height: 1.25; }
 
 :focus-visible {
   outline: 3px solid var(--foco);
   outline-offset: 2px;
 }
 
+/* Sobre fundos azuis, o contorno de foco precisa ser claro. */
+.barra :focus-visible,
+.sobre-topo :focus-visible,
+.pular:focus-visible { outline-color: var(--sobre-azul); }
+
 @media (prefers-reduced-motion: no-preference) {
   html { scroll-behavior: smooth; }
+  .botao, .links-devs a, .lista-adr a { transition: background-color 0.15s ease, border-color 0.15s ease; }
 }
+
+code {
+  padding: 0.1em 0.35em;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.88em;
+  background: var(--superficie-2);
+  border-radius: 6px;
+}
+
+/* Link "Pular para o conteúdo": fica fora da tela até receber o foco do teclado. */
+.pular {
+  position: absolute;
+  top: 0;
+  left: 1rem;
+  z-index: 10;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 1rem;
+  font-weight: 700;
+  color: var(--botao-claro-texto);
+  background: var(--botao-claro-fundo);
+  border-radius: 0 0 12px 12px;
+  text-decoration: none;
+  transform: translateY(-120%);
+}
+
+.pular:focus { transform: none; }
 
 /* ===== Barra superior ===== */
 .barra {
   background: var(--primaria-forte);
-  color: #ffffff;
+  color: var(--sobre-azul);
 }
 
 .barra-conteudo {
@@ -94,6 +150,7 @@ h1, h2 { line-height: 1.2; }
   display: inline-flex;
   align-items: center;
   gap: 0.65rem;
+  min-height: 44px;
   color: inherit;
   font-weight: 700;
   font-size: 1.1rem;
@@ -113,64 +170,33 @@ h1, h2 { line-height: 1.2; }
   align-items: center;
   min-height: 44px;
   padding: 0 0.75rem;
-  color: #ffffff;
+  color: var(--sobre-azul);
   font-weight: 600;
   text-decoration: none;
   border-radius: 999px;
 }
 
-.barra-nav a:hover { background: rgba(255, 255, 255, 0.12); }
+.barra-nav a:hover { background: var(--sobre-azul-vidro-forte); }
 
 .so-celular { display: none; }
 
-/* Sobre fundos azuis, o contorno de foco precisa ser claro. */
-.barra :focus-visible,
-.sobre-topo :focus-visible { outline-color: #ffffff; }
-
-/* ===== Etiquetas ===== */
-.etiquetas {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-  margin: 0.5rem 0 0;
-  padding: 0;
-}
-
-.etiqueta {
-  display: inline-block;
-  padding: 0.15rem 0.65rem;
-  font-size: 0.8rem;
-  font-weight: 700;
-  line-height: 1.5;
-  color: var(--destaque);
-  background: var(--destaque-fundo);
-  border-radius: 999px;
-}
-
-.etiqueta-contorno {
-  color: var(--texto-suave);
-  background: transparent;
-  border: 1px solid var(--borda);
-}
-
-/* ===== Página "Sobre o projeto" ===== */
-code {
-  padding: 0.1em 0.35em;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  font-size: 0.88em;
-  background: var(--superficie-2);
-  border-radius: 6px;
-}
-
+/* ===== Abertura ===== */
 .sobre-topo {
   background: var(--hero);
-  color: #ffffff;
+  color: var(--sobre-azul);
 }
 
 .sobre-topo-conteudo {
+  display: grid;
+  gap: 2.5rem;
+  align-items: center;
   max-width: 60rem;
   margin: 0 auto;
   padding: clamp(2.5rem, 7vw, 4rem) 1.25rem;
+}
+
+@media (min-width: 52rem) {
+  .sobre-topo-conteudo { grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); }
 }
 
 .sobre-sobretitulo {
@@ -179,20 +205,21 @@ code {
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #bfe9d9;
+  color: var(--sobre-azul-sobretitulo);
 }
 
 .sobre-topo h1 {
   margin: 0;
-  font-size: clamp(2.25rem, 7vw, 3.25rem);
+  font-size: clamp(2.1rem, 6vw, 3.1rem);
   letter-spacing: -0.02em;
+  text-wrap: balance;
 }
 
 .sobre-lema {
-  max-width: 40rem;
+  max-width: 38rem;
   margin: 0.75rem 0 1.75rem;
   font-size: 1.2rem;
-  color: #dbe7f2;
+  color: var(--sobre-azul-suave);
   text-wrap: pretty;
 }
 
@@ -209,123 +236,119 @@ code {
   padding: 0 1.4rem;
   font-weight: 700;
   text-decoration: none;
-  color: #0a3660;
-  background: #ffffff;
+  color: var(--botao-claro-texto);
+  background: var(--botao-claro-fundo);
   border-radius: 999px;
 }
 
-.botao:hover { background: #e6eef6; }
+.botao:hover { background: var(--botao-claro-hover); }
 
 .botao-secundario {
-  color: #ffffff;
+  color: var(--sobre-azul);
   background: transparent;
-  border: 2px solid rgba(255, 255, 255, 0.6);
+  border: 2px solid var(--sobre-azul-linha);
 }
 
-.botao-secundario:hover { background: rgba(255, 255, 255, 0.12); }
+.botao-secundario:hover { background: var(--sobre-azul-vidro-forte); }
+
+.botao-cheio {
+  color: var(--botao-cheio-texto);
+  background: var(--botao-cheio-fundo);
+}
+
+.botao-cheio:hover { background: var(--botao-cheio-hover); }
 
 .fatos {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.75rem;
+  max-width: 30rem;
   margin: 2rem 0 0;
   padding: 0;
   list-style: none;
 }
 
 .fatos li {
-  padding: 0.8rem 1rem;
+  padding: 0.75rem 0.9rem;
   font-size: 0.95rem;
-  color: #e8f0f7;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  line-height: 1.4;
+  color: var(--sobre-azul-suave);
+  background: var(--sobre-azul-vidro);
+  border: 1px solid var(--sobre-azul-borda);
   border-radius: 12px;
 }
 
 .fatos strong {
   display: block;
-  font-size: 1.35rem;
-  color: #ffffff;
+  font-size: 1.2rem;
+  color: var(--sobre-azul);
 }
 
-.sobre-layout {
-  display: grid;
-  gap: 2rem;
+/* Exemplo da busca, feito em HTML e CSS (não é uma captura de tela). */
+.exemplo {
+  margin: 0;
+  padding: 1.25rem;
+  color: var(--texto);
+  background: var(--superficie);
+  border-radius: var(--raio);
+  box-shadow: var(--sombra-2);
+}
+
+.exemplo-tela p { margin: 0; }
+
+.exemplo-busca {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-height: 48px;
+  padding: 0 1rem;
+  font-weight: 700;
+  border: 2px solid var(--primaria);
+  border-radius: 999px;
+}
+
+/* Lupa desenhada só com CSS. */
+.exemplo-busca::before {
+  content: "";
+  flex: none;
+  width: 0.85rem;
+  height: 0.85rem;
+  border: 2px solid var(--texto-suave);
+  border-radius: 50%;
+}
+
+.exemplo-tela .exemplo-sugestao {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0.5rem;
+  padding: 0.7rem 1rem;
+  background: var(--superficie-2);
+  border-radius: 12px;
+}
+
+.exemplo-sugestao span { font-size: 0.95rem; color: var(--texto-suave); }
+
+.exemplo figcaption {
+  margin-top: 0.85rem;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  color: var(--texto-suave);
+}
+
+/* ===== Seções ===== */
+.conteudo {
   max-width: 60rem;
   margin: 0 auto;
-  padding: 2rem 1.25rem 3rem;
-}
-
-.sumario {
-  padding: 1rem 1.1rem;
-  background: var(--superficie);
-  border: 1px solid var(--borda);
-  border-radius: var(--raio);
-}
-
-.sumario h2 {
-  margin: 0 0 0.5rem;
-  font-size: 0.8rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--texto-suave);
-}
-
-.sumario ol {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  counter-reset: item;
-  columns: 2 10rem;
-  column-gap: 1rem;
-}
-
-.sumario li { counter-increment: item; break-inside: avoid; }
-
-.sumario a {
-  display: flex;
-  gap: 0.5rem;
-  padding: 0.35rem 0.3rem;
-  font-size: 0.95rem;
-  color: var(--texto);
-  text-decoration: none;
-  border-radius: 8px;
-}
-
-.sumario a::before {
-  content: counter(item);
-  min-width: 1.2rem;
-  color: var(--texto-suave);
-  font-variant-numeric: tabular-nums;
-}
-
-.sumario a:hover {
-  color: var(--link);
-  background: var(--superficie-2);
-}
-
-@media (min-width: 60rem) {
-  .sobre-layout {
-    grid-template-columns: 13rem minmax(0, 1fr);
-    gap: 3rem;
-  }
-
-  .sumario {
-    position: sticky;
-    top: 1rem;
-    align-self: start;
-  }
-
-  .sumario ol { columns: 1; }
+  padding: 3rem 1.25rem 2rem;
 }
 
 .secao {
-  margin-bottom: 3.5rem;
+  margin-bottom: 4rem;
   scroll-margin-top: 1rem;
 }
 
 .secao h2 {
-  margin: 0 0 0.75rem;
+  margin: 0 0 1rem;
   padding-bottom: 0.5rem;
   font-size: clamp(1.5rem, 4vw, 1.9rem);
   letter-spacing: -0.01em;
@@ -337,45 +360,16 @@ code {
   font-size: 1.2rem;
 }
 
-.secao p { max-width: 70ch; }
-
-.secao-intro { color: var(--texto-suave); }
+.secao > p { max-width: 70ch; }
 
 .nota {
-  font-size: 0.9rem;
-  color: var(--texto-suave);
-}
-
-.nota-bloco {
-  padding: 0.9rem 1.1rem;
-  background: var(--superficie-2);
-  border-radius: 12px;
-}
-
-.citacao {
-  margin: 1.5rem 0;
-  padding: 1.1rem 1.4rem;
-  background: var(--superficie);
-  border: 1px solid var(--borda);
-  border-left: 4px solid var(--destaque);
-  border-radius: 0 var(--raio) var(--raio) 0;
-}
-
-.citacao p {
-  margin: 0;
-  font-size: 1.1rem;
-  font-style: italic;
-}
-
-.citacao footer {
-  margin-top: 0.6rem;
-  font-size: 0.9rem;
+  font-size: 0.92rem;
   color: var(--texto-suave);
 }
 
 .grade-cartoes {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
   gap: 1rem;
 }
 
@@ -389,195 +383,177 @@ code {
   box-shadow: var(--sombra-1);
 }
 
-.cartao-info h3 {
+.secao .cartao-info h3 {
   margin: 0 0 0.5rem;
   font-size: 1.15rem;
 }
 
-.cartao-info h3 .nota { margin-left: 0.35rem; font-weight: 600; }
-.cartao-info p { margin: 0.5rem 0 0; }
+.cartao-info p { margin: 0.6rem 0 0; }
+.cartao-principal { border: 2px solid var(--destaque); }
+.cartao-robo { max-width: 46rem; margin-top: 1.5rem; }
 
 .passos {
   margin: 0.5rem 0 0;
   padding-left: 1.3rem;
 }
 
-.passos li,
-.lista-simples li { margin-bottom: 0.45rem; }
+.passos li { margin-bottom: 0.45rem; }
 
-.lista-simples { padding-left: 1.2rem; }
-
-.lista-check {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.lista-check li {
-  position: relative;
-  margin-bottom: 0.4rem;
-  padding-left: 1.6rem;
-}
-
-.lista-check li::before {
-  content: "✓";
-  position: absolute;
-  left: 0.1rem;
-  font-weight: 800;
-  color: var(--destaque);
-}
-
-.codigo {
-  margin: 0.75rem 0 1rem;
-  padding: 1rem 1.2rem;
-  font-size: 0.9rem;
-  white-space: pre-wrap;
-  overflow-wrap: anywhere;
-  line-height: 1.55;
-  background: var(--superficie-2);
-  border: 1px solid var(--borda);
-  border-radius: 12px;
-}
-
-.codigo code {
-  padding: 0;
-  font-size: inherit;
-  background: none;
-}
-
-.tabela-rolagem {
-  overflow-x: auto;
-  background: var(--superficie);
-  border: 1px solid var(--borda);
-  border-radius: var(--raio);
-}
-
-.tabela {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 0.95rem;
-}
-
-.tabela th,
-.tabela td {
-  padding: 0.7rem 1rem;
-  text-align: left;
-  vertical-align: top;
-  border-bottom: 1px solid var(--borda);
-}
-
-.tabela thead th {
-  font-size: 0.8rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--texto-suave);
-  background: var(--superficie-2);
-}
-
-.tabela tbody tr:last-child td { border-bottom: none; }
-.tabela .nota { display: block; margin-top: 0.25rem; }
-
-.tabela .grupo th {
-  padding-top: 1rem;
-  font-size: 0.8rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--destaque);
-}
-
-.tabela-arquivos td:first-child { white-space: nowrap; }
-
-.tabela-compacta td {
-  padding: 0.35rem 0.75rem 0.35rem 0;
-  border-bottom: none;
-}
-
-.status {
-  display: inline-block;
-  padding: 0.1rem 0.6rem;
-  font-size: 0.8rem;
-  font-weight: 700;
-  white-space: nowrap;
-  border-radius: 999px;
-}
-
-.status-ok { color: var(--destaque); background: var(--destaque-fundo); }
-.status-parcial { color: var(--aviso); background: var(--aviso-fundo); }
-.status-planejado { color: var(--texto-suave); border: 1px solid var(--borda); }
-
-.atalhos-github {
+/* Os 3 passos de "Como usar". */
+.passos-grandes {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
-  gap: 0.75rem;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 1rem;
   margin: 0;
   padding: 0;
   list-style: none;
+  counter-reset: passo;
 }
 
-.atalhos-github a {
-  display: flex;
-  flex-direction: column;
-  gap: 0.15rem;
-  height: 100%;
-  padding: 0.9rem 1.1rem;
-  color: var(--texto);
-  text-decoration: none;
+.passos-grandes li {
+  position: relative;
+  padding: 3.6rem 1.3rem 1.3rem;
+  counter-increment: passo;
   background: var(--superficie);
   border: 1px solid var(--borda);
   border-radius: var(--raio);
   box-shadow: var(--sombra-1);
 }
 
-.atalhos-github a:hover { border-color: var(--destaque); }
-.atalhos-github strong { color: var(--link); }
-.atalhos-github span { font-size: 0.9rem; color: var(--texto-suave); }
-
-/* Passos numerados (fluxo do GitHub e da arquitetura). */
-.fluxo {
+.passos-grandes li::before {
+  content: counter(passo);
+  position: absolute;
+  top: 1.1rem;
+  left: 1.3rem;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
-  gap: 0.75rem;
-  margin: 1rem 0 1.25rem;
-  padding: 0;
-  list-style: none;
-  counter-reset: passo;
+  place-items: center;
+  width: 1.9rem;
+  height: 1.9rem;
+  font-weight: 800;
+  color: var(--botao-cheio-texto);
+  background: var(--botao-cheio-fundo);
+  border-radius: 50%;
 }
 
-.fluxo li {
+.secao .passos-grandes h3 { margin: 0 0 0.4rem; }
+.passos-grandes p { margin: 0; }
+
+.status {
+  display: inline-block;
+  margin-left: 0.4rem;
+  padding: 0.1rem 0.6rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  white-space: nowrap;
+  vertical-align: middle;
+  border-radius: 999px;
+}
+
+.status-revisao { color: var(--aviso); background: var(--aviso-fundo); }
+
+/* ===== Versões ===== */
+.linha-tempo {
+  margin: 0 0 1rem 0.5rem;
+  padding: 0 0 0 1.5rem;
+  list-style: none;
+  border-left: 2px solid var(--borda);
+}
+
+.linha-tempo li {
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 0.3rem;
-  padding: 2.7rem 1rem 1rem;
-  counter-increment: passo;
+  gap: 0.15rem;
+  max-width: 70ch;
+  padding: 0 0 1.5rem 0.5rem;
+}
+
+.linha-tempo li::before {
+  content: "";
+  position: absolute;
+  top: 0.4rem;
+  left: calc(-1.5rem - 7px);
+  width: 12px;
+  height: 12px;
+  background: var(--fundo);
+  border: 2px solid var(--destaque);
+  border-radius: 50%;
+}
+
+.linha-tempo .marco::before { background: var(--destaque); }
+.linha-tempo .futuro::before { border-color: var(--texto-suave); }
+
+.quando {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--destaque);
+}
+
+.linha-tempo .futuro .quando { color: var(--texto-suave); }
+
+/* ===== Quem faz ===== */
+.equipe {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
+  gap: 0.75rem;
+  margin: 1.25rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.equipe li {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 1.1rem 0.4rem;
   background: var(--superficie);
   border: 1px solid var(--borda);
   border-radius: var(--raio);
 }
 
-.fluxo li::before {
-  content: counter(passo);
-  position: absolute;
-  top: 0.85rem;
-  left: 1rem;
+.equipe span { font-size: 0.92rem; color: var(--texto-suave); }
+
+.equipe a {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  min-height: 44px;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+/* ===== Para desenvolvedores ===== */
+.links-devs {
   display: grid;
-  place-items: center;
-  width: 1.6rem;
-  height: 1.6rem;
-  font-size: 0.85rem;
-  font-weight: 800;
-  color: #ffffff;
-  background: var(--primaria);
-  border-radius: 50%;
+  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+  gap: 0.6rem;
+  margin: 1.25rem 0 0;
+  padding: 0;
+  list-style: none;
 }
 
-.fluxo span {
-  font-size: 0.9rem;
-  color: var(--texto-suave);
+.links-devs a,
+.lista-adr a {
+  color: var(--texto);
+  text-decoration: none;
+  background: var(--superficie);
+  border: 1px solid var(--borda);
+  border-radius: 12px;
 }
 
-.etiquetas-tecnologia { list-style: none; }
-.etiquetas-tecnologia .etiqueta { padding: 0.3rem 0.8rem; font-size: 0.9rem; }
+.links-devs a {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  min-height: 44px;
+  padding: 0.7rem 1rem;
+}
+
+.links-devs a:hover,
+.lista-adr a:hover { border-color: var(--destaque); }
+
+.links-devs strong { color: var(--link); }
+.links-devs span { font-size: 0.9rem; color: var(--texto-suave); }
 
 .lista-adr {
   display: grid;
@@ -591,15 +567,9 @@ code {
   display: flex;
   align-items: flex-start;
   gap: 1rem;
+  min-height: 44px;
   padding: 0.85rem 1.1rem;
-  color: var(--texto);
-  text-decoration: none;
-  background: var(--superficie);
-  border: 1px solid var(--borda);
-  border-radius: var(--raio);
 }
-
-.lista-adr a:hover { border-color: var(--destaque); }
 
 .adr-numero {
   flex: none;
@@ -619,65 +589,6 @@ code {
 }
 
 .adr-texto span { font-size: 0.92rem; color: var(--texto-suave); }
-
-.linha-tempo {
-  margin: 1rem 0 0 0.5rem;
-  padding: 0 0 0 1.5rem;
-  list-style: none;
-  border-left: 2px solid var(--borda);
-}
-
-.linha-tempo li {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 0.1rem;
-  padding: 0 0 1.25rem 0.5rem;
-}
-
-.linha-tempo li::before {
-  content: "";
-  position: absolute;
-  top: 0.4rem;
-  left: calc(-1.5rem - 6px);
-  width: 12px;
-  height: 12px;
-  background: var(--fundo);
-  border: 2px solid var(--destaque);
-  border-radius: 50%;
-}
-
-.linha-tempo .marco::before { background: var(--destaque); }
-.linha-tempo .futuro::before { border-color: var(--texto-suave); }
-.linha-tempo .futuro .quando { color: var(--texto-suave); }
-
-.quando {
-  font-size: 0.95rem;
-  font-weight: 800;
-  color: var(--destaque);
-}
-
-.equipe {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
-  gap: 0.75rem;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.equipe li {
-  display: flex;
-  flex-direction: column;
-  gap: 0.1rem;
-  padding: 1rem 1.1rem;
-  background: var(--superficie);
-  border: 1px solid var(--borda);
-  border-radius: var(--raio);
-}
-
-.equipe span { font-size: 0.92rem; color: var(--texto-suave); }
-.equipe a { margin-top: 0.35rem; font-size: 0.95rem; font-weight: 600; }
 
 /* ===== Rodapé ===== */
 .rodape {
@@ -704,5 +615,6 @@ code {
   .marca span { white-space: nowrap; }
   .so-desktop { display: none; }
   .so-celular { display: inline; }
-  .tabela th, .tabela td { padding: 0.6rem 0.65rem; }
+  .conteudo { padding-left: 1rem; padding-right: 1rem; }
+  .sobre-topo-conteudo { padding-left: 1rem; padding-right: 1rem; }
 }
