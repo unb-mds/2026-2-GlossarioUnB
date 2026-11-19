@@ -22,6 +22,7 @@ Atualizada em 18/11/2026 pelo Pedro: libera as bibliotecas de teste e de qualida
   - `cheerio`: lê o HTML das páginas da UnB com um parser de verdade e seletores CSS.
   - `robots-parser`: lê o robots.txt com curingas, no lugar de ~50 linhas próprias.
   - `@google/genai`: o SDK oficial do Gemini, usado só pelo script da #58.
+  - `pdfjs-dist`: lê o PDF da Lista de Siglas da DPO, com as coordenadas dos itens de texto (#55).
 - **Biblioteca nova:** entra só atualizando esta lista no mesmo PR, com o motivo.
 - **`package-lock.json` versionado** e `npm ci` no CI, para todo mundo instalar as mesmas versões.
 - **Os testes de unidade continuam com `node:test`.**
