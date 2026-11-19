@@ -45,7 +45,7 @@ Um único schema, validado por uma única função (`frontend/js/validacao-termo
 | `sistemas` | Sistemas | Sistemas, portais e plataformas digitais institucionais da UnB. | SIGAA, Aprender 3, E-mail institucional |
 | `assistencia-estudantil` | Assistência estudantil | Programas, diretorias e auxílios voltados à permanência estudantil. | DDS, Auxílio socioeconômico, DASU |
 | `representacao-estudantil` | Representação estudantil | Entidades e coletivos de representação discente. | DCE, CA, DA |
-| `girias` | Gírias | Gírias, apelidos e expressões informais usadas na UnB. | Minhocão, calouro, jubilar |
+| `girias` | Gírias | Gírias, apelidos e expressões informais usadas na UnB. | calouro, veterano, jubilar |
 
 Regras:
 

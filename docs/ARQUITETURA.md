@@ -61,6 +61,7 @@ O dataset ficou dentro de `frontend/` para o glossário ser publicado copiando u
 > - [ADR 0009 — Coleta automatizada por pipeline com PR revisado](adr/0009-coleta-automatizada-por-pipeline.md) (11/11)
 > - [ADR 0010 — Bibliotecas npm nos scripts do robô](adr/0010-bibliotecas-nos-scripts-do-robo.md) (13/11, proposta)
 > - [ADR 0011 — Trilha do calouro num arquivo próprio](adr/0011-trilha-do-calouro-em-arquivo-proprio.md) (17/11)
+> - [ADR 0013 — Análise de qualidade com o SonarQube Cloud](adr/0013-analise-de-qualidade-com-sonarqube-cloud.md) (18/11)
 
 ## Padrões de código (a manter desde o primeiro commit)
 
