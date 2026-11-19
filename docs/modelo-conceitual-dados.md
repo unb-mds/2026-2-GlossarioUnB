@@ -19,15 +19,11 @@ O escopo deste documento é:
 
 O domínio do produto é um dicionário de **siglas, gírias e expressões da UnB**. Cada registro representa um termo consumido pela PWA de consulta (`frontend/`).
 
-```
-Pessoa (calouro/mantenedor) ───consulta/revisa───> Glossário UnB
-                                                        │
-                                                        ▼
-                                              termos.json (JSON estático versionado)
-                                                        │
-                                                        ▼
-                                              App PWA publicado em /frontend/
-```
+flowchart TD
+    A["Pessoa (calouro/mantenedor)"] -->|consulta/revisa| B["Glossário UnB"]
+    B --> C["termos.json (JSON estático versionado)"]
+    C --> D["App PWA publicado em /frontend/"]
+
 
 Regras do modelo:
 
