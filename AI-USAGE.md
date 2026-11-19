@@ -45,6 +45,7 @@ Cada entrada deve conter: data, pessoa, ferramenta usada, o que foi pedido, o qu
 | 18/11/2026 | Pedro | Claude Code | Texto do RNF08 (privacidade) e do RNF09 (coleta responsável), conferido contra o `coleta/coletor-html.js` e os testes dele, e a atualização da equipe no `REQUISITOS.md` | Aceito após a minha revisão |
 | 18/11/2026 | Pedro | Claude Code (Claude Opus 5.5) | Atualização da ADR 0010 com a segunda lista fechada (Playwright, axe-core, StrykerJS e ESLint, só em devDependencies) e do teste da fronteira de dependências | Aceito após a minha revisão, com o `npm test` passando e o `package.json` do #120 conferido |
 | 18/11/2026 | Pedro | Claude Code (Claude Opus 5.5) | Correção do redirecionamento aberto (S5146) e dos 2 avisos de crossorigin apontados pelo SonarQube Cloud, com os testes do servidor local | Aceito após a minha revisão, com o `npm test` passando |
+| 18/11/2026 | Pedro | Claude Code (Claude Opus 5.5) | Teste de sabotagem (decisão B): script sem biblioteca, 17 defeitos nos módulos críticos, passo no CI e documentação; o piloto achou a falha do teste do servidor corrigida no #128 | Aceito após a minha revisão, com o `npm test` e o `npm run test:sabotagem` passando |
 | | | | | |
 
 ## Observações gerais
