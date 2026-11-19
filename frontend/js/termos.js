@@ -11,6 +11,19 @@ export const TIPOS = {
   expressao: "Expressão",
 };
 
+// Valores aceitos em `categoria` (ADR 0004) e o rótulo exibido ao usuário.
+export const CATEGORIAS = {
+  "vida-academica": "Vida acadêmica",
+  "unidades-academicas": "Unidades acadêmicas",
+  administracao: "Administração",
+  colegiados: "Colegiados",
+  "locais-campus": "Locais do campus",
+  sistemas: "Sistemas",
+  "assistencia-estudantil": "Assistência estudantil",
+  "representacao-estudantil": "Representação estudantil",
+  girias: "Gírias",
+};
+
 export function normalizar(texto) {
   return texto
     .toString()
