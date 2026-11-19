@@ -47,7 +47,7 @@
 | 2 | Documentar as fontes | Catálogo das fontes e documentação dos dados coletados | #52, #61 e #67 | Pedro e José |
 | 3 | Categorizar e dar contexto às siglas | Taxonomia, schema com sinônimos/relacionados e navegação por categoria | #63, #64, #66 e #58 | Pedro e José |
 | 4 | Usar IA na organização dos dados | Categorização e redação assistidas por LLM, com validação da resposta | #58 | Pedro |
-| 5 | Melhorar a experiência do calouro | Trilha "Primeiros passos na UnB" e visão de produto centrada no usuário | #69, #70, #68 e #75 | José, Allan e Pedro |
+| 5 | Melhorar a experiência do calouro | Trilha "Primeiros passos na UnB" e visão de produto centrada no usuário | #69, #70, #68 e #75 | Pedro e Allan |
 | 6 | Tornar os RNFs mensuráveis | Métrica, critério de aceitação e forma de verificação para cada RNF | #77 | Ítalo |
 | 7 | Ampliar a qualidade e os testes | Estratégia de testes, E2E, acessibilidade, lint, cobertura, Lighthouse, BDD e mutação | #43, #78, #79, #80, #81, #82 e #84 | Allan, José e Ítalo |
 | 8 | Reforçar a segurança | SAST, auditoria de dependências e proteção contra prompt injection no pipeline | #83 | Ítalo |
