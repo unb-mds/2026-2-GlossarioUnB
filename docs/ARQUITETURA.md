@@ -29,7 +29,7 @@ Fontes oficiais da UnB (coleta/fontes.json: páginas de siglas; o PDF entra com 
 ## Estrutura de pastas
 
 ```
-G10-2026-2/
+2026-2-GlossarioUnB/
 ├── index.html          # raiz do site publicado: redireciona para sobre/
 │   ├── data/           # termos.json — dataset (ADR 0001, proposta); trilha-calouro.json (ADR 0011)
 │   └── js/             # termos.js, trilha.js, validacao-termo.js (domínio) + app.js (DOM)
