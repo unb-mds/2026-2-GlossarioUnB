@@ -41,3 +41,4 @@ Detalhes do glossário em [`frontend/README.md`](frontend/README.md).
 - [Planilha de coleta de termos](https://docs.google.com/spreadsheets/d/1XciIDY79FAyY32bC4GDgQAWgyy-B5UahVMKZvdry0WY/edit?usp=sharing)
 - [Registro de uso de IA](AI-USAGE.md)
 - [Licença (MIT)](LICENSE)
+- [Modelo Conceitual de Dados](docs/modelo-conceitual-dados.md)
