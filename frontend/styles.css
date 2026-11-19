@@ -395,6 +395,89 @@ h1, h2 { line-height: 1.2; }
 
 .link-seta:hover { text-decoration: underline; }
 
+/* ===== Início: trilha do calouro (#70) ===== */
+.trilha {
+  max-width: 64rem;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 0.5rem;
+}
+
+.trilha-titulo {
+  margin: 0 0 0.35rem;
+  font-size: 1.35rem;
+  font-weight: 800;
+  text-align: center;
+  text-wrap: balance;
+}
+
+.trilha-lema {
+  margin: 0 auto 1.5rem;
+  max-width: 34rem;
+  color: var(--texto-suave);
+  text-align: center;
+  text-wrap: pretty;
+}
+
+.trilha-grupos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.trilha-grupo {
+  padding: 1rem;
+  background: var(--superficie);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  box-shadow: var(--sombra-1);
+}
+
+.trilha-grupo-nome {
+  margin: 0 0 0.6rem;
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--destaque);
+}
+
+.trilha-termos {
+  display: grid;
+  gap: 0.4rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.trilha-termo {
+  display: grid;
+  gap: 0.1rem;
+  min-height: 44px;
+  padding: 0.5rem 0.75rem;
+  color: var(--texto);
+  text-decoration: none;
+  background: var(--superficie-2);
+  border: 1px solid transparent;
+  border-radius: calc(var(--raio) - 4px);
+}
+
+.trilha-termo:hover { border-color: var(--destaque); }
+
+.trilha-termo-nome { font-weight: 700; }
+
+.trilha-termo-resumo {
+  display: -webkit-box;
+  overflow: hidden;
+  font-size: 0.9rem;
+  color: var(--texto-suave);
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+}
+
 /* ===== Páginas internas ===== */
 .pagina {
   width: 100%;

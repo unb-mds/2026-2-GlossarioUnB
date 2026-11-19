@@ -1,4 +1,5 @@
 // A fronteira da ADR 0010: biblioteca npm só nos scripts do robô, e só as da lista.
+// Ferramentas de teste e de qualidade só como devDependencies, e só as da segunda lista.
 // O front (ADR 0002) continua sem nenhuma dependência.
 import { test } from "node:test";
 import assert from "node:assert/strict";
@@ -8,6 +9,14 @@ import { fileURLToPath } from "node:url";
 
 const RAIZ = fileURLToPath(new URL("..", import.meta.url));
 const PERMITIDAS = ["cheerio", "robots-parser", "@google/genai"];
+const PERMITIDAS_DESENVOLVIMENTO = [
+  "@playwright/test",
+  "@axe-core/playwright",
+  "@stryker-mutator/core",
+  "eslint",
+  "@eslint/js",
+  "globals",
+];
 const IMPORTS = [
   /\bimport\s[^"']*?\bfrom\s*["']([^"']+)["']/g,
   /\bimport\s*["']([^"']+)["']/g,
@@ -48,5 +57,8 @@ test("o package.json só tem as bibliotecas da ADR 0010", async () => {
   const pacote = JSON.parse(await readFile(join(RAIZ, "package.json"), "utf8"));
   const fora = Object.keys(pacote.dependencies ?? {}).filter((nome) => !PERMITIDAS.includes(nome));
   assert.deepEqual(fora, [], `fora da lista da ADR 0010: ${fora.join(", ")}`);
-  assert.deepEqual(Object.keys(pacote.devDependencies ?? {}), [], "devDependencies precisa de ADR");
+  const foraDev = Object.keys(pacote.devDependencies ?? {}).filter(
+    (nome) => !PERMITIDAS_DESENVOLVIMENTO.includes(nome),
+  );
+  assert.deepEqual(foraDev, [], `fora da lista de desenvolvimento da ADR 0010: ${foraDev.join(", ")}`);
 });
