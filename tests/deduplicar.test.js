@@ -130,6 +130,14 @@ test("o mesmo termo em duas fontes vira um registro só, com a outra fonte anota
   assert.deepEqual(novos[0].tambem_em, ["https://saa.unb.br/"]);
 });
 
+test("a mesma sigla com dois significados na mesma coleta vira dois registros", () => {
+  const { novos } = classificar(
+    [candidato("CPP", "Câmara de Pesquisa e Pós-Graduação"), candidato("CPP", "Comissão Permanente de Projetos")],
+    [],
+  );
+  assert.deepEqual(novos.map((n) => n.proposta_id), ["cpp", "cpp-2"]);
+});
+
 test("id proposto não repete um id que já existe", () => {
   const existentes = [termo("saa", "Saa Antiga", "Outra coisa")];
   const { novos } = classificar([candidato("SAA", "Secretaria de Administração Acadêmica"), candidato("SAA2", "Algo novo")], existentes);
