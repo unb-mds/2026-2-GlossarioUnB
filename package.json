@@ -11,7 +11,8 @@
     "test:cobertura": "node --test --experimental-test-coverage",
     "dev": "node --env-file-if-exists=.env scripts/servidor-local.mjs",
     "coleta": "node scripts/coletar.mjs",
-    "coleta:dpo": "node scripts/coletar-dpo.mjs"
+    "coleta:dpo": "node scripts/coletar-dpo.mjs",
+    "coleta:completa": "node --env-file-if-exists=.env scripts/coleta-automatica.mjs"
   },
   "dependencies": {
     "@google/genai": "^3.3.0",

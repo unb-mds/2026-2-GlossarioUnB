@@ -120,13 +120,16 @@ export function classificar(candidatos, termos) {
   const jaVistos = new Map();
 
   for (const candidato of candidatos) {
-    const k = chave(candidato?.termo);
-    if (!k || !normalizar(candidato.significado)) {
+    const termo = chave(candidato?.termo);
+    const significado = normalizar(candidato?.significado);
+    if (!termo || !significado) {
       saida.descartados.push({ candidato, motivo: "candidato sem termo ou sem significado" });
       continue;
     }
+    const k = `${termo}\u0000${significado}`;
     if (jaVistos.has(k)) {
-      jaVistos.get(k).tambem_em.push(candidato.fonte);
+      const registro = jaVistos.get(k);
+      if (candidato.fonte && !registro.tambem_em.includes(candidato.fonte)) registro.tambem_em.push(candidato.fonte);
       continue;
     }
     const { lista, registro } = classificarUm(candidato, porChave, termos, idsUsados);
