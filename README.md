@@ -100,9 +100,11 @@ a ajuda de quem já conhece essa linguagem.
 ### Resposta enquanto você digita
 
 A busca sugere termos enquanto você digita e já mostra o significado de cada
-sugestão. A lista completa tem índice de A a Z e filtros por tipo e por campus,
-que ficam no endereço da página (por exemplo, `todas-siglas.html?tipo=sigla`)
-e podem ser compartilhados.
+sugestão. A página inicial também traz a trilha **"Primeiros passos na UnB"**
+([ADR 0011][ADR 0011]), que reúne termos essenciais para quem está chegando. A
+lista completa tem índice de A a Z e filtros por tipo e por campus, que ficam
+no endereço da página (por exemplo, `todas-siglas.html?tipo=sigla`) e podem ser
+compartilhados.
 
 ### Funciona sem internet
 
@@ -124,11 +126,12 @@ claro e escuro ([ADR 0008][ADR 0008]).
 Nenhum termo entra sem `fonte`: um link oficial da UnB ou "conhecimento comum
 verificado pelo grupo". Toda sugestão é pública, passa pela revisão de alguém do
 time, e o CI confere todos os termos contra o [schema][ADR 0004] a cada pull
-request. Por dentro, os termos ficam num arquivo JSON estático
-([ADR 0001][ADR 0001]), e o site é feito em JavaScript e CSS puros, sem
-framework e sem etapa de build ([ADR 0002][ADR 0002]). Os testes usam o
-`node:test`, do próprio Node, e o GitHub Actions publica o site no GitHub Pages
-a cada push na `main` ([ADR 0007][ADR 0007]).
+request, acompanhado pelo SonarQube Cloud na verificação de qualidade e
+segurança do código ([ADR 0013][ADR 0013]). Por dentro, os termos ficam num
+arquivo JSON estático ([ADR 0001][ADR 0001]), e o site é feito em JavaScript e
+CSS puros, sem framework e sem etapa de build ([ADR 0002][ADR 0002]). Os testes
+usam o `node:test`, do próprio Node, e o GitHub Actions publica o site no GitHub
+Pages a cada push na `main` ([ADR 0007][ADR 0007]).
 
 O Glossário UnB é um projeto de código aberto, e contribuições são bem-vindas.
 Quem não usa Git pode sugerir um termo pelo [modelo de issue][sugerir], e quem
@@ -157,4 +160,6 @@ O Glossário UnB é distribuído sob a [licença MIT](LICENSE).
 [ADR 0008]: docs/adr/0008-interface-com-css-puro-e-tokens.md
 [ADR 0009]: docs/adr/0009-coleta-automatizada-por-pipeline.md
 [ADR 0010]: docs/adr/0010-bibliotecas-nos-scripts-do-robo.md
+[ADR 0011]: docs/adr/0011-trilha-do-calouro-em-arquivo-proprio.md
+[ADR 0013]: docs/adr/0013-analise-de-qualidade-com-sonarqube-cloud.md
 [figma]: https://www.figma.com/board/dk8nBcFiFEWo1AkOvn1554/Template-MDS--c%C3%B3pia-limpa---c%C3%B3pia---c%C3%B3pia-?node-id=0-1&t=IS5erq77oDUXUtei-1

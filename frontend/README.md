@@ -30,7 +30,9 @@ npm test
 | `todas-siglas.html` | Lista completa agrupada por letra, com filtro por campus e por tipo (RF02) |
 | `termo.html` | Página de um termo (`?id=...`), com mapa quando o termo tem `localizacao` |
 | `data/termos.json` | Os dados, no schema da [ADR 0004](../docs/adr/0004-schema-unico-do-termo.md) |
+| `data/trilha-calouro.json` | A trilha "Primeiros passos na UnB" da página inicial: grupos com os ids dos termos ([ADR 0011](../docs/adr/0011-trilha-do-calouro-em-arquivo-proprio.md)) |
 | `js/termos.js` | Regras de busca, filtro e agrupamento (sem DOM, testadas em `tests/`) |
+| `js/trilha.js` | Monta e valida a trilha do calouro (sem DOM, testada em `tests/trilha.test.js`) |
 | `js/validacao-termo.js` | Validação do schema, usada pelo app e pelo CI |
 | `js/app.js` | Liga as regras ao DOM das 3 páginas |
 | `styles.css` | Estilo compartilhado; cores só como tokens, temas claro/escuro ([ADR 0008](../docs/adr/0008-interface-com-css-puro-e-tokens.md)) |
@@ -55,7 +57,7 @@ npm test
 
 ## Escopo offline
 
-- **Funciona sem internet:** busca, lista e páginas de termo. O app shell e `data/termos.json` ficam em cache desde a primeira visita.
+- **Funciona sem internet:** busca, lista e páginas de termo. O app shell, `data/termos.json` e `data/trilha-calouro.json` ficam em cache desde a primeira visita.
 - **Precisa de internet:** o mapa (Leaflet via CDN e tiles do OpenStreetMap). Offline, aparece um aviso no lugar do mapa.
 - **Ao mudar qualquer arquivo do app shell**, incremente `VERSAO_CACHE` em `sw.js`. Sem isso, quem já instalou continua vendo a versão antiga.
 

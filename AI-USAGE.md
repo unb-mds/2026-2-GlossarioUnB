@@ -44,6 +44,11 @@ Cada entrada deve conter: data, pessoa, ferramenta usada, o que foi pedido, o qu
 | 16/11/2026 | Pedro | Claude | README.md reescrito no padrão do README do Flutter (badges de CI e Pages, Documentação, Serviços externos, Sobre por qualidades), a partir da versão do José Gabriel, para a issue #97 | Aceito; a escolha do Flutter como modelo (a professora indicou os badges dele) e de fazer o commit no PR #99 foi minha |
 | 17/11/2026 | Allan | opencode | Revisão e correções do PR #104: caminho do script no Windows e remoção do `temperature` não suportado no Gemini 3.8 (#58) | Aceito após revisão no PR |
 | 18/11/2026 | Pedro | Claude Code | Seção "Rodar a coleta", `npm ci`, Node 22.9 e links da documentação no README, a partir da revisão do Allan no PR #99, para a issue #97 | Aceito após a minha revisão |
+| 18/11/2026 | Pedro | Claude Code | Rascunho da ADR 0013 (SonarQube Cloud ao lado do CI), a partir da minha decisão de 10/11 e da configuração do #107, e as linhas no `ARQUITETURA.md` e na página Sobre | Aceito após a minha revisão |
+| 18/11/2026 | Pedro | Claude Code | Texto do RNF08 (privacidade) e do RNF09 (coleta responsável), conferido contra o `coleta/coletor-html.js` e os testes dele, e a atualização da equipe no `REQUISITOS.md` | Aceito após a minha revisão |
+| 18/11/2026 | Pedro | Claude Code (Claude Opus 5.5) | Atualização da ADR 0010 com a segunda lista fechada (Playwright, axe-core, StrykerJS e ESLint, só em devDependencies) e do teste da fronteira de dependências | Aceito após a minha revisão, com o `npm test` passando e o `package.json` do #120 conferido |
+| 18/11/2026 | Pedro | Claude Code (Claude Opus 5.5) | Correção do redirecionamento aberto (S5146) e dos 2 avisos de crossorigin apontados pelo SonarQube Cloud, com os testes do servidor local | Aceito após a minha revisão, com o `npm test` passando |
+| 18/11/2026 | José Gabriel | Antigravity | Sincronização do PR #99 com a `main`, inclusão de `GEMINI_API_KEY=` no `.env.example` e atualização do `README.md` com a Trilha do calouro (ADR 0011) e o SonarQube Cloud (ADR 0013) (#97) | Aceito após revisão |
 | | | | | |
 
 ## Observações gerais

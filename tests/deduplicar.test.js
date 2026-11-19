@@ -15,6 +15,9 @@ import {
 } from "../coleta/deduplicar.js";
 
 const termosReais = JSON.parse(await readFile(new URL("../frontend/data/termos.json", import.meta.url), "utf-8"));
+// A SAA entrou na base com a trilha do calouro (#70). Os testes do caso novo tiram ela da base
+// para continuar testando uma sigla real que ainda não existe.
+const semASaa = termosReais.filter((t) => t.id !== "saa");
 
 function termo(id, nome, significado, extra = {}) {
   return { id, termo: nome, tipo: "sigla", significado, definicao: `Definição de ${nome} escrita por uma pessoa.`,
@@ -47,7 +50,7 @@ test("semelhanca conta palavras em comum sem as palavras vazias", () => {
 });
 
 test("caso novo: sigla, sinônimo e significado que não existem", () => {
-  const { novos, alterados, conflitos } = classificar([candidato("SAA", "Secretaria de Administração Acadêmica")], termosReais);
+  const { novos, alterados, conflitos } = classificar([candidato("SAA", "Secretaria de Administração Acadêmica")], semASaa);
   assert.equal(novos.length, 1);
   assert.equal(novos[0].proposta_id, "saa");
   assert.match(novos[0].motivo, /nenhum termo com essa sigla/);
@@ -121,7 +124,7 @@ test("sinônimo: FGA acha a FCTE pelo campo sinonimos", () => {
 test("o mesmo termo em duas fontes vira um registro só, com a outra fonte anotada", () => {
   const { novos } = classificar(
     [candidato("SAA", "Secretaria de Administração Acadêmica"), candidato("S.A.A.", "Secretaria de Administração Acadêmica", "https://saa.unb.br/")],
-    termosReais,
+    semASaa,
   );
   assert.equal(novos.length, 1);
   assert.deepEqual(novos[0].tambem_em, ["https://saa.unb.br/"]);
