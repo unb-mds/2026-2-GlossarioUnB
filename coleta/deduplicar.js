@@ -53,7 +53,11 @@ function indexar(termos) {
 // Um id que ainda não existe: "saa", ou "saa-2" se "saa" já é de outro termo.
 function idLivre(base, idsUsados) {
   let id = base;
-  for (let n = 2; idsUsados.has(id); n += 1) id = `${base}-${n}`;
+  let n = 2;
+  while (idsUsados.has(id)) {
+    id = `${base}-${n}`;
+    n += 1;
+  }
   idsUsados.add(id);
   return id;
 }
