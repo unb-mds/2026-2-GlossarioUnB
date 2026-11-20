@@ -6,7 +6,7 @@ PWA de consulta a siglas, gírias e expressões da UnB, no estilo do glossario-u
 - página de cada termo com definição, exemplo de uso, fonte e, quando for um lugar físico, mapa;
 - link para sugerir um termo pelo GitHub no rodapé, e na busca quando nada é encontrado.
 
-Decisões de arquitetura em [`docs/adr/`](../docs/adr/) (status: propostas).
+Decisões de arquitetura registradas em [`docs/adr/`](../docs/adr/).
 
 ## Como rodar localmente
 

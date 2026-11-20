@@ -1,5 +1,8 @@
 # ADR 0007 — Publicação no GitHub Pages e CI com GitHub Actions
 
+## Status
+Aceito (em uso desde a Release 1, 28/09/2026).
+
 ## Contexto
 - **Critérios de avaliação (Release 1):** "Gitpage – visão de produto (com foco no usuário)" vale 10%; "Deploy" vale 5% na avaliação coletiva.
 - **Sprint 03 (`sprint-planning.md`):** "Pipeline CI/CD básico (lint + testes) verde" e "Feature rodando em deploy".
@@ -23,7 +26,7 @@
   - **Por que um só repositório e um só Pages:** o GitHub Pages permite um site por repositório. As duas páginas são pastas desse único site.
   - **Por que as mesmas pastas do repositório:** a primeira versão publicava a Sobre na raiz e o glossário em `/glossario/`. Os links entre as páginas só funcionavam depois de publicados; abrindo pelo Live Server ou direto no navegador, os botões "Sobre" e "Abrir o glossário" não levavam a lugar nenhum. Com as mesmas pastas, `../sobre/index.html` e `../frontend/index.html` funcionam em qualquer forma de abrir. O custo é a URL do glossário ter `frontend/` no caminho.
   - `npm run dev` (`scripts/servidor-local.mjs`) serve o mesmo layout, sem dependências.
-  - **[FALTA: ativar em Settings → Pages → Source: GitHub Actions]**
+  - Publicação ativa via *Settings → Pages → Source: GitHub Actions* em [unb-mds.github.io/2026-2-GlossarioUnB/](https://unb-mds.github.io/2026-2-GlossarioUnB/).
 
 ## Alternativas descartadas
 - **Vercel ou Netlify.** Exigem conta e serviço fora da organização `unb-mds`, sem ganho para um site estático.
