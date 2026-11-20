@@ -8,6 +8,10 @@ node_modules/
 _site/
 coverage/
 
+# Relatórios dos testes E2E (Playwright)
+playwright-report/
+test-results/
+
 # Arquivo de variáveis de ambiente com dados sensíveis
 .env
 

@@ -17,13 +17,23 @@ Dicionário colaborativo de siglas, gírias e jargões da UnB.
 
 ## Como rodar
 
-Pré-requisito: Node 22.9 ou mais novo. Não há dependências para instalar.
+Pré-requisito: Node 22.9 ou mais novo.
 
 ```bash
+npm ci                  # dependências do robô e dos testes E2E (o site publicado não usa nenhuma)
 npm run dev             # glossário em http://localhost:8080/frontend/ e Sobre em /sobre/
 npm test                # testes de domínio + validação de todos os termos
 npm run test:cobertura  # os mesmos testes, com relatório de cobertura
 ```
+
+Os testes ponta a ponta usam Playwright e axe-core (pasta `e2e/`). Na primeira vez, baixe o navegador:
+
+```bash
+npx playwright install chromium
+npm run test:e2e        # fluxos no navegador + auditoria de acessibilidade (WCAG 2.1 AA)
+```
+
+O job `e2e` do CI roda os mesmos testes em todo PR e anexa o relatório HTML como artefato.
 
 Para usar outra porta, copie `.env.example` para `.env` e ajuste `PORT` (o `npm run dev` lê o `.env` automaticamente).
 

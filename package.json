@@ -9,12 +9,17 @@
   "scripts": {
     "test": "node --test",
     "test:cobertura": "node --test --experimental-test-coverage",
-  "dev": "node --env-file-if-exists=.env scripts/servidor-local.mjs",
+    "test:e2e": "playwright test",
+    "dev": "node --env-file-if-exists=.env scripts/servidor-local.mjs",
     "coleta": "node scripts/coletar.mjs"
   },
   "dependencies": {
     "@google/genai": "^3.3.0",
     "cheerio": "^1.2.0",
     "robots-parser": "^3.0.1"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.14.0",
+    "@playwright/test": "^1.65.1"
   }
 }
