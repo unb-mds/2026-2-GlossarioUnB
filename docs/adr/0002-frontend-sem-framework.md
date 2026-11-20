@@ -2,6 +2,8 @@
 
 > Alcance revisto pela [ADR 0010](0010-bibliotecas-nos-scripts-do-robo.md) (13/11/2026): esta decisão continua valendo para o front; os scripts do robô de coleta podem usar as bibliotecas listadas lá.
 
+## Status
+Aceito (em uso desde a Release 1, 28/09/2026; alcance revisto em 13/11/2026 pela ADR 0010).
 
 ## Contexto
 `docs/ARQUITETURA.md` reserva esta ADR como "Framework de frontend. A definir". O estudo comparando React e Vue está na issue #13 (Sprint 01, aberta), a skill de React/Vue ficou com o José e o estudo de frontend do Allan está no PR #25 (aberto). Até 26/09 não havia recomendação registrada.

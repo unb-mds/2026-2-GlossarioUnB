@@ -1,5 +1,7 @@
 # ADR 0005 — Mapa de locais com Leaflet e OpenStreetMap
 
+## Status
+Aceito (em uso desde a Release 1, 28/09/2026).
 
 ## Contexto
 - O mapa **não está no Story Map**. Aparece na matriz impacto × esforço do Figma como "Mapa para termos 'local'" (alto impacto, alto esforço) e entre os diferenciais do benchmark (PR #26, "mapa de locais").
