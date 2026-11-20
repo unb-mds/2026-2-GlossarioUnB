@@ -32,7 +32,7 @@ Fontes oficiais da UnB (coleta/fontes.json: páginas de siglas; o PDF entra com 
 G10-2026-2/
 ├── index.html          # raiz do site publicado: redireciona para sobre/
 │   ├── data/           # termos.json — dataset (ADR 0001, proposta); trilha-calouro.json (ADR 0011)
-│   └── js/             # termos.js, trilha.js, validacao-termo.js (domínio) + app.js (DOM)
+│   └── js/             # termos.js, trilha.js, validacao-termo.js (domínio); busca.js, lista.js, ficha.js, tema.js (regras de cada página, com teste); app.js (só a tela)
 ├── sobre/              # GitPage 2: apresentação do projeto, só HTML e CSS → /sobre/
 ├── frontend/           # GitPage 1: o glossário (PWA), sem build → /frontend/
 ├── coleta/             # o robô: fontes, coletor, deduplicação, classificador; pode usar bibliotecas (ADR 0010)
