@@ -102,7 +102,9 @@ const temMudanca = relatorioMudou(relatorioFinal, relatorioAnterior);
 
 if (temMudanca) {
   const conteudoAtual = await readFile(caminhoDosTermos, "utf-8");
-  const conteudoAtualizado = `${JSON.stringify(atualizacao.termos, null, 2)}\n`;
+  const fimDeLinha = conteudoAtual.includes("\r\n") ? "\r\n" : "\n";
+  const fimDoArquivo = conteudoAtual.endsWith("\n") ? fimDeLinha : "";
+  const conteudoAtualizado = `${JSON.stringify(atualizacao.termos, null, 2).replaceAll("\n", fimDeLinha)}${fimDoArquivo}`;
   if (conteudoAtual !== conteudoAtualizado) await writeFile(caminhoDosTermos, conteudoAtualizado, "utf-8");
   await writeFile(caminhoDoRelatorio, `${JSON.stringify(relatorioFinal, null, 2)}\n`, "utf-8");
 }
