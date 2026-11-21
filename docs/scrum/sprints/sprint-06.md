@@ -75,7 +75,7 @@ Prints de 19/11/2026, anexados em `img/`.
 
 **Quadro do projeto** (issues da Sprint 06).
 
-![Quadro com as issues da Sprint 06](img/sprint-06-quadro.png)
+![Quadro com as issues da Sprint 06](img/sprint-06-quadro.PNG)
 
 **Gráfico de commits** (Insights).
 
