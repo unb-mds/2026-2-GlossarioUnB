@@ -79,7 +79,7 @@ Prints de 19/11/2026, anexados em `img/`.
 
 **Gráfico de commits** (Insights).
 
-![Gráfico de commits do repositório](img/sprint-07-commits.png)
+![Gráfico de commits do repositório](img/sprint-07-commits.PNG)
 
 ## Atas
 
