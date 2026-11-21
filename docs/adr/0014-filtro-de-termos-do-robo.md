@@ -18,8 +18,8 @@ O filtro tem três camadas, nesta ordem:
 
 A seção `alteracoes_recusadas` guarda as mudanças que uma pessoa já recusou, com o motivo, para o robô não propor de novo o mesmo erro da fonte.
 
-### Quando o modelo está sobrecarregado (decisão 48)
-O robô usa o `gemini-3.8-flash` e, se ele responder que está sobrecarregado (erro 503), passa para o `gemini-3.5-flash-lite` até o fim da rodada. Erro de chave ou de cota não aciona a reserva. O PR mostra quantos termos cada modelo respondeu. Em 21/11/2026, o modelo principal ficou cerca de uma hora sobrecarregado; com as mesmas 30 siglas, o reserva barrou as 12 de fora da UnB e aceitou as 12 da UnB.
+### Quando o modelo está sobrecarregado ou sem cota (decisões 48 e 49)
+O robô usa o `gemini-3.8-flash` e, se ele responder que está sobrecarregado (erro 503) ou que a cota acabou (erro 429), passa para o `gemini-3.5-flash-lite` até o fim da rodada. No Gemini gratuito cada modelo tem a sua cota, então a reserva continua respondendo. Chave inválida não aciona a reserva. O PR mostra quantos termos cada modelo respondeu. Em 21/11/2026, o modelo principal ficou cerca de uma hora sobrecarregado e depois sem cota; com as mesmas 30 siglas, o reserva barrou as 12 de fora da UnB e aceitou as 12 da UnB.
 
 ## Alternativas descartadas
 - **Só a lista fixa.** Previsível, mas uma sigla nova fora da lista dependeria só da revisão.

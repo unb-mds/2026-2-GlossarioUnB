@@ -19,7 +19,7 @@ import {
   resumirClassificacao,
   validarResposta,
 } from "../coleta/classificador.js";
-import { MODELO_PADRAO, MODELO_RESERVA, comReserva, criarClienteGemini, ehSobrecarga } from "../coleta/cliente-gemini.js";
+import { MODELO_PADRAO, MODELO_RESERVA, comReserva, criarClienteGemini, deveUsarReserva } from "../coleta/cliente-gemini.js";
 
 const lerArquivo = (caminho) => readFile(new URL(caminho, import.meta.url), "utf-8");
 const { categorias } = JSON.parse(await lerArquivo("../coleta/categorias.json"));
@@ -136,6 +136,14 @@ test("o prompt v2 define o que é pertinente e manda, na dúvida, deixar para a 
   assert.match(v2, /pertinente/);
   assert.match(v2, /Na dúvida/);
   assert.ok(montarPrompt(v2, DEG, categorias, tipos).includes("DADOS DA PÁGINA"));
+});
+
+test("o prompt v2 pede português com acentos e aceita o que é do ensino superior", async () => {
+  const v2 = await lerArquivo("../coleta/prompts/classificar-v2.md");
+  assert.match(v2, /todos os acentos/);
+  assert.match(v2, /órgãos nacionais de educação/);
+  assert.match(v2, /associações de universidades/);
+  assert.match(v2, /esporte universitário/);
 });
 
 test("o schema pede ao LLM a pertinência e o motivo", () => {
@@ -354,12 +362,38 @@ const sobrecarga = () => {
   throw new Error('{"error":{"code":503,"message":"This model is currently experiencing high demand.","status":"UNAVAILABLE"}}');
 };
 
-test("ehSobrecarga reconhece o 503 do Gemini e não confunde com outros erros", () => {
-  assert.equal(ehSobrecarga(new Error('{"error":{"code":503,"status":"UNAVAILABLE"}}')), true);
-  assert.equal(ehSobrecarga(new Error("503 Service Unavailable")), true);
-  assert.equal(ehSobrecarga(new Error("This model is currently experiencing high demand.")), true);
-  assert.equal(ehSobrecarga(new Error('{"error":{"code":400,"message":"API key not valid."}}')), false);
-  assert.equal(ehSobrecarga(new Error('{"error":{"code":429,"message":"You exceeded your current quota"}}')), false);
+test("deveUsarReserva: sobrecarga (503) e cota esgotada (429) pedem a reserva; chave inválida não", () => {
+  assert.equal(deveUsarReserva(new Error('{"error":{"code":503,"status":"UNAVAILABLE"}}')), true);
+  assert.equal(deveUsarReserva(new Error("503 Service Unavailable")), true);
+  assert.equal(deveUsarReserva(new Error("This model is currently experiencing high demand.")), true);
+  assert.equal(deveUsarReserva(new Error('{"error":{"code":429,"message":"You exceeded your current quota","status":"RESOURCE_EXHAUSTED"}}')), true);
+  assert.equal(deveUsarReserva(new Error("429 Too Many Requests")), true);
+  assert.equal(deveUsarReserva(new Error('{"error":{"code":400,"message":"API key not valid.","status":"INVALID_ARGUMENT"}}')), false);
+  assert.equal(deveUsarReserva(new Error('{"error":{"code":404,"message":"models/x is not found"}}')), false);
+  assert.equal(deveUsarReserva(new Error("a API não devolveu texto")), false);
+  assert.equal(deveUsarReserva(undefined), false);
+});
+
+test("a cota esgotada do principal passa a rodada para a reserva", async () => {
+  const principal = clienteDeTeste("principal", () => {
+    throw new Error('{"error":{"code":429,"message":"You exceeded your current quota","status":"RESOURCE_EXHAUSTED"}}');
+  });
+  const reserva = clienteDeTeste("reserva", () => "texto da reserva");
+  const cliente = comReserva(principal, reserva);
+  assert.equal(await cliente.gerar("p1", {}), "texto da reserva");
+  assert.equal(await cliente.gerar("p2", {}), "texto da reserva");
+  assert.equal(cliente.ultimoModelo, "reserva");
+  assert.equal(principal.pedidos.length, 1);
+});
+
+test("se a reserva também falhar, o erro chega ao classificador e o termo fica sem classificação", async () => {
+  const cota = () => {
+    throw new Error('{"error":{"code":429,"message":"You exceeded your current quota"}}');
+  };
+  const cliente = comReserva(clienteDeTeste("principal", sobrecarga), clienteDeTeste("reserva", cota));
+  const [saida] = await classificarCandidatos([DEG], opcoes(cliente));
+  assert.equal(saida.classificacao.estado, SEM_CLASSIFICACAO);
+  assert.match(saida.classificacao.motivo, /quota/);
 });
 
 test("comReserva usa o principal enquanto ele responde e registra quem respondeu", async () => {
@@ -382,7 +416,7 @@ test("comReserva passa para a reserva quando o principal está sobrecarregado, e
   assert.equal(reserva.pedidos.length, 2);
 });
 
-test("comReserva não usa a reserva para erro que não é sobrecarga (chave inválida, cota)", async () => {
+test("comReserva não usa a reserva para chave inválida", async () => {
   const principal = clienteDeTeste("principal", () => {
     throw new Error('{"error":{"code":400,"message":"API key not valid."}}');
   });

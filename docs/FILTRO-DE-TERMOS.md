@@ -41,9 +41,9 @@ Edite `coleta/filtro-de-termos.json` num PR. Cada item é `"chave": "motivo"`, e
 - `alteracoes_recusadas` usa o `id` do termo publicado.
 - Um termo não pode estar em `fora_do_escopo` e em `liberados` ao mesmo tempo. O teste acusa.
 
-## Quando o Gemini está sobrecarregado
+## Quando o Gemini está sobrecarregado ou sem cota
 
-O robô usa o `gemini-3.8-flash`. Se ele responder que está sobrecarregado, o robô passa para o `gemini-3.5-flash-lite` até o fim da rodada. A linha "Modelos que responderam", no PR, mostra quantos termos cada um respondeu. Para trocar os modelos sem mudar código, use as variáveis `GEMINI_MODELO` e `GEMINI_MODELO_RESERVA`.
+O robô usa o `gemini-3.8-flash`. Se ele responder que está sobrecarregado (503) ou que a cota do dia acabou (429), o robô passa para o `gemini-3.5-flash-lite` até o fim da rodada. A linha "Modelos que responderam", no PR, mostra quantos termos cada um respondeu. Para trocar os modelos sem mudar código, use as variáveis `GEMINI_MODELO` e `GEMINI_MODELO_RESERVA`.
 
 ## Como conferir
 
