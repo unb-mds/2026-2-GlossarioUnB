@@ -95,6 +95,8 @@ test("montarRelatorio guarda a data, os totais por fonte e a classificação", (
     conflitos: 1,
     iguais: 1,
     descartados: 1,
+    barrados: 0,
+    alteracoes_recusadas: 0,
     duplicados: 0,
     mudancas: 3,
   });
@@ -208,4 +210,79 @@ test("relatorioMudou ignora as datas e só aponta mudança de conteúdo", () => 
 
 test("relatorioMudou conta a primeira execução como mudança", () => {
   assert.equal(relatorioMudou(relatorio, null), true);
+});
+
+const base = { novos: [], alterados: [], conflitos: [], iguais: [], descartados: [] };
+const barrado = (termo, origem, motivo) => ({
+  candidato: { termo, significado: `Significado de ${termo}`, fonte: "https://planejamento.unb.br/", fonte_id: "dpo-siglas" },
+  proposta_id: termo.toLowerCase(),
+  motivo,
+  origem,
+});
+
+test("o relatório conta os barrados e as alterações recusadas, sem chamar de duplicados", () => {
+  const relatorio = montarRelatorio({
+    coletadoEm: "2026-11-21",
+    totalDeCandidatos: 3,
+    resultado: {
+      ...base,
+      barrados: [barrado("IPCA", "lista", "Economia"), barrado("PIB", "gemini", "Índice econômico")],
+      alteracoes_recusadas: [{ ...alterado, motivo_recusa: "O PDF traz o nome com erro" }],
+    },
+  });
+  assert.equal(relatorio.totais.barrados, 2);
+  assert.equal(relatorio.totais.alteracoes_recusadas, 1);
+  assert.equal(relatorio.totais.duplicados, 0);
+  assert.equal(relatorio.totais.mudancas, 0);
+});
+
+test("o PR mostra para a revisão humana o que o filtro barrou e por quê", () => {
+  const corpo = gerarCorpoDoPr(montarRelatorio({
+    coletadoEm: "2026-11-21",
+    totalDeCandidatos: 3,
+    resultado: {
+      ...base,
+      barrados: [barrado("IPCA", "lista", "Economia"), barrado("PIB", "gemini", "Índice econômico")],
+      alteracoes_recusadas: [{ ...alterado, motivo_recusa: "O PDF traz o nome com erro" }],
+    },
+  }));
+  assert.match(corpo, /Barrados pelo Gemini/);
+  assert.match(corpo, /PIB.*Índice econômico/);
+  assert.match(corpo, /Barrados pela lista fixa/);
+  assert.match(corpo, /<details>[\s\S]*IPCA[\s\S]*<\/details>/);
+  assert.match(corpo, /Alterações recusadas/);
+  assert.match(corpo, /O PDF traz o nome com erro/);
+  assert.match(corpo, /coleta\/filtro-de-termos\.json/);
+});
+
+test("sem nada barrado, o PR não ganha as seções do filtro", () => {
+  const corpo = gerarCorpoDoPr(montarRelatorio({ coletadoEm: "2026-11-21", resultado: base }));
+  assert.doesNotMatch(corpo, /Barrados/);
+  assert.doesNotMatch(corpo, /Alterações recusadas/);
+});
+
+test("a data da coleta dentro de cada termo não conta como mudança", () => {
+  const comData = (coletado_em) => montarRelatorio({
+    coletadoEm: coletado_em,
+    resultado: { ...base, novos: [{ ...novo, candidato: { ...novo.candidato, coletado_em } }] },
+  });
+  assert.equal(relatorioMudou(comData("2026-11-23"), comData("2026-11-16")), false);
+});
+
+test("o relatório conta os termos por modelo, e o PR mostra quando o reserva respondeu", () => {
+  const classificados = [
+    { classificacao: { estado: "revisar", modelo: "gemini-3.8-flash" } },
+    { classificacao: { estado: "revisar", modelo: "gemini-3.5-flash-lite" } },
+    { classificacao: { estado: "revisar", modelo: "gemini-3.5-flash-lite" } },
+    { classificacao: { estado: "sem classificação", motivo: "sem chave da API" } },
+  ];
+  const relatorio = montarRelatorio({ coletadoEm: "2026-11-21", resultado: base, classificados });
+  assert.deepEqual(relatorio.modelos, { "gemini-3.8-flash": 1, "gemini-3.5-flash-lite": 2 });
+  assert.match(gerarCorpoDoPr(relatorio), /Modelos que responderam: gemini-3\.8-flash \(1\), gemini-3\.5-flash-lite \(2\)/);
+});
+
+test("sem nenhuma resposta do LLM, o PR não mostra a linha dos modelos", () => {
+  const relatorio = montarRelatorio({ coletadoEm: "2026-11-21", resultado: base, classificados: [] });
+  assert.deepEqual(relatorio.modelos, {});
+  assert.doesNotMatch(gerarCorpoDoPr(relatorio), /Modelos que responderam/);
 });

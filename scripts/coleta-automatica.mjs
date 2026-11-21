@@ -6,23 +6,32 @@ import { TIPOS } from "../frontend/js/termos.js";
 import { validarGlossario } from "../frontend/js/validacao-termo.js";
 import { atualizarTermos } from "../coleta/atualizar-termos.js";
 import { classificar, repetidosNoGlossario } from "../coleta/deduplicar.js";
-import { MODELO_PADRAO, criarClienteGemini } from "../coleta/cliente-gemini.js";
+import { MODELO_PADRAO, MODELO_RESERVA, comReserva, criarClienteGemini } from "../coleta/cliente-gemini.js";
 import { coletar } from "../coleta/coletor-html.js";
 import { validarFontes } from "../coleta/fontes.js";
 import { coletarDpo } from "../coleta/coletores/dpo.js";
+import { FORA_DO_ESCOPO } from "../coleta/classificador.js";
+import { aplicarFiltro, separarForaDoEscopo, validarFiltro } from "../coleta/filtro-de-termos.js";
 import { classificarNovos } from "../coleta/pipeline.js";
 import { gerarCorpoDoPr, montarRelatorio, relatorioMudou } from "../coleta/relatorio.js";
 
-const VERSAO_DO_PROMPT = "classificar-v1";
+const VERSAO_DO_PROMPT = "classificar-v2";
 const lerDoRepositorio = (caminho) => readFile(new URL(caminho, import.meta.url), "utf-8");
 const hojeEmBrasilia = () => new Date().toLocaleDateString("sv-SE", { timeZone: "America/Sao_Paulo" });
 
-const [config, termos, arquivoDeCategorias, molde] = await Promise.all([
+const [config, termos, arquivoDeCategorias, molde, filtro] = await Promise.all([
   lerDoRepositorio("../coleta/fontes.json").then(JSON.parse),
   lerDoRepositorio("../frontend/data/termos.json").then(JSON.parse),
   lerDoRepositorio("../coleta/categorias.json").then(JSON.parse),
   lerDoRepositorio(`../coleta/prompts/${VERSAO_DO_PROMPT}.md`),
+  lerDoRepositorio("../coleta/filtro-de-termos.json").then(JSON.parse),
 ]);
+
+const errosDoFiltro = validarFiltro(filtro);
+if (errosDoFiltro.length > 0) {
+  console.error(errosDoFiltro.join("\n"));
+  process.exit(1);
+}
 
 const errosDoArquivo = validarFontes(config);
 if (errosDoArquivo.length > 0) {
@@ -48,19 +57,27 @@ const chave = process.env.GEMINI_API_KEY ?? "";
 let cliente = null;
 if (chave) {
   const { GoogleGenAI } = await import("@google/genai");
-  const modelo = process.env.GEMINI_MODELO || MODELO_PADRAO;
-  cliente = criarClienteGemini({ chave, GoogleGenAI, modelo });
+  // Modelo reserva (decisão 48): se o principal estiver sobrecarregado, a rodada continua no reserva.
+  const principal = criarClienteGemini({ chave, GoogleGenAI, modelo: process.env.GEMINI_MODELO || MODELO_PADRAO });
+  const reserva = criarClienteGemini({ chave, GoogleGenAI, modelo: process.env.GEMINI_MODELO_RESERVA || MODELO_RESERVA });
+  cliente = comReserva(principal, reserva);
 }
 
-// A deduplicação vem antes do LLM: só os termos novos, que ainda não estão no glossário, gastam chamadas.
-const resultado = classificar(candidatos, termos);
-const classificados = await classificarNovos(resultado, {
+const caminhoDoRelatorio = fileURLToPath(new URL("../coleta/relatorio.json", import.meta.url));
+const relatorioAnterior = await readFile(caminhoDoRelatorio, "utf-8").then(JSON.parse).catch(() => null);
+
+// A deduplicação e a lista fixa vêm antes do LLM: só os termos novos que sobraram gastam chamadas (ADR 0014).
+const filtrado = aplicarFiltro(classificar(candidatos, termos), filtro, {
+  barradosAntes: relatorioAnterior?.termos?.barrados ?? [],
+});
+const classificados = await classificarNovos(filtrado, {
   cliente,
   molde,
   categorias: arquivoDeCategorias.categorias,
   tipos: Object.keys(TIPOS),
   versaoDoPrompt: VERSAO_DO_PROMPT,
 });
+const resultado = separarForaDoEscopo(filtrado, filtro);
 const atualizacao = atualizarTermos(termos, resultado, {
   categorias: arquivoDeCategorias.categorias,
 });
@@ -84,7 +101,7 @@ const relatorio = montarRelatorio({
   coletadoEm: dataDaColeta,
   porFonte,
   erros,
-  classificados,
+  classificados: classificados.filter((candidato) => candidato.classificacao?.estado !== FORA_DO_ESCOPO),
   resultado,
   totalDeCandidatos: candidatos.length,
 });
@@ -92,12 +109,10 @@ const semSegredo = (texto) => (chave ? texto.replaceAll(chave, "[chave]") : text
 const relatorioFinal = JSON.parse(semSegredo(JSON.stringify(relatorio)));
 const corpoDoPr = semSegredo(gerarCorpoDoPr(relatorio));
 const caminhoDosTermos = fileURLToPath(new URL("../frontend/data/termos.json", import.meta.url));
-const caminhoDoRelatorio = fileURLToPath(new URL("../coleta/relatorio.json", import.meta.url));
 const caminhoDoCorpo = fileURLToPath(new URL("../coleta/resumo.md", import.meta.url));
 
 // Grava só quando o conteúdo mudou de verdade, sem as datas: os conflitos e os termos novos que ficam
 // fora do termos.json voltam iguais em toda execução, e sem isso o robô abriria PR toda segunda.
-const relatorioAnterior = await readFile(caminhoDoRelatorio, "utf-8").then(JSON.parse).catch(() => null);
 const temMudanca = relatorioMudou(relatorioFinal, relatorioAnterior);
 
 if (temMudanca) {

@@ -115,6 +115,18 @@ test("junta palavra hifenizada sem espaço depois do hífen", () => {
   );
 });
 
+test("junta as letras acentuadas que o PDF guarda em pedaços separados", () => {
+  assert.equal(porSigla("CPLAD")[0].significado, "Coordenação de Planejamento e Administração");
+  assert.equal(porSigla("LPM")[0].significado, "Laboratórios de Pesquisa Multiusuários");
+  assert.equal(porSigla("NUPITEC")[0].significado, "Núcleo de Proteção Intelectual");
+  assert.equal(porSigla("REPE")[0].significado, "Rede de Polos de Extensão");
+});
+
+test("nenhum significado fica com uma letra acentuada solta no meio da palavra", () => {
+  const quebrados = candidatos.filter((candidato) => / [áàâãéêíóôõúç] /i.test(candidato.significado.replace(/ à /g, " ")));
+  assert.deepEqual(quebrados.map((candidato) => candidato.termo), []);
+});
+
 test("junta descrições quebradas em várias linhas", () => {
   assert.equal(
     porSigla("Andifes")[0].significado,

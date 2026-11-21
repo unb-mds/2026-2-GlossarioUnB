@@ -13,6 +13,7 @@ export const LIMITES_DE_COLUNA = [250, 490, 710];
 const CABECALHO = /^(XX|\+|LISTA DE SIGLAS E ABREVIAÇÕES|Para acessar a lista.*|gráficos e figuras,?|clique aqui\.?|\d+)$/i;
 
 const juntarEspacos = (texto) => texto.replace(/\s+/g, " ").trim();
+const DISTANCIA_DE_ESPACO = 0.1; // em relação à altura da letra
 const hojeEmBrasilia = () => new Date().toLocaleDateString("sv-SE", { timeZone: "America/Sao_Paulo" });
 const esperarDeVerdade = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -38,7 +39,7 @@ function linhasPorColuna(itens) {
     if (!item.str?.trim()) continue;
     const x = Math.round(item.transform[4] * 10) / 10;
     const y = Math.round(item.transform[5] * 10) / 10;
-    colunas[colunaDe(x)].push({ x, y, texto: item.str, fonte: item.fontName });
+    colunas[colunaDe(x)].push({ x, y, fim: item.transform[4] + item.width, altura: item.height, texto: item.str, fonte: item.fontName });
   }
 
   return colunas.map((itensDaColuna) => {
@@ -52,6 +53,17 @@ function linhasPorColuna(itens) {
       .sort(([a], [b]) => b - a)
       .map(([, linha]) => linha.sort((a, b) => a.x - b.x));
   });
+}
+
+// O PDF guarda letras acentuadas em pedaços separados ("N", "ú", "cleo"): só há espaço quando há distância entre eles.
+function textoDaLinha(linha) {
+  return linha.reduce((texto, item, indice) => {
+    if (indice === 0) return item.texto;
+    const anterior = linha[indice - 1];
+    const distancia = item.x - anterior.fim;
+    const colado = distancia < Math.max(anterior.altura, item.altura, 1) * DISTANCIA_DE_ESPACO;
+    return `${texto}${colado ? "" : " "}${item.texto}`;
+  }, "");
 }
 
 function ehInicioDeEntrada(linha) {
@@ -93,7 +105,7 @@ export async function extrairSiglasDoPdf(dados, opcoes = {}) {
       for (const coluna of linhasPorColuna(conteudo.items)) {
         let atual = null;
         for (const linha of coluna) {
-          const texto = juntarEspacos(linha.map((item) => item.texto).join(" "));
+          const texto = juntarEspacos(textoDaLinha(linha));
           if (!texto || CABECALHO.test(texto)) continue;
 
           if (ehInicioDeEntrada(linha)) {
