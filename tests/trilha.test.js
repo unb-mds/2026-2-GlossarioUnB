@@ -84,3 +84,30 @@ test("fonteOficial aceita só endereço https da UnB", () => {
   assert.ok(!fonteOficial("https://www.correiobraziliense.com.br/"));
   assert.ok(!fonteOficial("Conhecimento comum e vivência prática"));
 });
+
+// ===== Mutantes sobreviventes (#82): mensagens exatas e entradas ausentes =====
+
+test("validarTrilha: mensagens exatas, grupo sem nome só com espaços e grupo repetido", () => {
+  assert.deepEqual(validarTrilha({}, []), ['a trilha precisa de uma lista "grupos"']);
+  assert.deepEqual(
+    validarTrilha(trilha({ id: "a", nome: "  ", termos: ["x"] }, { id: "a", nome: "A", termos: [] }), [termo("x")]),
+    ['grupo "a" sem nome', 'grupo "a" aparece mais de uma vez', 'grupo "a" sem termos'],
+  );
+});
+
+test("termosDaTrilha e montarTrilha toleram trilha ausente e grupo sem lista de termos", () => {
+  assert.deepEqual(termosDaTrilha(undefined), []);
+  assert.deepEqual(termosDaTrilha({}), []);
+  assert.deepEqual(termosDaTrilha(trilha({ id: "a" }, grupo("b", ["x"]))), ["x"]);
+  assert.deepEqual(montarTrilha(undefined, []), []);
+  assert.deepEqual(montarTrilha(trilha({ id: "a", nome: "A" }), []), []);
+});
+
+test("fonteOficial recusa texto que não é endereço", () => {
+  assert.equal(fonteOficial("conhecimento comum"), false);
+});
+
+test("validarTrilha: grupo sem o campo nome (ausente ou de outro tipo) é acusado sem quebrar", () => {
+  assert.deepEqual(validarTrilha(trilha({ id: "a", termos: ["x"] }), [termo("x")]), ['grupo "a" sem nome']);
+  assert.deepEqual(validarTrilha(trilha({ id: "a", nome: 7, termos: ["x"] }), [termo("x")]), ['grupo "a" sem nome']);
+});
