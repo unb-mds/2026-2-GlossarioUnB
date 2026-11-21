@@ -8,7 +8,7 @@ import { join, relative } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const RAIZ = fileURLToPath(new URL("..", import.meta.url));
-const PERMITIDAS = ["cheerio", "robots-parser", "@google/genai"];
+const PERMITIDAS = ["cheerio", "robots-parser", "@google/genai", "pdfjs-dist"];
 const PERMITIDAS_DESENVOLVIMENTO = [
   "@playwright/test",
   "@axe-core/playwright",
