@@ -1,5 +1,5 @@
-# Trecho para o workflow da #59 (.github/workflows/coleta.yml): só a parte da credencial (decisão 17).
-# O resto (o que coletar, a tabela-resumo, o relatorio.json) é da #59.
+# Coleta semanal (#59): roda a coleta completa e abre ou atualiza o PR do robô com os termos coletados.
+# O robô nunca faz merge; o PR passa pela CI e pela revisão de uma pessoa.
 #
 # Por quê: um PR aberto com o GITHUB_TOKEN (a senha padrão do Actions) não dispara o CI, e sem o check
 # obrigatório "Testes e validação dos termos" ele nunca entra na main. Com a senha da conta de robô do
