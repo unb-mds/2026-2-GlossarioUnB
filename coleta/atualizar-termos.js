@@ -54,6 +54,10 @@ export function atualizarTermos(termos, resultado, { categorias = [] } = {}) {
       continue;
     }
     const termo = novoTermo(registro);
+    if (repetidosNoGlossario([...atualizados, termo]).length > 0) {
+      naoAdicionados.push({ id: termo.id, motivo: "já existe termo com a mesma sigla ou o mesmo significado" });
+      continue;
+    }
     if (idsUsados.has(termo.id)) {
       naoAdicionados.push({ id: termo.id, motivo: "id proposto já existe no glossário" });
       continue;
