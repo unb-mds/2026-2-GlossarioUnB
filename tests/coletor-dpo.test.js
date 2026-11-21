@@ -60,6 +60,15 @@ function respostaPdf(dados = fixture) {
   };
 }
 
+function respostaRobots(texto = "User-agent: *\nAllow: /\n", status = 200) {
+  return { ok: status < 400, status, text: async () => texto };
+}
+
+// Responde o robots.txt liberado (ou o que o teste definir) e o PDF pelo caminho normal.
+function buscarComRobots({ robots = respostaRobots(), pdf = () => respostaPdf() } = {}) {
+  return async (url) => (String(url).endsWith("/robots.txt") ? robots : pdf());
+}
+
 test("a fixture é uma cópia das páginas 5 a 8 do PDF da DPO", () => {
   assert.deepEqual(PAGINAS_DA_LISTA, [5, 6, 7, 8]);
   assert.equal(PDF_URL, "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf");
@@ -88,6 +97,22 @@ test("confere a amostra de 30 siglas contra o PDF", () => {
     const achado = porSigla(sigla).find((candidato) => candidato.significado.includes(significado));
     assert.ok(achado, `não achei ${sigla} com o significado "${significado}"`);
   }
+});
+
+test("não emenda o rodapé 'clique aqui.' na sigla anterior", () => {
+  assert.deepEqual(porSigla("VRT").map((candidato) => candidato.significado), ["Vice-Reitoria"]);
+  assert.equal(candidatos.length, 323);
+});
+
+test("junta palavra hifenizada sem espaço depois do hífen", () => {
+  assert.equal(
+    porSigla("PCCTAE")[0].significado,
+    "Plano de Carreira dos Cargos de Técnicos-Administrativos em Educação",
+  );
+  assert.equal(
+    porSigla("QRSTAE")[0].significado,
+    "Quadro de Referência do Servidor Técnico-Administrativo em Educação",
+  );
 });
 
 test("junta descrições quebradas em várias linhas", () => {
@@ -153,7 +178,7 @@ test("baixarPdf recusa HTML mesmo com status 200", async () => {
 
 test("coletarDpo devolve os candidatos e o resumo por fonte", async () => {
   const resultado = await coletarDpo({
-    buscar: async () => respostaPdf(),
+    buscar: buscarComRobots(),
     paginas: paginasDaFixture,
     coletadoEm: "2026-11-18",
   });
@@ -167,7 +192,7 @@ test("coletarDpo devolve os candidatos e o resumo por fonte", async () => {
 
 test("coletarDpo avisa quando o PDF não tem a lista", async () => {
   const resultado = await coletarDpo({
-    buscar: async () => respostaPdf(),
+    buscar: buscarComRobots(),
     paginas: [],
     coletadoEm: "2026-11-18",
   });
@@ -191,16 +216,61 @@ test("coletarDpo não lança quando o download falha", async () => {
 
 test("coletarDpo não lança quando a resposta é HTML", async () => {
   const html = new TextEncoder().encode("<html></html>");
-  const resultado = await coletarDpo({
-    buscar: async () => ({
-      ok: true,
-      headers: new Headers({ "content-type": "text/html" }),
-      arrayBuffer: async () => html.buffer,
-    }),
+  const respostaHtml = () => ({
+    ok: true,
+    headers: new Headers({ "content-type": "text/html" }),
+    arrayBuffer: async () => html.buffer,
   });
+  const resultado = await coletarDpo({ buscar: buscarComRobots({ pdf: respostaHtml }) });
 
   assert.deepEqual(resultado.candidatos, []);
   assert.match(resultado.erros[0], /a resposta não é um PDF/);
+});
+
+test("coletarDpo trata robots.txt ausente (404) como liberado", async () => {
+  const resultado = await coletarDpo({
+    buscar: buscarComRobots({ robots: respostaRobots("", 404) }),
+    paginas: paginasDaFixture,
+    coletadoEm: "2026-11-18",
+  });
+
+  assert.deepEqual(resultado.erros, []);
+  assert.equal(resultado.candidatos.length, candidatos.length);
+});
+
+test("coletarDpo não baixa o PDF quando o robots.txt proíbe", async () => {
+  const pedidos = [];
+  const buscar = async (url) => {
+    pedidos.push(String(url));
+    return respostaRobots("User-agent: *\nDisallow: /\n");
+  };
+  const resultado = await coletarDpo({ buscar, paginas: paginasDaFixture });
+
+  assert.deepEqual(resultado.candidatos, []);
+  assert.equal(resultado.por_fonte[FONTE_ID], 0);
+  assert.match(resultado.erros[0], /o robots\.txt de https:\/\/planejamento\.unb\.br não permite coletar/);
+  assert.equal(pedidos.length, 1);
+  assert.ok(pedidos[0].endsWith("/robots.txt"));
+});
+
+test("coletarDpo bloqueia quando o robots.txt responde 5xx", async () => {
+  const resultado = await coletarDpo({ buscar: async () => ({ ok: false, status: 503 }) });
+
+  assert.deepEqual(resultado.candidatos, []);
+  assert.match(resultado.erros[0], /o robots\.txt de https:\/\/planejamento\.unb\.br respondeu 503/);
+});
+
+test("coletarDpo espera pelo menos 1 s entre o robots.txt e o PDF", async () => {
+  const esperas = [];
+  const resultado = await coletarDpo({
+    buscar: buscarComRobots(),
+    esperar: async (ms) => esperas.push(ms),
+    paginas: paginasDaFixture,
+    coletadoEm: "2026-11-18",
+  });
+
+  assert.deepEqual(resultado.erros, []);
+  assert.deepEqual(esperas, [1000]);
 });
 
 test("extrairSiglasDoPdf recusa página fora do PDF", async () => {
