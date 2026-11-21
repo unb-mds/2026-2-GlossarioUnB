@@ -19,15 +19,52 @@ O escopo deste documento é:
 
 O domínio do produto é um dicionário de **siglas, gírias e expressões da UnB**. Cada registro representa um termo consumido pela PWA de consulta (`frontend/`).
 
-flowchart TD
-    A["Pessoa (calouro/mantenedor)"] -->|consulta/revisa| B["Glossário UnB"]
-    B --> C["termos.json (JSON estático versionado)"]
-    C --> D["App PWA publicado em /frontend/"]
+```mermaid
+erDiagram
+    FONTE ||--o{ TERMO : "origina"
+    CATEGORIA |o--o{ TERMO : "agrupa"
+    COLETA }o--|{ FONTE : "consulta"
+    COLETA |o--o{ TERMO : "gera candidatos"
+    TERMO ||--o{ VERIFICACAO : "é conferido em"
+    PESSOA ||--o{ VERIFICACAO : "faz"
+    PESSOA }o--o{ TERMO : "consulta"
 
+    FONTE {
+        string id
+        string url
+        string tipo
+        string disponibilidade
+    }
+    TERMO {
+        string id
+        string termo
+        string tipo
+        string significado
+        string campus
+    }
+    CATEGORIA {
+        string id
+        string nome
+    }
+    COLETA {
+        date coletado_em
+        string trecho
+    }
+    VERIFICACAO {
+        string revisor
+        string situacao
+        date data
+    }
+    PESSOA {
+        string papel
+    }
+```
+
+Como ler o diagrama: `||--o{` liga **um** a **zero ou muitos**; `|o--o{` liga **zero ou um** a **zero ou muitos**; `}o--|{` liga **zero ou muitos** a **um ou muitos**. Em uma frase: cada Termo tem exatamente 1 Fonte, e uma Fonte pode originar vários Termos; cada Termo tem no máximo 1 Categoria, e uma Categoria agrupa vários Termos; um Termo pode ter vindo de 0 ou 1 Coleta, e uma Coleta gera 0 ou mais candidatos consultando 1 ou mais Fontes; e um Termo passa por 0 ou mais Verificações, cada uma feita por 1 Pessoa. O candidato só vira Termo depois da Verificação e do merge; o Termo publicado é materializado em `frontend/data/termos.json`, o arquivo estático que a PWA lê (fluxo na seção 5).
 
 Regras do modelo:
 
-- Não há banco de nem backend: o único dataset publicado é `frontend/data/termos.json`.
+- Não há banco de dados nem backend: o único dataset publicado é `frontend/data/termos.json`.
 - O app lê esse arquivo diretamente; não há chamada de API para buscar termos.
 - Cada termo tem `id` único, usado na URL de detalhe (`termo.html?id=<id>`).
 - Não há duplicidade de termos nem de validação de termo: a regra está só em `frontend/js/validacao-termo.js` (ADR 0004).
@@ -82,6 +119,8 @@ Estatísticas atuais de `frontend/data/termos.json` (geradas a partir do arquivo
 ---
 
 ## 4. Disponibilidade das fontes
+
+O catálogo completo, com o que cada fonte oferece e a disponibilidade verificada, está em [`docs/FONTES-DE-DADOS.md`](FONTES-DE-DADOS.md). As seções abaixo resumem o que o pipeline usa e o que já está no dataset publicado.
 
 ### 4.1 Fontes configuradas para coleta (`coleta/fontes.json`)
 
@@ -145,6 +184,7 @@ A lista completa de fontes está no campo `fonte` de cada termo em `frontend/dat
 
 - [`docs/adr/0004-schema-unico-do-termo.md`](adr/0004-schema-unico-do-termo.md): schema único e regras de validação.
 - [`docs/adr/0009-coleta-automatizada-por-pipeline.md`](adr/0009-coleta-automatizada-por-pipeline.md): pipeline de coleta e PR revisado.
+- [`docs/FONTES-DE-DADOS.md`](FONTES-DE-DADOS.md): catálogo das fontes, o que cada uma oferece e a disponibilidade.
 - [`docs/REQUISITOS.md`](REQUISITOS.md): RF02, RF05, RF06, RNF05 e fonte de dados.
 - [`frontend/js/validacao-termo.js`](../frontend/js/validacao-termo.js): única função de validação de termo.
 - [`frontend/js/termos.js`](../frontend/js/termos.js): regras de domínio (busca, filtros, campus e tipos).
