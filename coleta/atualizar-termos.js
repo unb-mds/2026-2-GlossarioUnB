@@ -1,5 +1,5 @@
 import { CAMPI, CAMPUS_GERAL, TIPOS } from "../frontend/js/termos.js";
-import { mesclar } from "./deduplicar.js";
+import { mesclar, repetidosNoGlossario } from "./deduplicar.js";
 
 const textoPreenchido = (valor) => typeof valor === "string" && valor.trim() !== "";
 const categoriaValida = (categoria, categorias) => categorias.some((item) => item.id === categoria);
