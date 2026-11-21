@@ -6,11 +6,12 @@ const categoriaValida = (categoria, categorias) => categorias.some((item) => ite
 const campusValido = (campus) => campus === CAMPUS_GERAL || CAMPI.includes(campus);
 const tipoValido = (tipo) => Object.hasOwn(TIPOS, tipo);
 
-function motivoParaNaoAdicionar(registro) {
+function motivoParaNaoAdicionar(registro, categorias) {
   const candidato = registro.candidato ?? {};
   const classificacao = candidato.classificacao;
 
   if (classificacao?.estado !== "revisar") return classificacao?.motivo ?? "sem classificação revisável";
+  if (!categoriaValida(classificacao.categoria, categorias)) return "categoria fora da taxonomia";
   if (!textoPreenchido(registro.proposta_id)) return "candidato sem id proposto";
   if (!textoPreenchido(candidato.termo)) return "candidato sem termo";
   if (!textoPreenchido(candidato.significado)) return "candidato sem significado";
@@ -22,7 +23,7 @@ function motivoParaNaoAdicionar(registro) {
   return null;
 }
 
-function novoTermo(registro, categorias) {
+function novoTermo(registro) {
   const candidato = registro.candidato;
   const classificacao = candidato.classificacao;
   const tipo = classificacao.tipo_sugerido ?? candidato.tipo;
@@ -35,8 +36,8 @@ function novoTermo(registro, categorias) {
     exemplo_uso: classificacao.exemplo_sugerido,
     fonte: candidato.fonte,
     campus: candidato.campus ?? CAMPUS_GERAL,
+    categoria: classificacao.categoria,
   };
-  if (categoriaValida(classificacao.categoria, categorias)) termo.categoria = classificacao.categoria;
   return termo;
 }
 
@@ -47,12 +48,12 @@ export function atualizarTermos(termos, resultado, { categorias = [] } = {}) {
   const idsUsados = new Set(atualizados.map((termo) => termo.id));
 
   for (const registro of resultado.novos) {
-    const motivo = motivoParaNaoAdicionar(registro);
+    const motivo = motivoParaNaoAdicionar(registro, categorias);
     if (motivo) {
       naoAdicionados.push({ id: registro.proposta_id, motivo });
       continue;
     }
-    const termo = novoTermo(registro, categorias);
+    const termo = novoTermo(registro);
     if (idsUsados.has(termo.id)) {
       naoAdicionados.push({ id: termo.id, motivo: "id proposto já existe no glossário" });
       continue;

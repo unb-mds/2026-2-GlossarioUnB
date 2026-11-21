@@ -129,7 +129,7 @@ test("aplica só o significado de termo alterado e preserva definição e exempl
   assert.deepEqual(original, antes);
 });
 
-test("categoria fora da taxonomia não é gravada, mas o termo continua válido", () => {
+test("categoria fora da taxonomia deixa o termo fora do arquivo e explica o motivo", () => {
   const novo = {
     candidato: candidato({
       classificacao: {
@@ -142,9 +142,21 @@ test("categoria fora da taxonomia não é gravada, mas o termo continua válido"
   };
   const atualizacao = atualizarTermos([], resultado([novo]), { categorias });
 
-  assert.deepEqual(atualizacao.adicionados, ["saa"]);
-  assert.equal(atualizacao.termos[0].categoria, undefined);
-  assert.deepEqual(validarGlossario(atualizacao.termos), []);
+  assert.deepEqual(atualizacao.adicionados, []);
+  assert.deepEqual(atualizacao.termos, []);
+  assert.deepEqual(atualizacao.naoAdicionados, [{ id: "saa", motivo: "categoria fora da taxonomia" }]);
+});
+
+test("termo novo sem categoria também fica fora do arquivo", () => {
+  const novo = {
+    candidato: candidato({ classificacao: { ...candidato().classificacao, categoria: undefined } }),
+    proposta_id: "saa",
+    motivo: "sem termo igual",
+  };
+  const atualizacao = atualizarTermos([], resultado([novo]), { categorias });
+
+  assert.deepEqual(atualizacao.adicionados, []);
+  assert.deepEqual(atualizacao.naoAdicionados, [{ id: "saa", motivo: "categoria fora da taxonomia" }]);
 });
 
 test("usa campus Geral quando o candidato não informa campus", () => {

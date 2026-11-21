@@ -14,10 +14,12 @@ function linkDaFonte(candidato, tambemEm = []) {
 
 function classificacaoDoCandidato(candidato) {
   const classificacao = candidato.classificacao;
-  if (classificacao?.estado === "revisar") {
+  // Na #59, só os termos novos passam pelo LLM: alterados e conflitos não são classificados.
+  if (!classificacao) return "não classificada nesta execução";
+  if (classificacao.estado === "revisar") {
     return `revisar: ${classificacao.categoria} (${classificacao.confianca})`;
   }
-  const motivo = classificacao?.motivo ? `: ${classificacao.motivo}` : "";
+  const motivo = classificacao.motivo ? `: ${classificacao.motivo}` : "";
   return `sem classificação${motivo}`;
 }
 
@@ -53,9 +55,10 @@ export function montarRelatorio({
   erros = [],
   classificados = [],
   resultado,
+  totalDeCandidatos = classificados.length,
 }) {
   const totais = {
-    candidatos: classificados.length,
+    candidatos: totalDeCandidatos,
     novos: resultado.novos.length,
     alterados: resultado.alterados.length,
     conflitos: resultado.conflitos.length,
@@ -88,6 +91,18 @@ export function temMudancas(relatorio) {
   return (relatorio?.totais?.mudancas ?? 0) > 0;
 }
 
+// O conteúdo do relatório sem as datas: elas mudam em toda execução e não são uma mudança de verdade.
+export function relatorioSemData(relatorio) {
+  const { coletado_em, gerado_em, ...conteudo } = relatorio ?? {};
+  return conteudo;
+}
+
+// Mudou em relação ao relatório que já está no repositório? Sem relatório anterior, conta como mudança.
+export function relatorioMudou(novo, anterior) {
+  if (!anterior) return true;
+  return JSON.stringify(relatorioSemData(novo)) !== JSON.stringify(relatorioSemData(anterior));
+}
+
 export function gerarCorpoDoPr(relatorio, { limite = LIMITE_DE_LINHAS_NO_PR } = {}) {
   const { totais, classificacao, erros } = relatorio;
   const linhas = [
@@ -103,7 +118,7 @@ export function gerarCorpoDoPr(relatorio, { limite = LIMITE_DE_LINHAS_NO_PR } = 
     "|---|---:|",
     ...Object.entries(relatorio.por_fonte).map(([fonte, total]) => `| ${celula(fonte)} | ${total} |`),
     "",
-    "### Classificação",
+    "### Classificação dos termos novos",
     "",
     `- Para revisar: ${classificacao.revisar}`,
     `- Sem classificação: ${classificacao.sem_classificacao}`,

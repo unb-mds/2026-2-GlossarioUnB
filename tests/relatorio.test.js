@@ -1,7 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 
-import { gerarCorpoDoPr, montarRelatorio, temMudancas } from "../coleta/relatorio.js";
+import { gerarCorpoDoPr, montarRelatorio, relatorioMudou, temMudancas } from "../coleta/relatorio.js";
 
 const novo = {
   candidato: {
@@ -162,4 +162,50 @@ test("gerarCorpoDoPr sem mudanças não abre tabela de termos", () => {
   });
   assert.equal(temMudancas(vazio), false);
   assert.match(gerarCorpoDoPr(vazio), /Nenhuma mudança de termo/);
+});
+
+test("montarRelatorio conta todos os candidatos mesmo quando só os novos são classificados", () => {
+  const relatorioParcial = montarRelatorio({
+    coletadoEm: "2026-11-19",
+    geradoEm: "2026-11-19T12:00:00.000Z",
+    resultado,
+    classificados: [novo.candidato],
+    totalDeCandidatos: 340,
+  });
+
+  assert.equal(relatorioParcial.totais.candidatos, 340);
+  assert.equal(relatorioParcial.totais.duplicados, 335);
+  assert.deepEqual(relatorioParcial.classificacao, { revisar: 1, sem_classificacao: 0, motivos: {} });
+});
+
+test("gerarCorpoDoPr diz que os termos fora do LLM não foram classificados nesta execução", () => {
+  const alteradoSemClassificacao = { ...alterado, candidato: { ...alterado.candidato, classificacao: undefined } };
+  const corpo = gerarCorpoDoPr(
+    montarRelatorio({
+      coletadoEm: "2026-11-19",
+      resultado: {
+        novos: [],
+        alterados: [alteradoSemClassificacao],
+        conflitos: [],
+        iguais: [],
+        descartados: [],
+      },
+    }),
+  );
+
+  assert.match(corpo, /não classificada nesta execução/);
+});
+
+test("relatorioMudou ignora as datas e só aponta mudança de conteúdo", () => {
+  const proximo = structuredClone(relatorio);
+  proximo.coletado_em = "2026-11-26";
+  proximo.gerado_em = "2026-11-26T09:00:00.000Z";
+  assert.equal(relatorioMudou(proximo, relatorio), false);
+
+  proximo.erros.push('fonte "dpo-siglas": rede fora');
+  assert.equal(relatorioMudou(proximo, relatorio), true);
+});
+
+test("relatorioMudou conta a primeira execução como mudança", () => {
+  assert.equal(relatorioMudou(relatorio, null), true);
 });
