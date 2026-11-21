@@ -121,6 +121,27 @@ export function permitidoPeloRobots(robotsTxt, url, userAgent = USER_AGENT) {
 const esperarDeVerdade = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 const hojeEmBrasilia = () => new Date().toLocaleDateString("sv-SE", { timeZone: "America/Sao_Paulo" });
 
+// O robots.txt de um site: o texto (vazio quando não existe) ou o erro, quando o servidor falha (5xx bloqueia o site).
+async function lerRobots(pedir, origem) {
+  const resposta = await pedir(`${origem}/robots.txt`);
+  if (resposta.ok) return { texto: await resposta.text(), erro: null };
+  if (resposta.status >= 500) return { texto: "", erro: `o robots.txt de ${origem} respondeu ${resposta.status}` };
+  return { texto: "", erro: null };
+}
+
+// Os candidatos de uma fonte, depois de conferir o robots.txt do site dela. Erro sai com o id da fonte.
+async function coletarFonte(fonte, robots, pedir, data) {
+  if (robots.erro) throw new Error(`fonte "${fonte.id}": ${robots.erro}`);
+  if (!permitidoPeloRobots(robots.texto, fonte.url)) {
+    throw new Error(`fonte "${fonte.id}": o robots.txt de ${new URL(fonte.url).origin} não permite coletar ${fonte.url}`);
+  }
+  const resposta = await pedir(fonte.url);
+  if (!resposta.ok) throw new Error(`fonte "${fonte.id}": a página respondeu ${resposta.status}`);
+  return extrairCandidatos(await resposta.text(), fonte, data);
+}
+
+const comIdDaFonte = (fonte, mensagem) => (mensagem.startsWith("fonte ") ? mensagem : `fonte "${fonte.id}": ${mensagem}`);
+
 // Coleta todas as fontes, da prioridade 1 em diante. Respeita o robots.txt de cada site, espera pelo menos
 // 1 s entre pedidos e se identifica pelo user-agent. Uma fonte com erro não para as outras: o erro vai na lista.
 export async function coletar(fontes, opcoes = {}) {
@@ -139,26 +160,12 @@ export async function coletar(fontes, opcoes = {}) {
   for (const fonte of [...fontes].sort((a, b) => a.prioridade - b.prioridade)) {
     try {
       const origem = new URL(fonte.url).origin;
-      if (!robotsPorOrigem.has(origem)) {
-        const resposta = await pedir(`${origem}/robots.txt`);
-        const robots = { texto: "", erro: null };
-        if (resposta.ok) robots.texto = await resposta.text();
-        else if (resposta.status >= 500) robots.erro = `o robots.txt de ${origem} respondeu ${resposta.status}`;
-        robotsPorOrigem.set(origem, robots);
-      }
-      const robots = robotsPorOrigem.get(origem);
-      if (robots.erro) throw new Error(`fonte "${fonte.id}": ${robots.erro}`);
-      if (!permitidoPeloRobots(robots.texto, fonte.url)) {
-        throw new Error(`fonte "${fonte.id}": o robots.txt de ${origem} não permite coletar ${fonte.url}`);
-      }
-      const resposta = await pedir(fonte.url);
-      if (!resposta.ok) throw new Error(`fonte "${fonte.id}": a página respondeu ${resposta.status}`);
-
-      const candidatos = extrairCandidatos(await resposta.text(), fonte, hoje());
+      if (!robotsPorOrigem.has(origem)) robotsPorOrigem.set(origem, await lerRobots(pedir, origem));
+      const candidatos = await coletarFonte(fonte, robotsPorOrigem.get(origem), pedir, hoje());
       resultado.candidatos.push(...candidatos);
       resultado.por_fonte[fonte.id] = candidatos.length;
     } catch (erro) {
-      resultado.erros.push(erro.message.startsWith("fonte ") ? erro.message : `fonte "${fonte.id}": ${erro.message}`);
+      resultado.erros.push(comIdDaFonte(fonte, erro.message));
       resultado.por_fonte[fonte.id] = 0;
     }
   }

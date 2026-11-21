@@ -3,17 +3,27 @@ import { dirname } from "node:path";
 
 import * as pdfjs from "pdfjs-dist/legacy/build/pdf.mjs";
 
-import { USER_AGENT } from "../coletor-html.js";
+import { INTERVALO_MINIMO_MS, USER_AGENT, permitidoPeloRobots } from "../coletor-html.js";
 
 export const PDF_URL = "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf";
 export const FONTE_ID = "dpo-siglas";
 export const PAGINAS_DA_LISTA = [5, 6, 7, 8];
 export const LIMITES_DE_COLUNA = [250, 490, 710];
 
-const CABECALHO = /^(XX|\+|LISTA DE SIGLAS E ABREVIAÇÕES|Para acessar a lista.*|\d+)$/i;
+const CABECALHO = /^(XX|\+|LISTA DE SIGLAS E ABREVIAÇÕES|Para acessar a lista.*|gráficos e figuras,?|clique aqui\.?|\d+)$/i;
 
 const juntarEspacos = (texto) => texto.replace(/\s+/g, " ").trim();
 const hojeEmBrasilia = () => new Date().toLocaleDateString("sv-SE", { timeZone: "America/Sao_Paulo" });
+const esperarDeVerdade = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+// O robots.txt do site do PDF: o texto (vazio quando não existe) ou o erro, quando o servidor falha
+// (5xx bloqueia o site). Mesma regra do coletor de HTML (RNF09).
+async function lerRobots(pedir, origem) {
+  const resposta = await pedir(`${origem}/robots.txt`);
+  if (resposta.ok) return { texto: await resposta.text(), erro: null };
+  if (resposta.status >= 500) return { texto: "", erro: `o robots.txt de ${origem} respondeu ${resposta.status}` };
+  return { texto: "", erro: null };
+}
 
 function colunaDe(x) {
   if (x < LIMITES_DE_COLUNA[0]) return 0;
@@ -98,7 +108,7 @@ export async function extrairSiglasDoPdf(dados, opcoes = {}) {
             atual = candidatoDe(achado[1], achado[2], pagina, coletadoEm);
             candidatos.push(atual);
           } else if (atual) {
-            atual.significado = juntarEspacos(`${atual.significado} ${texto}`);
+            atual.significado = juntarEspacos(`${atual.significado}${atual.significado.endsWith("-") ? "" : " "}${texto}`);
             atual.trecho = juntarEspacos(`${atual.termo} ${atual.significado}`);
           }
         }
@@ -126,7 +136,15 @@ export async function baixarPdf(url = PDF_URL, opcoes = {}) {
 }
 
 export async function coletarDpo(opcoes = {}) {
-  const { buscar = fetch, paginas = PAGINAS_DA_LISTA, hoje = hojeEmBrasilia, coletadoEm = hoje() } = opcoes;
+  const {
+    buscar = fetch,
+    paginas = PAGINAS_DA_LISTA,
+    hoje = hojeEmBrasilia,
+    coletadoEm = hoje(),
+    esperar = esperarDeVerdade,
+    intervaloMs = INTERVALO_MINIMO_MS,
+  } = opcoes;
+  const pausa = Math.max(intervaloMs, INTERVALO_MINIMO_MS);
   const resultado = {
     fonte_url: PDF_URL,
     coletado_em: coletadoEm,
@@ -135,8 +153,23 @@ export async function coletarDpo(opcoes = {}) {
     por_fonte: { [FONTE_ID]: 0 },
   };
 
+  // O robots.txt vem antes do PDF, com o mesmo intervalo mínimo entre pedidos do RNF09.
+  let primeiroPedido = true;
+  const pedir = async (url, opcoesDoPedido = {}) => {
+    if (!primeiroPedido) await esperar(pausa);
+    primeiroPedido = false;
+    return buscar(url, { ...opcoesDoPedido, headers: { "User-Agent": USER_AGENT, ...opcoesDoPedido.headers } });
+  };
+
   try {
-    const dados = await baixarPdf(PDF_URL, { buscar });
+    const origem = new URL(PDF_URL).origin;
+    const robots = await lerRobots(pedir, origem);
+    if (robots.erro) throw new Error(robots.erro);
+    if (!permitidoPeloRobots(robots.texto, PDF_URL)) {
+      throw new Error(`o robots.txt de ${origem} não permite coletar ${PDF_URL}`);
+    }
+
+    const dados = await baixarPdf(PDF_URL, { buscar: pedir });
     const candidatos = await extrairSiglasDoPdf(dados, { paginas, coletadoEm });
     if (candidatos.length === 0) throw new Error("nenhuma sigla encontrada; a estrutura do PDF mudou?");
     resultado.candidatos = candidatos;
