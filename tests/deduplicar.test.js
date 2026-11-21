@@ -65,7 +65,9 @@ test("caso igual: mesma sigla e mesmo significado, mesmo com acento ou caixa dif
 });
 
 test("caso alterado: o nome ganhou uma palavra (DPO), proposta de atualizar só o significado", () => {
-  const { alterados } = classificar([candidato("DPO", "Decanato de Planejamento, Orçamento e Avaliação Institucional")], termosReais);
+  // Base própria: o robô atualiza a DPO no termos.json real, e este teste precisa continuar valendo depois disso.
+  const base = [termo("dpo", "DPO", "Decanato de Planejamento, Orçamento e Avaliação")];
+  const { alterados } = classificar([candidato("DPO", "Decanato de Planejamento, Orçamento e Avaliação Institucional")], base);
   assert.equal(alterados.length, 1);
   assert.equal(alterados[0].id, "dpo");
   assert.deepEqual(alterados[0].mudancas, {
@@ -152,17 +154,18 @@ test("valores-limite da entrada: lista vazia, termo vazio e significado vazio", 
 });
 
 test("mesclar muda só o significado e nunca a definicao nem o exemplo_uso", () => {
-  const antes = structuredClone(termosReais);
-  const { alterados } = classificar([candidato("DPO", "Decanato de Planejamento, Orçamento e Avaliação Institucional")], termosReais);
-  const depois = mesclar(termosReais, alterados);
+  const base = [termo("dpo", "DPO", "Decanato de Planejamento, Orçamento e Avaliação"), termo("deg", "DEG", "Decanato de Ensino de Graduação")];
+  const antes = structuredClone(base);
+  const { alterados } = classificar([candidato("DPO", "Decanato de Planejamento, Orçamento e Avaliação Institucional")], base);
+  const depois = mesclar(base, alterados);
 
-  const dpoAntes = termosReais.find((t) => t.id === "dpo");
+  const dpoAntes = base.find((t) => t.id === "dpo");
   const dpoDepois = depois.find((t) => t.id === "dpo");
   assert.equal(dpoDepois.significado, "Decanato de Planejamento, Orçamento e Avaliação Institucional");
   assert.equal(dpoDepois.definicao, dpoAntes.definicao);
   assert.equal(dpoDepois.exemplo_uso, dpoAntes.exemplo_uso);
-  assert.deepEqual(termosReais, antes);
-  assert.equal(depois.filter((t, i) => t !== termosReais[i]).length, 1);
+  assert.deepEqual(base, antes);
+  assert.equal(depois.filter((t, i) => t !== base[i]).length, 1);
 });
 
 test("mesclar recusa mudança em campo que é de uma pessoa", () => {
