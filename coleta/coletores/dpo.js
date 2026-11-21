@@ -98,7 +98,7 @@ export async function extrairSiglasDoPdf(dados, opcoes = {}) {
             atual = candidatoDe(achado[1], achado[2], pagina, coletadoEm);
             candidatos.push(atual);
           } else if (atual) {
-            atual.significado = juntarEspacos(`${atual.significado} ${texto}`);
+            atual.significado = juntarEspacos(`${atual.significado}${atual.significado.endsWith("-") ? "" : " "}${texto}`);
             atual.trecho = juntarEspacos(`${atual.termo} ${atual.significado}`);
           }
         }
