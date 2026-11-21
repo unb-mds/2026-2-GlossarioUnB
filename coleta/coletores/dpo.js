@@ -10,7 +10,7 @@ export const FONTE_ID = "dpo-siglas";
 export const PAGINAS_DA_LISTA = [5, 6, 7, 8];
 export const LIMITES_DE_COLUNA = [250, 490, 710];
 
-const CABECALHO = /^(XX|\+|LISTA DE SIGLAS E ABREVIAÇÕES|Para acessar a lista.*|\d+)$/i;
+const CABECALHO = /^(XX|\+|LISTA DE SIGLAS E ABREVIAÇÕES|Para acessar a lista.*|gráficos e figuras,?|clique aqui\.?|\d+)$/i;
 
 const juntarEspacos = (texto) => texto.replace(/\s+/g, " ").trim();
 const hojeEmBrasilia = () => new Date().toLocaleDateString("sv-SE", { timeZone: "America/Sao_Paulo" });
