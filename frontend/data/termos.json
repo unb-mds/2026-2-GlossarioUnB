@@ -406,9 +406,10 @@
     "termo": "Ceubinho",
     "tipo": "giria",
     "categoria": "locais-campus",
-    "definicao": "Área de convivência e praça de alimentação localizada no ICC Norte (Instituto Central de Ciências) do campus Darcy Ribeiro da UnB, tradicional ponto de encontro e refeição de estudantes.",
-    "exemplo_uso": "Bora almoçar no Ceubinho antes da reunião da Sprint de MDS?",
-    "fonte": "Conhecimento comum e vivência prática da comunidade acadêmica da UnB (issue #30).",
+    "significado": "Ala norte do Instituto Central de Ciências (ICC)",
+    "definicao": "Apelido do vão da ala norte do ICC (Instituto Central de Ciências), no campus Darcy Ribeiro, onde acontecem atos e eventos dos estudantes. O vão da ala sul é chamado de Udefinho.",
+    "exemplo_uso": "A feira vai ser no Ceubinho, no ICC Norte.",
+    "fonte": "https://noticias.unb.br/112-extensao-e-comunidade/753-comunidade-academica-repudia-atos-violentos-na-unb",
     "campus": "Darcy Ribeiro",
     "localizacao": {
     "lat": -15.7634,
@@ -436,6 +437,28 @@
     "definicao": "Prédio do campus Darcy Ribeiro onde ficam salas de aula e departamentos, como o de Matemática. Os endereços de sala citam a ala do prédio, como \"ICC Centro\".",
     "exemplo_uso": "A monitoria de Cálculo 1 é no ICC Centro, no subsolo do Departamento de Matemática.",
     "fonte": "https://deg.unb.br/wp-content/uploads/manual_do_calouro_2026_2.pdf#page=84",
+    "campus": "Darcy Ribeiro"
+  },
+  {
+    "id": "minhocao",
+    "termo": "Minhocão",
+    "tipo": "giria",
+    "categoria": "locais-campus",
+    "significado": "Instituto Central de Ciências (ICC)",
+    "definicao": "Apelido do ICC, o prédio mais conhecido do campus Darcy Ribeiro, por causa do formato: linear, com cerca de 700 metros de comprimento. Projetado por Oscar Niemeyer e começado em 1963, abriga institutos, faculdades, salas de aula e auditórios.",
+    "exemplo_uso": "Minha primeira aula é no Minhocão, no ICC Sul.",
+    "fonte": "https://ceplan.unb.br/campus-universitario-darcy-ribeiro/",
+    "campus": "Darcy Ribeiro"
+  },
+  {
+    "id": "beijodromo",
+    "termo": "Beijódromo",
+    "tipo": "giria",
+    "categoria": "locais-campus",
+    "significado": "Memorial Darcy Ribeiro",
+    "definicao": "Nome popular do Memorial Darcy Ribeiro, o prédio circular a cerca de 100 metros da Reitoria, no campus Darcy Ribeiro. Inaugurado em 2010, abriga um auditório, um restaurante e o acervo de Darcy Ribeiro, e é uma das Casas Universitárias de Cultura.",
+    "exemplo_uso": "A recepção dos calouros vai ser no auditório do Beijódromo.",
+    "fonte": "https://ceplan.unb.br/campus-universitario-darcy-ribeiro/",
     "campus": "Darcy Ribeiro"
   },
   {
