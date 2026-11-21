@@ -7,6 +7,7 @@ Thumbs.db
 node_modules/
 _site/
 coverage/
+coleta/saida/
 
 # Arquivo de variáveis de ambiente com dados sensíveis
 .env
