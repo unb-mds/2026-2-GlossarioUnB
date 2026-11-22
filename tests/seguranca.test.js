@@ -99,7 +99,7 @@ test("o schema enviado à API fecha categoria, tipo e confiança em listas (o LL
   assert.deepEqual(properties.categoria.enum, ids);
   assert.deepEqual(properties.tipo.enum, tipos);
   assert.deepEqual(properties.confianca.enum, ["alta", "media", "baixa"]);
-  assert.equal(required.length, 5);
+  assert.ok(["categoria", "tipo", "definicao", "exemplo_uso", "confianca"].every((c) => required.includes(c)));
 });
 
 test("limite de chamadas: um site com milhares de candidatos não gera milhares de pedidos ao LLM", async () => {
