@@ -54,6 +54,7 @@ Cada entrada deve conter: data, pessoa, ferramenta usada, o que foi pedido, o qu
 | 18/11/2026 | Pedro | Claude Code (Claude Opus 5.5) | Separação das regras de cada página do `app.js` em `busca.js`, `lista.js`, `ficha.js` e `tema.js`, incluindo a trilha do calouro do #124, com 26 testes, conferida com fotos do DOM das 3 páginas antes e depois | Aceito após a minha revisão, com o `npm test` passando |
 | 19/11/2026 | Italo | opencode | Workflow agendado da coleta (#59): `.github/workflows/coleta.yml`, pipeline completo (`coleta/relatorio.js`, `coleta/atualizar-termos.js` e `scripts/coleta-automatica.mjs`), atualização do `termos.json`, resumo do PR, testes e instruções no README | Aceito |
 | 21/11/2026 | Pedro | Claude Code (Claude Opus 5.5) | Dois testes da DPO em `deduplicar.test.js` com base própria, para o PR do robô não quebrar quando a coleta atualizar o termo | Aceito após a minha revisão |
+| 21/11/2026 | Pedro | Claude Code (Claude Opus 5.5) | Filtro de termos do robô (lista fixa, pertinência pelo Gemini, modelo reserva e seções de revisão no PR), correção do texto do PDF, relatório sem mudança por data, testes, ADR 0014 e documentação | Aceito após a minha revisão |
 | | | | | |
 
 ## Observações gerais
