@@ -85,9 +85,8 @@ Também provado: nada que vem do LLM é executado (o classificador e o cliente n
 
 ## 6. O que fica pendente
 
-1. **`npm audit` como gate no CI** (decisão em aberto): hoje não roda; sem isso, o critério "CI falha com vulnerabilidade alta" da issue só vale para o SonarQube, que não é obrigatório.
-2. **Prompt v2**: pôr `TERMO`, `SIGNIFICADO` e `FONTE` dentro do bloco de dados (muda o contrato do prompt e a `prompt_versao`).
-3. **Estender os testes de workflow ao `coleta.yml`** quando o #144 entrar na `main`.
-4. **Pinar as actions por commit** (hoje por tag: `actions/checkout@v4` etc.) e ligar o Dependabot (decisão de CI).
+1. **Próxima versão do prompt**: pôr `TERMO`, `SIGNIFICADO` e `FONTE` dentro do bloco de dados (muda o contrato do prompt e a `prompt_versao`).
+2. **Estender os testes de workflow ao `coleta.yml`**, que já está na `main`.
+3. **Pinar as actions por commit** (hoje por tag: `actions/checkout@v4` etc.) e ligar o Dependabot (decisão de CI).
 5. **Teste da troca da chave por `[chave]`** em `scripts/classificar.mjs` (hoje só por leitura do código).
 6. **Revisão humana (defesa 7) depende de gente**: o revisor do PR do robô precisa conferir o `termos.json`, não só ver o CI verde.
