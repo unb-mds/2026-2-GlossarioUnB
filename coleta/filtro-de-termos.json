@@ -59,9 +59,13 @@
     "pop": "Tecnologia e objetos em geral",
     "ppa": "Economia e orçamento público",
     "procel": "Órgãos de fora da universidade",
+    "promissaes": "Erro do PDI: o nome certo é PROMISAES",
+    "psbe": "Prática geral da área de saúde, não é órgão nem serviço da UnB",
     "rais": "Economia e orçamento público",
     "rfid": "Tecnologia e objetos em geral",
     "ride": "Território e meio ambiente",
+    "rue": "Ranking externo",
+    "sbpc": "Sociedade científica de fora da UnB",
     "sbrt": "Órgãos de fora da universidade",
     "seedf": "Órgãos de fora da universidade",
     "sesdf": "Órgãos de fora da universidade",
@@ -92,6 +96,7 @@
     "liap": "O texto do PDI usa Laboratórios e outras Infraestruturas de Apoio à Pesquisa",
     "lpste": "O texto do PDI usa Laboratórios de Prestação de Serviços Técnicos Especializados",
     "nde": "O nome usado é Núcleo Docente Estruturante",
-    "pnaes": "O texto do PDI usa Programa Nacional de Assistência Estudantil"
+    "pnaes": "O texto do PDI usa Programa Nacional de Assistência Estudantil",
+    "ued": "O nome é Unidade de Ensino e Docência; a usina é só uma obra citada no PDI"
   }
 }
