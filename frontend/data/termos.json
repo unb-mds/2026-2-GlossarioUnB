@@ -2874,5 +2874,115 @@
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=180",
     "campus": "Geral",
     "categoria": "administracao"
+  },
+  {
+    "id": "pq",
+    "termo": "PQ",
+    "tipo": "sigla",
+    "significado": "Produtividade em pesquisa",
+    "definicao": "Sigla para bolsa de Produtividade em Pesquisa, concedida a professores e pesquisadores que se destacam na sua área de atuação científica.",
+    "exemplo_uso": "Meu orientador conseguiu uma bolsa PQ pelos artigos que publicou.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
+    "campus": "Geral",
+    "categoria": "vida-academica"
+  },
+  {
+    "id": "qrstae",
+    "termo": "QRSTAE",
+    "tipo": "sigla",
+    "significado": "Quadro de Referência do Servidor Técnico-Administrativo em Educação",
+    "definicao": "Quadro de Referência do Servidor Técnico-Administrativo em Educação, que organiza e estrutura o pessoal técnico-administrativo da universidade.",
+    "exemplo_uso": "A lotação dos novos servidores foi definida conforme o QRSTAE da UnB.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
+    "campus": "Geral",
+    "categoria": "administracao"
+  },
+  {
+    "id": "ritu",
+    "termo": "RITU",
+    "tipo": "sigla",
+    "significado": "Rede de Intercâmbio de Televisão Universitária",
+    "definicao": "Rede de Intercâmbio de Televisão Universitária, órgão ou iniciativa ligada à comunicação e difusão de conteúdo audiovisual da UnB.",
+    "exemplo_uso": "A programação da TV Universitária foi integrada à RITU para abranger mais projetos.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
+    "campus": "Geral",
+    "categoria": "administracao"
+  },
+  {
+    "id": "sei",
+    "termo": "SEI",
+    "tipo": "sigla",
+    "significado": "Sistema Eletrônico de Informações",
+    "definicao": "O SEI é o sistema oficial usado na UnB para a gestão de documentos e processos administrativos de forma eletrônica, sem uso de papel.",
+    "exemplo_uso": "Abri um processo no SEI para solicitar o aproveitamento de créditos da minha outra faculdade.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
+    "campus": "Geral",
+    "categoria": "sistemas"
+  },
+  {
+    "id": "serex",
+    "termo": "SEREX",
+    "tipo": "sigla",
+    "significado": "Seminário Regional de Extensão Universitária da Região Centro-Oeste",
+    "definicao": "Seminario Regional de Extensao Universitaria da Regiao Centro-Oeste, evento que debate e divulga acoes de extensao na regiao.",
+    "exemplo_uso": "Vou apresentar meu projeto de extensao no SEREX este ano.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
+    "campus": "Geral",
+    "categoria": "vida-academica"
+  },
+  {
+    "id": "sigeleicao",
+    "termo": "SIGEleição",
+    "tipo": "sigla",
+    "significado": "Controle de Processos Eleitorais",
+    "definicao": "Sistema utilizado na Universidade de Brasília para o controle e gerenciamento de processos eleitorais internos da instituição.",
+    "exemplo_uso": "A votação para a escolha do novo coordenador do curso será realizada de forma online através do SIGEleição.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
+    "campus": "Geral",
+    "categoria": "sistemas"
+  },
+  {
+    "id": "snpg",
+    "termo": "SNPG",
+    "tipo": "sigla",
+    "significado": "Sistema Nacional de Pós-Graduação",
+    "definicao": "O Sistema Nacional de Pós-Graduação engloba o conjunto de programas de mestrado e doutorado de todo o país, coordenados pela CAPES para avaliar e garantir a qualidade da pesquisa e da formação acadêmica avançada.",
+    "exemplo_uso": "A UnB busca alinhar suas diretrizes de pesquisa e inovação aos objetivos do SNPG.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
+    "campus": "Geral",
+    "categoria": "vida-academica"
+  },
+  {
+    "id": "the",
+    "termo": "THE",
+    "tipo": "sigla",
+    "significado": "Times Higher Education World University Rankings",
+    "definicao": "Sigla para Times Higher Education, um importante ranking internacional que avalia e classifica universidades do mundo todo, incluindo a UnB.",
+    "exemplo_uso": "A UnB subiu de posição no ranking da THE este ano.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
+    "campus": "Geral",
+    "categoria": "vida-academica"
+  },
+  {
+    "id": "uab",
+    "termo": "UAB",
+    "tipo": "sigla",
+    "significado": "Universidade Aberta do Brasil",
+    "definicao": "Sistema integrado que oferta cursos na modalidade de educação a distância em parceria com instituições públicas de ensino superior.",
+    "exemplo_uso": "A UnB oferece vários cursos a distância por meio da UAB.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
+    "campus": "Geral",
+    "categoria": "administracao"
+  },
+  {
+    "id": "uep",
+    "termo": "UEP",
+    "tipo": "sigla",
+    "significado": "Unidade de Ensino e Pesquisa",
+    "definicao": "Sigla para Unidade de Ensino e Pesquisa, termo usado na estrutura da universidade para designar locais ou departamentos voltados ao ensino e à pesquisa.",
+    "exemplo_uso": "O projeto foi aprovado no âmbito da nossa UEP.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
+    "campus": "Geral",
+    "categoria": "unidades-academicas"
   }
 ]
