@@ -50,7 +50,7 @@ found 0 vulnerabilities
 
 Há 3 dependências diretas, todas do robô (a [ADR 0010](adr/0010-bibliotecas-nos-scripts-do-robo.md) mantém o front sem biblioteca): `@google/genai`, `cheerio` e `robots-parser`. O teste `tests/fronteira-dependencias.test.js` impede que o front importe qualquer uma delas. O CI roda `npm ci` (versões do `package-lock.json`), então o que foi auditado é o que roda.
 
-Hoje o `npm audit` **não roda no CI**: o resultado acima é uma fotografia. Ver a seção 6.
+O `npm audit --omit=dev --audit-level=high` roda no CI em todo PR e falha com vulnerabilidade alta ou crítica nas dependências de produção.
 
 ## 4. Prompt injection no robô de coleta
 
