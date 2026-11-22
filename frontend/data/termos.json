@@ -2962,5 +2962,27 @@
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=124",
     "campus": "Ceilândia",
     "categoria": "locais-campus"
+  },
+  {
+    "id": "prolac",
+    "termo": "Pro-LAC",
+    "tipo": "sigla",
+    "significado": "Programa de Formação de Professores de Educação Superior para a América Latina e o Caribe",
+    "definicao": "Programa do GCUB para a formação de professores de educação superior da América Latina e do Caribe.",
+    "exemplo_uso": "A UnB aderiu ao edital do Pro-LAC.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=104",
+    "campus": "Geral",
+    "categoria": "administracao"
+  },
+  {
+    "id": "semuni",
+    "termo": "Semuni",
+    "tipo": "sigla",
+    "significado": "Semana Universitária da UnB",
+    "definicao": "Programa anual organizado pelo Decanato de Extensão (DEX), com atividades de extensão, pesquisa, ensino e inovação propostas pelas unidades da UnB.",
+    "exemplo_uso": "Vou apresentar meu projeto na Semuni.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=68",
+    "campus": "Geral",
+    "categoria": "vida-academica"
   }
 ]
