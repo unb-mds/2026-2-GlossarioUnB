@@ -34,16 +34,16 @@ Fontes oficiais da UnB (coleta/fontes.json: páginas de siglas; o PDF entra com 
 ├── sobre/              # GitPage 2: apresentação do projeto, só HTML e CSS → /sobre/
 ├── frontend/           # GitPage 1: o glossário (PWA), sem build → /frontend/
 │   ├── data/           # termos.json — dataset (ADR 0001); trilha-calouro.json (ADR 0011)
-│   └── js/             # termos.js, trilha.js, validacao-termo.js (domínio) + app.js (DOM)
-├── coleta/             # o robô: fontes, coletor, deduplicação, classificador; pode usar bibliotecas (ADR 0010)
-├── scripts/            # servidor-local.mjs (as duas páginas no mesmo layout do Pages), coletar.mjs e classificar.mjs
+│   └── js/             # termos.js, trilha.js, validacao-termo.js (domínio); busca.js, lista.js, ficha.js, tema.js (regras de cada página, com teste); app.js (só a tela)
+├── coleta/             # o robô: fontes, coletor, deduplicação, classificador e atualização do termos.json; pode usar bibliotecas (ADR 0010)
+├── scripts/            # servidor-local.mjs (as duas páginas no mesmo layout do Pages), coletar.mjs (roda o robô), classificar.mjs e coleta-automatica.mjs (pipeline completo da #59)
 ├── tests/              # node:test — domínio + validação do dataset + documentação
 ├── docs/
 │   ├── adr/
 │   ├── estudos/
 │   └── scrum/
 └── .github/
-    └── workflows/      # ci.yml (testes em todo PR), pages.yml (publicação) e sonar.yml (SonarQube Cloud)
+    └── workflows/      # ci.yml (testes em todo PR), coleta.yml (coleta semanal), pages.yml (publicação) e sonar.yml (SonarQube Cloud)
 ```
 
 O dataset ficou dentro de `frontend/` para o glossário ser publicado copiando uma única pasta (ver ADR 0001). A pasta `skills/`, citada em versões anteriores deste documento, não existe no repositório.
@@ -62,6 +62,7 @@ O dataset ficou dentro de `frontend/` para o glossário ser publicado copiando u
 > - [ADR 0010 — Bibliotecas npm nos scripts do robô](adr/0010-bibliotecas-nos-scripts-do-robo.md) (13/11, atualizada em 18/11)
 > - [ADR 0011 — Trilha do calouro num arquivo próprio](adr/0011-trilha-do-calouro-em-arquivo-proprio.md) (17/11)
 > - [ADR 0013 — Análise de qualidade com o SonarQube Cloud](adr/0013-analise-de-qualidade-com-sonarqube-cloud.md) (18/11)
+> - [ADR 0014 — Filtro de termos do robô](adr/0014-filtro-de-termos-do-robo.md) (21/11)
 
 ## Padrões de código (a manter desde o primeiro commit)
 

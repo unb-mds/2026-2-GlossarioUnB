@@ -1,0 +1,68 @@
+[
+  {
+    "modulo": "coleta/coletor-html.js",
+    "defeito": "o robô ignora o robots.txt",
+    "arquivo": "coleta/coletor-html.js",
+    "trocas": [
+      {
+        "de": "return robots.isAllowed(url, userAgent) !== false;",
+        "para": "return true;"
+      }
+    ]
+  },
+  {
+    "modulo": "coleta/coletor-html.js",
+    "defeito": "o robô não espera 1 s entre pedidos",
+    "arquivo": "coleta/coletor-html.js",
+    "trocas": [
+      {
+        "de": "const pausa = Math.max(intervaloMs, INTERVALO_MINIMO_MS);",
+        "para": "const pausa = intervaloMs;"
+      }
+    ]
+  },
+  {
+    "modulo": "coleta/coletor-html.js",
+    "defeito": "o robô se apresenta com user-agent genérico",
+    "arquivo": "coleta/coletor-html.js",
+    "trocas": [
+      {
+        "de": "export const USER_AGENT = \"GlossarioUnB-coletor/0.1 (+https://github.com/unb-mds/2026-2-GlossarioUnB)\";",
+        "para": "export const USER_AGENT = \"Mozilla/5.0\";"
+      }
+    ]
+  },
+  {
+    "modulo": "coleta/deduplicar.js",
+    "defeito": "o limite de \"parecido\" cai de 60% para 50%",
+    "arquivo": "coleta/deduplicar.js",
+    "trocas": [
+      {
+        "de": "export const PARECIDO_A_PARTIR_DE = 0.6;",
+        "para": "export const PARECIDO_A_PARTIR_DE = 0.5;"
+      }
+    ]
+  },
+  {
+    "modulo": "coleta/deduplicar.js",
+    "defeito": "o mesmo termo vindo de duas fontes vira dois registros",
+    "arquivo": "coleta/deduplicar.js",
+    "trocas": [
+      {
+        "de": "if (jaVistos.has(k)) {",
+        "para": "if (false) {"
+      }
+    ]
+  },
+  {
+    "modulo": "coleta/classificador.js",
+    "defeito": "o classificador chama o Gemini sem pausa",
+    "arquivo": "coleta/classificador.js",
+    "trocas": [
+      {
+        "de": "if (chamadas > 0) await esperar(intervaloMs);",
+        "para": ";"
+      }
+    ]
+  }
+]
