@@ -1,17 +1,17 @@
 {
   "coletado_em": "2026-11-22",
-  "gerado_em": "2026-11-22T16:54:19.182Z",
+  "gerado_em": "2026-11-22T16:58:50.295Z",
   "totais": {
     "candidatos": 343,
-    "novos": 2,
+    "novos": 0,
     "alterados": 0,
     "conflitos": 16,
-    "iguais": 224,
+    "iguais": 226,
     "descartados": 0,
     "barrados": 77,
     "alteracoes_recusadas": 10,
     "duplicados": 14,
-    "mudancas": 18
+    "mudancas": 16
   },
   "por_fonte": {
     "unb-decanatos": 8,
@@ -22,75 +22,14 @@
     "dpo-siglas": 323
   },
   "classificacao": {
-    "revisar": 2,
+    "revisar": 0,
     "sem_classificacao": 0,
     "motivos": {}
   },
-  "modelos": {
-    "gemini-3.5-flash-lite": 2
-  },
+  "modelos": {},
   "erros": [],
   "termos": {
-    "novos": [
-      {
-        "candidato": {
-          "termo": "Pro-LAC",
-          "significado": "Programa de Formação de Professores de Educação Superior para a América Latina e o Caribe",
-          "tipo": "sigla",
-          "campus": "Geral",
-          "orgao_superior": null,
-          "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
-          "fonte_url": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
-          "fonte_id": "dpo-siglas",
-          "pagina": 8,
-          "trecho": "Pro-LAC Programa de Formação de Professores de Educação Superior para a América Latina e o Caribe",
-          "coletado_em": "2026-11-22",
-          "classificacao": {
-            "estado": "revisar",
-            "categoria": "vida-academica",
-            "tipo_sugerido": "sigla",
-            "definicao_sugerida": "Programa voltado para a formação de professores de educação superior para a América Latina e o Caribe, com atuação ligada à UnB.",
-            "exemplo_sugerido": "A UnB participa do Pro-LAC para capacitar docentes da América Latina e do Caribe.",
-            "confianca": "alta",
-            "modelo": "gemini-3.5-flash-lite",
-            "prompt_versao": "classificar-v2"
-          }
-        },
-        "motivo": "nenhum termo com essa sigla, sinônimo ou significado",
-        "proposta_id": "prolac",
-        "tambem_em": [],
-        "adicionado": true
-      },
-      {
-        "candidato": {
-          "termo": "Semuni",
-          "significado": "Semana Universitária da UnB",
-          "tipo": "sigla",
-          "campus": "Geral",
-          "orgao_superior": null,
-          "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
-          "fonte_url": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
-          "fonte_id": "dpo-siglas",
-          "pagina": 8,
-          "trecho": "Semuni Semana Universitária da UnB",
-          "coletado_em": "2026-11-22",
-          "classificacao": {
-            "estado": "revisar",
-            "categoria": "vida-academica",
-            "tipo_sugerido": "sigla",
-            "definicao_sugerida": "A Semana Universitária da UnB (Semuni) é um evento anual que reúne a comunidade acadêmica para palestras, oficinas e apresentações de projetos de ensino, pesquisa e extensão.",
-            "exemplo_sugerido": "Vou apresentar meu projeto de pesquisa na Semuni este ano.",
-            "confianca": "alta",
-            "modelo": "gemini-3.5-flash-lite",
-            "prompt_versao": "classificar-v2"
-          }
-        },
-        "motivo": "nenhum termo com essa sigla, sinônimo ou significado",
-        "proposta_id": "semuni",
-        "tambem_em": [],
-        "adicionado": true
-      }
-    ],
+    "novos": [],
     "alterados": [],
     "conflitos": [
       {
