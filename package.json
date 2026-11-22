@@ -9,6 +9,7 @@
   "scripts": {
     "test": "node --test",
     "test:cobertura": "node --test --experimental-test-coverage",
+    "test:sabotagem": "node scripts/sabotagem.mjs",
     "dev": "node --env-file-if-exists=.env scripts/servidor-local.mjs",
     "coleta": "node scripts/coletar.mjs",
     "coleta:dpo": "node scripts/coletar-dpo.mjs",
