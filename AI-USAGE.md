@@ -54,8 +54,10 @@ Cada entrada deve conter: data, pessoa, ferramenta usada, o que foi pedido, o qu
 | 18/11/2026 | Pedro | Claude Code (Claude Opus 5.5) | Gírias do campus na trilha: busca das páginas da UnB que citam o Ceubinho, o Minhocão e o Beijódromo, correção da definição do Ceubinho, as 3 fontes do robô com o padrão regex e os testes com as páginas salvas, a partir das minhas decisões de 18/11 | Aceito após a minha revisão, com o `npm test` passando |
 | 18/11/2026 | Pedro | Claude Code (Claude Opus 5.5) | Separação das regras de cada página do `app.js` em `busca.js`, `lista.js`, `ficha.js` e `tema.js`, incluindo a trilha do calouro do #124, com 26 testes, conferida com fotos do DOM das 3 páginas antes e depois | Aceito após a minha revisão, com o `npm test` passando |
 | 19/11/2026 | Italo | opencode | Workflow agendado da coleta (#59): `.github/workflows/coleta.yml`, pipeline completo (`coleta/relatorio.js`, `coleta/atualizar-termos.js` e `scripts/coleta-automatica.mjs`), atualização do `termos.json`, resumo do PR, testes e instruções no README | Aceito |
+| 20/11/2026 | Allan | Claude Code | Medição dos números de teste, cobertura e SonarQube e redação do docs/RELATORIO-DE-TESTES.md (#84) | Aceito após a minha revisão, com os números do #82 (PR #157) e do #78 (PR #153) atualizados |
 | 21/11/2026 | Pedro | Claude Code (Claude Opus 5.5) | Dois testes da DPO em `deduplicar.test.js` com base própria, para o PR do robô não quebrar quando a coleta atualizar o termo | Aceito após a minha revisão |
 | 21/11/2026 | Pedro | Claude Code (Claude Opus 5.5) | Filtro de termos do robô (lista fixa, pertinência pelo Gemini, modelo reserva e seções de revisão no PR), correção do texto do PDF, relatório sem mudança por data, testes, ADR 0014 e documentação | Aceito após a minha revisão |
+| 22/11/2026 | Allan | opencode (DeepSeek V4.1 Flash) | Atualização do `docs/RELATORIO-DE-TESTES.md` com os números da `main` em 22/11 (244 testes, cobertura de 98,18%, Sonar 86,0%) e com o resultado do Lighthouse do PR #148 | Aguardando a minha revisão |
 | | | | | |
 
 ## Observações gerais
