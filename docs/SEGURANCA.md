@@ -10,7 +10,7 @@ Atende à issue [#83](https://github.com/unb-mds/2026-2-GlossarioUnB/issues/83) 
 | Pontos sensíveis (hotspots) revisados | **0 em aberto, 100% revisados** |
 | Dependências com falha conhecida (`npm audit`) | **0** (com e sem `--omit=dev`) |
 | Prompt injection no robô | 7 defesas, cada uma com teste ([seção 4](#4-prompt-injection-no-robô-de-coleta)) |
-| Falha do CI por vulnerabilidade alta | **Pendente**: depende de decisão ([seção 6](#6-o-que-fica-pendente)) |
+| Falha do CI por vulnerabilidade alta | **Ativa**: `npm audit --omit=dev --audit-level=high` no `ci.yml` |
 
 ## 2. Análise estática (SAST)
 
