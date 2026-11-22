@@ -35,15 +35,15 @@ G10-2026-2/
 │   └── js/             # termos.js, trilha.js, validacao-termo.js (domínio); busca.js, lista.js, ficha.js, tema.js (regras de cada página, com teste); app.js (só a tela)
 ├── sobre/              # GitPage 2: apresentação do projeto, só HTML e CSS → /sobre/
 ├── frontend/           # GitPage 1: o glossário (PWA), sem build → /frontend/
-├── coleta/             # o robô: fontes, coletor, deduplicação, classificador; pode usar bibliotecas (ADR 0010)
-├── scripts/            # servidor-local.mjs (as duas páginas no mesmo layout do Pages) e coletar.mjs (roda o robô)
+├── coleta/             # o robô: fontes, coletor, deduplicação, classificador e atualização do termos.json; pode usar bibliotecas (ADR 0010)
+├── scripts/            # servidor-local.mjs (as duas páginas no mesmo layout do Pages), coletar.mjs (roda o robô) e coleta-automatica.mjs (pipeline completo da #59)
 ├── tests/              # node:test — domínio + validação do dataset
 ├── docs/
 │   ├── adr/
 │   ├── estudos/
 │   └── scrum/
 └── .github/
-    └── workflows/      # ci.yml (testes em todo PR) e pages.yml (publicação)
+    └── workflows/      # ci.yml (testes em todo PR), coleta.yml (coleta semanal) e pages.yml (publicação)
 ```
 
 O dataset ficou dentro de `frontend/` para o glossário ser publicado copiando uma única pasta (ver ADR 0001). A pasta `skills/`, citada em versões anteriores deste documento, não existe no repositório.
