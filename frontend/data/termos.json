@@ -2874,5 +2874,93 @@
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=180",
     "campus": "Geral",
     "categoria": "administracao"
+  },
+  {
+    "id": "pq",
+    "termo": "PQ",
+    "tipo": "sigla",
+    "significado": "Produtividade em pesquisa",
+    "definicao": "Categoria de pesquisadores de produtividade em pesquisa do CNPq.",
+    "exemplo_uso": "Minha orientadora é pesquisadora PQ.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=64",
+    "campus": "Geral",
+    "categoria": "vida-academica"
+  },
+  {
+    "id": "qrstae",
+    "termo": "QRSTAE",
+    "tipo": "sigla",
+    "significado": "Quadro de Referência do Servidor Técnico-Administrativo em Educação",
+    "definicao": "Quadro do governo federal que define quantos cargos técnico-administrativos em educação a instituição pode manter.",
+    "exemplo_uso": "O número de vagas de técnicos depende do QRSTAE.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=165",
+    "campus": "Geral",
+    "categoria": "administracao"
+  },
+  {
+    "id": "ritu",
+    "termo": "RITU",
+    "tipo": "sigla",
+    "significado": "Rede de Intercâmbio de Televisão Universitária",
+    "definicao": "Rede de televisões universitárias com a qual a UnBTV compartilha a programação.",
+    "exemplo_uso": "Esse programa da UnBTV passa também na RITU.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=175",
+    "campus": "Geral",
+    "categoria": "administracao"
+  },
+  {
+    "id": "sei",
+    "termo": "SEI",
+    "tipo": "sigla",
+    "significado": "Sistema Eletrônico de Informações",
+    "definicao": "Sistema de tramitação digital de documentos. Por ele, o estudante pode pedir atendimento à SAA sem ir até o local.",
+    "exemplo_uso": "Abri meu pedido para a SAA pelo SEI.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=98",
+    "campus": "Geral",
+    "categoria": "sistemas"
+  },
+  {
+    "id": "serex",
+    "termo": "SEREX",
+    "tipo": "sigla",
+    "significado": "Seminário Regional de Extensão Universitária da Região Centro-Oeste",
+    "definicao": "Seminário regional de extensão universitária do Centro-Oeste, para o qual a UnB seleciona trabalhos.",
+    "exemplo_uso": "Nosso projeto de extensão foi selecionado para o SEREX.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=69",
+    "campus": "Geral",
+    "categoria": "vida-academica"
+  },
+  {
+    "id": "sigeleicao",
+    "termo": "SIGEleição",
+    "tipo": "sigla",
+    "significado": "Controle de Processos Eleitorais",
+    "definicao": "Sistema de controle de processos eleitorais, um dos Sistemas Integrados de Gestão da UnB.",
+    "exemplo_uso": "A votação do conselho foi pelo SIGEleição.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=128",
+    "campus": "Geral",
+    "categoria": "sistemas"
+  },
+  {
+    "id": "uab",
+    "termo": "UAB",
+    "tipo": "sigla",
+    "significado": "Universidade Aberta do Brasil",
+    "definicao": "Sistema criado em 2006 para expandir a oferta de cursos superiores a distância pelo país.",
+    "exemplo_uso": "Minha prima faz um curso da UAB na UnB.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=57",
+    "campus": "Geral",
+    "categoria": "vida-academica"
+  },
+  {
+    "id": "uep",
+    "termo": "UEP",
+    "tipo": "sigla",
+    "significado": "Unidade de Ensino e Pesquisa",
+    "definicao": "Unidade de Ensino e Pesquisa, prédio da faculdade da UnB em Ceilândia.",
+    "exemplo_uso": "Minha aula de hoje é na UEP.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=124",
+    "campus": "Ceilândia",
+    "categoria": "locais-campus"
   }
 ]

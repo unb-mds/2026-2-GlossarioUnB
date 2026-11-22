@@ -1,17 +1,17 @@
 {
   "coletado_em": "2026-11-22",
-  "gerado_em": "2026-11-22T16:40:41.468Z",
+  "gerado_em": "2026-11-22T16:48:33.356Z",
   "totais": {
     "candidatos": 343,
-    "novos": 50,
+    "novos": 12,
     "alterados": 0,
-    "conflitos": 14,
-    "iguais": 184,
+    "conflitos": 16,
+    "iguais": 216,
     "descartados": 0,
-    "barrados": 72,
-    "alteracoes_recusadas": 9,
+    "barrados": 75,
+    "alteracoes_recusadas": 10,
     "duplicados": 14,
-    "mudancas": 64
+    "mudancas": 28
   },
   "por_fonte": {
     "unb-decanatos": 8,
@@ -22,134 +22,18 @@
     "dpo-siglas": 323
   },
   "classificacao": {
-    "revisar": 37,
-    "sem_classificacao": 13,
+    "revisar": 10,
+    "sem_classificacao": 2,
     "motivos": {
-      "a API falhou: {\"error\":{\"code\":503,\"message\":\"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\"status\":\"UNAVAILABLE\"}}": 13
+      "a API falhou: {\"error\":{\"code\":503,\"message\":\"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\"status\":\"UNAVAILABLE\"}}": 2
     }
   },
   "modelos": {
-    "gemini-3.5-flash-lite": 37
+    "gemini-3.5-flash-lite": 10
   },
   "erros": [],
   "termos": {
     "novos": [
-      {
-        "candidato": {
-          "termo": "Libras",
-          "significado": "Língua Brasileira de Sinais",
-          "tipo": "sigla",
-          "campus": "Geral",
-          "orgao_superior": null,
-          "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
-          "fonte_url": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
-          "fonte_id": "dpo-siglas",
-          "pagina": 7,
-          "trecho": "Libras Língua Brasileira de Sinais",
-          "coletado_em": "2026-11-22",
-          "classificacao": {
-            "estado": "revisar",
-            "categoria": "vida-academica",
-            "tipo_sugerido": "sigla",
-            "definicao_sugerida": "Sigla para Língua Brasileira de Sinais, a língua de sinais legalmente reconhecida usada por pessoas surdas no Brasil, ofertada como disciplina na UnB.",
-            "exemplo_sugerido": "Eu preciso cursar Libras para concluir os créditos da minha licenciatura na UnB.",
-            "confianca": "alta",
-            "modelo": "gemini-3.5-flash-lite",
-            "prompt_versao": "classificar-v2"
-          }
-        },
-        "motivo": "nenhum termo com essa sigla, sinônimo ou significado",
-        "proposta_id": "libras",
-        "tambem_em": [],
-        "adicionado": true
-      },
-      {
-        "candidato": {
-          "termo": "PAS",
-          "significado": "Programa de Avaliação Seriada",
-          "tipo": "sigla",
-          "campus": "Geral",
-          "orgao_superior": null,
-          "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
-          "fonte_url": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
-          "fonte_id": "dpo-siglas",
-          "pagina": 7,
-          "trecho": "PAS Programa de Avaliação Seriada",
-          "coletado_em": "2026-11-22",
-          "classificacao": {
-            "estado": "revisar",
-            "categoria": "vida-academica",
-            "tipo_sugerido": "sigla",
-            "definicao_sugerida": "O PAS é uma das principais formas de ingresso na UnB. Ele divide o vestibular em três etapas aplicadas ao final de cada ano do ensino médio.",
-            "exemplo_sugerido": "Consegui passar em medicina por meio da terceira etapa do PAS!",
-            "confianca": "alta",
-            "modelo": "gemini-3.5-flash-lite",
-            "prompt_versao": "classificar-v2"
-          }
-        },
-        "motivo": "nenhum termo com essa sigla, sinônimo ou significado",
-        "proposta_id": "pas",
-        "tambem_em": [],
-        "adicionado": true
-      },
-      {
-        "candidato": {
-          "termo": "PPI",
-          "significado": "Pretos, Pardos ou Indígenas",
-          "tipo": "sigla",
-          "campus": "Geral",
-          "orgao_superior": null,
-          "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
-          "fonte_url": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
-          "fonte_id": "dpo-siglas",
-          "pagina": 7,
-          "trecho": "PPI Pretos, Pardos ou Indígenas",
-          "coletado_em": "2026-11-22",
-          "classificacao": {
-            "estado": "revisar",
-            "categoria": "vida-academica",
-            "tipo_sugerido": "sigla",
-            "definicao_sugerida": "Sigla usada para se referir a pessoas Pretas, Pardos ou Indígenas, muito presente em editais, processos seletivos e políticas de cotas na universidade.",
-            "exemplo_sugerido": "Eu fui convocado para a verificação da autodeclaração para as vagas de PPI.",
-            "confianca": "alta",
-            "modelo": "gemini-3.5-flash-lite",
-            "prompt_versao": "classificar-v2"
-          }
-        },
-        "motivo": "nenhum termo com essa sigla, sinônimo ou significado",
-        "proposta_id": "ppi",
-        "tambem_em": [],
-        "adicionado": true
-      },
-      {
-        "candidato": {
-          "termo": "PPPI",
-          "significado": "Projeto Político Pedagógico Institucional",
-          "tipo": "sigla",
-          "campus": "Geral",
-          "orgao_superior": null,
-          "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
-          "fonte_url": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
-          "fonte_id": "dpo-siglas",
-          "pagina": 7,
-          "trecho": "PPPI Projeto Político Pedagógico Institucional",
-          "coletado_em": "2026-11-22",
-          "classificacao": {
-            "estado": "revisar",
-            "categoria": "vida-academica",
-            "tipo_sugerido": "sigla",
-            "definicao_sugerida": "Documento que orienta a concepção e a prática do ensino, da pesquisa e da extensão na universidade.",
-            "exemplo_sugerido": "O novo currículo do curso foi estruturado de acordo com as diretrizes do PPPI.",
-            "confianca": "alta",
-            "modelo": "gemini-3.5-flash-lite",
-            "prompt_versao": "classificar-v2"
-          }
-        },
-        "motivo": "nenhum termo com essa sigla, sinônimo ou significado",
-        "proposta_id": "pppi",
-        "tambem_em": [],
-        "adicionado": true
-      },
       {
         "candidato": {
           "termo": "PQ",
@@ -164,187 +48,18 @@
           "trecho": "PQ Produtividade em pesquisa",
           "coletado_em": "2026-11-22",
           "classificacao": {
-            "estado": "sem classificação",
-            "motivo": "a API falhou: {\"error\":{\"code\":503,\"message\":\"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\"status\":\"UNAVAILABLE\"}}"
+            "estado": "revisar",
+            "categoria": "vida-academica",
+            "tipo_sugerido": "sigla",
+            "definicao_sugerida": "Sigla para bolsa de Produtividade em Pesquisa, concedida a professores e pesquisadores que se destacam na sua área de atuação científica.",
+            "exemplo_sugerido": "Meu orientador conseguiu uma bolsa PQ pelos artigos que publicou.",
+            "confianca": "alta",
+            "modelo": "gemini-3.5-flash-lite",
+            "prompt_versao": "classificar-v2"
           }
         },
         "motivo": "nenhum termo com essa sigla, sinônimo ou significado",
         "proposta_id": "pq",
-        "tambem_em": [],
-        "adicionado": false,
-        "motivo_adicao": "a API falhou: {\"error\":{\"code\":503,\"message\":\"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\"status\":\"UNAVAILABLE\"}}"
-      },
-      {
-        "candidato": {
-          "termo": "PRC",
-          "significado": "Prefeitura da UnB",
-          "tipo": "sigla",
-          "campus": "Geral",
-          "orgao_superior": null,
-          "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
-          "fonte_url": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
-          "fonte_id": "dpo-siglas",
-          "pagina": 8,
-          "trecho": "PRC Prefeitura da UnB",
-          "coletado_em": "2026-11-22",
-          "classificacao": {
-            "estado": "revisar",
-            "categoria": "administracao",
-            "tipo_sugerido": "sigla",
-            "definicao_sugerida": "Sigla para Prefeitura da UnB, o órgão responsável pela gestão, manutenção e infraestrutura dos campi da universidade.",
-            "exemplo_sugerido": "Preciso ligar para a PRC para relatar um problema na iluminação perto do ICC.",
-            "confianca": "alta",
-            "modelo": "gemini-3.5-flash-lite",
-            "prompt_versao": "classificar-v2"
-          }
-        },
-        "motivo": "nenhum termo com essa sigla, sinônimo ou significado",
-        "proposta_id": "prc",
-        "tambem_em": [],
-        "adicionado": true
-      },
-      {
-        "candidato": {
-          "termo": "PrInt",
-          "significado": "Programa de Internacionalização",
-          "tipo": "sigla",
-          "campus": "Geral",
-          "orgao_superior": null,
-          "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
-          "fonte_url": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
-          "fonte_id": "dpo-siglas",
-          "pagina": 8,
-          "trecho": "PrInt Programa de Internacionalização",
-          "coletado_em": "2026-11-22",
-          "classificacao": {
-            "estado": "revisar",
-            "categoria": "administracao",
-            "tipo_sugerido": "sigla",
-            "definicao_sugerida": "O PrInt é o Programa Institucional de Internacionalização da UnB, voltado para fomentar parcerias e intercâmbios acadêmicos com instituições estrangeiras.",
-            "exemplo_sugerido": "Consegui uma bolsa para estudar fora por meio do edital do PrInt.",
-            "confianca": "alta",
-            "modelo": "gemini-3.5-flash-lite",
-            "prompt_versao": "classificar-v2"
-          }
-        },
-        "motivo": "nenhum termo com essa sigla, sinônimo ou significado",
-        "proposta_id": "print",
-        "tambem_em": [],
-        "adicionado": true
-      },
-      {
-        "candidato": {
-          "termo": "Pro-Afri",
-          "significado": "Programa de Formação de Professores de Educação Superior de Países Africanos",
-          "tipo": "sigla",
-          "campus": "Geral",
-          "orgao_superior": null,
-          "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
-          "fonte_url": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
-          "fonte_id": "dpo-siglas",
-          "pagina": 8,
-          "trecho": "Pro-Afri Programa de Formação de Professores de Educação Superior de Países Africanos",
-          "coletado_em": "2026-11-22",
-          "classificacao": {
-            "estado": "revisar",
-            "categoria": "assistencia-estudantil",
-            "tipo_sugerido": "sigla",
-            "definicao_sugerida": "Programa da UnB voltado para a formação de professores de ensino superior de países africanos.",
-            "exemplo_sugerido": "O programa Pro-Afri promoveu um novo ciclo de capacitação docente neste semestre.",
-            "confianca": "alta",
-            "modelo": "gemini-3.5-flash-lite",
-            "prompt_versao": "classificar-v2"
-          }
-        },
-        "motivo": "nenhum termo com essa sigla, sinônimo ou significado",
-        "proposta_id": "proafri",
-        "tambem_em": [],
-        "adicionado": true
-      },
-      {
-        "candidato": {
-          "termo": "PROCAP",
-          "significado": "Coordenadoria de Capacitação",
-          "tipo": "sigla",
-          "campus": "Geral",
-          "orgao_superior": null,
-          "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
-          "fonte_url": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
-          "fonte_id": "dpo-siglas",
-          "pagina": 8,
-          "trecho": "PROCAP Coordenadoria de Capacitação",
-          "coletado_em": "2026-11-22",
-          "classificacao": {
-            "estado": "revisar",
-            "categoria": "administracao",
-            "tipo_sugerido": "sigla",
-            "definicao_sugerida": "A Coordenadoria de Capacitação da UnB é o órgão responsável por planejar e promover ações de desenvolvimento e qualificação para servidores da instituição.",
-            "exemplo_sugerido": "Preciso entrar em contato com a PROCAP para saber sobre o próximo curso de capacitação.",
-            "confianca": "alta",
-            "modelo": "gemini-3.5-flash-lite",
-            "prompt_versao": "classificar-v2"
-          }
-        },
-        "motivo": "nenhum termo com essa sigla, sinônimo ou significado",
-        "proposta_id": "procap",
-        "tambem_em": [],
-        "adicionado": true
-      },
-      {
-        "candidato": {
-          "termo": "PROIC",
-          "significado": "Programa de Iniciação Científica",
-          "tipo": "sigla",
-          "campus": "Geral",
-          "orgao_superior": null,
-          "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
-          "fonte_url": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
-          "fonte_id": "dpo-siglas",
-          "pagina": 8,
-          "trecho": "PROIC Programa de Iniciação Científica",
-          "coletado_em": "2026-11-22",
-          "classificacao": {
-            "estado": "revisar",
-            "categoria": "vida-academica",
-            "tipo_sugerido": "sigla",
-            "definicao_sugerida": "Programa de Iniciação Científica da UnB, que incentiva estudantes de graduação a participarem de pesquisas acadêmicas orientados por professores.",
-            "exemplo_sugerido": "Consegui uma bolsa pelo PROIC e agora vou participar de um projeto de pesquisa no meu departamento.",
-            "confianca": "alta",
-            "modelo": "gemini-3.5-flash-lite",
-            "prompt_versao": "classificar-v2"
-          }
-        },
-        "motivo": "nenhum termo com essa sigla, sinônimo ou significado",
-        "proposta_id": "proic",
-        "tambem_em": [],
-        "adicionado": true
-      },
-      {
-        "candidato": {
-          "termo": "PROFNIT",
-          "significado": "Programa de Pós-Graduação em Propriedade Intelectual e Transferência de Tecnologia para a Inovação",
-          "tipo": "sigla",
-          "campus": "Geral",
-          "orgao_superior": null,
-          "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
-          "fonte_url": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
-          "fonte_id": "dpo-siglas",
-          "pagina": 8,
-          "trecho": "PROFNIT Programa de Pós-Graduação em Propriedade Intelectual e Transferência de Tecnologia para a Inovação",
-          "coletado_em": "2026-11-22",
-          "classificacao": {
-            "estado": "revisar",
-            "categoria": "unidades-academicas",
-            "tipo_sugerido": "sigla",
-            "definicao_sugerida": "Programa de pós-graduação stricto sensu em rede nacional voltado para a Propriedade Intelectual e Transferência de Tecnologia para a Inovação, com atuação também na UnB.",
-            "exemplo_sugerido": "Consegui aprovar o meu tema de pesquisa no processo seletivo do PROFNIT.",
-            "confianca": "alta",
-            "modelo": "gemini-3.5-flash-lite",
-            "prompt_versao": "classificar-v2"
-          }
-        },
-        "motivo": "nenhum termo com essa sigla, sinônimo ou significado",
-        "proposta_id": "profnit",
         "tambem_em": [],
         "adicionado": true
       },
@@ -374,93 +89,6 @@
       },
       {
         "candidato": {
-          "termo": "Promissaes",
-          "significado": "Projeto Milton Santos de Acesso ao Ensino Superior",
-          "tipo": "sigla",
-          "campus": "Geral",
-          "orgao_superior": null,
-          "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
-          "fonte_url": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
-          "fonte_id": "dpo-siglas",
-          "pagina": 8,
-          "trecho": "Promissaes Projeto Milton Santos de Acesso ao Ensino Superior",
-          "coletado_em": "2026-11-22",
-          "classificacao": {
-            "estado": "revisar",
-            "categoria": "assistencia-estudantil",
-            "tipo_sugerido": "sigla",
-            "definicao_sugerida": "O Projeto Milton Santos de Acesso ao Ensino Superior e uma iniciativa voltada para apoiar estudantes universitarios por meio de bolsas e acoes de permanencia.",
-            "exemplo_sugerido": "Consegui participar do Promissaes e isso esta me ajudando muito a continuar meus estudos na UnB.",
-            "confianca": "alta",
-            "modelo": "gemini-3.5-flash-lite",
-            "prompt_versao": "classificar-v2"
-          }
-        },
-        "motivo": "nenhum termo com essa sigla, sinônimo ou significado",
-        "proposta_id": "promissaes",
-        "tambem_em": [],
-        "adicionado": true
-      },
-      {
-        "candidato": {
-          "termo": "PSBE",
-          "significado": "Prática em Saúde Baseada em Evidências",
-          "tipo": "sigla",
-          "campus": "Geral",
-          "orgao_superior": null,
-          "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
-          "fonte_url": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
-          "fonte_id": "dpo-siglas",
-          "pagina": 8,
-          "trecho": "PSBE Prática em Saúde Baseada em Evidências",
-          "coletado_em": "2026-11-22",
-          "classificacao": {
-            "estado": "revisar",
-            "categoria": "vida-academica",
-            "tipo_sugerido": "sigla",
-            "definicao_sugerida": "Prática em Saúde Baseada em Evidências é uma disciplina ou abordagem metodológica voltada para a área da saúde na UnB.",
-            "exemplo_sugerido": "Vou cursar a disciplina de PSBE no próximo semestre para minha formação na saúde.",
-            "confianca": "alta",
-            "modelo": "gemini-3.5-flash-lite",
-            "prompt_versao": "classificar-v2"
-          }
-        },
-        "motivo": "nenhum termo com essa sigla, sinônimo ou significado",
-        "proposta_id": "psbe",
-        "tambem_em": [],
-        "adicionado": true
-      },
-      {
-        "candidato": {
-          "termo": "PTA",
-          "significado": "Programa de Tutoria para Acessibilidade",
-          "tipo": "sigla",
-          "campus": "Geral",
-          "orgao_superior": null,
-          "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
-          "fonte_url": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
-          "fonte_id": "dpo-siglas",
-          "pagina": 8,
-          "trecho": "PTA Programa de Tutoria para Acessibilidade",
-          "coletado_em": "2026-11-22",
-          "classificacao": {
-            "estado": "revisar",
-            "categoria": "assistencia-estudantil",
-            "tipo_sugerido": "sigla",
-            "definicao_sugerida": "O Programa de Tutoria para Acessibilidade oferece apoio pedagógico e auxílio a estudantes com deficiência na Universidade de Brasília.",
-            "exemplo_sugerido": "Eu consegui apoio para acompanhar as aulas graças ao PTA da universidade.",
-            "confianca": "alta",
-            "modelo": "gemini-3.5-flash-lite",
-            "prompt_versao": "classificar-v2"
-          }
-        },
-        "motivo": "nenhum termo com essa sigla, sinônimo ou significado",
-        "proposta_id": "pta",
-        "tambem_em": [],
-        "adicionado": true
-      },
-      {
-        "candidato": {
           "termo": "QRSTAE",
           "significado": "Quadro de Referência do Servidor Técnico-Administrativo em Educação",
           "tipo": "sigla",
@@ -473,158 +101,18 @@
           "trecho": "QRSTAE Quadro de Referência do Servidor Técnico-Administrativo em Educação",
           "coletado_em": "2026-11-22",
           "classificacao": {
-            "estado": "sem classificação",
-            "motivo": "a API falhou: {\"error\":{\"code\":503,\"message\":\"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\"status\":\"UNAVAILABLE\"}}"
+            "estado": "revisar",
+            "categoria": "administracao",
+            "tipo_sugerido": "sigla",
+            "definicao_sugerida": "Quadro de Referência do Servidor Técnico-Administrativo em Educação, que organiza e estrutura o pessoal técnico-administrativo da universidade.",
+            "exemplo_sugerido": "A lotação dos novos servidores foi definida conforme o QRSTAE da UnB.",
+            "confianca": "alta",
+            "modelo": "gemini-3.5-flash-lite",
+            "prompt_versao": "classificar-v2"
           }
         },
         "motivo": "nenhum termo com essa sigla, sinônimo ou significado",
         "proposta_id": "qrstae",
-        "tambem_em": [],
-        "adicionado": false,
-        "motivo_adicao": "a API falhou: {\"error\":{\"code\":503,\"message\":\"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\"status\":\"UNAVAILABLE\"}}"
-      },
-      {
-        "candidato": {
-          "termo": "RAAI",
-          "significado": "Relatório de Autoavaliação Institucional",
-          "tipo": "sigla",
-          "campus": "Geral",
-          "orgao_superior": null,
-          "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
-          "fonte_url": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
-          "fonte_id": "dpo-siglas",
-          "pagina": 8,
-          "trecho": "RAAI Relatório de Autoavaliação Institucional",
-          "coletado_em": "2026-11-22",
-          "classificacao": {
-            "estado": "revisar",
-            "categoria": "administracao",
-            "tipo_sugerido": "sigla",
-            "definicao_sugerida": "Sigla para Relatório de Autoavaliação Institucional, documento que avalia o desempenho e a qualidade das atividades da universidade.",
-            "exemplo_sugerido": "A comissão apresentou os dados atualizados para compor o RAAI deste ano.",
-            "confianca": "alta",
-            "modelo": "gemini-3.5-flash-lite",
-            "prompt_versao": "classificar-v2"
-          }
-        },
-        "motivo": "nenhum termo com essa sigla, sinônimo ou significado",
-        "proposta_id": "raai",
-        "tambem_em": [],
-        "adicionado": true
-      },
-      {
-        "candidato": {
-          "termo": "RAINT",
-          "significado": "Relatórios Anuais de Auditoria Interna",
-          "tipo": "sigla",
-          "campus": "Geral",
-          "orgao_superior": null,
-          "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
-          "fonte_url": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
-          "fonte_id": "dpo-siglas",
-          "pagina": 8,
-          "trecho": "RAINT Relatórios Anuais de Auditoria Interna",
-          "coletado_em": "2026-11-22",
-          "classificacao": {
-            "estado": "revisar",
-            "categoria": "administracao",
-            "tipo_sugerido": "sigla",
-            "definicao_sugerida": "Documentos produzidos anualmente pela Auditoria Interna da UnB para avaliar a gestão dos recursos e a conformidade dos processos da universidade.",
-            "exemplo_sugerido": "A administração superior publicou o novo RAINT para prestar contas sobre o uso dos recursos da UnB.",
-            "confianca": "alta",
-            "modelo": "gemini-3.5-flash-lite",
-            "prompt_versao": "classificar-v2"
-          }
-        },
-        "motivo": "nenhum termo com essa sigla, sinônimo ou significado",
-        "proposta_id": "raint",
-        "tambem_em": [],
-        "adicionado": true
-      },
-      {
-        "candidato": {
-          "termo": "REA",
-          "significado": "Recursos Educacionais Abertos",
-          "tipo": "sigla",
-          "campus": "Geral",
-          "orgao_superior": null,
-          "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
-          "fonte_url": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
-          "fonte_id": "dpo-siglas",
-          "pagina": 8,
-          "trecho": "REA Recursos Educacionais Abertos",
-          "coletado_em": "2026-11-22",
-          "classificacao": {
-            "estado": "revisar",
-            "categoria": "vida-academica",
-            "tipo_sugerido": "sigla",
-            "definicao_sugerida": "Sigla para Recursos Educacionais Abertos, que são materiais de ensino, aprendizado e pesquisa disponibilizados de forma gratuita para uso, adaptação e compartilhamento.",
-            "exemplo_sugerido": "O professor utilizou um REA na disciplina para facilitar o acesso de todos os alunos ao conteúdo.",
-            "confianca": "alta",
-            "modelo": "gemini-3.5-flash-lite",
-            "prompt_versao": "classificar-v2"
-          }
-        },
-        "motivo": "nenhum termo com essa sigla, sinônimo ou significado",
-        "proposta_id": "rea",
-        "tambem_em": [],
-        "adicionado": true
-      },
-      {
-        "candidato": {
-          "termo": "REPE",
-          "significado": "Rede de Polos de Extensão",
-          "tipo": "sigla",
-          "campus": "Geral",
-          "orgao_superior": null,
-          "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
-          "fonte_url": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
-          "fonte_id": "dpo-siglas",
-          "pagina": 8,
-          "trecho": "REPE Rede de Polos de Extensão",
-          "coletado_em": "2026-11-22",
-          "classificacao": {
-            "estado": "revisar",
-            "categoria": "administracao",
-            "tipo_sugerido": "sigla",
-            "definicao_sugerida": "Rede de Polos de Extensão da UnB, estrutura que articula ações de extensão universitária junto à comunidade externa.",
-            "exemplo_sugerido": "A universidade ampliou as atividades na comunidade por meio da REPE.",
-            "confianca": "alta",
-            "modelo": "gemini-3.5-flash-lite",
-            "prompt_versao": "classificar-v2"
-          }
-        },
-        "motivo": "nenhum termo com essa sigla, sinônimo ou significado",
-        "proposta_id": "repe",
-        "tambem_em": [],
-        "adicionado": true
-      },
-      {
-        "candidato": {
-          "termo": "RI",
-          "significado": "Representantes de Internacionalização",
-          "tipo": "sigla",
-          "campus": "Geral",
-          "orgao_superior": null,
-          "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
-          "fonte_url": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
-          "fonte_id": "dpo-siglas",
-          "pagina": 8,
-          "trecho": "RI Representantes de Internacionalização",
-          "coletado_em": "2026-11-22",
-          "classificacao": {
-            "estado": "revisar",
-            "categoria": "administracao",
-            "tipo_sugerido": "sigla",
-            "definicao_sugerida": "Sigla para Representantes de Internacionalização, que são pessoas responsáveis por apoiar e articular ações voltadas para a cooperação internacional e intercâmbios nas unidades da UnB.",
-            "exemplo_sugerido": "Procurei o RI do meu instituto para tirar dúvidas sobre o edital de intercâmbio.",
-            "confianca": "alta",
-            "modelo": "gemini-3.5-flash-lite",
-            "prompt_versao": "classificar-v2"
-          }
-        },
-        "motivo": "nenhum termo com essa sigla, sinônimo ou significado",
-        "proposta_id": "ri",
         "tambem_em": [],
         "adicionado": true
       },
@@ -642,187 +130,18 @@
           "trecho": "RITU Rede de Intercâmbio de Televisão Universitária",
           "coletado_em": "2026-11-22",
           "classificacao": {
-            "estado": "sem classificação",
-            "motivo": "a API falhou: {\"error\":{\"code\":503,\"message\":\"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\"status\":\"UNAVAILABLE\"}}"
+            "estado": "revisar",
+            "categoria": "administracao",
+            "tipo_sugerido": "sigla",
+            "definicao_sugerida": "Rede de Intercâmbio de Televisão Universitária, órgão ou iniciativa ligada à comunicação e difusão de conteúdo audiovisual da UnB.",
+            "exemplo_sugerido": "A programação da TV Universitária foi integrada à RITU para abranger mais projetos.",
+            "confianca": "media",
+            "modelo": "gemini-3.5-flash-lite",
+            "prompt_versao": "classificar-v2"
           }
         },
         "motivo": "nenhum termo com essa sigla, sinônimo ou significado",
         "proposta_id": "ritu",
-        "tambem_em": [],
-        "adicionado": false,
-        "motivo_adicao": "a API falhou: {\"error\":{\"code\":503,\"message\":\"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\"status\":\"UNAVAILABLE\"}}"
-      },
-      {
-        "candidato": {
-          "termo": "RIU",
-          "significado": "Rotas de Inovação Universitária",
-          "tipo": "sigla",
-          "campus": "Geral",
-          "orgao_superior": null,
-          "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
-          "fonte_url": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
-          "fonte_id": "dpo-siglas",
-          "pagina": 8,
-          "trecho": "RIU Rotas de Inovação Universitária",
-          "coletado_em": "2026-11-22",
-          "classificacao": {
-            "estado": "revisar",
-            "categoria": "vida-academica",
-            "tipo_sugerido": "sigla",
-            "definicao_sugerida": "As Rotas de Inovação Universitária sao iniciativas da UnB para incentivar o empreendedorismo, a inovação e a conexao entre a universidade e a sociedade.",
-            "exemplo_sugerido": "Eu quero participar dos projetos das Rotas de Inovação Universitária no meu instituto.",
-            "confianca": "alta",
-            "modelo": "gemini-3.5-flash-lite",
-            "prompt_versao": "classificar-v2"
-          }
-        },
-        "motivo": "nenhum termo com essa sigla, sinônimo ou significado",
-        "proposta_id": "riu",
-        "tambem_em": [],
-        "adicionado": true
-      },
-      {
-        "candidato": {
-          "termo": "RIUnB",
-          "significado": "Repositório Institucional",
-          "tipo": "sigla",
-          "campus": "Geral",
-          "orgao_superior": null,
-          "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
-          "fonte_url": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
-          "fonte_id": "dpo-siglas",
-          "pagina": 8,
-          "trecho": "RIUnB Repositório Institucional",
-          "coletado_em": "2026-11-22",
-          "classificacao": {
-            "estado": "revisar",
-            "categoria": "sistemas",
-            "tipo_sugerido": "sigla",
-            "definicao_sugerida": "O Repositório Institucional da UnB (RIUnB) é a plataforma onde ficam guardados trabalhos acadêmicos, teses, dissertações e artigos produzidos na universidade.",
-            "exemplo_sugerido": "Consegui baixar o TCC de um veterano direto pelo RIUnB para usar como referência.",
-            "confianca": "alta",
-            "modelo": "gemini-3.5-flash-lite",
-            "prompt_versao": "classificar-v2"
-          }
-        },
-        "motivo": "nenhum termo com essa sigla, sinônimo ou significado",
-        "proposta_id": "riunb",
-        "tambem_em": [],
-        "adicionado": true
-      },
-      {
-        "candidato": {
-          "termo": "RNP",
-          "significado": "Rede Nacional de Ensino e Pesquisa",
-          "tipo": "sigla",
-          "campus": "Geral",
-          "orgao_superior": null,
-          "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
-          "fonte_url": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
-          "fonte_id": "dpo-siglas",
-          "pagina": 8,
-          "trecho": "RNP Rede Nacional de Ensino e Pesquisa",
-          "coletado_em": "2026-11-22",
-          "classificacao": {
-            "estado": "revisar",
-            "categoria": "administracao",
-            "tipo_sugerido": "sigla",
-            "definicao_sugerida": "Rede que provê infraestrutura de internet de alta velocidade e serviços avançados para universidades e instituições de pesquisa no Brasil, incluindo a UnB.",
-            "exemplo_sugerido": "A UnB usa a infraestrutura da RNP para conectar seus campi à rede acadêmica nacional.",
-            "confianca": "alta",
-            "modelo": "gemini-3.5-flash-lite",
-            "prompt_versao": "classificar-v2"
-          }
-        },
-        "motivo": "nenhum termo com essa sigla, sinônimo ou significado",
-        "proposta_id": "rnp",
-        "tambem_em": [],
-        "adicionado": true
-      },
-      {
-        "candidato": {
-          "termo": "RUE",
-          "significado": "Ranking Universidades Empreendedoras",
-          "tipo": "sigla",
-          "campus": "Geral",
-          "orgao_superior": null,
-          "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
-          "fonte_url": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
-          "fonte_id": "dpo-siglas",
-          "pagina": 8,
-          "trecho": "RUE Ranking Universidades Empreendedoras",
-          "coletado_em": "2026-11-22",
-          "classificacao": {
-            "estado": "revisar",
-            "categoria": "vida-academica",
-            "tipo_sugerido": "sigla",
-            "definicao_sugerida": "Sigla para Ranking Universidades Empreendedoras, um índice que avalia o nível de empreendedorismo das instituições de ensino superior do país.",
-            "exemplo_sugerido": "A UnB subiu posições no RUE este ano.",
-            "confianca": "alta",
-            "modelo": "gemini-3.5-flash-lite",
-            "prompt_versao": "classificar-v2"
-          }
-        },
-        "motivo": "nenhum termo com essa sigla, sinônimo ou significado",
-        "proposta_id": "rue",
-        "tambem_em": [],
-        "adicionado": true
-      },
-      {
-        "candidato": {
-          "termo": "SAUnB",
-          "significado": "Sistema de Arquivos UnB",
-          "tipo": "sigla",
-          "campus": "Geral",
-          "orgao_superior": null,
-          "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
-          "fonte_url": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
-          "fonte_id": "dpo-siglas",
-          "pagina": 8,
-          "trecho": "SAUnB Sistema de Arquivos UnB",
-          "coletado_em": "2026-11-22",
-          "classificacao": {
-            "estado": "revisar",
-            "categoria": "sistemas",
-            "tipo_sugerido": "sigla",
-            "definicao_sugerida": "Sistema de Arquivos da Universidade de Brasília, usado para gerenciar e armazenar documentos oficiais da instituição.",
-            "exemplo_sugerido": "Preciso enviar o documento digitalizado para o SAUnB.",
-            "confianca": "alta",
-            "modelo": "gemini-3.5-flash-lite",
-            "prompt_versao": "classificar-v2"
-          }
-        },
-        "motivo": "nenhum termo com essa sigla, sinônimo ou significado",
-        "proposta_id": "saunb",
-        "tambem_em": [],
-        "adicionado": true
-      },
-      {
-        "candidato": {
-          "termo": "SBPC",
-          "significado": "Sociedade Brasileira para o Progresso da Ciência",
-          "tipo": "sigla",
-          "campus": "Geral",
-          "orgao_superior": null,
-          "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
-          "fonte_url": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
-          "fonte_id": "dpo-siglas",
-          "pagina": 8,
-          "trecho": "SBPC Sociedade Brasileira para o Progresso da Ciência",
-          "coletado_em": "2026-11-22",
-          "classificacao": {
-            "estado": "revisar",
-            "categoria": "administracao",
-            "tipo_sugerido": "sigla",
-            "definicao_sugerida": "Sigla para Sociedade Brasileira para o Progresso da Ciência, entidade de valor para a pesquisa e educação superior no Brasil, com frequente interlocução com universidades como a UnB.",
-            "exemplo_sugerido": "A UnB vai enviar professores para participar do evento anual da SBPC.",
-            "confianca": "alta",
-            "modelo": "gemini-3.5-flash-lite",
-            "prompt_versao": "classificar-v2"
-          }
-        },
-        "motivo": "nenhum termo com essa sigla, sinônimo ou significado",
-        "proposta_id": "sbpc",
         "tambem_em": [],
         "adicionado": true
       },
@@ -840,15 +159,20 @@
           "trecho": "SEI Sistema Eletrônico de Informações",
           "coletado_em": "2026-11-22",
           "classificacao": {
-            "estado": "sem classificação",
-            "motivo": "a API falhou: {\"error\":{\"code\":503,\"message\":\"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\"status\":\"UNAVAILABLE\"}}"
+            "estado": "revisar",
+            "categoria": "sistemas",
+            "tipo_sugerido": "sigla",
+            "definicao_sugerida": "O SEI é o sistema oficial usado na UnB para a gestão de documentos e processos administrativos de forma eletrônica, sem uso de papel.",
+            "exemplo_sugerido": "Abri um processo no SEI para solicitar o aproveitamento de créditos da minha outra faculdade.",
+            "confianca": "alta",
+            "modelo": "gemini-3.5-flash-lite",
+            "prompt_versao": "classificar-v2"
           }
         },
         "motivo": "nenhum termo com essa sigla, sinônimo ou significado",
         "proposta_id": "sei",
         "tambem_em": [],
-        "adicionado": false,
-        "motivo_adicao": "a API falhou: {\"error\":{\"code\":503,\"message\":\"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\"status\":\"UNAVAILABLE\"}}"
+        "adicionado": true
       },
       {
         "candidato": {
@@ -876,37 +200,6 @@
       },
       {
         "candidato": {
-          "termo": "Sinaes",
-          "significado": "Sistema Nacional de Avaliação da Educação Superior",
-          "tipo": "sigla",
-          "campus": "Geral",
-          "orgao_superior": null,
-          "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
-          "fonte_url": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
-          "fonte_id": "dpo-siglas",
-          "pagina": 8,
-          "trecho": "Sinaes Sistema Nacional de Avaliação da Educação Superior",
-          "coletado_em": "2026-11-22",
-          "classificacao": {
-            "estado": "revisar",
-            "categoria": "vida-academica",
-            "tipo_sugerido": "sigla",
-            "definicao_sugerida": "Sistema nacional que avalia as instituições, os cursos e o desempenho dos estudantes no ensino superior brasileiro.",
-            "exemplo_sugerido": "A UnB utiliza os resultados do Sinaes para melhorar a qualidade dos cursos de graduação.",
-            "confianca": "alta",
-            "modelo": "gemini-3.5-flash-lite",
-            "prompt_versao": "classificar-v2"
-          }
-        },
-        "motivo": "nenhum termo com essa sigla, sinônimo ou significado",
-        "proposta_id": "sinaes",
-        "tambem_em": [
-          "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf"
-        ],
-        "adicionado": true
-      },
-      {
-        "candidato": {
           "termo": "SEREX",
           "significado": "Seminário Regional de Extensão Universitária da Região Centro-Oeste",
           "tipo": "sigla",
@@ -919,97 +212,20 @@
           "trecho": "SEREX Seminário Regional de Extensão Universitária da Região Centro-Oeste",
           "coletado_em": "2026-11-22",
           "classificacao": {
-            "estado": "sem classificação",
-            "motivo": "a API falhou: {\"error\":{\"code\":503,\"message\":\"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\"status\":\"UNAVAILABLE\"}}"
+            "estado": "revisar",
+            "categoria": "vida-academica",
+            "tipo_sugerido": "sigla",
+            "definicao_sugerida": "Seminario Regional de Extensao Universitaria da Regiao Centro-Oeste, evento que debate e divulga acoes de extensao na regiao.",
+            "exemplo_sugerido": "Vou apresentar meu projeto de extensao no SEREX este ano.",
+            "confianca": "alta",
+            "modelo": "gemini-3.5-flash-lite",
+            "prompt_versao": "classificar-v2"
           }
         },
         "motivo": "nenhum termo com essa sigla, sinônimo ou significado",
         "proposta_id": "serex",
         "tambem_em": [],
-        "adicionado": false,
-        "motivo_adicao": "a API falhou: {\"error\":{\"code\":503,\"message\":\"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\"status\":\"UNAVAILABLE\"}}"
-      },
-      {
-        "candidato": {
-          "termo": "SIB-UnB",
-          "significado": "Sistema de Bibliotecas da UnB",
-          "tipo": "sigla",
-          "campus": "Geral",
-          "orgao_superior": null,
-          "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
-          "fonte_url": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
-          "fonte_id": "dpo-siglas",
-          "pagina": 8,
-          "trecho": "SIB-UnB Sistema de Bibliotecas da UnB",
-          "coletado_em": "2026-11-22",
-          "classificacao": {
-            "estado": "revisar",
-            "categoria": "locais-campus",
-            "tipo_sugerido": "sigla",
-            "definicao_sugerida": "Sigla para o Sistema de Bibliotecas da Universidade de Brasília, que engloba a Biblioteca Central e as bibliotecas setoriais dos campi.",
-            "exemplo_sugerido": "Preciso devolver o livro emprestado na BCE, que faz parte da rede do SIB-UnB.",
-            "confianca": "alta",
-            "modelo": "gemini-3.5-flash-lite",
-            "prompt_versao": "classificar-v2"
-          }
-        },
-        "motivo": "nenhum termo com essa sigla, sinônimo ou significado",
-        "proposta_id": "sibunb",
-        "tambem_em": [],
         "adicionado": true
-      },
-      {
-        "candidato": {
-          "termo": "SIC",
-          "significado": "Serviço de Informação ao Cidadão",
-          "tipo": "sigla",
-          "campus": "Geral",
-          "orgao_superior": null,
-          "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
-          "fonte_url": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
-          "fonte_id": "dpo-siglas",
-          "pagina": 8,
-          "trecho": "SIC Serviço de Informação ao Cidadão",
-          "coletado_em": "2026-11-22",
-          "classificacao": {
-            "estado": "revisar",
-            "categoria": "administracao",
-            "tipo_sugerido": "sigla",
-            "definicao_sugerida": "O Serviço de Informação ao Cidadão é o canal oficial onde qualquer pessoa pode solicitar dados públicos e informações sobre a administração da universidade.",
-            "exemplo_sugerido": "Precisei pedir dados sobre o orçamento e abri um chamado no SIC da UnB.",
-            "confianca": "alta",
-            "modelo": "gemini-3.5-flash-lite",
-            "prompt_versao": "classificar-v2"
-          }
-        },
-        "motivo": "nenhum termo com essa sigla, sinônimo ou significado",
-        "proposta_id": "sic",
-        "tambem_em": [],
-        "adicionado": true
-      },
-      {
-        "candidato": {
-          "termo": "SIC",
-          "significado": "Segurança da Informação e Comunicação",
-          "tipo": "sigla",
-          "campus": "Geral",
-          "orgao_superior": null,
-          "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
-          "fonte_url": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
-          "fonte_id": "dpo-siglas",
-          "pagina": 8,
-          "trecho": "SIC Segurança da Informação e Comunicação",
-          "coletado_em": "2026-11-22",
-          "classificacao": {
-            "estado": "sem classificação",
-            "motivo": "a API falhou: {\"error\":{\"code\":503,\"message\":\"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\"status\":\"UNAVAILABLE\"}}"
-          }
-        },
-        "motivo": "nenhum termo com essa sigla, sinônimo ou significado",
-        "proposta_id": "sic-2",
-        "tambem_em": [],
-        "adicionado": false,
-        "motivo_adicao": "a API falhou: {\"error\":{\"code\":503,\"message\":\"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\"status\":\"UNAVAILABLE\"}}"
       },
       {
         "candidato": {
@@ -1025,100 +241,18 @@
           "trecho": "SIGEleição Controle de Processos Eleitorais",
           "coletado_em": "2026-11-22",
           "classificacao": {
-            "estado": "sem classificação",
-            "motivo": "a API falhou: {\"error\":{\"code\":503,\"message\":\"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\"status\":\"UNAVAILABLE\"}}"
+            "estado": "revisar",
+            "categoria": "sistemas",
+            "tipo_sugerido": "sigla",
+            "definicao_sugerida": "Sistema utilizado na Universidade de Brasília para o controle e gerenciamento de processos eleitorais internos da instituição.",
+            "exemplo_sugerido": "A votação para a escolha do novo coordenador do curso será realizada de forma online através do SIGEleição.",
+            "confianca": "alta",
+            "modelo": "gemini-3.5-flash-lite",
+            "prompt_versao": "classificar-v2"
           }
         },
         "motivo": "nenhum termo com essa sigla, sinônimo ou significado",
         "proposta_id": "sigeleicao",
-        "tambem_em": [],
-        "adicionado": false,
-        "motivo_adicao": "a API falhou: {\"error\":{\"code\":503,\"message\":\"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\"status\":\"UNAVAILABLE\"}}"
-      },
-      {
-        "candidato": {
-          "termo": "SIGRH",
-          "significado": "Sistema Integrado de Gestão de Recursos Humanos",
-          "tipo": "sigla",
-          "campus": "Geral",
-          "orgao_superior": null,
-          "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
-          "fonte_url": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
-          "fonte_id": "dpo-siglas",
-          "pagina": 8,
-          "trecho": "SIGRH Sistema Integrado de Gestão de Recursos Humanos",
-          "coletado_em": "2026-11-22",
-          "classificacao": {
-            "estado": "revisar",
-            "categoria": "sistemas",
-            "tipo_sugerido": "sigla",
-            "definicao_sugerida": "Sistema utilizado na UnB para a gestão de recursos humanos e processos administrativos relacionados aos servidores e funcionários.",
-            "exemplo_sugerido": "Preciso enviar um documento pelo SIGRH para acertar minhas férias.",
-            "confianca": "alta",
-            "modelo": "gemini-3.5-flash-lite",
-            "prompt_versao": "classificar-v2"
-          }
-        },
-        "motivo": "nenhum termo com essa sigla, sinônimo ou significado",
-        "proposta_id": "sigrh",
-        "tambem_em": [],
-        "adicionado": true
-      },
-      {
-        "candidato": {
-          "termo": "SIG-UnB",
-          "significado": "Sistemas Integrados de Gestão da UnB",
-          "tipo": "sigla",
-          "campus": "Geral",
-          "orgao_superior": null,
-          "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
-          "fonte_url": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
-          "fonte_id": "dpo-siglas",
-          "pagina": 8,
-          "trecho": "SIG-UnB Sistemas Integrados de Gestão da UnB",
-          "coletado_em": "2026-11-22",
-          "classificacao": {
-            "estado": "revisar",
-            "categoria": "sistemas",
-            "tipo_sugerido": "sigla",
-            "definicao_sugerida": "Conjunto de sistemas informatizados usados para a gestão administrativa, acadêmica e financeira da UnB.",
-            "exemplo_sugerido": "Preciso acessar o SIG-UnB para verificar os dados do planejamento.",
-            "confianca": "alta",
-            "modelo": "gemini-3.5-flash-lite",
-            "prompt_versao": "classificar-v2"
-          }
-        },
-        "motivo": "nenhum termo com essa sigla, sinônimo ou significado",
-        "proposta_id": "sigunb",
-        "tambem_em": [],
-        "adicionado": true
-      },
-      {
-        "candidato": {
-          "termo": "SIPAC",
-          "significado": "Sistema Integrado de Gestão de Patrimônio, Administração e Contratos",
-          "tipo": "sigla",
-          "campus": "Geral",
-          "orgao_superior": null,
-          "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
-          "fonte_url": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
-          "fonte_id": "dpo-siglas",
-          "pagina": 8,
-          "trecho": "SIPAC Sistema Integrado de Gestão de Patrimônio, Administração e Contratos",
-          "coletado_em": "2026-11-22",
-          "classificacao": {
-            "estado": "revisar",
-            "categoria": "sistemas",
-            "tipo_sugerido": "sigla",
-            "definicao_sugerida": "Sistema Integrado de Gestão de Patrimônio, Administração e Contratos, utilizado na UnB para processos administrativos e gestão interna.",
-            "exemplo_sugerido": "Preciso abrir um processo no SIPAC para solicitar a compra de materiais do meu laboratório.",
-            "confianca": "alta",
-            "modelo": "gemini-3.5-flash-lite",
-            "prompt_versao": "classificar-v2"
-          }
-        },
-        "motivo": "nenhum termo com essa sigla, sinônimo ou significado",
-        "proposta_id": "sipac",
         "tambem_em": [],
         "adicionado": true
       },
@@ -1136,15 +270,20 @@
           "trecho": "SNPG Sistema Nacional de Pós-Graduação",
           "coletado_em": "2026-11-22",
           "classificacao": {
-            "estado": "sem classificação",
-            "motivo": "a API falhou: {\"error\":{\"code\":503,\"message\":\"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\"status\":\"UNAVAILABLE\"}}"
+            "estado": "revisar",
+            "categoria": "vida-academica",
+            "tipo_sugerido": "sigla",
+            "definicao_sugerida": "O Sistema Nacional de Pós-Graduação engloba o conjunto de programas de mestrado e doutorado de todo o país, coordenados pela CAPES para avaliar e garantir a qualidade da pesquisa e da formação acadêmica avançada.",
+            "exemplo_sugerido": "A UnB busca alinhar suas diretrizes de pesquisa e inovação aos objetivos do SNPG.",
+            "confianca": "alta",
+            "modelo": "gemini-3.5-flash-lite",
+            "prompt_versao": "classificar-v2"
           }
         },
         "motivo": "nenhum termo com essa sigla, sinônimo ou significado",
         "proposta_id": "snpg",
         "tambem_em": [],
-        "adicionado": false,
-        "motivo_adicao": "a API falhou: {\"error\":{\"code\":503,\"message\":\"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\"status\":\"UNAVAILABLE\"}}"
+        "adicionado": true
       },
       {
         "candidato": {
@@ -1160,15 +299,20 @@
           "trecho": "THE Times Higher Education World University Rankings",
           "coletado_em": "2026-11-22",
           "classificacao": {
-            "estado": "sem classificação",
-            "motivo": "a API falhou: {\"error\":{\"code\":503,\"message\":\"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\"status\":\"UNAVAILABLE\"}}"
+            "estado": "revisar",
+            "categoria": "vida-academica",
+            "tipo_sugerido": "sigla",
+            "definicao_sugerida": "Sigla para Times Higher Education, um importante ranking internacional que avalia e classifica universidades do mundo todo, incluindo a UnB.",
+            "exemplo_sugerido": "A UnB subiu de posição no ranking da THE este ano.",
+            "confianca": "alta",
+            "modelo": "gemini-3.5-flash-lite",
+            "prompt_versao": "classificar-v2"
           }
         },
         "motivo": "nenhum termo com essa sigla, sinônimo ou significado",
         "proposta_id": "the",
         "tambem_em": [],
-        "adicionado": false,
-        "motivo_adicao": "a API falhou: {\"error\":{\"code\":503,\"message\":\"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\"status\":\"UNAVAILABLE\"}}"
+        "adicionado": true
       },
       {
         "candidato": {
@@ -1184,42 +328,18 @@
           "trecho": "UAB Universidade Aberta do Brasil",
           "coletado_em": "2026-11-22",
           "classificacao": {
-            "estado": "sem classificação",
-            "motivo": "a API falhou: {\"error\":{\"code\":503,\"message\":\"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\"status\":\"UNAVAILABLE\"}}"
-          }
-        },
-        "motivo": "nenhum termo com essa sigla, sinônimo ou significado",
-        "proposta_id": "uab",
-        "tambem_em": [],
-        "adicionado": false,
-        "motivo_adicao": "a API falhou: {\"error\":{\"code\":503,\"message\":\"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\"status\":\"UNAVAILABLE\"}}"
-      },
-      {
-        "candidato": {
-          "termo": "UED",
-          "significado": "Usina de Minigeração na Unidade de Ensino e Docência",
-          "tipo": "sigla",
-          "campus": "Geral",
-          "orgao_superior": null,
-          "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
-          "fonte_url": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
-          "fonte_id": "dpo-siglas",
-          "pagina": 8,
-          "trecho": "UED Usina de Minigeração na Unidade de Ensino e Docência",
-          "coletado_em": "2026-11-22",
-          "classificacao": {
             "estado": "revisar",
-            "categoria": "locais-campus",
+            "categoria": "administracao",
             "tipo_sugerido": "sigla",
-            "definicao_sugerida": "Sigla para Usina de Minigeração na Unidade de Ensino e Docência, instalada na universidade.",
-            "exemplo_sugerido": "A nova UED vai ajudar a gerar energia solar para a UnB.",
+            "definicao_sugerida": "Sistema integrado que oferta cursos na modalidade de educação a distância em parceria com instituições públicas de ensino superior.",
+            "exemplo_sugerido": "A UnB oferece vários cursos a distância por meio da UAB.",
             "confianca": "alta",
             "modelo": "gemini-3.5-flash-lite",
             "prompt_versao": "classificar-v2"
           }
         },
         "motivo": "nenhum termo com essa sigla, sinônimo ou significado",
-        "proposta_id": "ued",
+        "proposta_id": "uab",
         "tambem_em": [],
         "adicionado": true
       },
@@ -1237,187 +357,18 @@
           "trecho": "UEP Unidade de Ensino e Pesquisa",
           "coletado_em": "2026-11-22",
           "classificacao": {
-            "estado": "sem classificação",
-            "motivo": "a API falhou: {\"error\":{\"code\":503,\"message\":\"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\"status\":\"UNAVAILABLE\"}}"
+            "estado": "revisar",
+            "categoria": "unidades-academicas",
+            "tipo_sugerido": "sigla",
+            "definicao_sugerida": "Sigla para Unidade de Ensino e Pesquisa, termo usado na estrutura da universidade para designar locais ou departamentos voltados ao ensino e à pesquisa.",
+            "exemplo_sugerido": "O projeto foi aprovado no âmbito da nossa UEP.",
+            "confianca": "alta",
+            "modelo": "gemini-3.5-flash-lite",
+            "prompt_versao": "classificar-v2"
           }
         },
         "motivo": "nenhum termo com essa sigla, sinônimo ou significado",
         "proposta_id": "uep",
-        "tambem_em": [],
-        "adicionado": false,
-        "motivo_adicao": "a API falhou: {\"error\":{\"code\":503,\"message\":\"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\"status\":\"UNAVAILABLE\"}}"
-      },
-      {
-        "candidato": {
-          "termo": "ULEG",
-          "significado": "Unidade de Laboratórios de Ensino de Graduação",
-          "tipo": "sigla",
-          "campus": "Geral",
-          "orgao_superior": null,
-          "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
-          "fonte_url": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
-          "fonte_id": "dpo-siglas",
-          "pagina": 8,
-          "trecho": "ULEG Unidade de Laboratórios de Ensino de Graduação",
-          "coletado_em": "2026-11-22",
-          "classificacao": {
-            "estado": "revisar",
-            "categoria": "administracao",
-            "tipo_sugerido": "sigla",
-            "definicao_sugerida": "Sigla para Unidade de Laboratórios de Ensino de Graduação, estrutura voltada para dar suporte às aulas práticas dos cursos de graduação na UnB.",
-            "exemplo_sugerido": "Precisamos agendar o uso dos equipamentos na ULEG para a aula prática desta semana.",
-            "confianca": "alta",
-            "modelo": "gemini-3.5-flash-lite",
-            "prompt_versao": "classificar-v2"
-          }
-        },
-        "motivo": "nenhum termo com essa sigla, sinônimo ou significado",
-        "proposta_id": "uleg",
-        "tambem_em": [],
-        "adicionado": true
-      },
-      {
-        "candidato": {
-          "termo": "UnB",
-          "significado": "Universidade de Brasília",
-          "tipo": "sigla",
-          "campus": "Geral",
-          "orgao_superior": null,
-          "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
-          "fonte_url": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
-          "fonte_id": "dpo-siglas",
-          "pagina": 8,
-          "trecho": "UnB Universidade de Brasília",
-          "coletado_em": "2026-11-22",
-          "classificacao": {
-            "estado": "revisar",
-            "categoria": "unidades-academicas",
-            "tipo_sugerido": "sigla",
-            "definicao_sugerida": "Sigla da Universidade de Brasília, a instituição federal de ensino superior localizada no Distrito Federal.",
-            "exemplo_sugerido": "Eu passei no vestibular e vou estudar na UnB no próximo semestre.",
-            "confianca": "alta",
-            "modelo": "gemini-3.5-flash-lite",
-            "prompt_versao": "classificar-v2"
-          }
-        },
-        "motivo": "nenhum termo com essa sigla, sinônimo ou significado",
-        "proposta_id": "unb",
-        "tambem_em": [],
-        "adicionado": true
-      },
-      {
-        "candidato": {
-          "termo": "UnB-AE",
-          "significado": "Associação Esportiva Estudantil da UnB",
-          "tipo": "sigla",
-          "campus": "Geral",
-          "orgao_superior": null,
-          "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
-          "fonte_url": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
-          "fonte_id": "dpo-siglas",
-          "pagina": 8,
-          "trecho": "UnB-AE Associação Esportiva Estudantil da UnB",
-          "coletado_em": "2026-11-22",
-          "classificacao": {
-            "estado": "revisar",
-            "categoria": "representacao-estudantil",
-            "tipo_sugerido": "sigla",
-            "definicao_sugerida": "Sigla para Associação Esportiva Estudantil da UnB, entidade voltada para a organização e prática de esportes entre os estudantes da universidade.",
-            "exemplo_sugerido": "A UnB-AE está organizando o próximo campeonato interatléticas.",
-            "confianca": "alta",
-            "modelo": "gemini-3.5-flash-lite",
-            "prompt_versao": "classificar-v2"
-          }
-        },
-        "motivo": "nenhum termo com essa sigla, sinônimo ou significado",
-        "proposta_id": "unbae",
-        "tambem_em": [],
-        "adicionado": true
-      },
-      {
-        "candidato": {
-          "termo": "UniSER",
-          "significado": "Universidade do Envelhecer",
-          "tipo": "sigla",
-          "campus": "Geral",
-          "orgao_superior": null,
-          "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
-          "fonte_url": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
-          "fonte_id": "dpo-siglas",
-          "pagina": 8,
-          "trecho": "UniSER Universidade do Envelhecer",
-          "coletado_em": "2026-11-22",
-          "classificacao": {
-            "estado": "revisar",
-            "categoria": "vida-academica",
-            "tipo_sugerido": "sigla",
-            "definicao_sugerida": "Projeto de extensão da UnB voltado para a formação e inclusão social de pessoas idosas, promovendo o envelhecimento ativo.",
-            "exemplo_sugerido": "Minha avó está participando das atividades da UniSER este semestre.",
-            "confianca": "alta",
-            "modelo": "gemini-3.5-flash-lite",
-            "prompt_versao": "classificar-v2"
-          }
-        },
-        "motivo": "nenhum termo com essa sigla, sinônimo ou significado",
-        "proposta_id": "uniser",
-        "tambem_em": [],
-        "adicionado": true
-      },
-      {
-        "candidato": {
-          "termo": "UPS",
-          "significado": "Universidade Promotora de Saúde",
-          "tipo": "sigla",
-          "campus": "Geral",
-          "orgao_superior": null,
-          "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
-          "fonte_url": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
-          "fonte_id": "dpo-siglas",
-          "pagina": 8,
-          "trecho": "UPS Universidade Promotora de Saúde",
-          "coletado_em": "2026-11-22",
-          "classificacao": {
-            "estado": "revisar",
-            "categoria": "vida-academica",
-            "tipo_sugerido": "sigla",
-            "definicao_sugerida": "Iniciativa voltada para promover a saúde e o bem-estar dentro do ambiente universitário.",
-            "exemplo_sugerido": "A UnB lançou novas ações voltadas para a UPS neste semestre.",
-            "confianca": "alta",
-            "modelo": "gemini-3.5-flash-lite",
-            "prompt_versao": "classificar-v2"
-          }
-        },
-        "motivo": "nenhum termo com essa sigla, sinônimo ou significado",
-        "proposta_id": "ups",
-        "tambem_em": [],
-        "adicionado": true
-      },
-      {
-        "candidato": {
-          "termo": "VRT",
-          "significado": "Vice-Reitoria",
-          "tipo": "sigla",
-          "campus": "Geral",
-          "orgao_superior": null,
-          "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
-          "fonte_url": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
-          "fonte_id": "dpo-siglas",
-          "pagina": 8,
-          "trecho": "VRT Vice-Reitoria",
-          "coletado_em": "2026-11-22",
-          "classificacao": {
-            "estado": "revisar",
-            "categoria": "administracao",
-            "tipo_sugerido": "sigla",
-            "definicao_sugerida": "Sigla para Vice-Reitoria da Universidade de Brasília, órgão executivo que auxilia a Reitoria na gestão e administração superior da instituição.",
-            "exemplo_sugerido": "Preciso enviar aquele documento para aprovação na VRT até o final da tarde.",
-            "confianca": "alta",
-            "modelo": "gemini-3.5-flash-lite",
-            "prompt_versao": "classificar-v2"
-          }
-        },
-        "motivo": "nenhum termo com essa sigla, sinônimo ou significado",
-        "proposta_id": "vrt",
         "tambem_em": [],
         "adicionado": true
       }
@@ -1669,6 +620,44 @@
         },
         "motivo": "mesmo termo de pdi com outro significado (\"Plano de Desenvolvimento Institucional\" × \"Pesquisa, Desenvolvimento e Inovação\", 20% das palavras em comum): proposta de desambiguação, nada foi sobrescrito",
         "proposta_id": "pdi-pesquisa",
+        "tambem_em": []
+      },
+      {
+        "id_existente": "promisaes",
+        "candidato": {
+          "termo": "Promissaes",
+          "significado": "Projeto Milton Santos de Acesso ao Ensino Superior",
+          "tipo": "sigla",
+          "campus": "Geral",
+          "orgao_superior": null,
+          "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
+          "fonte_url": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
+          "fonte_id": "dpo-siglas",
+          "pagina": 8,
+          "trecho": "Promissaes Projeto Milton Santos de Acesso ao Ensino Superior",
+          "coletado_em": "2026-11-22"
+        },
+        "motivo": "repetido: mesmo significado de PROMISAES (promisaes) com outra sigla. Se for um nome antigo, vira sinônimo; se não, alguém decide",
+        "proposta_id": null,
+        "tambem_em": []
+      },
+      {
+        "id_existente": "sic",
+        "candidato": {
+          "termo": "SIC",
+          "significado": "Segurança da Informação e Comunicação",
+          "tipo": "sigla",
+          "campus": "Geral",
+          "orgao_superior": null,
+          "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
+          "fonte_url": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
+          "fonte_id": "dpo-siglas",
+          "pagina": 8,
+          "trecho": "SIC Segurança da Informação e Comunicação",
+          "coletado_em": "2026-11-22"
+        },
+        "motivo": "mesmo termo de sic com outro significado (\"Serviço de Informação ao Cidadão\" × \"Segurança da Informação e Comunicação\", 17% das palavras em comum): proposta de desambiguação, nada foi sobrescrito",
+        "proposta_id": "sic-seguranca",
         "tambem_em": []
       },
       {
@@ -2702,6 +1691,24 @@
       },
       {
         "candidato": {
+          "termo": "PSBE",
+          "significado": "Prática em Saúde Baseada em Evidências",
+          "tipo": "sigla",
+          "campus": "Geral",
+          "orgao_superior": null,
+          "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
+          "fonte_url": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
+          "fonte_id": "dpo-siglas",
+          "pagina": 8,
+          "trecho": "PSBE Prática em Saúde Baseada em Evidências",
+          "coletado_em": "2026-11-22"
+        },
+        "proposta_id": "psbe",
+        "motivo": "Prática geral da área de saúde, não é órgão nem serviço da UnB",
+        "origem": "lista"
+      },
+      {
+        "candidato": {
           "termo": "RAIS",
           "significado": "Relação Anual de Informações Sociais",
           "tipo": "sigla",
@@ -2752,6 +1759,42 @@
         },
         "proposta_id": "ride",
         "motivo": "Território e meio ambiente",
+        "origem": "lista"
+      },
+      {
+        "candidato": {
+          "termo": "RUE",
+          "significado": "Ranking Universidades Empreendedoras",
+          "tipo": "sigla",
+          "campus": "Geral",
+          "orgao_superior": null,
+          "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
+          "fonte_url": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
+          "fonte_id": "dpo-siglas",
+          "pagina": 8,
+          "trecho": "RUE Ranking Universidades Empreendedoras",
+          "coletado_em": "2026-11-22"
+        },
+        "proposta_id": "rue",
+        "motivo": "Ranking externo",
+        "origem": "lista"
+      },
+      {
+        "candidato": {
+          "termo": "SBPC",
+          "significado": "Sociedade Brasileira para o Progresso da Ciência",
+          "tipo": "sigla",
+          "campus": "Geral",
+          "orgao_superior": null,
+          "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
+          "fonte_url": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
+          "fonte_id": "dpo-siglas",
+          "pagina": 8,
+          "trecho": "SBPC Sociedade Brasileira para o Progresso da Ciência",
+          "coletado_em": "2026-11-22"
+        },
+        "proposta_id": "sbpc",
+        "motivo": "Sociedade científica de fora da UnB",
         "origem": "lista"
       },
       {
@@ -3214,6 +2257,31 @@
         "motivo": "mesmo termo de pnaes, com significado parecido (60% das palavras em comum): proposta de atualizar o significado",
         "tambem_em": [],
         "motivo_recusa": "O texto do PDI usa Programa Nacional de Assistência Estudantil"
+      },
+      {
+        "id": "ued",
+        "candidato": {
+          "termo": "UED",
+          "significado": "Usina de Minigeração na Unidade de Ensino e Docência",
+          "tipo": "sigla",
+          "campus": "Geral",
+          "orgao_superior": null,
+          "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
+          "fonte_url": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
+          "fonte_id": "dpo-siglas",
+          "pagina": 8,
+          "trecho": "UED Usina de Minigeração na Unidade de Ensino e Docência",
+          "coletado_em": "2026-11-22"
+        },
+        "mudancas": {
+          "significado": {
+            "de": "Unidade de Ensino e Docência",
+            "para": "Usina de Minigeração na Unidade de Ensino e Docência"
+          }
+        },
+        "motivo": "mesmo termo de ued, com significado parecido (60% das palavras em comum): proposta de atualizar o significado",
+        "tambem_em": [],
+        "motivo_recusa": "O nome é Unidade de Ensino e Docência; a usina é só uma obra citada no PDI"
       }
     ]
   }
