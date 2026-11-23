@@ -22,8 +22,8 @@ function urlModeloIssue(modelo, prefixoTitulo, termo = "") {
   return termo ? `${base}&title=${encodeURIComponent(`${prefixoTitulo} ${termo}`)}` : base;
 }
 
-const urlAdicionarTermo = (termo) => urlModeloIssue("adicionar-termo.md", "[Adicionar Termo]", termo);
-const urlCorrigirDefinicao = (termo) => urlModeloIssue("corrigir-definicao.md", "[Corrigir Definição]", termo);
+const urlAdicionarTermo = (termo) => urlModeloIssue("adicionar-termo.yml", "[Adicionar Termo]", termo);
+const urlCorrigirDefinicao = (termo) => urlModeloIssue("corrigir-definicao.yml", "[Corrigir Definição]", termo);
 
 // ===== Utilidades de DOM =====
 
@@ -204,7 +204,8 @@ function iniciarAtalhos(termos) {
 
 // ===== Início: trilha do calouro (#70, ADR 0011) =====
 // A lista vem de data/trilha-calouro.json (ids), e os dados de cada termo do termos.json.
-// Se o arquivo não carregar, a seção continua escondida e o resto da página funciona.
+// A seção já vem visível no HTML, com altura reservada no CSS (sem deslocamento de layout, RNF02);
+// se o arquivo não carregar ou vier vazio, ela é escondida e o resto da página funciona.
 
 async function iniciarTrilha(termos) {
   const secao = document.getElementById("trilha-calouro");
@@ -215,7 +216,10 @@ async function iniciarTrilha(termos) {
     const resposta = await fetch(URL_TRILHA);
     if (!resposta.ok) throw new Error(`Não foi possível carregar ${URL_TRILHA} (HTTP ${resposta.status})`);
     const grupos = gruposDaTrilha(await resposta.json(), termos);
-    if (grupos.length === 0) return;
+    if (grupos.length === 0) {
+      secao.hidden = true;
+      return;
+    }
 
     for (const grupo of grupos) {
       const itemGrupo = criarElemento("li", { classe: "trilha-grupo" });
@@ -234,8 +238,8 @@ async function iniciarTrilha(termos) {
       itemGrupo.append(titulo, termosDoGrupo);
       lista.append(itemGrupo);
     }
-    secao.hidden = false;
   } catch (erro) {
+    secao.hidden = true;
     console.warn("Trilha do calouro não carregada:", erro);
   }
 }
