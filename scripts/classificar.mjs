@@ -8,9 +8,9 @@ import { text } from "node:stream/consumers";
 
 import { TIPOS } from "../frontend/js/termos.js";
 import { classificarCandidatos, resumirClassificacao } from "../coleta/classificador.js";
-import { MODELO_PADRAO, criarClienteGemini } from "../coleta/cliente-gemini.js";
+import { MODELO_PADRAO, MODELO_RESERVA, comReserva, criarClienteGemini } from "../coleta/cliente-gemini.js";
 
-const VERSAO_DO_PROMPT = "classificar-v1";
+const VERSAO_DO_PROMPT = "classificar-v2";
 const lerDoRepositorio = (caminho) => readFile(new URL(caminho, import.meta.url), "utf-8");
 
 const entrada = JSON.parse(await text(process.stdin));
@@ -27,7 +27,10 @@ const chave = process.env.GEMINI_API_KEY ?? "";
 let cliente = null;
 if (chave) {
   const { GoogleGenAI } = await import("@google/genai");
-  cliente = criarClienteGemini({ chave, GoogleGenAI, modelo: process.env.GEMINI_MODELO || MODELO_PADRAO });
+  // Modelo reserva (decisão 48): se o principal estiver sobrecarregado, a rodada continua no reserva.
+  const principal = criarClienteGemini({ chave, GoogleGenAI, modelo: process.env.GEMINI_MODELO || MODELO_PADRAO });
+  const reserva = criarClienteGemini({ chave, GoogleGenAI, modelo: process.env.GEMINI_MODELO_RESERVA || MODELO_RESERVA });
+  cliente = comReserva(principal, reserva);
 }
 
 const classificados = await classificarCandidatos(candidatos, {
