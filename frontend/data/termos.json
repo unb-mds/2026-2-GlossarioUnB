@@ -7,7 +7,8 @@
     "definicao": "Unidade responsável pela gestão, preservação e organização dos documentos arquivísticos da UnB.",
     "exemplo_uso": "Precisei consultar o ACE para encontrar alguns documentos antigos da UnB.",
     "fonte": "https://arquivocentral.unb.br/",
-    "campus": "Geral"
+    "campus": "Geral",
+    "categoria": "administracao"
   },
   {
     "id": "bce",
@@ -24,21 +25,23 @@
     "id": "fcts",
     "termo": "FCTS",
     "tipo": "sigla",
-    "significado": "Campus UnB Ceilândia, Faculdade de Ciências e Tecnologias em Saúde",
-    "definicao": "Campus da UnB localizada em Ceilândia, voltada ao ensino, pesquisa e extensão na área de saúde.",
+    "significado": "Faculdade de Ciências e Tecnologias em Saúde",
+    "definicao": "Campus da UnB localizado em Ceilândia, voltado ao ensino, pesquisa e extensão na área de saúde.",
     "exemplo_uso": "Tenho aula na FCTS hoje à tarde.",
     "fonte": "https://fcts.unb.br/",
-    "campus": "Geral"
+    "campus": "Ceilândia",
+    "categoria": "unidades-academicas"
   },
   {
     "id": "fcte",
     "termo": "FCTE",
     "tipo": "sigla",
-    "significado": "Campus UnB Gama, Faculdade de Ciências e Tecnologias em Engenharia",
-    "definicao": "Campus da UnB no Gama dedicada ao ensino, pesquisa e extensão relacionados às áreas de engenharia e tecnologia.",
+    "significado": "Faculdade de Ciências e Tecnologias em Engenharia",
+    "definicao": "Campus da UnB no Gama dedicado ao ensino, pesquisa e extensão relacionados às áreas de engenharia e tecnologia.",
     "exemplo_uso": "Faço Engenharia de Software na FCTE.",
     "fonte": "https://fcte.unb.br/",
-    "campus": "Geral"
+    "campus": "Gama",
+    "categoria": "unidades-academicas"
   },
   {
     "id": "cds",
@@ -48,7 +51,8 @@
     "definicao": "Centro dedicado a estudos, pesquisas e atividades relacionadas ao desenvolvimento sustentável.",
     "exemplo_uso": "Um projeto do CDS foi apresentado na semana universitária.",
     "fonte": "https://cds.unb.br/",
-    "campus": "Geral"
+    "campus": "Geral",
+    "categoria": "unidades-academicas"
   },
   {
     "id": "cead",
@@ -58,7 +62,8 @@
     "definicao": "Unidade voltada ao desenvolvimento e apoio de atividades de educação a distância.",
     "exemplo_uso": "O CEAD abriu novas vagas para os cursos a distância.",
     "fonte": "https://cead.unb.br/",
-    "campus": "Geral"
+    "campus": "Geral",
+    "categoria": "administracao"
   },
   {
     "id": "cet",
@@ -68,7 +73,8 @@
     "definicao": "Centro da UnB dedicado ao ensino, pesquisa e extensão relacionados ao turismo.",
     "exemplo_uso": "Vi um cartaz do CET sobre uma palestra de turismo no corredor.",
     "fonte": "https://cet.unb.br/",
-    "campus": "Geral"
+    "campus": "Geral",
+    "categoria": "unidades-academicas"
   },
   {
     "id": "ceam",
@@ -78,14 +84,15 @@
     "definicao": "Centro que reúne estudos e atividades acadêmicas de caráter multidisciplinar.",
     "exemplo_uso": "O CEAM está com inscrições abertas para um projeto sobre desenvolvimento sustentável.",
     "fonte": "https://ceam.unb.br/",
-    "campus": "Geral"
+    "campus": "Geral",
+    "categoria": "unidades-academicas"
   },
   {
     "id": "dac",
     "termo": "DAC",
     "tipo": "sigla",
     "categoria": "administracao",
-    "significado": "Decanato de Assuntos Comunitarios",
+    "significado": "Decanato de Assuntos Comunitários",
     "definicao": "Decanato responsável por políticas e ações relacionadas à assistência, permanência, saúde, esporte, acessibilidade e assuntos comunitários.",
     "exemplo_uso": "Fui ao DAC tirar uma dúvida sobre assistência estudantil.",
     "fonte": "https://dac.unb.br/",
@@ -99,7 +106,8 @@
     "definicao": "Órgão executivo da Reitoria responsável pelo planejamento, supervisão, coordenação e acompanhamento das atividades de ensino de graduação da UnB.",
     "exemplo_uso": "Minha dúvida sobre matrícula foi encaminhada para o DEG.",
     "fonte": "https://deg.unb.br/",
-    "campus": "Geral"
+    "campus": "Geral",
+    "categoria": "administracao"
   },
   {
     "id": "dpo",
@@ -109,7 +117,8 @@
     "definicao": "Decanato responsável pelo planejamento institucional, orçamento e avaliação da UnB",
     "exemplo_uso": "Os dados do Anuário Estatístico são organizados pelo DPO.",
     "fonte": "https://dpo.unb.br/",
-    "campus": "Geral"
+    "campus": "Geral",
+    "categoria": "administracao"
   },
   {
     "id": "dex",
@@ -119,7 +128,8 @@
     "definicao": "Unidade responsável pela política de extensão universitária e pelo desenvolvimento de ações de extensão da UnB.",
     "exemplo_uso": "Achei um projeto de extensão interessante no site do DEX.",
     "fonte": "https://dex.unb.br/",
-    "campus": "Geral"
+    "campus": "Geral",
+    "categoria": "administracao"
   },
   {
     "id": "fav",
@@ -129,7 +139,8 @@
     "definicao": "Unidade acadêmica dedicada ao ensino, pesquisa e extensão nas áreas de agronomia e medicina veterinária.",
     "exemplo_uso": "Meu colega faz Agronomia na FAV.",
     "fonte": "https://fav.unb.br/",
-    "campus": "Geral"
+    "campus": "Geral",
+    "categoria": "unidades-academicas"
   },
   {
     "id": "fau",
@@ -139,7 +150,8 @@
     "definicao": "Unidade acadêmica dedicada ao ensino, pesquisa e extensão em arquitetura e urbanismo.",
     "exemplo_uso": "A palestra de arquitetura vai acontecer na FAU.",
     "fonte": "https://fau.unb.br/",
-    "campus": "Geral"
+    "campus": "Geral",
+    "categoria": "unidades-academicas"
   },
   {
     "id": "fci",
@@ -149,7 +161,8 @@
     "definicao": "Unidade acadêmica voltada ao ensino e pesquisa nas áreas de ciência da informação, biblioteconomia e áreas relacionadas.",
     "exemplo_uso": "Tive aula de Arquivologia na FCI.",
     "fonte": "https://fci.unb.br/",
-    "campus": "Geral"
+    "campus": "Geral",
+    "categoria": "unidades-academicas"
   },
   {
     "id": "fs",
@@ -159,7 +172,8 @@
     "definicao": "Unidade acadêmica que reúne atividades de ensino, pesquisa e extensão relacionadas às ciências da saúde.",
     "exemplo_uso": "Minha amiga estuda na FS e faz um curso da área da saúde.",
     "fonte": "https://fs.unb.br/",
-    "campus": "Geral"
+    "campus": "Geral",
+    "categoria": "unidades-academicas"
   },
   {
     "id": "fac",
@@ -169,7 +183,8 @@
     "definicao": "Unidade acadêmica dedicada ao ensino, pesquisa e extensão nas áreas de comunicação",
     "exemplo_uso": "A apresentação do trabalho será na FAC.",
     "fonte": "https://fac.unb.br/",
-    "campus": "Geral"
+    "campus": "Geral",
+    "categoria": "unidades-academicas"
   },
   {
     "id": "fd",
@@ -179,7 +194,8 @@
     "definicao": "Unidade acadêmica responsável pelo ensino, pesquisa e extensão na área do Direito.",
     "exemplo_uso": "Meu amigo estuda Direito na FD.",
     "fonte": "https://direito.unb.br/",
-    "campus": "Geral"
+    "campus": "Geral",
+    "categoria": "unidades-academicas"
   },
   {
     "id": "fe",
@@ -189,7 +205,8 @@
     "definicao": "Unidade acadêmica dedicada ao ensino, pesquisa e extensão na área da educação.",
     "exemplo_uso": "Professores da FE desenvolveram uma pesquisa sobre educação.",
     "fonte": "https://fe.unb.br/",
-    "campus": "Geral"
+    "campus": "Geral",
+    "categoria": "unidades-academicas"
   },
   {
     "id": "fef",
@@ -199,7 +216,8 @@
     "definicao": "Unidade acadêmica voltada ao ensino, pesquisa e extensão relacionados à educação física e às atividades esportivas.",
     "exemplo_uso": "Amanhã de manhã tenho uma atividade na FEF.",
     "fonte": "https://fef.unb.br/",
-    "campus": "Geral"
+    "campus": "Geral",
+    "categoria": "unidades-academicas"
   },
   {
     "id": "fm",
@@ -209,17 +227,19 @@
     "definicao": "Unidade acadêmica dedicada ao ensino, pesquisa e extensão na área da medicina.",
     "exemplo_uso": "Meu colega está cursando Medicina na FM.",
     "fonte": "https://fm.unb.br/",
-    "campus": "Geral"
+    "campus": "Geral",
+    "categoria": "unidades-academicas"
   },
   {
     "id": "fup",
     "termo": "FUP",
     "tipo": "sigla",
     "significado": "Faculdade de Planaltina",
-    "definicao": "Campus da UnB localizada em Planaltina, voltada ao ensino, pesquisa e extensão na área de agrárias.",
+    "definicao": "Campus da UnB localizado em Planaltina, voltado ao ensino, pesquisa e extensão na área de agrárias.",
     "exemplo_uso": "Hoje tenho uma atividade da universidade na FUP.",
     "fonte": "https://fup.unb.br/",
-    "campus": "Geral"
+    "campus": "Planaltina",
+    "categoria": "unidades-academicas"
   },
   {
     "id": "ft",
@@ -229,7 +249,8 @@
     "definicao": "Unidade acadêmica que reúne cursos e atividades de ensino, pesquisa e extensão nas áreas de engenharia e tecnologia.",
     "exemplo_uso": "Depois do almoço tenho aula na FT.",
     "fonte": "http://ft.unb.br/",
-    "campus": "Geral"
+    "campus": "Geral",
+    "categoria": "unidades-academicas"
   },
   {
     "id": "face",
@@ -239,7 +260,8 @@
     "definicao": "Unidade acadêmica que reúne áreas relacionadas à economia, administração, contabilidade e gestão de políticas públicas.",
     "exemplo_uso": "A palestra de economia será realizada na FACE.",
     "fonte": "https://face.unb.br/",
-    "campus": "Geral"
+    "campus": "Geral",
+    "categoria": "unidades-academicas"
   },
   {
     "id": "ida",
@@ -249,7 +271,8 @@
     "definicao": "Unidade acadêmica dedicada ao ensino, pesquisa e extensão nas áreas de artes.",
     "exemplo_uso": "Minha amiga participa de um projeto artístico no IdA.",
     "fonte": "https://ida.unb.br/",
-    "campus": "Geral"
+    "campus": "Geral",
+    "categoria": "unidades-academicas"
   },
   {
     "id": "ipol",
@@ -259,7 +282,8 @@
     "definicao": "Unidade acadêmica dedicada ao ensino e pesquisa em ciência política.",
     "exemplo_uso": "Li um artigo publicado por pesquisadores do IPOL.",
     "fonte": "https://ipol.unb.br/",
-    "campus": "Geral"
+    "campus": "Geral",
+    "categoria": "unidades-academicas"
   },
   {
     "id": "ib",
@@ -269,7 +293,8 @@
     "definicao": "Unidade acadêmica voltada ao ensino, pesquisa e extensão nas áreas das ciências biológicas.",
     "exemplo_uso": "A aula prática de Biologia será no IB.",
     "fonte": "https://icb.unb.br/",
-    "campus": "Geral"
+    "campus": "Geral",
+    "categoria": "unidades-academicas"
   },
   {
     "id": "ie",
@@ -279,7 +304,8 @@
     "definicao": "Unidade acadêmica relacionada às áreas de matemática, estatística e computação.",
     "exemplo_uso": "Vou estudar Cálculo no IE antes da prova.",
     "fonte": "https://exatas.unb.br/",
-    "campus": "Geral"
+    "campus": "Geral",
+    "categoria": "unidades-academicas"
   },
   {
     "id": "ich",
@@ -289,7 +315,8 @@
     "definicao": "Unidade acadêmica que reúne atividades de ensino e pesquisa nas áreas das ciências humanas.",
     "exemplo_uso": "O evento de História vai acontecer no ICH.",
     "fonte": "https://ich.unb.br/",
-    "campus": "Geral"
+    "campus": "Geral",
+    "categoria": "unidades-academicas"
   },
   {
     "id": "ics",
@@ -299,7 +326,8 @@
     "definicao": "Unidade acadêmica voltada ao ensino e à pesquisa nas áreas das ciências sociais.",
     "exemplo_uso": "Uma palestra organizada pelo ICS acontece amanhã.",
     "fonte": "https://ics.unb.br/",
-    "campus": "Geral"
+    "campus": "Geral",
+    "categoria": "unidades-academicas"
   },
   {
     "id": "if",
@@ -309,7 +337,8 @@
     "definicao": "Unidade acadêmica dedicada ao ensino, pesquisa e extensão na área de física.",
     "exemplo_uso": "Preciso estudar Física no IF antes da prova.",
     "fonte": "https://if.unb.br/",
-    "campus": "Geral"
+    "campus": "Geral",
+    "categoria": "unidades-academicas"
   },
   {
     "id": "ig",
@@ -319,7 +348,8 @@
     "definicao": "Unidade acadêmica dedicada ao estudo e à pesquisa nas áreas relacionadas às geociências.",
     "exemplo_uso": "Meu colega está fazendo uma pesquisa no IG.",
     "fonte": "https://ig.unb.br/",
-    "campus": "Geral"
+    "campus": "Geral",
+    "categoria": "unidades-academicas"
   },
   {
     "id": "il",
@@ -329,7 +359,8 @@
     "definicao": "Unidade acadêmica dedicada ao ensino, pesquisa e extensão nas áreas de letras e linguística.",
     "exemplo_uso": "Tenho aula de uma disciplina de Letras no IL.",
     "fonte": "https://il.unb.br/",
-    "campus": "Geral"
+    "campus": "Geral",
+    "categoria": "unidades-academicas"
   },
   {
     "id": "ip",
@@ -339,7 +370,8 @@
     "definicao": "Unidade acadêmica voltada ao ensino, pesquisa e extensão na área de psicologia.",
     "exemplo_uso": "Um projeto de pesquisa foi desenvolvido no IP.",
     "fonte": "https://ip.unb.br/",
-    "campus": "Geral"
+    "campus": "Geral",
+    "categoria": "unidades-academicas"
   },
   {
     "id": "iq",
@@ -349,7 +381,8 @@
     "definicao": "Unidade acadêmica dedicada ao ensino, pesquisa e extensão na área de química.",
     "exemplo_uso": "A aula prática de Química será realizada no IQ.",
     "fonte": "https://iq.unb.br/",
-    "campus": "Geral"
+    "campus": "Geral",
+    "categoria": "unidades-academicas"
   },
   {
     "id": "irel",
@@ -359,7 +392,8 @@
     "definicao": "Unidade acadêmica dedicada ao ensino e à pesquisa em relações internacionais.",
     "exemplo_uso": "Uma palestra do IREL foi divulgada no mural do departamento.",
     "fonte": "https://irel.unb.br/",
-    "campus": "Geral"
+    "campus": "Geral",
+    "categoria": "unidades-academicas"
   },
   {
     "id": "pctec",
@@ -369,7 +403,8 @@
     "definicao": "Estrutura destinada a promover inovação, pesquisa, desenvolvimento tecnológico e interação entre universidade e sociedade.",
     "exemplo_uso": "Uma startup desenvolveu um projeto em parceria com o PCTEC.",
     "fonte": "https://pctec.unb.br/",
-    "campus": "Geral"
+    "campus": "Geral",
+    "categoria": "administracao"
   },
   {
     "id": "unbtv",
@@ -379,7 +414,8 @@
     "definicao": "Estrutura de comunicação universitária responsável pela produção e divulgação de conteúdos relacionados à UnB.",
     "exemplo_uso": "A UnBTV fez uma reportagem sobre um projeto da universidade.",
     "fonte": "https://unbtv.unb.br/",
-    "campus": "Geral"
+    "campus": "Geral",
+    "categoria": "administracao"
   },
   {
     "id": "infra",
@@ -389,7 +425,8 @@
     "definicao": "Secretaria responsável por atividades relacionadas à infraestrutura física, manutenção e gestão de espaços da Universidade.",
     "exemplo_uso": "Avisei a INFRA sobre uma lâmpada queimada no prédio.",
     "fonte": "https://infra.unb.br/",
-    "campus": "Geral"
+    "campus": "Geral",
+    "categoria": "administracao"
   },
   {
     "id": "sema",
@@ -399,7 +436,8 @@
     "definicao": "Secretaria responsável por ações relacionadas à gestão ambiental e sustentabilidade na UnB.",
     "exemplo_uso": "A SEMA está promovendo uma ação de sustentabilidade no campus.",
     "fonte": "https://sema.unb.br/",
-    "campus": "Geral"
+    "campus": "Geral",
+    "categoria": "administracao"
   },
   {
     "id": "ceubinho",
@@ -412,9 +450,9 @@
     "fonte": "https://noticias.unb.br/112-extensao-e-comunidade/753-comunidade-academica-repudia-atos-violentos-na-unb",
     "campus": "Darcy Ribeiro",
     "localizacao": {
-      "lat": -15.7634,
-      "lng": -47.867,
-      "link_como_chegar": "https://www.google.com/maps/search/?api=1&query=-15.7634,-47.8670"
+      "lat": -15.7625073,
+      "lng": -47.8700207,
+      "link_como_chegar": "https://www.google.com/maps/search/?api=1&query=-15.7625073,-47.8700207"
     }
   },
   {
