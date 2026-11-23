@@ -114,7 +114,7 @@ A cobertura do Sonar (86,0%) é menor que a do Node (98,18%) porque o Sonar cont
 | Mutação | StrykerJS (`npm run test:mutacao`) | **90,90%** no total, **99,20%** no domínio e **85,70%** no pipeline (cerca de 1.300 mutantes, 5 min) | PR #157 (#82, aberto) |
 | Sabotagem | `npm run test:sabotagem` | **23 de 23** defeitos quebram a suíte, no CI da `main` | `main` (`docs/TESTE-DE-SABOTAGEM.md`) |
 | Lighthouse | Lighthouse CI | Performance 80 (home), 89 (lista), 93 (termo) e 100 (Sobre); acessibilidade e boas práticas 100 nas 4 páginas; LCP da home em 2,0 s | PR #148 (#80, aberto) |
-| Teste com calouros | roteiro manual | PREENCHER | #76 (aberto) |
+| Teste com calouros | roteiro manual | Em andamento | #76 (aberto) |
 
 **Lighthouse:** a última execução do PR #148 (19/11/2026) falhou só no limite de performance da home (80) e da lista (89), ambas abaixo de 90. A acessibilidade e as boas práticas ficaram em 100 nas quatro páginas. A home tem CLS de 0,408; o PR #155 (aberto) ataca o deslocamento de layout.
 
