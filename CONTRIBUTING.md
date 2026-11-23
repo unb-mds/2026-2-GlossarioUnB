@@ -4,6 +4,8 @@ Obrigado por querer contribuir! Este projeto aceita dois tipos de contribuição
 a do **time G10** (acesso de escrita ao repositório) e a de **qualquer pessoa da
 UnB** que queira sugerir ou corrigir um termo (via fork).
 
+Ao participar, você concorda em seguir o [Código de Conduta](CODE_OF_CONDUCT.md). Para reportar uma vulnerabilidade, veja a [Política de Segurança](SECURITY.md) (não abra issue pública).
+
 ## Modelo de branches
 
 Adotamos o **GitHub Flow** — simplificado em relação ao Git-Flow completo, porque
