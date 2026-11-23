@@ -1,6 +1,6 @@
 # Relatório de testes e cobertura (R2)
 
-Números medidos na `main` no commit `bab79b5` (22/11/2026), com Node 24 (o do CI) e `npm ci`. Para refazer: `npm ci && npm test && npm run test:cobertura`. A estratégia (camadas, ferramentas e convenções) está nas ADRs [0010](adr/0010-bibliotecas-nos-scripts-do-robo.md) e [0013](adr/0013-analise-de-qualidade-com-sonarqube-cloud.md) e em [`TESTE-DE-SABOTAGEM.md`](TESTE-DE-SABOTAGEM.md); este documento traz só os números. Onde o número depende de um PR ainda aberto, aparece o PR de onde vem; quando o resultado ainda não foi medido, aparece **PREENCHER**.
+Números medidos na `main` no commit `bab79b5` (22/11/2026), com Node 24 (o do CI) e `npm ci`. Para refazer: `npm ci && npm test && npm run test:cobertura`. A estratégia (camadas, ferramentas e convenções) está nas ADRs [0010](adr/0010-bibliotecas-nos-scripts-do-robo.md) e [0013](adr/0013-analise-de-qualidade-com-sonarqube-cloud.md) e em [`TESTE-DE-SABOTAGEM.md`](TESTE-DE-SABOTAGEM.md); este documento traz só os números. Onde o número depende de um PR ainda aberto, aparece o PR de onde vem; quando o resultado ainda não foi medido, aparece **Pendente**.
 
 ## 1. Resumo contra a régua do plano de ensino
 
@@ -110,11 +110,11 @@ A cobertura do Sonar (86,0%) é menor que a do Node (98,18%) porque o Sonar cont
 | Camada | Ferramenta | Resultado | Fonte |
 |---|---|---|---|
 | E2E e acessibilidade | Playwright e axe | **12 testes E2E** e **6 auditorias do axe** (3 páginas × 2 temas) com **0 violações**, CI verde | PR #153 (#78, aberto) |
-| Aceitação (BDD/Gherkin) | Cucumber ou Playwright BDD | PREENCHER | #81 (aberto) |
+| Aceitação (BDD/Gherkin) | Cucumber ou Playwright BDD | Pendente | #81 (aberto) |
 | Mutação | StrykerJS (`npm run test:mutacao`) | **90,90%** no total, **99,20%** no domínio e **85,70%** no pipeline (cerca de 1.300 mutantes, 5 min) | PR #157 (#82, aberto) |
 | Sabotagem | `npm run test:sabotagem` | **23 de 23** defeitos quebram a suíte, no CI da `main` | `main` (`docs/TESTE-DE-SABOTAGEM.md`) |
 | Lighthouse | Lighthouse CI | Performance 80 (home), 89 (lista), 93 (termo) e 100 (Sobre); acessibilidade e boas práticas 100 nas 4 páginas; LCP da home em 2,0 s | PR #148 (#80, aberto) |
-| Teste com calouros | roteiro manual | PREENCHER | #76 (aberto) |
+| Teste com calouros | roteiro manual | Em andamento | #76 (aberto) |
 
 **Lighthouse:** a última execução do PR #148 (19/11/2026) falhou só no limite de performance da home (80) e da lista (89), ambas abaixo de 90. A acessibilidade e as boas práticas ficaram em 100 nas quatro páginas. A home tem CLS de 0,408; o PR #155 (aberto) ataca o deslocamento de layout.
 
