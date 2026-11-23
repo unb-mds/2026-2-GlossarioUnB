@@ -361,6 +361,11 @@ h1, h2 { line-height: 1.2; }
   margin: 0 0 1.5rem;
   padding: 0;
   list-style: none;
+  min-height: 6rem; /* duas fileiras de atalhos no celular, reservadas antes de os dados chegarem */
+}
+
+@media (min-width: 30rem) {
+  .atalhos-lista { min-height: 2.75rem; } /* uma fileira */
 }
 
 .atalho {
@@ -425,6 +430,17 @@ h1, h2 { line-height: 1.2; }
   margin: 0;
   padding: 0;
   list-style: none;
+  /* Reserva a altura medida da trilha preenchida pelo JavaScript (1, 2 e 3 colunas), para os atalhos
+     e o rodapé não descerem quando ela chega (CLS, RNF02). Um pouco abaixo da altura real. */
+  min-height: 112rem;
+}
+
+@media (min-width: 37.5rem) {
+  .trilha-grupos { min-height: 72rem; }
+}
+
+@media (min-width: 56rem) {
+  .trilha-grupos { min-height: 50rem; }
 }
 
 .trilha-grupo {
@@ -541,6 +557,10 @@ h1, h2 { line-height: 1.2; }
   border: 1px solid var(--borda);
   border-radius: 10px;
 }
+
+/* A lista de termos só enche depois do carregamento: com a altura da tela reservada, o rodapé nasce
+   abaixo da primeira tela e não desce quando a lista chega (CLS, RNF02). */
+.lista-termos { min-height: 100vh; min-height: 100svh; }
 
 .indice {
   display: flex;
