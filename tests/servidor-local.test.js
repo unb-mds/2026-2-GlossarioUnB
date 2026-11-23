@@ -54,3 +54,13 @@ test("endereço que não decodifica responde 400", async () => {
   const resposta = await pedir("/%E0%A4%A");
   assert.equal(resposta.status, 400);
 });
+
+test("comprime o texto com gzip quando o navegador aceita, como o GitHub Pages, e não comprime sem o pedido", async () => {
+  const comprimida = await fetch(`${base}/frontend/data/termos.json`, { headers: { "Accept-Encoding": "gzip" } });
+  assert.equal(comprimida.headers.get("content-encoding"), "gzip");
+  const termos = await comprimida.json(); // o fetch descomprime sozinho
+  assert.ok(Array.isArray(termos.termos ?? termos));
+
+  const crua = await fetch(`${base}/frontend/data/termos.json`, { headers: { "Accept-Encoding": "identity" } });
+  assert.equal(crua.headers.get("content-encoding"), null);
+});

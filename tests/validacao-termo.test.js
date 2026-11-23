@@ -7,6 +7,7 @@ const termoValido = () => ({
   id: "ru",
   termo: "RU",
   tipo: "sigla",
+  categoria: "locais-campus",
   significado: "Restaurante Universitário",
   definicao: "Onde os estudantes almoçam.",
   exemplo_uso: "Bora almoçar no RU?",
@@ -30,6 +31,13 @@ test("tipo precisa ser sigla, giria ou expressao", () => {
 
 test("tipo não aceita chaves herdadas do objeto (ex.: toString)", () => {
   assert.ok(validarTermo({ ...termoValido(), tipo: "toString" }).some((erro) => erro.includes('tipo "toString" inválido')));
+});
+
+test("categoria é obrigatória e aceita só os valores fechados da ADR 0004", () => {
+  const { categoria, ...semCategoria } = termoValido();
+  assert.ok(validarTermo(semCategoria).some((erro) => erro.includes("categoria")));
+  assert.ok(validarTermo({ ...termoValido(), categoria: "esportes" }).some((erro) => erro.includes('categoria "esportes" inválida')));
+  assert.ok(validarTermo({ ...termoValido(), categoria: "toString" }).some((erro) => erro.includes('categoria "toString" inválida')));
 });
 
 test("sigla sem significado por extenso é inválida", () => {
