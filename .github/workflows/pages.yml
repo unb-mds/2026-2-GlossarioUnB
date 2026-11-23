@@ -32,6 +32,9 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 24
+          cache: npm
+      # Instala as bibliotecas do robô de coleta (ADR 0010): os testes dele precisam delas. O site publicado não usa nenhuma.
+      - run: npm ci
       # Nada é publicado se algum teste ou termo estiver inválido.
       - run: npm test
       - name: Montar o site (mesmo layout do npm run dev)

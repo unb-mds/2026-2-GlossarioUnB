@@ -1,0 +1,68 @@
+[
+  {
+    "modulo": "frontend/js/busca.js",
+    "defeito": "as setas passam da última sugestão",
+    "arquivo": "frontend/js/busca.js",
+    "trocas": [
+      {
+        "de": "Math.min(atual + 1, total - 1)",
+        "para": "atual + 1"
+      }
+    ]
+  },
+  {
+    "modulo": "frontend/js/busca.js",
+    "defeito": "o aviso sem resultado repete os espaços digitados",
+    "arquivo": "frontend/js/busca.js",
+    "trocas": [
+      {
+        "de": "“${consulta.trim()}”",
+        "para": "“${consulta}”"
+      }
+    ]
+  },
+  {
+    "modulo": "frontend/js/busca.js",
+    "defeito": "a lista da trilha aponta para um título que não existe (aria-labelledby)",
+    "arquivo": "frontend/js/busca.js",
+    "trocas": [
+      {
+        "de": "idDoTitulo: `trilha-${grupo.id}`",
+        "para": "idDoTitulo: grupo.id"
+      }
+    ]
+  },
+  {
+    "modulo": "frontend/js/tema.js",
+    "defeito": "o tema escolhido é ignorado",
+    "arquivo": "frontend/js/tema.js",
+    "trocas": [
+      {
+        "de": "temaEscolhido === \"escuro\" || (!temaEscolhido && sistemaPrefereEscuro)",
+        "para": "sistemaPrefereEscuro"
+      }
+    ]
+  },
+  {
+    "modulo": "frontend/js/lista.js",
+    "defeito": "o cartão mostra a etiqueta Geral",
+    "arquivo": "frontend/js/lista.js",
+    "trocas": [
+      {
+        "de": "if (termo.campus !== CAMPUS_GERAL) etiquetas.push(",
+        "para": "etiquetas.push("
+      }
+    ]
+  },
+  {
+    "modulo": "frontend/js/ficha.js",
+    "defeito": "fonte javascript: vira link",
+    "arquivo": "frontend/js/ficha.js",
+    "trocas": [
+      {
+        "de": "const url = urlSegura(fonte);",
+        "para": "const url = fonte.startsWith(\"javascript:\") ? fonte : urlSegura(fonte);"
+      }
+    ]
+  }
+]

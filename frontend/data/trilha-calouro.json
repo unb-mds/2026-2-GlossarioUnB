@@ -1,0 +1,34 @@
+{
+  "grupos": [
+    {
+      "id": "onde-comer-e-estudar",
+      "nome": "Onde comer e onde estudar",
+      "termos": ["ru", "bce", "icc"]
+    },
+    {
+      "id": "notas",
+      "nome": "Notas",
+      "termos": ["mencao", "sr", "ira"]
+    },
+    {
+      "id": "sistemas",
+      "nome": "Sistemas",
+      "termos": ["sigaa", "aprender-3", "email-institucional"]
+    },
+    {
+      "id": "matricula-e-trancamento",
+      "nome": "Matrícula e trancamento",
+      "termos": ["matricula", "fluxo", "tgm", "saa"]
+    },
+    {
+      "id": "apoio-estudantil",
+      "nome": "Apoio estudantil",
+      "termos": ["dac", "dds", "auxilio-socioeconomico", "dasu"]
+    },
+    {
+      "id": "girias-do-campus",
+      "nome": "Gírias do campus",
+      "termos": ["ceubinho", "minhocao", "beijodromo"]
+    }
+  ]
+}
