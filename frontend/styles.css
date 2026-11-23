@@ -867,6 +867,9 @@ h1, h2 { line-height: 1.2; }
 .planta-termos { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem; }
 .planta a { cursor: pointer; }
 .planta a:hover .planta-item polygon, .planta a:focus-visible .planta-item polygon { stroke: var(--planta-destaque); stroke-width: 0.7; }
+/* A ficha do termo só enche depois do carregamento (texto e "Onde fica"): com a altura da tela reservada, o rodapé
+   nasce abaixo da primeira tela e não desce quando o termo chega (CLS, RNF02). */
+.ficha { min-height: 100vh; min-height: 100svh; }
 .ficha-planta { min-height: 90vh; min-height: 90svh; }
 .aviso-planta { margin: 0.75rem 0; color: var(--texto-suave); }
 
