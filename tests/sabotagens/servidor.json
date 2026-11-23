@@ -1,0 +1,17 @@
+[
+  {
+    "modulo": "scripts/servidor-local.mjs",
+    "defeito": "o servidor local volta a redirecionar para outro site",
+    "arquivo": "scripts/servidor-local.mjs",
+    "trocas": [
+      {
+        "de": "PASTAS_PUBLICADAS.find((nome) => caminho === `/${nome}`)",
+        "para": "PASTAS_PUBLICADAS.find((nome) => caminho.endsWith(`/${nome}`))"
+      },
+      {
+        "de": "Location: `/${pastaSemBarra}/`",
+        "para": "Location: `${caminho}/`"
+      }
+    ]
+  }
+]
