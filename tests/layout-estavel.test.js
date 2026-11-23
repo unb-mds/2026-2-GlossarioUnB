@@ -6,7 +6,7 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 
 const ler = (caminho) => readFileSync(new URL(`../frontend/${caminho}`, import.meta.url), "utf8");
-const html = { inicio: ler("index.html"), lista: ler("todas-siglas.html") };
+const html = { inicio: ler("index.html"), lista: ler("todas-siglas.html"), termo: ler("termo.html") };
 const css = ler("styles.css").replace(/\/\*[\s\S]*?\*\//g, ""); // sem comentários
 const app = ler("js/app.js");
 
@@ -51,4 +51,10 @@ test("as duas páginas usam os elementos que recebem a reserva", () => {
 
 test("a lista pede os dados cedo (preload), para os cartões chegarem mais rápido que o rodapé", () => {
   assert.match(html.lista, /<link rel="preload" href="data\/termos\.json" as="fetch" crossorigin>/);
+});
+
+test("a ficha do termo reserva ao menos a altura da tela: o bloco \"Onde fica\" e o texto chegam sem empurrar o rodapé", () => {
+  assert.match(html.termo, /id="conteudo-termo"[^>]*class="ficha"/);
+  const corpo = reserva(".ficha").join(" ");
+  assert.match(corpo, /min-height:\s*100(s|d)?vh/);
 });

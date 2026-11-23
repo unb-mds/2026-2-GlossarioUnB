@@ -709,6 +709,10 @@ h1, h2 { line-height: 1.2; }
   box-shadow: var(--sombra-1);
 }
 
+/* A ficha do termo só enche depois do carregamento (texto e "Veja também"): com a altura da tela reservada, o rodapé
+   nasce abaixo da primeira tela e não desce quando o termo chega (CLS, RNF02). */
+.ficha { min-height: 100vh; min-height: 100svh; }
+
 .ficha h1 {
   margin: 0;
   font-size: clamp(2.25rem, 8vw, 3.25rem);
