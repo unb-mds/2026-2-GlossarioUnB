@@ -25,22 +25,22 @@
     "id": "fcts",
     "termo": "FCTS",
     "tipo": "sigla",
-    "significado": "Campus UnB Ceilândia, Faculdade de Ciências e Tecnologias em Saúde",
-    "definicao": "Campus da UnB localizada em Ceilândia, voltada ao ensino, pesquisa e extensão na área de saúde.",
+    "significado": "Faculdade de Ciências e Tecnologias em Saúde",
+    "definicao": "Campus da UnB localizado em Ceilândia, voltado ao ensino, pesquisa e extensão na área de saúde.",
     "exemplo_uso": "Tenho aula na FCTS hoje à tarde.",
     "fonte": "https://fcts.unb.br/",
-    "campus": "Geral",
+    "campus": "Ceilândia",
     "categoria": "unidades-academicas"
   },
   {
     "id": "fcte",
     "termo": "FCTE",
     "tipo": "sigla",
-    "significado": "Campus UnB Gama, Faculdade de Ciências e Tecnologias em Engenharia",
-    "definicao": "Campus da UnB no Gama dedicada ao ensino, pesquisa e extensão relacionados às áreas de engenharia e tecnologia.",
+    "significado": "Faculdade de Ciências e Tecnologias em Engenharia",
+    "definicao": "Campus da UnB no Gama dedicado ao ensino, pesquisa e extensão relacionados às áreas de engenharia e tecnologia.",
     "exemplo_uso": "Faço Engenharia de Software na FCTE.",
     "fonte": "https://fcte.unb.br/",
-    "campus": "Geral",
+    "campus": "Gama",
     "categoria": "unidades-academicas"
   },
   {
@@ -92,7 +92,7 @@
     "termo": "DAC",
     "tipo": "sigla",
     "categoria": "administracao",
-    "significado": "Decanato de Assuntos Comunitarios",
+    "significado": "Decanato de Assuntos Comunitários",
     "definicao": "Decanato responsável por políticas e ações relacionadas à assistência, permanência, saúde, esporte, acessibilidade e assuntos comunitários.",
     "exemplo_uso": "Fui ao DAC tirar uma dúvida sobre assistência estudantil.",
     "fonte": "https://dac.unb.br/",
@@ -235,10 +235,10 @@
     "termo": "FUP",
     "tipo": "sigla",
     "significado": "Faculdade de Planaltina",
-    "definicao": "Campus da UnB localizada em Planaltina, voltada ao ensino, pesquisa e extensão na área de agrárias.",
+    "definicao": "Campus da UnB localizado em Planaltina, voltado ao ensino, pesquisa e extensão na área de agrárias.",
     "exemplo_uso": "Hoje tenho uma atividade da universidade na FUP.",
     "fonte": "https://fup.unb.br/",
-    "campus": "Geral",
+    "campus": "Planaltina",
     "categoria": "unidades-academicas"
   },
   {
@@ -450,9 +450,9 @@
     "fonte": "https://noticias.unb.br/112-extensao-e-comunidade/753-comunidade-academica-repudia-atos-violentos-na-unb",
     "campus": "Darcy Ribeiro",
     "localizacao": {
-      "lat": -15.7634,
-      "lng": -47.867,
-      "link_como_chegar": "https://www.google.com/maps/search/?api=1&query=-15.7634,-47.8670"
+      "lat": -15.7625073,
+      "lng": -47.8700207,
+      "link_como_chegar": "https://www.google.com/maps/search/?api=1&query=-15.7625073,-47.8700207"
     }
   },
   {
