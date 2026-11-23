@@ -1,0 +1,3393 @@
+{
+ "versao": 2,
+ "gerado_em": "2026-11-23T05:18:31",
+ "campus": {
+  "id": "fcte",
+  "nome": "Campus UnB Gama (FCTE)",
+  "termo": "fcte"
+ },
+ "predios": [
+  {
+   "id": "ued",
+   "sigla": "UED",
+   "nome": "Unidade de Ensino e Docência",
+   "contorno": [
+    [
+     -146.24,
+     -21.3
+    ],
+    [
+     -93.88,
+     31.06
+    ],
+    [
+     -65.21,
+     2.39
+    ],
+    [
+     -117.57,
+     -49.97
+    ],
+    [
+     -126.64,
+     -40.9
+    ],
+    [
+     -129.86,
+     -44.12
+    ],
+    [
+     -142.14,
+     -31.83
+    ],
+    [
+     -138.93,
+     -28.61
+    ]
+   ],
+   "patios": [
+    [
+     [
+      -90.73,
+      -2.52
+     ],
+     [
+      -99.1,
+      6.56
+     ],
+     [
+      -88.4,
+      16.4
+     ],
+     [
+      -86.65,
+      14.51
+     ],
+     [
+      -84.9,
+      12.61
+     ],
+     [
+      -78.56,
+      5.71
+     ],
+     [
+      -89.26,
+      -4.1
+     ],
+     [
+      -89.58,
+      -3.78
+     ],
+     [
+      -90.73,
+      -2.52
+     ]
+    ],
+    [
+     [
+      -103.29,
+      -17.19
+     ],
+     [
+      -105.72,
+      -19.45
+     ],
+     [
+      -107.72,
+      -17.3
+     ],
+     [
+      -109.91,
+      -14.94
+     ],
+     [
+      -115.63,
+      -8.78
+     ],
+     [
+      -112.98,
+      -6.28
+     ],
+     [
+      -111.27,
+      -4.71
+     ],
+     [
+      -110.34,
+      -3.88
+     ],
+     [
+      -100.43,
+      -14.51
+     ],
+     [
+      -101.14,
+      -15.19
+     ],
+     [
+      -103.29,
+      -17.19
+     ]
+    ],
+    [
+     [
+      -125.51,
+      -17.84
+     ],
+     [
+      -122.64,
+      -15.22
+     ],
+     [
+      -121.36,
+      -14.04
+     ],
+     [
+      -111.59,
+      -24.74
+     ],
+     [
+      -112.77,
+      -25.82
+     ],
+     [
+      -115.45,
+      -28.28
+     ],
+     [
+      -122.36,
+      -34.58
+     ],
+     [
+      -124.72,
+      -32.01
+     ],
+     [
+      -126.29,
+      -30.25
+     ],
+     [
+      -132.13,
+      -23.88
+     ],
+     [
+      -125.51,
+      -17.84
+     ]
+    ]
+   ],
+   "andares": [
+    {
+     "id": "terreo",
+     "nome": "térreo",
+     "corredores": [
+      {
+       "eixo": [
+        [
+         -75.73,
+         3.71
+        ],
+        [
+         -122.11,
+         -42.67
+        ]
+       ],
+       "largura": 2.8
+      },
+      {
+       "eixo": [
+        [
+         -138.94,
+         -25.84
+        ],
+        [
+         -92.56,
+         20.54
+        ]
+       ],
+       "largura": 2.8
+      }
+     ],
+     "itens": [
+      {
+       "id": "ued-t-mocap",
+       "rotulo": "MOCAP",
+       "nome": "Laboratório MOCAP",
+       "tipo": "laboratorio",
+       "cantos": [
+        [
+         -74.08,
+         -6.48
+        ],
+        [
+         -79.01,
+         -1.55
+        ],
+        [
+         -74.74,
+         2.72
+        ],
+        [
+         -69.81,
+         -2.21
+        ]
+       ]
+      },
+      {
+       "id": "ued-t-escada-11",
+       "rotulo": "Escada",
+       "nome": "Escada na ponta do bloco (lado AT-11)",
+       "tipo": "escada",
+       "cantos": [
+        [
+         -78.9,
+         -1.3
+        ],
+        [
+         -80.74,
+         0.54
+        ],
+        [
+         -77.2,
+         4.08
+        ],
+        [
+         -75.36,
+         2.24
+        ]
+       ]
+      },
+      {
+       "id": "nei1",
+       "rotulo": "NEI 1",
+       "nome": "Laboratório Núcleo de Eletrônica e Instrumentação 1 (NEI1)",
+       "tipo": "laboratorio",
+       "cantos": [
+        [
+         -138.42,
+         -13.49
+        ],
+        [
+         -133.49,
+         -18.42
+        ],
+        [
+         -137.9,
+         -22.83
+        ],
+        [
+         -142.83,
+         -17.9
+        ]
+       ],
+       "termos": [
+        "nei1"
+       ]
+      },
+      {
+       "id": "ued-t-auditorio",
+       "rotulo": "Auditório",
+       "nome": "Auditório (UED)",
+       "tipo": "auditorio",
+       "cantos": [
+        [
+         -75.77,
+         -8.17
+        ],
+        [
+         -80.7,
+         -3.24
+        ],
+        [
+         -79.01,
+         -1.55
+        ],
+        [
+         -74.08,
+         -6.48
+        ]
+       ]
+      },
+      {
+       "id": "ued-t-at-11-7",
+       "rotulo": "11/7",
+       "nome": "Sala AT-11/7 (papel na porta: \"exclusivo para servidores\")",
+       "tipo": "sala",
+       "cantos": [
+        [
+         -77.47,
+         -9.87
+        ],
+        [
+         -82.4,
+         -4.94
+        ],
+        [
+         -80.71,
+         -3.25
+        ],
+        [
+         -75.78,
+         -8.18
+        ]
+       ]
+      },
+      {
+       "id": "nei2",
+       "rotulo": "NEI 2",
+       "nome": "Laboratório Núcleo de Eletrônica e Instrumentação 2 (NEI2)",
+       "tipo": "laboratorio",
+       "cantos": [
+        [
+         -136.73,
+         -11.79
+        ],
+        [
+         -131.8,
+         -16.72
+        ],
+        [
+         -133.49,
+         -18.41
+        ],
+        [
+         -138.42,
+         -13.48
+        ]
+       ],
+       "termos": [
+        "nei2"
+       ]
+      },
+      {
+       "id": "ued-t-analise-instrumental",
+       "rotulo": "Anál. Inst.",
+       "nome": "Laboratório de Análise Instrumental",
+       "tipo": "laboratorio",
+       "cantos": [
+        [
+         -79.17,
+         -11.57
+        ],
+        [
+         -84.1,
+         -6.64
+        ],
+        [
+         -82.41,
+         -4.95
+        ],
+        [
+         -77.48,
+         -9.88
+        ]
+       ]
+      },
+      {
+       "id": "ued-t-lanchonete",
+       "rotulo": "Lanchonete",
+       "nome": "Lanchonete",
+       "tipo": "sala",
+       "cantos": [
+        [
+         -132.42,
+         -7.48
+        ],
+        [
+         -127.49,
+         -12.41
+        ],
+        [
+         -131.8,
+         -16.72
+        ],
+        [
+         -136.73,
+         -11.79
+        ]
+       ]
+      },
+      {
+       "id": "laboratorio-de-quimica-geral",
+       "rotulo": "Química",
+       "nome": "Laboratório de Química Geral",
+       "tipo": "laboratorio",
+       "cantos": [
+        [
+         -83.48,
+         -15.88
+        ],
+        [
+         -88.41,
+         -10.95
+        ],
+        [
+         -84.1,
+         -6.64
+        ],
+        [
+         -79.17,
+         -11.57
+        ]
+       ]
+      },
+      {
+       "id": "labtermo",
+       "rotulo": "Termofl.",
+       "nome": "Laboratório de Termofluidos (LabTermo)",
+       "tipo": "laboratorio",
+       "cantos": [
+        [
+         -89.87,
+         -22.27
+        ],
+        [
+         -94.8,
+         -17.34
+        ],
+        [
+         -90.21,
+         -12.75
+        ],
+        [
+         -85.28,
+         -17.68
+        ]
+       ],
+       "termos": [
+        "labtermo"
+       ]
+      },
+      {
+       "id": "lab-ss",
+       "rotulo": "SS",
+       "nome": "Laboratório de Simulação e Software (LAB SS)",
+       "tipo": "laboratorio",
+       "cantos": [
+        [
+         -122.25,
+         2.69
+        ],
+        [
+         -117.32,
+         -2.24
+        ],
+        [
+         -121.71,
+         -6.63
+        ],
+        [
+         -126.64,
+         -1.7
+        ]
+       ],
+       "termos": [
+        "labss"
+       ]
+      },
+      {
+       "id": "ued-t-quadro-energia",
+       "rotulo": "Q. energia",
+       "nome": "Quadro de energia",
+       "tipo": "sala",
+       "cantos": [
+        [
+         -92.69,
+         -25.08
+        ],
+        [
+         -97.62,
+         -20.15
+        ],
+        [
+         -94.81,
+         -17.34
+        ],
+        [
+         -89.88,
+         -22.27
+        ]
+       ]
+      },
+      {
+       "id": "lds",
+       "rotulo": "NIT/LDS",
+       "nome": "Laboratório de Desenvolvimento de Software (LDS)",
+       "tipo": "laboratorio",
+       "cantos": [
+        [
+         -120.55,
+         4.39
+        ],
+        [
+         -115.62,
+         -0.54
+        ],
+        [
+         -117.31,
+         -2.23
+        ],
+        [
+         -122.24,
+         2.7
+        ]
+       ],
+       "termos": [
+        "lds"
+       ]
+      },
+      {
+       "id": "laboratorio-de-caracterizacao-de-materiais-metalicos-e-ceramicos",
+       "rotulo": "Caract. Mat.",
+       "nome": "Laboratório de Caracterização de Materiais Metálicos e Cerâmicos",
+       "tipo": "laboratorio",
+       "cantos": [
+        [
+         -95.22,
+         -27.62
+        ],
+        [
+         -100.15,
+         -22.69
+        ],
+        [
+         -97.62,
+         -20.16
+        ],
+        [
+         -92.69,
+         -25.09
+        ]
+       ]
+      },
+      {
+       "id": "ued-t-deposito",
+       "rotulo": "Depósito",
+       "nome": "Depósito",
+       "tipo": "sala",
+       "cantos": [
+        [
+         -118.86,
+         6.08
+        ],
+        [
+         -113.93,
+         1.15
+        ],
+        [
+         -115.62,
+         -0.54
+        ],
+        [
+         -120.55,
+         4.39
+        ]
+       ]
+      },
+      {
+       "id": "ued-t-sala-tecnicos",
+       "rotulo": "Técnicos",
+       "nome": "Sala dos Técnicos",
+       "tipo": "sala",
+       "cantos": [
+        [
+         -117.16,
+         7.78
+        ],
+        [
+         -112.23,
+         2.85
+        ],
+        [
+         -113.92,
+         1.16
+        ],
+        [
+         -118.85,
+         6.09
+        ]
+       ]
+      },
+      {
+       "id": "lea",
+       "rotulo": "LEA",
+       "nome": "Laboratório de Eletricidade Aplicada (LEA)",
+       "tipo": "laboratorio",
+       "cantos": [
+        [
+         -99.54,
+         -31.94
+        ],
+        [
+         -104.47,
+         -27.01
+        ],
+        [
+         -100.16,
+         -22.7
+        ],
+        [
+         -95.23,
+         -27.63
+        ]
+       ],
+       "termos": [
+        "lea"
+       ]
+      },
+      {
+       "id": "ued-t-recepcao",
+       "rotulo": "Recepção",
+       "nome": "Balcão azul de portaria / recepção",
+       "tipo": "recepcao",
+       "cantos": [
+        [
+         -114.09,
+         10.85
+        ],
+        [
+         -109.16,
+         5.92
+        ],
+        [
+         -112.23,
+         2.85
+        ],
+        [
+         -117.16,
+         7.78
+        ]
+       ]
+      },
+      {
+       "id": "ued-t-gestao-pessoas",
+       "rotulo": "Gestão Pess.",
+       "nome": "Gestão de Pessoas",
+       "tipo": "sala",
+       "cantos": [
+        [
+         -111.02,
+         13.92
+        ],
+        [
+         -106.09,
+         8.99
+        ],
+        [
+         -109.16,
+         5.92
+        ],
+        [
+         -114.09,
+         10.85
+        ]
+       ]
+      },
+      {
+       "id": "ued-t-nucleo-saude",
+       "rotulo": "Núcleo Saúde",
+       "nome": "Núcleo de Atenção à Saúde",
+       "tipo": "sala",
+       "cantos": [
+        [
+         -109.32,
+         15.62
+        ],
+        [
+         -104.39,
+         10.69
+        ],
+        [
+         -106.08,
+         9.0
+        ],
+        [
+         -111.01,
+         13.93
+        ]
+       ]
+      },
+      {
+       "id": "ued-t-compras",
+       "rotulo": "Compras",
+       "nome": "Compras",
+       "tipo": "sala",
+       "cantos": [
+        [
+         -107.63,
+         17.31
+        ],
+        [
+         -102.7,
+         12.38
+        ],
+        [
+         -104.39,
+         10.69
+        ],
+        [
+         -109.32,
+         15.62
+        ]
+       ]
+      },
+      {
+       "id": "laboratorio-de-fisica-2-e-fisica-3",
+       "rotulo": "Física II",
+       "nome": "Laboratório Física II",
+       "tipo": "laboratorio",
+       "cantos": [
+        [
+         -109.14,
+         -41.54
+        ],
+        [
+         -114.07,
+         -36.61
+        ],
+        [
+         -109.38,
+         -31.92
+        ],
+        [
+         -104.45,
+         -36.85
+        ]
+       ]
+      },
+      {
+       "id": "ued-t-administracao",
+       "rotulo": "Administ.",
+       "nome": "Administração",
+       "tipo": "sala",
+       "cantos": [
+        [
+         -105.13,
+         19.81
+        ],
+        [
+         -100.2,
+         14.88
+        ],
+        [
+         -102.69,
+         12.39
+        ],
+        [
+         -107.62,
+         17.32
+        ]
+       ]
+      },
+      {
+       "id": "ued-t-escada-fim",
+       "rotulo": "Escada",
+       "nome": "Escada na outra ponta do bloco (lado AT-11/29)",
+       "tipo": "escada",
+       "cantos": [
+        [
+         -97.93,
+         17.01
+        ],
+        [
+         -96.09,
+         15.17
+        ],
+        [
+         -99.63,
+         11.63
+        ],
+        [
+         -101.47,
+         13.47
+        ]
+       ]
+      },
+      {
+       "id": "laboratorio-de-fisica-1",
+       "rotulo": "Física I",
+       "nome": "Laboratório de Física 1",
+       "tipo": "laboratorio",
+       "cantos": [
+        [
+         -111.95,
+         -44.35
+        ],
+        [
+         -116.88,
+         -39.42
+        ],
+        [
+         -114.07,
+         -36.61
+        ],
+        [
+         -109.14,
+         -41.54
+        ]
+       ]
+      },
+      {
+       "id": "ued-t-vestiario",
+       "rotulo": "Vestiário",
+       "nome": "Vestiário",
+       "tipo": "sala",
+       "cantos": [
+        [
+         -99.89,
+         25.05
+        ],
+        [
+         -94.96,
+         20.12
+        ],
+        [
+         -100.21,
+         14.87
+        ],
+        [
+         -105.14,
+         19.8
+        ]
+       ]
+      },
+      {
+       "id": "ued-t-elevador",
+       "rotulo": "Elevador",
+       "nome": "Elevador (porta cinza com símbolo de cadeirante, \"MONTELE\")",
+       "tipo": "elevador",
+       "cantos": [
+        [
+         -116.88,
+         -43.1
+        ],
+        [
+         -118.72,
+         -41.26
+        ],
+        [
+         -116.88,
+         -39.42
+        ],
+        [
+         -115.04,
+         -41.26
+        ]
+       ]
+      },
+      {
+       "id": "ued-t-escada-72",
+       "rotulo": "Escada",
+       "nome": "Escada com pilar de pastilhas, perto do elevador (ponta AT-72)",
+       "tipo": "escada",
+       "cantos": [
+        [
+         -116.88,
+         -47.9
+        ],
+        [
+         -121.12,
+         -43.66
+        ],
+        [
+         -118.72,
+         -41.26
+        ],
+        [
+         -114.48,
+         -45.5
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "id": "superior",
+     "nome": "andar de cima",
+     "corredores": [
+      {
+       "eixo": [
+        [
+         -75.73,
+         3.71
+        ],
+        [
+         -122.11,
+         -42.67
+        ]
+       ],
+       "largura": 2.8
+      },
+      {
+       "eixo": [
+        [
+         -138.94,
+         -25.84
+        ],
+        [
+         -92.56,
+         20.54
+        ]
+       ],
+       "largura": 2.8
+      }
+     ],
+     "itens": [
+      {
+       "id": "ued-sup-prof-30",
+       "rotulo": "Prof 30",
+       "nome": "Sala de Professor 30",
+       "tipo": "sala-dos-professores",
+       "cantos": [
+        [
+         -140.51,
+         -15.57
+        ],
+        [
+         -135.58,
+         -20.5
+        ],
+        [
+         -139.93,
+         -24.85
+        ],
+        [
+         -144.86,
+         -19.92
+        ]
+       ]
+      },
+      {
+       "id": "ued-sup-escada-acesso",
+       "rotulo": "Escada",
+       "nome": "Escada de acesso ao andar de cima (início da filmagem)",
+       "tipo": "escada",
+       "cantos": [
+        [
+         -78.9,
+         -1.3
+        ],
+        [
+         -80.74,
+         0.54
+        ],
+        [
+         -77.2,
+         4.08
+        ],
+        [
+         -75.36,
+         2.24
+        ]
+       ]
+      },
+      {
+       "id": "ued-sup-prof-31",
+       "rotulo": "Prof 31",
+       "nome": "Sala de Professor 31",
+       "tipo": "sala-dos-professores",
+       "cantos": [
+        [
+         -137.9,
+         -12.96
+        ],
+        [
+         -132.97,
+         -17.89
+        ],
+        [
+         -135.58,
+         -20.5
+        ],
+        [
+         -140.51,
+         -15.57
+        ]
+       ]
+      },
+      {
+       "id": "ued-sup-prof-01-02",
+       "rotulo": "Prof 01-02",
+       "nome": "Sala de Professor 01-02",
+       "tipo": "sala-dos-professores",
+       "cantos": [
+        [
+         -80.02,
+         -12.42
+        ],
+        [
+         -84.95,
+         -7.49
+        ],
+        [
+         -78.62,
+         -1.16
+        ],
+        [
+         -73.69,
+         -6.09
+        ]
+       ]
+      },
+      {
+       "id": "ued-sup-prof-32",
+       "rotulo": "Prof 32",
+       "nome": "Sala de Professor 32",
+       "tipo": "sala-dos-professores",
+       "cantos": [
+        [
+         -135.29,
+         -10.35
+        ],
+        [
+         -130.36,
+         -15.28
+        ],
+        [
+         -132.97,
+         -17.89
+        ],
+        [
+         -137.9,
+         -12.96
+        ]
+       ]
+      },
+      {
+       "id": "ued-sup-prof-33",
+       "rotulo": "Prof 33",
+       "nome": "Sala de Professor 33",
+       "tipo": "sala-dos-professores",
+       "cantos": [
+        [
+         -132.68,
+         -7.74
+        ],
+        [
+         -127.75,
+         -12.67
+        ],
+        [
+         -130.36,
+         -15.28
+        ],
+        [
+         -135.29,
+         -10.35
+        ]
+       ]
+      },
+      {
+       "id": "ued-sup-prof-03",
+       "rotulo": "Prof 03",
+       "nome": "Sala de Professor 03",
+       "tipo": "sala-dos-professores",
+       "cantos": [
+        [
+         -84.19,
+         -16.59
+        ],
+        [
+         -89.12,
+         -11.66
+        ],
+        [
+         -84.95,
+         -7.49
+        ],
+        [
+         -80.02,
+         -12.42
+        ]
+       ]
+      },
+      {
+       "id": "ued-sup-prof-34",
+       "rotulo": "Prof 34",
+       "nome": "Sala de Professor 34",
+       "tipo": "sala-dos-professores",
+       "cantos": [
+        [
+         -129.49,
+         -4.55
+        ],
+        [
+         -124.56,
+         -9.48
+        ],
+        [
+         -127.75,
+         -12.67
+        ],
+        [
+         -132.68,
+         -7.74
+        ]
+       ]
+      },
+      {
+       "id": "ued-sup-prof-04",
+       "rotulo": "Prof 04",
+       "nome": "Sala de Professor 04",
+       "tipo": "sala-dos-professores",
+       "cantos": [
+        [
+         -87.44,
+         -19.84
+        ],
+        [
+         -92.37,
+         -14.91
+        ],
+        [
+         -89.12,
+         -11.66
+        ],
+        [
+         -84.19,
+         -16.59
+        ]
+       ]
+      },
+      {
+       "id": "ued-sup-secretaria-pos",
+       "rotulo": "Sec. Pós",
+       "nome": "Secretaria de Pós-Graduação",
+       "tipo": "secretaria",
+       "cantos": [
+        [
+         -123.83,
+         1.11
+        ],
+        [
+         -118.9,
+         -3.82
+        ],
+        [
+         -124.57,
+         -9.49
+        ],
+        [
+         -129.5,
+         -4.56
+        ]
+       ]
+      },
+      {
+       "id": "ued-sup-prof-05",
+       "rotulo": "Prof 05",
+       "nome": "Sala de Professor 05",
+       "tipo": "sala-dos-professores",
+       "cantos": [
+        [
+         -90.69,
+         -23.08
+        ],
+        [
+         -95.62,
+         -18.15
+        ],
+        [
+         -92.37,
+         -14.9
+        ],
+        [
+         -87.44,
+         -19.83
+        ]
+       ]
+      },
+      {
+       "id": "ued-sup-prof-06",
+       "rotulo": "Prof 06",
+       "nome": "Sala de Professor 06",
+       "tipo": "sala-dos-professores",
+       "cantos": [
+        [
+         -96.25,
+         -28.65
+        ],
+        [
+         -101.18,
+         -23.72
+        ],
+        [
+         -95.61,
+         -18.15
+        ],
+        [
+         -90.68,
+         -23.08
+        ]
+       ]
+      },
+      {
+       "id": "ued-sup-prof-18",
+       "rotulo": "Prof 18",
+       "nome": "Sala de Professor 18",
+       "tipo": "sala-dos-professores",
+       "cantos": [
+        [
+         -114.43,
+         10.5
+        ],
+        [
+         -109.5,
+         5.57
+        ],
+        [
+         -116.57,
+         -1.5
+        ],
+        [
+         -121.5,
+         3.43
+        ]
+       ]
+      },
+      {
+       "id": "ued-sup-prof-07-08",
+       "rotulo": "Prof 07-08",
+       "nome": "Sala de Professor 07-08",
+       "tipo": "sala-dos-professores",
+       "cantos": [
+        [
+         -102.74,
+         -35.14
+        ],
+        [
+         -107.67,
+         -30.21
+        ],
+        [
+         -101.18,
+         -23.72
+        ],
+        [
+         -96.25,
+         -28.65
+        ]
+       ]
+      },
+      {
+       "id": "ued-sup-prof-09",
+       "rotulo": "Prof 09",
+       "nome": "Sala de Professor 09",
+       "tipo": "sala-dos-professores",
+       "cantos": [
+        [
+         -106.91,
+         -39.31
+        ],
+        [
+         -111.84,
+         -34.38
+        ],
+        [
+         -107.67,
+         -30.21
+        ],
+        [
+         -102.74,
+         -35.14
+        ]
+       ]
+      },
+      {
+       "id": "ued-sup-prof-10",
+       "rotulo": "Prof 10",
+       "nome": "Sala de Professor 10",
+       "tipo": "sala-dos-professores",
+       "cantos": [
+        [
+         -111.08,
+         -43.48
+        ],
+        [
+         -116.01,
+         -38.55
+        ],
+        [
+         -111.84,
+         -34.38
+        ],
+        [
+         -106.91,
+         -39.31
+        ]
+       ]
+      },
+      {
+       "id": "ued-sup-prof-11",
+       "rotulo": "Prof 11",
+       "nome": "Sala de Professor 11",
+       "tipo": "sala-dos-professores",
+       "cantos": [
+        [
+         -116.19,
+         -48.59
+        ],
+        [
+         -121.12,
+         -43.66
+        ],
+        [
+         -116.01,
+         -38.55
+        ],
+        [
+         -111.08,
+         -43.48
+        ]
+       ]
+      },
+      {
+       "id": "ued-t-elevador-inferido-superior",
+       "rotulo": "Elevador",
+       "nome": "Elevador (porta cinza com símbolo de cadeirante, \"MONTELE\")",
+       "tipo": "elevador",
+       "cantos": [
+        [
+         -117.89,
+         -44.1
+        ],
+        [
+         -119.73,
+         -42.26
+        ],
+        [
+         -117.89,
+         -40.42
+        ],
+        [
+         -116.05,
+         -42.26
+        ]
+       ]
+      },
+      {
+       "id": "ued-t-escada-72-inferido-superior",
+       "rotulo": "Escada",
+       "nome": "Escada com pilar de pastilhas, perto do elevador (ponta AT-72)",
+       "tipo": "escada",
+       "cantos": [
+        [
+         -117.15,
+         -48.17
+        ],
+        [
+         -121.39,
+         -43.93
+        ],
+        [
+         -118.99,
+         -41.53
+        ],
+        [
+         -114.75,
+         -45.77
+        ]
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "uac",
+   "sigla": "UAC",
+   "nome": "Unidade Acadêmica",
+   "contorno": [
+    [
+     -23.67,
+     21.83
+    ],
+    [
+     -58.06,
+     58.95
+    ],
+    [
+     -17.29,
+     96.73
+    ],
+    [
+     30.71,
+     44.92
+    ],
+    [
+     -9.99,
+     7.21
+    ],
+    [
+     -17.39,
+     15.21
+    ],
+    [
+     15.31,
+     45.51
+    ],
+    [
+     -17.88,
+     81.32
+    ],
+    [
+     -42.66,
+     58.36
+    ],
+    [
+     -15.67,
+     29.24
+    ]
+   ],
+   "patios": [],
+   "andares": [
+    {
+     "id": "terreo",
+     "nome": "térreo",
+     "corredores": [
+      {
+       "eixo": [
+        [
+         -16.7,
+         28.29
+        ],
+        [
+         -44.64,
+         58.44
+        ],
+        [
+         -17.81,
+         83.3
+        ],
+        [
+         17.28,
+         45.43
+        ],
+        [
+         -16.44,
+         14.18
+        ]
+       ],
+       "largura": 2.8
+      }
+     ],
+     "itens": [
+      {
+       "id": "uac-t-cantina",
+       "rotulo": "Cantina",
+       "nome": "Cantina / lanchonete da UAC (balcão com azulejos de café)",
+       "tipo": "sala",
+       "cantos": [
+        [
+         -22.95,
+         30.78
+        ],
+        [
+         -21.85,
+         31.8
+        ],
+        [
+         -17.73,
+         27.34
+        ],
+        [
+         -18.83,
+         26.32
+        ]
+       ]
+      },
+      {
+       "id": "uac-t-cpd",
+       "rotulo": "CPD",
+       "nome": "CPD",
+       "tipo": "sala",
+       "cantos": [
+        [
+         -28.53,
+         36.79
+        ],
+        [
+         -27.43,
+         37.81
+        ],
+        [
+         -21.85,
+         31.79
+        ],
+        [
+         -22.95,
+         30.77
+        ]
+       ]
+      },
+      {
+       "id": "uac-t-auditorio",
+       "rotulo": "Auditório da UA…",
+       "nome": "Auditório da UAC (térreo, pé-direito duplo)",
+       "tipo": "auditorio",
+       "cantos": [
+        [
+         -44.94,
+         44.79
+        ],
+        [
+         -40.1,
+         49.27
+        ],
+        [
+         -19.86,
+         27.41
+        ],
+        [
+         -24.7,
+         22.93
+        ]
+       ]
+      },
+      {
+       "id": "uac-t-seguranca",
+       "rotulo": "Segurança",
+       "nome": "Segurança",
+       "tipo": "sala",
+       "cantos": [
+        [
+         -32.76,
+         41.35
+        ],
+        [
+         -31.66,
+         42.37
+        ],
+        [
+         -27.44,
+         37.81
+        ],
+        [
+         -28.54,
+         36.79
+        ]
+       ]
+      },
+      {
+       "id": "uac-t-polo-uab",
+       "rotulo": "Polo UAB-Gama",
+       "nome": "Polo UAB-Gama",
+       "tipo": "sala",
+       "cantos": [
+        [
+         -36.26,
+         45.13
+        ],
+        [
+         -35.16,
+         46.15
+        ],
+        [
+         -31.66,
+         42.37
+        ],
+        [
+         -32.76,
+         41.35
+        ]
+       ]
+      },
+      {
+       "id": "uac-t-secretaria-graduacao",
+       "rotulo": "Sec. Grad.",
+       "nome": "Secretaria de Graduação da FGA (e Coordenação de Graduação)",
+       "tipo": "secretaria",
+       "cantos": [
+        [
+         -41.79,
+         51.1
+        ],
+        [
+         -40.69,
+         52.12
+        ],
+        [
+         -35.15,
+         46.14
+        ],
+        [
+         -36.25,
+         45.12
+        ]
+       ]
+      },
+      {
+       "id": "uac-t-banheiro-1",
+       "rotulo": "WC",
+       "nome": "Banheiro (placa com pictograma de saia)",
+       "tipo": "banheiro-feminino",
+       "cantos": [
+        [
+         -32.62,
+         82.52
+        ],
+        [
+         -27.12,
+         76.58
+        ],
+        [
+         -29.18,
+         74.68
+        ],
+        [
+         -34.68,
+         80.62
+        ]
+       ]
+      },
+      {
+       "id": "uac-t-rack-a",
+       "rotulo": "Rack / Energia",
+       "nome": "Rack / Energia",
+       "tipo": "servico",
+       "cantos": [
+        [
+         -31.01,
+         84.01
+        ],
+        [
+         -25.51,
+         78.07
+        ],
+        [
+         -27.13,
+         76.57
+        ],
+        [
+         -32.63,
+         82.51
+        ]
+       ]
+      },
+      {
+       "id": "uac-t-wc-masc-a",
+       "rotulo": "Banheiro mascul…",
+       "nome": "Banheiro masculino (A1-63/23)",
+       "tipo": "banheiro-masculino",
+       "cantos": [
+        [
+         -28.67,
+         86.19
+        ],
+        [
+         -23.16,
+         80.25
+        ],
+        [
+         -25.51,
+         78.07
+        ],
+        [
+         -31.02,
+         84.01
+        ]
+       ]
+      },
+      {
+       "id": "uac-t-escada-1",
+       "rotulo": "Escada (sobe ao…",
+       "nome": "Escada (sobe ao 1º andar; placa «Térreo»)",
+       "tipo": "escada",
+       "cantos": [
+        [
+         -24.74,
+         86.97
+        ],
+        [
+         -20.66,
+         82.56
+        ],
+        [
+         -23.16,
+         80.25
+        ],
+        [
+         -27.24,
+         84.66
+        ]
+       ]
+      },
+      {
+       "id": "uac-t-elevador",
+       "rotulo": "Elevador",
+       "nome": "Elevador",
+       "tipo": "elevador",
+       "cantos": [
+        [
+         -24.26,
+         90.27
+        ],
+        [
+         -18.75,
+         84.33
+        ],
+        [
+         -20.66,
+         82.57
+        ],
+        [
+         -26.17,
+         88.51
+        ]
+       ]
+      },
+      {
+       "id": "uac-t-biblioteca",
+       "rotulo": "Biblioteca?",
+       "nome": "Biblioteca",
+       "tipo": "biblioteca",
+       "cantos": [
+        [
+         0.53,
+         77.5
+        ],
+        [
+         -5.42,
+         71.99
+        ],
+        [
+         -12.61,
+         79.74
+        ],
+        [
+         -6.66,
+         85.25
+        ]
+       ]
+      },
+      {
+       "id": "I1",
+       "rotulo": "I-1",
+       "nome": "Sala I1",
+       "tipo": "sala",
+       "cantos": [
+        [
+         5.5,
+         72.15
+        ],
+        [
+         -0.46,
+         66.64
+        ],
+        [
+         -5.42,
+         71.99
+        ],
+        [
+         0.54,
+         77.5
+        ]
+       ]
+      },
+      {
+       "id": "I2",
+       "rotulo": "I-2",
+       "nome": "Sala I2",
+       "tipo": "sala",
+       "cantos": [
+        [
+         7.54,
+         69.93
+        ],
+        [
+         1.59,
+         64.42
+        ],
+        [
+         -0.46,
+         66.63
+        ],
+        [
+         5.49,
+         72.14
+        ]
+       ]
+      },
+      {
+       "id": "I3",
+       "rotulo": "I-3",
+       "nome": "Sala I3",
+       "tipo": "sala",
+       "cantos": [
+        [
+         9.89,
+         67.4
+        ],
+        [
+         3.94,
+         61.89
+        ],
+        [
+         1.59,
+         64.42
+        ],
+        [
+         7.54,
+         69.93
+        ]
+       ]
+      },
+      {
+       "id": "I4",
+       "rotulo": "I-4",
+       "nome": "Sala I4",
+       "tipo": "sala",
+       "cantos": [
+        [
+         12.25,
+         64.86
+        ],
+        [
+         6.3,
+         59.35
+        ],
+        [
+         3.95,
+         61.88
+        ],
+        [
+         9.9,
+         67.39
+        ]
+       ]
+      },
+      {
+       "id": "I5",
+       "rotulo": "I-5",
+       "nome": "Sala I5",
+       "tipo": "sala",
+       "cantos": [
+        [
+         14.3,
+         62.64
+        ],
+        [
+         8.35,
+         57.13
+        ],
+        [
+         6.3,
+         59.34
+        ],
+        [
+         12.25,
+         64.85
+        ]
+       ]
+      },
+      {
+       "id": "I6",
+       "rotulo": "I-6",
+       "nome": "Sala I6",
+       "tipo": "sala",
+       "cantos": [
+        [
+         16.23,
+         60.57
+        ],
+        [
+         10.28,
+         55.06
+        ],
+        [
+         8.35,
+         57.13
+        ],
+        [
+         14.3,
+         62.64
+        ]
+       ]
+      },
+      {
+       "id": "I7",
+       "rotulo": "I-7",
+       "nome": "Sala I7",
+       "tipo": "sala",
+       "cantos": [
+        [
+         17.99,
+         58.65
+        ],
+        [
+         12.04,
+         53.14
+        ],
+        [
+         10.27,
+         55.05
+        ],
+        [
+         16.22,
+         60.56
+        ]
+       ]
+      },
+      {
+       "id": "I8",
+       "rotulo": "I-8",
+       "nome": "Sala I8",
+       "tipo": "sala",
+       "cantos": [
+        [
+         20.48,
+         55.97
+        ],
+        [
+         14.53,
+         50.46
+        ],
+        [
+         12.04,
+         53.15
+        ],
+        [
+         17.99,
+         58.66
+        ]
+       ]
+      },
+      {
+       "id": "I9",
+       "rotulo": "I-9",
+       "nome": "Sala I9",
+       "tipo": "sala",
+       "cantos": [
+        [
+         22.69,
+         53.58
+        ],
+        [
+         16.74,
+         48.07
+        ],
+        [
+         14.53,
+         50.46
+        ],
+        [
+         20.48,
+         55.97
+        ]
+       ]
+      },
+      {
+       "id": "uac-t-banheiro-feminino",
+       "rotulo": "WC fem",
+       "nome": "Banheiro feminino",
+       "tipo": "banheiro-feminino",
+       "cantos": [
+        [
+         21.91,
+         49.85
+        ],
+        [
+         18.24,
+         46.45
+        ],
+        [
+         16.75,
+         48.07
+        ],
+        [
+         20.42,
+         51.47
+        ]
+       ]
+      },
+      {
+       "id": "uac-t-banheiro-masculino",
+       "rotulo": "WC masc",
+       "nome": "Banheiro masculino",
+       "tipo": "banheiro-masculino",
+       "cantos": [
+        [
+         19.68,
+         38.93
+        ],
+        [
+         16.29,
+         42.6
+        ],
+        [
+         18.16,
+         44.33
+        ],
+        [
+         21.55,
+         40.66
+        ]
+       ]
+      },
+      {
+       "id": "uac-t-rack-b",
+       "rotulo": "Rack / Energia…",
+       "nome": "Rack / Energia (lado da I10)",
+       "tipo": "servico",
+       "cantos": [
+        [
+         22.59,
+         45.44
+        ],
+        [
+         21.1,
+         47.05
+        ],
+        [
+         22.71,
+         48.54
+        ],
+        [
+         24.2,
+         46.93
+        ]
+       ]
+      },
+      {
+       "id": "uac-t-escada",
+       "rotulo": "Escada",
+       "nome": "Escada para o andar de cima (degraus com frases, uma é de Marie Curie)",
+       "tipo": "escada",
+       "cantos": [
+        [
+         22.45,
+         40.13
+        ],
+        [
+         18.37,
+         44.54
+        ],
+        [
+         20.87,
+         46.85
+        ],
+        [
+         24.95,
+         42.44
+        ]
+       ]
+      },
+      {
+       "id": "I10",
+       "rotulo": "I-10",
+       "nome": "Sala I10",
+       "tipo": "sala",
+       "cantos": [
+        [
+         -9.99,
+         7.21
+        ],
+        [
+         -15.49,
+         13.16
+        ],
+        [
+         12.41,
+         38.99
+        ],
+        [
+         17.91,
+         33.04
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "id": "superior",
+     "nome": "andar de cima",
+     "corredores": [
+      {
+       "eixo": [
+        [
+         -16.7,
+         28.29
+        ],
+        [
+         -44.64,
+         58.44
+        ],
+        [
+         -17.81,
+         83.3
+        ],
+        [
+         17.28,
+         45.43
+        ],
+        [
+         -16.44,
+         14.18
+        ]
+       ],
+       "largura": 2.8
+      }
+     ],
+     "itens": [
+      {
+       "id": "uac-s-auditorio",
+       "rotulo": "Auditório",
+       "nome": "Auditório (UAC, andar de cima)",
+       "tipo": "auditorio",
+       "cantos": [
+        [
+         -44.98,
+         44.83
+        ],
+        [
+         -39.04,
+         50.34
+        ],
+        [
+         -36.66,
+         47.77
+        ],
+        [
+         -42.6,
+         42.26
+        ]
+       ]
+      },
+      {
+       "id": "uac-s-sala-vidro",
+       "rotulo": "Hall",
+       "nome": "Hall (portal com mesas de estudo, rampa para o térreo e entrada de cima do auditório)",
+       "tipo": "hall",
+       "cantos": [
+        [
+         -51.38,
+         51.73
+        ],
+        [
+         -45.43,
+         57.23
+        ],
+        [
+         -41.8,
+         53.31
+        ],
+        [
+         -47.75,
+         47.81
+        ]
+       ]
+      },
+      {
+       "id": "uac-s-porta-a1-63-13",
+       "rotulo": "A1-63/13",
+       "nome": "COEDUCA / DASU (A1-63/13)",
+       "tipo": "sala",
+       "cantos": [
+        [
+         -45.63,
+         70.47
+        ],
+        [
+         -40.13,
+         64.53
+        ],
+        [
+         -45.85,
+         59.23
+        ],
+        [
+         -51.35,
+         65.17
+        ]
+       ]
+      },
+      {
+       "id": "uac-s-cpd",
+       "rotulo": "CPD",
+       "nome": "CPD (andar de cima)",
+       "tipo": "sala",
+       "cantos": [
+        [
+         -40.15,
+         75.55
+        ],
+        [
+         -34.65,
+         69.6
+        ],
+        [
+         -40.13,
+         64.53
+        ],
+        [
+         -45.63,
+         70.48
+        ]
+       ]
+      },
+      {
+       "id": "uac-s-multiuso",
+       "rotulo": "Sala Multiuso",
+       "nome": "Sala Multiuso",
+       "tipo": "sala",
+       "cantos": [
+        [
+         -34.67,
+         80.62
+        ],
+        [
+         -29.17,
+         74.67
+        ],
+        [
+         -34.65,
+         69.6
+        ],
+        [
+         -40.15,
+         75.55
+        ]
+       ]
+      },
+      {
+       "id": "uac-s-wc-fem-a",
+       "rotulo": "Banheiro femini…",
+       "nome": "Banheiro feminino (A1-63/24)",
+       "tipo": "banheiro-feminino",
+       "cantos": [
+        [
+         -32.62,
+         82.52
+        ],
+        [
+         -27.12,
+         76.58
+        ],
+        [
+         -29.18,
+         74.68
+        ],
+        [
+         -34.68,
+         80.62
+        ]
+       ]
+      },
+      {
+       "id": "uac-s-rack-a",
+       "rotulo": "Rack / Energia",
+       "nome": "Rack / Energia",
+       "tipo": "servico",
+       "cantos": [
+        [
+         -31.01,
+         84.01
+        ],
+        [
+         -25.51,
+         78.07
+        ],
+        [
+         -27.13,
+         76.57
+        ],
+        [
+         -32.63,
+         82.51
+        ]
+       ]
+      },
+      {
+       "id": "uac-s-wc-masc-a",
+       "rotulo": "Banheiro mascul…",
+       "nome": "Banheiro masculino",
+       "tipo": "banheiro-masculino",
+       "cantos": [
+        [
+         -28.67,
+         86.19
+        ],
+        [
+         -23.16,
+         80.25
+        ],
+        [
+         -25.51,
+         78.07
+        ],
+        [
+         -31.02,
+         84.01
+        ]
+       ]
+      },
+      {
+       "id": "uac-s-escada-1",
+       "rotulo": "Escada (1º anda…",
+       "nome": "Escada (1º andar, «Saída»)",
+       "tipo": "escada",
+       "cantos": [
+        [
+         -24.74,
+         86.97
+        ],
+        [
+         -20.66,
+         82.56
+        ],
+        [
+         -23.16,
+         80.25
+        ],
+        [
+         -27.24,
+         84.66
+        ]
+       ]
+      },
+      {
+       "id": "uac-s-elevador",
+       "rotulo": "Elevador",
+       "nome": "Elevador",
+       "tipo": "elevador",
+       "cantos": [
+        [
+         -24.26,
+         90.27
+        ],
+        [
+         -18.75,
+         84.33
+        ],
+        [
+         -20.66,
+         82.57
+        ],
+        [
+         -26.17,
+         88.51
+        ]
+       ]
+      },
+      {
+       "id": "S1",
+       "rotulo": "S-1",
+       "nome": "Sala S1",
+       "tipo": "sala",
+       "cantos": [
+        [
+         -7.17,
+         85.81
+        ],
+        [
+         -13.12,
+         80.3
+        ],
+        [
+         -16.37,
+         83.81
+        ],
+        [
+         -10.42,
+         89.32
+        ]
+       ]
+      },
+      {
+       "id": "S2",
+       "rotulo": "S-2",
+       "nome": "Sala S2",
+       "tipo": "sala",
+       "cantos": [
+        [
+         -3.26,
+         81.58
+        ],
+        [
+         -9.21,
+         76.07
+        ],
+        [
+         -13.12,
+         80.3
+        ],
+        [
+         -7.17,
+         85.81
+        ]
+       ]
+      },
+      {
+       "id": "S3",
+       "rotulo": "S-3",
+       "nome": "Sala S3",
+       "tipo": "sala",
+       "cantos": [
+        [
+         0.66,
+         77.36
+        ],
+        [
+         -5.29,
+         71.85
+        ],
+        [
+         -9.2,
+         76.08
+        ],
+        [
+         -3.25,
+         81.59
+        ]
+       ]
+      },
+      {
+       "id": "S4",
+       "rotulo": "S-4",
+       "nome": "Sala S4",
+       "tipo": "sala",
+       "cantos": [
+        [
+         4.58,
+         73.13
+        ],
+        [
+         -1.38,
+         67.62
+        ],
+        [
+         -5.3,
+         71.85
+        ],
+        [
+         0.66,
+         77.36
+        ]
+       ]
+      },
+      {
+       "id": "S5",
+       "rotulo": "S-5",
+       "nome": "Sala S5",
+       "tipo": "sala",
+       "cantos": [
+        [
+         8.5,
+         68.9
+        ],
+        [
+         2.54,
+         63.39
+        ],
+        [
+         -1.38,
+         67.62
+        ],
+        [
+         4.58,
+         73.13
+        ]
+       ]
+      },
+      {
+       "id": "S6",
+       "rotulo": "S-6",
+       "nome": "Sala S6",
+       "tipo": "sala",
+       "cantos": [
+        [
+         12.42,
+         64.67
+        ],
+        [
+         6.46,
+         59.16
+        ],
+        [
+         2.54,
+         63.39
+        ],
+        [
+         8.5,
+         68.9
+        ]
+       ]
+      },
+      {
+       "id": "S7",
+       "rotulo": "S-7",
+       "nome": "Sala S7",
+       "tipo": "sala",
+       "cantos": [
+        [
+         16.34,
+         60.44
+        ],
+        [
+         10.38,
+         54.93
+        ],
+        [
+         6.46,
+         59.16
+        ],
+        [
+         12.42,
+         64.67
+        ]
+       ]
+      },
+      {
+       "id": "S8",
+       "rotulo": "S-8",
+       "nome": "Sala S8",
+       "tipo": "sala",
+       "cantos": [
+        [
+         20.38,
+         56.08
+        ],
+        [
+         14.43,
+         50.57
+        ],
+        [
+         10.4,
+         54.92
+        ],
+        [
+         16.35,
+         60.43
+        ]
+       ]
+      },
+      {
+       "id": "S9",
+       "rotulo": "S-9",
+       "nome": "Sala S9",
+       "tipo": "sala",
+       "cantos": [
+        [
+         22.69,
+         53.58
+        ],
+        [
+         16.74,
+         48.07
+        ],
+        [
+         14.43,
+         50.58
+        ],
+        [
+         20.38,
+         56.09
+        ]
+       ]
+      },
+      {
+       "id": "uac-s-banheiro-masculino-s10",
+       "rotulo": "Banheiro mascul…",
+       "nome": "Banheiro masculino",
+       "tipo": "banheiro-masculino",
+       "cantos": [
+        [
+         21.91,
+         49.85
+        ],
+        [
+         18.24,
+         46.45
+        ],
+        [
+         16.75,
+         48.07
+        ],
+        [
+         20.42,
+         51.47
+        ]
+       ]
+      },
+      {
+       "id": "uac-s-banheiro-feminino-s10",
+       "rotulo": "Banheiro femini…",
+       "nome": "Banheiro feminino",
+       "tipo": "banheiro-feminino",
+       "cantos": [
+        [
+         19.68,
+         38.93
+        ],
+        [
+         16.29,
+         42.6
+        ],
+        [
+         18.16,
+         44.33
+        ],
+        [
+         21.55,
+         40.66
+        ]
+       ]
+      },
+      {
+       "id": "uac-s-rack-b",
+       "rotulo": "Rack / Energia…",
+       "nome": "Rack / Energia (lado da S-10)",
+       "tipo": "servico",
+       "cantos": [
+        [
+         22.59,
+         45.44
+        ],
+        [
+         21.1,
+         47.05
+        ],
+        [
+         22.71,
+         48.54
+        ],
+        [
+         24.2,
+         46.93
+        ]
+       ]
+      },
+      {
+       "id": "uac-s-escada-2",
+       "rotulo": "Escada (liga ao…",
+       "nome": "Escada (liga ao térreo, ao lado do WC masculino)",
+       "tipo": "escada",
+       "cantos": [
+        [
+         22.45,
+         40.13
+        ],
+        [
+         18.37,
+         44.54
+        ],
+        [
+         20.87,
+         46.85
+        ],
+        [
+         24.95,
+         42.44
+        ]
+       ]
+      },
+      {
+       "id": "S10",
+       "rotulo": "S-10",
+       "nome": "Sala S10",
+       "tipo": "sala",
+       "cantos": [
+        [
+         -9.99,
+         7.21
+        ],
+        [
+         -15.49,
+         13.16
+        ],
+        [
+         12.41,
+         38.99
+        ],
+        [
+         17.91,
+         33.04
+        ]
+       ]
+      }
+     ]
+    }
+   ],
+   "termo": "uac"
+  },
+  {
+   "id": "uep",
+   "sigla": "LDTEA",
+   "nome": "Unidade de Ensino e Pesquisa (UEP), o prédio LDTEA",
+   "contorno": [
+    [
+     46.53,
+     -62.73
+    ],
+    [
+     49.02,
+     -134.47
+    ],
+    [
+     30.48,
+     -135.27
+    ],
+    [
+     28.8,
+     -64.08
+    ]
+   ],
+   "patios": [],
+   "andares": [
+    {
+     "id": "terreo",
+     "nome": "térreo",
+     "corredores": [
+      {
+       "eixo": [
+        [
+         39.65,
+         -131.95
+        ],
+        [
+         37.36,
+         -66.05
+        ]
+       ],
+       "largura": 2.8
+      }
+     ],
+     "itens": [
+      {
+       "id": "ldtea-ter-101",
+       "rotulo": "Lab. Nanotecnol…",
+       "nome": "Lab. Nanotecnologia (LabNanotec) / Tecnologias Limpas",
+       "tipo": "laboratorio",
+       "cantos": [
+        [
+         30.15,
+         -121.28
+        ],
+        [
+         37.87,
+         -121.01
+        ],
+        [
+         38.25,
+         -132.0
+        ],
+        [
+         30.53,
+         -132.27
+        ]
+       ],
+       "termos": [
+        "labnanotec"
+       ]
+      },
+      {
+       "id": "ldtea-ter-102",
+       "rotulo": "Lab. GMEC",
+       "nome": "Lab. GMEC",
+       "tipo": "laboratorio",
+       "cantos": [
+        [
+         40.67,
+         -120.92
+        ],
+        [
+         48.55,
+         -120.64
+        ],
+        [
+         48.93,
+         -131.62
+        ],
+        [
+         41.05,
+         -131.9
+        ]
+       ],
+       "termos": [
+        "gmec"
+       ]
+      },
+      {
+       "id": "ldtea-ter-103",
+       "rotulo": "Lab. Estruturas…",
+       "nome": "Lab. Estruturas e Materiais Aeroespaciais (LEMA)",
+       "tipo": "laboratorio",
+       "cantos": [
+        [
+         29.89,
+         -110.3
+        ],
+        [
+         37.49,
+         -110.04
+        ],
+        [
+         37.87,
+         -121.02
+        ],
+        [
+         30.27,
+         -121.28
+        ]
+       ],
+       "termos": [
+        "lema"
+       ]
+      },
+      {
+       "id": "ldtea-ter-104-108",
+       "rotulo": "Lab. Sistemas E…",
+       "nome": "Lab. Sistemas Espaciais (LaSE)",
+       "tipo": "laboratorio",
+       "cantos": [
+        [
+         39.52,
+         -87.97
+        ],
+        [
+         47.39,
+         -87.7
+        ],
+        [
+         48.54,
+         -120.65
+        ],
+        [
+         40.67,
+         -120.92
+        ]
+       ],
+       "termos": [
+        "lase"
+       ]
+      },
+      {
+       "id": "ldtea-ter-107",
+       "rotulo": "Lab. Processos…",
+       "nome": "Lab. Processos de Fabricação",
+       "tipo": "laboratorio",
+       "cantos": [
+        [
+         29.25,
+         -88.33
+        ],
+        [
+         36.73,
+         -88.07
+        ],
+        [
+         37.11,
+         -99.05
+        ],
+        [
+         29.63,
+         -99.31
+        ]
+       ]
+      },
+      {
+       "id": "ldtea-ter-109",
+       "rotulo": "Lab. Acústica e…",
+       "nome": "Lab. Acústica e Vibrações (LabNVH)",
+       "tipo": "laboratorio",
+       "cantos": [
+        [
+         28.99,
+         -77.34
+        ],
+        [
+         36.35,
+         -77.08
+        ],
+        [
+         36.73,
+         -88.06
+        ],
+        [
+         29.37,
+         -88.32
+        ]
+       ],
+       "termos": [
+        "labnvh"
+       ]
+      },
+      {
+       "id": "ldtea-ter-110",
+       "rotulo": "Lab. Desempenho…",
+       "nome": "Lab. Desempenho Automotivo / Tribologia",
+       "tipo": "laboratorio",
+       "cantos": [
+        [
+         39.14,
+         -76.99
+        ],
+        [
+         47.02,
+         -76.71
+        ],
+        [
+         47.4,
+         -87.69
+        ],
+        [
+         39.52,
+         -87.97
+        ]
+       ]
+      },
+      {
+       "id": "ldtea-ter-111",
+       "rotulo": "Automotive Rese…",
+       "nome": "Automotive Research Center (ARC) / LACEM",
+       "tipo": "laboratorio",
+       "cantos": [
+        [
+         28.8,
+         -66.34
+        ],
+        [
+         35.96,
+         -66.09
+        ],
+        [
+         36.34,
+         -77.08
+        ],
+        [
+         29.18,
+         -77.33
+        ]
+       ],
+       "termos": [
+        "arc",
+        "lacem"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "1",
+     "nome": "1º andar",
+     "corredores": [
+      {
+       "eixo": [
+        [
+         39.65,
+         -131.95
+        ],
+        [
+         37.36,
+         -66.05
+        ]
+       ],
+       "largura": 2.8
+      }
+     ],
+     "itens": [
+      {
+       "id": "ldtea-1a-202",
+       "rotulo": "LATAME / BioGama",
+       "nome": "LATAME / BioGama",
+       "tipo": "laboratorio",
+       "cantos": [
+        [
+         40.47,
+         -115.43
+        ],
+        [
+         48.35,
+         -115.16
+        ],
+        [
+         48.93,
+         -131.63
+        ],
+        [
+         41.05,
+         -131.9
+        ]
+       ],
+       "termos": [
+        "latame"
+       ]
+      },
+      {
+       "id": "ldtea-1a-203",
+       "rotulo": "LAPRREn",
+       "nome": "LAPRREn",
+       "tipo": "laboratorio",
+       "cantos": [
+        [
+         29.71,
+         -105.9
+        ],
+        [
+         37.33,
+         -105.64
+        ],
+        [
+         37.79,
+         -118.82
+        ],
+        [
+         30.17,
+         -119.08
+        ]
+       ],
+       "termos": [
+        "laprren"
+       ]
+      },
+      {
+       "id": "ldtea-2a-ltbio-204",
+       "rotulo": "LTBIO (parte no…",
+       "nome": "LTBIO (parte no LDTEA)",
+       "tipo": "laboratorio",
+       "cantos": [
+        [
+         39.9,
+         -98.95
+        ],
+        [
+         47.78,
+         -98.68
+        ],
+        [
+         48.36,
+         -115.15
+        ],
+        [
+         40.48,
+         -115.42
+        ]
+       ],
+       "termos": [
+        "ltbio"
+       ]
+      },
+      {
+       "id": "ldtea-1a-206",
+       "rotulo": "LASEE / LMPIE",
+       "nome": "LASEE / LMPIE",
+       "tipo": "laboratorio",
+       "cantos": [
+        [
+         39.33,
+         -82.48
+        ],
+        [
+         47.21,
+         -82.21
+        ],
+        [
+         47.79,
+         -98.68
+        ],
+        [
+         39.91,
+         -98.95
+        ]
+       ],
+       "termos": [
+        "lasee",
+        "lmpie"
+       ]
+      },
+      {
+       "id": "ldtea-1a-207",
+       "rotulo": "LabMicro",
+       "nome": "LabMicro",
+       "tipo": "laboratorio",
+       "cantos": [
+        [
+         29.1,
+         -79.54
+        ],
+        [
+         36.42,
+         -79.28
+        ],
+        [
+         36.88,
+         -92.46
+        ],
+        [
+         29.56,
+         -92.72
+        ]
+       ],
+       "termos": [
+        "labmicro"
+       ]
+      },
+      {
+       "id": "ldtea-1a-208",
+       "rotulo": "BioEngLab / MAG…",
+       "nome": "BioEngLab / MAGPIE / LARSIS",
+       "tipo": "laboratorio",
+       "cantos": [
+        [
+         38.75,
+         -66.0
+        ],
+        [
+         46.63,
+         -65.73
+        ],
+        [
+         47.21,
+         -82.2
+        ],
+        [
+         39.33,
+         -82.47
+        ]
+       ],
+       "termos": [
+        "bioenglab",
+        "magpie",
+        "larsis"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "2",
+     "nome": "2º andar",
+     "corredores": [
+      {
+       "eixo": [
+        [
+         39.65,
+         -131.95
+        ],
+        [
+         37.36,
+         -66.05
+        ]
+       ],
+       "largura": 2.8
+      }
+     ],
+     "itens": [
+      {
+       "id": "ldtea-2a-301-reuniao",
+       "rotulo": "Sala de reuniõe…",
+       "nome": "Sala de reuniões do LDTEA/UEP (sala 301)",
+       "tipo": "sala-de-reuniao",
+       "cantos": [
+        [
+         30.19,
+         -122.86
+        ],
+        [
+         37.92,
+         -122.59
+        ],
+        [
+         38.25,
+         -132.0
+        ],
+        [
+         30.52,
+         -132.27
+        ]
+       ]
+      },
+      {
+       "id": "ldtea-2a-304",
+       "rotulo": "COSMOS (aeroesp…",
+       "nome": "COSMOS (aeroespacial)",
+       "tipo": "laboratorio",
+       "cantos": [
+        [
+         40.4,
+         -113.07
+        ],
+        [
+         48.27,
+         -112.8
+        ],
+        [
+         48.6,
+         -122.21
+        ],
+        [
+         40.73,
+         -122.48
+        ]
+       ],
+       "termos": [
+        "cosmos"
+       ]
+      },
+      {
+       "id": "ldtea-2a-305-306",
+       "rotulo": "Lab. Compartilh…",
+       "nome": "Lab. Compartilhado de Telecomunicações",
+       "tipo": "laboratorio",
+       "cantos": [
+        [
+         29.68,
+         -104.02
+        ],
+        [
+         37.27,
+         -103.75
+        ],
+        [
+         37.6,
+         -113.16
+        ],
+        [
+         30.01,
+         -113.43
+        ]
+       ]
+      },
+      {
+       "id": "ldtea-2a-307",
+       "rotulo": "LABENSO",
+       "nome": "LABENSO",
+       "tipo": "laboratorio",
+       "cantos": [
+        [
+         29.47,
+         -94.6
+        ],
+        [
+         36.94,
+         -94.34
+        ],
+        [
+         37.27,
+         -103.76
+        ],
+        [
+         29.8,
+         -104.02
+        ]
+       ],
+       "termos": [
+        "labenso"
+       ]
+      },
+      {
+       "id": "ldtea-2a-310",
+       "rotulo": "CEDIS",
+       "nome": "CEDIS",
+       "tipo": "laboratorio",
+       "cantos": [
+        [
+         39.41,
+         -84.83
+        ],
+        [
+         47.28,
+         -84.56
+        ],
+        [
+         47.61,
+         -93.97
+        ],
+        [
+         39.74,
+         -94.24
+        ]
+       ],
+       "termos": [
+        "cedis"
+       ]
+      },
+      {
+       "id": "ldtea-2a-311",
+       "rotulo": "AILAB",
+       "nome": "AILAB",
+       "tipo": "laboratorio",
+       "cantos": [
+        [
+         28.93,
+         -75.77
+        ],
+        [
+         36.28,
+         -75.51
+        ],
+        [
+         36.61,
+         -84.93
+        ],
+        [
+         29.26,
+         -85.19
+        ]
+       ],
+       "termos": [
+        "ailab"
+       ]
+      },
+      {
+       "id": "ldtea-2a-312",
+       "rotulo": "ITRAC",
+       "nome": "ITRAC",
+       "tipo": "laboratorio",
+       "cantos": [
+        [
+         39.09,
+         -75.42
+        ],
+        [
+         46.96,
+         -75.15
+        ],
+        [
+         47.29,
+         -84.56
+        ],
+        [
+         39.42,
+         -84.83
+        ]
+       ],
+       "termos": [
+        "itrac"
+       ]
+      },
+      {
+       "id": "ldtea-2a-313",
+       "rotulo": "LAPPIS / LATEd…",
+       "nome": "LAPPIS / LATEd / LIST",
+       "tipo": "laboratorio",
+       "cantos": [
+        [
+         28.8,
+         -66.35
+        ],
+        [
+         35.95,
+         -66.1
+        ],
+        [
+         36.28,
+         -75.51
+        ],
+        [
+         29.13,
+         -75.76
+        ]
+       ],
+       "termos": [
+        "lappis",
+        "lated",
+        "list"
+       ]
+      }
+     ]
+    }
+   ],
+   "termo": "ldtea"
+  }
+ ]
+}
