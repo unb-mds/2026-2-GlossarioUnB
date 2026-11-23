@@ -89,9 +89,15 @@ Levantadas em 19/11/2026 via API do GitHub e `git log` para a janela oficial da 
 
 ## Prints
 
-Os prints abaixo devem ser anexados em `docs/scrum/sprints/img/` antes do merge deste PR para evidência visual do período:
-- `docs/scrum/sprints/img/sprint-08-quadro.png` — quadro do projeto / [Milestone 9 (Sprint 08)](https://github.com/unb-mds/2026-2-GlossarioUnB/milestone/9)
-- `docs/scrum/sprints/img/sprint-08-commits.png` — gráfico de commits ([Insights → Commits](https://github.com/unb-mds/2026-2-GlossarioUnB/graphs/commit-activity))
+Prints tirados em 23/11/2026, depois do fim da sprint.
+
+**Milestone da Sprint 08** ([Milestone 9](https://github.com/unb-mds/2026-2-GlossarioUnB/milestone/9)), com os itens ainda abertos em 23/11:
+
+![Milestone da Sprint 08 com os itens abertos](img/sprint-08-quadro.png)
+
+**Gráfico de commits** por semana ([Insights → Commits](https://github.com/unb-mds/2026-2-GlossarioUnB/graphs/commit-activity)):
+
+![Gráfico de commits do repositório](img/sprint-08-commits.png)
 
 ## Atas
 
