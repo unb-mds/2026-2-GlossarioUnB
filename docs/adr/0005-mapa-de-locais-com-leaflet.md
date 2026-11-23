@@ -18,4 +18,4 @@
 
 ## Consequências
 - (−) Depende de CDN externo e dos tiles do OSM; o mapa não funciona offline (ADR 0003).
-- (−) Cada `localizacao` precisa de coordenadas verificadas. As dos termos de exemplo **não foram verificadas**.
+- (−) Cada `localizacao` precisa de coordenadas verificadas antes do merge (as do Ceubinho foram verificadas via OpenStreetMap — nó 767000561 — na issue #65).

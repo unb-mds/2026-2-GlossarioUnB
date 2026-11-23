@@ -1,6 +1,6 @@
 {
-  "provisoria": true,
-  "origem": "proposta da issue #63 (taxonomia, da Jéssyca), ainda aberta; quando ela entrar, troque só este arquivo",
+  "provisoria": false,
+  "origem": "taxonomia fechada na issue #63 e registrada na ADR 0004",
   "categorias": [
     { "id": "vida-academica", "nome": "Vida acadêmica", "descricao": "Notas, menções, matrícula, trancamento e índices (SS, MS, IRA, trancamento, reoferta)." },
     { "id": "unidades-academicas", "nome": "Unidades acadêmicas", "descricao": "Faculdades, institutos e campi (FT, IE, FCTE, FUP, IL)." },
