@@ -141,5 +141,27 @@
         "para": ""
       }
     ]
+  },
+  {
+    "modulo": "frontend/js/validacao-termo.js",
+    "defeito": "ligação do Veja também para um termo que não existe passa",
+    "arquivo": "frontend/js/validacao-termo.js",
+    "trocas": [
+      {
+        "de": "if (typeof idRel === \"string\" && !todosIds.has(idRel)) erros.push(`${rotulo}: id relacionado \"${idRel}\" não existe no glossário`);",
+        "para": ""
+      }
+    ]
+  },
+  {
+    "modulo": "frontend/js/ficha.js",
+    "defeito": "Veja também mostra uma ligação para termo que não existe",
+    "arquivo": "frontend/js/ficha.js",
+    "trocas": [
+      {
+        "de": "    .filter(Boolean)\n    .map((outro) => ({",
+        "para": "    .map((outro) => outro ?? { id: \"?\", termo: \"?\" })\n    .map((outro) => ({"
+      }
+    ]
   }
 ]

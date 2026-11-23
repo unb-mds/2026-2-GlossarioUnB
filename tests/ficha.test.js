@@ -2,7 +2,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 
-import { rotuloCampus, textoDaFonte, textoDosSinonimos, tituloDaFicha, urlDoTermo } from "../frontend/js/ficha.js";
+import { relacionadosDe, rotuloCampus, textoDaFonte, textoDosSinonimos, tituloDaFicha, urlDoTermo } from "../frontend/js/ficha.js";
 
 test("o endereço do termo usa o id, com os caracteres especiais codificados", () => {
   assert.equal(urlDoTermo({ id: "deg" }), "termo.html?id=deg");
@@ -34,4 +34,18 @@ test("os sinônimos aparecem separados por vírgula, e sem sinônimo não há bl
   assert.equal(textoDosSinonimos({ sinonimos: ["FGA", "Faculdade do Gama"] }), "FGA, Faculdade do Gama");
   assert.equal(textoDosSinonimos({ sinonimos: [] }), null);
   assert.equal(textoDosSinonimos({}), null);
+});
+
+test("relacionadosDe: os termos do Veja também, na ordem gravada, com nome, significado e endereço", () => {
+  const termos = [
+    { id: "dds", termo: "DDS", significado: "Diretoria de Desenvolvimento Social", relacionados: ["dac", "sumiu", "sigaa"] },
+    { id: "dac", termo: "DAC", significado: "Decanato de Assuntos Comunitários" },
+    { id: "sigaa", termo: "SIGAA" },
+  ];
+  assert.deepEqual(relacionadosDe(termos[0], termos), [
+    { id: "dac", termo: "DAC", significado: "Decanato de Assuntos Comunitários", href: "termo.html?id=dac" },
+    { id: "sigaa", termo: "SIGAA", significado: null, href: "termo.html?id=sigaa" },
+  ]);
+  assert.deepEqual(relacionadosDe(termos[1], termos), []);
+  assert.deepEqual(relacionadosDe({ id: "x", relacionados: "dac" }, termos), []);
 });

@@ -48,6 +48,24 @@ function validarSinonimos(sinonimos) {
   return erros;
 }
 
+// "Veja também" (decisão 57 = C1): ids de outros termos, cada ligação conferida por uma pessoa antes de entrar.
+// A existência de cada id é conferida no arquivo inteiro (validarGlossario).
+function validarRelacionados(relacionados, idTermo) {
+  if (!Array.isArray(relacionados)) return ["relacionados deve ser uma lista de ids"];
+  const erros = [];
+  const vistos = new Set();
+  relacionados.forEach((idRel, i) => {
+    if (typeof idRel !== "string" || !PADRAO_ID.test(idRel)) {
+      erros.push(`relacionados[${i}] "${idRel}" deve usar só letras minúsculas sem acento, números e hífens`);
+      return;
+    }
+    if (idRel === idTermo) erros.push(`relacionados[${i}] não pode apontar para o próprio termo ("${idRel}")`);
+    if (vistos.has(idRel)) erros.push(`relacionados[${i}] id duplicado "${idRel}"`);
+    vistos.add(idRel);
+  });
+  return erros;
+}
+
 // Retorna a lista de problemas do termo; lista vazia = termo válido.
 export function validarTermo(termo) {
   if (typeof termo !== "object" || termo === null) return ["termo deve ser um objeto"];
@@ -74,6 +92,7 @@ export function validarTermo(termo) {
   }
   if (termo.localizacao !== undefined) erros.push(...validarLocalizacao(termo.localizacao));
   if (termo.sinonimos !== undefined) erros.push(...validarSinonimos(termo.sinonimos));
+  if (termo.relacionados !== undefined) erros.push(...validarRelacionados(termo.relacionados, termo.id));
 
   return erros;
 }
@@ -95,12 +114,14 @@ function sinonimosQueSaoOutroTermo(termos) {
   return erros;
 }
 
-// Valida o arquivo inteiro: cada termo + ids únicos. Mensagens indicam qual termo falhou.
+// Valida o arquivo inteiro: cada termo + ids únicos + cada ligação do "Veja também" aponta para um termo que existe.
+// Mensagens indicam qual termo falhou.
 export function validarGlossario(termos) {
   if (!Array.isArray(termos)) return ["o arquivo de termos deve conter uma lista (array)"];
 
   const erros = [];
   const idsVistos = new Set();
+  const todosIds = new Set(termos.map((termo) => termo?.id).filter(textoPreenchido));
   termos.forEach((termo, indice) => {
     const rotulo = `termo #${indice} (${termo?.id ?? "sem id"})`;
     erros.push(...validarTermo(termo).map((erro) => `${rotulo}: ${erro}`));
@@ -108,6 +129,12 @@ export function validarGlossario(termos) {
     if (!textoPreenchido(termo?.id)) return;
     if (idsVistos.has(termo.id)) erros.push(`${rotulo}: id duplicado`);
     idsVistos.add(termo.id);
+
+    if (Array.isArray(termo.relacionados)) {
+      for (const idRel of termo.relacionados) {
+        if (typeof idRel === "string" && !todosIds.has(idRel)) erros.push(`${rotulo}: id relacionado "${idRel}" não existe no glossário`);
+      }
+    }
   });
   erros.push(...sinonimosQueSaoOutroTermo(termos));
   return erros;

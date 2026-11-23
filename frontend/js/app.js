@@ -8,7 +8,7 @@ import { TIPOS, encontrarTermo, filtrosDaUrl, resumoDoTermo } from "./termos.js"
 import { validarTermo } from "./validacao-termo.js";
 import { atalhosPorTipo, gruposDaTrilha, proximoIndice, rotuloDaSugestao, sugestoesPara, termoDoEnvio, textoDoStatus, textoSemResultado } from "./busca.js";
 import { enderecoDosFiltros, etiquetasDoCartao, montarLista, opcoesDeCampus, opcoesDeCategoria, opcoesDeTipo, textoDaContagem } from "./lista.js";
-import { rotuloCampus, textoDaFonte, textoDosSinonimos, tituloDaFicha, urlDoTermo } from "./ficha.js";
+import { relacionadosDe, rotuloCampus, textoDaFonte, textoDosSinonimos, tituloDaFicha, urlDoTermo } from "./ficha.js";
 import { escuroAtivo, proximoTema, salvarTema } from "./tema.js";
 
 const URL_DADOS = "data/termos.json";
@@ -326,6 +326,20 @@ function criarBloco(titulo, ...conteudo) {
   return bloco;
 }
 
+// "Veja também": um link por termo ligado, com a sigla e o nome visíveis (o nome do link é o próprio texto).
+function criarBlocoVejaTambem(relacionados) {
+  const lista = criarElemento("ul", { classe: "veja-tambem" });
+  for (const { termo, significado, href } of relacionados) {
+    const link = criarElemento("a", { atributos: { href } });
+    link.append(criarElemento("span", { classe: "veja-tambem-sigla", texto: termo }));
+    if (significado) link.append(criarElemento("span", { classe: "veja-tambem-nome", texto: significado }));
+    const item = criarElemento("li");
+    item.append(link);
+    lista.append(item);
+  }
+  return criarBloco("Veja também", lista);
+}
+
 // Fonte pode ser um link ou um texto; o texto e o endereço vêm do ficha.js.
 function criarFonte(fonte) {
   const { texto, href } = textoDaFonte(fonte);
@@ -401,6 +415,9 @@ function iniciarPaginaTermo(termos) {
 
   const sinonimos = textoDosSinonimos(termo);
   if (sinonimos) container.append(criarBloco("Também conhecido como", criarElemento("p", { texto: sinonimos })));
+
+  const relacionados = relacionadosDe(termo, termos);
+  if (relacionados.length > 0) container.append(criarBlocoVejaTambem(relacionados));
 
   if (!termo.localizacao) return;
   const { bloco, montar } = criarBlocoMapa(termo.localizacao);

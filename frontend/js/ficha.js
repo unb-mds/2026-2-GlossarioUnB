@@ -16,6 +16,17 @@ export function textoDosSinonimos(termo) {
   return sinonimos.length > 0 ? sinonimos.join(", ") : null;
 }
 
+// Os termos do bloco "Veja também", na ordem gravada em `relacionados`. Um id que não existe é ignorado (o CI recusa,
+// mas a página não pode quebrar por isso).
+export function relacionadosDe(termo, termos) {
+  if (!Array.isArray(termo?.relacionados)) return [];
+  const porId = new Map(termos.map((outro) => [outro.id, outro]));
+  return termo.relacionados
+    .map((id) => porId.get(id))
+    .filter(Boolean)
+    .map((outro) => ({ id: outro.id, termo: outro.termo, significado: outro.significado ?? null, href: urlDoTermo(outro) }));
+}
+
 export function rotuloCampus(campus) {
   return campus === CAMPUS_GERAL ? "Todos os campi" : `Campus ${campus}`;
 }
