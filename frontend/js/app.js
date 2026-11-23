@@ -22,8 +22,8 @@ function urlModeloIssue(modelo, prefixoTitulo, termo = "") {
   return termo ? `${base}&title=${encodeURIComponent(`${prefixoTitulo} ${termo}`)}` : base;
 }
 
-const urlAdicionarTermo = (termo) => urlModeloIssue("adicionar-termo.md", "[Adicionar Termo]", termo);
-const urlCorrigirDefinicao = (termo) => urlModeloIssue("corrigir-definicao.md", "[Corrigir Definição]", termo);
+const urlAdicionarTermo = (termo) => urlModeloIssue("adicionar-termo.yml", "[Adicionar Termo]", termo);
+const urlCorrigirDefinicao = (termo) => urlModeloIssue("corrigir-definicao.yml", "[Corrigir Definição]", termo);
 
 // ===== Utilidades de DOM =====
 
