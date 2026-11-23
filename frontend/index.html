@@ -52,7 +52,15 @@
 
     <section id="trilha-calouro" class="trilha" aria-labelledby="titulo-trilha">
       <h2 id="titulo-trilha" class="trilha-titulo">Primeiros passos na UnB</h2>
-      <p class="trilha-lema">O que todo calouro ouve na primeira semana, separado pelo que você precisa fazer.</p>
+      <p class="trilha-lema">O que você vai precisar em cada momento do semestre, na ordem em que aparece.</p>
+      <div id="trilha-progresso" class="trilha-progresso">
+        <div class="trilha-progresso-topo">
+          <p id="trilha-contagem" class="trilha-contagem" tabindex="-1">&nbsp;</p>
+          <button id="trilha-recomecar" class="trilha-recomecar" type="button" hidden>Recomeçar</button>
+        </div>
+        <progress id="trilha-barra" class="trilha-barra" max="1" value="0" aria-labelledby="trilha-contagem"></progress>
+        <p id="trilha-privacidade" class="trilha-privacidade">Seu progresso fica só neste aparelho. Nada é enviado.</p>
+      </div>
       <ol id="trilha-grupos" class="trilha-grupos"></ol>
     </section>
 

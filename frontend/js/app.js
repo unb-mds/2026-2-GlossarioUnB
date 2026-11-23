@@ -10,6 +10,7 @@ import { atalhosPorTipo, gruposDaTrilha, proximoIndice, sugestoesPara, termoDoEn
 import { enderecoDosFiltros, etiquetasDoCartao, montarLista, opcoesDeCampus, opcoesDeTipo, textoDaContagem } from "./lista.js";
 import { rotuloCampus, textoDaFonte, tituloDaFicha, urlDoTermo } from "./ficha.js";
 import { escuroAtivo, proximoTema, salvarTema } from "./tema.js";
+import { CHAVE_PROGRESSO, armazenamentoDisponivel, lerVistos, marcarVisto, progressoDaTrilha, recomecarTrilha, termosDaTrilha } from "./trilha.js";
 
 const URL_DADOS = "data/termos.json";
 const URL_TRILHA = "data/trilha-calouro.json";
@@ -215,7 +216,8 @@ async function iniciarTrilha(termos) {
   try {
     const resposta = await fetch(URL_TRILHA);
     if (!resposta.ok) throw new Error(`Não foi possível carregar ${URL_TRILHA} (HTTP ${resposta.status})`);
-    const grupos = gruposDaTrilha(await resposta.json(), termos);
+    const trilha = await resposta.json();
+    const grupos = gruposDaTrilha(trilha, termos);
     if (grupos.length === 0) {
       secao.hidden = true;
       return;
@@ -226,10 +228,11 @@ async function iniciarTrilha(termos) {
       const titulo = criarElemento("h3", { classe: "trilha-grupo-nome", texto: grupo.nome, atributos: { id: grupo.idDoTitulo } });
       const termosDoGrupo = criarElemento("ul", { classe: "trilha-termos", atributos: { "aria-labelledby": grupo.idDoTitulo } });
       for (const termo of grupo.termos) {
-        const link = criarElemento("a", { classe: "trilha-termo", atributos: { href: termo.href } });
+        const link = criarElemento("a", { classe: "trilha-termo", atributos: { href: termo.href, "data-termo": termo.id } });
         link.append(
           criarElemento("span", { classe: "trilha-termo-nome", texto: termo.nome }),
           criarElemento("span", { classe: "trilha-termo-resumo", texto: termo.resumo }),
+          criarMarcaDeVisto(),
         );
         const item = criarElemento("li");
         item.append(link);
@@ -238,9 +241,76 @@ async function iniciarTrilha(termos) {
       itemGrupo.append(titulo, termosDoGrupo);
       lista.append(itemGrupo);
     }
+    iniciarProgressoDaTrilha(grupos.flatMap((grupo) => grupo.termos.map((termo) => termo.id)), lista);
   } catch (erro) {
     secao.hidden = true;
     console.warn("Trilha do calouro não carregada:", erro);
+  }
+}
+
+// A marca não é só cor: tem o ícone e, para o leitor de tela, o texto "já visto".
+function criarMarcaDeVisto() {
+  const marca = criarElemento("span", { classe: "trilha-termo-marca", atributos: { hidden: "" } });
+  marca.append(
+    criarElemento("span", { texto: "✓", atributos: { "aria-hidden": "true" } }),
+    criarElemento("span", { classe: "sr-only", texto: "já visto" }),
+  );
+  return marca;
+}
+
+// Progresso guardado só neste aparelho (decisão 58). Sem armazenamento, a trilha continua igual e sem marcas.
+const obterArmazenamento = () => window.localStorage;
+
+function iniciarProgressoDaTrilha(idsDaTrilha, lista) {
+  const contagem = document.getElementById("trilha-contagem");
+  const barra = document.getElementById("trilha-barra");
+  const botao = document.getElementById("trilha-recomecar");
+  const nota = document.getElementById("trilha-privacidade");
+  const caixa = document.getElementById("trilha-progresso");
+  if (!contagem || !barra || !botao || !nota || !caixa) return;
+
+  if (!armazenamentoDisponivel(obterArmazenamento)) {
+    caixa.setAttribute("data-sem-armazenamento", "");
+    contagem.textContent = "Progresso indisponível neste navegador";
+    nota.textContent = "A trilha funciona igual, só sem as marcas.";
+    return;
+  }
+
+  const atualizar = () => {
+    const vistos = lerVistos(obterArmazenamento, idsDaTrilha);
+    const progresso = progressoDaTrilha(idsDaTrilha, vistos);
+    contagem.textContent = progresso.texto;
+    barra.max = progresso.total;
+    barra.value = progresso.vistos;
+    botao.hidden = progresso.vistos === 0;
+    for (const link of lista.querySelectorAll(".trilha-termo")) {
+      link.querySelector(".trilha-termo-marca").hidden = !vistos.has(link.dataset.termo);
+    }
+  };
+
+  botao.addEventListener("click", () => {
+    recomecarTrilha(obterArmazenamento);
+    atualizar();
+    contagem.focus(); // o botão some: o foco do teclado não pode se perder junto com ele
+  });
+  // Ao voltar de um termo pelo botão do navegador, a página pode vir da memória, sem rodar este módulo de novo.
+  window.addEventListener("pageshow", (evento) => {
+    if (evento.persisted) atualizar();
+  });
+  window.addEventListener("storage", (evento) => {
+    if (evento.key === CHAVE_PROGRESSO || evento.key === null) atualizar();
+  });
+  atualizar();
+}
+
+// Abrir a página de um termo da trilha conta como visto. É um extra: se falhar, a página do termo não muda.
+async function marcarTermoNaTrilha(idDoTermo) {
+  try {
+    const resposta = await fetch(URL_TRILHA);
+    if (!resposta.ok) return;
+    marcarVisto(obterArmazenamento, idDoTermo, termosDaTrilha(await resposta.json()));
+  } catch (erro) {
+    console.warn("Não foi possível marcar o termo na trilha:", erro);
   }
 }
 
@@ -395,6 +465,7 @@ function iniciarPaginaTermo(termos) {
     criarBloco("Exemplo de uso", criarElemento("p", { classe: "exemplo-frase", texto: termo.exemplo_uso })),
     criarBloco("Fonte", criarFonte(termo.fonte)),
   );
+  marcarTermoNaTrilha(termo.id);
 
   if (!termo.localizacao) return;
   const { bloco, montar } = criarBlocoMapa(termo.localizacao);

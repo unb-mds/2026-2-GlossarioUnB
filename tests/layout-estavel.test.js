@@ -29,8 +29,27 @@ test("se a trilha não carregar, o JavaScript esconde a seção em vez de deixar
   assert.doesNotMatch(funcao, /secao\.hidden = false/);
 });
 
-test("a trilha reserva altura para 1, 2 e 3 colunas", () => {
-  assert.equal(reserva(".trilha-grupos").length, 3);
+test("a trilha reserva altura para 1, 2 e 3 colunas, na medida dos 25 termos", () => {
+  const alturas = reserva(".trilha-grupos").map((corpo) => corpo.match(/min-height:\s*(\S+?);/)[1]);
+  assert.deepEqual(alturas, ["152rem", "92rem", "71rem"]);
+});
+
+test("o progresso da trilha já vem no HTML e reserva a linha do botão, para não empurrar os grupos", () => {
+  const trilha = html.inicio.slice(html.inicio.indexOf('id="trilha-calouro"'), html.inicio.indexOf('id="trilha-grupos"'));
+  assert.match(trilha, /id="trilha-progresso"/);
+  assert.match(trilha, /id="trilha-contagem"/);
+  assert.match(trilha, /<progress[^>]*id="trilha-barra"/);
+  assert.equal(reserva(".trilha-progresso-topo").length, 1);
+});
+
+test("a marca de visto fica por cima do cartão: aparecer ou sumir não muda a altura do termo", () => {
+  const marca = regras(".trilha-termo-marca").join(" ");
+  assert.match(marca, /position:\s*absolute/);
+  assert.match(regras(".trilha-termo").join(" "), /position:\s*relative/);
+});
+
+test("sem armazenamento, a barra some sem tirar o espaço dela", () => {
+  assert.match(regras(".trilha-progresso[data-sem-armazenamento] .trilha-barra").join(" "), /visibility:\s*hidden/);
 });
 
 test("a lista de atalhos e a lista de termos reservam altura", () => {

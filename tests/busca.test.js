@@ -56,14 +56,14 @@ test("os atalhos contam os termos por tipo e levam à lista já filtrada", () =>
   ]);
 });
 
-test("a trilha chega pronta para a tela: id do título, e por termo o nome, o resumo e o endereço", () => {
+test("a trilha chega pronta para a tela: id do título, e por termo o id, o nome, o resumo e o endereço", () => {
   const trilha = { grupos: [{ id: "notas", nome: "Notas", termos: ["deg", "ceubinho"] }] };
   assert.deepEqual(gruposDaTrilha(trilha, termos), [{
     nome: "Notas",
     idDoTitulo: "trilha-notas",
     termos: [
-      { nome: "DEG", resumo: "Decanato de Ensino de Graduação", href: "termo.html?id=deg" },
-      { nome: "Ceubinho", resumo: "Prédio do ICC.", href: "termo.html?id=ceubinho" },
+      { id: "deg", nome: "DEG", resumo: "Decanato de Ensino de Graduação", href: "termo.html?id=deg" },
+      { id: "ceubinho", nome: "Ceubinho", resumo: "Prédio do ICC.", href: "termo.html?id=ceubinho" },
     ],
   }]);
 });
