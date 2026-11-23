@@ -1,4 +1,4 @@
-// Camada de DOM das 3 páginas: só cria elementos e ouve eventos. As regras ficam em módulos testados no Node
+// Camada de DOM das páginas: só cria elementos e ouve eventos. As regras ficam em módulos testados no Node
 // (ADR 0002): termos.js (busca e filtros), trilha.js, validacao-termo.js (schema) e um módulo por página:
 // busca.js (início), lista.js (todas as siglas), ficha.js (termo) e tema.js (todas).
 // Todo dado de termo entra na página via textContent, nunca via innerHTML:
@@ -9,10 +9,12 @@ import { validarTermo } from "./validacao-termo.js";
 import { atalhosPorTipo, gruposDaTrilha, proximoIndice, sugestoesPara, termoDoEnvio, textoDoStatus, textoSemResultado } from "./busca.js";
 import { enderecoDosFiltros, etiquetasDoCartao, montarLista, opcoesDeCampus, opcoesDeTipo, textoDaContagem } from "./lista.js";
 import { rotuloCampus, textoDaFonte, tituloDaFicha, urlDoTermo } from "./ficha.js";
+import { boletimDaColeta } from "./origem.js";
 import { escuroAtivo, proximoTema, salvarTema } from "./tema.js";
 
 const URL_DADOS = "data/termos.json";
 const URL_TRILHA = "data/trilha-calouro.json";
+const URL_BOLETIM = "../coleta/relatorio.json";
 const URL_REPOSITORIO = "https://github.com/unb-mds/2026-2-GlossarioUnB";
 const MENSAGEM_ERRO_CARGA = "Não foi possível carregar os termos. Verifique sua conexão e tente de novo.";
 
@@ -402,11 +404,53 @@ function iniciarPaginaTermo(termos) {
   montar();
 }
 
+// ===== De onde vêm os dados: o boletim do robô (#74) =====
+
+// O boletim é um extra da página: se não carregar, ela continua mostrando o que vem dos termos.
+async function carregarBoletim() {
+  try {
+    const resposta = await fetch(URL_BOLETIM);
+    return resposta.ok ? await resposta.json() : null;
+  } catch (erro) {
+    console.warn("Boletim do robô indisponível:", erro);
+    return null;
+  }
+}
+
+function criarLinhaDeTotal({ rotulo, total }, maior) {
+  const linha = criarElemento("li", { classe: "dados-linha" });
+  const trilho = criarElemento("span", { classe: "dados-trilho", atributos: { "aria-hidden": "true" } });
+  const barra = criarElemento("span", { classe: "dados-barra" });
+  barra.style.width = `${Math.max(2, (total / maior) * 100)}%`;
+  trilho.append(barra);
+  linha.append(criarElemento("span", { classe: "dados-linha-rotulo", texto: rotulo }), criarElemento("strong", { texto: String(total) }), trilho);
+  return linha;
+}
+
+function preencherTotais(idDaLista, grupos) {
+  const maior = Math.max(1, ...grupos.map((grupo) => grupo.total));
+  document.getElementById(idDaLista)?.replaceChildren(...grupos.map((grupo) => criarLinhaDeTotal(grupo, maior)));
+}
+
+async function iniciarPaginaDados(termos) {
+  const data = document.getElementById("dados-data");
+  if (!data) return;
+
+  const boletim = boletimDaColeta(await carregarBoletim(), termos);
+  data.textContent = boletim.textoDaData ?? "Não foi possível carregar o boletim do robô agora. Os totais abaixo vêm dos termos publicados.";
+  for (const [id, valor] of [["dados-lidas", boletim.numeros.lidas], ["dados-barradas", boletim.numeros.barradas], ["dados-publicados", boletim.numeros.publicados]]) {
+    const campo = document.getElementById(id);
+    if (campo) campo.textContent = valor === null ? "—" : String(valor);
+  }
+  preencherTotais("dados-fontes", boletim.fontes);
+  preencherTotais("dados-categorias", boletim.categorias);
+}
+
 // ===== Erro de carga: mostra aviso no lugar do conteúdo da página atual =====
 
 function mostrarErroDeCarga() {
   const aviso = criarElemento("p", { classe: "aviso-vazio", texto: MENSAGEM_ERRO_CARGA, atributos: { role: "alert" } });
-  const alvo = document.getElementById("conteudo-termo") ?? document.getElementById("lista-termos");
+  const alvo = document.getElementById("conteudo-termo") ?? document.getElementById("lista-termos") ?? document.getElementById("conteudo-dados");
   if (alvo) {
     alvo.replaceChildren(aviso);
     return;
@@ -426,6 +470,7 @@ try {
   await iniciarTrilha(termos);
   iniciarListaCompleta(termos);
   iniciarPaginaTermo(termos);
+  await iniciarPaginaDados(termos);
 } catch (erro) {
   console.error(erro);
   mostrarErroDeCarga();

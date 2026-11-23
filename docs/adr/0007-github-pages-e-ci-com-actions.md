@@ -18,6 +18,7 @@
   | `…/2026-2-GlossarioUnB/frontend/` | `frontend/` | **O glossário**: o produto (PWA) |
   | `…/2026-2-GlossarioUnB/sobre/` | `sobre/` | **Sobre o projeto**: apresentação, como contribuir, mapa do repositório. Só HTML e CSS |
   | `…/2026-2-GlossarioUnB/` | `index.html` | Redireciona para a página Sobre |
+  | `…/2026-2-GlossarioUnB/coleta/relatorio.json` | `coleta/relatorio.json` | O boletim do robô, lido pela página "De onde vêm os dados" (#74). É o único arquivo de `coleta/` publicado |
 
   - **Por que separar:** o glossário é para estudantes e a página Sobre é para quem avalia ou quer contribuir. Separadas, cada uma tem um público, a página Sobre não carrega o service worker nem o JavaScript do app, e o escopo do service worker fica restrito a `/frontend/`.
   - **Por que um só repositório e um só Pages:** o GitHub Pages permite um site por repositório. As duas páginas são pastas desse único site.

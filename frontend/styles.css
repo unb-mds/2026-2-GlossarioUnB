@@ -811,7 +811,85 @@ h1, h2 { line-height: 1.2; }
 
 .rodape p { margin: 0.25rem 0; }
 
+/* ===== De onde vêm os dados ===== */
+.dados-lema { margin: 0 0 1.5rem; max-width: 65ch; font-size: 1.125rem; color: var(--texto-suave); }
+
+.dados-secao {
+  margin-top: 1.25rem;
+  padding: clamp(1.25rem, 4vw, 1.75rem);
+  background: var(--superficie);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  box-shadow: var(--sombra-1);
+}
+
+.dados-secao h2 { margin: 0 0 1rem; font-size: 1.25rem; }
+
+.dados-passos { display: grid; gap: 1rem; margin: 0; padding: 0; list-style: none; counter-reset: passo; }
+
+.dados-passos li { display: grid; grid-template-columns: 2.25rem 1fr; align-content: start; column-gap: 0.75rem; counter-increment: passo; }
+
+.dados-passos li::before {
+  content: counter(passo);
+  grid-row: span 2;
+  display: grid;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  font-weight: 800;
+  color: var(--destaque);
+  background: var(--destaque-fundo);
+  border-radius: 50%;
+}
+
+.dados-passos span { color: var(--texto-suave); font-size: 1rem; }
+
+.dados-data { min-height: 1.7rem; margin: 0 0 1rem; font-weight: 700; }
+
+.dados-numeros { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.75rem; margin: 0 0 1rem; }
+
+.dados-numeros > div {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-end;
+  padding: 0.75rem;
+  background: var(--superficie-2);
+  border-radius: 12px;
+}
+
+.dados-numeros dt { font-size: 0.875rem; line-height: 1.3; color: var(--texto-suave); }
+
+.dados-numero { min-height: 2.5rem; margin: 0; font-size: clamp(1.6rem, 6vw, 2.25rem); line-height: 1.1; font-weight: 800; color: var(--destaque); }
+
+.dados-nota { margin: 0 0 1rem; max-width: 65ch; font-size: 0.95rem; color: var(--texto-suave); }
+
+.dados-barras { display: grid; gap: 0.75rem; margin: 0; padding: 0; list-style: none; }
+
+.dados-fontes { min-height: 7rem; }
+
+.dados-categorias { min-height: 30rem; }
+
+.dados-linha { display: grid; grid-template-columns: 1fr auto; gap: 0.25rem 0.75rem; align-items: baseline; }
+
+.dados-linha-rotulo { font-size: 1rem; }
+
+.dados-trilho { grid-column: 1 / -1; display: block; height: 0.5rem; overflow: hidden; background: var(--superficie-2); border-radius: 999px; }
+
+.dados-barra { display: block; height: 100%; background: var(--destaque); border-radius: 999px; }
+
+@media (min-width: 40rem) {
+  .dados-passos { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .dados-passos li { grid-template-columns: 1fr; row-gap: 0.4rem; }
+  .dados-passos li::before { grid-row: auto; }
+}
+
 /* ===== Telas pequenas ===== */
+/* Com o link Dados, o rótulo longo só cabe a partir de 40rem. */
+@media (max-width: 40rem) {
+  .so-desktop { display: none; }
+  .so-celular { display: inline; }
+}
+
 @media (max-width: 30rem) {
   .barra-conteudo { padding: 0.5rem 1rem; gap: 0.5rem; }
   .marca { font-size: 1rem; gap: 0.5rem; }
@@ -822,4 +900,16 @@ h1, h2 { line-height: 1.2; }
   .so-celular { display: inline; }
   .busca button { padding: 0 1rem; }
   .pagina { padding-top: 1.25rem; }
+}
+
+/* Nos celulares mais estreitos, a marca fica só com o ícone; o nome continua para o leitor de tela. */
+@media (max-width: 24rem) {
+  .marca span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+  }
 }
