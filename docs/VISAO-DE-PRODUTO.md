@@ -141,7 +141,7 @@ Cenário: termo que já existe no glossário
   Dado que o termo coletado já está no termos.json
   Quando o pipeline compara os candidatos
   Então ele não abre uma duplicata
-  E registra o conflito para a revisão humana
+  E, se o significado coletado for diferente, separa o caso como alterado ou conflito para a revisão humana
 ```
 
 **Rastreabilidade:** [#47](https://github.com/unb-mds/2026-2-GlossarioUnB/issues/47), [#52](https://github.com/unb-mds/2026-2-GlossarioUnB/issues/52), [#56](https://github.com/unb-mds/2026-2-GlossarioUnB/issues/56), [#57](https://github.com/unb-mds/2026-2-GlossarioUnB/issues/57), [#58](https://github.com/unb-mds/2026-2-GlossarioUnB/issues/58), [#59](https://github.com/unb-mds/2026-2-GlossarioUnB/issues/59), [#62](https://github.com/unb-mds/2026-2-GlossarioUnB/issues/62); ADR 0009.
