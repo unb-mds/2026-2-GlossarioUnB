@@ -21,7 +21,7 @@ Matriz que liga cada requisito de [`REQUISITOS.md`](REQUISITOS.md) à história,
 | RF08 Sugerir termos ao digitar | US02 | [#38] | [#39], [#138] | `tests/busca.test.js` (setas, Enter, status do leitor de tela, sem resultado) | Pronto |
 | RF09 Termos parecidos e busca sem resultado | US02 | [#66] (E2) | [#138] (aviso) | `tests/busca.test.js` ("sem resultado, o aviso repete o que foi digitado"); parecidos: sem teste | Parcial |
 | RF10 Enviar sugestão pelo site | US04 | [#72] (E3) | nenhum | Sem teste | Pendente (opcional) |
-| RF11 Coletar candidatos de páginas oficiais | US01 | [#56], [#52], [#53], [#61] (E1) | [#111], [#122] (fontes), [#102] (ADR 0009) | `tests/coletor-html.test.js` (decanatos, secretarias, estrutura mudou, validarFontes, fonte com erro) | Parcial ([#55] PDF e [#61] fontes novas pendentes) |
+| RF11 Coletar candidatos de páginas oficiais | US01 | [#56], [#52], [#53], [#61] (E1) | [#111], [#122] (fontes), [#102] (ADR 0009), [#142](https://github.com/unb-mds/2026-2-GlossarioUnB/pull/142) (PDF da DPO) | `tests/coletor-html.test.js` (decanatos, secretarias, estrutura mudou, validarFontes, fonte com erro); `tests/coletor-dpo.test.js` (lista de siglas em PDF) | Parcial ([#61] fontes novas pendentes) |
 | RF12 Separar candidatos em novo, alterado e conflito | US01 | [#57] (E1) | [#101] | `tests/deduplicar.test.js` (casos novo, igual, alterado, conflito, valor-limite 60%, mesclar) | Pronto |
 | RF13 Sugerir categoria e rascunho com LLM, marcando para revisão | US01 | [#58] (E1) | [#104] | `tests/classificador.test.js` (validarResposta, montarPrompt, sem chave, erro da API, limite) | Pronto |
 | RF14 Abrir PR com os termos coletados | US01 | [#59] (E1) | nenhum (PR [#144] aberto) | Sem teste | Pendente |
