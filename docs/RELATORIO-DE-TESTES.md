@@ -1,6 +1,6 @@
 # Relatório de testes e cobertura (R2)
 
-Números medidos na `main` no commit `bab79b5` (22/11/2026), com Node 24 (o do CI) e `npm ci`. Para refazer: `npm ci && npm test && npm run test:cobertura`. A estratégia (camadas, ferramentas e convenções) está nas ADRs [0010](adr/0010-bibliotecas-nos-scripts-do-robo.md) e [0013](adr/0013-analise-de-qualidade-com-sonarqube-cloud.md) e em [`TESTE-DE-SABOTAGEM.md`](TESTE-DE-SABOTAGEM.md); este documento traz só os números. Onde o número depende de um PR ainda aberto, aparece o PR de onde vem; quando o resultado ainda não foi medido, aparece **PREENCHER**.
+Números medidos na `main` no commit `bab79b5` (22/11/2026), com Node 24 (o do CI) e `npm ci`. Para refazer: `npm ci && npm test && npm run test:cobertura`. A estratégia (camadas, ferramentas e convenções) está nas ADRs [0010](adr/0010-bibliotecas-nos-scripts-do-robo.md) e [0013](adr/0013-analise-de-qualidade-com-sonarqube-cloud.md) e em [`TESTE-DE-SABOTAGEM.md`](TESTE-DE-SABOTAGEM.md); este documento traz só os números. Onde o número depende de um PR ainda aberto, aparece o PR de onde vem; quando o resultado ainda não foi medido, aparece **Pendente**.
 
 ## 1. Resumo contra a régua do plano de ensino
 
