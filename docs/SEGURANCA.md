@@ -1,10 +1,10 @@
 # Segurança do Glossário UnB
 
-Atende à issue [#83](https://github.com/unb-mds/2026-2-GlossarioUnB/issues/83) e aos requisitos RNF07, RNF08 e RNF09 ([`REQUISITOS.md`](REQUISITOS.md)). Dados conferidos em 20/11/2026, na `main` (`c76fa25`).
+Atende à issue [#83](https://github.com/unb-mds/2026-2-GlossarioUnB/issues/83) e aos requisitos RNF07, RNF08 e RNF09 ([`REQUISITOS.md`](REQUISITOS.md)). Dados do SonarQube e do `npm audit` de 20/11/2026, na `main` (`c76fa25`); o passo de auditoria no CI entrou em 22/11/2026.
 
 ## 1. Resumo para a régua da R2
 
-| Item da régua | Situação em 20/11/2026 |
+| Item da régua | Situação em 22/11/2026 |
 |---|---|
 | SAST sem vulnerabilidade crítica ou alta em aberto | **0 vulnerabilidades abertas** (SonarQube Cloud, nota A de segurança) |
 | Pontos sensíveis (hotspots) revisados | **0 em aberto, 100% revisados** |
@@ -79,14 +79,13 @@ Também provado: nada que vem do LLM é executado (o classificador e o cliente n
 | **R**epudiation: não saber quem mudou o quê | repositório | histórico do Git, PR por mudança ([ADR 0006](adr/0006-contribuicao-por-pr-e-issue.md)), `AI-USAGE.md` |
 | **I**nformation disclosure: chave vazada, dado pessoal publicado | segredos, termos | `GEMINI_API_KEY` e `SONAR_TOKEN` só como segredo do Actions (fork não recebe); chave mascarada na saída; sem login, cookie ou analytics (RNF08); robô lê só o elemento configurado |
 | **D**enial of service: robô martelando um site; fonte que quebra tudo | coleta | robots.txt, 1 s entre pedidos, user-agent do projeto, erro de uma fonte não para as outras (RNF09); limite de chamadas ao LLM |
-| **E**levation of privilege: workflow com poder demais; HTML injetado no site | CI, front | `permissions: contents: read` no topo de `ci.yml`, `sonar.yml` e `pages.yml` (esta com `pages: write` e `id-token: write`, só para publicar), sem `pull_request_target` (teste em `tests/seguranca.test.js`); front só com `textContent` e CDN com SRI (RNF07) |
+| **E**levation of privilege: workflow com poder demais; HTML injetado no site | CI, front | `permissions: contents: read` no topo de `ci.yml`, `sonar.yml`, `pages.yml` (esta com `pages: write` e `id-token: write`, só para publicar) e `coleta.yml`, sem `pull_request_target` (teste em `tests/seguranca.test.js`); front só com `textContent` e CDN com SRI (RNF07) |
 
-**Workflow do robô (`.github/workflows/coleta.yml`):** `permissions: contents: read` no topo, então o `GITHUB_TOKEN` fica só de leitura; quem escreve e abre o PR é a conta de robô (GitHub App), com um token de 1 hora criado no início da execução (`actions/create-github-app-token`). Segredos usados: `ROBO_APP_ID`, `ROBO_APP_PRIVATE_KEY` e `GEMINI_API_KEY`. Gatilhos: `schedule` (segunda) e `workflow_dispatch`, sem `pull_request`. Quando o #144 entrar, os testes de workflow desta página passam a cobrir o `coleta.yml` com a mesma regra, ao serem estendidos.
+**Workflow do robô (`.github/workflows/coleta.yml`):** `permissions: contents: read` no topo, então o `GITHUB_TOKEN` fica só de leitura; quem escreve e abre o PR é a conta de robô (GitHub App), com um token de 1 hora criado no início da execução (`actions/create-github-app-token`). Segredos usados: `ROBO_APP_ID`, `ROBO_APP_PRIVATE_KEY` e `GEMINI_API_KEY`. Gatilhos: `schedule` (segunda) e `workflow_dispatch`, sem `pull_request`. Os testes de `tests/seguranca.test.js` e `tests/workflow-coleta.test.js` cobrem o arquivo.
 
 ## 6. O que fica pendente
 
 1. **Próxima versão do prompt**: pôr `TERMO`, `SIGNIFICADO` e `FONTE` dentro do bloco de dados (muda o contrato do prompt e a `prompt_versao`).
-2. **Estender os testes de workflow ao `coleta.yml`**, que já está na `main`.
-3. **Pinar as actions por commit** (hoje por tag: `actions/checkout@v4` etc.) e ligar o Dependabot (decisão de CI).
-5. **Teste da troca da chave por `[chave]`** em `scripts/classificar.mjs` (hoje só por leitura do código).
-6. **Revisão humana (defesa 7) depende de gente**: o revisor do PR do robô precisa conferir o `termos.json`, não só ver o CI verde.
+2. **Pinar as actions por commit** (hoje por tag: `actions/checkout@v4` etc.) e ligar o Dependabot (decisão de CI).
+3. **Teste da troca da chave por `[chave]`** em `scripts/classificar.mjs` (hoje só por leitura do código).
+4. **Revisão humana (defesa 7) depende de gente**: o revisor do PR do robô precisa conferir o `termos.json`, não só ver o CI verde.

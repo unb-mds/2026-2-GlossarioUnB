@@ -59,6 +59,7 @@ Cada entrada deve conter: data, pessoa, ferramenta usada, o que foi pedido, o qu
 | 19/11/2026 | Italo | opencode | Workflow agendado da coleta (#59): `.github/workflows/coleta.yml`, pipeline completo (`coleta/relatorio.js`, `coleta/atualizar-termos.js` e `scripts/coleta-automatica.mjs`), atualização do `termos.json`, resumo do PR, testes e instruções no README | Aceito |
 | 21/11/2026 | Pedro | Claude Code (Claude Opus 5.5) | Dois testes da DPO em `deduplicar.test.js` com base própria, para o PR do robô não quebrar quando a coleta atualizar o termo | Aceito após a minha revisão |
 | 21/11/2026 | Pedro | Claude Code (Claude Opus 5.5) | Filtro de termos do robô (lista fixa, pertinência pelo Gemini, modelo reserva e seções de revisão no PR), correção do texto do PDF, relatório sem mudança por data, testes, ADR 0014 e documentação | Aceito após a minha revisão |
+| 22/11/2026 | Italo | opencode | Correções da revisão do #158: `npm audit --omit=dev --audit-level=high` no `ci.yml`, teste de schema alinhado ao #161, teste de workflow estendido ao `coleta.yml`, merge da `main` e ajustes do `docs/SEGURANCA.md` (#83) | Aceito após a minha revisão |
 | | | | | |
 
 ## Observações gerais
