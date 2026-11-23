@@ -180,7 +180,7 @@ test("coletar: um robots.txt por site, 1 s entre pedidos e o user-agent do proje
     [decanatos.url]: respostaFalsa(200, htmlDecanatos),
     [secretarias.url]: respostaFalsa(200, htmlSecretarias),
   };
-  const resultado = await coletar(config.fontes, {
+  const resultado = await coletar([decanatos, secretarias], {
     buscar: async (url, opcoes) => {
       pedidos.push({ url, agente: opcoes.headers["User-Agent"] });
       return paginas[url];
