@@ -30,12 +30,26 @@ Um único schema, validado por uma única função (`frontend/js/validacao-termo
 | `exemplo_uso` | sim | frase real de uso | CONTRIBUTING (era `exemplo` no MVP) |
 | `fonte` | sim | URL ou "conhecimento comum verificado pelo grupo" | CONTRIBUTING |
 | `campus` | sim | `Darcy Ribeiro` / `Ceilândia` / `Gama` / `Planaltina` / `Geral` | MVP do colega |
-| `categoria` | não | tema em kebab-case (lista **a definir pela equipe**) | CONTRIBUTING |
+| `categoria` | sim | lista fechada de 9 temas em `kebab-case` (ver tabela abaixo) | CONTRIBUTING + issue #63 |
 | `localizacao` | não | `{ "lat", "lng", "link_como_chegar" }` (link só `http(s)`) | MVP do colega |
+
+### Taxonomia de `categoria`
+
+| Categoria | Rótulo | Definição | Exemplos |
+|---|---|---|---|
+| `vida-academica` | Vida acadêmica | Normas, avaliações, matrícula, trancamento e índices curriculares. | SS, IRA, trancamento |
+| `unidades-academicas` | Unidades acadêmicas | Faculdades, institutos, centros de ensino/pesquisa e campi. | FT, IE, FCTE |
+| `administracao` | Administração | Decanatos, secretarias e órgãos da gestão universitária. | DEG, DAC, SAA |
+| `colegiados` | Colegiados | Conselhos e câmaras deliberativas da universidade. | CONSUNI, CEPE, CAD |
+| `locais-campus` | Locais do campus | Prédios, espaços de convivência e pontos de referência nos campi. | ICC, BCE, Ceubinho |
+| `sistemas` | Sistemas | Sistemas, portais e plataformas digitais institucionais da UnB. | SIGAA, Aprender 3, E-mail institucional |
+| `assistencia-estudantil` | Assistência estudantil | Programas, diretorias e auxílios voltados à permanência estudantil. | DDS, Auxílio socioeconômico, DASU |
+| `representacao-estudantil` | Representação estudantil | Entidades e coletivos de representação discente. | DCE, CA, DA |
+| `girias` | Gírias | Gírias, apelidos e expressões informais usadas na UnB. | calouro, veterano, jubilar |
 
 Regras:
 
-- O filtro do RF02 usa `tipo`.
+- O filtro do RF02 usa `tipo` e `categoria`.
 - O mapa aparece quando existe `localizacao`, sem depender de "categoria".
 - Chaves em `snake_case`.
 - `id` é único no arquivo.
@@ -49,4 +63,4 @@ Regras:
 - O bloco de schema do `CONTRIBUTING.md` foi atualizado.
 - Os modelos `adicionar-termo.md` e `corrigir-definicao.md` (PR #29) não pedem `campus`: quem converte a issue em termo preenche.
 - O modelo `adicionar-termo.md` oferece o tipo `local`, que este schema **não aceita**. Um lugar é uma sigla, gíria ou expressão com `categoria` (ex.: `locais-campus`) e, se houver coordenadas, `localizacao`. Foi o caso do termo "Ceubinho" (issue #30).
-- A lista de valores de `categoria` e a redação do RF02 ("categoria" → "tipo") continuam em aberto. **PRECISA VALIDAÇÃO DA EQUIPE.**
+- A taxonomia de `categoria` foi fechada na issue #63 com 9 categorias obrigatórias, validadas em `frontend/js/validacao-termo.js` e sincronizadas com `coleta/categorias.json`. Todos os termos atuais em `frontend/data/termos.json` foram classificados.
