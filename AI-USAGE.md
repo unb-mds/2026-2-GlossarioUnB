@@ -41,6 +41,7 @@ Cada entrada deve conter: data, pessoa, ferramenta usada, o que foi pedido, o qu
 | 13/11/2026 | Pedro | Claude Code | Classificador com LLM: `coleta/classificador.js`, `coleta/cliente-gemini.js`, o prompt versionado, as categorias provisórias, `scripts/classificar.mjs` e os testes com cliente simulado (#58) | Aceito após a minha revisão, com o `npm test` passando |
 | 13/11/2026 | Pedro | Claude Code | Página Sobre reescrita como página de produto, com o teste da página (#75) | Aceito após a minha revisão, com o `npm test` passando |
 | 13/11/2026 | Pedro | Claude Code | Configuração do SonarQube Cloud no CI (`sonar-project.properties` e `.github/workflows/sonar.yml`) e o texto da issue | Aceito após a minha revisão |
+| 13/11/2026 | Allan | opencode (DeepSeek) | Elaboração do `docs/estrategia-de-testes.md` para a issue #43, com base nos testes e workflows reais do repositório; atualização em 17/11 para os 52 testes, a deduplicação, a página Sobre e o estado atual do CI | Aceito após revisão no PR |
 | 17/11/2026 | Allan | opencode | Revisão e correções do PR #104: caminho do script no Windows e remoção do `temperature` não suportado no Gemini 3.8 (#58) | Aceito após revisão no PR |
 | 17/11/2026 | Pedro | Claude Code | Catálogo das fontes de dados (`docs/FONTES-DE-DADOS.md`): cada endereço aberto, o `robots.txt` e a data de cada PDF conferidos (#52) | Aceito após a minha revisão |
 | 17/11/2026 | Pedro | Claude Code | Lista da trilha do calouro a partir do Manual do Calouro 2026/2 (`docs/TRILHA-CALOURO.md`, #69) | Aceito após a minha revisão; a validação com calouros fica registrada na issue |
@@ -59,6 +60,7 @@ Cada entrada deve conter: data, pessoa, ferramenta usada, o que foi pedido, o qu
 | 19/11/2026 | Italo | opencode | Workflow agendado da coleta (#59): `.github/workflows/coleta.yml`, pipeline completo (`coleta/relatorio.js`, `coleta/atualizar-termos.js` e `scripts/coleta-automatica.mjs`), atualização do `termos.json`, resumo do PR, testes e instruções no README | Aceito |
 | 21/11/2026 | Pedro | Claude Code (Claude Opus 5.5) | Dois testes da DPO em `deduplicar.test.js` com base própria, para o PR do robô não quebrar quando a coleta atualizar o termo | Aceito após a minha revisão |
 | 21/11/2026 | Pedro | Claude Code (Claude Opus 5.5) | Filtro de termos do robô (lista fixa, pertinência pelo Gemini, modelo reserva e seções de revisão no PR), correção do texto do PDF, relatório sem mudança por data, testes, ADR 0014 e documentação | Aceito após a minha revisão |
+| 23/11/2026 | Allan | opencode (DeepSeek) | Ajustes no `docs/estrategia-de-testes.md` pedidos na revisão do PR #100: branch atualizada com a `main`, seção 4 e cobertura refeitas, dependências do robô, lacunas e seção 6 | Ajustado após revisão no PR #100 |
 | | | | | |
 
 ## Observações gerais
