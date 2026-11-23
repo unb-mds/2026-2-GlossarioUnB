@@ -1,0 +1,108 @@
+name: "➕ Adicionar termo"
+description: "Sugira uma nova sigla, gíria ou expressão da UnB para o Glossário"
+title: "[Adicionar Termo] "
+labels: ["contribuicao-externa", "dados"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Não sabe usar Git/GitHub?** Sem problema! Preencha os campos abaixo e envie esta issue.
+        Alguém do time revisa e publica o termo no Glossário UnB.
+
+  - type: input
+    id: termo
+    attributes:
+      label: Termo
+      description: Nome da sigla, gíria ou expressão exatamente como é usada na UnB.
+      placeholder: 'Ex.: DEG, "trancamento geral", RU, Ceubinho'
+    validations:
+      required: true
+
+  - type: dropdown
+    id: tipo
+    attributes:
+      label: Tipo
+      description: Classificação conforme o schema da ADR 0004. Se for um lugar físico, escolha o tipo adequado (sigla, gíria ou expressão) e marque a categoria locais-campus.
+      options:
+        - sigla
+        - giria
+        - expressao
+    validations:
+      required: true
+
+  - type: dropdown
+    id: campus
+    attributes:
+      label: Campus
+      description: Campus onde o termo é usado. Use "Geral" se vale para toda a UnB.
+      options:
+        - Geral
+        - Darcy Ribeiro
+        - Ceilândia
+        - Gama
+        - Planaltina
+    validations:
+      required: true
+
+  - type: dropdown
+    id: categoria
+    attributes:
+      label: Categoria
+      description: Tema principal do termo (taxonomia da ADR 0004).
+      options:
+        - vida-academica
+        - unidades-academicas
+        - administracao
+        - colegiados
+        - locais-campus
+        - sistemas
+        - assistencia-estudantil
+        - representacao-estudantil
+        - girias
+    validations:
+      required: true
+
+  - type: input
+    id: significado
+    attributes:
+      label: Significado (obrigatório se for sigla)
+      description: Forma por extenso da sigla. Deixe em branco se for gíria ou expressão.
+      placeholder: "Ex.: Decanato de Ensino de Graduação"
+    validations:
+      required: false
+
+  - type: textarea
+    id: definicao
+    attributes:
+      label: Definição
+      description: Explique em português simples, de forma clara para quem acabou de entrar na UnB.
+      placeholder: "Ex.: Órgão responsável pelas regras e atividades de ensino de graduação na UnB."
+    validations:
+      required: true
+
+  - type: textarea
+    id: exemplo_uso
+    attributes:
+      label: Exemplo de uso
+      description: Uma frase real do cotidiano universitário mostrando o termo em uso.
+      placeholder: "Ex.: Minha dúvida sobre matrícula foi encaminhada para o DEG."
+    validations:
+      required: true
+
+  - type: input
+    id: fonte
+    attributes:
+      label: Fonte
+      description: Link oficial da UnB (.unb.br), documento institucional ou "conhecimento comum verificado pelo grupo" (para gírias/expressões).
+      placeholder: "Ex.: https://deg.unb.br/ ou conhecimento comum verificado pelo grupo"
+    validations:
+      required: true
+
+  - type: input
+    id: localizacao
+    attributes:
+      label: Localização no mapa (opcional)
+      description: Se o termo for um lugar físico no campus, informe link do Google Maps ou coordenadas (lat, lng).
+      placeholder: "Ex.: -15.762411, -47.869627"
+    validations:
+      required: false
