@@ -55,6 +55,7 @@ O relatório fica em `coleta/relatorio.json` e o corpo do PR em `coleta/resumo.m
 - [Visão de produto e histórias de usuário](docs/VISAO-DE-PRODUTO.md)
 - [Fontes de dados de termos](docs/FONTES-DE-DADOS.md)
 - [Arquitetura do sistema](docs/ARQUITETURA.md) e [decisões (ADRs)](docs/adr/)
+- [Estratégia de testes](docs/estrategia-de-testes.md)
 - [Story Map](docs/storymap/story-map.md) e [quadro do Figma](https://www.figma.com/board/dk8nBcFiFEWo1AkOvn1554/Template-MDS--c%C3%B3pia-limpa---c%C3%B3pia---c%C3%B3pia-?node-id=0-1&t=IS5erq77oDUXUtei-1)
 - [Processo do time](docs/PROCESSO.md)
 - [Como contribuir](CONTRIBUTING.md)
@@ -63,3 +64,4 @@ O relatório fica em `coleta/relatorio.json` e o corpo do PR em `coleta/resumo.m
 - [Planilha de coleta de termos](https://docs.google.com/spreadsheets/d/1XciIDY79FAyY32bC4GDgQAWgyy-B5UahVMKZvdry0WY/edit?usp=sharing)
 - [Registro de uso de IA](AI-USAGE.md)
 - [Licença (MIT)](LICENSE)
+- [Modelo Conceitual de Dados](docs/modelo-conceitual-dados.md)
