@@ -76,7 +76,7 @@ Estes são **potenciais** adotantes ou patrocinadores, não compromissos firmado
 
 | Quem | Como poderia usar | O que ganharia |
 |---|---|---|
-| **DEG/DAC** (Decanato de Ensino de Graduação / Diretoria de Acompanhamento e Apoio ao Estudante) | Link no acolhimento de calouros e na semana de boas-vindas | Menos dúvidas repetidas sobre o vocabulário básico da UnB |
+| **DEG/DAC** (Decanato de Ensino de Graduação / Decanato de Assuntos Comunitários) | Link no acolhimento de calouros e na semana de boas-vindas | Menos dúvidas repetidas sobre o vocabulário básico da UnB |
 | **Secom** (Secretaria de Comunicação) | Divulgação institucional e link em materiais de comunicação | Um canal simples e confiável para explicar siglas e expressões da universidade |
 | **Semana de boas-vindas / centros acadêmicos / DCE** | Material de onboarding e grupos de calouros | Um recurso pronto para o calouro consultar sozinho |
 | **Unidades, decanatos e secretarias** | Glossário de siglas e expressões da própria área | Padronização do vocabulário e da fonte |
