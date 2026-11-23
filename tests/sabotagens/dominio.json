@@ -108,5 +108,16 @@
         "para": "lat < -900 || lat > 900"
       }
     ]
+  },
+  {
+    "modulo": "frontend/js/termos.js",
+    "defeito": "o filtro de categoria é ignorado",
+    "arquivo": "frontend/js/termos.js",
+    "trocas": [
+      {
+        "de": "if (categoria && termo.categoria !== categoria) return false;",
+        "para": ""
+      }
+    ]
   }
 ]

@@ -7,7 +7,7 @@
 import { TIPOS, encontrarTermo, filtrosDaUrl, resumoDoTermo } from "./termos.js";
 import { validarTermo } from "./validacao-termo.js";
 import { atalhosPorTipo, gruposDaTrilha, proximoIndice, sugestoesPara, termoDoEnvio, textoDoStatus, textoSemResultado } from "./busca.js";
-import { enderecoDosFiltros, etiquetasDoCartao, montarLista, opcoesDeCampus, opcoesDeTipo, textoDaContagem } from "./lista.js";
+import { enderecoDosFiltros, etiquetasDoCartao, montarLista, opcoesDeCampus, opcoesDeCategoria, opcoesDeTipo, textoDaContagem } from "./lista.js";
 import { rotuloCampus, textoDaFonte, tituloDaFicha, urlDoTermo } from "./ficha.js";
 import { escuroAtivo, proximoTema, salvarTema } from "./tema.js";
 
@@ -244,7 +244,7 @@ async function iniciarTrilha(termos) {
   }
 }
 
-// ===== Todas as siglas: índice, filtros por tipo (RF02) e campus =====
+// ===== Todas as siglas: índice, filtros por tipo, categoria (RF02) e campus =====
 
 function criarCartaoTermo(termo) {
   const etiquetas = criarElemento("span", { classe: "etiquetas" });
@@ -263,19 +263,22 @@ function iniciarListaCompleta(termos) {
   const container = document.getElementById("lista-termos");
   const seletorCampus = document.getElementById("filtro-campus");
   const seletorTipo = document.getElementById("filtro-tipo");
+  const seletorCategoria = document.getElementById("filtro-categoria");
   const indice = document.getElementById("indice-letras");
   const status = document.getElementById("filtro-status");
-  if (!container || !seletorCampus || !seletorTipo) return;
+  if (!container || !seletorCampus || !seletorTipo || !seletorCategoria) return;
 
   preencherOpcoes(seletorTipo, opcoesDeTipo());
+  preencherOpcoes(seletorCategoria, opcoesDeCategoria(termos));
   preencherOpcoes(seletorCampus, opcoesDeCampus());
 
   // Filtros vêm da URL (atalhos da página inicial) e voltam para ela: o link pode ser compartilhado.
   const inicial = filtrosDaUrl(new URLSearchParams(window.location.search));
   seletorTipo.value = inicial.tipo ?? "";
+  seletorCategoria.value = inicial.categoria ?? "";
   seletorCampus.value = inicial.campus ?? "";
 
-  const filtrosEscolhidos = () => ({ tipo: seletorTipo.value, campus: seletorCampus.value });
+  const filtrosEscolhidos = () => ({ tipo: seletorTipo.value, categoria: seletorCategoria.value, campus: seletorCampus.value });
 
   function atualizarUrl() {
     history.replaceState(null, "", enderecoDosFiltros(filtrosEscolhidos(), window.location.pathname));
@@ -306,7 +309,7 @@ function iniciarListaCompleta(termos) {
     }
   }
 
-  for (const seletor of [seletorTipo, seletorCampus]) {
+  for (const seletor of [seletorTipo, seletorCategoria, seletorCampus]) {
     seletor.addEventListener("change", () => {
       atualizarUrl();
       renderizar();

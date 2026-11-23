@@ -46,10 +46,11 @@ export function buscarTermos(termos, consulta, limite = 8) {
 }
 
 // Filtro por campus inclui os termos "Geral", que valem para os 4 campi.
-export function filtrarTermos(termos, { campus = null, tipo = null } = {}) {
+export function filtrarTermos(termos, { campus = null, tipo = null, categoria = null } = {}) {
   return termos.filter((termo) => {
     if (campus && termo.campus !== campus && termo.campus !== CAMPUS_GERAL) return false;
     if (tipo && termo.tipo !== tipo) return false;
+    if (categoria && termo.categoria !== categoria) return false;
     return true;
   });
 }
@@ -80,13 +81,15 @@ export function encontrarTermo(termos, id) {
   return termos.find((termo) => termo.id === id);
 }
 
-// Filtros vindos da URL (ex.: todas-siglas.html?tipo=sigla); valor desconhecido é ignorado.
+// Filtros vindos da URL (ex.: todas-siglas.html?categoria=sistemas); valor desconhecido é ignorado.
 export function filtrosDaUrl(parametros) {
   const campus = parametros.get("campus");
   const tipo = parametros.get("tipo");
+  const categoria = parametros.get("categoria");
   return {
     campus: CAMPI.includes(campus) ? campus : null,
     tipo: tipo && Object.hasOwn(TIPOS, tipo) ? tipo : null,
+    categoria: categoria && Object.hasOwn(CATEGORIAS, categoria) ? categoria : null,
   };
 }
 
