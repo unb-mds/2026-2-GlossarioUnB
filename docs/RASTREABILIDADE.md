@@ -43,9 +43,9 @@ Matriz que liga cada requisito de [`REQUISITOS.md`](REQUISITOS.md) à história,
 
 ## Resumo
 
-- **RF:** 15 no total. 10 prontos (9 com teste; RF04 pronto sem teste), 2 parciais (RF09, RF11) e 3 pendentes (RF07, RF10, RF14).
-- **Sem teste:** RF04, RF07, RF10, RF14, RNF01, RNF02, RNF04.
-- Quando um PR aberto entrar na `main` (por exemplo [#144], [#148], [#120]), a linha correspondente muda de "pendente" para "pronto" com o número do PR.
+- **RF:** 15 no total. 11 prontos (10 com teste; RF04 pronto sem teste), 2 parciais (RF09, RF11) e 2 pendentes (RF07, RF10).
+- **Sem teste:** RF04, RF07, RF10, RNF01, RNF02, RNF04.
+- Quando um PR aberto entrar na `main` (por exemplo [#148], [#120]), a linha correspondente muda de "pendente" para "pronto" com o número do PR.
 
 [#5]: https://github.com/unb-mds/2026-2-GlossarioUnB/pull/5
 [#20]: https://github.com/unb-mds/2026-2-GlossarioUnB/issues/20
