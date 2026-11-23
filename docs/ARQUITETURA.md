@@ -74,4 +74,5 @@ O dataset ficou dentro de `frontend/` para o glossário ser publicado copiando u
 ## Referências
 
 - Schema de termo: [`adr/0004-schema-unico-do-termo.md`](adr/0004-schema-unico-do-termo.md)
+- Modelo conceitual, dicionário de dados e disponibilidade das fontes: [`docs/modelo-conceitual-dados.md`](modelo-conceitual-dados.md)
 - Fluxo de contribuição: [`CONTRIBUTING.md`](../CONTRIBUTING.md)

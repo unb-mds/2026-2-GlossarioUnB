@@ -1,10 +1,10 @@
 // Validação do schema do termo (ADR 0004). Única fonte dessa regra:
 // usada pelo app (descarta termo inválido) e pelos testes/CI (bloqueia PR inválido).
 
-import { CAMPI, CAMPUS_GERAL, TIPOS } from "./termos.js";
+import { CAMPI, CAMPUS_GERAL, CATEGORIAS, TIPOS } from "./termos.js";
 
 const PADRAO_ID = /^[a-z0-9]+(-[a-z0-9]+)*$/;
-const CAMPOS_TEXTO_OBRIGATORIOS = ["id", "termo", "tipo", "definicao", "exemplo_uso", "fonte", "campus"];
+const CAMPOS_TEXTO_OBRIGATORIOS = ["id", "termo", "tipo", "categoria", "definicao", "exemplo_uso", "fonte", "campus"];
 
 function textoPreenchido(valor) {
   return typeof valor === "string" && valor.trim() !== "";
@@ -45,6 +45,9 @@ export function validarTermo(termo) {
   // Object.hasOwn e não `in`: `in` aceitaria chaves herdadas como "toString".
   if (textoPreenchido(termo.tipo) && !Object.hasOwn(TIPOS, termo.tipo)) {
     erros.push(`tipo "${termo.tipo}" inválido (use: ${Object.keys(TIPOS).join(", ")})`);
+  }
+  if (textoPreenchido(termo.categoria) && !Object.hasOwn(CATEGORIAS, termo.categoria)) {
+    erros.push(`categoria "${termo.categoria}" inválida (use: ${Object.keys(CATEGORIAS).join(", ")})`);
   }
   if (termo.tipo === "sigla" && !textoPreenchido(termo.significado)) {
     erros.push("sigla precisa de significado (forma por extenso)");
