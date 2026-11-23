@@ -1,7 +1,7 @@
 # Glossário UnB
 
 Análise de requisitos e planejamento — MDS, UnB
-Equipe: Pedro, Ítalo, Jéssyca, Allan, Zé (José Gabriel)
+Equipe: Pedro, Ítalo, Allan, Zé (José Gabriel)
 
 ## 1. Objetivo
 
@@ -9,7 +9,7 @@ Dicionário colaborativo de siglas, gírias e jargões da UnB (DEG, DPO, PPAES, 
 
 ## 2. Fonte de dados
 
-Desde a Release 2, os termos vêm de fontes oficiais da UnB por um pipeline de coleta que abre um Pull Request revisado por uma pessoa ([`adr/0009-coleta-automatizada-por-pipeline.md`](adr/0009-coleta-automatizada-por-pipeline.md)). A [planilha colaborativa](https://docs.google.com/spreadsheets/d/1XciIDY79FAyY32bC4GDgQAWgyy-B5UahVMKZvdry0WY/edit?usp=sharing) foi a coleta inicial da Release 1 e não recebe mais termos. Ver [`adr/0004-schema-unico-do-termo.md`](adr/0004-schema-unico-do-termo.md) para o schema de cada termo.
+Desde a Release 2, os termos vêm de fontes oficiais da UnB por um pipeline de coleta que abre um Pull Request revisado por uma pessoa ([`adr/0009-coleta-automatizada-por-pipeline.md`](adr/0009-coleta-automatizada-por-pipeline.md)). A [planilha colaborativa](https://docs.google.com/spreadsheets/d/1XciIDY79FAyY32bC4GDgQAWgyy-B5UahVMKZvdry0WY/edit?usp=sharing) foi a coleta inicial da Release 1 e não recebe mais termos. Ver [`adr/0004-schema-unico-do-termo.md`](adr/0004-schema-unico-do-termo.md) para o schema de cada termo. O catálogo das fontes possíveis, com formato, `robots.txt`, viabilidade de coleta e prioridade, está em [`FONTES-DE-DADOS.md`](FONTES-DE-DADOS.md).
 
 ## 3. Requisitos Funcionais
 
@@ -39,6 +39,8 @@ O PWA (instalável, com service worker) é a decisão técnica da [ADR 0003](adr
 | RNF05 | Qualidade dos dados | 100% dos termos com `fonte` e `tipo` (categoria) preenchidos e válidos; 0 links de fonte quebrados | `npm test` valida o schema ([`tests/dados.test.js`](../tests/dados.test.js)); links conferidos pela verificação periódica das fontes ([#60](https://github.com/unb-mds/2026-2-GlossarioUnB/issues/60)) | R1+ |
 | RNF06 | Manutenibilidade | Cobertura de linhas ≥ 90% em `frontend/js/termos.js`, `frontend/js/validacao-termo.js` e `coleta/` | Cobertura mínima no CI ([#79](https://github.com/unb-mds/2026-2-GlossarioUnB/issues/79)) | R2 |
 | RNF07 | Segurança | Nenhum dado de termo vira HTML, CDN usado só com SRI e nenhum segredo no front | Revisão de código, testes de URL segura ([`tests/validacao-termo.test.js`](../tests/validacao-termo.test.js)) e análise de segurança ([#83](https://github.com/unb-mds/2026-2-GlossarioUnB/issues/83)) | R2 |
+| RNF08 | Privacidade | Nenhum dado pessoal coletado nem publicado: sem login, sem analytics e sem cookies (o navegador guarda só a preferência de tema), e nenhum termo traz e-mail, telefone ou matrícula de uma pessoa. O robô lê só o elemento configurado de cada página (numa lista de laboratórios, o nome do laboratório, e não o nome nem o e-mail de quem coordena) | Revisão humana de cada termo no PR ([ADR 0009](adr/0009-coleta-automatizada-por-pipeline.md)) e a configuração de cada fonte em [`coleta/fontes.json`](../coleta/fontes.json) | R2 |
+| RNF09 | Coleta responsável | O robô respeita o robots.txt de cada site, espera pelo menos 1 s entre um pedido e outro, identifica-se pelo user-agent do projeto, e uma fonte com erro não para as outras | [`tests/coletor-html.test.js`](../tests/coletor-html.test.js) (robots.txt, intervalo, user-agent e fonte com erro) | R2 |
 
 ## 5. Fora de escopo (MVP)
 
@@ -53,14 +55,15 @@ O PWA (instalável, com service worker) é a decisão técnica da [ADR 0003](adr
 | Pessoa | Papel | Tema de Sprint 00 | GitHub |
 |---|---|---|---|
 | Ítalo | Scrum Master | — | smitalo |
-| Jéssyca | Product Owner | — | Jessy2126 |
 | Pedro | Dev | Git e GitHub + Metodologias Ágeis | p-magno |
 | Allan | Dev | a confirmar (estudo já entregue) | MrD4ntas |
 | Zé (José Gabriel) | Dev | a confirmar | josegabriel-iw |
+
+A Jéssyca (Jessy2126) foi a Product Owner até 16/11/2026, quando saiu do grupo, e as issues dela foram redistribuídas no Encontro 2 (16/11). O papel de Product Owner ainda não foi reatribuído.
 
 ## 7. Releases
 
 Estrutura detalhada sprint a sprint em [`scrum/sprint-planning.md`](scrum/sprint-planning.md).
 
 - **Release 1** (28/09/2026): escopo e arquitetura validados, protótipo funcional, tecnologias testadas com código rodando
-- **Release 2** (25/11/2026): produto completo conforme RF01–RF06 e RNF01–RNF07
+- **Release 2** (25/11/2026): produto completo conforme RF01–RF06 e RNF01–RNF09
