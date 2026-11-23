@@ -124,7 +124,7 @@ O catálogo completo, com o que cada fonte oferece e a disponibilidade verificad
 
 ### 4.1 Fontes configuradas para coleta (`coleta/fontes.json`)
 
-Hoje o pipeline de coleta está configurado com duas fontes oficiais da UnB:
+Em 19/11/2026, antes da primeira coleta real, o pipeline estava configurado com duas fontes oficiais da UnB (a lista de hoje fica em `coleta/fontes.json`):
 
 | id | nome | URL | tipo | prioridade | frequência | campus | tipo de termo |
 |---|---|---|---|---|---|---|---|
@@ -135,7 +135,7 @@ Orientações de coleta (ADR 0009 e RNF09): respeitar `robots.txt`, esperar pelo
 
 ### 4.2 Fontes já usadas no dataset publicado
 
-Cada termo de `frontend/data/termos.json` traz seu próprio campo `fonte`. Resumo do que está publicado hoje:
+Cada termo de `frontend/data/termos.json` traz seu próprio campo `fonte`. Resumo do que estava publicado em 19/11/2026, antes da coleta real (os números depois dela estão em [`docs/RELATORIO-COLETA-R2.md`](RELATORIO-COLETA-R2.md)):
 
 - 56 termos com fonte preenchida.
 - 51 fontes `https://*.unb.br` (páginas oficiais de decanatos, centros, institutos, faculdades, etc.).
