@@ -18,6 +18,7 @@ Cada entrada deve conter: data, pessoa, ferramenta usada, o que foi pedido, o qu
 | 28/09/2026 | José Gabriel | Antigravity | Elaboração e formalização da convenção de commits e branches (`docs/CONVENCAO-GIT.md` e `CONTRIBUTING.md`) para a issue #17 | Aceito |
 | 28/09/2026 | Pedro | Claude Code (Claude Opus 5.5) | Arquivos do frontend: interface, busca, filtros, validação do tipo, service worker, ícones e README | Aceito; revisão registrada no PR #28 (o front entrou na main pelo PR #39) |
 | 28/09/2026 | Pedro | Claude (chat no claude.ai) | Divisão dos arquivos do projeto em blocos e commits por pessoa, sob orientação do Pedro | Aceito |
+| 18/11/2026 | Pedro | Claude Code (Claude Opus 5.5) | Refatoração da coletar (complexidade cognitiva) e do idLivre, apontados pelas regras do SonarQube | Aceito após a minha revisão, com o `npm test` passando |
 | | | | | |
 
 
@@ -41,11 +42,24 @@ Cada entrada deve conter: data, pessoa, ferramenta usada, o que foi pedido, o qu
 | 13/11/2026 | Pedro | Claude Code | Página Sobre reescrita como página de produto, com o teste da página (#75) | Aceito após a minha revisão, com o `npm test` passando |
 | 13/11/2026 | Pedro | Claude Code | Configuração do SonarQube Cloud no CI (`sonar-project.properties` e `.github/workflows/sonar.yml`) e o texto da issue | Aceito após a minha revisão |
 | 17/11/2026 | Allan | opencode | Revisão e correções do PR #104: caminho do script no Windows e remoção do `temperature` não suportado no Gemini 3.8 (#58) | Aceito após revisão no PR |
+| 17/11/2026 | Pedro | Claude Code | Catálogo das fontes de dados (`docs/FONTES-DE-DADOS.md`): cada endereço aberto, o `robots.txt` e a data de cada PDF conferidos (#52) | Aceito após a minha revisão |
+| 17/11/2026 | Pedro | Claude Code | Lista da trilha do calouro a partir do Manual do Calouro 2026/2 (`docs/TRILHA-CALOURO.md`, #69) | Aceito após a minha revisão; a validação com calouros fica registrada na issue |
+| 17/11/2026 | Pedro | Claude Code | Trilha na página inicial: `frontend/data/trilha-calouro.json`, os termos novos com fonte oficial, `frontend/js/trilha.js`, o teste de integridade referencial e a ADR 0011, a partir da minha decisão de guardar a trilha num arquivo próprio (#70) | Aceito após a minha revisão, com o `npm test` passando |
 | 18/11/2026 | Pedro | Claude Code | Rascunho da ADR 0013 (SonarQube Cloud ao lado do CI), a partir da minha decisão de 10/11 e da configuração do #107, e as linhas no `ARQUITETURA.md` e na página Sobre | Aceito após a minha revisão |
 | 18/11/2026 | Pedro | Claude Code | Texto do RNF08 (privacidade) e do RNF09 (coleta responsável), conferido contra o `coleta/coletor-html.js` e os testes dele, e a atualização da equipe no `REQUISITOS.md` | Aceito após a minha revisão |
+| 18/11/2026 | Italo | opencode | Coletor do PDF da DPO (#55): `coleta/coletores/dpo.js`, fixture das páginas 5–8, script `coleta:dpo`, testes e atualização da ADR 0010 | Aceito |
 | 18/11/2026 | Pedro | Claude Code (Claude Opus 5.5) | Atualização da ADR 0010 com a segunda lista fechada (Playwright, axe-core, StrykerJS e ESLint, só em devDependencies) e do teste da fronteira de dependências | Aceito após a minha revisão, com o `npm test` passando e o `package.json` do #120 conferido |
 | 18/11/2026 | Pedro | Claude Code (Claude Opus 5.5) | Correção do redirecionamento aberto (S5146) e dos 2 avisos de crossorigin apontados pelo SonarQube Cloud, com os testes do servidor local | Aceito após a minha revisão, com o `npm test` passando |
 | 19/11/2026 | José Gabriel | Antigravity | Correção de campus (FCTS, FCTE, FUP), significados e redação (FCTS, FCTE, FUP, DAC), fonte HTTPS da FT, verificação das coordenadas do Ceubinho no OpenStreetMap (nó 767000561), atualização da ADR 0005 e testes em `tests/dados.test.js` (issue #65) | Aceito após revisão manual e execução dos testes unitários |
+| 18/11/2026 | Pedro | Claude Code (Claude Opus 5.5) | Teste de sabotagem (decisão B): script sem biblioteca, 17 defeitos nos módulos críticos, passo no CI e documentação; o piloto achou a falha do teste do servidor corrigida no #128 | Aceito após a minha revisão, com o `npm test` e o `npm run test:sabotagem` passando |
+| 18/11/2026 | Pedro | Claude Code (Claude Opus 5.5) | Gírias do campus na trilha: busca das páginas da UnB que citam o Ceubinho, o Minhocão e o Beijódromo, correção da definição do Ceubinho, as 3 fontes do robô com o padrão regex e os testes com as páginas salvas, a partir das minhas decisões de 18/11 | Aceito após a minha revisão, com o `npm test` passando |
+| 19/11/2026 | Italo | opencode | Registro da Sprint 06 com planning, review, retrospectiva e métricas (#90), a partir do milestone, das issues, dos PRs e dos commits | Aceito após a minha revisão com resalvas |
+| 18/11/2026 | Pedro | Claude Code (Claude Opus 5.5) | Separação das regras de cada página do `app.js` em `busca.js`, `lista.js`, `ficha.js` e `tema.js`, incluindo a trilha do calouro do #124, com 26 testes, conferida com fotos do DOM das 3 páginas antes e depois | Aceito após a minha revisão, com o `npm test` passando |
+| 20/11/2026 | Pedro | Claude Code (Claude Opus 5.5) | Correção do deslocamento de layout (CLS) da página inicial e da lista de siglas: espaço reservado para a trilha, os atalhos e a lista, preload dos dados da lista e 7 testes, com Lighthouse antes e depois | Aceito após a minha revisão |
+| 19/11/2026 | Italo | opencode | Registro da Sprint 07 com planning, review, retrospectiva e métricas (#91), a partir do milestone, das issues, dos PRs e dos commits | Aceito |
+| 19/11/2026 | Italo | opencode | Workflow agendado da coleta (#59): `.github/workflows/coleta.yml`, pipeline completo (`coleta/relatorio.js`, `coleta/atualizar-termos.js` e `scripts/coleta-automatica.mjs`), atualização do `termos.json`, resumo do PR, testes e instruções no README | Aceito |
+| 21/11/2026 | Pedro | Claude Code (Claude Opus 5.5) | Dois testes da DPO em `deduplicar.test.js` com base própria, para o PR do robô não quebrar quando a coleta atualizar o termo | Aceito após a minha revisão |
+| 21/11/2026 | Pedro | Claude Code (Claude Opus 5.5) | Filtro de termos do robô (lista fixa, pertinência pelo Gemini, modelo reserva e seções de revisão no PR), correção do texto do PDF, relatório sem mudança por data, testes, ADR 0014 e documentação | Aceito após a minha revisão |
 | | | | | |
 
 ## Observações gerais

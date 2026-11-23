@@ -34,6 +34,10 @@ npm test
 | `js/termos.js` | Regras de busca, filtro e agrupamento (sem DOM, testadas em `tests/`) |
 | `js/trilha.js` | Monta e valida a trilha do calouro (sem DOM, testada em `tests/trilha.test.js`) |
 | `js/validacao-termo.js` | Validação do schema, usada pelo app e pelo CI |
+| `js/busca.js` | Regras da página inicial: sugestões da busca, setas e Enter, atalhos por tipo e a trilha pronta para a tela (sem DOM, testadas em `tests/busca.test.js`) |
+| `js/lista.js` | Regras de "Todas as siglas": filtros, grupos por letra, índice, contagem e etiquetas do cartão (sem DOM, testadas em `tests/lista.test.js`) |
+| `js/ficha.js` | Regras da página do termo: título da aba, campus, fonte (link ou texto) e endereço do termo (sem DOM, testadas em `tests/ficha.test.js`) |
+| `js/tema.js` | Tema claro/escuro: qual vale, o próximo e salvar a escolha mesmo sem `localStorage` (sem DOM, testadas em `tests/tema.test.js`) |
 | `js/app.js` | Liga as regras ao DOM das 3 páginas |
 | `styles.css` | Estilo compartilhado; cores só como tokens, temas claro/escuro ([ADR 0008](../docs/adr/0008-interface-com-css-puro-e-tokens.md)) |
 | `manifest.json` / `sw.js` | PWA e cache offline ([ADR 0003](../docs/adr/0003-pwa-com-service-worker-proprio.md)) |

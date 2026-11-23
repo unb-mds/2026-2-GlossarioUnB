@@ -6,6 +6,7 @@
 
 export const SEM_CLASSIFICACAO = "sem classificação";
 export const REVISAR = "revisar";
+export const FORA_DO_ESCOPO = "fora do escopo";
 export const CONFIANCAS = ["alta", "media", "baixa"];
 export const MAX_TEXTO = 300;
 export const INTERVALO_PADRAO_MS = 4000; // 15 pedidos por minuto, dentro do limite gratuito da API
@@ -54,8 +55,10 @@ export function esquemaDaResposta(categorias, tipos) {
       definicao: { type: "string", description: `Em linguagem simples, até ${MAX_TEXTO} caracteres.` },
       exemplo_uso: { type: "string", description: `Uma frase curta, até ${MAX_TEXTO} caracteres.` },
       confianca: { type: "string", enum: CONFIANCAS },
+      pertinente: { type: "boolean", description: "true se o termo pertence à UnB ou à vida universitária." },
+      motivo_pertinencia: { type: "string", description: "Uma frase curta explicando a resposta de pertinente." },
     },
-    required: CAMPOS,
+    required: [...CAMPOS, "pertinente", "motivo_pertinencia"],
   };
 }
 
@@ -84,6 +87,10 @@ export function validarResposta(texto, categorias, tipos) {
     valor[campo] = dados[campo].trim();
   }
 
+  if (dados.pertinente !== undefined && typeof dados.pertinente !== "boolean") {
+    return { ok: false, erro: "o campo pertinente precisa ser verdadeiro ou falso" };
+  }
+
   const listas = { categoria: categorias.map((c) => c.id), tipo: tipos, confianca: CONFIANCAS };
   for (const [campo, permitidos] of Object.entries(listas)) {
     if (!permitidos.includes(valor[campo])) return { ok: false, erro: `${campo} "${valor[campo]}" não está na lista` };
@@ -91,6 +98,14 @@ export function validarResposta(texto, categorias, tipos) {
   for (const campo of ["definicao", "exemplo_uso"]) {
     const erro = erroDeTexto(campo, valor[campo]);
     if (erro) return { ok: false, erro };
+  }
+  // Sem o campo, o termo segue para a revisão humana: o filtro do LLM só barra quando a recusa é explícita.
+  if (dados.pertinente === false) {
+    const motivo = typeof dados.motivo_pertinencia === "string" ? dados.motivo_pertinencia.trim() : "";
+    const erro = motivo ? erroDeTexto("motivo_pertinencia", motivo) : null;
+    if (erro) return { ok: false, erro };
+    valor.pertinente = false;
+    valor.motivo_pertinencia = motivo || "o LLM indicou que o termo não é da universidade";
   }
   return { ok: true, valor };
 }
@@ -135,15 +150,17 @@ export async function classificarCandidatos(candidatos, opcoes) {
     }
     const resposta = validarResposta(texto, categorias, tipos);
     if (!resposta.ok) return semClassificacao(`resposta inválida: ${resposta.erro}`);
-    const { categoria, tipo, definicao, exemplo_uso, confianca } = resposta.valor;
+    const { categoria, tipo, definicao, exemplo_uso, confianca, pertinente, motivo_pertinencia } = resposta.valor;
+    const foraDoEscopo = pertinente === false;
     return {
-      estado: REVISAR,
+      estado: foraDoEscopo ? FORA_DO_ESCOPO : REVISAR,
+      ...(foraDoEscopo ? { motivo: motivo_pertinencia } : {}),
       categoria,
       tipo_sugerido: tipo,
       definicao_sugerida: definicao,
       exemplo_sugerido: exemplo_uso,
       confianca,
-      modelo: cliente.modelo,
+      modelo: cliente.ultimoModelo ?? cliente.modelo,
       prompt_versao: versaoDoPrompt,
     };
   }
