@@ -24,7 +24,7 @@ Matriz que liga cada requisito de [`REQUISITOS.md`](REQUISITOS.md) à história,
 | RF11 Coletar candidatos de páginas oficiais | US01 | [#56], [#52], [#53], [#61] (E1) | [#111], [#122] (fontes), [#102] (ADR 0009), [#142](https://github.com/unb-mds/2026-2-GlossarioUnB/pull/142) (PDF da DPO) | `tests/coletor-html.test.js` (decanatos, secretarias, estrutura mudou, validarFontes, fonte com erro); `tests/coletor-dpo.test.js` (lista de siglas em PDF) | Parcial ([#61] fontes novas pendentes) |
 | RF12 Separar candidatos em novo, alterado e conflito | US01 | [#57] (E1) | [#101] | `tests/deduplicar.test.js` (casos novo, igual, alterado, conflito, valor-limite 60%, mesclar) | Pronto |
 | RF13 Sugerir categoria e rascunho com LLM, marcando para revisão | US01 | [#58] (E1) | [#104] | `tests/classificador.test.js` (validarResposta, montarPrompt, sem chave, erro da API, limite) | Pronto |
-| RF14 Abrir PR com os termos coletados | US01 | [#59] (E1) | nenhum (PR [#144] aberto) | Sem teste | Pendente |
+| RF14 Abrir PR com os termos coletados | US01 | [#59] (E1) | [#144] | `tests/workflow-coleta.test.js`, `tests/atualizar-termos.test.js`, `tests/relatorio.test.js`; execução real no [#162](https://github.com/unb-mds/2026-2-GlossarioUnB/pull/162) | Pronto |
 | RF15 Exibir a trilha "Primeiros passos na UnB" | US03 | [#69], [#70] (E3) | [#123], [#124] | `tests/trilha.test.js` (ids existem, 15 termos ou mais, fonte oficial, validarTrilha, montarTrilha); `tests/busca.test.js` (gruposDaTrilha) | Pronto |
 
 ## Requisitos não funcionais
