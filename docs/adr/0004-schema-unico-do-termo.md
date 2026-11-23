@@ -32,6 +32,7 @@ Um único schema, validado por uma única função (`frontend/js/validacao-termo
 | `campus` | sim | `Darcy Ribeiro` / `Ceilândia` / `Gama` / `Planaltina` / `Geral` | MVP do colega |
 | `categoria` | sim | lista fechada de 9 temas em `kebab-case` (ver tabela abaixo) | CONTRIBUTING + issue #63 |
 | `localizacao` | não | `{ "lat", "lng", "link_como_chegar" }` (link só `http(s)`) | MVP do colega |
+| `sinonimos` | não | lista de outros nomes do mesmo termo (ex.: `["Faculdade UnB Ceilândia"]`), cada um com prova na fonte | Issue #64 (proposta do #98) |
 
 ### Taxonomia de `categoria`
 
@@ -51,6 +52,8 @@ Regras:
 
 - O filtro do RF02 usa `tipo` e `categoria`.
 - O mapa aparece quando existe `localizacao`, sem depender de "categoria".
+- A busca acha o termo pelo nome e pelos `sinonimos`; a página do termo mostra "Também conhecido como".
+- Um sinônimo não pode ser o nome de outro termo: o robô acha os termos pelo nome e pelos sinônimos (`coleta/deduplicar.js`), e a sigla coletada cairia no termo errado. O `validarGlossario` recusa esse caso.
 - Chaves em `snake_case`.
 - `id` é único no arquivo.
 

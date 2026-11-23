@@ -82,3 +82,30 @@ test("urlSegura aceita só links absolutos http(s)", () => {
   assert.equal(urlSegura("javascript:alert(1)"), null);
   assert.equal(urlSegura("conhecimento comum verificado pelo grupo"), null);
 });
+
+test("sinonimos: particionamento de equivalência e valores-limite", () => {
+  // Partições válidas: ausente, lista vazia, lista com 1 ou mais textos.
+  assert.deepEqual(validarTermo({ ...termoValido(), sinonimos: [] }), []);
+  assert.deepEqual(validarTermo({ ...termoValido(), sinonimos: ["FGA"] }), []);
+  assert.deepEqual(validarTermo({ ...termoValido(), sinonimos: ["FGA", "Faculdade do Gama"] }), []);
+
+  // Partições inválidas: o que não é lista.
+  for (const invalido of ["FGA", 123, {}, null]) {
+    assert.ok(validarTermo({ ...termoValido(), sinonimos: invalido }).some((e) => e.includes("sinonimos deve ser uma lista")));
+  }
+
+  // Valores-limite dentro da lista: vazio, só espaços e outros tipos.
+  for (const invalido of ["", "   ", null, 123]) {
+    assert.ok(validarTermo({ ...termoValido(), sinonimos: [invalido] }).some((e) => e.includes("texto não vazio")));
+  }
+
+  // O mesmo sinônimo duas vezes no termo, sem diferenciar maiúsculas.
+  assert.ok(validarTermo({ ...termoValido(), sinonimos: ["FGA", "fga"] }).some((e) => e.includes("duplicado")));
+});
+
+test("um sinônimo não pode ser o nome de outro termo do glossário (o robô ligaria a sigla ao termo errado)", () => {
+  const fcte = { ...termoValido(), id: "fcte", termo: "FCTE", sinonimos: ["FGA"] };
+  const fga = { ...termoValido(), id: "fga", termo: "FGA" };
+  assert.ok(validarGlossario([fcte, fga]).some((erro) => erro.includes("sinônimo \"FGA\"") && erro.includes("fga")));
+  assert.deepEqual(validarGlossario([{ ...fcte, sinonimos: ["Faculdade UnB Gama"] }, fga]), []);
+});

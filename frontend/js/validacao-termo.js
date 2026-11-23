@@ -31,6 +31,23 @@ function validarLocalizacao(localizacao) {
   return erros;
 }
 
+function validarSinonimos(sinonimos) {
+  if (!Array.isArray(sinonimos)) return ["sinonimos deve ser uma lista de textos"];
+
+  const erros = [];
+  const vistos = new Set();
+  sinonimos.forEach((sinonimo, i) => {
+    if (!textoPreenchido(sinonimo)) {
+      erros.push(`sinonimos[${i}] deve ser um texto não vazio`);
+      return;
+    }
+    const normalizado = sinonimo.trim().toLowerCase();
+    if (vistos.has(normalizado)) erros.push(`sinonimos[${i}] sinônimo duplicado "${sinonimo.trim()}"`);
+    vistos.add(normalizado);
+  });
+  return erros;
+}
+
 // Retorna a lista de problemas do termo; lista vazia = termo válido.
 export function validarTermo(termo) {
   if (typeof termo !== "object" || termo === null) return ["termo deve ser um objeto"];
@@ -56,7 +73,25 @@ export function validarTermo(termo) {
     erros.push(`campus "${termo.campus}" inválido (use: ${[...CAMPI, CAMPUS_GERAL].join(", ")})`);
   }
   if (termo.localizacao !== undefined) erros.push(...validarLocalizacao(termo.localizacao));
+  if (termo.sinonimos !== undefined) erros.push(...validarSinonimos(termo.sinonimos));
 
+  return erros;
+}
+
+// O robô acha um termo pelo nome e pelos sinônimos (coleta/deduplicar.js): um sinônimo igual ao nome de outro termo
+// faria a sigla coletada cair no termo errado. Compara sem acento, caixa e pontuação, como o robô.
+const chaveDoNome = (nome) => String(nome).normalize("NFD").replace(/\p{M}/gu, "").toLowerCase().replace(/[^a-z0-9]+/g, "");
+
+function sinonimosQueSaoOutroTermo(termos) {
+  const donoDoNome = new Map(termos.filter((termo) => textoPreenchido(termo?.termo)).map((termo) => [chaveDoNome(termo.termo), termo.id]));
+  const erros = [];
+  for (const termo of termos) {
+    if (!Array.isArray(termo?.sinonimos)) continue;
+    for (const sinonimo of termo.sinonimos.filter(textoPreenchido)) {
+      const dono = donoDoNome.get(chaveDoNome(sinonimo));
+      if (dono && dono !== termo.id) erros.push(`termo ${termo.id}: o sinônimo "${sinonimo}" é o nome do termo ${dono}`);
+    }
+  }
   return erros;
 }
 
@@ -74,5 +109,6 @@ export function validarGlossario(termos) {
     if (idsVistos.has(termo.id)) erros.push(`${rotulo}: id duplicado`);
     idsVistos.add(termo.id);
   });
+  erros.push(...sinonimosQueSaoOutroTermo(termos));
   return erros;
 }

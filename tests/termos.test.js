@@ -95,6 +95,31 @@ test("filtrarTermos filtra por categoria e combina com tipo e campus", () => {
   assert.equal(filtrarTermos(termos, { categoria: null }).length, 3);
 });
 
+test("buscarTermos encontra termo pelos sinônimos, sem diferenciar acento e caixa", () => {
+  const termos = [
+    termo("auxilio", "Auxílio Socioeconômico", { sinonimos: ["assistência econômica"] }),
+    termo("fcts", "FCTS", { sinonimos: ["FCE"] }),
+    termo("ru", "RU"),
+  ];
+  assert.deepEqual(buscarTermos(termos, "assistencia economica").map((t) => t.id), ["auxilio"]);
+  assert.deepEqual(buscarTermos(termos, "ASSISTÊNCIA").map((t) => t.id), ["auxilio"]);
+  assert.deepEqual(buscarTermos(termos, "fce").map((t) => t.id), ["fcts"]);
+});
+
+test("buscarTermos prioriza nome que começa com a busca, seguido por sinônimo que começa", () => {
+  const termos = [
+    termo("outra-sigla", "XPTO", { sinonimos: ["Gama Faculdade"] }),
+    termo("fcte", "FCTE", { sinonimos: ["FGA"] }),
+    termo("gama-termo", "GAMA", {}),
+  ];
+  // "ga": GAMA começa com "ga", "Gama Faculdade" começa com "ga" e "FGA" só contém "ga".
+  assert.deepEqual(buscarTermos(termos, "ga").map((t) => t.id), ["gama-termo", "outra-sigla", "fcte"]);
+});
+
+test("buscarTermos não quebra com sinonimos que não é lista", () => {
+  assert.deepEqual(buscarTermos([termo("ru", "RU", { sinonimos: "bandejão" })], "bandejao"), []);
+});
+
 test("contarPorTipo segue a ordem dos tipos e omite os vazios", () => {
   const termos = [termo("bandejao", "Bandejão", { tipo: "giria" }), termo("ru", "RU"), termo("fce", "FCE")];
   assert.deepEqual(contarPorTipo(termos), [["sigla", 2], ["giria", 1]]);

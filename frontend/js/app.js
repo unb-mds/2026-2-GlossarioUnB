@@ -6,9 +6,9 @@
 
 import { TIPOS, encontrarTermo, filtrosDaUrl, resumoDoTermo } from "./termos.js";
 import { validarTermo } from "./validacao-termo.js";
-import { atalhosPorTipo, gruposDaTrilha, proximoIndice, sugestoesPara, termoDoEnvio, textoDoStatus, textoSemResultado } from "./busca.js";
+import { atalhosPorTipo, gruposDaTrilha, proximoIndice, rotuloDaSugestao, sugestoesPara, termoDoEnvio, textoDoStatus, textoSemResultado } from "./busca.js";
 import { enderecoDosFiltros, etiquetasDoCartao, montarLista, opcoesDeCampus, opcoesDeCategoria, opcoesDeTipo, textoDaContagem } from "./lista.js";
-import { rotuloCampus, textoDaFonte, tituloDaFicha, urlDoTermo } from "./ficha.js";
+import { rotuloCampus, textoDaFonte, textoDosSinonimos, tituloDaFicha, urlDoTermo } from "./ficha.js";
 import { escuroAtivo, proximoTema, salvarTema } from "./tema.js";
 
 const URL_DADOS = "data/termos.json";
@@ -150,7 +150,7 @@ function iniciarBusca(termos) {
         atributos: { id: `sugestao-${i}`, role: "option", "aria-selected": "false" },
       });
       opcao.append(
-        criarElemento("span", { classe: "sugestao-termo", texto: termo.termo }),
+        criarElemento("span", { classe: "sugestao-termo", texto: rotuloDaSugestao(termo, input.value) }),
         criarElemento("span", { classe: "sugestao-resumo", texto: resumoDoTermo(termo) }),
       );
       opcao.addEventListener("click", () => irParaTermo(termo));
@@ -398,6 +398,9 @@ function iniciarPaginaTermo(termos) {
     criarBloco("Exemplo de uso", criarElemento("p", { classe: "exemplo-frase", texto: termo.exemplo_uso })),
     criarBloco("Fonte", criarFonte(termo.fonte)),
   );
+
+  const sinonimos = textoDosSinonimos(termo);
+  if (sinonimos) container.append(criarBloco("Também conhecido como", criarElemento("p", { texto: sinonimos })));
 
   if (!termo.localizacao) return;
   const { bloco, montar } = criarBlocoMapa(termo.localizacao);

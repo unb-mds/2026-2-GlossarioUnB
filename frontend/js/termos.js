@@ -33,15 +33,24 @@ export function normalizar(texto) {
     .trim();
 }
 
-// Termos cujo nome contém a consulta; os que começam com ela vêm primeiro.
+export const sinonimosDe = (termo) => (Array.isArray(termo.sinonimos) ? termo.sinonimos : []);
+
+// Termos cujo nome ou sinônimos contêm a consulta; primeiro o nome que começa com ela, depois o sinônimo que começa.
 export function buscarTermos(termos, consulta, limite = 8) {
   const q = normalizar(consulta);
   if (!q) return [];
 
-  const naoComecaCom = (termo) => Number(!normalizar(termo.termo).startsWith(q));
+  const pontuacao = (termo) => {
+    if (normalizar(termo.termo).startsWith(q)) return 0;
+    if (sinonimosDe(termo).some((sinonimo) => normalizar(sinonimo).startsWith(q))) return 1;
+    return 2;
+  };
+  const corresponde = (termo) =>
+    normalizar(termo.termo).includes(q) || sinonimosDe(termo).some((sinonimo) => normalizar(sinonimo).includes(q));
+
   return termos
-    .filter((termo) => normalizar(termo.termo).includes(q))
-    .sort((a, b) => naoComecaCom(a) - naoComecaCom(b))
+    .filter(corresponde)
+    .sort((a, b) => pontuacao(a) - pontuacao(b))
     .slice(0, limite);
 }
 

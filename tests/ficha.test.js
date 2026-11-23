@@ -2,7 +2,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 
-import { rotuloCampus, textoDaFonte, tituloDaFicha, urlDoTermo } from "../frontend/js/ficha.js";
+import { rotuloCampus, textoDaFonte, textoDosSinonimos, tituloDaFicha, urlDoTermo } from "../frontend/js/ficha.js";
 
 test("o endereço do termo usa o id, com os caracteres especiais codificados", () => {
   assert.equal(urlDoTermo({ id: "deg" }), "termo.html?id=deg");
@@ -28,4 +28,10 @@ test("fonte com link aparece sem https:// e sem a barra final", () => {
 test("fonte em texto fica como está, e javascript: não vira link", () => {
   assert.deepEqual(textoDaFonte("Conhecimento comum verificado pelo grupo"), { texto: "Conhecimento comum verificado pelo grupo" });
   assert.deepEqual(textoDaFonte("javascript:alert(1)"), { texto: "javascript:alert(1)" });
+});
+
+test("os sinônimos aparecem separados por vírgula, e sem sinônimo não há bloco", () => {
+  assert.equal(textoDosSinonimos({ sinonimos: ["FGA", "Faculdade do Gama"] }), "FGA, Faculdade do Gama");
+  assert.equal(textoDosSinonimos({ sinonimos: [] }), null);
+  assert.equal(textoDosSinonimos({}), null);
 });
