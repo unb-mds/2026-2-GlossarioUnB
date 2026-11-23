@@ -30,7 +30,11 @@
     "exemplo_uso": "Tenho aula na FCTS hoje à tarde.",
     "fonte": "https://fcts.unb.br/",
     "campus": "Ceilândia",
-    "categoria": "unidades-academicas"
+    "categoria": "unidades-academicas",
+    "sinonimos": [
+      "FCE",
+      "Faculdade UnB Ceilândia"
+    ]
   },
   {
     "id": "fcte",
@@ -41,7 +45,10 @@
     "exemplo_uso": "Faço Engenharia de Software na FCTE.",
     "fonte": "https://fcte.unb.br/",
     "campus": "Gama",
-    "categoria": "unidades-academicas"
+    "categoria": "unidades-academicas",
+    "sinonimos": [
+      "Faculdade UnB Gama"
+    ]
   },
   {
     "id": "cds",
@@ -623,7 +630,11 @@
     "definicao": "Apoio mensal (PASeUnB) para estudantes de graduação em situação de vulnerabilidade socioeconômica, um dos auxílios da assistência estudantil. A inscrição é pelo SIGAA, depois do edital da DDS.",
     "exemplo_uso": "Fui aprovado no Auxílio Socioeconômico e agora recebo todo mês.",
     "fonte": "https://deg.unb.br/wp-content/uploads/manual_do_calouro_2026_2.pdf#page=86",
-    "campus": "Geral"
+    "campus": "Geral",
+    "sinonimos": [
+      "PASeUnB",
+      "assistência econômica"
+    ]
   },
   {
     "id": "dasu",
