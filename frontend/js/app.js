@@ -1,22 +1,20 @@
-// Camada de DOM das 3 páginas. Regras de busca/filtro ficam em termos.js e
-// o schema em validacao-termo.js (ADR 0002), para poderem ser testados no Node.
+// Camada de DOM das 3 páginas: só cria elementos e ouve eventos. As regras ficam em módulos testados no Node
+// (ADR 0002): termos.js (busca e filtros), trilha.js, validacao-termo.js (schema) e um módulo por página:
+// busca.js (início), lista.js (todas as siglas), ficha.js (termo) e tema.js (todas).
 // Todo dado de termo entra na página via textContent, nunca via innerHTML:
 // termos chegam por PR de terceiros (RF04) e não podem injetar HTML.
 
-import {
-  CAMPI, CAMPUS_GERAL, TIPOS, agruparPorLetra, buscarTermos, contarPorTipo, encontrarTermo,
-  filtrarTermos, filtrosDaUrl, normalizar, resumoDoTermo,
-} from "./termos.js";
-import { montarTrilha } from "./trilha.js";
-import { urlSegura, validarTermo } from "./validacao-termo.js";
+import { TIPOS, encontrarTermo, filtrosDaUrl, resumoDoTermo } from "./termos.js";
+import { validarTermo } from "./validacao-termo.js";
+import { atalhosPorTipo, gruposDaTrilha, proximoIndice, sugestoesPara, termoDoEnvio, textoDoStatus, textoSemResultado } from "./busca.js";
+import { enderecoDosFiltros, etiquetasDoCartao, montarLista, opcoesDeCampus, opcoesDeTipo, textoDaContagem } from "./lista.js";
+import { rotuloCampus, textoDaFonte, tituloDaFicha, urlDoTermo } from "./ficha.js";
+import { escuroAtivo, proximoTema, salvarTema } from "./tema.js";
 
 const URL_DADOS = "data/termos.json";
 const URL_TRILHA = "data/trilha-calouro.json";
 const URL_REPOSITORIO = "https://github.com/unb-mds/2026-2-GlossarioUnB";
 const MENSAGEM_ERRO_CARGA = "Não foi possível carregar os termos. Verifique sua conexão e tente de novo.";
-const TIPOS_NO_PLURAL = { sigla: "Siglas", giria: "Gírias", expressao: "Expressões" };
-// Com prefixo: unb-mds.github.io é uma origem compartilhada por todos os projetos da organização.
-const CHAVE_TEMA = "glossario-unb:tema";
 
 // Modelos de issue "Adicionar termo" e "Corrigir definição" (ADR 0006), já com o termo no título.
 function urlModeloIssue(modelo, prefixoTitulo, termo = "") {
@@ -42,14 +40,6 @@ function preencherOpcoes(seletor, opcoes) {
   for (const [valor, rotulo] of opcoes) seletor.append(criarElemento("option", { texto: rotulo, atributos: { value: valor } }));
 }
 
-function rotuloCampus(campus) {
-  return campus === CAMPUS_GERAL ? "Todos os campi" : `Campus ${campus}`;
-}
-
-function urlDoTermo(termo) {
-  return `termo.html?id=${encodeURIComponent(termo.id)}`;
-}
-
 async function carregarTermos() {
   const resposta = await fetch(URL_DADOS);
   if (!resposta.ok) throw new Error(`Não foi possível carregar ${URL_DADOS} (HTTP ${resposta.status})`);
@@ -67,28 +57,17 @@ async function carregarTermos() {
 // O tema salvo é aplicado por um script curto no <head> de cada página (evita piscar);
 // aqui só tratamos o botão. O ícone (lua/sol) é trocado pelo CSS.
 
-function salvarTema(tema) {
-  try {
-    localStorage.setItem(CHAVE_TEMA, tema);
-  } catch (erro) {
-    console.warn("Não foi possível salvar a preferência de tema:", erro);
-  }
-}
-
 function iniciarTema() {
   const botao = document.getElementById("botao-tema");
   if (!botao) return;
 
-  const escuroAtivo = () => {
-    const atual = document.documentElement.getAttribute("data-tema");
-    return atual === "escuro" || (!atual && window.matchMedia("(prefers-color-scheme: dark)").matches);
-  };
-  const atualizarBotao = () => botao.setAttribute("aria-pressed", String(escuroAtivo()));
+  const escuro = () => escuroAtivo(document.documentElement.getAttribute("data-tema"), window.matchMedia("(prefers-color-scheme: dark)").matches);
+  const atualizarBotao = () => botao.setAttribute("aria-pressed", String(escuro()));
 
   botao.addEventListener("click", () => {
-    const novo = escuroAtivo() ? "claro" : "escuro";
+    const novo = proximoTema(escuro());
     document.documentElement.setAttribute("data-tema", novo);
-    salvarTema(novo);
+    salvarTema(() => localStorage, novo);
     atualizarBotao();
   });
 
@@ -134,7 +113,7 @@ function iniciarBusca(termos) {
   // Fora da listbox, para o link "Sugerir" ser alcançável pelo teclado.
   function mostrarAvisoVazio(consulta) {
     const link = criarElemento("a", { texto: "Sugerir este termo", atributos: { href: urlAdicionarTermo(consulta.trim()) } });
-    avisoVazio.replaceChildren(`Nenhum termo encontrado para “${consulta.trim()}”. `, link);
+    avisoVazio.replaceChildren(textoSemResultado(consulta), link);
     avisoVazio.hidden = false;
   }
 
@@ -155,14 +134,12 @@ function iniciarBusca(termos) {
   function renderizarSugestoes() {
     fecharSugestoes();
     avisoVazio.hidden = true;
-    if (!normalizar(input.value)) {
-      status.textContent = "";
-      return;
-    }
+    const sugestoes = sugestoesPara(termos, input.value);
+    status.textContent = textoDoStatus(sugestoes);
+    if (sugestoes === null) return;
 
-    sugestoesAtuais = buscarTermos(termos, input.value);
+    sugestoesAtuais = sugestoes;
     if (sugestoesAtuais.length === 0) {
-      status.textContent = "Nenhum termo encontrado.";
       mostrarAvisoVazio(input.value);
       return;
     }
@@ -180,7 +157,6 @@ function iniciarBusca(termos) {
       lista.append(opcao);
     });
     input.setAttribute("aria-expanded", "true");
-    status.textContent = sugestoesAtuais.length === 1 ? "1 sugestão disponível." : `${sugestoesAtuais.length} sugestões disponíveis.`;
   }
 
   input.addEventListener("input", renderizarSugestoes);
@@ -190,24 +166,17 @@ function iniciarBusca(termos) {
       fecharSugestoes();
       return;
     }
-    if (evento.key !== "ArrowDown" && evento.key !== "ArrowUp") return;
-    if (sugestoesAtuais.length === 0) return;
+    const proximo = proximoIndice(indiceAtivo, evento.key, sugestoesAtuais.length);
+    if (proximo === null) return;
 
     evento.preventDefault();
-    const proximo = evento.key === "ArrowDown"
-      ? Math.min(indiceAtivo + 1, sugestoesAtuais.length - 1)
-      : Math.max(indiceAtivo - 1, 0);
     marcarAtiva(proximo);
   });
 
   form.addEventListener("submit", (evento) => {
     evento.preventDefault();
-    if (indiceAtivo >= 0 && sugestoesAtuais[indiceAtivo]) {
-      irParaTermo(sugestoesAtuais[indiceAtivo]);
-      return;
-    }
-    const [primeiro] = buscarTermos(termos, input.value);
-    if (primeiro) irParaTermo(primeiro);
+    const termo = termoDoEnvio(sugestoesAtuais, indiceAtivo, termos, input.value);
+    if (termo) irParaTermo(termo);
   });
 
   document.addEventListener("click", (evento) => {
@@ -224,9 +193,9 @@ function iniciarAtalhos(termos) {
 
   total.textContent = String(termos.length);
 
-  for (const [tipo, quantidade] of contarPorTipo(termos)) {
-    const link = criarElemento("a", { classe: "atalho", atributos: { href: `todas-siglas.html?tipo=${tipo}` } });
-    link.append(TIPOS_NO_PLURAL[tipo], criarElemento("span", { classe: "atalho-total", texto: String(quantidade) }));
+  for (const { rotulo, quantidade, href } of atalhosPorTipo(termos)) {
+    const link = criarElemento("a", { classe: "atalho", atributos: { href } });
+    link.append(rotulo, criarElemento("span", { classe: "atalho-total", texto: String(quantidade) }));
     const item = criarElemento("li");
     item.append(link);
     atalhos.append(item);
@@ -235,7 +204,8 @@ function iniciarAtalhos(termos) {
 
 // ===== Início: trilha do calouro (#70, ADR 0011) =====
 // A lista vem de data/trilha-calouro.json (ids), e os dados de cada termo do termos.json.
-// Se o arquivo não carregar, a seção continua escondida e o resto da página funciona.
+// A seção já vem visível no HTML, com altura reservada no CSS (sem deslocamento de layout, RNF02);
+// se o arquivo não carregar ou vier vazio, ela é escondida e o resto da página funciona.
 
 async function iniciarTrilha(termos) {
   const secao = document.getElementById("trilha-calouro");
@@ -245,18 +215,21 @@ async function iniciarTrilha(termos) {
   try {
     const resposta = await fetch(URL_TRILHA);
     if (!resposta.ok) throw new Error(`Não foi possível carregar ${URL_TRILHA} (HTTP ${resposta.status})`);
-    const grupos = montarTrilha(await resposta.json(), termos);
-    if (grupos.length === 0) return;
+    const grupos = gruposDaTrilha(await resposta.json(), termos);
+    if (grupos.length === 0) {
+      secao.hidden = true;
+      return;
+    }
 
     for (const grupo of grupos) {
       const itemGrupo = criarElemento("li", { classe: "trilha-grupo" });
-      const titulo = criarElemento("h3", { classe: "trilha-grupo-nome", texto: grupo.nome, atributos: { id: `trilha-${grupo.id}` } });
-      const termosDoGrupo = criarElemento("ul", { classe: "trilha-termos", atributos: { "aria-labelledby": `trilha-${grupo.id}` } });
+      const titulo = criarElemento("h3", { classe: "trilha-grupo-nome", texto: grupo.nome, atributos: { id: grupo.idDoTitulo } });
+      const termosDoGrupo = criarElemento("ul", { classe: "trilha-termos", atributos: { "aria-labelledby": grupo.idDoTitulo } });
       for (const termo of grupo.termos) {
-        const link = criarElemento("a", { classe: "trilha-termo", atributos: { href: urlDoTermo(termo) } });
+        const link = criarElemento("a", { classe: "trilha-termo", atributos: { href: termo.href } });
         link.append(
-          criarElemento("span", { classe: "trilha-termo-nome", texto: termo.termo }),
-          criarElemento("span", { classe: "trilha-termo-resumo", texto: resumoDoTermo(termo) }),
+          criarElemento("span", { classe: "trilha-termo-nome", texto: termo.nome }),
+          criarElemento("span", { classe: "trilha-termo-resumo", texto: termo.resumo }),
         );
         const item = criarElemento("li");
         item.append(link);
@@ -265,24 +238,18 @@ async function iniciarTrilha(termos) {
       itemGrupo.append(titulo, termosDoGrupo);
       lista.append(itemGrupo);
     }
-    secao.hidden = false;
   } catch (erro) {
+    secao.hidden = true;
     console.warn("Trilha do calouro não carregada:", erro);
   }
 }
 
 // ===== Todas as siglas: índice, filtros por tipo (RF02) e campus =====
 
-function idDaLetra(letra) {
-  return letra === "#" ? "letra-outros" : `letra-${letra}`;
-}
-
 function criarCartaoTermo(termo) {
   const etiquetas = criarElemento("span", { classe: "etiquetas" });
-  etiquetas.append(criarElemento("span", { classe: "etiqueta", texto: TIPOS[termo.tipo] }));
-  // "Geral" vale para todos: repetir a etiqueta em todo cartão só gera ruído.
-  if (termo.campus !== CAMPUS_GERAL) {
-    etiquetas.append(criarElemento("span", { classe: "etiqueta etiqueta-contorno", texto: termo.campus }));
+  for (const { texto, contorno } of etiquetasDoCartao(termo)) {
+    etiquetas.append(criarElemento("span", { classe: contorno ? "etiqueta etiqueta-contorno" : "etiqueta", texto }));
   }
 
   const topo = criarElemento("span", { classe: "cartao-topo" });
@@ -300,41 +267,38 @@ function iniciarListaCompleta(termos) {
   const status = document.getElementById("filtro-status");
   if (!container || !seletorCampus || !seletorTipo) return;
 
-  preencherOpcoes(seletorTipo, Object.entries(TIPOS));
-  preencherOpcoes(seletorCampus, CAMPI.map((campus) => [campus, campus]));
+  preencherOpcoes(seletorTipo, opcoesDeTipo());
+  preencherOpcoes(seletorCampus, opcoesDeCampus());
 
   // Filtros vêm da URL (atalhos da página inicial) e voltam para ela: o link pode ser compartilhado.
   const inicial = filtrosDaUrl(new URLSearchParams(window.location.search));
   seletorTipo.value = inicial.tipo ?? "";
   seletorCampus.value = inicial.campus ?? "";
 
+  const filtrosEscolhidos = () => ({ tipo: seletorTipo.value, campus: seletorCampus.value });
+
   function atualizarUrl() {
-    const parametros = new URLSearchParams();
-    if (seletorTipo.value) parametros.set("tipo", seletorTipo.value);
-    if (seletorCampus.value) parametros.set("campus", seletorCampus.value);
-    const busca = parametros.toString();
-    history.replaceState(null, "", busca ? `?${busca}` : window.location.pathname);
+    history.replaceState(null, "", enderecoDosFiltros(filtrosEscolhidos(), window.location.pathname));
   }
 
   function renderizar() {
-    const filtrados = filtrarTermos(termos, { campus: seletorCampus.value || null, tipo: seletorTipo.value || null });
-    const grupos = agruparPorLetra(filtrados);
+    const { total, grupos } = montarLista(termos, filtrosEscolhidos());
     container.replaceChildren();
     indice?.replaceChildren();
-    if (status) status.textContent = filtrados.length === 1 ? "1 termo" : `${filtrados.length} termos`;
+    if (status) status.textContent = textoDaContagem(total);
 
-    if (filtrados.length === 0) {
+    if (total === 0) {
       container.append(criarElemento("p", { classe: "aviso-vazio", texto: "Nenhum termo encontrado para esse filtro." }));
       return;
     }
 
-    for (const [letra, doGrupo] of grupos) {
+    for (const { letra, id, rotulo, termos: doGrupo } of grupos) {
       indice?.append(criarElemento("a", {
         texto: letra,
-        atributos: { href: `#${idDaLetra(letra)}`, "aria-label": letra === "#" ? "Outros símbolos" : `Letra ${letra}` },
+        atributos: { href: `#${id}`, "aria-label": rotulo },
       }));
 
-      const secao = criarElemento("section", { classe: "grupo-letra", atributos: { id: idDaLetra(letra) } });
+      const secao = criarElemento("section", { classe: "grupo-letra", atributos: { id } });
       const grade = criarElemento("div", { classe: "grade" });
       grade.append(...doGrupo.map(criarCartaoTermo));
       secao.append(criarElemento("h2", { texto: letra }), grade);
@@ -359,16 +323,13 @@ function criarBloco(titulo, ...conteudo) {
   return bloco;
 }
 
-// Fonte pode ser um link ou um texto ("conhecimento comum verificado pelo grupo").
-// Links aparecem sem "https://" e sem a barra final, que só atrapalham a leitura.
+// Fonte pode ser um link ou um texto; o texto e o endereço vêm do ficha.js.
 function criarFonte(fonte) {
-  const url = urlSegura(fonte);
-  if (!url) return criarElemento("p", { texto: fonte });
+  const { texto, href } = textoDaFonte(fonte);
+  if (!href) return criarElemento("p", { texto });
 
-  const { hostname, pathname } = new URL(url);
-  const texto = `${hostname}${pathname === "/" ? "" : pathname}`;
   const paragrafo = criarElemento("p");
-  paragrafo.append(criarElemento("a", { texto, atributos: { href: url, target: "_blank", rel: "noopener" } }));
+  paragrafo.append(criarElemento("a", { texto, atributos: { href, target: "_blank", rel: "noopener" } }));
   return paragrafo;
 }
 
@@ -418,7 +379,7 @@ function iniciarPaginaTermo(termos) {
     return;
   }
 
-  document.title = `${termo.termo} — Glossário UnB`;
+  document.title = tituloDaFicha(termo);
   document.getElementById("link-corrigir")?.setAttribute("href", urlCorrigirDefinicao(termo.termo));
   container.append(criarElemento("h1", { texto: termo.termo }));
   if (termo.significado) container.append(criarElemento("p", { classe: "subtitulo", texto: termo.significado }));

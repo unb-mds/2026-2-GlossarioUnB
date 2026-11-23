@@ -1,7 +1,7 @@
 // Estratégias de cache: ver docs/adr/0003-pwa-com-service-worker-proprio.md.
 // Ao mudar qualquer arquivo do app shell, incremente VERSAO_CACHE.
 const PREFIXO_CACHE = "glossario-unb-";
-const VERSAO_CACHE = `${PREFIXO_CACHE}v14`;
+const VERSAO_CACHE = `${PREFIXO_CACHE}v17`;
 
 // Arquivos de dados: respondem do cache e se atualizam em segundo plano (stale-while-revalidate).
 const ARQUIVOS_DADOS = ["data/termos.json", "data/trilha-calouro.json"];
@@ -12,6 +12,10 @@ const ARQUIVOS_APP_SHELL = [
   "termo.html",
   "styles.css",
   "js/app.js",
+  "js/busca.js",
+  "js/ficha.js",
+  "js/lista.js",
+  "js/tema.js",
   "js/termos.js",
   "js/trilha.js",
   "js/validacao-termo.js",
