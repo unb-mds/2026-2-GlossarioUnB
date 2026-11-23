@@ -110,11 +110,26 @@ function listasInvalidas(planta) {
   return problemas;
 }
 
+// `posicao` só aceita "aproximada" (decisão 54): sala que veio do site da FCTE e ninguém conferiu no local.
+function posicoesInvalidas(planta) {
+  const problemas = [];
+  for (const predio of prediosDa(planta)) {
+    for (const andar of listaDe(predio.andares)) {
+      for (const item of listaDe(andar.itens)) {
+        if (item.posicao !== undefined && item.posicao !== "aproximada") {
+          problemas.push(`a sala ${predio.id}/${andar.id}/${item.id} tem posicao "${item.posicao}"; o único valor aceito é "aproximada"`);
+        }
+      }
+    }
+  }
+  return problemas;
+}
+
 // Lista de problemas; vazia quando tudo está certo. Termo que ainda não existe no glossário é aceito
 // (o robô vai criar; ver termosPendentes). O que vale é o formato do id e cada termo ter um lugar só.
 export function conferirLigacoes(planta) {
   if (!prediosDa(planta).length) return ["a planta não tem prédios"];
-  const problemas = [...idsRepetidos(planta), ...listasInvalidas(planta)];
+  const problemas = [...idsRepetidos(planta), ...listasInvalidas(planta), ...posicoesInvalidas(planta)];
   const lugaresDoTermo = new Map();
   for (const { termo, onde } of ligacoesDaPlanta(planta)) {
     if (typeof termo !== "string" || !PADRAO_ID.test(termo)) {
@@ -227,13 +242,19 @@ function rotuloDoItem(item, k) {
   return rotuloEm(sigla ?? textoDaSala(item), centroDe(k), anguloDoTexto(k), comprimento);
 }
 
+const ehAproximada = (item) => item?.posicao === "aproximada";
+
+export const AVISO_SALA_APROXIMADA = "Posição aproximada: esta sala vem da lista do site da FCTE, e o lugar no andar ainda não foi conferido.";
+export const AVISO_ANDAR_APROXIMADO = "As salas com contorno tracejado têm posição aproximada: vêm da lista do site da FCTE, e o lugar no andar ainda não foi conferido.";
+
 // Com link, o <title> vai para o <a> e dá o nome do link (o rótulo visível é curto, "Lab. …"; aria-label sem o texto
 // visível quebraria a regra label-content-name-mismatch do axe). Sem link, o <title> fica no grupo, como dica.
 function itemEmSvg(item, T, emDestaque, href = null) {
   const k = item.cantos.map(T);
-  const classe = emDestaque ? "planta-item planta-destaque" : "planta-item";
+  const classe = ["planta-item", ehAproximada(item) && "planta-aproximada", emDestaque && "planta-destaque"].filter(Boolean).join(" ");
   const comLink = Boolean(href) && temLink(item);
-  const titulo = `<title>${escapar(item.nome || item.rotulo)}</title>`;
+  const nome = item.nome || item.rotulo;
+  const titulo = `<title>${escapar(ehAproximada(item) ? `${nome} (posição aproximada)` : nome)}</title>`;
   const corpo = (
     `<g class="${classe}" data-id="${escapar(item.id)}">${comLink ? "" : titulo}` +
     `<polygon class="planta-tipo-${escapar(item.tipo)}" points="${pontosEm(item.cantos, T)}"/>` +
@@ -320,7 +341,7 @@ export function descreverLugar(planta, lugar) {
   if (!andar) return null;
   const sala = listaDe(andar.itens).find((item) => item.id === lugar.item);
   const href = enderecoAndar(predio.id, andar.id, sala?.id ?? null);
-  if (sala) return { titulo: sala.nome, local: `${nomeDoPredio(predio)} · ${maiuscula(andar.nome)}`, href, rotuloLink: "Ver o andar inteiro" };
+  if (sala) return { titulo: sala.nome, local: `${nomeDoPredio(predio)} · ${maiuscula(andar.nome)}`, href, rotuloLink: "Ver o andar inteiro", aproximada: ehAproximada(sala) };
   return { titulo: nomeDoPredio(predio), local: maiuscula(andar.nome), href, rotuloLink: "Ver o andar inteiro" };
 }
 
@@ -345,7 +366,7 @@ export function paginaDaPlanta(planta, busca) {
   if (idAndar && !andarPedido && predio.id === idPredio) avisos.push("Não achei esse andar; mostro o primeiro do prédio.");
   const item = sala && predio.id === idPredio && andarPedido ? listaDe(andar?.itens).find((candidato) => candidato.id === sala) : null;
   if (sala && !item && avisos.length === 0) avisos.push("Não achei essa sala neste andar.");
-  return { modo: "andar", predio: predio.id, andar: andar?.id ?? null, destaque: item?.id ?? null, termos: listaDe(item?.termos), nomeDaSala: item?.nome ?? null, aviso: avisos[0] ?? null };
+  return { modo: "andar", predio: predio.id, andar: andar?.id ?? null, destaque: item?.id ?? null, termos: listaDe(item?.termos), nomeDaSala: item?.nome ?? null, aviso: avisos[0] ?? null, aproximada: ehAproximada(item), andarComAproximadas: listaDe(andar?.itens).some(ehAproximada) };
 }
 
 // Os prédios e os andares com o link de cada um, para navegar pela página.

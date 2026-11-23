@@ -57,3 +57,12 @@ test("os números da planta têm no máximo 2 casas decimais", async () => {
   const texto = await readFile(URL_PLANTA, "utf8");
   assert.doesNotMatch(texto, /\d\.\d{3,}/);
 });
+
+test("as 22 salas do LDTEA que vieram do site da FCTE aparecem como posição aproximada (decisão 54)", () => {
+  const ldtea = planta.predios.find((predio) => predio.id === "uep");
+  const itens = ldtea.andares.flatMap((andar) => andar.itens);
+  assert.equal(itens.length, 22);
+  assert.ok(itens.every((item) => item.posicao === "aproximada"));
+  const outros = planta.predios.filter((predio) => predio.id !== "uep").flatMap((predio) => predio.andares.flatMap((andar) => andar.itens));
+  assert.ok(outros.every((item) => item.posicao === undefined));
+});

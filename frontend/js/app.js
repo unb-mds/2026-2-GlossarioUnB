@@ -10,7 +10,7 @@ import { atalhosPorTipo, gruposDaTrilha, proximoIndice, sugestoesPara, termoDoEn
 import { enderecoDosFiltros, etiquetasDoCartao, montarLista, opcoesDeCampus, opcoesDeTipo, textoDaContagem } from "./lista.js";
 import { rotuloCampus, textoDaFonte, tituloDaFicha, urlDoTermo } from "./ficha.js";
 import { escuroAtivo, proximoTema, salvarTema } from "./tema.js";
-import { acharLugar, descreverLugar, listaDeAndares, montarSvgAndar, montarSvgCampus, paginaDaPlanta, svgDoLugar } from "./planta.js";
+import { AVISO_ANDAR_APROXIMADO, AVISO_SALA_APROXIMADA, acharLugar, descreverLugar, listaDeAndares, montarSvgAndar, montarSvgCampus, paginaDaPlanta, svgDoLugar } from "./planta.js";
 
 const URL_DADOS = "data/termos.json";
 const URL_TRILHA = "data/trilha-calouro.json";
@@ -355,6 +355,7 @@ function criarBlocoOndeFica(planta, lugar) {
   if (!resumo || !moldura) return null;
   const bloco = criarBloco("Onde fica", criarElemento("p", { classe: "onde-fica-local", texto: `${resumo.titulo} · ${resumo.local}` }), moldura);
   bloco.classList.add("onde-fica");
+  if (resumo.aproximada) moldura.before(criarElemento("p", { classe: "aviso-planta", texto: AVISO_SALA_APROXIMADA }));
   bloco.append(criarElemento("a", { classe: "link-como-chegar", texto: resumo.rotuloLink, atributos: { href: resumo.href } }));
   return bloco;
 }
@@ -377,6 +378,9 @@ function iniciarPaginaPlanta(termos, planta) {
   container.append(criarElemento("h1", { texto: emAndar && andar ? `${predio.sigla} · ${andar.nome}` : planta.campus?.nome || "Campus" }));
   if (pagina.aviso) container.append(criarElemento("p", { classe: "aviso-planta", texto: pagina.aviso, atributos: { role: "status" } }));
   if (pagina.nomeDaSala) container.append(criarElemento("p", { classe: "onde-fica-local", texto: pagina.nomeDaSala }));
+  if (pagina.aproximada || pagina.andarComAproximadas) {
+    container.append(criarElemento("p", { classe: "aviso-planta", texto: pagina.aproximada ? AVISO_SALA_APROXIMADA : AVISO_ANDAR_APROXIMADO }));
+  }
   const moldura = criarMoldura(texto);
   if (moldura) container.append(moldura);
 

@@ -277,7 +277,7 @@ test("sem parâmetros, a página mostra o campus", () => {
 
 test("com prédio, andar e sala certos, mostra o andar com a sala em destaque e o termo dela", () => {
   assert.deepEqual(paginaDaPlanta(planta, "?predio=pt&andar=terreo&sala=s1"), {
-    modo: "andar", predio: "pt", andar: "terreo", destaque: "s1", termos: ["sala-teste", "sala-colega"], nomeDaSala: "Sala 1", aviso: null,
+    modo: "andar", predio: "pt", andar: "terreo", destaque: "s1", termos: ["sala-teste", "sala-colega"], nomeDaSala: "Sala 1", aviso: null, aproximada: false, andarComAproximadas: false,
   });
 });
 
@@ -349,6 +349,7 @@ test("descreverLugar diz o que mostrar no bloco Onde fica", () => {
     local: "Prédio de teste (PT) · Térreo",
     href: "planta.html?predio=pt&andar=terreo&sala=s1",
     rotuloLink: "Ver o andar inteiro",
+    aproximada: false,
   });
   assert.deepEqual(descreverLugar(planta, { predio: "pt", andar: "terreo", item: null }), {
     titulo: "Prédio de teste (PT)",
@@ -382,4 +383,44 @@ test("com links, o desenho é um grupo com nome, não uma imagem: link dentro de
   assert.doesNotMatch(campus, /role="img"/);
   assert.match(montarSvgAndar(planta, "pt", "terreo", {}), /^<svg [^>]*role="img"/);
   assert.match(montarSvgCampus(planta, {}), /^<svg [^>]*role="img"/);
+});
+
+// ===== Posição aproximada (decisão 54): sala que veio do site da FCTE e ninguém conferiu no local =====
+
+function plantaComAproximada() {
+  const p = copia();
+  p.predios[0].andares[0].itens[0].posicao = "aproximada";
+  return p;
+}
+
+test("descreverLugar avisa quando a posição da sala é aproximada", () => {
+  const p = plantaComAproximada();
+  assert.equal(descreverLugar(p, { predio: "pt", andar: "terreo", item: "s1" }).aproximada, true);
+  assert.equal(descreverLugar(p, { predio: "pt", andar: "terreo", item: "s2" }).aproximada, false);
+});
+
+test("o desenho marca a sala aproximada com classe própria e diz isso no título", () => {
+  const svg = montarSvgAndar(plantaComAproximada(), "pt", "terreo", { links: true });
+  assert.match(svg, /class="planta-item planta-aproximada" data-id="s1"/);
+  assert.match(svg, /<title>Sala 1 \(posição aproximada\)<\/title>/);
+  assert.doesNotMatch(svg, /class="planta-item planta-aproximada" data-id="s2"/);
+  assert.ok(tagsBalanceadas(svg));
+});
+
+test("paginaDaPlanta diz se a sala pedida e o andar têm posição aproximada", () => {
+  const p = plantaComAproximada();
+  const naSala = paginaDaPlanta(p, "?predio=pt&andar=terreo&sala=s1");
+  assert.equal(naSala.aproximada, true);
+  assert.equal(naSala.andarComAproximadas, true);
+  const outraSala = paginaDaPlanta(p, "?predio=pt&andar=terreo&sala=s2");
+  assert.equal(outraSala.aproximada, false);
+  assert.equal(outraSala.andarComAproximadas, true);
+  assert.equal(paginaDaPlanta(p, "?predio=pt&andar=superior").andarComAproximadas, false);
+});
+
+test("conferirLigacoes recusa um valor desconhecido em posicao", () => {
+  const p = copia();
+  p.predios[0].andares[0].itens[1].posicao = "exata";
+  assert.ok(conferirLigacoes(p).some((problema) => problema.includes("posicao")));
+  assert.deepEqual(conferirLigacoes(plantaComAproximada()), []);
 });
