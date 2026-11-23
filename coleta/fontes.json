@@ -82,6 +82,210 @@
         "expressao": "chamado (?<termo>Ceubinho), localizado na (?<significado>ala norte do Instituto Central de Ciências \\(ICC\\))",
         "minimo": 1
       }
+    },
+    {
+      "id": "saa-faq-trancamentos",
+      "nome": "SAA, perguntas frequentes: tipos de trancamento (TGM, TGMJ, TR, TJ)",
+      "url": "https://saa.unb.br/perguntas-frequentes/",
+      "tipo": "html",
+      "prioridade": 2,
+      "frequencia": "semanal",
+      "campus": "Geral",
+      "tipo_termo": "sigla",
+      "extracao": {
+        "trecho": ".entry-content",
+        "elemento": "em",
+        "padrao": "regex",
+        "expressao": "^(?<significado>[^()]+) \\((?<termo>\\p{Lu}{2,5})\\)$",
+        "minimo": 4
+      }
+    },
+    {
+      "id": "saa-faq-ira",
+      "nome": "SAA, perguntas frequentes: Índice de Rendimento Acadêmico (IRA)",
+      "url": "https://saa.unb.br/perguntas-frequentes/",
+      "tipo": "html",
+      "prioridade": 2,
+      "frequencia": "semanal",
+      "campus": "Geral",
+      "tipo_termo": "sigla",
+      "extracao": {
+        "trecho": ".entry-content",
+        "elemento": "strong",
+        "padrao": "regex",
+        "expressao": "^(?<significado>Índice de Rendimento Acadêmico) \\((?<termo>IRA)\\) e Média Ponderada \\(MP\\)$",
+        "minimo": 1
+      }
+    },
+    {
+      "id": "saa-faq-mp",
+      "nome": "SAA, perguntas frequentes: Média Ponderada (MP)",
+      "url": "https://saa.unb.br/perguntas-frequentes/",
+      "tipo": "html",
+      "prioridade": 2,
+      "frequencia": "semanal",
+      "campus": "Geral",
+      "tipo_termo": "sigla",
+      "extracao": {
+        "trecho": ".entry-content",
+        "elemento": "strong",
+        "padrao": "regex",
+        "expressao": "^Índice de Rendimento Acadêmico \\(IRA\\) e (?<significado>Média Ponderada) \\((?<termo>MP)\\)$",
+        "minimo": 1
+      }
+    },
+    {
+      "id": "saa-faq-ej",
+      "nome": "SAA, perguntas frequentes: Empresa Júnior (EJ)",
+      "url": "https://saa.unb.br/perguntas-frequentes/",
+      "tipo": "html",
+      "prioridade": 2,
+      "frequencia": "semanal",
+      "campus": "Geral",
+      "tipo_termo": "sigla",
+      "extracao": {
+        "trecho": ".entry-content",
+        "elemento": "li",
+        "padrao": "regex",
+        "expressao": "^O que é uma (?<significado>Empresa Júnior) \\((?<termo>EJ)\\) e como participar\\?$",
+        "minimo": 1
+      }
+    },
+    {
+      "id": "saa-faq-coest",
+      "nome": "SAA, perguntas frequentes: Coordenadoria de Estágio (COEST)",
+      "url": "https://saa.unb.br/perguntas-frequentes/",
+      "tipo": "html",
+      "prioridade": 2,
+      "frequencia": "semanal",
+      "campus": "Geral",
+      "tipo_termo": "sigla",
+      "extracao": {
+        "trecho": ".entry-content",
+        "elemento": "span",
+        "padrao": "regex",
+        "expressao": "^No site da (?<significado>Coordenadoria de Estágio) \\((?<termo>COEST)\\)",
+        "minimo": 1
+      }
+    },
+    {
+      "id": "saa-faq-daia",
+      "nome": "SAA, perguntas frequentes: Diretoria de Acompanhamento e Integração Acadêmica (DAIA)",
+      "url": "https://saa.unb.br/perguntas-frequentes/",
+      "tipo": "html",
+      "prioridade": 2,
+      "frequencia": "semanal",
+      "campus": "Geral",
+      "tipo_termo": "sigla",
+      "extracao": {
+        "trecho": ".entry-content",
+        "elemento": "span",
+        "padrao": "regex",
+        "expressao": "equipe da (?<significado>Diretoria de Acompanhamento e Integração Acadêmica) \\((?<termo>DAIA)\\)",
+        "minimo": 1
+      }
+    },
+    {
+      "id": "saa-quem-somos",
+      "nome": "SAA, Quem somos: coordenações e assessoria (COA, CCC, CGR…)",
+      "url": "https://saa.unb.br/quem-somos/",
+      "tipo": "html",
+      "prioridade": 2,
+      "frequencia": "mensal",
+      "campus": "Geral",
+      "tipo_termo": "sigla",
+      "extracao": {
+        "trecho": ".elementor-toggle",
+        "elemento": "a",
+        "padrao": "regex",
+        "expressao": "^(?<significado>.+) - (?<termo>\\p{Lu}{2,6})$",
+        "minimo": 5
+      }
+    },
+    {
+      "id": "fcte-infra-uac",
+      "nome": "FCTE, Infraestrutura: Unidade Acadêmica (UAC)",
+      "url": "https://fcte.unb.br/infraestrutura/",
+      "tipo": "html",
+      "prioridade": 2,
+      "frequencia": "mensal",
+      "campus": "Gama",
+      "tipo_termo": "sigla",
+      "extracao": {
+        "trecho": ".entry-content",
+        "elemento": "p",
+        "padrao": "regex",
+        "expressao": "uma (?<significado>Unidade Acadêmica) \\((?<termo>UAC)\\)",
+        "minimo": 1
+      }
+    },
+    {
+      "id": "fcte-infra-ued",
+      "nome": "FCTE, Infraestrutura: Unidade de Ensino e Docência (UED)",
+      "url": "https://fcte.unb.br/infraestrutura/",
+      "tipo": "html",
+      "prioridade": 2,
+      "frequencia": "mensal",
+      "campus": "Gama",
+      "tipo_termo": "sigla",
+      "extracao": {
+        "trecho": ".entry-content",
+        "elemento": "p",
+        "padrao": "regex",
+        "expressao": "uma (?<significado>Unidade de Ensino e Docência) \\((?<termo>UED)\\)",
+        "minimo": 1
+      }
+    },
+    {
+      "id": "fcte-memoria-uep",
+      "nome": "FCTE, Memória: Unidade de Ensino e Pesquisa (UEP, o prédio LDTEA)",
+      "url": "https://fcte.unb.br/memoria-fga/",
+      "tipo": "html",
+      "prioridade": 2,
+      "frequencia": "mensal",
+      "campus": "Gama",
+      "tipo_termo": "sigla",
+      "extracao": {
+        "trecho": ".entry-content",
+        "elemento": "p",
+        "padrao": "regex",
+        "expressao": "\\((?<termo>UEP) – (?<significado>Unidade de Ensino e Pesquisa)\\)",
+        "minimo": 1
+      }
+    },
+    {
+      "id": "fcte-a-unidade-ldtea",
+      "nome": "FCTE, A unidade: Laboratório de Desenvolvimento de Tecnologia Aeroespacial (LDTEA)",
+      "url": "https://fcte.unb.br/a-unidade/",
+      "tipo": "html",
+      "prioridade": 2,
+      "frequencia": "mensal",
+      "campus": "Gama",
+      "tipo_termo": "sigla",
+      "extracao": {
+        "trecho": ".entry-content",
+        "elemento": "p",
+        "padrao": "regex",
+        "expressao": "o (?<significado>Laboratório de Desenvolvimento de Tecnologia Aeroespacial) \\((?<termo>LDTEA)\\)",
+        "minimo": 1
+      }
+    },
+    {
+      "id": "fcte-laboratorios",
+      "nome": "FCTE, lista de laboratórios (nome e sigla)",
+      "url": "https://fcte.unb.br/homologa_laboratorios/",
+      "tipo": "html",
+      "prioridade": 2,
+      "frequencia": "mensal",
+      "campus": "Gama",
+      "tipo_termo": "sigla",
+      "extracao": {
+        "trecho": ".entry-content",
+        "elemento": "strong",
+        "padrao": "regex",
+        "expressao": "^(?<significado>[^–]+) – (?<termo>[\\p{L}\\d ]{2,12})$",
+        "minimo": 20
+      }
     }
   ]
 }
