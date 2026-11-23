@@ -9,7 +9,7 @@ const lerArquivo = (caminho) => readFile(new URL(caminho, import.meta.url), "utf
 
 // Extrai o bloco de um campo do formulário YAML pelo seu `id:`.
 function blocoDoCampo(yaml, id) {
-  const partes = yaml.split(/\r?\n  - type:/);
+  const partes = yaml.split(/\r?\n {2}- type:/);
   return partes.find((p) => new RegExp(`\\bid:\\s*${id}\\b`).test(p)) ?? "";
 }
 
