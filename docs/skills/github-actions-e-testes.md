@@ -11,13 +11,13 @@ Um **workflow** é um arquivo YAML em `.github/workflows/` que diz ao GitHub o q
 | `on` | O **gatilho**: quais eventos disparam o workflow | `push` na `main` e todo `pull_request` |
 | `jobs` | Os trabalhos; cada um roda numa máquina própria | Um job, `testes` |
 | `runs-on` | O sistema da máquina | `ubuntu-latest` |
-| `steps` | Os passos, em ordem: ações prontas (`uses`) ou comandos (`run`) | Baixa o código, instala o Node 24 e roda `npm test` |
+| `steps` | Os passos, em ordem: ações prontas (`uses`) ou comandos (`run`) | Baixa o código, instala o Node 24, roda `npm ci`, `npm run lint` e `npm run test:cobertura` |
 | `permissions` | O que o workflow pode fazer no repositório | Só leitura (`contents: read`) |
 
 Quando um passo falha, o workflow fica **vermelho** e aparece no Pull Request. Assim o erro é visto **antes** do merge.
 
 O projeto tem dois workflows:
-- **`ci.yml`:** roda os testes em todo PR.
+- **`ci.yml`:** roda lint, testes e cobertura em todo PR.
 - **`pages.yml`:** a cada push na `main`, roda os testes e, se passarem, publica as duas páginas no GitHub Pages.
 
 ## 2. Tipos de teste
@@ -31,9 +31,9 @@ O projeto tem dois workflows:
 
 ## 3. Ferramenta escolhida: `node:test`
 
-- Já vem no Node (versão 22 ou mais nova): **nenhuma dependência para instalar**. Isso combina com a ADR 0002, que evita build e dependências.
+- Já vem no Node (versão 22 ou mais nova): **nenhuma dependência de runtime**. O ESLint é devDependency e só é instalado para o lint. Isso combina com a ADR 0002, que evita build e dependências no app.
 - Roda com `npm test`, que chama `node --test` e acha sozinho os arquivos `*.test.js`.
-- Mede cobertura com `npm run test:cobertura` (`--experimental-test-coverage`).
+- Mede cobertura com `npm run test:cobertura` (`--experimental-test-coverage`) e falha se linhas, funções ou branches ficarem abaixo de 90% nos módulos de domínio e do pipeline.
 - Por que funciona: as regras ficam em `frontend/js/termos.js` e `frontend/js/validacao-termo.js`, **separadas da tela** (`app.js`), então dá para testá-las sem navegador.
 
 Alternativas consideradas:
@@ -70,7 +70,10 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 24
-      - run: npm test
+          cache: npm
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run test:cobertura
 ```
 
 **Para ver funcionando:** abra um PR que apague a `fonte` de algum termo. O CI fica vermelho com a mensagem `termo #N (id): campo obrigatório ausente ou vazio: fonte`.
@@ -81,8 +84,9 @@ Os testes de navegador ficam em `e2e/` e rodam com `npm run test:e2e` (Playwrigh
 
 ## 5. Limites atuais
 
-- Não há **lint** (checagem automática de estilo e erros) no CI.
+- A camada de tela (`app.js`) e o service worker não entram na cobertura mínima; quem confere a tela são os testes E2E.
 - Os testes E2E rodam só no Chromium; Safari e Firefox não são cobertos.
+- O lint cobre JavaScript; HTML e CSS ainda não têm validador próprio.
 
 ## Revisão
 

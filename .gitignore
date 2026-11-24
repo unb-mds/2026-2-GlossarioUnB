@@ -11,14 +11,13 @@ coverage/
 coleta/saida/
 coleta/resumo.md
 
-# Relatórios dos testes E2E (Playwright)
-playwright-report/
-test-results/
-
 # Arquivo de variáveis de ambiente com dados sensíveis
 .env
 
-
-# Teste de mutação (StrykerJS)
 reports/
 .stryker-tmp/
+
+# Relatórios dos testes E2E (Playwright)
+playwright-report/
+test-results/
+# Teste de mutação (StrykerJS)
