@@ -45,6 +45,8 @@ jobs:
       - run: npx playwright install --with-deps chromium
       # Cobre os fluxos principais e o axe-core (WCAG 2.1 AA, temas claro e escuro).
       - run: npm run test:e2e
+      # Cenários Gherkin em tests/aceitacao (issue #81), no mesmo job: o navegador já está instalado.
+      - run: npm run test:aceitacao
       - name: Anexar relatório do Playwright
         if: always()
         uses: actions/upload-artifact@v4

@@ -2,12 +2,12 @@
 // com o mesmo layout do GitHub Pages, e cobrem os fluxos principais e a
 // acessibilidade (WCAG 2.1 AA) nos temas claro e escuro.
 import { defineConfig, devices } from "@playwright/test";
+import { defineBddProject } from "playwright-bdd";
 
 const PORTA = 8080;
 const URL_BASE = `http://127.0.0.1:${PORTA}`;
 
 export default defineConfig({
-  testDir: "./e2e",
   fullyParallel: true,
   forbidOnly: Boolean(process.env.CI),
   retries: process.env.CI ? 1 : 0,
@@ -21,6 +21,18 @@ export default defineConfig({
   projects: [
     {
       name: "chromium",
+      testDir: "./e2e",
+      use: { ...devices["Desktop Chrome"] },
+    },
+    // Testes de aceitação BDD (issue #81): os .feature de tests/aceitacao viram testes
+    // do Playwright em .features-gen (npm run test:aceitacao roda o bddgen antes).
+    {
+      ...defineBddProject({
+        name: "aceitacao",
+        features: "tests/aceitacao/*.feature",
+        steps: "tests/aceitacao/passos.js",
+        outputDir: ".features-gen",
+      }),
       use: { ...devices["Desktop Chrome"] },
     },
   ],

@@ -12,6 +12,7 @@ const PERMITIDAS = ["cheerio", "robots-parser", "@google/genai", "pdfjs-dist"];
 const PERMITIDAS_DESENVOLVIMENTO = [
   "@playwright/test",
   "@axe-core/playwright",
+  "playwright-bdd",
   "@stryker-mutator/core",
   "eslint",
   "@eslint/js",

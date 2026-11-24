@@ -20,4 +20,5 @@ reports/
 # Relatórios dos testes E2E (Playwright)
 playwright-report/
 test-results/
+.features-gen/
 # Teste de mutação (StrykerJS)
