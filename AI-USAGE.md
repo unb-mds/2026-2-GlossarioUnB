@@ -84,7 +84,9 @@ Cada entrada deve conter: data, pessoa, ferramenta usada, o que foi pedido, o qu
 | 16/11/2026 | Pedro | Claude | README.md reescrito no padrão do README do Flutter (badges de CI e Pages, Documentação, Serviços externos, Sobre por qualidades), a partir da versão do José Gabriel, para a issue #97 | Aceito; a escolha do Flutter como modelo (a professora indicou os badges dele) e de fazer o commit no PR #99 foi minha |
 | 18/11/2026 | Pedro | Claude Code | Seção "Rodar a coleta", `npm ci`, Node 22.9 e links da documentação no README, a partir da revisão do Allan no PR #99, para a issue #97 | Aceito após a minha revisão |
 | 18/11/2026 | José Gabriel | Antigravity | Sincronização do PR #99 com a `main`, inclusão de `GEMINI_API_KEY=` no `.env.example` e atualização do `README.md` com a Trilha do calouro (ADR 0011) e o SonarQube Cloud (ADR 0013) (#97) | Aceito após revisão |
+| 24/11/2026 | Allan | opencode (DeepSeek) | Verificação periódica das fontes (#60): campo `verificado_em` no schema e na ficha, `coleta/verificacao.js`, `scripts/verificar-fontes.mjs`, workflow semanal que abre issue por fonte sem duplicar, testes e atualização de docs | Aceito após revisão no PR #187 |
 | 24/11/2026 | Italo | Antigravity | Registro da Sprint 09 e retrospectiva da R2 (docs/scrum/sprints/sprint-09.md): levantamento de métricas no GitHub , review, retrospectiva| Aceito após a minha revisão |
+| | | | | |
 | | | | | |
 
 ## Observações gerais

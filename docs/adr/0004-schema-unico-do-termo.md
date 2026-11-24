@@ -36,6 +36,7 @@ Um único schema, validado por uma única função (`frontend/js/validacao-termo
 | `localizacao` | não | `{ "lat", "lng", "link_como_chegar" }` (link só `http(s)`) | MVP do colega |
 | `sinonimos` | não | lista de outros nomes do mesmo termo (ex.: `["Faculdade UnB Ceilândia"]`), cada um com prova na fonte | Issue #64 (proposta do #98) |
 | `relacionados` | não | lista de ids de outros termos, mostrada em "Veja também" (ex.: `["dac", "sigaa"]`); cada ligação é conferida por uma pessoa antes de entrar | Issue #64 (proposta do #98) e decisão 57 |
+| `verificado_em` | não | data `aaaa-mm-dd` da última conferência humana da `fonte`, mostrada na ficha como "Verificado em dd/mm/aaaa" | Issue #60 (RF07) |
 
 ### Taxonomia de `categoria`
 
@@ -58,6 +59,7 @@ Regras:
 - A busca acha o termo pelo nome e pelos `sinonimos`; a página do termo mostra "Também conhecido como".
 - `relacionados` guarda só ligações conferidas por uma pessoa (decisão 57 = C1): a lista é proposta a partir das siglas e nomes citados na definição, e cada par é lido antes de entrar. O `validarGlossario` recusa id que não existe, id repetido e ligação para o próprio termo. O robô não escreve esse campo.
 - Um sinônimo não pode ser o nome de outro termo: o robô acha os termos pelo nome e pelos sinônimos (`coleta/deduplicar.js`), e a sigla coletada cairia no termo errado. O `validarGlossario` recusa esse caso.
+- `verificado_em` só é escrito depois de uma pessoa (ou de uma verificação automática bem-sucedida com `npm run verificar:fontes -- --atualizar`) conferir a fonte. O robô da #60 compara essa data com o `Last-Modified` da página para abrir a issue "Termo possivelmente desatualizado"; data inválida ou fora de `aaaa-mm-dd` é recusada pelo `validarTermo`.
 - Chaves em `snake_case`.
 - `id` é único no arquivo.
 

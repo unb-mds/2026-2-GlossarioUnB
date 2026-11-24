@@ -8,7 +8,7 @@ import { TIPOS, encontrarTermo, filtrosDaUrl, resumoDoTermo } from "./termos.js"
 import { validarTermo } from "./validacao-termo.js";
 import { atalhosPorTipo, gruposDaTrilha, proximoIndice, rotuloDaSugestao, sugestoesPara, termoDoEnvio, textoDoStatus, textoSemResultado } from "./busca.js";
 import { enderecoDosFiltros, etiquetasDoCartao, montarLista, opcoesDeCampus, opcoesDeCategoria, opcoesDeTipo, textoDaContagem } from "./lista.js";
-import { relacionadosDe, rotuloCampus, textoDaFonte, textoDosSinonimos, tituloDaFicha, urlDoTermo } from "./ficha.js";
+import { relacionadosDe, rotuloCampus, textoDaFonte, textoDosSinonimos, textoVerificadoEm, tituloDaFicha, urlDoTermo } from "./ficha.js";
 import { boletimDaColeta } from "./origem.js";
 import { escuroAtivo, proximoTema, salvarTema } from "./tema.js";
 import { CHAVE_PROGRESSO, armazenamentoDisponivel, lerVistos, marcarVisto, progressoDaTrilha, recomecarTrilha, termosDaTrilha } from "./trilha.js";
@@ -577,11 +577,16 @@ function iniciarPaginaTermo(termos, planta) {
     criarElemento("span", { classe: "etiqueta", texto: TIPOS[termo.tipo] }),
     criarElemento("span", { classe: "etiqueta etiqueta-contorno", texto: rotuloCampus(termo.campus) }),
   );
+  // "verificado em dd/mm/aaaa" fica junto da fonte: é a prova de quando aquele dado foi conferido (RF07).
+  const blocoFonte = criarBloco("Fonte", criarFonte(termo.fonte));
+  const verificadoEm = textoVerificadoEm(termo.verificado_em);
+  if (verificadoEm) blocoFonte.append(criarElemento("p", { classe: "verificado-em", texto: verificadoEm }));
+
   container.append(
     etiquetas,
     criarBloco("O que é", criarElemento("p", { texto: termo.definicao })),
     criarBloco("Exemplo de uso", criarElemento("p", { classe: "exemplo-frase", texto: termo.exemplo_uso })),
-    criarBloco("Fonte", criarFonte(termo.fonte)),
+    blocoFonte,
   );
   void marcarTermoNaTrilha(termo.id);
 
