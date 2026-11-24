@@ -1,5 +1,7 @@
 # ADR 0003 — PWA com manifest e service worker próprios, sem Workbox
 
+## Status
+Aceito (em uso desde a Release 1, 28/09/2026).
 
 ## Contexto
 `docs/ARQUITETURA.md` reserva esta ADR como "Ferramenta de PWA/service worker. Depende da escolha de framework (ADR 0002)".

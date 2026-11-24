@@ -112,7 +112,8 @@ test("limite de chamadas: um site com milhares de candidatos não gera milhares 
 
 test("nada que vem do LLM é executado: o classificador e o cliente não usam eval, Function nem processo filho", async () => {
   for (const arquivo of ["../coleta/classificador.js", "../coleta/cliente-gemini.js"]) {
-    const codigo = await ler(arquivo);
+    // O Stryker (npm run test:mutacao) injeta `new Function("return this")()` no namespace do arquivo: não é do LLM.
+    const codigo = (await ler(arquivo)).split("\n").filter((linha) => !linha.includes('new Function("return this")')).join("\n");
     assert.doesNotMatch(codigo, /\beval\s*\(|new Function|child_process|\bexec(Sync)?\s*\(|\bspawn\b/, arquivo);
   }
 });
@@ -132,7 +133,7 @@ test("RNF07: o front não grava HTML nem executa texto (só textContent) e as p�
 });
 
 test("workflows: permissão mínima no topo e nenhum pull_request_target (que daria segredo a código de fork)", async () => {
-  for (const nome of ["ci", "sonar", "pages", "coleta"]) {
+  for (const nome of ["ci", "sonar", "pages", "coleta", "mutacao"]) {
     const yml = await ler(`../.github/workflows/${nome}.yml`);
     assert.match(yml, /^permissions:\s*\n\s+contents: read/m, `${nome}.yml sem permissions de leitura no topo`);
     assert.doesNotMatch(yml, /pull_request_target/, nome);

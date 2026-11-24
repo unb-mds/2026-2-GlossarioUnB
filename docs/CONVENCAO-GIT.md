@@ -1,6 +1,6 @@
 # Convenção de Commits e Branches — Glossário UnB
 
-> **Status:** Proposta, aguardando aprovação do time (#17)  
+> **Status:** Aceito (PR #33, issue #17)  
 > **Referência:** Issue #17 — Convenção de commits e branches  
 > **Padrões adotados:** GitHub Flow e [Conventional Commits v1.0.0](https://www.conventionalcommits.org/pt-br/v1.0.0/)
 
