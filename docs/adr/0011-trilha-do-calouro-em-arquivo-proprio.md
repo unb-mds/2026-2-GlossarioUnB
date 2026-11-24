@@ -20,6 +20,7 @@ A trilha fica em **`frontend/data/trilha-calouro.json`**: uma lista de grupos, n
 - **Integridade referencial:** `tests/trilha.test.js` falha se a trilha citar um id que não existe no `termos.json`, se um termo aparecer duas vezes, se um grupo ficar vazio, se a trilha tiver menos de 15 termos ou se um termo dela não tiver categoria e fonte `https://*.unb.br`.
 - **Na página**, `montarTrilha` (em `frontend/js/trilha.js`, função pura testada no Node) troca os ids pelos termos. Um id que não existe é pulado, e um grupo vazio some, em vez de quebrar a seção.
 - **Offline:** o arquivo é pré-cacheado e tratado como dado no `sw.js` (stale-while-revalidate, como o `termos.json`). O cache foi para a v14.
+- **Progresso só no aparelho (decisão 58, 23/11/2026):** os termos já vistos ficam em `localStorage` (`glossario-unb:trilha-vistos`), nada é enviado, e sem armazenamento a trilha funciona igual, só sem as marcas.
 
 ## Alternativas descartadas
 - **Um objeto `trilha_calouro: { grupo, ordem }` dentro de cada termo.** É o mais perto do texto da issue, mas muda o schema do termo e os arquivos do #98, e o nome do grupo se repetiria em cada termo (um erro de digitação criaria um grupo novo).

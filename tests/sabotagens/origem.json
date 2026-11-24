@@ -1,0 +1,20 @@
+[
+  {
+    "modulo": "frontend/js/origem.js",
+    "defeito": "o boletim mostra os barrados no lugar das siglas lidas",
+    "arquivo": "frontend/js/origem.js",
+    "trocas": [{ "de": "lidas: temRelatorio ? candidatos : null", "para": "lidas: temRelatorio ? barrados : null" }]
+  },
+  {
+    "modulo": "frontend/js/origem.js",
+    "defeito": "um endereço parecido com o da UnB passa a contar como fonte da UnB",
+    "arquivo": "frontend/js/origem.js",
+    "trocas": [{ "de": "host === \"unb.br\" || host.endsWith(\".unb.br\")", "para": "host.includes(\"unb.br\")" }]
+  },
+  {
+    "modulo": "frontend/js/origem.js",
+    "defeito": "a data volta a dizer só 'última coleta', mesmo quando o robô rodou depois sem novidade",
+    "arquivo": "frontend/js/origem.js",
+    "trocas": [{ "de": "`Última coleta com novidades: ${data}`", "para": "`Última coleta: ${data}`" }]
+  }
+]

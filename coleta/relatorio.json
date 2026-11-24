@@ -1,21 +1,33 @@
 {
-  "coletado_em": "2026-11-22",
-  "gerado_em": "2026-11-22T16:58:50.295Z",
+  "coletado_em": "2026-11-24",
+  "gerado_em": "2026-11-24T04:49:41.799Z",
   "totais": {
-    "candidatos": 343,
+    "candidatos": 397,
     "novos": 0,
     "alterados": 0,
-    "conflitos": 16,
-    "iguais": 226,
+    "conflitos": 18,
+    "iguais": 273,
     "descartados": 0,
-    "barrados": 77,
-    "alteracoes_recusadas": 10,
-    "duplicados": 14,
-    "mudancas": 16
+    "barrados": 76,
+    "alteracoes_recusadas": 15,
+    "duplicados": 15,
+    "mudancas": 18
   },
   "por_fonte": {
     "unb-decanatos": 8,
     "unb-secretarias": 9,
+    "saa-faq-trancamentos": 4,
+    "saa-faq-ira": 1,
+    "saa-faq-mp": 1,
+    "saa-faq-ej": 1,
+    "saa-faq-coest": 1,
+    "saa-faq-daia": 1,
+    "saa-quem-somos": 7,
+    "fcte-infra-uac": 1,
+    "fcte-infra-ued": 1,
+    "fcte-memoria-uep": 1,
+    "fcte-a-unidade-ldtea": 1,
+    "fcte-laboratorios": 34,
     "ceplan-minhocao": 1,
     "ceplan-beijodromo": 1,
     "noticias-ceubinho": 1,
@@ -33,6 +45,23 @@
     "alterados": [],
     "conflitos": [
       {
+        "id_existente": "ldtea",
+        "candidato": {
+          "termo": "LDTEA",
+          "significado": "Laboratório de Desenvolvimento de Tecnologia Aeroespacial",
+          "tipo": "sigla",
+          "campus": "Gama",
+          "link": null,
+          "fonte": "https://fcte.unb.br/a-unidade/",
+          "fonte_id": "fcte-a-unidade-ldtea",
+          "trecho": "As instalações da FCTE foram projetadas por um grupo de professores que idealizou, desenhou e dimensionou os laboratórios, a estrutura civil, a rede hidráulica, a rede de energia e a rede lógica. Em 2018, foi inaugurado o Laboratório de Desenvolvimento de Tecnologia Aeroespacial (LDTEA) e, atualmente, todas as atividades administrativas, acadêmicas e de pesquisa se concentram na área do campus. O campus Gama conta com uma infraestrutura moderna e bem equipada, com salas de aula, laboratórios, biblioteca, auditório, áreas de convivência e espaços para prática esportiva.",
+          "coletado_em": "2026-11-24"
+        },
+        "motivo": "mesmo termo de ldtea com outro significado (\"Laboratório de Desenvolvimento de Transportes e Energias Alternativas\" × \"Laboratório de Desenvolvimento de Tecnologia Aeroespacial\", 29% das palavras em comum): proposta de desambiguação, nada foi sobrescrito",
+        "proposta_id": "ldtea-tecnologia",
+        "tambem_em": []
+      },
+      {
         "id_existente": "bce",
         "candidato": {
           "termo": "CE",
@@ -45,7 +74,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 5,
           "trecho": "CE Biblioteca Central",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "motivo": "repetido: mesmo significado de BCE (bce) com outra sigla. Se for um nome antigo, vira sinônimo; se não, alguém decide",
         "proposta_id": null,
@@ -64,7 +93,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 5,
           "trecho": "BDU Confederação Brasileira do Desporto Universitário",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "motivo": "repetido: mesmo significado de CBDU (cbdu) com outra sigla. Se for um nome antigo, vira sinônimo; se não, alguém decide",
         "proposta_id": null,
@@ -83,7 +112,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 5,
           "trecho": "CDG-UnB Comitê de Governança Digital",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "motivo": "repetido: mesmo significado de CGD (cgd) com outra sigla. Se for um nome antigo, vira sinônimo; se não, alguém decide",
         "proposta_id": null,
@@ -102,7 +131,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 5,
           "trecho": "CERI Cerimonial UnB",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "motivo": "mesmo termo de ceri com outro significado (\"Coordenação de Cerimonial\" × \"Cerimonial UnB\", 33% das palavras em comum): proposta de desambiguação, nada foi sobrescrito",
         "proposta_id": "ceri-unb",
@@ -121,7 +150,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 5,
           "trecho": "Codsex Coordenação LGBT",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "motivo": "mesmo termo de codsex com outro significado (\"Coordenação LGBTQIA+\" × \"Coordenação LGBT\", 33% das palavras em comum): proposta de desambiguação, nada foi sobrescrito",
         "proposta_id": "codsex-lgbt",
@@ -140,7 +169,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 6,
           "trecho": "CPLAD Coordenação de Planejamento e Administração",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "motivo": "mesmo termo de cplad com outro significado (\"Câmara de Planejamento e Administração\" × \"Coordenação de Planejamento e Administração\", 50% das palavras em comum): proposta de desambiguação, nada foi sobrescrito",
         "proposta_id": "cplad-coordenacao",
@@ -159,7 +188,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 6,
           "trecho": "CPP Comissão Permanente de Projetos",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "motivo": "mesmo termo de cpp com outro significado (\"Câmara de Pesquisa e Pós-Graduação\" × \"Comissão Permanente de Projetos\", 0% das palavras em comum): proposta de desambiguação, nada foi sobrescrito",
         "proposta_id": "cpp-comissao",
@@ -178,7 +207,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 6,
           "trecho": "CT&I Ciência, tecnologia e inovação",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "motivo": "mesmo termo de cti com outro significado (\"Comitê de Tecnologia da Informação\" × \"Ciência, tecnologia e inovação\", 20% das palavras em comum): proposta de desambiguação, nada foi sobrescrito",
         "proposta_id": "cti-ciencia",
@@ -197,9 +226,9 @@
           "fonte_id": "dpo-siglas",
           "pagina": 6,
           "trecho": "DAC Decanto de Assuntos Comunitários",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
-        "motivo": "mesmo termo de dac com outro significado (\"Decanato de Assuntos Comunitarios\" × \"Decanto de Assuntos Comunitários\", 50% das palavras em comum): proposta de desambiguação, nada foi sobrescrito",
+        "motivo": "mesmo termo de dac com outro significado (\"Decanato de Assuntos Comunitários\" × \"Decanto de Assuntos Comunitários\", 50% das palavras em comum): proposta de desambiguação, nada foi sobrescrito",
         "proposta_id": "dac-decanto",
         "tambem_em": []
       },
@@ -216,7 +245,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 6,
           "trecho": "IFES Instituto Federal de Ensino Superior",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "motivo": "mesmo termo de ifes com outro significado (\"Instituições Federais de Ensino Superior\" × \"Instituto Federal de Ensino Superior\", 33% das palavras em comum): proposta de desambiguação, nada foi sobrescrito",
         "proposta_id": "ifes-instituto",
@@ -235,7 +264,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 7,
           "trecho": "JUBs Jogos Universitário Brasileiros",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "motivo": "mesmo termo de jubs com outro significado (\"Jogos Universitários Brasileiros\" × \"Jogos Universitário Brasileiros\", 50% das palavras em comum): proposta de desambiguação, nada foi sobrescrito",
         "proposta_id": "jubs-universitario",
@@ -254,7 +283,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 7,
           "trecho": "NDE Núcleos-Docente Estruturantes",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "motivo": "mesmo termo de nde com outro significado (\"Núcleo Docente Estruturante\" × \"Núcleos-Docente Estruturantes\", 20% das palavras em comum): proposta de desambiguação, nada foi sobrescrito",
         "proposta_id": "nde-nucleos",
@@ -273,7 +302,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 7,
           "trecho": "PD&I Pesquisa, Desenvolvimento e Inovação",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "motivo": "mesmo termo de pdi com outro significado (\"Plano de Desenvolvimento Institucional\" × \"Pesquisa, Desenvolvimento e Inovação\", 20% das palavras em comum): proposta de desambiguação, nada foi sobrescrito",
         "proposta_id": "pdi-pesquisa",
@@ -292,10 +321,29 @@
           "fonte_id": "dpo-siglas",
           "pagina": 8,
           "trecho": "Promissaes Projeto Milton Santos de Acesso ao Ensino Superior",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "motivo": "repetido: mesmo significado de PROMISAES (promisaes) com outra sigla. Se for um nome antigo, vira sinônimo; se não, alguém decide",
         "proposta_id": null,
+        "tambem_em": []
+      },
+      {
+        "id_existente": "raint",
+        "candidato": {
+          "termo": "RAINT",
+          "significado": "Relatórios Anuais de Auditoria Interna",
+          "tipo": "sigla",
+          "campus": "Geral",
+          "orgao_superior": null,
+          "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
+          "fonte_url": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
+          "fonte_id": "dpo-siglas",
+          "pagina": 8,
+          "trecho": "RAINT Relatórios Anuais de Auditoria Interna",
+          "coletado_em": "2026-11-24"
+        },
+        "motivo": "mesmo termo de raint com outro significado (\"Relatório Anual de Auditoria Interna\" × \"Relatórios Anuais de Auditoria Interna\", 33% das palavras em comum): proposta de desambiguação, nada foi sobrescrito",
+        "proposta_id": "raint-relatorios",
         "tambem_em": []
       },
       {
@@ -311,7 +359,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 8,
           "trecho": "SIC Segurança da Informação e Comunicação",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "motivo": "mesmo termo de sic com outro significado (\"Serviço de Informação ao Cidadão\" × \"Segurança da Informação e Comunicação\", 17% das palavras em comum): proposta de desambiguação, nada foi sobrescrito",
         "proposta_id": "sic-seguranca",
@@ -330,7 +378,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 8,
           "trecho": "UnBTV Rádio e Televisão Universitários",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "motivo": "mesmo termo de unbtv com outro significado (\"Rádio e Televisão Universitárias\" × \"Rádio e Televisão Universitários\", 50% das palavras em comum): proposta de desambiguação, nada foi sobrescrito",
         "proposta_id": "unbtv-universitarios",
@@ -350,7 +398,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 5,
           "trecho": "ABED Associação Brasileira de Educação a Distância",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "proposta_id": "abed",
         "motivo": "Associação externa",
@@ -368,7 +416,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 5,
           "trecho": "ACT Acordo de Cooperação Técnica",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "proposta_id": "act",
         "motivo": "Termos gerais",
@@ -386,7 +434,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 5,
           "trecho": "APA Área de Proteção Ambiental",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "proposta_id": "apa",
         "motivo": "Território e meio ambiente",
@@ -404,7 +452,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 5,
           "trecho": "APCNs Avaliação das Propostas de Cursos Novos",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "proposta_id": "apcns",
         "motivo": "Processo da Capes",
@@ -422,7 +470,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 5,
           "trecho": "ARWU Academic Ranking of World Universities",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "proposta_id": "arwu",
         "motivo": "Ranking internacional",
@@ -440,7 +488,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 5,
           "trecho": "ATS Avaliação de Tecnologias em Saúde",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "proposta_id": "ats",
         "motivo": "Área de pesquisa em geral",
@@ -458,7 +506,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 5,
           "trecho": "BSC Balanced Scorecard",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "proposta_id": "bsc",
         "motivo": "Tecnologia e objetos em geral",
@@ -476,28 +524,10 @@
           "fonte_id": "dpo-siglas",
           "pagina": 5,
           "trecho": "CAR Cadastro Ambiental Rural",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "proposta_id": "car",
         "motivo": "Território e meio ambiente",
-        "origem": "lista"
-      },
-      {
-        "candidato": {
-          "termo": "CAREL-UnB",
-          "significado": "Centro de Relações Internacionais UnB",
-          "tipo": "sigla",
-          "campus": "Geral",
-          "orgao_superior": null,
-          "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
-          "fonte_url": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
-          "fonte_id": "dpo-siglas",
-          "pagina": 5,
-          "trecho": "CAREL-UnB Centro de Relações Internacionais UnB",
-          "coletado_em": "2026-11-22"
-        },
-        "proposta_id": "carelunb",
-        "motivo": "Sem fonte sobre o que faz",
         "origem": "lista"
       },
       {
@@ -512,7 +542,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 5,
           "trecho": "CBMDF Corpo de Bombeiros Militar do Distrito Federal",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "proposta_id": "cbmdf",
         "motivo": "Órgãos de fora da universidade",
@@ -530,7 +560,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 5,
           "trecho": "CEP Comissão de Ética Pública",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "proposta_id": "cep",
         "motivo": "Comissão federal; na UnB a sigla indica outro órgão",
@@ -548,7 +578,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 5,
           "trecho": "CGRIFES Colégio de Gestores de Relações Internacionais das Instituições Federais de Educação Superior",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "proposta_id": "cgrifes",
         "motivo": "Colégio nacional",
@@ -566,7 +596,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 5,
           "trecho": "CIA Conselho Internacional de Arquivos",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "proposta_id": "cia",
         "motivo": "Órgãos de fora da universidade",
@@ -584,7 +614,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 5,
           "trecho": "CIESUD Congresso Internacional de Educação Superior a Distância",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "proposta_id": "ciesud",
         "motivo": "Congresso externo",
@@ -602,7 +632,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 5,
           "trecho": "CNAE Classificação Nacional de Atividades Econômicas",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "proposta_id": "cnae",
         "motivo": "Economia e orçamento público",
@@ -620,7 +650,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 5,
           "trecho": "CNRMS Comissão Nacional de Residência Multiprofissional em Saúde",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "proposta_id": "cnrms",
         "motivo": "Comissão nacional",
@@ -638,7 +668,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 5,
           "trecho": "Codin Coordenação dos Direitos da Mulher",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "proposta_id": "codin",
         "motivo": "Erro do PDI: o nome certo é Codim",
@@ -656,7 +686,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 6,
           "trecho": "Covid-19 do inglês, Corona Virus Disease 2019 (Doença do Coronavírus 2019)",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "proposta_id": "covid19",
         "motivo": "Saúde em geral",
@@ -674,7 +704,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 6,
           "trecho": "CTC-ES Conselho Técnico Científico da Educação Superior",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "proposta_id": "ctces",
         "motivo": "Conselho da Capes",
@@ -692,7 +722,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 6,
           "trecho": "DCON Demonstrações Contábeis",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "proposta_id": "dcon",
         "motivo": "Economia e orçamento público",
@@ -710,7 +740,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 6,
           "trecho": "DF Distrito Federal",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "proposta_id": "df",
         "motivo": "Território e meio ambiente",
@@ -728,7 +758,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 6,
           "trecho": "DOI Identificador Digital de Objetos",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "proposta_id": "doi",
         "motivo": "Tecnologia e objetos em geral",
@@ -746,7 +776,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 6,
           "trecho": "eMAG Modelo de Acessibilidade em Governo Eletrônico",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "proposta_id": "emag",
         "motivo": "Sistemas e regras do governo federal",
@@ -764,7 +794,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 6,
           "trecho": "ENAP Escola Nacional de Administração Pública",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "proposta_id": "enap",
         "motivo": "Escola federal de fora da UnB",
@@ -782,7 +812,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 6,
           "trecho": "EPI Equipamento de Proteção Individual",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "proposta_id": "epi",
         "motivo": "Saúde em geral",
@@ -800,7 +830,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 6,
           "trecho": "ESUD Congresso Brasileiro de Ensino Superior a Distância",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "proposta_id": "esud",
         "motivo": "Congresso externo",
@@ -818,7 +848,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 6,
           "trecho": "Forproex Fórum de Pró-Reitores de Extensão das Instituições Públicas de Educação Superior Brasileiras",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "proposta_id": "forproex",
         "motivo": "Fórum nacional de fora da UnB",
@@ -836,7 +866,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 6,
           "trecho": "FUNAI Fundação Nacional dos Povos Indígenas",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "proposta_id": "funai",
         "motivo": "Órgãos de fora da universidade",
@@ -854,7 +884,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 6,
           "trecho": "GE Guia da Faculdade",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "proposta_id": "ge",
         "motivo": "Guia externo de avaliação de cursos",
@@ -872,7 +902,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 6,
           "trecho": "HIV do inglês, Human Immunodeficiency Virus",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "proposta_id": "hiv",
         "motivo": "Saúde em geral",
@@ -890,7 +920,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 6,
           "trecho": "HQ Histórias em quadrinhos",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "proposta_id": "hq",
         "motivo": "Tecnologia e objetos em geral",
@@ -908,7 +938,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 6,
           "trecho": "IBRAM-DF Instituto Brasília Ambiental",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "proposta_id": "ibramdf",
         "motivo": "Órgãos de fora da universidade",
@@ -926,7 +956,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 6,
           "trecho": "IGG/TCU Índice de Governança e Gestão",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "proposta_id": "iggtcu",
         "motivo": "Órgãos de fora da universidade",
@@ -944,7 +974,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 7,
           "trecho": "INMETRO Instituto de Metrologia, Qualidade e Tecnologia",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "proposta_id": "inmetro",
         "motivo": "Órgãos de fora da universidade",
@@ -962,7 +992,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 7,
           "trecho": "IPCA Índice de Preços no Consumidor",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "proposta_id": "ipca",
         "motivo": "Economia e orçamento público",
@@ -980,7 +1010,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 7,
           "trecho": "ISBN International Standard Book Number",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "proposta_id": "isbn",
         "motivo": "Tecnologia e objetos em geral",
@@ -998,7 +1028,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 7,
           "trecho": "IST Infecção Sexualmente Transmissível",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "proposta_id": "ist",
         "motivo": "Saúde em geral",
@@ -1016,7 +1046,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 7,
           "trecho": "LED Light Emitting Diodes",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "proposta_id": "led",
         "motivo": "Tecnologia e objetos em geral",
@@ -1034,7 +1064,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 7,
           "trecho": "LOA Lei Orçamentária Anual",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "proposta_id": "loa",
         "motivo": "Economia e orçamento público",
@@ -1052,7 +1082,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 7,
           "trecho": "MCASP Manual de Contabilidade Aplicada ao Setor Público",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "proposta_id": "mcasp",
         "motivo": "Economia e orçamento público",
@@ -1070,7 +1100,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 7,
           "trecho": "MGI Ministério da Gestão e da Inovação em Serviços Públicos",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "proposta_id": "mgi",
         "motivo": "Órgãos de fora da universidade",
@@ -1088,7 +1118,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 7,
           "trecho": "MPT Ministério Público do Trabalho",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "proposta_id": "mpt",
         "motivo": "Órgãos de fora da universidade",
@@ -1106,7 +1136,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 7,
           "trecho": "MRE Ministério das Relações Exteriores",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "proposta_id": "mre",
         "motivo": "Órgãos de fora da universidade",
@@ -1124,7 +1154,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 7,
           "trecho": "NITCDT Núcleo de Inovação Tecnológica/Centro de Apoio ao Desenvolvimento Tecnológico",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "proposta_id": "nitcdt",
         "motivo": "Redundante: é o mesmo órgão do CDT",
@@ -1142,7 +1172,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 7,
           "trecho": "ODC Outras Despesas Correntes",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "proposta_id": "odc",
         "motivo": "Economia e orçamento público",
@@ -1160,7 +1190,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 7,
           "trecho": "ODS Objetivos de Desenvolvimento Sustentável",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "proposta_id": "ods",
         "motivo": "Termos gerais",
@@ -1178,7 +1208,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 7,
           "trecho": "OFSS Orçamento Fiscal e da Seguridade Social",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "proposta_id": "ofss",
         "motivo": "Economia e orçamento público",
@@ -1196,7 +1226,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 7,
           "trecho": "OMS Organização Mundial de Saúde",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "proposta_id": "oms",
         "motivo": "Saúde em geral",
@@ -1214,7 +1244,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 7,
           "trecho": "PLOA Projeto de Lei Orçamentária Anual",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "proposta_id": "ploa",
         "motivo": "Economia e orçamento público",
@@ -1232,7 +1262,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 7,
           "trecho": "PNDP Política Nacional de Desenvolvimento de Pessoas",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "proposta_id": "pndp",
         "motivo": "Sistemas e regras do governo federal",
@@ -1250,7 +1280,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 7,
           "trecho": "PNPG Plano Nacional de Pós-Graduação",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "proposta_id": "pnpg",
         "motivo": "Plano nacional sem uso direto pelo estudante",
@@ -1268,7 +1298,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 7,
           "trecho": "POD Print on demand",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "proposta_id": "pod",
         "motivo": "Tecnologia e objetos em geral",
@@ -1286,7 +1316,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 7,
           "trecho": "POP Procedimento Operacional Padrão",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "proposta_id": "pop",
         "motivo": "Tecnologia e objetos em geral",
@@ -1304,7 +1334,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 7,
           "trecho": "POP Pesquisa e Oficina Pagu",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "proposta_id": "pop-2",
         "motivo": "Tecnologia e objetos em geral",
@@ -1322,7 +1352,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 7,
           "trecho": "PPA Plano Plurianual",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "proposta_id": "ppa",
         "motivo": "Economia e orçamento público",
@@ -1340,7 +1370,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 8,
           "trecho": "PROCEL Programa Nacional de Conservação de Energia Elétrica",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "proposta_id": "procel",
         "motivo": "Órgãos de fora da universidade",
@@ -1358,7 +1388,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 8,
           "trecho": "PSBE Prática em Saúde Baseada em Evidências",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "proposta_id": "psbe",
         "motivo": "Prática geral da área de saúde, não é órgão nem serviço da UnB",
@@ -1376,7 +1406,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 8,
           "trecho": "RAIS Relação Anual de Informações Sociais",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "proposta_id": "rais",
         "motivo": "Economia e orçamento público",
@@ -1394,7 +1424,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 8,
           "trecho": "RFID Solução tecnológica por radiofrequência",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "proposta_id": "rfid",
         "motivo": "Tecnologia e objetos em geral",
@@ -1412,7 +1442,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 8,
           "trecho": "RIDE Região Integrada de Desenvolvimento do Entorno do DF",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "proposta_id": "ride",
         "motivo": "Território e meio ambiente",
@@ -1430,7 +1460,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 8,
           "trecho": "RUE Ranking Universidades Empreendedoras",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "proposta_id": "rue",
         "motivo": "Ranking externo",
@@ -1448,7 +1478,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 8,
           "trecho": "SBPC Sociedade Brasileira para o Progresso da Ciência",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "proposta_id": "sbpc",
         "motivo": "Sociedade científica de fora da UnB",
@@ -1466,7 +1496,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 8,
           "trecho": "SBRT Serviço Brasileiro de Respostas Técnicas",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "proposta_id": "sbrt",
         "motivo": "Órgãos de fora da universidade",
@@ -1484,7 +1514,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 8,
           "trecho": "SEEDF Secretaria de Educação do Distrito Federal",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "proposta_id": "seedf",
         "motivo": "Órgãos de fora da universidade",
@@ -1502,7 +1532,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 8,
           "trecho": "SES-DF Secretaria de Saúde do Distrito Federal",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "proposta_id": "sesdf",
         "motivo": "Órgãos de fora da universidade",
@@ -1520,7 +1550,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 8,
           "trecho": "SIAFI Sistema Integrado de Administração Financeira",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "proposta_id": "siafi",
         "motivo": "Sistemas e regras do governo federal",
@@ -1538,7 +1568,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 8,
           "trecho": "SIAPE Sistema Integrado de Administração de Pessoal",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "proposta_id": "siape",
         "motivo": "Sistemas e regras do governo federal",
@@ -1556,7 +1586,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 8,
           "trecho": "SIPEC Sistema de Pessoal Civil da Administração Federal",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "proposta_id": "sipec",
         "motivo": "Sistemas e regras do governo federal",
@@ -1574,7 +1604,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 8,
           "trecho": "SISP Sistema de Administração dos Recursos de Tecnologia da Informação",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "proposta_id": "sisp",
         "motivo": "Sistemas e regras do governo federal",
@@ -1592,7 +1622,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 8,
           "trecho": "SNPG Sistema Nacional de Pós-Graduação",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "proposta_id": "snpg",
         "motivo": "Sistema nacional sem uso direto pelo estudante",
@@ -1610,7 +1640,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 8,
           "trecho": "SUS Sistema Único de Saúde",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "proposta_id": "sus",
         "motivo": "Saúde em geral",
@@ -1628,7 +1658,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 8,
           "trecho": "TCU Tribunal de Contas da União",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "proposta_id": "tcu",
         "motivo": "Órgãos de fora da universidade",
@@ -1646,7 +1676,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 8,
           "trecho": "TDIC Tecnologias Digitais da Informação e Comunicação",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "proposta_id": "tdic",
         "motivo": "Tecnologia e objetos em geral",
@@ -1664,7 +1694,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 8,
           "trecho": "TEA Transtorno de Espectro Autista",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "proposta_id": "tea",
         "motivo": "Saúde em geral",
@@ -1682,7 +1712,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 8,
           "trecho": "THE Times Higher Education World University Rankings",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "proposta_id": "the",
         "motivo": "Ranking externo",
@@ -1700,7 +1730,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 8,
           "trecho": "TIC Tecnologia da Informação e Comunicação",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "proposta_id": "tic",
         "motivo": "Tecnologia e objetos em geral",
@@ -1718,7 +1748,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 8,
           "trecho": "UTI Unidade de Terapia Intensiva",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "proposta_id": "uti",
         "motivo": "Saúde em geral",
@@ -1726,6 +1756,29 @@
       }
     ],
     "alteracoes_recusadas": [
+      {
+        "id": "tgm",
+        "candidato": {
+          "termo": "TGM",
+          "significado": "Trancamento Geral de Matrícula Automático",
+          "tipo": "sigla",
+          "campus": "Geral",
+          "link": null,
+          "fonte": "https://saa.unb.br/perguntas-frequentes/",
+          "fonte_id": "saa-faq-trancamentos",
+          "trecho": "Trancamento Geral de Matrícula Automático (TGM)",
+          "coletado_em": "2026-11-24"
+        },
+        "mudancas": {
+          "significado": {
+            "de": "Trancamento Geral de Matrícula",
+            "para": "Trancamento Geral de Matrícula Automático"
+          }
+        },
+        "motivo": "mesmo termo de tgm, com significado parecido (75% das palavras em comum): proposta de atualizar o significado",
+        "tambem_em": [],
+        "motivo_recusa": "O Manual do Calouro 2026/2 usa Trancamento Geral de Matrícula; a SAA chama de Automático a modalidade sem justificativa, ao lado do TGMJ"
+      },
       {
         "id": "a3m",
         "candidato": {
@@ -1739,7 +1792,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 5,
           "trecho": "A3M Programa Aprendizagem 3° Milênio",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "mudancas": {
           "significado": {
@@ -1764,7 +1817,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 5,
           "trecho": "CDT Centro de Desenvolvimento Tecnológico",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "mudancas": {
           "significado": {
@@ -1789,7 +1842,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 6,
           "trecho": "Enade Exame Nacional de Desempenhos dos Estudantes",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "mudancas": {
           "significado": {
@@ -1814,15 +1867,15 @@
           "fonte_id": "dpo-siglas",
           "pagina": 6,
           "trecho": "FACE Faculdade de Administração, Contabilidade, Economia e Gestão Pública",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "mudancas": {
           "significado": {
-            "de": "Faculdade de Economia, Administração, Contabilidade e Gestão Públicas",
+            "de": "Faculdade de Economia, Administração, Contabilidade e Gestão de Políticas Públicas",
             "para": "Faculdade de Administração, Contabilidade, Economia e Gestão Pública"
           }
         },
-        "motivo": "mesmo termo de face, com significado parecido (71% das palavras em comum): proposta de atualizar o significado",
+        "motivo": "mesmo termo de face, com significado parecido (63% das palavras em comum): proposta de atualizar o significado",
         "tambem_em": [],
         "motivo_recusa": "O PDF muda a ordem do nome; o site da FACE começa por Faculdade de Economia, Administração, Contabilidade"
       },
@@ -1839,7 +1892,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 6,
           "trecho": "FAV Faculdade de Agronomia de Medicina Veterinária",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "mudancas": {
           "significado": {
@@ -1864,7 +1917,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 7,
           "trecho": "LDV Laboratório de Apoia às Pessoas com Deficiência Visual da Faculdade de Educação",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "mudancas": {
           "significado": {
@@ -1889,7 +1942,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 7,
           "trecho": "LIAP Laboratório e outras Infraestruturas de Apoio à Pesquisa",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "mudancas": {
           "significado": {
@@ -1914,7 +1967,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 7,
           "trecho": "LPSTE Laboratório de Prestação de Serviços Técnicos Especializados",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "mudancas": {
           "significado": {
@@ -1925,6 +1978,106 @@
         "motivo": "mesmo termo de lpste, com significado parecido (67% das palavras em comum): proposta de atualizar o significado",
         "tambem_em": [],
         "motivo_recusa": "O texto do PDI usa Laboratórios de Prestação de Serviços Técnicos Especializados"
+      },
+      {
+        "id": "mespt",
+        "candidato": {
+          "termo": "Mespt",
+          "significado": "Mestrado Profissional em Sustentabilidade junto a Povos e Terras Tradicionais",
+          "tipo": "sigla",
+          "campus": "Geral",
+          "orgao_superior": null,
+          "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
+          "fonte_url": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
+          "fonte_id": "dpo-siglas",
+          "pagina": 7,
+          "trecho": "Mespt Mestrado Profissional em Sustentabilidade junto a Povos e Terras Tradicionais",
+          "coletado_em": "2026-11-24"
+        },
+        "mudancas": {
+          "significado": {
+            "de": "Mestrado Profissional em Sustentabilidade junto a Povos e Territórios Tradicionais",
+            "para": "Mestrado Profissional em Sustentabilidade junto a Povos e Terras Tradicionais"
+          }
+        },
+        "motivo": "mesmo termo de mespt, com significado parecido (75% das palavras em comum): proposta de atualizar o significado",
+        "tambem_em": [],
+        "motivo_recusa": "O site do curso usa Mestrado Profissional em Sustentabilidade junto a Povos e Territórios Tradicionais"
+      },
+      {
+        "id": "paint",
+        "candidato": {
+          "termo": "PAINT",
+          "significado": "Plano Anual de Atividades da Auditoria Interna",
+          "tipo": "sigla",
+          "campus": "Geral",
+          "orgao_superior": null,
+          "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
+          "fonte_url": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
+          "fonte_id": "dpo-siglas",
+          "pagina": 7,
+          "trecho": "PAINT Plano Anual de Atividades da Auditoria Interna",
+          "coletado_em": "2026-11-24"
+        },
+        "mudancas": {
+          "significado": {
+            "de": "Plano Anual de Auditoria Interna",
+            "para": "Plano Anual de Atividades da Auditoria Interna"
+          }
+        },
+        "motivo": "mesmo termo de paint, com significado parecido (80% das palavras em comum): proposta de atualizar o significado",
+        "tambem_em": [],
+        "motivo_recusa": "A Auditoria Interna da UnB usa Plano Anual de Auditoria Interna"
+      },
+      {
+        "id": "pcctae",
+        "candidato": {
+          "termo": "PCCTAE",
+          "significado": "Plano de Carreira dos Cargos de Técnicos-Administrativos em Educação",
+          "tipo": "sigla",
+          "campus": "Geral",
+          "orgao_superior": null,
+          "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
+          "fonte_url": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
+          "fonte_id": "dpo-siglas",
+          "pagina": 7,
+          "trecho": "PCCTAE Plano de Carreira dos Cargos de Técnicos-Administrativos em Educação",
+          "coletado_em": "2026-11-24"
+        },
+        "mudancas": {
+          "significado": {
+            "de": "Plano de Carreira dos Cargos Técnico-Administrativos em Educação",
+            "para": "Plano de Carreira dos Cargos de Técnicos-Administrativos em Educação"
+          }
+        },
+        "motivo": "mesmo termo de pcctae, com significado parecido (71% das palavras em comum): proposta de atualizar o significado",
+        "tambem_em": [],
+        "motivo_recusa": "A Lei 11.091/2005 usa Plano de Carreira dos Cargos Técnico-Administrativos em Educação"
+      },
+      {
+        "id": "pibiti",
+        "candidato": {
+          "termo": "PIBITI",
+          "significado": "Programa Institucional de Bolsas de Iniciação Científica em Desenvolvimento Tecnológico e Inovação",
+          "tipo": "sigla",
+          "campus": "Geral",
+          "orgao_superior": null,
+          "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
+          "fonte_url": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf",
+          "fonte_id": "dpo-siglas",
+          "pagina": 7,
+          "trecho": "PIBITI Programa Institucional de Bolsas de Iniciação Científica em Desenvolvimento Tecnológico e Inovação",
+          "coletado_em": "2026-11-24"
+        },
+        "mudancas": {
+          "significado": {
+            "de": "Programa Institucional de Bolsas de Iniciação em Desenvolvimento Tecnológico e Inovação",
+            "para": "Programa Institucional de Bolsas de Iniciação Científica em Desenvolvimento Tecnológico e Inovação"
+          }
+        },
+        "motivo": "mesmo termo de pibiti, com significado parecido (88% das palavras em comum): proposta de atualizar o significado",
+        "tambem_em": [],
+        "motivo_recusa": "O nome do programa no CNPq é Programa Institucional de Bolsas de Iniciação em Desenvolvimento Tecnológico e Inovação"
       },
       {
         "id": "pnaes",
@@ -1939,7 +2092,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 7,
           "trecho": "PNAES Plano Nacional de Assistência Estudantil",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "mudancas": {
           "significado": {
@@ -1964,7 +2117,7 @@
           "fonte_id": "dpo-siglas",
           "pagina": 8,
           "trecho": "UED Usina de Minigeração na Unidade de Ensino e Docência",
-          "coletado_em": "2026-11-22"
+          "coletado_em": "2026-11-24"
         },
         "mudancas": {
           "significado": {

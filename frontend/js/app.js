@@ -1,4 +1,4 @@
-// Camada de DOM das 3 páginas: só cria elementos e ouve eventos. As regras ficam em módulos testados no Node
+// Camada de DOM das páginas: só cria elementos e ouve eventos. As regras ficam em módulos testados no Node
 // (ADR 0002): termos.js (busca e filtros), trilha.js, validacao-termo.js (schema) e um módulo por página:
 // busca.js (início), lista.js (todas as siglas), ficha.js (termo), planta.js (onde fica, ADR 0012) e tema.js (todas).
 // Todo dado de termo entra na página via textContent, nunca via innerHTML:
@@ -9,11 +9,14 @@ import { validarTermo } from "./validacao-termo.js";
 import { atalhosPorTipo, gruposDaTrilha, proximoIndice, sugestoesPara, termoDoEnvio, textoDoStatus, textoSemResultado } from "./busca.js";
 import { enderecoDosFiltros, etiquetasDoCartao, montarLista, opcoesDeCampus, opcoesDeTipo, textoDaContagem } from "./lista.js";
 import { rotuloCampus, textoDaFonte, tituloDaFicha, urlDoTermo } from "./ficha.js";
+import { boletimDaColeta } from "./origem.js";
 import { escuroAtivo, proximoTema, salvarTema } from "./tema.js";
+import { CHAVE_PROGRESSO, armazenamentoDisponivel, lerVistos, marcarVisto, progressoDaTrilha, recomecarTrilha, termosDaTrilha } from "./trilha.js";
 import { AVISO_ANDAR_APROXIMADO, AVISO_SALA_APROXIMADA, acharLugar, descreverLugar, listaDeAndares, montarSvgAndar, montarSvgCampus, paginaDaPlanta, svgDoLugar } from "./planta.js";
 
 const URL_DADOS = "data/termos.json";
 const URL_TRILHA = "data/trilha-calouro.json";
+const URL_BOLETIM = "../coleta/relatorio.json";
 const URL_PLANTA = "data/planta-fcte.json";
 const URL_REPOSITORIO = "https://github.com/unb-mds/2026-2-GlossarioUnB";
 const MENSAGEM_ERRO_CARGA = "Não foi possível carregar os termos. Verifique sua conexão e tente de novo.";
@@ -230,7 +233,8 @@ async function iniciarTrilha(termos) {
   try {
     const resposta = await fetch(URL_TRILHA);
     if (!resposta.ok) throw new Error(`Não foi possível carregar ${URL_TRILHA} (HTTP ${resposta.status})`);
-    const grupos = gruposDaTrilha(await resposta.json(), termos);
+    const trilha = await resposta.json();
+    const grupos = gruposDaTrilha(trilha, termos);
     if (grupos.length === 0) {
       secao.hidden = true;
       return;
@@ -241,10 +245,11 @@ async function iniciarTrilha(termos) {
       const titulo = criarElemento("h3", { classe: "trilha-grupo-nome", texto: grupo.nome, atributos: { id: grupo.idDoTitulo } });
       const termosDoGrupo = criarElemento("ul", { classe: "trilha-termos", atributos: { "aria-labelledby": grupo.idDoTitulo } });
       for (const termo of grupo.termos) {
-        const link = criarElemento("a", { classe: "trilha-termo", atributos: { href: termo.href } });
+        const link = criarElemento("a", { classe: "trilha-termo", atributos: { href: termo.href, "data-termo": termo.id } });
         link.append(
           criarElemento("span", { classe: "trilha-termo-nome", texto: termo.nome }),
           criarElemento("span", { classe: "trilha-termo-resumo", texto: termo.resumo }),
+          criarMarcaDeVisto(),
         );
         const item = criarElemento("li");
         item.append(link);
@@ -253,9 +258,76 @@ async function iniciarTrilha(termos) {
       itemGrupo.append(titulo, termosDoGrupo);
       lista.append(itemGrupo);
     }
+    iniciarProgressoDaTrilha(grupos.flatMap((grupo) => grupo.termos.map((termo) => termo.id)), lista);
   } catch (erro) {
     secao.hidden = true;
     console.warn("Trilha do calouro não carregada:", erro);
+  }
+}
+
+// A marca não é só cor: tem o ícone e, para o leitor de tela, o texto "já visto".
+function criarMarcaDeVisto() {
+  const marca = criarElemento("span", { classe: "trilha-termo-marca", atributos: { hidden: "" } });
+  marca.append(
+    criarElemento("span", { texto: "✓", atributos: { "aria-hidden": "true" } }),
+    criarElemento("span", { classe: "sr-only", texto: "já visto" }),
+  );
+  return marca;
+}
+
+// Progresso guardado só neste aparelho (decisão 58). Sem armazenamento, a trilha continua igual e sem marcas.
+const obterArmazenamento = () => window.localStorage;
+
+function iniciarProgressoDaTrilha(idsDaTrilha, lista) {
+  const contagem = document.getElementById("trilha-contagem");
+  const barra = document.getElementById("trilha-barra");
+  const botao = document.getElementById("trilha-recomecar");
+  const nota = document.getElementById("trilha-privacidade");
+  const caixa = document.getElementById("trilha-progresso");
+  if (!contagem || !barra || !botao || !nota || !caixa) return;
+
+  if (!armazenamentoDisponivel(obterArmazenamento)) {
+    caixa.setAttribute("data-sem-armazenamento", "");
+    contagem.textContent = "Progresso indisponível neste navegador";
+    nota.textContent = "A trilha funciona igual, só sem as marcas.";
+    return;
+  }
+
+  const atualizar = () => {
+    const vistos = lerVistos(obterArmazenamento, idsDaTrilha);
+    const progresso = progressoDaTrilha(idsDaTrilha, vistos);
+    contagem.textContent = progresso.texto;
+    barra.max = progresso.total;
+    barra.value = progresso.vistos;
+    botao.hidden = progresso.vistos === 0;
+    for (const link of lista.querySelectorAll(".trilha-termo")) {
+      link.querySelector(".trilha-termo-marca").hidden = !vistos.has(link.dataset.termo);
+    }
+  };
+
+  botao.addEventListener("click", () => {
+    recomecarTrilha(obterArmazenamento);
+    atualizar();
+    contagem.focus(); // o botão some: o foco do teclado não pode se perder junto com ele
+  });
+  // Ao voltar de um termo pelo botão do navegador, a página pode vir da memória, sem rodar este módulo de novo.
+  window.addEventListener("pageshow", (evento) => {
+    if (evento.persisted) atualizar();
+  });
+  window.addEventListener("storage", (evento) => {
+    if (evento.key === CHAVE_PROGRESSO || evento.key === null) atualizar();
+  });
+  atualizar();
+}
+
+// Abrir a página de um termo da trilha conta como visto. É um extra: se falhar, a página do termo não muda.
+async function marcarTermoNaTrilha(idDoTermo) {
+  try {
+    const resposta = await fetch(URL_TRILHA);
+    if (!resposta.ok) return;
+    marcarVisto(obterArmazenamento, idDoTermo, termosDaTrilha(await resposta.json()));
+  } catch (erro) {
+    console.warn("Não foi possível marcar o termo na trilha:", erro);
   }
 }
 
@@ -494,6 +566,7 @@ function iniciarPaginaTermo(termos, planta) {
     criarBloco("Exemplo de uso", criarElemento("p", { classe: "exemplo-frase", texto: termo.exemplo_uso })),
     criarBloco("Fonte", criarFonte(termo.fonte)),
   );
+  marcarTermoNaTrilha(termo.id);
 
   const lugar = planta ? acharLugar(planta, termo.id) : null;
   const ondeFica = lugar ? criarBlocoOndeFica(planta, lugar) : null;
@@ -505,11 +578,53 @@ function iniciarPaginaTermo(termos, planta) {
   montar();
 }
 
+// ===== De onde vêm os dados: o boletim do robô (#74) =====
+
+// O boletim é um extra da página: se não carregar, ela continua mostrando o que vem dos termos.
+async function carregarBoletim() {
+  try {
+    const resposta = await fetch(URL_BOLETIM);
+    return resposta.ok ? await resposta.json() : null;
+  } catch (erro) {
+    console.warn("Boletim do robô indisponível:", erro);
+    return null;
+  }
+}
+
+function criarLinhaDeTotal({ rotulo, total }, maior) {
+  const linha = criarElemento("li", { classe: "dados-linha" });
+  const trilho = criarElemento("span", { classe: "dados-trilho", atributos: { "aria-hidden": "true" } });
+  const barra = criarElemento("span", { classe: "dados-barra" });
+  barra.style.width = `${Math.max(2, (total / maior) * 100)}%`;
+  trilho.append(barra);
+  linha.append(criarElemento("span", { classe: "dados-linha-rotulo", texto: rotulo }), criarElemento("strong", { texto: String(total) }), trilho);
+  return linha;
+}
+
+function preencherTotais(idDaLista, grupos) {
+  const maior = Math.max(1, ...grupos.map((grupo) => grupo.total));
+  document.getElementById(idDaLista)?.replaceChildren(...grupos.map((grupo) => criarLinhaDeTotal(grupo, maior)));
+}
+
+async function iniciarPaginaDados(termos) {
+  const data = document.getElementById("dados-data");
+  if (!data) return;
+
+  const boletim = boletimDaColeta(await carregarBoletim(), termos);
+  data.textContent = boletim.textoDaData ?? "Não foi possível carregar o boletim do robô agora. Os totais abaixo vêm dos termos publicados.";
+  for (const [id, valor] of [["dados-lidas", boletim.numeros.lidas], ["dados-barradas", boletim.numeros.barradas], ["dados-publicados", boletim.numeros.publicados]]) {
+    const campo = document.getElementById(id);
+    if (campo) campo.textContent = valor === null ? "—" : String(valor);
+  }
+  preencherTotais("dados-fontes", boletim.fontes);
+  preencherTotais("dados-categorias", boletim.categorias);
+}
+
 // ===== Erro de carga: mostra aviso no lugar do conteúdo da página atual =====
 
 function mostrarErroDeCarga() {
   const aviso = criarElemento("p", { classe: "aviso-vazio", texto: MENSAGEM_ERRO_CARGA, atributos: { role: "alert" } });
-  const alvo = document.getElementById("conteudo-termo") ?? document.getElementById("conteudo-planta") ?? document.getElementById("lista-termos");
+  const alvo = document.getElementById("conteudo-termo") ?? document.getElementById("conteudo-planta") ?? document.getElementById("lista-termos") ?? document.getElementById("conteudo-dados");
   if (alvo) {
     alvo.replaceChildren(aviso);
     return;
@@ -532,6 +647,7 @@ try {
   iniciarListaCompleta(termos);
   iniciarPaginaTermo(termos, planta);
   iniciarPaginaPlanta(termos, planta);
+  await iniciarPaginaDados(termos);
 } catch (erro) {
   console.error(erro);
   mostrarErroDeCarga();

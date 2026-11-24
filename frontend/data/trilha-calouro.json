@@ -1,29 +1,29 @@
 {
   "grupos": [
     {
-      "id": "onde-comer-e-estudar",
-      "nome": "Onde comer e onde estudar",
-      "termos": ["ru", "bce", "icc"]
+      "id": "antes-da-primeira-aula",
+      "nome": "Antes da primeira aula",
+      "termos": ["email-institucional", "sigaa", "aprender-3", "saa", "deg"]
     },
     {
-      "id": "notas",
-      "nome": "Notas",
-      "termos": ["mencao", "sr", "ira"]
+      "id": "primeira-semana",
+      "nome": "Na primeira semana",
+      "termos": ["ru", "bce", "icc", "ca", "dce"]
     },
     {
-      "id": "sistemas",
-      "nome": "Sistemas",
-      "termos": ["sigaa", "aprender-3", "email-institucional"]
+      "id": "durante-o-semestre",
+      "nome": "Durante o semestre",
+      "termos": ["mencao", "sr", "ira", "sei"]
     },
     {
-      "id": "matricula-e-trancamento",
-      "nome": "Matrícula e trancamento",
-      "termos": ["matricula", "fluxo", "tgm", "saa"]
+      "id": "proximo-semestre",
+      "nome": "Para o próximo semestre",
+      "termos": ["fluxo", "matricula"]
     },
     {
-      "id": "apoio-estudantil",
-      "nome": "Apoio estudantil",
-      "termos": ["dac", "dds", "auxilio-socioeconomico", "dasu"]
+      "id": "quando-precisar-de-apoio",
+      "nome": "Quando precisar de apoio",
+      "termos": ["dac", "dds", "auxilio-socioeconomico", "dasu", "ceu", "tgm"]
     },
     {
       "id": "girias-do-campus",
