@@ -19,7 +19,12 @@
     "definicao": "Unidade responsável pela organização e disponibilização do acervo bibliográfico e de serviços de informação da UnB.",
     "exemplo_uso": "Vou ali na BCE estudar e depois pegar um livro.",
     "fonte": "https://bce.unb.br/",
-    "campus": "Geral"
+    "campus": "Geral",
+    "localizacao": {
+      "lat": -15.7609745,
+      "lng": -47.867889,
+      "link_como_chegar": "https://www.google.com/maps/search/?api=1&query=-15.7609745,-47.867889"
+    }
   },
   {
     "id": "fcts",
@@ -30,7 +35,12 @@
     "exemplo_uso": "Tenho aula na FCTS hoje à tarde.",
     "fonte": "https://fcts.unb.br/",
     "campus": "Ceilândia",
-    "categoria": "unidades-academicas"
+    "categoria": "unidades-academicas",
+    "localizacao": {
+      "lat": -15.844806,
+      "lng": -48.0997828,
+      "link_como_chegar": "https://www.google.com/maps/search/?api=1&query=-15.844806,-48.0997828"
+    }
   },
   {
     "id": "fcte",
@@ -41,7 +51,12 @@
     "exemplo_uso": "Faço Engenharia de Software na FCTE.",
     "fonte": "https://fcte.unb.br/",
     "campus": "Gama",
-    "categoria": "unidades-academicas"
+    "categoria": "unidades-academicas",
+    "localizacao": {
+      "lat": -15.9899757,
+      "lng": -48.044871,
+      "link_como_chegar": "https://www.google.com/maps/search/?api=1&query=-15.9899757,-48.044871"
+    }
   },
   {
     "id": "cds",
@@ -151,7 +166,12 @@
     "exemplo_uso": "A palestra de arquitetura vai acontecer na FAU.",
     "fonte": "https://fau.unb.br/",
     "campus": "Geral",
-    "categoria": "unidades-academicas"
+    "categoria": "unidades-academicas",
+    "localizacao": {
+      "lat": -15.7618765,
+      "lng": -47.8699451,
+      "link_como_chegar": "https://www.google.com/maps/search/?api=1&query=-15.7618765,-47.8699451"
+    }
   },
   {
     "id": "fci",
@@ -162,7 +182,12 @@
     "exemplo_uso": "Tive aula de Arquivologia na FCI.",
     "fonte": "https://fci.unb.br/",
     "campus": "Geral",
-    "categoria": "unidades-academicas"
+    "categoria": "unidades-academicas",
+    "localizacao": {
+      "lat": -15.7606873,
+      "lng": -47.8674561,
+      "link_como_chegar": "https://www.google.com/maps/search/?api=1&query=-15.7606873,-47.8674561"
+    }
   },
   {
     "id": "fs",
@@ -173,7 +198,12 @@
     "exemplo_uso": "Minha amiga estuda na FS e faz um curso da área da saúde.",
     "fonte": "https://fs.unb.br/",
     "campus": "Geral",
-    "categoria": "unidades-academicas"
+    "categoria": "unidades-academicas",
+    "localizacao": {
+      "lat": -15.768518,
+      "lng": -47.866821,
+      "link_como_chegar": "https://www.google.com/maps/search/?api=1&query=-15.768518,-47.866821"
+    }
   },
   {
     "id": "fac",
@@ -184,7 +214,12 @@
     "exemplo_uso": "A apresentação do trabalho será na FAC.",
     "fonte": "https://fac.unb.br/",
     "campus": "Geral",
-    "categoria": "unidades-academicas"
+    "categoria": "unidades-academicas",
+    "localizacao": {
+      "lat": -15.7609033,
+      "lng": -47.8702321,
+      "link_como_chegar": "https://www.google.com/maps/search/?api=1&query=-15.7609033,-47.8702321"
+    }
   },
   {
     "id": "fd",
@@ -195,7 +230,12 @@
     "exemplo_uso": "Meu amigo estuda Direito na FD.",
     "fonte": "https://direito.unb.br/",
     "campus": "Geral",
-    "categoria": "unidades-academicas"
+    "categoria": "unidades-academicas",
+    "localizacao": {
+      "lat": -15.75956,
+      "lng": -47.872137,
+      "link_como_chegar": "https://www.google.com/maps/search/?api=1&query=-15.75956,-47.872137"
+    }
   },
   {
     "id": "fe",
@@ -206,7 +246,12 @@
     "exemplo_uso": "Professores da FE desenvolveram uma pesquisa sobre educação.",
     "fonte": "https://fe.unb.br/",
     "campus": "Geral",
-    "categoria": "unidades-academicas"
+    "categoria": "unidades-academicas",
+    "localizacao": {
+      "lat": -15.7681715,
+      "lng": -47.8710255,
+      "link_como_chegar": "https://www.google.com/maps/search/?api=1&query=-15.7681715,-47.8710255"
+    }
   },
   {
     "id": "fef",
@@ -217,7 +262,12 @@
     "exemplo_uso": "Amanhã de manhã tenho uma atividade na FEF.",
     "fonte": "https://fef.unb.br/",
     "campus": "Geral",
-    "categoria": "unidades-academicas"
+    "categoria": "unidades-academicas",
+    "localizacao": {
+      "lat": -15.7632445,
+      "lng": -47.8604995,
+      "link_como_chegar": "https://www.google.com/maps/search/?api=1&query=-15.7632445,-47.8604995"
+    }
   },
   {
     "id": "fm",
@@ -228,7 +278,12 @@
     "exemplo_uso": "Meu colega está cursando Medicina na FM.",
     "fonte": "https://fm.unb.br/",
     "campus": "Geral",
-    "categoria": "unidades-academicas"
+    "categoria": "unidades-academicas",
+    "localizacao": {
+      "lat": -15.7687199,
+      "lng": -47.8662138,
+      "link_como_chegar": "https://www.google.com/maps/search/?api=1&query=-15.7687199,-47.8662138"
+    }
   },
   {
     "id": "fup",
@@ -239,7 +294,12 @@
     "exemplo_uso": "Hoje tenho uma atividade da universidade na FUP.",
     "fonte": "https://fup.unb.br/",
     "campus": "Planaltina",
-    "categoria": "unidades-academicas"
+    "categoria": "unidades-academicas",
+    "localizacao": {
+      "lat": -15.6006434,
+      "lng": -47.6593387,
+      "link_como_chegar": "https://www.google.com/maps/search/?api=1&query=-15.6006434,-47.6593387"
+    }
   },
   {
     "id": "ft",
@@ -250,7 +310,12 @@
     "exemplo_uso": "Depois do almoço tenho aula na FT.",
     "fonte": "http://ft.unb.br/",
     "campus": "Geral",
-    "categoria": "unidades-academicas"
+    "categoria": "unidades-academicas",
+    "localizacao": {
+      "lat": -15.7635595,
+      "lng": -47.872531,
+      "link_como_chegar": "https://www.google.com/maps/search/?api=1&query=-15.7635595,-47.872531"
+    }
   },
   {
     "id": "face",
@@ -261,7 +326,12 @@
     "exemplo_uso": "A palestra de economia será realizada na FACE.",
     "fonte": "https://face.unb.br/",
     "campus": "Geral",
-    "categoria": "unidades-academicas"
+    "categoria": "unidades-academicas",
+    "localizacao": {
+      "lat": -15.7585155,
+      "lng": -47.87186,
+      "link_como_chegar": "https://www.google.com/maps/search/?api=1&query=-15.7585155,-47.87186"
+    }
   },
   {
     "id": "ida",
@@ -283,7 +353,12 @@
     "exemplo_uso": "Li um artigo publicado por pesquisadores do IPOL.",
     "fonte": "https://ipol.unb.br/",
     "campus": "Geral",
-    "categoria": "unidades-academicas"
+    "categoria": "unidades-academicas",
+    "localizacao": {
+      "lat": -15.758246,
+      "lng": -47.869597,
+      "link_como_chegar": "https://www.google.com/maps/search/?api=1&query=-15.758246,-47.869597"
+    }
   },
   {
     "id": "ib",
@@ -294,7 +369,12 @@
     "exemplo_uso": "A aula prática de Biologia será no IB.",
     "fonte": "https://icb.unb.br/",
     "campus": "Geral",
-    "categoria": "unidades-academicas"
+    "categoria": "unidades-academicas",
+    "localizacao": {
+      "lat": -15.7665232,
+      "lng": -47.8651056,
+      "link_como_chegar": "https://www.google.com/maps/search/?api=1&query=-15.7665232,-47.8651056"
+    }
   },
   {
     "id": "ie",
@@ -316,7 +396,12 @@
     "exemplo_uso": "O evento de História vai acontecer no ICH.",
     "fonte": "https://ich.unb.br/",
     "campus": "Geral",
-    "categoria": "unidades-academicas"
+    "categoria": "unidades-academicas",
+    "localizacao": {
+      "lat": -15.7615562,
+      "lng": -47.8705674,
+      "link_como_chegar": "https://www.google.com/maps/search/?api=1&query=-15.7615562,-47.8705674"
+    }
   },
   {
     "id": "ics",
@@ -327,7 +412,12 @@
     "exemplo_uso": "Uma palestra organizada pelo ICS acontece amanhã.",
     "fonte": "https://ics.unb.br/",
     "campus": "Geral",
-    "categoria": "unidades-academicas"
+    "categoria": "unidades-academicas",
+    "localizacao": {
+      "lat": -15.757409,
+      "lng": -47.8728705,
+      "link_como_chegar": "https://www.google.com/maps/search/?api=1&query=-15.757409,-47.8728705"
+    }
   },
   {
     "id": "if",
@@ -371,7 +461,12 @@
     "exemplo_uso": "Um projeto de pesquisa foi desenvolvido no IP.",
     "fonte": "https://ip.unb.br/",
     "campus": "Geral",
-    "categoria": "unidades-academicas"
+    "categoria": "unidades-academicas",
+    "localizacao": {
+      "lat": -15.7650488,
+      "lng": -47.8674345,
+      "link_como_chegar": "https://www.google.com/maps/search/?api=1&query=-15.7650488,-47.8674345"
+    }
   },
   {
     "id": "iq",
@@ -382,7 +477,12 @@
     "exemplo_uso": "A aula prática de Química será realizada no IQ.",
     "fonte": "https://iq.unb.br/",
     "campus": "Geral",
-    "categoria": "unidades-academicas"
+    "categoria": "unidades-academicas",
+    "localizacao": {
+      "lat": -15.7685537,
+      "lng": -47.8647793,
+      "link_como_chegar": "https://www.google.com/maps/search/?api=1&query=-15.7685537,-47.8647793"
+    }
   },
   {
     "id": "irel",
@@ -393,7 +493,12 @@
     "exemplo_uso": "Uma palestra do IREL foi divulgada no mural do departamento.",
     "fonte": "https://irel.unb.br/",
     "campus": "Geral",
-    "categoria": "unidades-academicas"
+    "categoria": "unidades-academicas",
+    "localizacao": {
+      "lat": -15.758246,
+      "lng": -47.869597,
+      "link_como_chegar": "https://www.google.com/maps/search/?api=1&query=-15.758246,-47.869597"
+    }
   },
   {
     "id": "pctec",
@@ -475,7 +580,12 @@
     "definicao": "Prédio do campus Darcy Ribeiro onde ficam salas de aula e departamentos, como o de Matemática. Os endereços de sala citam a ala do prédio, como \"ICC Centro\".",
     "exemplo_uso": "A monitoria de Cálculo 1 é no ICC Centro, no subsolo do Departamento de Matemática.",
     "fonte": "https://deg.unb.br/wp-content/uploads/manual_do_calouro_2026_2.pdf#page=84",
-    "campus": "Darcy Ribeiro"
+    "campus": "Darcy Ribeiro",
+    "localizacao": {
+      "lat": -15.763137,
+      "lng": -47.868831,
+      "link_como_chegar": "https://www.google.com/maps/search/?api=1&query=-15.763137,-47.868831"
+    }
   },
   {
     "id": "minhocao",
@@ -486,7 +596,12 @@
     "definicao": "Apelido do ICC, o prédio mais conhecido do campus Darcy Ribeiro, por causa do formato: linear, com cerca de 700 metros de comprimento. Projetado por Oscar Niemeyer e começado em 1963, abriga institutos, faculdades, salas de aula e auditórios.",
     "exemplo_uso": "Minha primeira aula é no Minhocão, no ICC Sul.",
     "fonte": "https://ceplan.unb.br/campus-universitario-darcy-ribeiro/",
-    "campus": "Darcy Ribeiro"
+    "campus": "Darcy Ribeiro",
+    "localizacao": {
+      "lat": -15.763137,
+      "lng": -47.868831,
+      "link_como_chegar": "https://www.google.com/maps/search/?api=1&query=-15.763137,-47.868831"
+    }
   },
   {
     "id": "beijodromo",
@@ -497,7 +612,12 @@
     "definicao": "Nome popular do Memorial Darcy Ribeiro, o prédio circular a cerca de 100 metros da Reitoria, no campus Darcy Ribeiro. Inaugurado em 2010, abriga um auditório, um restaurante e o acervo de Darcy Ribeiro, e é uma das Casas Universitárias de Cultura.",
     "exemplo_uso": "A recepção dos calouros vai ser no auditório do Beijódromo.",
     "fonte": "https://ceplan.unb.br/campus-universitario-darcy-ribeiro/",
-    "campus": "Darcy Ribeiro"
+    "campus": "Darcy Ribeiro",
+    "localizacao": {
+      "lat": -15.7640276,
+      "lng": -47.8659081,
+      "link_como_chegar": "https://www.google.com/maps/search/?api=1&query=-15.7640276,-47.8659081"
+    }
   },
   {
     "id": "mencao",
@@ -953,7 +1073,12 @@
     "exemplo_uso": "Minha aula de hoje é no BSAN.",
     "fonte": "https://ceplan.unb.br/campus-universitario-darcy-ribeiro/",
     "campus": "Darcy Ribeiro",
-    "categoria": "locais-campus"
+    "categoria": "locais-campus",
+    "localizacao": {
+      "lat": -15.7570575,
+      "lng": -47.871219,
+      "link_como_chegar": "https://www.google.com/maps/search/?api=1&query=-15.7570575,-47.871219"
+    }
   },
   {
     "id": "bsas",
@@ -964,7 +1089,12 @@
     "exemplo_uso": "Minha próxima aula é no BSAS.",
     "fonte": "https://ceplan.unb.br/campus-universitario-darcy-ribeiro/",
     "campus": "Darcy Ribeiro",
-    "categoria": "locais-campus"
+    "categoria": "locais-campus",
+    "localizacao": {
+      "lat": -15.7669225,
+      "lng": -47.86672,
+      "link_como_chegar": "https://www.google.com/maps/search/?api=1&query=-15.7669225,-47.86672"
+    }
   },
   {
     "id": "ca",
@@ -1063,7 +1193,12 @@
     "exemplo_uso": "Tem uma atividade hoje no CCN.",
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=107",
     "campus": "Geral",
-    "categoria": "locais-campus"
+    "categoria": "locais-campus",
+    "localizacao": {
+      "lat": -15.760446,
+      "lng": -47.8737127,
+      "link_como_chegar": "https://www.google.com/maps/search/?api=1&query=-15.760446,-47.8737127"
+    }
   },
   {
     "id": "ccpgs",
@@ -1118,7 +1253,12 @@
     "exemplo_uso": "Procurei o CDT para conversar sobre a minha ideia de empresa.",
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=74",
     "campus": "Geral",
-    "categoria": "unidades-academicas"
+    "categoria": "unidades-academicas",
+    "localizacao": {
+      "lat": -15.774485,
+      "lng": -47.8668475,
+      "link_como_chegar": "https://www.google.com/maps/search/?api=1&query=-15.774485,-47.8668475"
+    }
   },
   {
     "id": "cediarte",
@@ -1756,7 +1896,12 @@
     "exemplo_uso": "Hoje a aula prática é na FAL.",
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=119",
     "campus": "Geral",
-    "categoria": "locais-campus"
+    "categoria": "locais-campus",
+    "localizacao": {
+      "lat": -15.9486429,
+      "lng": -47.9339874,
+      "link_como_chegar": "https://www.google.com/maps/search/?api=1&query=-15.9486429,-47.9339874"
+    }
   },
   {
     "id": "fapdf",
@@ -1800,7 +1945,12 @@
     "exemplo_uso": "Um veterano falou que estuda na FGA, que hoje se chama FCTE.",
     "fonte": "https://fcte.unb.br/memoria-fga/",
     "campus": "Gama",
-    "categoria": "unidades-academicas"
+    "categoria": "unidades-academicas",
+    "localizacao": {
+      "lat": -15.9899757,
+      "lng": -48.044871,
+      "link_como_chegar": "https://www.google.com/maps/search/?api=1&query=-15.9899757,-48.044871"
+    }
   },
   {
     "id": "fub",
@@ -1877,7 +2027,12 @@
     "exemplo_uso": "Minha aula prática é no HUB.",
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=91",
     "campus": "Geral",
-    "categoria": "locais-campus"
+    "categoria": "locais-campus",
+    "localizacao": {
+      "lat": -15.771729,
+      "lng": -47.8736111,
+      "link_como_chegar": "https://www.google.com/maps/search/?api=1&query=-15.771729,-47.8736111"
+    }
   },
   {
     "id": "hvet",
@@ -1888,7 +2043,12 @@
     "exemplo_uso": "Levei meu cachorro ao HVET.",
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=94",
     "campus": "Geral",
-    "categoria": "locais-campus"
+    "categoria": "locais-campus",
+    "localizacao": {
+      "lat": -15.7491377,
+      "lng": -47.8768349,
+      "link_como_chegar": "https://www.google.com/maps/search/?api=1&query=-15.7491377,-47.8768349"
+    }
   },
   {
     "id": "iberonex",
@@ -2031,7 +2191,12 @@
     "exemplo_uso": "Minha aula prática é no LDTEA.",
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=124",
     "campus": "Gama",
-    "categoria": "locais-campus"
+    "categoria": "locais-campus",
+    "localizacao": {
+      "lat": -15.9904653,
+      "lng": -48.0442411,
+      "link_como_chegar": "https://www.google.com/maps/search/?api=1&query=-15.9904653,-48.0442411"
+    }
   },
   {
     "id": "ldv",
