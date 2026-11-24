@@ -18,8 +18,11 @@ jobs:
         with:
           node-version: 24
           cache: npm
-      # Instala as bibliotecas do robô de coleta (ADR 0010); o front não usa nenhuma.
       - run: npm ci
+      # Barra código fora do padrão e cobertura abaixo da meta (ADR 0007).
+      - run: npm run lint
+      # Roda os testes e valida todos os termos de frontend/data/termos.json (ADR 0004, ADR 0007).
+      - run: npm run test:cobertura
       # Falha o PR se uma dependência de produção tiver vulnerabilidade alta ou crítica (#83).
       - run: npm audit --omit=dev --audit-level=high
       # Roda os testes de domínio e valida todos os termos de frontend/data/termos.json (ADR 0004, ADR 0007).

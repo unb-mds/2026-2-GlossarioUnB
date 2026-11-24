@@ -17,13 +17,14 @@ Dicionário colaborativo de siglas, gírias e jargões da UnB.
 
 ## Como rodar
 
-Pré-requisito: Node 22.9 ou mais novo. O site não usa dependências; os testes e a coleta usam as bibliotecas da ADR 0010, instaladas com `npm ci`.
+Pré-requisito: Node 22.13 ou mais novo. O app não tem dependências de runtime; o robô de coleta e o lint usam as bibliotecas da ADR 0010, instaladas com `npm ci`.
 
 ```bash
-npm ci                  # bibliotecas da coleta e dos testes
+npm ci                  # bibliotecas da coleta, do robô e o ESLint
 npm run dev             # glossário em http://localhost:8080/frontend/ e Sobre em /sobre/
 npm test                # testes de domínio + validação de todos os termos
-npm run test:cobertura  # os mesmos testes, com relatório de cobertura
+npm run lint            # ESLint
+npm run test:cobertura  # os mesmos testes, com cobertura mínima de 90%
 ```
 
 Para usar outra porta, copie `.env.example` para `.env` e ajuste `PORT` (o `npm run dev` lê o `.env` automaticamente).
