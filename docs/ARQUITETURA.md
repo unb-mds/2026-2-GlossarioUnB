@@ -103,7 +103,7 @@ C4Container
 
 ### Limites do desenho
 
-- O nível 2 reflete a [ADR 0009](adr/0009-coleta-automatizada-por-pipeline.md). Os contêineres do pipeline são implementados pelas issues #55, #56, #58 e #59; hoje a `main` já tem a deduplicação (#57).
+- O nível 2 reflete a [ADR 0009](adr/0009-coleta-automatizada-por-pipeline.md). Na `main` já estão o coletor de páginas (#56), a deduplicação (#57) e o classificador (#58); faltam o coletor de PDF (#55) e o workflow que abre o PR (#59).
 - O lint e a cobertura mínima no CI entram com a #79; até lá, o CI roda os testes.
 - Não há backend nem banco de dados: o GitHub Pages serve arquivos estáticos e o `termos.json` é versionado (ADR 0001 e ADR 0007).
 - O LLM não decide nada sozinho: ele sugere categoria, tipo e rascunhos, e a revisão humana escreve e aprova o texto final (ADR 0009).
