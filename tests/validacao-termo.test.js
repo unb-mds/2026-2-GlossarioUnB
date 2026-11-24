@@ -1,7 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 
-import { urlSegura, validarGlossario, validarTermo } from "../frontend/js/validacao-termo.js";
+import { idValido, urlSegura, validarGlossario, validarTermo } from "../frontend/js/validacao-termo.js";
 
 const termoValido = () => ({
   id: "ru",
@@ -141,4 +141,9 @@ test("validarGlossario não acusa id duplicado em termo sem id, nem quando o id 
   assert.equal(validarGlossario([semId, semId]).filter((e) => e.includes("duplicado")).length, 0);
   const dup = validarGlossario([termoValido(), termoValido()]);
   assert.deepEqual(dup, ["termo #1 (ru): id duplicado"]);
+});
+
+test("idValido: a regra única do formato de id, usada também pela planta", () => {
+  for (const id of ["ru", "aprender-3", "ldtea-ter-101"]) assert.equal(idValido(id), true, id);
+  for (const id of ["", "RU", "ru ", "-ru", "ru-", "ru--bce", "ação", 7, null, undefined]) assert.equal(idValido(id), false, String(id));
 });

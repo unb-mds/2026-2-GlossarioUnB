@@ -1,10 +1,10 @@
 // Estratégias de cache: ver docs/adr/0003-pwa-com-service-worker-proprio.md.
 // Ao mudar qualquer arquivo do app shell, incremente VERSAO_CACHE.
 const PREFIXO_CACHE = "glossario-unb-";
-const VERSAO_CACHE = `${PREFIXO_CACHE}v19`;
+const VERSAO_CACHE = `${PREFIXO_CACHE}v20`;
 
 // Arquivos de dados: respondem do cache e se atualizam em segundo plano (stale-while-revalidate).
-const ARQUIVOS_DADOS = ["data/termos.json", "data/trilha-calouro.json"];
+const ARQUIVOS_DADOS = ["data/termos.json", "data/trilha-calouro.json", "data/planta-fcte.json"];
 
 // O boletim do robô (#74) fica fora de frontend/, no mesmo caminho do repositório.
 const URL_BOLETIM = "../coleta/relatorio.json";
@@ -15,12 +15,14 @@ const ARQUIVOS_APP_SHELL = [
   "todas-siglas.html",
   "termo.html",
   "origem-dos-dados.html",
+  "planta.html",
   "styles.css",
   "js/app.js",
   "js/busca.js",
   "js/ficha.js",
   "js/lista.js",
   "js/origem.js",
+  "js/planta.js",
   "js/tema.js",
   "js/termos.js",
   "js/trilha.js",

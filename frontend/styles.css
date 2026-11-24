@@ -22,6 +22,20 @@
   --sombra-2: 0 6px 20px rgba(16, 24, 40, 0.12);
   --raio: 14px;
   --fonte: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  /* Planta da FCTE (ADR 0012): estilo "aplicativo"; todo texto sobre cor passa no contraste AA */
+  --planta-fundo: #e6ebe4;
+  --planta-parede: #4a5560;
+  --planta-predio: #ffffff;
+  --planta-corredor: #f1f4f6;
+  --planta-item: #2f6fb5;
+  --planta-laboratorio: #1f7a56;
+  --planta-professores: #5a5fb8;
+  --planta-apoio: #a85d14;
+  --planta-servico: #c3cbd2;
+  --planta-nucleo: #d7e6f6;
+  --planta-destaque: #e8590c;
+  --planta-texto: #ffffff;
+  --planta-texto-claro: #1f2a33;
   color-scheme: light;
 }
 
@@ -43,6 +57,19 @@
   --hero: linear-gradient(135deg, #0b2540 0%, #10385c 60%, #11513f 135%);
   --sombra-1: 0 1px 2px rgba(0, 0, 0, 0.3);
   --sombra-2: 0 6px 20px rgba(0, 0, 0, 0.45);
+  --planta-fundo: #1b2a31;
+  --planta-parede: #8fa3ad;
+  --planta-predio: #223540;
+  --planta-corredor: #2d4350;
+  --planta-item: #2f6fb5;
+  --planta-laboratorio: #1f7a56;
+  --planta-professores: #5a5fb8;
+  --planta-apoio: #a85d14;
+  --planta-servico: #4a5a64;
+  --planta-nucleo: #33505f;
+  --planta-destaque: #ffd43b;
+  --planta-texto: #ffffff;
+  --planta-texto-claro: #ffffff;
   color-scheme: dark;
 }
 
@@ -64,6 +91,19 @@
     --hero: linear-gradient(135deg, #0b2540 0%, #10385c 60%, #11513f 135%);
     --sombra-1: 0 1px 2px rgba(0, 0, 0, 0.3);
     --sombra-2: 0 6px 20px rgba(0, 0, 0, 0.45);
+    --planta-fundo: #1b2a31;
+    --planta-parede: #8fa3ad;
+    --planta-predio: #223540;
+    --planta-corredor: #2d4350;
+    --planta-item: #2f6fb5;
+    --planta-laboratorio: #1f7a56;
+    --planta-professores: #5a5fb8;
+    --planta-apoio: #a85d14;
+    --planta-servico: #4a5a64;
+    --planta-nucleo: #33505f;
+    --planta-destaque: #ffd43b;
+    --planta-texto: #ffffff;
+    --planta-texto-claro: #ffffff;
     color-scheme: dark;
   }
 }
@@ -882,6 +922,57 @@ h1, h2 { line-height: 1.2; }
   .dados-passos li { grid-template-columns: 1fr; row-gap: 0.4rem; }
   .dados-passos li::before { grid-row: auto; }
 }
+
+/* ===== Planta da FCTE: "Onde fica" e página do andar (ADR 0012) ===== */
+/* A moldura reserva a altura (aspect-ratio): o desenho entra sem empurrar o que está abaixo (CLS). */
+.planta-moldura {
+  aspect-ratio: 4 / 3;
+  margin-bottom: 0.9rem;
+  background: var(--planta-fundo);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  overflow: hidden;
+}
+
+.planta { display: block; width: 100%; height: 100%; }
+.onde-fica-local { margin-bottom: 0.75rem; color: var(--texto-suave); }
+.planta-termos { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem; }
+.planta a { cursor: pointer; }
+.planta a:hover .planta-item polygon, .planta a:focus-visible .planta-item polygon { stroke: var(--planta-destaque); stroke-width: 0.7; }
+/* A ficha do termo só enche depois do carregamento (texto e "Onde fica"): com a altura da tela reservada, o rodapé
+   nasce abaixo da primeira tela e não desce quando o termo chega (CLS, RNF02). */
+.ficha { min-height: 100vh; min-height: 100svh; }
+.ficha-planta { min-height: 90vh; min-height: 90svh; }
+.aviso-planta { margin: 0.75rem 0; color: var(--texto-suave); }
+.planta-aproximada polygon { stroke-dasharray: 0.9 0.6; }
+
+.planta-predio { fill: var(--planta-predio); stroke: var(--planta-parede); stroke-width: 0.5; stroke-linejoin: round; }
+.planta-patio { fill: var(--planta-fundo); stroke: var(--planta-parede); stroke-width: 0.4; }
+.planta-corredor { fill: none; stroke: var(--planta-corredor); stroke-linecap: butt; stroke-linejoin: round; }
+.planta-item polygon { fill: var(--planta-item); stroke: var(--planta-predio); stroke-width: 0.3; stroke-linejoin: round; }
+.planta-item .planta-tipo-laboratorio { fill: var(--planta-laboratorio); }
+.planta-item .planta-tipo-sala-dos-professores { fill: var(--planta-professores); }
+.planta-item .planta-tipo-secretaria, .planta-item .planta-tipo-biblioteca, .planta-item .planta-tipo-recepcao, .planta-item .planta-tipo-hall,
+.planta-item .planta-tipo-auditorio, .planta-item .planta-tipo-sala-de-reuniao { fill: var(--planta-apoio); }
+.planta-item .planta-tipo-servico { fill: var(--planta-servico); }
+.planta-item .planta-tipo-banheiro-feminino, .planta-item .planta-tipo-banheiro-masculino, .planta-item .planta-tipo-elevador,
+.planta-item .planta-tipo-escada, .planta-item .planta-tipo-bebedouro { fill: var(--planta-nucleo); }
+.planta-degrau, .planta-simbolo { stroke: var(--planta-parede); stroke-width: 0.15; fill: none; }
+.planta-rotulo, .planta-rotulo-predio { fill: var(--planta-texto); font-weight: 700; pointer-events: none; }
+.planta-rotulo-predio { fill: var(--planta-parede); font-size: 7px; }
+.planta-tipo-servico ~ .planta-rotulo, .planta-tipo-banheiro-feminino ~ .planta-rotulo,
+.planta-tipo-banheiro-masculino ~ .planta-rotulo { fill: var(--planta-texto-claro); }
+
+/* A sala em destaque tem contorno mais grosso e as outras ficam mais apagadas: não depende só da cor. */
+.planta-destaque polygon { stroke: var(--planta-destaque); stroke-width: 1.1; }
+.planta:has(.planta-destaque) .planta-item:not(.planta-destaque) { opacity: 0.55; }
+.planta-predio-grupo.planta-destaque .planta-predio { stroke: var(--planta-destaque); stroke-width: 1.6; }
+.planta-predio-grupo { cursor: pointer; }
+a:focus-visible .planta-predio { stroke: var(--foco); stroke-width: 1.6; }
+
+.planta-andares { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0; padding: 0; list-style: none; }
+.planta-andares a { display: inline-block; padding: 0.35rem 0.8rem; border: 1px solid var(--borda); border-radius: 999px; text-decoration: none; }
+.planta-andares a:hover { background: var(--superficie-2); }
 
 /* ===== Telas pequenas ===== */
 /* Com o link Dados, o rótulo longo só cabe a partir de 40rem. */
