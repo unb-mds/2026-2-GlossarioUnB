@@ -16,7 +16,6 @@ import {
   montarSvgCampus,
   paginaDaPlanta,
   svgDoLugar,
-  termosPendentes,
 } from "../frontend/js/planta.js";
 
 const planta = JSON.parse(readFileSync(new URL("./fixtures/planta-mini.json", import.meta.url), "utf8"));
