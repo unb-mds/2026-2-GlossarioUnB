@@ -6,6 +6,7 @@
 //   /sobre/      → sobre/     (página de apresentação do projeto)
 import { createServer } from "node:http";
 import { readFile, stat } from "node:fs/promises";
+import { gzipSync } from "node:zlib";
 import { extname, join, normalize, sep } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -64,8 +65,16 @@ export async function atender(pedido, resposta) {
     return;
   }
   try {
-    const corpo = await readFile(arquivo);
-    resposta.writeHead(200, { "Content-Type": TIPOS[extname(arquivo)] ?? "application/octet-stream", "Cache-Control": "no-cache" });
+    let corpo = await readFile(arquivo);
+    const cabecalhos = { "Content-Type": TIPOS[extname(arquivo)] ?? "application/octet-stream", "Cache-Control": "no-cache" };
+    // O GitHub Pages comprime texto com gzip; o servidor local faz o mesmo para a medição de desempenho
+    // (Lighthouse CI, RNF02) refletir o site publicado. Imagens já vêm comprimidas.
+    if (/\bgzip\b/.test(pedido.headers?.["accept-encoding"] ?? "") && extname(arquivo) !== ".png") {
+      corpo = gzipSync(corpo);
+      cabecalhos["Content-Encoding"] = "gzip";
+      cabecalhos.Vary = "Accept-Encoding";
+    }
+    resposta.writeHead(200, cabecalhos);
     resposta.end(corpo);
   } catch (erro) {
     if (erro.code === "ENOENT") {
