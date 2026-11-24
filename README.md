@@ -7,6 +7,8 @@
 
 [![CI][CI badge]][CI]
 [![GitHub Pages][Pages badge]][Pages]
+[![Quality Gate Status][Sonar badge]][Sonar]
+[![Coverage][Sonar coverage badge]][Sonar]
 
 O Glossário UnB é um dicionário das siglas, gírias e expressões da Universidade
 de Brasília, feito para quem chega à UnB e tropeça em DEG, BCE, FCTE, "menção SR"
@@ -15,15 +17,22 @@ funciona sem internet e mostra a fonte de cada termo. É um projeto de código
 aberto do Grupo G10, da disciplina Métodos de Desenvolvimento de Software
 (MDS 2026/2).
 
+<p align="center">
+  <a href="https://unb-mds.github.io/2026-2-GlossarioUnB/frontend/">
+    <img alt="Tela inicial do Glossário UnB v2.0.0 com busca e trilha Primeiros passos na UnB" src="docs/glossario-v2-previa.png" width="760">
+  </a>
+</p>
+
 ## Documentação
 
-* [Usar o glossário][app]
-* [Sobre o projeto][sobre]: o problema, os perfis de quem usa e a equipe
-* [Requisitos](docs/REQUISITOS.md), [arquitetura](docs/ARQUITETURA.md) e [decisões de arquitetura (ADRs)](docs/adr/)
-* [Processo do time](docs/PROCESSO.md), [guia do fluxo de trabalho (Git passo a passo)](docs/GUIA-FLUXO-DE-TRABALHO.md) e [planejamento das sprints](docs/scrum/sprint-planning.md)
+* [Usar o glossário][app] · [Planta 2D da FCTE][planta] · [De onde vêm os dados][dados]
+* [Sobre o projeto][sobre]: página para quem usa, versões e equipe
+* [Changelog](CHANGELOG.md) e [Releases no GitHub](https://github.com/unb-mds/2026-2-GlossarioUnB/releases)
+* [Requisitos](docs/REQUISITOS.md), [rastreabilidade](docs/RASTREABILIDADE.md), [arquitetura](docs/ARQUITETURA.md) e [decisões de arquitetura (ADRs 0001–0014)](docs/adr/)
+* [Processo do time](docs/PROCESSO.md), [guia do fluxo de trabalho](docs/GUIA-FLUXO-DE-TRABALHO.md), [convenção Git](docs/CONVENCAO-GIT.md) e [planejamento das sprints](docs/scrum/sprint-planning.md)
 * [Story map](docs/storymap/story-map.png) e [quadro do Figma][figma]
-* [Visão de produto](docs/VISAO-DE-PRODUTO.md), [estratégia de testes](docs/estrategia-de-testes.md) e [modelo conceitual de dados](docs/modelo-conceitual-dados.md)
-* [Contribuir com o Glossário UnB](CONTRIBUTING.md), [Código de Conduta](CODE_OF_CONDUCT.md) e [Política de Segurança](SECURITY.md)
+* [Visão de produto](docs/VISAO-DE-PRODUTO.md), [estratégia de testes](docs/estrategia-de-testes.md), [relatório de testes](docs/RELATORIO-DE-TESTES.md), [segurança](docs/SEGURANCA.md) e [modelo conceitual de dados](docs/modelo-conceitual-dados.md)
+* [Contribuir com o Glossário UnB](CONTRIBUTING.md), [Código de Conduta](CODE_OF_CONDUCT.md), [Política de Segurança](SECURITY.md) e [Guia para agentes (`AGENTS.md`)](AGENTS.md)
 
 As datas das entregas (Release 1 e Release 2) estão na
 [seção 7 dos requisitos](docs/REQUISITOS.md#7-releases), e o que entra em cada
@@ -39,12 +48,15 @@ dependências; o robô de coleta usa as bibliotecas da [ADR 0010][ADR 0010], que
 ```bash
 git clone https://github.com/unb-mds/2026-2-GlossarioUnB.git
 cd 2026-2-GlossarioUnB
-npm ci                  # instala as bibliotecas do robô, nas versões do package-lock.json
+npm ci                  # instala as bibliotecas do robô e de testes (ADR 0010)
 npm run dev             # glossário em http://localhost:8080/frontend/ e Sobre em /sobre/
-npm test                # testes + validação de todos os termos
+npm test                # testes unitários, integração e validação de todos os termos
 npm run lint            # ESLint
-npm run test:cobertura  # os mesmos testes, com cobertura mínima de 90%
+npm run test:sabotagem  # teste de sabotagem nos módulos críticos (36 defeitos)
+npm run test:cobertura  # cobertura mínima de testes
 npx playwright install chromium && npm run test:e2e  # E2E + acessibilidade (WCAG 2.1 AA)
+npm run test:aceitacao  # cenários BDD em Gherkin (playwright-bdd)
+npm run verificar:fontes  # verificação de links quebrados e redirecionamentos (RF07)
 ```
 
 Para usar outra porta, copie o `.env.example` para `.env` e ajuste a `PORT`
@@ -147,12 +159,17 @@ usa encontra o passo a passo no [guia de contribuição](CONTRIBUTING.md).
 O Glossário UnB é distribuído sob a [licença MIT](LICENSE).
 
 [app]: https://unb-mds.github.io/2026-2-GlossarioUnB/frontend/
+[planta]: https://unb-mds.github.io/2026-2-GlossarioUnB/frontend/planta.html
+[dados]: https://unb-mds.github.io/2026-2-GlossarioUnB/frontend/origem-dos-dados.html
 [sobre]: https://unb-mds.github.io/2026-2-GlossarioUnB/sobre/
-[sugerir]: https://github.com/unb-mds/2026-2-GlossarioUnB/issues/new?template=sugerir-termo.yml
+[sugerir]: https://github.com/unb-mds/2026-2-GlossarioUnB/issues/new?template=adicionar-termo.yml
 [CI]: https://github.com/unb-mds/2026-2-GlossarioUnB/actions/workflows/ci.yml
 [CI badge]: https://github.com/unb-mds/2026-2-GlossarioUnB/actions/workflows/ci.yml/badge.svg
 [Pages]: https://github.com/unb-mds/2026-2-GlossarioUnB/actions/workflows/pages.yml
 [Pages badge]: https://github.com/unb-mds/2026-2-GlossarioUnB/actions/workflows/pages.yml/badge.svg
+[Sonar]: https://sonarcloud.io/summary/new_code?id=p-magno_glossario-unb
+[Sonar badge]: https://sonarcloud.io/api/project_badges/measure?project=p-magno_glossario-unb&metric=alert_status
+[Sonar coverage badge]: https://sonarcloud.io/api/project_badges/measure?project=p-magno_glossario-unb&metric=coverage
 [Leaflet]: https://leafletjs.com/
 [OpenStreetMap]: https://www.openstreetmap.org/copyright
 [OSM tiles]: https://operations.osmfoundation.org/policies/tiles/
