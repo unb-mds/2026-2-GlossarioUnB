@@ -99,12 +99,12 @@ C4Container
 3. O classificador/LLM sugere categoria, tipo e rascunhos; `validarGlossario()` confere o schema.
 4. O workflow abre um Pull Request; uma pessoa revisa, escreve a definição e o exemplo e faz o merge.
 5. O `termos.json` na `main` é copiado para o GitHub Pages; o app PWA consulta e o service worker guarda os dados para uso offline.
-6. O CI roda os testes em todo Pull Request; com a #79, também roda lint e cobertura. O Pages só publica depois que os testes passam.
+6. O CI roda os testes, o lint e a cobertura mínima em todo Pull Request (#79). O Pages só publica depois que os testes passam.
 
 ### Limites do desenho
 
 - O nível 2 reflete a [ADR 0009](adr/0009-coleta-automatizada-por-pipeline.md). Todos os contêineres do pipeline já estão na `main`: os coletores de páginas (#56) e do PDF da DPO (#55), a deduplicação (#57), o classificador (#58) e o workflow semanal que abre o PR (#59).
-- O lint e a cobertura mínima no CI entram com a #79; até lá, o CI roda os testes.
+- O CI roda o lint e a cobertura mínima desde a #79.
 - Não há backend nem banco de dados: o GitHub Pages serve arquivos estáticos e o `termos.json` é versionado (ADR 0001 e ADR 0007).
 - O LLM não decide nada sozinho: ele sugere categoria, tipo e rascunhos, e a revisão humana escreve e aprova o texto final (ADR 0009).
 - Bibliotecas npm entram só pelas duas listas fechadas da ADR 0010: as do robô, em `coleta/` e `scripts/`, e as de teste e qualidade (Playwright, axe-core, StrykerJS e ESLint), só em `devDependencies`.
