@@ -1,0 +1,33 @@
+# Mutação (#82): roda o StrykerJS nos módulos de domínio e do pipeline e falha abaixo dos escores
+# mínimos — domínio: 70%, coleta: 50%. Detalhes em `docs/TESTE-DE-MUTACAO.md` e `docs/estrategia-de-testes.md`.
+
+name: Mutação
+
+on:
+  schedule:
+    - cron: "0 9 * * 1" # toda segunda, 06h de Brasília
+  workflow_dispatch:
+
+permissions:
+  contents: read # o GITHUB_TOKEN fica só de leitura
+
+concurrency:
+  group: mutacao
+  cancel-in-progress: false
+
+jobs:
+  mutacao:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci
+
+      - run: npm run test:mutacao
+
+      - name: Checa os escores mínimos de mutação
+        run: node scripts/verificar-mutacao.mjs
