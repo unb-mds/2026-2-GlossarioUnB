@@ -5,20 +5,20 @@
    Cores só nos blocos :root. Todo par de texto e fundo tem contraste WCAG AA (4,5:1 ou mais). */
 
 :root {
-  --fundo: #f5f7f4;
+  --fundo: #f2f2f7;
   --superficie: #ffffff;
-  --superficie-2: #eef3ef;
-  --texto: #17212b;
-  --texto-suave: #4f5e66;
-  --borda: #d9e2dc;
-  --primaria: #0f4c81;
-  --primaria-forte: #0a3660;
-  --destaque: #17735c;
-  --destaque-fundo: #e2f1ea;
+  --superficie-2: #e9e9ef;
+  --texto: #1c1c1e;
+  --texto-suave: #5a5a61;
+  --borda: #dedee4;
+  --primaria: #0b5ed7;
+  --primaria-forte: #0a4fb5;
+  --destaque: #16722f;
+  --destaque-fundo: #e2f4e6;
   --aviso: #7a4a00;
   --aviso-fundo: #fff1cc;
-  --link: #0f4c81;
-  --foco: #0f4c81;
+  --link: #0b5ed7;
+  --foco: #0b5ed7;
   --hero: linear-gradient(135deg, #0a3660 0%, #0f4c81 60%, #17735c 135%);
   --sombra-1: 0 1px 2px rgba(16, 24, 40, 0.06), 0 1px 3px rgba(16, 24, 40, 0.08);
   --sombra-2: 0 12px 32px rgba(4, 16, 32, 0.28);
@@ -37,27 +37,27 @@
   --botao-claro-hover: #e6eef6;
   /* Botão cheio e números dos passos, sobre o fundo da página. */
   --botao-cheio-texto: #ffffff;
-  --botao-cheio-fundo: #0f4c81;
-  --botao-cheio-hover: #0a3660;
+  --botao-cheio-fundo: #0b5ed7;
+  --botao-cheio-hover: #0a4fb5;
   color-scheme: light dark;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --fundo: #0e1519;
-    --superficie: #162126;
-    --superficie-2: #1c2a30;
-    --texto: #e7efeb;
-    --texto-suave: #a7b6b1;
-    --borda: #2a3a40;
+    --fundo: #000000;
+    --superficie: #1c1c1e;
+    --superficie-2: #2c2c2e;
+    --texto: #f2f2f7;
+    --texto-suave: #aeaeb4;
+    --borda: #38383a;
     --primaria: #2f6fad;
     --primaria-forte: #0b2540;
-    --destaque: #5fd3ad;
-    --destaque-fundo: #1d3a35;
+    --destaque: #34c759;
+    --destaque-fundo: #12361d;
     --aviso: #ffd27a;
     --aviso-fundo: #3a2f16;
-    --link: #8cc1f2;
-    --foco: #8cc1f2;
+    --link: #6cb0ff;
+    --foco: #6cb0ff;
     --hero: linear-gradient(135deg, #0b2540 0%, #10385c 60%, #11513f 135%);
     --sombra-1: 0 1px 2px rgba(0, 0, 0, 0.3);
     --sombra-2: 0 12px 32px rgba(0, 0, 0, 0.45);
