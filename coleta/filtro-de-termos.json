@@ -10,7 +10,6 @@
     "bdu": "Erro do PDI: o nome certo é CBDU",
     "bsc": "Tecnologia e objetos em geral",
     "car": "Território e meio ambiente",
-    "carelunb": "Sem fonte sobre o que faz",
     "cbmdf": "Órgãos de fora da universidade",
     "cdgunb": "Erro do PDI: o nome certo é CGD",
     "ce": "Erro do PDI: é a BCE, que já está no glossário",
@@ -97,10 +96,13 @@
     "ldv": "O texto do PDI usa Laboratório de Apoio às Pessoas com Deficiência Visual",
     "liap": "O texto do PDI usa Laboratórios e outras Infraestruturas de Apoio à Pesquisa",
     "lpste": "O texto do PDI usa Laboratórios de Prestação de Serviços Técnicos Especializados",
+    "mespt": "O site do curso usa Mestrado Profissional em Sustentabilidade junto a Povos e Territórios Tradicionais",
     "nde": "O nome usado é Núcleo Docente Estruturante",
+    "paint": "A Auditoria Interna da UnB usa Plano Anual de Auditoria Interna",
     "pcctae": "A Lei 11.091/2005 usa Plano de Carreira dos Cargos Técnico-Administrativos em Educação",
     "pibiti": "O nome do programa no CNPq é Programa Institucional de Bolsas de Iniciação em Desenvolvimento Tecnológico e Inovação",
     "pnaes": "O texto do PDI usa Programa Nacional de Assistência Estudantil",
+    "raint": "A Auditoria Interna da UnB usa Relatório Anual de Auditoria Interna, no singular",
     "ued": "O nome é Unidade de Ensino e Docência; a usina é só uma obra citada no PDI"
   }
 }
