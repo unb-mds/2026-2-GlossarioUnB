@@ -64,6 +64,20 @@ Você não precisa e não tem acesso de escrita a este repositório, use fork:
 Nenhum termo é aceito sem `fonte` preenchida. O CI valida todo PR contra esse schema;
 regras completas em [`docs/adr/0004-schema-unico-do-termo.md`](docs/adr/0004-schema-unico-do-termo.md).
 
+## Lint e cobertura
+
+O CI roda `npm run lint` e `npm run test:cobertura` em todo PR. Para rodar localmente:
+
+```bash
+npm ci                  # só na primeira vez; instala o ESLint e as bibliotecas do robô
+npm run lint            # ESLint
+npm run test:cobertura  # testes + cobertura mínima
+```
+
+- O lint usa ESLint com as regras recomendadas e o `eslint.config.js` versionado.
+- A cobertura mínima é de **90% de linhas, funções e branches** em `frontend/js/termos.js`, `frontend/js/validacao-termo.js` e `coleta/`.
+- A camada de tela (`frontend/js/app.js`) e o service worker (`frontend/sw.js`) ficam para os testes E2E da #78.
+
 ## Convenção de commits
 
 Adotamos a especificação [Conventional Commits v1.0.0](https://www.conventionalcommits.org/pt-br/v1.0.0/). Cada mensagem deve seguir a estrutura:

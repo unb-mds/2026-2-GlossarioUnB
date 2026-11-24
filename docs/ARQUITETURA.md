@@ -123,12 +123,13 @@ G10-2026-2/
 ├── coleta/             # o robô: fontes, coletor, deduplicação, classificador e atualização do termos.json; pode usar bibliotecas (ADR 0010)
 ├── scripts/            # servidor-local.mjs (as duas páginas no mesmo layout do Pages), coletar.mjs (roda o robô) e coleta-automatica.mjs (pipeline completo da #59)
 ├── tests/              # node:test — domínio, dataset, pipeline e página Sobre
+├── e2e/                # Playwright — fluxos no navegador + axe-core (ADR 0010)
 ├── docs/
 │   ├── adr/
 │   ├── scrum/
 │   └── skills/
 └── .github/
-    └── workflows/      # ci.yml (testes em todo PR), coleta.yml (coleta semanal), lighthouse.yml (desempenho e acessibilidade), sonar.yml (SonarQube Cloud, ADR 0013) e pages.yml (publicação)
+    └── workflows/      # ci.yml (testes, lint, cobertura e E2E em todo PR), coleta.yml (coleta semanal), lighthouse.yml (desempenho e acessibilidade), sonar.yml (SonarQube Cloud, ADR 0013) e pages.yml (publicação)
 ```
 
 O dataset fica dentro de `frontend/` para o glossário ser publicado copiando uma única pasta (ver ADR 0001). A pasta `coleta/` tem o robô completo: os coletores, a deduplicação, o classificador, o filtro de termos e a atualização do `termos.json`.
