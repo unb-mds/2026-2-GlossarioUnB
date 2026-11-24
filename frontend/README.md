@@ -6,7 +6,7 @@ PWA de consulta a siglas, gírias e expressões da UnB, no estilo do glossario-u
 - página de cada termo com definição, exemplo de uso, fonte e, quando for um lugar físico, mapa;
 - link para sugerir um termo pelo GitHub no rodapé, e na busca quando nada é encontrado.
 
-Decisões de arquitetura em [`docs/adr/`](../docs/adr/) (status: propostas).
+Decisões de arquitetura registradas em [`docs/adr/`](../docs/adr/).
 
 ## Como rodar localmente
 
@@ -16,10 +16,18 @@ Service workers e módulos ES não funcionam abrindo o arquivo direto (`file://`
 npm run dev      # servidor local sem dependências (scripts/servidor-local.mjs)
 ```
 
-E acesse `http://localhost:8080/frontend/`. O servidor usa o mesmo layout do GitHub Pages, que é o das pastas do repositório: o glossário em `/frontend/` e a página "Sobre o projeto" em `/sobre/`. Também funciona abrir pelo Live Server do VS Code a partir da raiz do repositório. Para rodar os testes (Node 22 ou mais novo, sem dependências):
+E acesse `http://localhost:8080/frontend/`. O servidor usa o mesmo layout do GitHub Pages, que é o das pastas do repositório: o glossário em `/frontend/` e a página "Sobre o projeto" em `/sobre/`. Também funciona abrir pelo Live Server do VS Code a partir da raiz do repositório. Para rodar os testes de domínio (Node 22 ou mais novo):
 
 ```bash
 npm test
+```
+
+Os fluxos no navegador e a auditoria de acessibilidade ficam na raiz, em `e2e/`:
+
+```bash
+npm ci
+npx playwright install chromium   # só na primeira vez
+npm run test:e2e
 ```
 
 ## Estrutura
