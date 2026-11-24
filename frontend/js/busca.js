@@ -59,6 +59,6 @@ export function gruposDaTrilha(trilha, termos) {
   return montarTrilha(trilha, termos).map((grupo) => ({
     nome: grupo.nome,
     idDoTitulo: `trilha-${grupo.id}`,
-    termos: grupo.termos.map((termo) => ({ nome: termo.termo, resumo: resumoDoTermo(termo), href: urlDoTermo(termo) })),
+    termos: grupo.termos.map((termo) => ({ id: termo.id, nome: termo.termo, resumo: resumoDoTermo(termo), href: urlDoTermo(termo) })),
   }));
 }

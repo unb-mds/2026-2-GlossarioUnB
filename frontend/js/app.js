@@ -1,6 +1,6 @@
-// Camada de DOM das 3 páginas: só cria elementos e ouve eventos. As regras ficam em módulos testados no Node
+// Camada de DOM das páginas: só cria elementos e ouve eventos. As regras ficam em módulos testados no Node
 // (ADR 0002): termos.js (busca e filtros), trilha.js, validacao-termo.js (schema) e um módulo por página:
-// busca.js (início), lista.js (todas as siglas), ficha.js (termo) e tema.js (todas).
+// busca.js (início), lista.js (todas as siglas), ficha.js (termo), planta.js (onde fica, ADR 0012) e tema.js (todas).
 // Todo dado de termo entra na página via textContent, nunca via innerHTML:
 // termos chegam por PR de terceiros (RF04) e não podem injetar HTML.
 
@@ -9,10 +9,15 @@ import { validarTermo } from "./validacao-termo.js";
 import { atalhosPorTipo, gruposDaTrilha, proximoIndice, rotuloDaSugestao, sugestoesPara, termoDoEnvio, textoDoStatus, textoSemResultado } from "./busca.js";
 import { enderecoDosFiltros, etiquetasDoCartao, montarLista, opcoesDeCampus, opcoesDeCategoria, opcoesDeTipo, textoDaContagem } from "./lista.js";
 import { relacionadosDe, rotuloCampus, textoDaFonte, textoDosSinonimos, tituloDaFicha, urlDoTermo } from "./ficha.js";
+import { boletimDaColeta } from "./origem.js";
 import { escuroAtivo, proximoTema, salvarTema } from "./tema.js";
+import { CHAVE_PROGRESSO, armazenamentoDisponivel, lerVistos, marcarVisto, progressoDaTrilha, recomecarTrilha, termosDaTrilha } from "./trilha.js";
+import { AVISO_ANDAR_APROXIMADO, AVISO_SALA_APROXIMADA, acharLugar, descreverLugar, listaDeAndares, montarSvgAndar, montarSvgCampus, paginaDaPlanta, svgDoLugar } from "./planta.js";
 
 const URL_DADOS = "data/termos.json";
 const URL_TRILHA = "data/trilha-calouro.json";
+const URL_BOLETIM = "../coleta/relatorio.json";
+const URL_PLANTA = "data/planta-fcte.json";
 const URL_REPOSITORIO = "https://github.com/unb-mds/2026-2-GlossarioUnB";
 const MENSAGEM_ERRO_CARGA = "Não foi possível carregar os termos. Verifique sua conexão e tente de novo.";
 
@@ -51,6 +56,19 @@ async function carregarTermos() {
     console.warn(`Termo "${termo?.id}" ignorado por não seguir o schema (ADR 0004):`, erros);
     return false;
   });
+}
+
+// A planta é um extra: se não carregar, a página do termo fica como era (sem o bloco "Onde fica").
+async function carregarPlanta() {
+  try {
+    const resposta = await fetch(URL_PLANTA);
+    if (!resposta.ok) return null;
+    const planta = await resposta.json();
+    return Array.isArray(planta?.predios) ? planta : null;
+  } catch (erro) {
+    console.warn("Planta da FCTE indisponível:", erro);
+    return null;
+  }
 }
 
 // ===== Tema claro/escuro =====
@@ -215,7 +233,8 @@ async function iniciarTrilha(termos) {
   try {
     const resposta = await fetch(URL_TRILHA);
     if (!resposta.ok) throw new Error(`Não foi possível carregar ${URL_TRILHA} (HTTP ${resposta.status})`);
-    const grupos = gruposDaTrilha(await resposta.json(), termos);
+    const trilha = await resposta.json();
+    const grupos = gruposDaTrilha(trilha, termos);
     if (grupos.length === 0) {
       secao.hidden = true;
       return;
@@ -226,10 +245,11 @@ async function iniciarTrilha(termos) {
       const titulo = criarElemento("h3", { classe: "trilha-grupo-nome", texto: grupo.nome, atributos: { id: grupo.idDoTitulo } });
       const termosDoGrupo = criarElemento("ul", { classe: "trilha-termos", atributos: { "aria-labelledby": grupo.idDoTitulo } });
       for (const termo of grupo.termos) {
-        const link = criarElemento("a", { classe: "trilha-termo", atributos: { href: termo.href } });
+        const link = criarElemento("a", { classe: "trilha-termo", atributos: { href: termo.href, "data-termo": termo.id } });
         link.append(
           criarElemento("span", { classe: "trilha-termo-nome", texto: termo.nome }),
           criarElemento("span", { classe: "trilha-termo-resumo", texto: termo.resumo }),
+          criarMarcaDeVisto(),
         );
         const item = criarElemento("li");
         item.append(link);
@@ -238,9 +258,76 @@ async function iniciarTrilha(termos) {
       itemGrupo.append(titulo, termosDoGrupo);
       lista.append(itemGrupo);
     }
+    iniciarProgressoDaTrilha(grupos.flatMap((grupo) => grupo.termos.map((termo) => termo.id)), lista);
   } catch (erro) {
     secao.hidden = true;
     console.warn("Trilha do calouro não carregada:", erro);
+  }
+}
+
+// A marca não é só cor: tem o ícone e, para o leitor de tela, o texto "já visto".
+function criarMarcaDeVisto() {
+  const marca = criarElemento("span", { classe: "trilha-termo-marca", atributos: { hidden: "" } });
+  marca.append(
+    criarElemento("span", { texto: "✓", atributos: { "aria-hidden": "true" } }),
+    criarElemento("span", { classe: "sr-only", texto: "já visto" }),
+  );
+  return marca;
+}
+
+// Progresso guardado só neste aparelho (decisão 58). Sem armazenamento, a trilha continua igual e sem marcas.
+const obterArmazenamento = () => window.localStorage;
+
+function iniciarProgressoDaTrilha(idsDaTrilha, lista) {
+  const contagem = document.getElementById("trilha-contagem");
+  const barra = document.getElementById("trilha-barra");
+  const botao = document.getElementById("trilha-recomecar");
+  const nota = document.getElementById("trilha-privacidade");
+  const caixa = document.getElementById("trilha-progresso");
+  if (!contagem || !barra || !botao || !nota || !caixa) return;
+
+  if (!armazenamentoDisponivel(obterArmazenamento)) {
+    caixa.setAttribute("data-sem-armazenamento", "");
+    contagem.textContent = "Progresso indisponível neste navegador";
+    nota.textContent = "A trilha funciona igual, só sem as marcas.";
+    return;
+  }
+
+  const atualizar = () => {
+    const vistos = lerVistos(obterArmazenamento, idsDaTrilha);
+    const progresso = progressoDaTrilha(idsDaTrilha, vistos);
+    contagem.textContent = progresso.texto;
+    barra.max = progresso.total;
+    barra.value = progresso.vistos;
+    botao.hidden = progresso.vistos === 0;
+    for (const link of lista.querySelectorAll(".trilha-termo")) {
+      link.querySelector(".trilha-termo-marca").hidden = !vistos.has(link.dataset.termo);
+    }
+  };
+
+  botao.addEventListener("click", () => {
+    recomecarTrilha(obterArmazenamento);
+    atualizar();
+    contagem.focus(); // o botão some: o foco do teclado não pode se perder junto com ele
+  });
+  // Ao voltar de um termo pelo botão do navegador, a página pode vir da memória, sem rodar este módulo de novo.
+  window.addEventListener("pageshow", (evento) => {
+    if (evento.persisted) atualizar();
+  });
+  window.addEventListener("storage", (evento) => {
+    if (evento.key === CHAVE_PROGRESSO || evento.key === null) atualizar();
+  });
+  atualizar();
+}
+
+// Abrir a página de um termo da trilha conta como visto. É um extra: se falhar, a página do termo não muda.
+async function marcarTermoNaTrilha(idDoTermo) {
+  try {
+    const resposta = await fetch(URL_TRILHA);
+    if (!resposta.ok) return;
+    marcarVisto(obterArmazenamento, idDoTermo, termosDaTrilha(await resposta.json()));
+  } catch (erro) {
+    console.warn("Não foi possível marcar o termo na trilha:", erro);
   }
 }
 
@@ -318,6 +405,90 @@ function iniciarListaCompleta(termos) {
   renderizar();
 }
 
+// ===== Planta da FCTE (ADR 0012) =====
+
+// O SVG vem do planta.js com todo texto escapado; mesmo assim entra pelo parser de XML, nunca por innerHTML.
+function criarSvg(texto) {
+  if (!texto) return null;
+  const documento = new DOMParser().parseFromString(texto, "image/svg+xml");
+  if (documento.querySelector("parsererror")) return null;
+  return document.importNode(documento.documentElement, true);
+}
+
+// A moldura reserva a altura pelo CSS (aspect-ratio): o desenho entra sem empurrar o que está abaixo.
+function criarMoldura(texto) {
+  const svg = criarSvg(texto);
+  if (!svg) return null;
+  const moldura = criarElemento("div", { classe: "planta-moldura" });
+  moldura.append(svg);
+  return moldura;
+}
+
+function criarBlocoOndeFica(planta, lugar) {
+  const resumo = descreverLugar(planta, lugar);
+  const moldura = criarMoldura(svgDoLugar(planta, lugar));
+  if (!resumo || !moldura) return null;
+  const bloco = criarBloco("Onde fica", criarElemento("p", { classe: "onde-fica-local", texto: `${resumo.titulo} · ${resumo.local}` }), moldura);
+  bloco.classList.add("onde-fica");
+  if (resumo.aproximada) moldura.before(criarElemento("p", { classe: "aviso-planta", texto: AVISO_SALA_APROXIMADA }));
+  bloco.append(criarElemento("a", { classe: "link-como-chegar", texto: resumo.rotuloLink, atributos: { href: resumo.href } }));
+  return bloco;
+}
+
+function iniciarPaginaPlanta(termos, planta) {
+  const container = document.getElementById("conteudo-planta");
+  if (!container) return;
+  container.replaceChildren();
+  const pagina = paginaDaPlanta(planta, window.location.search);
+  if (!pagina) {
+    container.append(criarElemento("h1", { texto: "Planta indisponível" }), criarElemento("p", { texto: "Não foi possível carregar a planta da FCTE." }));
+    return;
+  }
+
+  const emAndar = pagina.modo === "andar";
+  const texto = emAndar ? montarSvgAndar(planta, pagina.predio, pagina.andar, { destaque: pagina.destaque, links: true }) : montarSvgCampus(planta, { links: true });
+  const predio = planta.predios.find((candidato) => candidato.id === pagina.predio);
+  const andar = predio?.andares.find((candidato) => candidato.id === pagina.andar);
+  document.title = emAndar && andar ? `${predio.sigla} · ${andar.nome} — Planta da FCTE — Glossário UnB` : "Planta da FCTE — Glossário UnB";
+  container.append(criarElemento("h1", { texto: emAndar && andar ? `${predio.sigla} · ${andar.nome}` : planta.campus?.nome || "Campus" }));
+  if (pagina.aviso) container.append(criarElemento("p", { classe: "aviso-planta", texto: pagina.aviso, atributos: { role: "status" } }));
+  if (pagina.nomeDaSala) container.append(criarElemento("p", { classe: "onde-fica-local", texto: pagina.nomeDaSala }));
+  if (pagina.aproximada || pagina.andarComAproximadas) {
+    container.append(criarElemento("p", { classe: "aviso-planta", texto: pagina.aproximada ? AVISO_SALA_APROXIMADA : AVISO_ANDAR_APROXIMADO }));
+  }
+  const moldura = criarMoldura(texto);
+  if (moldura) container.append(moldura);
+
+  // Uma sala pode abrigar vários laboratórios: um link para cada sigla que já existe no glossário.
+  const termosDaSala = (pagina.termos ?? []).map((id) => termos.find((termo) => termo.id === id)).filter(Boolean);
+  if (termosDaSala.length > 0) {
+    const links = criarElemento("div", { classe: "planta-termos" });
+    for (const termo of termosDaSala) {
+      links.append(criarElemento("a", { classe: "link-como-chegar", texto: `Ver ${termo.termo}`, atributos: { href: `termo.html?id=${encodeURIComponent(termo.id)}` } }));
+    }
+    container.append(links);
+  }
+  container.append(criarNavegacaoDaPlanta(planta));
+}
+
+function criarNavegacaoDaPlanta(planta) {
+  const navegacao = criarElemento("nav", { classe: "bloco planta-navegacao", atributos: { "aria-label": "Outros andares" } });
+  navegacao.append(criarElemento("h2", { texto: "Outros andares" }));
+  const lista = criarElemento("ul", { classe: "planta-andares" });
+  lista.append(criarItemDeLink("Campus (todos os prédios)", "planta.html"));
+  for (const predio of listaDeAndares(planta)) {
+    for (const andar of predio.andares) lista.append(criarItemDeLink(`${predio.sigla} · ${andar.nome}`, andar.href));
+  }
+  navegacao.append(lista);
+  return navegacao;
+}
+
+function criarItemDeLink(texto, href) {
+  const item = criarElemento("li");
+  item.append(criarElemento("a", { texto, atributos: { href } }));
+  return item;
+}
+
 // ===== Página de termo =====
 
 function criarBloco(titulo, ...conteudo) {
@@ -378,7 +549,7 @@ function criarBlocoMapa(localizacao) {
   return { bloco, montar };
 }
 
-function iniciarPaginaTermo(termos) {
+function iniciarPaginaTermo(termos, planta) {
   const container = document.getElementById("conteudo-termo");
   if (!container) return;
 
@@ -412,6 +583,11 @@ function iniciarPaginaTermo(termos) {
     criarBloco("Exemplo de uso", criarElemento("p", { classe: "exemplo-frase", texto: termo.exemplo_uso })),
     criarBloco("Fonte", criarFonte(termo.fonte)),
   );
+  marcarTermoNaTrilha(termo.id);
+
+  const lugar = planta ? acharLugar(planta, termo.id) : null;
+  const ondeFica = lugar ? criarBlocoOndeFica(planta, lugar) : null;
+  if (ondeFica) container.append(ondeFica);
 
   const sinonimos = textoDosSinonimos(termo);
   if (sinonimos) container.append(criarBloco("Também conhecido como", criarElemento("p", { texto: sinonimos })));
@@ -425,11 +601,53 @@ function iniciarPaginaTermo(termos) {
   montar();
 }
 
+// ===== De onde vêm os dados: o boletim do robô (#74) =====
+
+// O boletim é um extra da página: se não carregar, ela continua mostrando o que vem dos termos.
+async function carregarBoletim() {
+  try {
+    const resposta = await fetch(URL_BOLETIM);
+    return resposta.ok ? await resposta.json() : null;
+  } catch (erro) {
+    console.warn("Boletim do robô indisponível:", erro);
+    return null;
+  }
+}
+
+function criarLinhaDeTotal({ rotulo, total }, maior) {
+  const linha = criarElemento("li", { classe: "dados-linha" });
+  const trilho = criarElemento("span", { classe: "dados-trilho", atributos: { "aria-hidden": "true" } });
+  const barra = criarElemento("span", { classe: "dados-barra" });
+  barra.style.width = `${Math.max(2, (total / maior) * 100)}%`;
+  trilho.append(barra);
+  linha.append(criarElemento("span", { classe: "dados-linha-rotulo", texto: rotulo }), criarElemento("strong", { texto: String(total) }), trilho);
+  return linha;
+}
+
+function preencherTotais(idDaLista, grupos) {
+  const maior = Math.max(1, ...grupos.map((grupo) => grupo.total));
+  document.getElementById(idDaLista)?.replaceChildren(...grupos.map((grupo) => criarLinhaDeTotal(grupo, maior)));
+}
+
+async function iniciarPaginaDados(termos) {
+  const data = document.getElementById("dados-data");
+  if (!data) return;
+
+  const boletim = boletimDaColeta(await carregarBoletim(), termos);
+  data.textContent = boletim.textoDaData ?? "Não foi possível carregar o boletim do robô agora. Os totais abaixo vêm dos termos publicados.";
+  for (const [id, valor] of [["dados-lidas", boletim.numeros.lidas], ["dados-barradas", boletim.numeros.barradas], ["dados-publicados", boletim.numeros.publicados]]) {
+    const campo = document.getElementById(id);
+    if (campo) campo.textContent = valor === null ? "—" : String(valor);
+  }
+  preencherTotais("dados-fontes", boletim.fontes);
+  preencherTotais("dados-categorias", boletim.categorias);
+}
+
 // ===== Erro de carga: mostra aviso no lugar do conteúdo da página atual =====
 
 function mostrarErroDeCarga() {
   const aviso = criarElemento("p", { classe: "aviso-vazio", texto: MENSAGEM_ERRO_CARGA, atributos: { role: "alert" } });
-  const alvo = document.getElementById("conteudo-termo") ?? document.getElementById("lista-termos");
+  const alvo = document.getElementById("conteudo-termo") ?? document.getElementById("conteudo-planta") ?? document.getElementById("lista-termos") ?? document.getElementById("conteudo-dados");
   if (alvo) {
     alvo.replaceChildren(aviso);
     return;
@@ -443,12 +661,16 @@ iniciarTema();
 registrarServiceWorker();
 
 try {
-  const termos = await carregarTermos();
+  // A planta vem junto com os termos (só nas páginas que a usam) para o "Onde fica" entrar na mesma pintura da ficha.
+  const usaPlanta = Boolean(document.getElementById("conteudo-termo") || document.getElementById("conteudo-planta"));
+  const [termos, planta] = await Promise.all([carregarTermos(), usaPlanta ? carregarPlanta() : null]);
   iniciarBusca(termos);
   iniciarAtalhos(termos);
   await iniciarTrilha(termos);
   iniciarListaCompleta(termos);
-  iniciarPaginaTermo(termos);
+  iniciarPaginaTermo(termos, planta);
+  iniciarPaginaPlanta(termos, planta);
+  await iniciarPaginaDados(termos);
 } catch (erro) {
   console.error(erro);
   mostrarErroDeCarga();
