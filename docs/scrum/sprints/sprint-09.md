@@ -181,7 +181,5 @@ Os prints oficiais do quadro do projeto e da atividade de commits foram capturad
 
 A pasta `docs/scrum/atas/` foi formalmente unificada no arquivo [`dailies.md`](../dailies.md) (decisão de processo registrada no commit `f06b07b`).
 
-Durante a Sprint 09 e a preparação da R2, foram realizadas três reuniões fundamentais registradas no arquivo de dailies:
+Na janela da Sprint 09, a reunião registrada em `dailies.md` foi:
 - **Encontro de 16/11/2026 (Segunda-feira, 13h20 às 13h40):** Apresentação das métricas comparativas pelo Pedro, redistribuição das tarefas de backlog e fixação do prazo de congelamento da R2. Registrado na ata da issue [#114](https://github.com/unb-mds/2026-2-GlossarioUnB/issues/114) (PR [#126](https://github.com/unb-mds/2026-2-GlossarioUnB/pull/126)).
-- **Encontro de 18/11/2026 (Quarta-feira, 13h20 às 13h50):** Alinhamento sobre o pipeline de coleta com IA, aprovação das ADRs 0010 e 0013, e validação dos critérios de aceitação e testes de sabotagem.
-- **Encontro de 24/11/2026 (Terça-feira, 13h15 às 14h00):** Fechamento das últimas issues da Sprint 09, validação dos 4 checks de CI verdes, ensaio da apresentação e alinhamento do roteiro da Release 2.
