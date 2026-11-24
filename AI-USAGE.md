@@ -52,7 +52,6 @@ Cada entrada deve conter: data, pessoa, ferramenta usada, o que foi pedido, o qu
 | 17/11/2026 | Pedro | Claude Code | Trilha na página inicial: `frontend/data/trilha-calouro.json`, os termos novos com fonte oficial, `frontend/js/trilha.js`, o teste de integridade referencial e a ADR 0011, a partir da minha decisão de guardar a trilha num arquivo próprio (#70) | Aceito após a minha revisão, com o `npm test` passando |
 | 18/11/2026 | Pedro | Claude Code | Rascunho da ADR 0013 (SonarQube Cloud ao lado do CI), a partir da minha decisão de 10/11 e da configuração do #107, e as linhas no `ARQUITETURA.md` e na página Sobre | Aceito após a minha revisão |
 | 18/11/2026 | Pedro | Claude Code | Texto do RNF08 (privacidade) e do RNF09 (coleta responsável), conferido contra o `coleta/coletor-html.js` e os testes dele, e a atualização da equipe no `REQUISITOS.md` | Aceito após a minha revisão |
-
 | 18/11/2026 | Italo | opencode | Coletor do PDF da DPO (#55): `coleta/coletores/dpo.js`, fixture das páginas 5–8, script `coleta:dpo`, testes e atualização da ADR 0010 | Aceito |
 | 18/11/2026 | Pedro | Claude Code (Claude Opus 5.5) | Atualização da ADR 0010 com a segunda lista fechada (Playwright, axe-core, StrykerJS e ESLint, só em devDependencies) e do teste da fronteira de dependências | Aceito após a minha revisão, com o `npm test` passando e o `package.json` do #120 conferido |
 | 18/11/2026 | Pedro | Claude Code (Claude Opus 5.5) | Correção do redirecionamento aberto (S5146) e dos 2 avisos de crossorigin apontados pelo SonarQube Cloud, com os testes do servidor local | Aceito após a minha revisão, com o `npm test` passando |
@@ -86,6 +85,8 @@ Cada entrada deve conter: data, pessoa, ferramenta usada, o que foi pedido, o qu
 | 18/11/2026 | Pedro | Claude Code | Seção "Rodar a coleta", `npm ci`, Node 22.9 e links da documentação no README, a partir da revisão do Allan no PR #99, para a issue #97 | Aceito após a minha revisão |
 | 18/11/2026 | José Gabriel | Antigravity | Sincronização do PR #99 com a `main`, inclusão de `GEMINI_API_KEY=` no `.env.example` e atualização do `README.md` com a Trilha do calouro (ADR 0011) e o SonarQube Cloud (ADR 0013) (#97) | Aceito após revisão |
 | 24/11/2026 | Allan | opencode (DeepSeek) | Verificação periódica das fontes (#60): campo `verificado_em` no schema e na ficha, `coleta/verificacao.js`, `scripts/verificar-fontes.mjs`, workflow semanal que abre issue por fonte sem duplicar, testes e atualização de docs | Aceito após revisão no PR #187 |
+| 24/11/2026 | Italo | Antigravity | Registro da Sprint 09 e retrospectiva da R2 (docs/scrum/sprints/sprint-09.md): levantamento de métricas no GitHub , review, retrospectiva| Aceito após a minha revisão |
+| | | | | |
 | | | | | |
 
 ## Observações gerais
