@@ -107,7 +107,7 @@ C4Container
 - O lint e a cobertura mínima no CI entram com a #79; até lá, o CI roda os testes.
 - Não há backend nem banco de dados: o GitHub Pages serve arquivos estáticos e o `termos.json` é versionado (ADR 0001 e ADR 0007).
 - O LLM não decide nada sozinho: ele sugere categoria, tipo e rascunhos, e a revisão humana escreve e aprova o texto final (ADR 0009).
-- Bibliotecas npm são permitidas só em `coleta/`, `scripts/` e nos testes do robô (ADR 0010).
+- Bibliotecas npm entram só pelas duas listas fechadas da ADR 0010: as do robô, em `coleta/` e `scripts/`, e as de teste e qualidade (Playwright, axe-core, StrykerJS e ESLint), só em `devDependencies`.
 - A página Sobre não carrega JavaScript nem service worker; o escopo do service worker fica restrito a `/frontend/` (ADR 0003 e ADR 0008).
 
 ## Estrutura de pastas
