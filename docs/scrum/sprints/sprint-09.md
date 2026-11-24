@@ -156,7 +156,7 @@ Métricas levantadas a partir do repositório no GitHub (`unb-mds/2026-2-Glossar
 - **Robô `eterno-calouro[bot]`:** 7 commits
 - **Total:** 88 commits
 
-### Encaminhamento do Scrum Master
+### Encaminhamento
 
 A Sprint 09 representou a maturidade técnica e organizacional definitiva da equipe G10. A superação das três falhas recorrentes (PRs represados, documentação atrasada e baixa velocidade) evidencia que a padronização do fluxo de trabalho e o compromisso coletivo transformaram radicalmente a dinâmica do grupo. O Glossário UnB chega à Release 2 com 100% dos requisitos atendidos, cobertura de testes abrangente, acessibilidade auditada e arquitetura estável.
 
@@ -168,7 +168,8 @@ Os prints oficiais do quadro do projeto e da atividade de commits foram capturad
 
 **Quadro do Milestone da Sprint 09** ([Milestone 10 — Estabilização e Release 2](https://github.com/unb-mds/2026-2-GlossarioUnB/milestone/10)):
 
-![Quadro com as issues da Sprint 09](img/sprint-09-quadro.png)
+![Quadro 1 com as issues da Sprint 09](img/sprint-09-quadro-1.png)
+![Quadro 2 com as issues da Sprint 09](img/sprint-09-quadro-2.png)
 
 **Gráfico de commits do repositório** ([Insights → Commits](https://github.com/unb-mds/2026-2-GlossarioUnB/graphs/commit-activity)):
 
