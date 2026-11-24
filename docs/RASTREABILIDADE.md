@@ -17,7 +17,7 @@ Matriz que liga cada requisito de [`REQUISITOS.md`](REQUISITOS.md) à história,
 | RF04 Receber sugestão por Issue ou Pull Request | US04 | [#24], [#71] (E3) | [#5] (templates), [#39] (CONTRIBUTING) | Sem teste: `.github/ISSUE_TEMPLATE/sugerir-termo.md` e `CONTRIBUTING.md` | Pronto, sem teste |
 | RF05 Exibir a ficha do termo | US02 | [#38], [#35] | [#39], [#138] | `tests/ficha.test.js` (endereço, aba, campus Geral, fonte com e sem link); `tests/validacao-termo.test.js` (localizacao, urlSegura) | Pronto (id inexistente e mapa sem teste) |
 | RF06 Validar o termo contra o schema antes do merge | US05 | [#11], [#44] (E4) | [#39], [#41] (texto do RF) | `tests/validacao-termo.test.js` (12 testes); `tests/dados.test.js`; `tests/deduplicar.test.js` (repetidosNoGlossario); `.github/workflows/ci.yml` (`npm test`) | Pronto |
-| RF07 Sinalizar termo desatualizado | US05 | [#60] (E1) | nenhum | Sem teste | Pendente |
+| RF07 Sinalizar termo desatualizado | US05 | [#60] (E1) | aberto | `tests/verificacao.test.js` (agrupamento por fonte, status, redirecionamento, Last-Modified, deduplicação das issues, robots e espera); `tests/ficha.test.js` (data na ficha); `tests/workflow-verificacao.test.js` | Parcial (implementado; aguardando merge do PR) |
 | RF08 Sugerir termos ao digitar | US02 | [#38] | [#39], [#138] | `tests/busca.test.js` (setas, Enter, status do leitor de tela, sem resultado) | Pronto |
 | RF09 Termos parecidos e busca sem resultado | US02 | [#66] (E2) | [#138] (aviso) | `tests/busca.test.js` ("sem resultado, o aviso repete o que foi digitado"); parecidos: sem teste | Parcial |
 | RF10 Enviar sugestão pelo site | US04 | [#72] (E3) | nenhum | Sem teste | Pendente (opcional) |
@@ -35,7 +35,7 @@ Matriz que liga cada requisito de [`REQUISITOS.md`](REQUISITOS.md) à história,
 | RNF02 Desempenho | US05 | [#80] (E4) | nenhum (PR [#148] aberto) | Sem prova na `main` | Pendente |
 | RNF03 Acessibilidade | US05 | [#78], [#80] (E4) | nenhum | `tests/sobre.test.js` cobre só a página Sobre (h1, alt, títulos, âncoras); axe-core pendente | Parcial |
 | RNF04 Usabilidade | US05 | [#78] (E4) | nenhum | Sem prova na `main` | Pendente |
-| RNF05 Qualidade dos dados | US05 | [#77], [#60] (E4, E1) | [#112] | `tests/dados.test.js`; links quebrados: [#60] pendente | Parcial |
+| RNF05 Qualidade dos dados | US05 | [#77], [#60] (E4, E1) | [#112] | `tests/dados.test.js`; `tests/verificacao.test.js` (links quebrados e redirecionamentos) | Parcial (verificação da #60 aguardando merge) |
 | RNF06 Manutenibilidade | US05 | [#79], [#106] (E4) | [#107] (SonarQube Cloud) | `npm run test:cobertura` mede; mínimo de 90% no CI está em [#79] (PR [#120] aberto) | Parcial |
 | RNF07 Segurança | US05 | [#83], [#106] (E4) | [#107], [#128] | `tests/validacao-termo.test.js` (urlSegura); `tests/classificador.test.js` (link e HTML recusados, prompt injection); `tests/servidor-local.test.js`; `tests/fronteira-dependencias.test.js` | Parcial (SAST [#83] pendente) |
 | RNF08 Privacidade | US01 | [#134] (E4) | [#135] | `tests/coletor-html.test.js` ("decanatos: o link do menu fora do trecho (LGPD) não vira candidato"); revisão no PR | Parcial |
@@ -43,8 +43,8 @@ Matriz que liga cada requisito de [`REQUISITOS.md`](REQUISITOS.md) à história,
 
 ## Resumo
 
-- **RF:** 15 no total. 11 prontos (10 com teste; RF04 pronto sem teste), 2 parciais (RF09, RF11) e 2 pendentes (RF07, RF10).
-- **Sem teste:** RF04, RF07, RF10, RNF01, RNF02, RNF04.
+- **RF:** 15 no total. 11 prontos (10 com teste; RF04 pronto sem teste), 3 parciais (RF07, RF09, RF11) e 1 pendente (RF10).
+- **Sem teste:** RF04, RF10, RNF01, RNF02, RNF04.
 - Quando um PR aberto entrar na `main` (por exemplo [#148], [#120]), a linha correspondente muda de "pendente" para "pronto" com o número do PR.
 
 [#5]: https://github.com/unb-mds/2026-2-GlossarioUnB/pull/5

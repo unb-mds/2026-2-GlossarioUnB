@@ -1,0 +1,49 @@
+# Verificação semanal das fontes (#60, RF07): confere o link de cada termo e abre uma issue por fonte com problema.
+# Roda depois da coleta (segunda, 10h UTC) para uma issue não citar um termo que o PR do robô acabou de mudar.
+#
+# Usa o GITHUB_TOKEN (issues: write), e não a senha do robô: aqui não há PR, então o token padrão basta.
+# A issue é única por fonte, com todos os termos que dependem dela; se já existe uma aberta para a mesma fonte,
+# a execução não repete. Quem corrige é uma pessoa: o robô não edita termos nem fecha issues.
+
+name: Verificação das fontes
+
+on:
+  schedule:
+    - cron: "0 10 * * 1" # toda segunda, 07h de Brasília
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: verificacao-fontes
+  cancel-in-progress: false
+
+jobs:
+  verificar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci --omit=dev # só as bibliotecas do robô (ADR 0010)
+
+      - name: Conferir as fontes e abrir as issues
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/verificar-fontes.mjs --abrir-issues
+
+      - name: Guardar o relatório da verificação
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: verificacao-fontes
+          path: coleta/saida/verificacao.json
+          retention-days: 30
+          if-no-files-found: ignore

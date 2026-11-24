@@ -10,9 +10,22 @@ export function idValido(id) {
   return typeof id === "string" && PADRAO_ID.test(id);
 }
 const CAMPOS_TEXTO_OBRIGATORIOS = ["id", "termo", "tipo", "categoria", "definicao", "exemplo_uso", "fonte", "campus"];
+const PADRAO_DATA = /^(\d{4})-(\d{2})-(\d{2})$/;
 
 function textoPreenchido(valor) {
   return typeof valor === "string" && valor.trim() !== "";
+}
+
+// `verificado_em` (RF07, issue #60) é uma data ISO `aaaa-mm-dd`, e não um texto qualquer: a página do termo
+// mostra essa data formatada, e o robô compara com o Last-Modified da fonte para saber se ela mudou depois.
+export function dataValida(valor) {
+  if (typeof valor !== "string") return false;
+  const partes = PADRAO_DATA.exec(valor);
+  if (!partes) return false;
+
+  const [, ano, mes, dia] = partes.map(Number);
+  const data = new Date(Date.UTC(ano, mes - 1, dia));
+  return data.getUTCFullYear() === ano && data.getUTCMonth() === mes - 1 && data.getUTCDate() === dia;
 }
 
 // Só aceita links absolutos http(s); qualquer outro esquema (ex.: javascript:) vira null.
@@ -94,6 +107,9 @@ export function validarTermo(termo) {
   }
   if (textoPreenchido(termo.campus) && ![...CAMPI, CAMPUS_GERAL].includes(termo.campus)) {
     erros.push(`campus "${termo.campus}" inválido (use: ${[...CAMPI, CAMPUS_GERAL].join(", ")})`);
+  }
+  if (termo.verificado_em !== undefined && !dataValida(termo.verificado_em)) {
+    erros.push("verificado_em deve ser uma data no formato aaaa-mm-dd");
   }
   if (termo.localizacao !== undefined) erros.push(...validarLocalizacao(termo.localizacao));
   if (termo.sinonimos !== undefined) erros.push(...validarSinonimos(termo.sinonimos));

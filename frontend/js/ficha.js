@@ -1,7 +1,7 @@
 // Regras da página do termo (termo.html): o título da aba, o rótulo do campus, a fonte e o endereço do termo.
 // Sem DOM, para serem testadas no Node (tests/ficha.test.js); o app.js só monta os elementos.
 import { CAMPUS_GERAL, sinonimosDe } from "./termos.js";
-import { urlSegura } from "./validacao-termo.js";
+import { dataValida, urlSegura } from "./validacao-termo.js";
 
 // Endereço da página de um termo; as sugestões da busca, os cartões e a trilha também levam para ele.
 export function urlDoTermo(termo) {
@@ -29,6 +29,13 @@ export function relacionadosDe(termo, termos) {
 
 export function rotuloCampus(campus) {
   return campus === CAMPUS_GERAL ? "Todos os campi" : `Campus ${campus}`;
+}
+
+// "verificado em dd/mm/aaaa" (RF07): data ISO vira o texto que a pessoa lê. Sem data válida, o aviso não aparece.
+export function textoVerificadoEm(verificadoEm) {
+  if (!dataValida(verificadoEm)) return null;
+  const [ano, mes, dia] = verificadoEm.split("-");
+  return `Verificado em ${dia}/${mes}/${ano}`;
 }
 
 // Fonte pode ser um link ou um texto ("conhecimento comum verificado pelo grupo").
