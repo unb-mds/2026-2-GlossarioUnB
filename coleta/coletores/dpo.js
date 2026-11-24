@@ -109,15 +109,18 @@ export async function extrairSiglasDoPdf(dados, opcoes = {}) {
           if (!texto || CABECALHO.test(texto)) continue;
 
           if (ehInicioDeEntrada(linha)) {
-            const achado = /^(\S+)\s+(.+)$/.exec(texto);
-            if (!achado) continue;
-            const chave = `${achado[1]}\u0000${achado[2]}`;
+            const corte = texto.indexOf(" ");
+            if (corte <= 0) continue;
+            const sigla = texto.slice(0, corte);
+            const significado = texto.slice(corte + 1).trim();
+            if (!significado) continue;
+            const chave = `${sigla}\u0000${significado}`;
             if (vistos.has(chave)) {
               atual = null;
               continue;
             }
             vistos.add(chave);
-            atual = candidatoDe(achado[1], achado[2], pagina, coletadoEm);
+            atual = candidatoDe(sigla, significado, pagina, coletadoEm);
             candidatos.push(atual);
           } else if (atual) {
             atual.significado = juntarEspacos(`${atual.significado}${atual.significado.endsWith("-") ? "" : " "}${texto}`);
