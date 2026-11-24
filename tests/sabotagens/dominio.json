@@ -108,5 +108,27 @@
         "para": "lat < -900 || lat > 900"
       }
     ]
+  },
+  {
+    "modulo": "frontend/js/trilha.js",
+    "defeito": "o progresso da trilha guarda qualquer termo aberto, mesmo fora da trilha",
+    "arquivo": "frontend/js/trilha.js",
+    "trocas": [
+      {
+        "de": "  if (!idsDaTrilha.includes(id)) return false;\n",
+        "para": ""
+      }
+    ]
+  },
+  {
+    "modulo": "frontend/js/trilha.js",
+    "defeito": "o progresso volta com ids que saíram da trilha",
+    "arquivo": "frontend/js/trilha.js",
+    "trocas": [
+      {
+        "de": "return new Set(salvo.filter((id) => validos.has(id)));",
+        "para": "return new Set(salvo);"
+      }
+    ]
   }
 ]

@@ -58,3 +58,64 @@ export function montarTrilha(trilha, termos) {
     }))
     .filter((grupo) => grupo.termos.length > 0);
 }
+
+// ===== Progresso da trilha (decisão 58) =====
+// O que a pessoa já abriu fica só neste aparelho, em localStorage, e nada é enviado. O armazenamento vem por uma
+// função porque até ler window.localStorage pode falhar (modo privado, bloqueio do navegador). Sem ele, a trilha
+// funciona igual, só sem as marcas.
+
+// Com prefixo: unb-mds.github.io é uma origem compartilhada por todos os projetos da organização.
+export const CHAVE_PROGRESSO = "glossario-unb:trilha-vistos";
+
+// Os ids salvos que ainda estão na trilha, sem repetir; o que vier estragado conta como nada salvo.
+export function lerVistos(obterArmazenamento, idsDaTrilha) {
+  try {
+    const salvo = JSON.parse(obterArmazenamento().getItem(CHAVE_PROGRESSO));
+    if (!Array.isArray(salvo)) return new Set();
+    const validos = new Set(idsDaTrilha);
+    return new Set(salvo.filter((id) => validos.has(id)));
+  } catch {
+    return new Set();
+  }
+}
+
+// Guarda o termo se ele for da trilha. Devolve true quando ele ficou salvo.
+export function marcarVisto(obterArmazenamento, id, idsDaTrilha) {
+  if (!idsDaTrilha.includes(id)) return false;
+  try {
+    const vistos = lerVistos(obterArmazenamento, idsDaTrilha);
+    vistos.add(id);
+    obterArmazenamento().setItem(CHAVE_PROGRESSO, JSON.stringify([...vistos]));
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+export function recomecarTrilha(obterArmazenamento) {
+  try {
+    obterArmazenamento().removeItem(CHAVE_PROGRESSO);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+// Só ler não basta: em alguns navegadores a leitura funciona e a escrita falha.
+export function armazenamentoDisponivel(obterArmazenamento) {
+  const chaveDeTeste = `${CHAVE_PROGRESSO}:teste`;
+  try {
+    const armazenamento = obterArmazenamento();
+    armazenamento.setItem(chaveDeTeste, "1");
+    armazenamento.removeItem(chaveDeTeste);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+export function progressoDaTrilha(idsDaTrilha, vistos) {
+  const total = idsDaTrilha.length;
+  const quantos = idsDaTrilha.filter((id) => vistos.has(id)).length;
+  return { vistos: quantos, total, texto: `Você já viu ${quantos} de ${total}` };
+}

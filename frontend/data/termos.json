@@ -102,6 +102,7 @@
     "id": "deg",
     "termo": "DEG",
     "tipo": "sigla",
+    "categoria": "administracao",
     "significado": "Decanato de Ensino de Graduação",
     "definicao": "Órgão executivo da Reitoria responsável pelo planejamento, supervisão, coordenação e acompanhamento das atividades de ensino de graduação da UnB.",
     "exemplo_uso": "Minha dúvida sobre matrícula foi encaminhada para o DEG.",
