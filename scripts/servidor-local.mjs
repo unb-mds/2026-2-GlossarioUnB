@@ -12,6 +12,8 @@ import { fileURLToPath } from "node:url";
 
 const RAIZ = fileURLToPath(new URL("..", import.meta.url));
 const PASTAS_PUBLICADAS = ["frontend", "sobre"];
+// Da pasta coleta/, só o boletim do robô vai para o site (#74).
+const ARQUIVOS_AVULSOS = ["/coleta/relatorio.json"];
 const TIPOS = {
   ".html": "text/html; charset=utf-8",
   ".css": "text/css; charset=utf-8",
@@ -24,6 +26,9 @@ const TIPOS = {
 // Caminho do arquivo pedido, ou null se estiver fora do que é publicado (ex.: /../, /tests/).
 async function localizarArquivo(caminhoUrl) {
   if (caminhoUrl === "/" || caminhoUrl === "/index.html") return join(RAIZ, "index.html");
+
+  const avulso = ARQUIVOS_AVULSOS.find((arquivo) => arquivo === caminhoUrl);
+  if (avulso) return join(RAIZ, ...avulso.split("/"));
 
   const pasta = PASTAS_PUBLICADAS.find((nome) => caminhoUrl.startsWith(`/${nome}/`));
   if (!pasta) return null;

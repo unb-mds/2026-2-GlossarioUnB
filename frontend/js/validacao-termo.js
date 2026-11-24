@@ -4,6 +4,11 @@
 import { CAMPI, CAMPUS_GERAL, CATEGORIAS, TIPOS } from "./termos.js";
 
 const PADRAO_ID = /^[a-z0-9]+(-[a-z0-9]+)*$/;
+
+// O formato do id de um termo (letras minúsculas sem acento, números e hífens). É a regra única: a planta usa esta função.
+export function idValido(id) {
+  return typeof id === "string" && PADRAO_ID.test(id);
+}
 const CAMPOS_TEXTO_OBRIGATORIOS = ["id", "termo", "tipo", "categoria", "definicao", "exemplo_uso", "fonte", "campus"];
 
 function textoPreenchido(valor) {
