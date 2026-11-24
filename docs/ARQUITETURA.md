@@ -116,8 +116,8 @@ C4Container
 2026-2-GlossarioUnB/
 ├── index.html          # raiz do site publicado: redireciona para sobre/
 ├── frontend/           # GitPage 1: o glossário (PWA), sem build → /frontend/
-│   ├── data/           # termos.json — dataset (ADR 0001); trilha-calouro.json (ADR 0011)
-│   ├── js/             # termos.js, trilha.js, validacao-termo.js (domínio); busca.js, lista.js, ficha.js, tema.js (regras de cada página, com teste); app.js (só a tela)
+│   ├── data/           # termos.json — dataset (ADR 0001); trilha-calouro.json (ADR 0011); planta-fcte.json (ADR 0012)
+│   ├── js/             # termos.js, trilha.js, validacao-termo.js (domínio); busca.js, lista.js, ficha.js, planta.js, tema.js (regras de cada página, com teste); app.js (só a tela)
 │   └── sw.js           # service worker (ADR 0003)
 ├── sobre/              # GitPage 2: apresentação do projeto, só HTML e CSS → /sobre/
 ├── coleta/             # o robô: fontes, coletor, deduplicação, classificador e atualização do termos.json; pode usar bibliotecas (ADR 0010)
@@ -147,6 +147,7 @@ O dataset fica dentro de `frontend/` para o glossário ser publicado copiando um
 > - [ADR 0009 — Coleta automatizada por pipeline com PR revisado](adr/0009-coleta-automatizada-por-pipeline.md) (11/11)
 > - [ADR 0010 — Bibliotecas npm nos scripts do robô](adr/0010-bibliotecas-nos-scripts-do-robo.md) (13/11, atualizada em 18/11)
 > - [ADR 0011 — Trilha do calouro num arquivo próprio](adr/0011-trilha-do-calouro-em-arquivo-proprio.md) (17/11)
+> - [ADR 0012 — Planta 2D da FCTE no site](adr/0012-planta-da-fcte.md) (20/11)
 > - [ADR 0013 — Análise de qualidade com o SonarQube Cloud](adr/0013-analise-de-qualidade-com-sonarqube-cloud.md) (18/11)
 > - [ADR 0014 — Filtro de termos do robô](adr/0014-filtro-de-termos-do-robo.md) (21/11)
 
