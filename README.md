@@ -1,4 +1,4 @@
-# G10-2026-2 — Glossário UnB
+# Glossário UnB
 
 Grupo G10 - Métodos de Desenvolvimento de Software 2026/2
 
@@ -13,18 +13,28 @@ Dicionário colaborativo de siglas, gírias e jargões da UnB.
 
 - O site publicado tem **as mesmas pastas do repositório**. Por isso os links entre as duas páginas funcionam igual no GitHub Pages, no `npm run dev` ou abrindo pelo Live Server do VS Code.
 - A raiz do endereço ([`index.html`](index.html)) redireciona para a página Sobre.
-- A publicação é feita por [`.github/workflows/pages.yml`](.github/workflows/pages.yml) a cada push na `main` (ADR 0007). Ela precisa ser ativada uma vez em *Settings → Pages → Source: GitHub Actions*.
+- A publicação é feita automaticamente por [`.github/workflows/pages.yml`](.github/workflows/pages.yml) a cada push na `main` (ADR 0007), via *Settings → Pages → Source: GitHub Actions*.
 
 ## Como rodar
 
-Pré-requisito: Node 22.9 ou mais novo. O site não usa dependências; os testes e a coleta usam as bibliotecas da ADR 0010, instaladas com `npm ci`.
+Pré-requisito: Node 22.13 ou mais novo. O app não tem dependências de runtime; o robô de coleta e o lint usam as bibliotecas da ADR 0010, instaladas com `npm ci`.
 
 ```bash
-npm ci                  # bibliotecas da coleta e dos testes
+npm ci                  # bibliotecas da coleta, do robô, do ESLint e dos testes E2E (Playwright)
 npm run dev             # glossário em http://localhost:8080/frontend/ e Sobre em /sobre/
 npm test                # testes de domínio + validação de todos os termos
-npm run test:cobertura  # os mesmos testes, com relatório de cobertura
+npm run lint            # ESLint
+npm run test:cobertura  # os mesmos testes, com cobertura mínima de 90%
 ```
+
+Os testes ponta a ponta usam Playwright e axe-core (pasta `e2e/`). Na primeira vez, baixe o navegador:
+
+```bash
+npx playwright install chromium
+npm run test:e2e        # fluxos no navegador + auditoria de acessibilidade (WCAG 2.1 AA)
+```
+
+O job `e2e` do CI roda os mesmos testes em todo PR e anexa o relatório HTML como artefato.
 
 Para usar outra porta, copie `.env.example` para `.env` e ajuste `PORT` (o `npm run dev` lê o `.env` automaticamente).
 
@@ -52,10 +62,11 @@ O relatório fica em `coleta/relatorio.json` e o corpo do PR em `coleta/resumo.m
 ## Documentação
 
 - [Requisitos do sistema](docs/REQUISITOS.md)
+- [Visão de produto e histórias de usuário](docs/VISAO-DE-PRODUTO.md)
 - [Fontes de dados de termos](docs/FONTES-DE-DADOS.md)
 - [Arquitetura do sistema](docs/ARQUITETURA.md) e [decisões (ADRs)](docs/adr/)
 - [Estratégia de testes](docs/estrategia-de-testes.md)
-- [Story Map](docs/storymap/story-map.md) e [quadro do Figma](https://www.figma.com/board/dk8nBcFiFEWo1AkOvn1554/Template-MDS--c%C3%B3pia-limpa---c%C3%B3pia---c%C3%B3pia-?node-id=0-1&t=IS5erq77oDUXUtei-1)
+- [Story Map](docs/storymap/story-map.png) e [quadro do Figma](https://www.figma.com/board/dk8nBcFiFEWo1AkOvn1554/Template-MDS--c%C3%B3pia-limpa---c%C3%B3pia---c%C3%B3pia-?node-id=0-1&t=IS5erq77oDUXUtei-1)
 - [Processo do time](docs/PROCESSO.md)
 - [Como contribuir](CONTRIBUTING.md)
 - [Guia de fluxo de trabalho (Git passo a passo)](docs/GUIA-FLUXO-DE-TRABALHO.md)

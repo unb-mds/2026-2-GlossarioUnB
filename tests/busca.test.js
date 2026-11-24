@@ -73,3 +73,16 @@ test("na trilha, id que não existe é pulado e grupo que fica vazio some (a se�
   assert.deepEqual(gruposDaTrilha(trilha, termos).map((g) => [g.idDoTitulo, g.termos.map((t) => t.nome)]), [["trilha-a", ["DEG"]]]);
   assert.deepEqual(gruposDaTrilha({}, termos), []);
 });
+
+// ===== Mutantes sobreviventes (#82) =====
+
+test("o Enter sem marcação (índice -1 ou 0) usa a primeira sugestão certa da busca", () => {
+  assert.equal(termoDoEnvio([termos[1], termos[0]], 0, termos, "de").id, "dex");
+  assert.equal(termoDoEnvio([termos[1], termos[0]], -1, termos, "deg").id, "deg");
+  assert.equal(termoDoEnvio([], 3, termos, "xyz"), null);
+});
+
+test("os atalhos por tipo usam o rótulo no plural", () => {
+  assert.deepEqual(atalhosPorTipo([termos[2]]).map((a) => a.rotulo), ["Gírias"]);
+  assert.deepEqual(atalhosPorTipo([{ ...termos[0], tipo: "expressao" }]).map((a) => a.rotulo), ["Expressões"]);
+});
