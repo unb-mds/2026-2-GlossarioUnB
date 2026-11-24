@@ -1,0 +1,55 @@
+{
+  "versao": 2,
+  "gerado_em": "2026-11-20T12:00:00",
+  "campus": { "id": "campus-teste", "nome": "Campus de teste", "termo": "campus-teste" },
+  "predios": [
+    {
+      "id": "pt",
+      "sigla": "PT",
+      "nome": "Prédio de teste",
+      "termo": "predio-teste",
+      "contorno": [[0, 0], [20, 0], [20, 10], [0, 10]],
+      "patios": [],
+      "andares": [
+        {
+          "id": "terreo",
+          "nome": "térreo",
+          "corredores": [{ "eixo": [[1, 5], [19, 5]], "largura": 2 }],
+          "itens": [
+            { "id": "s1", "rotulo": "S1", "nome": "Sala 1", "tipo": "sala", "cantos": [[1, 0.5], [6, 0.5], [6, 4], [1, 4]], "termos": ["sala-teste", "sala-colega"] },
+            { "id": "s2", "rotulo": "S2", "nome": "Sala 2", "tipo": "sala", "cantos": [[7, 0.5], [12, 0.5], [12, 4], [7, 4]] },
+            { "id": "lab", "rotulo": "A<&>\"B", "nome": "Laboratório <A>", "tipo": "laboratorio", "cantos": [[13, 6], [19, 6], [19, 9.5], [13, 9.5]] }
+          ]
+        },
+        {
+          "id": "superior",
+          "nome": "superior",
+          "corredores": [{ "eixo": [[1, 5], [19, 5]], "largura": 2 }],
+          "itens": [
+            { "id": "esc", "rotulo": "", "nome": "Escada", "tipo": "escada", "cantos": [[1, 6], [4, 6], [4, 9.5], [1, 9.5]] },
+            { "id": "elev", "rotulo": "", "nome": "Elevador", "tipo": "elevador", "cantos": [[5, 6], [7, 6], [7, 8], [5, 8]] },
+            { "id": "wc", "rotulo": "", "nome": "Banheiro feminino", "tipo": "banheiro-feminino", "cantos": [[8, 6], [11, 6], [11, 9], [8, 9]] },
+            { "id": "bebe", "rotulo": "", "nome": "Bebedouro", "tipo": "bebedouro", "cantos": [[12, 6], [12.8, 6], [12.8, 6.8], [12, 6.8]] },
+            { "id": "sala-comprida", "rotulo": "Sala muito comprida e com nome longo", "nome": "Sala comprida", "tipo": "sala", "cantos": [[13, 0.5], [14.5, 0.5], [14.5, 4], [13, 4]] },
+            { "id": "sem-cantos", "rotulo": "X", "nome": "Sem cantos", "tipo": "sala" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pu",
+      "sigla": "PU",
+      "nome": "Outro prédio",
+      "contorno": [[40, 20], [60, 20], [60, 40], [40, 40]],
+      "patios": [[[45, 25], [55, 25], [55, 35], [45, 35]]],
+      "andares": [
+        {
+          "id": "terreo",
+          "nome": "térreo",
+          "corredores": [{ "eixo": [[41, 30], [59, 30]], "largura": 2 }],
+          "itens": []
+        }
+      ]
+    }
+  ]
+}
