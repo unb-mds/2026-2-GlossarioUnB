@@ -5,6 +5,7 @@ import assert from "node:assert/strict";
 import { readFile, stat } from "node:fs/promises";
 
 import { acharLugar, conferirLigacoes, montarSvgAndar, montarSvgCampus, termosPendentes } from "../frontend/js/planta.js";
+import { idValido } from "../frontend/js/validacao-termo.js";
 
 const URL_PLANTA = new URL("../frontend/data/planta-fcte.json", import.meta.url);
 const planta = JSON.parse(await readFile(URL_PLANTA, "utf8"));
@@ -27,11 +28,14 @@ test("o termo fcte, que já existe, mostra o campus", () => {
   assert.deepEqual(acharLugar(planta, "fcte"), { campus: true });
 });
 
+// Sem sigla fixa: quando o robô trouxer um termo, ele sai da lista de pendentes, e o teste continua valendo.
 test("os termos que a planta cita e o glossário ainda não tem são só os que o robô vai criar", () => {
   const pendentes = termosPendentes(planta, idsTermos);
   assert.ok(!pendentes.includes("fcte"));
-  assert.ok(pendentes.includes("lappis"));
-  for (const id of pendentes) assert.match(id, /^[a-z0-9]+(-[a-z0-9]+)*$/);
+  for (const id of pendentes) {
+    assert.ok(idValido(id), `id fora do formato: ${id}`);
+    assert.ok(!idsTermos.includes(id), `${id} já existe e não devia estar pendente`);
+  }
 });
 
 test("as salas de várias siglas levam cada sigla ao mesmo lugar", () => {

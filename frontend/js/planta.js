@@ -3,8 +3,9 @@
 // O desenho não leva cor: só classes (planta-*), e a cor vem dos tokens --planta-* do styles.css.
 // Todo texto que vem do JSON sai escapado, porque a planta, como os termos, chega por PR de terceiros.
 
+import { idValido } from "./validacao-termo.js";
+
 const PAGINA = "planta.html";
-const PADRAO_ID = /^[a-z0-9]+(-[a-z0-9]+)*$/; // o mesmo formato de id do validacao-termo.js
 const TIPOS_SEM_ROTULO = new Set(["escada", "elevador", "bebedouro"]);
 const CARACTERES_ESCAPADOS = { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" };
 
@@ -132,7 +133,7 @@ export function conferirLigacoes(planta) {
   const problemas = [...idsRepetidos(planta), ...listasInvalidas(planta), ...posicoesInvalidas(planta)];
   const lugaresDoTermo = new Map();
   for (const { termo, onde } of ligacoesDaPlanta(planta)) {
-    if (typeof termo !== "string" || !PADRAO_ID.test(termo)) {
+    if (!idValido(termo)) {
       problemas.push(`o id de termo "${termo}" em ${onde} não segue o formato (letras minúsculas sem acento, números e hífens)`);
       continue;
     }
