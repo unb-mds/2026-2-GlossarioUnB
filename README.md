@@ -17,10 +17,10 @@ Dicionário colaborativo de siglas, gírias e jargões da UnB.
 
 ## Como rodar
 
-Pré-requisito: Node 22.13 ou mais novo. O app e os testes não têm dependências de runtime; o lint usa o ESLint como devDependency.
+Pré-requisito: Node 22.13 ou mais novo. O app não tem dependências de runtime; o robô de coleta e o lint usam as bibliotecas da ADR 0010, instaladas com `npm ci`.
 
 ```bash
-npm install             # só para o lint (ESLint é devDependency)
+npm ci                  # bibliotecas da coleta, do robô e o ESLint
 npm run dev             # glossário em http://localhost:8080/frontend/ e Sobre em /sobre/
 npm test                # testes de domínio + validação de todos os termos
 npm run lint            # ESLint
@@ -31,10 +31,31 @@ Para usar outra porta, copie `.env.example` para `.env` e ajuste `PORT` (o `npm 
 
 Detalhes do glossário em [`frontend/README.md`](frontend/README.md).
 
+## Coleta semanal
+
+O workflow [`.github/workflows/coleta.yml`](.github/workflows/coleta.yml) roda toda segunda às 09:00 UTC (06:00 de Brasília) e também pode ser disparado em **Actions → Coleta semanal → Run workflow**. Ele coleta as fontes HTML e o PDF da DPO, classifica os candidatos com o Gemini, compara com o `termos.json`, atualiza `frontend/data/termos.json` com alterações de significado e termos novos classificados como "revisar", grava `coleta/relatorio.json` e abre ou atualiza o PR `robo/coleta-semanal` com a tabela-resumo em `coleta/resumo.md`. O PR só é criado quando há termo novo, alterado ou conflito, e o robô nunca faz merge.
+
+A definição e o exemplo de uso dos termos novos são rascunhos do LLM e precisam ser conferidos na revisão humana. O robô só altera o campo `significado` de termos existentes (ADR 0009).
+
+Para o PR disparar o CI normal, configure em **Settings → Secrets and variables → Actions**:
+
+- `ROBO_APP_ID` e `ROBO_APP_PRIVATE_KEY`: credenciais do GitHub App do robô, que abre o PR e faz o CI rodar.
+- `GEMINI_API_KEY`: chave do Gemini. Sem ela, os termos saem como "sem classificação" e o pipeline continua, mas nenhum termo novo é incluído no `termos.json`.
+
+Para rodar a coleta completa localmente, com o `.env` contendo a chave:
+
+```bash
+npm run coleta:completa
+```
+
+O relatório fica em `coleta/relatorio.json` e o corpo do PR em `coleta/resumo.md` (ignorado pelo Git).
+
 ## Documentação
 
 - [Requisitos do sistema](docs/REQUISITOS.md)
+- [Fontes de dados de termos](docs/FONTES-DE-DADOS.md)
 - [Arquitetura do sistema](docs/ARQUITETURA.md) e [decisões (ADRs)](docs/adr/)
+- [Estratégia de testes](docs/estrategia-de-testes.md)
 - [Story Map](docs/storymap/story-map.md) e [quadro do Figma](https://www.figma.com/board/dk8nBcFiFEWo1AkOvn1554/Template-MDS--c%C3%B3pia-limpa---c%C3%B3pia---c%C3%B3pia-?node-id=0-1&t=IS5erq77oDUXUtei-1)
 - [Processo do time](docs/PROCESSO.md)
 - [Como contribuir](CONTRIBUTING.md)
@@ -43,3 +64,4 @@ Detalhes do glossário em [`frontend/README.md`](frontend/README.md).
 - [Planilha de coleta de termos](https://docs.google.com/spreadsheets/d/1XciIDY79FAyY32bC4GDgQAWgyy-B5UahVMKZvdry0WY/edit?usp=sharing)
 - [Registro de uso de IA](AI-USAGE.md)
 - [Licença (MIT)](LICENSE)
+- [Modelo Conceitual de Dados](docs/modelo-conceitual-dados.md)

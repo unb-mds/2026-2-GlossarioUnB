@@ -53,7 +53,11 @@ function indexar(termos) {
 // Um id que ainda não existe: "saa", ou "saa-2" se "saa" já é de outro termo.
 function idLivre(base, idsUsados) {
   let id = base;
-  for (let n = 2; idsUsados.has(id); n += 1) id = `${base}-${n}`;
+  let n = 2;
+  while (idsUsados.has(id)) {
+    id = `${base}-${n}`;
+    n += 1;
+  }
   idsUsados.add(id);
   return id;
 }
@@ -120,13 +124,16 @@ export function classificar(candidatos, termos) {
   const jaVistos = new Map();
 
   for (const candidato of candidatos) {
-    const k = chave(candidato?.termo);
-    if (!k || !normalizar(candidato.significado)) {
+    const termo = chave(candidato?.termo);
+    const significado = normalizar(candidato?.significado);
+    if (!termo || !significado) {
       saida.descartados.push({ candidato, motivo: "candidato sem termo ou sem significado" });
       continue;
     }
+    const k = `${termo}\u0000${significado}`;
     if (jaVistos.has(k)) {
-      jaVistos.get(k).tambem_em.push(candidato.fonte);
+      const registro = jaVistos.get(k);
+      if (candidato.fonte && !registro.tambem_em.includes(candidato.fonte)) registro.tambem_em.push(candidato.fonte);
       continue;
     }
     const { lista, registro } = classificarUm(candidato, porChave, termos, idsUsados);

@@ -8,6 +8,7 @@ Repositório: `github.com/unb-mds/2026-2-GlossarioUnB`
 
 - Um único repositório
 - Branches: `main` (estável) → `<prefixo>/issue-XX-<descricao-curta>`, **GitHub Flow**, sem `develop`/`release`/`hotfix`. Optamos por simplificar em relação ao Git-Flow completo porque o time é pequeno e não mantemos uma versão em produção separada da que está em desenvolvimento; se isso mudar, entra como ADR. Convenção completa em [`CONVENCAO-GIT.md`](CONVENCAO-GIT.md) e resumo em [`CONTRIBUTING.md`](../CONTRIBUTING.md).
+- **1 issue = 1 branch = 1 PR com revisão:** cada issue tem uma branch própria, um PR que a referencia com `Closes #<número>` e revisão registrada de outra pessoa antes do merge.
 - Contribuidor externo (fora do G10): fluxo por fork, documentado em [`CONTRIBUTING.md`](../CONTRIBUTING.md)
 - Commits em Conventional Commits (`feat:`, `fix:`, `docs:`, `chore:`, `test:`, `refactor:`, `style:`, `perf:`)
 - Organização de tarefas via Issues + Milestones (1 Milestone = 1 Sprint) + board (Projects) do GitHub

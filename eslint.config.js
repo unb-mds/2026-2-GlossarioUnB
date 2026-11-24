@@ -38,4 +38,15 @@ export default [
       globals: globals.node,
     },
   },
+  {
+    files: ["e2e/**/*.js", "playwright.config.js"],
+    languageOptions: {
+      ecmaVersion: "latest",
+      sourceType: "module",
+      globals: {
+        ...globals.browser,
+        ...globals.node,
+      },
+    },
+  },
 ];

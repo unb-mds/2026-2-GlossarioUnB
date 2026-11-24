@@ -23,3 +23,9 @@ jobs:
       - run: npm run lint
       # Roda os testes e valida todos os termos de frontend/data/termos.json (ADR 0004, ADR 0007).
       - run: npm run test:cobertura
+      # Falha o PR se uma dependência de produção tiver vulnerabilidade alta ou crítica (#83).
+      - run: npm audit --omit=dev --audit-level=high
+      # Roda os testes de domínio e valida todos os termos de frontend/data/termos.json (ADR 0004, ADR 0007).
+      - run: npm test
+      # Põe de propósito cada defeito de tests/sabotagens/ e confere que a suíte quebra (docs/TESTE-DE-SABOTAGEM.md).
+      - run: npm run test:sabotagem

@@ -6,11 +6,11 @@
 //   /sobre/      → sobre/     (página de apresentação do projeto)
 import { createServer } from "node:http";
 import { readFile, stat } from "node:fs/promises";
+import { gzipSync } from "node:zlib";
 import { extname, join, normalize, sep } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const RAIZ = fileURLToPath(new URL("..", import.meta.url));
-const PORTA = Number(process.env.PORT) || 8080;
 const PASTAS_PUBLICADAS = ["frontend", "sobre"];
 const TIPOS = {
   ".html": "text/html; charset=utf-8",
@@ -41,7 +41,8 @@ function responder(resposta, status, texto) {
   resposta.end(texto);
 }
 
-createServer(async (pedido, resposta) => {
+// Atende um pedido. Exportada para os testes (tests/servidor-local.test.js).
+export async function atender(pedido, resposta) {
   let caminho;
   try {
     caminho = decodeURIComponent(new URL(pedido.url, "http://localhost").pathname);
@@ -49,8 +50,11 @@ createServer(async (pedido, resposta) => {
     responder(resposta, 400, "Endereço inválido");
     return;
   }
-  if (PASTAS_PUBLICADAS.some((nome) => caminho === `/${nome}`)) {
-    resposta.writeHead(301, { Location: `${caminho}/` });
+  // "/frontend" vira "/frontend/". O destino sai da lista fixa de pastas, nunca do endereço pedido
+  // (redirecionamento aberto, regra S5146 do SonarQube).
+  const pastaSemBarra = PASTAS_PUBLICADAS.find((nome) => caminho === `/${nome}`);
+  if (pastaSemBarra) {
+    resposta.writeHead(301, { Location: `/${pastaSemBarra}/` });
     resposta.end();
     return;
   }
@@ -61,8 +65,16 @@ createServer(async (pedido, resposta) => {
     return;
   }
   try {
-    const corpo = await readFile(arquivo);
-    resposta.writeHead(200, { "Content-Type": TIPOS[extname(arquivo)] ?? "application/octet-stream", "Cache-Control": "no-cache" });
+    let corpo = await readFile(arquivo);
+    const cabecalhos = { "Content-Type": TIPOS[extname(arquivo)] ?? "application/octet-stream", "Cache-Control": "no-cache" };
+    // O GitHub Pages comprime texto com gzip; o servidor local faz o mesmo para a medição de desempenho
+    // (Lighthouse CI, RNF02) refletir o site publicado. Imagens já vêm comprimidas.
+    if (/\bgzip\b/.test(pedido.headers?.["accept-encoding"] ?? "") && extname(arquivo) !== ".png") {
+      corpo = gzipSync(corpo);
+      cabecalhos["Content-Encoding"] = "gzip";
+      cabecalhos.Vary = "Accept-Encoding";
+    }
+    resposta.writeHead(200, cabecalhos);
     resposta.end(corpo);
   } catch (erro) {
     if (erro.code === "ENOENT") {
@@ -72,7 +84,17 @@ createServer(async (pedido, resposta) => {
     console.error(erro);
     responder(resposta, 500, "Erro interno");
   }
-}).listen(PORTA, () => {
-  console.log(`Glossário:       http://localhost:${PORTA}/frontend/`);
-  console.log(`Sobre o projeto: http://localhost:${PORTA}/sobre/`);
-});
+}
+
+export function criarServidor() {
+  return createServer(atender);
+}
+
+// Só sobe o servidor quando o arquivo é executado (npm run dev), e não quando um teste o importa.
+if (process.argv[1] === fileURLToPath(import.meta.url)) {
+  const porta = Number(process.env.PORT) || 8080;
+  criarServidor().listen(porta, () => {
+    console.log(`Glossário:       http://localhost:${porta}/frontend/`);
+    console.log(`Sobre o projeto: http://localhost:${porta}/sobre/`);
+  });
+}

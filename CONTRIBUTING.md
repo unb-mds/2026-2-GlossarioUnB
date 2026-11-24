@@ -47,6 +47,7 @@ Você não precisa e não tem acesso de escrita a este repositório, use fork:
   "id": "deg",
   "termo": "DEG",
   "tipo": "sigla",
+  "categoria": "administracao",
   "significado": "Decanato de Ensino de Graduação",
   "definicao": "Explicação em português simples do que é/faz.",
   "exemplo_uso": "Minha dúvida sobre matrícula foi encaminhada para o DEG.",
@@ -56,8 +57,9 @@ Você não precisa e não tem acesso de escrita a este repositório, use fork:
 ```
 
 - `tipo`: `sigla`, `giria` ou `expressao`. `significado` (por extenso) só é obrigatório para siglas.
+- `categoria`: `vida-academica`, `unidades-academicas`, `administracao`, `colegiados`, `locais-campus`, `sistemas`, `assistencia-estudantil`, `representacao-estudantil` ou `girias`.
 - `campus`: `Darcy Ribeiro`, `Ceilândia`, `Gama`, `Planaltina` ou `Geral`.
-- Opcionais: `categoria` (tema) e `localizacao` (`lat`, `lng`, `link_como_chegar`) para lugares físicos.
+- Opcional: `localizacao` (`lat`, `lng`, `link_como_chegar`) para lugares físicos.
 
 Nenhum termo é aceito sem `fonte` preenchida. O CI valida todo PR contra esse schema;
 regras completas em [`docs/adr/0004-schema-unico-do-termo.md`](docs/adr/0004-schema-unico-do-termo.md).
@@ -67,7 +69,7 @@ regras completas em [`docs/adr/0004-schema-unico-do-termo.md`](docs/adr/0004-sch
 O CI roda `npm run lint` e `npm run test:cobertura` em todo PR. Para rodar localmente:
 
 ```bash
-npm install             # só na primeira vez; instala o ESLint (devDependency)
+npm ci                  # só na primeira vez; instala o ESLint e as bibliotecas do robô
 npm run lint            # ESLint
 npm run test:cobertura  # testes + cobertura mínima
 ```
