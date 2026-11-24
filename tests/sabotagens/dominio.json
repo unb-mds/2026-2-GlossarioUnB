@@ -27,7 +27,7 @@
     "arquivo": "frontend/js/termos.js",
     "trocas": [
       {
-        "de": ".sort((a, b) => naoComecaCom(a) - naoComecaCom(b))",
+        "de": ".sort((a, b) => pontuacao(a) - pontuacao(b))",
         "para": ".sort(() => 0)"
       }
     ]
@@ -110,28 +110,6 @@
     ]
   },
   {
-    "modulo": "frontend/js/trilha.js",
-    "defeito": "o progresso da trilha guarda qualquer termo aberto, mesmo fora da trilha",
-    "arquivo": "frontend/js/trilha.js",
-    "trocas": [
-      {
-        "de": "  if (!idsDaTrilha.includes(id)) return false;\n",
-        "para": ""
-      }
-    ]
-  },
-  {
-    "modulo": "frontend/js/trilha.js",
-    "defeito": "o progresso volta com ids que saíram da trilha",
-    "arquivo": "frontend/js/trilha.js",
-    "trocas": [
-      {
-        "de": "return new Set(salvo.filter((id) => validos.has(id)));",
-        "para": "return new Set(salvo);"
-      }
-    ]
-  },
-  {
     "modulo": "frontend/js/termos.js",
     "defeito": "o filtro de categoria é ignorado",
     "arquivo": "frontend/js/termos.js",
@@ -183,6 +161,28 @@
       {
         "de": "    .filter(Boolean)\n    .map((outro) => ({",
         "para": "    .map((outro) => outro ?? { id: \"?\", termo: \"?\" })\n    .map((outro) => ({"
+      }
+    ]
+  },
+  {
+    "modulo": "frontend/js/trilha.js",
+    "defeito": "o progresso da trilha guarda qualquer termo aberto, mesmo fora da trilha",
+    "arquivo": "frontend/js/trilha.js",
+    "trocas": [
+      {
+        "de": "  if (!idsDaTrilha.includes(id)) return false;\n",
+        "para": ""
+      }
+    ]
+  },
+  {
+    "modulo": "frontend/js/trilha.js",
+    "defeito": "o progresso volta com ids que saíram da trilha",
+    "arquivo": "frontend/js/trilha.js",
+    "trocas": [
+      {
+        "de": "return new Set(salvo.filter((id) => validos.has(id)));",
+        "para": "return new Set(salvo);"
       }
     ]
   }
