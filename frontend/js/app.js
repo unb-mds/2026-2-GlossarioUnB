@@ -583,7 +583,7 @@ function iniciarPaginaTermo(termos, planta) {
     criarBloco("Exemplo de uso", criarElemento("p", { classe: "exemplo-frase", texto: termo.exemplo_uso })),
     criarBloco("Fonte", criarFonte(termo.fonte)),
   );
-  marcarTermoNaTrilha(termo.id);
+  void marcarTermoNaTrilha(termo.id);
 
   const lugar = planta ? acharLugar(planta, termo.id) : null;
   const ondeFica = lugar ? criarBlocoOndeFica(planta, lugar) : null;

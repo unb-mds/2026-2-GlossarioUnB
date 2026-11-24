@@ -211,7 +211,12 @@ function rotuloEm(texto, centro, graus, comprimento, classe = "planta-rotulo") {
   if (!texto) return "";
   const tamanho = Math.max(0.9, Math.min(1.7, comprimento / Math.max(3, texto.length * 0.62)));
   const cabem = Math.max(2, Math.floor((comprimento * 0.92) / (tamanho * 0.56)));
-  const curto = texto.length > cabem ? `${texto.slice(0, Math.max(1, cabem - 1)).replace(/[\s.…]+$/, "")}…` : texto;
+  let curto = texto;
+  if (texto.length > cabem) {
+    let base = texto.slice(0, Math.max(1, cabem - 1));
+    while (base && " \t\n\r.…".includes(base.at(-1))) base = base.slice(0, -1);
+    curto = `${base}…`;
+  }
   const [x, y] = [dois(centro[0]), dois(centro[1])];
   return `<text class="${classe}" x="${x}" y="${y}" font-size="${dois(tamanho)}" text-anchor="middle" dominant-baseline="central" transform="rotate(${dois(graus)} ${x} ${y})">${escapar(curto)}</text>`;
 }
