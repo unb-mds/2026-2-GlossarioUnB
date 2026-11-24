@@ -52,6 +52,7 @@ O relatório fica em `coleta/relatorio.json` e o corpo do PR em `coleta/resumo.m
 ## Documentação
 
 - [Requisitos do sistema](docs/REQUISITOS.md)
+- [Visão de produto e histórias de usuário](docs/VISAO-DE-PRODUTO.md)
 - [Fontes de dados de termos](docs/FONTES-DE-DADOS.md)
 - [Arquitetura do sistema](docs/ARQUITETURA.md) e [decisões (ADRs)](docs/adr/)
 - [Estratégia de testes](docs/estrategia-de-testes.md)
