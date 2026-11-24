@@ -17,7 +17,8 @@
     "dev": "node --env-file-if-exists=.env scripts/servidor-local.mjs",
     "coleta": "node scripts/coletar.mjs",
     "coleta:dpo": "node scripts/coletar-dpo.mjs",
-    "coleta:completa": "node --env-file-if-exists=.env scripts/coleta-automatica.mjs"
+    "coleta:completa": "node --env-file-if-exists=.env scripts/coleta-automatica.mjs",
+    "verificar:fontes": "node scripts/verificar-fontes.mjs"
   },
   "dependencies": {
     "@google/genai": "^3.3.0",

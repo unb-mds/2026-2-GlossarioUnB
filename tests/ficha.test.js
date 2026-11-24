@@ -2,7 +2,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 
-import { relacionadosDe, rotuloCampus, textoDaFonte, textoDosSinonimos, tituloDaFicha, urlDoTermo } from "../frontend/js/ficha.js";
+import { relacionadosDe, rotuloCampus, textoDaFonte, textoDosSinonimos, textoVerificadoEm, tituloDaFicha, urlDoTermo } from "../frontend/js/ficha.js";
 
 test("o endereço do termo usa o id, com os caracteres especiais codificados", () => {
   assert.equal(urlDoTermo({ id: "deg" }), "termo.html?id=deg");
@@ -23,6 +23,14 @@ test("fonte com link aparece sem https:// e sem a barra final", () => {
   assert.deepEqual(textoDaFonte("https://unb.br/administrativo-rodape/decanatos"), {
     texto: "unb.br/administrativo-rodape/decanatos", href: "https://unb.br/administrativo-rodape/decanatos",
   });
+});
+
+test("verificado em mostra a data no formato brasileiro e ignora data ausente ou inválida", () => {
+  assert.equal(textoVerificadoEm("2026-11-24"), "Verificado em 24/11/2026");
+  assert.equal(textoVerificadoEm("2026-01-05"), "Verificado em 05/01/2026");
+  assert.equal(textoVerificadoEm(undefined), null);
+  assert.equal(textoVerificadoEm("24/11/2026"), null);
+  assert.equal(textoVerificadoEm("2026-13-40"), null);
 });
 
 test("fonte em texto fica como está, e javascript: não vira link", () => {

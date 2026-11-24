@@ -68,6 +68,17 @@ test("localizacao exige coordenadas válidas e link http(s)", () => {
   assert.ok(erros.some((erro) => erro.includes("link_como_chegar")));
 });
 
+test("verificado_em é opcional e, quando existe, precisa ser uma data real aaaa-mm-dd", () => {
+  assert.deepEqual(validarTermo({ ...termoValido(), verificado_em: "2026-11-24" }), []);
+  assert.deepEqual(validarTermo({ ...termoValido(), verificado_em: "2024-02-29" }), []);
+  for (const invalida of ["24/11/2026", "2026-13-01", "2026-02-30", 20261124, ""]) {
+    assert.ok(
+      validarTermo({ ...termoValido(), verificado_em: invalida }).some((erro) => erro.includes("verificado_em")),
+      `esperava erro para verificado_em=${invalida}`,
+    );
+  }
+});
+
 test("validarGlossario aponta ids duplicados", () => {
   const erros = validarGlossario([termoValido(), termoValido()]);
   assert.deepEqual(erros, ["termo #1 (ru): id duplicado"]);
