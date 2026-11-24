@@ -87,7 +87,7 @@ Cada entrada deve conter: data, pessoa, ferramenta usada, o que foi pedido, o qu
 | 18/11/2026 | José Gabriel | Antigravity | Sincronização do PR #99 com a `main`, inclusão de `GEMINI_API_KEY=` no `.env.example` e atualização do `README.md` com a Trilha do calouro (ADR 0011) e o SonarQube Cloud (ADR 0013) (#97) | Aceito após revisão |
 | 24/11/2026 | Allan | opencode (DeepSeek) | Verificação periódica das fontes (#60): campo `verificado_em` no schema e na ficha, `coleta/verificacao.js`, `scripts/verificar-fontes.mjs`, workflow semanal que abre issue por fonte sem duplicar, testes e atualização de docs | Aceito após revisão no PR #187 |
 | 24/11/2026 | Italo | Antigravity | Registro da Sprint 09 e retrospectiva da R2 (docs/scrum/sprints/sprint-09.md): levantamento de métricas no GitHub , review, retrospectiva| Aceito após a minha revisão |
-| | | | | |
+| 24/11/2026 | José Gabriel | Antigravity | Revisão e atualização de `specs/constitution.md` conforme revisão do PR #32 (versão 0.1.0, consulta offline, nomes oficiais de lugares/programas, link para `CODE_OF_CONDUCT.md` e rastreabilidade com ADRs) | Aceito após revisão manual e execução dos testes |
 | | | | | |
 
 ## Observações gerais
