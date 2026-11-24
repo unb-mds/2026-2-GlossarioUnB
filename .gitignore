@@ -14,3 +14,5 @@ coleta/resumo.md
 # Arquivo de variáveis de ambiente com dados sensíveis
 .env
 
+reports/
+.stryker-tmp/

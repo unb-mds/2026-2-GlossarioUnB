@@ -86,3 +86,17 @@ test("resumoDoTermo usa o significado da sigla ou, sem ele, a definição", () =
   assert.equal(resumoDoTermo(termo("ru", "RU", { significado: "Restaurante Universitário", definicao: "Onde se almoça." })), "Restaurante Universitário");
   assert.equal(resumoDoTermo(termo("bandejao", "Bandejão", { tipo: "giria", definicao: "Apelido do RU." })), "Apelido do RU.");
 });
+
+// ===== Mutantes sobreviventes (#82) =====
+
+test("buscarTermos: quem começa com a consulta vem antes de quem só a contém no fim", () => {
+  const termos = [termo("a", "Casapa"), termo("b", "Pasta")];
+  assert.deepEqual(buscarTermos(termos, "pa").map((t) => t.id), ["b", "a"]);
+});
+
+test("agruparPorLetra ordena os termos de cada letra pelo nome sem acento", () => {
+  const termos = [termo("b", "Bola"), termo("a2", "Ágora"), termo("a1", "Abacate")];
+  const [[letra, doGrupo]] = agruparPorLetra(termos);
+  assert.equal(letra, "A");
+  assert.deepEqual(doGrupo.map((t) => t.id), ["a1", "a2"]);
+});

@@ -31,7 +31,7 @@ Princípios adotados:
 | **Integração** | Várias partes juntas (por exemplo, app + `fetch` + DOM) | — | Não automatizado |
 | **Ponta a ponta (E2E)** | Fluxos reais no navegador e acessibilidade | — | Planejado na #78 |
 | **Aceitação (BDD)** | Cenários Gherkin das histórias de usuário | — | Planejado na #81 |
-| **Mutação** | Se os testes detectam defeitos de verdade, e não só cobertura | — | Planejado na #82 |
+| **Mutação** | Se os testes detectam defeitos de verdade, e não só cobertura | `npm run test:mutacao` ([TESTE-DE-MUTACAO.md](TESTE-DE-MUTACAO.md)) | Implementado (PR #157) |
 | **Desempenho e acessibilidade** | Performance e WCAG AA medidos em todo PR | — | Planejado na #80 |
 
 A prioridade segue o risco:
@@ -89,6 +89,9 @@ Situação na última execução local (23/11/2026):
 | Métrica | Resultado |
 |---|---|
 | Testes | 244 passando, 0 falhando |
+| Escore de mutação - domínio (`frontend/js`) | 99,20% |
+| Escore de mutação - coleta (`coleta/`) | 85,70% |
+| Escore de mutação - total | 90,90% |
 | Cobertura de linhas* | 98,18% |
 | Cobertura de branches* | 92,12% |
 | Cobertura de funções* | 96,65% |
@@ -103,7 +106,7 @@ Situação na última execução local (23/11/2026):
 - **Integração e E2E** ainda não existem; os fluxos reais no navegador não são verificados a cada PR.
 - **Os scripts de entrada do robô** (`scripts/coletar.mjs`, `scripts/coletar-dpo.mjs` e `scripts/coleta-automatica.mjs`) não têm teste próprio; os coletores e o classificador são testados sem rede, com o HTML salvo em `tests/fixtures/` e um cliente simulado do Gemini.
 - **A #79 adiciona lint e limite mínimo de cobertura ao CI**; enquanto o PR não entra, o CI só roda os testes (e o teste de sabotagem).
-- **Não há teste de mutação** (previsto na #82); cobertura alta não garante testes bons.
+- A mutação (#82, PR #157) roda via `npm run test:mutacao` semanalmente; a cobertura alta não garante testes bons — o escore de mutação bloqueia.
 - A cobertura de 98,18% de linhas **não inclui** `app.js`, `sw.js` nem os scripts de entrada, justamente as partes sem teste.
 
 ## 6. O que cada tipo de mudança exige
@@ -168,6 +171,7 @@ test("buscarTermos prioriza quem começa com a consulta", () => {
 - **`ci.yml`:** instala as bibliotecas (`npm ci`) e roda `npm test` e `npm run test:sabotagem` em todo `pull_request` e em push na `main`, com Node 24. Com a #79, passa a rodar também `npm run lint` e `npm run test:cobertura`.
 - **`pages.yml`:** em push na `main`, roda `npm ci` e `npm test` e só publica as duas páginas se tudo passar. Teste vermelho significa **nada publicado**.
 - **`sonar.yml`:** em todo PR e push na `main`, roda os testes com cobertura e manda o relatório para o SonarQube Cloud.
+- **`mutacao.yml`:** semanalmente (segunda, 06h de Brasília) e com disponibilidade manual; roda o StrykerJS nos módulos de domínio e do pipeline e falha abaixo de 70% no domínio e de 50% na coleta; detalhes em [TESTE-DE-MUTACAO.md](TESTE-DE-MUTACAO.md).
 - **No PR:** CI verde, revisão registrada e testes correspondentes à mudança. O revisor confere se o comportamento novo ou corrigido tem evidência automatizada.
 - **Falha de dados:** a mensagem indica o item do arquivo, por exemplo `termo #12 (ru): campo obrigatório ausente ou vazio: fonte`.
 
@@ -191,7 +195,8 @@ Quando cada item entrar, esta página deve ser atualizada com a nova camada, o c
 - [`docs/adr/0007-github-pages-e-ci-com-actions.md`](adr/0007-github-pages-e-ci-com-actions.md) — CI e publicação condicionada aos testes.
 - [`docs/adr/0010-bibliotecas-nos-scripts-do-robo.md`](adr/0010-bibliotecas-nos-scripts-do-robo.md) — bibliotecas npm só no robô e nos testes dele.
 - [`docs/skills/github-actions-e-testes.md`](skills/github-actions-e-testes.md) — introdução a GitHub Actions e `node:test`.
-- `tests/`, `.github/workflows/ci.yml`, `.github/workflows/pages.yml` e `.github/workflows/sonar.yml` — implementação atual.
+- `tests/`, `.github/workflows/ci.yml`, `.github/workflows/pages.yml`, `.github/workflows/sonar.yml` e `.github/workflows/mutacao.yml` — implementação atual.
+- `scripts/verificar-mutacao.mjs` — checagem dos escores mínimos de mutação (70% no domínio, 50% na coleta).
 
 ## Revisão
 

@@ -9,9 +9,10 @@
   "scripts": {
     "test": "node --test",
     "test:cobertura": "node --test --experimental-test-coverage",
-    "test:sabotagem": "node scripts/sabotagem.mjs",
     "dev": "node --env-file-if-exists=.env scripts/servidor-local.mjs",
     "coleta": "node scripts/coletar.mjs",
+    "test:mutacao": "stryker run",
+    "test:sabotagem": "node scripts/sabotagem.mjs",
     "coleta:dpo": "node scripts/coletar-dpo.mjs",
     "coleta:completa": "node --env-file-if-exists=.env scripts/coleta-automatica.mjs"
   },
@@ -20,5 +21,8 @@
     "cheerio": "^1.2.0",
     "pdfjs-dist": "5.4.296",
     "robots-parser": "^3.0.1"
+  },
+  "devDependencies": {
+    "@stryker-mutator/core": "^10.1.1"
   }
 }
