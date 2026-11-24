@@ -322,7 +322,8 @@ test("criarClienteGemini: resposta sem texto vira erro", async () => {
 
 test("o classificador e o cliente não importam o SDK nem leem o ambiente", async () => {
   for (const arquivo of ["../coleta/classificador.js", "../coleta/cliente-gemini.js"]) {
-    const codigo = await lerArquivo(arquivo);
+    // O Stryker (npm run test:mutacao) injeta no arquivo uma leitura de process.env: não conta.
+    const codigo = (await lerArquivo(arquivo)).split("\n").filter((linha) => !linha.includes("__STRYKER_ACTIVE_MUTANT__")).join("\n");
     assert.ok(!codigo.includes("@google/genai"), `${arquivo} importa o SDK`);
     assert.ok(!codigo.includes("process.env"), `${arquivo} lê o ambiente`);
   }
