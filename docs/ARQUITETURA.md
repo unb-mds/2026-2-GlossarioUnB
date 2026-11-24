@@ -103,7 +103,7 @@ C4Container
 
 ### Limites do desenho
 
-- O nível 2 reflete a [ADR 0009](adr/0009-coleta-automatizada-por-pipeline.md). Na `main` já estão o coletor de páginas (#56), a deduplicação (#57) e o classificador (#58); faltam o coletor de PDF (#55) e o workflow que abre o PR (#59).
+- O nível 2 reflete a [ADR 0009](adr/0009-coleta-automatizada-por-pipeline.md). Todos os contêineres do pipeline já estão na `main`: os coletores de páginas (#56) e do PDF da DPO (#55), a deduplicação (#57), o classificador (#58) e o workflow semanal que abre o PR (#59).
 - O lint e a cobertura mínima no CI entram com a #79; até lá, o CI roda os testes.
 - Não há backend nem banco de dados: o GitHub Pages serve arquivos estáticos e o `termos.json` é versionado (ADR 0001 e ADR 0007).
 - O LLM não decide nada sozinho: ele sugere categoria, tipo e rascunhos, e a revisão humana escreve e aprova o texto final (ADR 0009).
@@ -131,7 +131,7 @@ G10-2026-2/
     └── workflows/      # ci.yml (testes em todo PR), coleta.yml (coleta semanal), lighthouse.yml (desempenho e acessibilidade), sonar.yml (SonarQube Cloud, ADR 0013) e pages.yml (publicação)
 ```
 
-O dataset fica dentro de `frontend/` para o glossário ser publicado copiando uma única pasta (ver ADR 0001). A pasta `coleta/` já tem o coletor de páginas (#56), a deduplicação (#57) e o classificador (#58); o coletor de PDF e o workflow que abre o PR são as issues #55 e #59.
+O dataset fica dentro de `frontend/` para o glossário ser publicado copiando uma única pasta (ver ADR 0001). A pasta `coleta/` tem o robô completo: os coletores, a deduplicação, o classificador, o filtro de termos e a atualização do `termos.json`.
 
 ## Decisões de arquitetura (ADRs)
 
