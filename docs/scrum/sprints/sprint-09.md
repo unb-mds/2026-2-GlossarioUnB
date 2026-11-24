@@ -57,15 +57,15 @@ Para atender aos critérios de qualidade, arquitetura e robustez da Release 2, o
   - [#160](https://github.com/unb-mds/2026-2-GlossarioUnB/issues/160): fechada em 22/11 pelo PR [#161](https://github.com/unb-mds/2026-2-GlossarioUnB/pull/161) (`764c672`, Pedro).
 
 - **Fechadas na fase de estabilização pré-R2 (23/11 e 24/11):** 5 issues concluídas (6 pontos):
-  - [#154](https://github.com/unb-mds/2026-2-GlossarioUnB/issues/154): fechada em 23/11 pelo PR [#155](https://github.com/unb-mds/2026-2-GlossarioUnB/pull/155) (`706beec`, Pedro).
-  - [#84](https://github.com/unb-mds/2026-2-GlossarioUnB/issues/84): fechada em 24/11 pelo PR [#177](https://github.com/unb-mds/2026-2-GlossarioUnB/pull/177) (`d9fc377`, Allan).
-  - [#173](https://github.com/unb-mds/2026-2-GlossarioUnB/issues/173): fechada em 24/11 pelo PR [#175](https://github.com/unb-mds/2026-2-GlossarioUnB/pull/175) (`c07e034`, Pedro).
-  - [#97](https://github.com/unb-mds/2026-2-GlossarioUnB/issues/97): fechada em 24/11 pelo PR [#99](https://github.com/unb-mds/2026-2-GlossarioUnB/pull/99) (`ff9d63c`, José).
-  - [#62](https://github.com/unb-mds/2026-2-GlossarioUnB/issues/62): fechada em 24/11 pelo PR [#171](https://github.com/unb-mds/2026-2-GlossarioUnB/pull/171) (`2510e72`, Pedro).
+  - [#154](https://github.com/unb-mds/2026-2-GlossarioUnB/issues/154): fechada em 23/11 pelo PR [#155](https://github.com/unb-mds/2026-2-GlossarioUnB/pull/155) (`b990e87`, Pedro).
+  - [#84](https://github.com/unb-mds/2026-2-GlossarioUnB/issues/84): fechada em 24/11 pelo PR [#165](https://github.com/unb-mds/2026-2-GlossarioUnB/pull/165) (`036004c`, Allan).
+  - [#173](https://github.com/unb-mds/2026-2-GlossarioUnB/issues/173): fechada em 24/11 pelo PR [#174](https://github.com/unb-mds/2026-2-GlossarioUnB/pull/174) (`e7cd8c9`, Pedro).
+  - [#97](https://github.com/unb-mds/2026-2-GlossarioUnB/issues/97): fechada em 24/11 pelo PR [#99](https://github.com/unb-mds/2026-2-GlossarioUnB/pull/99) (`e438f19`, José).
+  - [#62](https://github.com/unb-mds/2026-2-GlossarioUnB/issues/62): fechada em 24/11 com base na coleta registrada no PR [#171](https://github.com/unb-mds/2026-2-GlossarioUnB/pull/171) (`2510e72`, Pedro).
 
 - **Situação dos itens restantes em 24/11:**
   - [#93](https://github.com/unb-mds/2026-2-GlossarioUnB/issues/93): entregue por este documento e seu PR de documentação (Ítalo).
-  - [#96](https://github.com/unb-mds/2026-2-GlossarioUnB/issues/96): PR aberto preparando a consolidação da tag v2.0.0, notas de release e roteiro final da apresentação de 25/11 (Pedro).
+  - [#96](https://github.com/unb-mds/2026-2-GlossarioUnB/issues/96): consolidação da tag v2.0.0, CHANGELOG, notas de release e roteiro final da apresentação de 25/11, a abrir após os últimos merges da R2 (Pedro).
 
 ### 2. Quitação total do passivo acumulado (Sprints 02 a 08)
 
