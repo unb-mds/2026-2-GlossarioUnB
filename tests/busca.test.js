@@ -80,3 +80,16 @@ test("a sugestão mostra o sinônimo só quando foi ele que combinou com a busca
   assert.equal(rotuloDaSugestao(auxilio, "auxilio"), "Auxílio Socioeconômico");
   assert.equal(rotuloDaSugestao({ id: "ru", termo: "RU" }, "ru"), "RU");
 });
+
+// ===== Mutantes sobreviventes (#82) =====
+
+test("o Enter sem marcação (índice -1 ou 0) usa a primeira sugestão certa da busca", () => {
+  assert.equal(termoDoEnvio([termos[1], termos[0]], 0, termos, "de").id, "dex");
+  assert.equal(termoDoEnvio([termos[1], termos[0]], -1, termos, "deg").id, "deg");
+  assert.equal(termoDoEnvio([], 3, termos, "xyz"), null);
+});
+
+test("os atalhos por tipo usam o rótulo no plural", () => {
+  assert.deepEqual(atalhosPorTipo([termos[2]]).map((a) => a.rotulo), ["Gírias"]);
+  assert.deepEqual(atalhosPorTipo([{ ...termos[0], tipo: "expressao" }]).map((a) => a.rotulo), ["Expressões"]);
+});

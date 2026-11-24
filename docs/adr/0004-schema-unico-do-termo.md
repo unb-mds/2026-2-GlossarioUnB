@@ -1,5 +1,7 @@
 # ADR 0004 — Schema único do termo
 
+## Status
+Aceito (em uso desde a Release 1, 28/09/2026; taxonomia fechada na issue #63).
 
 ## Contexto
 Até 26/09 havia três versões divergentes do que é um termo:
@@ -68,4 +70,4 @@ Regras:
 - O bloco de schema do `CONTRIBUTING.md` foi atualizado.
 - Os modelos `adicionar-termo.md` e `corrigir-definicao.md` (PR #29) não pedem `campus`: quem converte a issue em termo preenche.
 - O modelo `adicionar-termo.md` oferece o tipo `local`, que este schema **não aceita**. Um lugar é uma sigla, gíria ou expressão com `categoria` (ex.: `locais-campus`) e, se houver coordenadas, `localizacao`. Foi o caso do termo "Ceubinho" (issue #30).
-- A taxonomia de `categoria` foi fechada na issue #63 com 9 categorias obrigatórias, validadas em `frontend/js/validacao-termo.js` e sincronizadas com `coleta/categorias.json`. Todos os termos atuais em `frontend/data/termos.json` foram classificados.
+- A taxonomia de `categoria` foi fechada na issue #63 com 9 categorias obrigatórias, validadas em `frontend/js/validacao-termo.js` e sincronizadas com `coleta/categorias.json`. Todos os termos atuais em `frontend/data/termos.json` foram classificados. A redação do RF02 em `docs/REQUISITOS.md` está alinhada ao schema adotado.

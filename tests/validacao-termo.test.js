@@ -131,3 +131,63 @@ test("relacionados: o CI recusa a ligação para um id que não existe no gloss�
   assert.deepEqual(validarGlossario([ru, dac]), []);
   assert.ok(validarGlossario([{ ...ru, relacionados: ["dac", "inexistente"] }, dac]).some((e) => e.includes('"inexistente" não existe')));
 });
+
+// ===== Mutantes sobreviventes (#82): limites, mensagens exatas e rótulos =====
+
+const comLocalizacao = (extras) => ({
+  ...termoValido(),
+  localizacao: { lat: -15.76, lng: -47.87, link_como_chegar: "https://maps.example/x", ...extras },
+});
+
+test("latitude e longitude aceitam os extremos e recusam logo além deles", () => {
+  for (const [campo, limite] of [["lat", 90], ["lng", 180]]) {
+    assert.deepEqual(validarTermo(comLocalizacao({ [campo]: limite })), [], `${campo} = ${limite}`);
+    assert.deepEqual(validarTermo(comLocalizacao({ [campo]: -limite })), [], `${campo} = -${limite}`);
+    assert.equal(validarTermo(comLocalizacao({ [campo]: limite + 0.01 })).length, 1, `${campo} acima`);
+    assert.equal(validarTermo(comLocalizacao({ [campo]: -limite - 0.01 })).length, 1, `${campo} abaixo`);
+    assert.equal(validarTermo(comLocalizacao({ [campo]: "0" })).length, 1, `${campo} texto`);
+  }
+});
+
+test("as mensagens de erro do termo são exatas", () => {
+  assert.deepEqual(validarTermo(null), ["termo deve ser um objeto"]);
+  assert.deepEqual(validarTermo("RU"), ["termo deve ser um objeto"]);
+  assert.deepEqual(validarTermo({ ...termoValido(), localizacao: null }), ["localizacao deve ser um objeto"]);
+  assert.deepEqual(validarTermo({ ...termoValido(), localizacao: 5 }), ["localizacao deve ser um objeto"]);
+  assert.deepEqual(validarTermo(comLocalizacao({ lat: 91 })), ["localizacao.lat deve ser um número entre -90 e 90"]);
+  assert.deepEqual(validarTermo(comLocalizacao({ lng: 181 })), ["localizacao.lng deve ser um número entre -180 e 180"]);
+  assert.deepEqual(
+    validarTermo({ ...termoValido(), tipo: "meme" }),
+    ['tipo "meme" inválido (use: sigla, giria, expressao)'],
+  );
+  assert.deepEqual(
+    validarTermo({ ...termoValido(), campus: "Marte" }),
+    ['campus "Marte" inválido (use: Darcy Ribeiro, Ceilândia, Gama, Planaltina, Geral)'],
+  );
+});
+
+test("o id não pode ter nada depois de um trecho válido", () => {
+  assert.equal(validarTermo({ ...termoValido(), id: "ru Ru" }).length, 1);
+  assert.equal(validarTermo({ ...termoValido(), id: "ru!" }).length, 1);
+});
+
+test("urlSegura recusa esquemas que não são http(s) e devolve o endereço normalizado", () => {
+  assert.equal(urlSegura("ftp://unb.br/x"), null);
+  assert.equal(urlSegura("https://unb.br"), "https://unb.br/");
+  assert.equal(urlSegura("http://unb.br/a"), "http://unb.br/a");
+});
+
+test("validarGlossario rotula cada erro com a posição e o id do termo", () => {
+  assert.deepEqual(validarGlossario("não é lista"), ["o arquivo de termos deve conter uma lista (array)"]);
+  const erros = validarGlossario([{ ...termoValido(), id: "ok" }, { ...termoValido(), tipo: "meme" }]);
+  assert.deepEqual(erros, ['termo #1 (ru): tipo "meme" inválido (use: sigla, giria, expressao)']);
+  assert.deepEqual(validarGlossario([null]), ["termo #0 (sem id): termo deve ser um objeto"]);
+  assert.deepEqual(validarGlossario([{ ...termoValido(), id: undefined }]), ["termo #0 (sem id): campo obrigatório ausente ou vazio: id"]);
+});
+
+test("validarGlossario não acusa id duplicado em termo sem id, nem quando o id só repete depois de um termo inválido", () => {
+  const semId = { ...termoValido(), id: "" };
+  assert.equal(validarGlossario([semId, semId]).filter((e) => e.includes("duplicado")).length, 0);
+  const dup = validarGlossario([termoValido(), termoValido()]);
+  assert.deepEqual(dup, ["termo #1 (ru): id duplicado"]);
+});
