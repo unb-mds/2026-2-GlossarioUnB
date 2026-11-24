@@ -29,3 +29,29 @@ jobs:
       - run: npm test
       # Põe de propósito cada defeito de tests/sabotagens/ e confere que a suíte quebra (docs/TESTE-DE-SABOTAGEM.md).
       - run: npm run test:sabotagem
+
+  e2e:
+    name: Testes E2E e acessibilidade
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      # Baixa o Chromium usado pelo Playwright (issue #78).
+      - run: npx playwright install --with-deps chromium
+      # Cobre os fluxos principais e o axe-core (WCAG 2.1 AA, temas claro e escuro).
+      - run: npm run test:e2e
+      - name: Anexar relatório do Playwright
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: |
+            playwright-report/
+            test-results/
+          retention-days: 7
+          if-no-files-found: ignore

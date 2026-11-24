@@ -38,12 +38,13 @@ G10-2026-2/
 ├── coleta/             # o robô: fontes, coletor, deduplicação, classificador e atualização do termos.json; pode usar bibliotecas (ADR 0010)
 ├── scripts/            # servidor-local.mjs (as duas páginas no mesmo layout do Pages), coletar.mjs (roda o robô) e coleta-automatica.mjs (pipeline completo da #59)
 ├── tests/              # node:test — domínio + validação do dataset
+├── e2e/                # Playwright — fluxos no navegador + axe-core (ADR 0010)
 ├── docs/
 │   ├── adr/
 │   ├── estudos/
 │   └── scrum/
 └── .github/
-    └── workflows/      # ci.yml (testes em todo PR), coleta.yml (coleta semanal) e pages.yml (publicação)
+    └── workflows/      # ci.yml (testes e E2E em todo PR), coleta.yml (coleta semanal) e pages.yml (publicação)
 ```
 
 O dataset ficou dentro de `frontend/` para o glossário ser publicado copiando uma única pasta (ver ADR 0001). A pasta `skills/`, citada em versões anteriores deste documento, não existe no repositório.

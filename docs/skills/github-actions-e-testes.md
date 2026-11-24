@@ -27,7 +27,7 @@ O projeto tem dois workflows:
 | **Unitário** | Uma função isolada, sem navegador nem rede | `buscarTermos("de")` devolve DEG e DEX (`tests/termos.test.js`) |
 | **De dados / contrato** | Que os dados seguem o formato combinado | Todos os termos de `frontend/data/termos.json` passam no schema da ADR 0004 (`tests/dados.test.js`) |
 | **Integração** | Várias partes juntas | Ainda não temos automatizado |
-| **Ponta a ponta (E2E)** | O sistema inteiro, como o usuário usa, num navegador de verdade | Ainda não temos; ficou para depois |
+| **Ponta a ponta (E2E)** | O sistema inteiro, como o usuário usa, num navegador de verdade | Job `e2e` do `ci.yml`: fluxos de busca, filtros e offline, mais axe-core (`e2e/*.spec.js`) |
 
 ## 3. Ferramenta escolhida: `node:test`
 
@@ -78,9 +78,14 @@ jobs:
 
 **Para ver funcionando:** abra um PR que apague a `fonte` de algum termo. O CI fica vermelho com a mensagem `termo #N (id): campo obrigatório ausente ou vazio: fonte`.
 
+### Testes E2E e acessibilidade
+
+Os testes de navegador ficam em `e2e/` e rodam com `npm run test:e2e` (Playwright + axe-core). O job `e2e` do `ci.yml` instala o Chromium, roda os mesmos testes e anexa `playwright-report/` como artefato do PR. A auditoria do axe-core cobre as três páginas do glossário nos temas claro e escuro e falha o PR em caso de violação WCAG 2.1 AA (RNF03).
+
 ## 5. Limites atuais
 
-- A camada de tela (`app.js`) e o service worker não entram na cobertura; ficam para os testes E2E da #78.
+- A camada de tela (`app.js`) e o service worker não entram na cobertura mínima; quem confere a tela são os testes E2E.
+- Os testes E2E rodam só no Chromium; Safari e Firefox não são cobertos.
 - O lint cobre JavaScript; HTML e CSS ainda não têm validador próprio.
 
 ## Revisão

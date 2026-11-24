@@ -10,6 +10,7 @@
     "lint": "eslint .",
     "test": "node --test",
     "test:cobertura": "node --test --experimental-test-coverage --test-coverage-include=\"frontend/js/termos.js\" --test-coverage-include=\"frontend/js/validacao-termo.js\" --test-coverage-include=\"coleta/**/*.js\" --test-coverage-lines=90 --test-coverage-functions=90 --test-coverage-branches=90",
+    "test:e2e": "playwright test",
     "test:sabotagem": "node scripts/sabotagem.mjs",
     "test:mutacao": "stryker run",
     "dev": "node --env-file-if-exists=.env scripts/servidor-local.mjs",
@@ -24,7 +25,9 @@
     "robots-parser": "^3.0.1"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.14.0",
     "@eslint/js": "^10.0.1",
+    "@playwright/test": "^1.65.1",
     "@stryker-mutator/core": "^10.1.1",
     "eslint": "^10.15.0",
     "globals": "^17.14.0"

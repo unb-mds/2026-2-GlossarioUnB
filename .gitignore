@@ -16,3 +16,8 @@ coleta/resumo.md
 
 reports/
 .stryker-tmp/
+
+# Relatórios dos testes E2E (Playwright)
+playwright-report/
+test-results/
+# Teste de mutação (StrykerJS)
