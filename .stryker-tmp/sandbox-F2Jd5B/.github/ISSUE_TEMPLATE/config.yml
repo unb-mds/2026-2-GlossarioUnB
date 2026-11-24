@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 📖 Guia de contribuição
+    url: https://github.com/unb-mds/2026-2-GlossarioUnB/blob/main/CONTRIBUTING.md
+    about: Quer contribuir via Pull Request ou entender o schema dos termos? Leia o guia de contribuição do Glossário UnB.

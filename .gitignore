@@ -7,6 +7,9 @@ Thumbs.db
 node_modules/
 _site/
 coverage/
+.lighthouseci/
+coleta/saida/
+coleta/resumo.md
 
 # Relatórios dos testes E2E (Playwright)
 playwright-report/

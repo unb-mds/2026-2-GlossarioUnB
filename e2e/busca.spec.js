@@ -35,7 +35,7 @@ test.describe("busca com autocomplete", () => {
     await aguardarTermos(page);
 
     await page.getByRole("combobox", { name: CAMPO_BUSCA }).fill("bce");
-    await page.getByRole("option", { name: /BCE/ }).click();
+    await page.getByRole("option", { name: /^BCE/ }).click();
 
     await expect(page).toHaveURL(/\/frontend\/termo\.html\?id=bce$/);
     await expect(page.getByRole("heading", { level: 1 })).toHaveText("BCE");
@@ -57,7 +57,7 @@ test.describe("busca com autocomplete", () => {
     const url = new URL(await link.getAttribute("href"));
     expect(url.origin).toBe("https://github.com");
     expect(url.pathname).toBe("/unb-mds/2026-2-GlossarioUnB/issues/new");
-    expect(url.searchParams.get("template")).toBe("adicionar-termo.md");
+    expect(url.searchParams.get("template")).toBe("adicionar-termo.yml");
     expect(url.searchParams.get("title")).toBe("[Adicionar Termo] xilofonequimico");
   });
 });
