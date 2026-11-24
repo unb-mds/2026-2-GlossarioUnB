@@ -128,7 +128,7 @@ G10-2026-2/
 │   ├── scrum/
 │   └── skills/
 └── .github/
-    └── workflows/      # ci.yml (lint, testes e cobertura) e pages.yml (publicação)
+    └── workflows/      # ci.yml (testes), sonar.yml (SonarQube Cloud, ADR 0013) e pages.yml (publicação)
 ```
 
 O dataset fica dentro de `frontend/` para o glossário ser publicado copiando uma única pasta (ver ADR 0001). A pasta `coleta/` já tem a deduplicação (#57); os coletores, o classificador e o workflow que abre o PR são as issues #55, #56, #58 e #59.
