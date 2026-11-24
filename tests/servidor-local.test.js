@@ -50,6 +50,16 @@ test("nada fora das pastas publicadas é servido, nem com ../ escondido", async 
   }
 });
 
+test("da pasta coleta/, só o boletim do robô é servido", async () => {
+  const boletim = await pedir("/coleta/relatorio.json");
+  assert.equal(boletim.status, 200);
+  assert.match(boletim.headers.get("content-type"), /application\/json/);
+  for (const caminho of ["/coleta/fontes.json", "/coleta/relatorio.js", "/coleta/", "/coleta", "/coleta/%2e%2e/package.json", "/coleta/relatorio.json/../fontes.json"]) {
+    const resposta = await pedir(caminho);
+    assert.equal(resposta.status, 404, caminho);
+  }
+});
+
 test("endereço que não decodifica responde 400", async () => {
   const resposta = await pedir("/%E0%A4%A");
   assert.equal(resposta.status, 400);
