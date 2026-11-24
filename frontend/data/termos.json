@@ -1,0 +1,4147 @@
+[
+  {
+    "id": "ace",
+    "termo": "ACE",
+    "tipo": "sigla",
+    "significado": "Arquivo Central",
+    "definicao": "Unidade responsável pela gestão, preservação e organização dos documentos arquivísticos da UnB.",
+    "exemplo_uso": "Precisei consultar o ACE para encontrar alguns documentos antigos da UnB.",
+    "fonte": "https://arquivocentral.unb.br/",
+    "campus": "Geral",
+    "categoria": "administracao"
+  },
+  {
+    "id": "bce",
+    "termo": "BCE",
+    "tipo": "sigla",
+    "categoria": "locais-campus",
+    "significado": "Biblioteca Central",
+    "definicao": "Unidade responsável pela organização e disponibilização do acervo bibliográfico e de serviços de informação da UnB.",
+    "exemplo_uso": "Vou ali na BCE estudar e depois pegar um livro.",
+    "fonte": "https://bce.unb.br/",
+    "campus": "Geral",
+    "localizacao": {
+      "lat": -15.7609745,
+      "lng": -47.867889,
+      "link_como_chegar": "https://www.google.com/maps/search/?api=1&query=-15.7609745,-47.867889"
+    }
+  },
+  {
+    "id": "fcts",
+    "termo": "FCTS",
+    "tipo": "sigla",
+    "significado": "Faculdade de Ciências e Tecnologias em Saúde",
+    "definicao": "Campus da UnB localizado em Ceilândia, voltado ao ensino, pesquisa e extensão na área de saúde.",
+    "exemplo_uso": "Tenho aula na FCTS hoje à tarde.",
+    "fonte": "https://fcts.unb.br/",
+    "campus": "Ceilândia",
+    "categoria": "unidades-academicas",
+    "sinonimos": [
+      "FCE",
+      "Faculdade UnB Ceilândia"
+    ],
+    "localizacao": {
+      "lat": -15.844806,
+      "lng": -48.0997828,
+      "link_como_chegar": "https://www.google.com/maps/search/?api=1&query=-15.844806,-48.0997828"
+    }
+  },
+  {
+    "id": "fcte",
+    "termo": "FCTE",
+    "tipo": "sigla",
+    "significado": "Faculdade de Ciências e Tecnologias em Engenharia",
+    "definicao": "Campus da UnB no Gama dedicado ao ensino, pesquisa e extensão relacionados às áreas de engenharia e tecnologia.",
+    "exemplo_uso": "Faço Engenharia de Software na FCTE.",
+    "fonte": "https://fcte.unb.br/",
+    "campus": "Gama",
+    "categoria": "unidades-academicas",
+    "sinonimos": [
+      "Faculdade UnB Gama"
+    ],
+    "localizacao": {
+      "lat": -15.9899757,
+      "lng": -48.044871,
+      "link_como_chegar": "https://www.google.com/maps/search/?api=1&query=-15.9899757,-48.044871"
+    }
+  },
+  {
+    "id": "cds",
+    "termo": "CDS",
+    "tipo": "sigla",
+    "significado": "Centro de Desenvolvimento Sustentável",
+    "definicao": "Centro dedicado a estudos, pesquisas e atividades relacionadas ao desenvolvimento sustentável.",
+    "exemplo_uso": "Um projeto do CDS foi apresentado na semana universitária.",
+    "fonte": "https://cds.unb.br/",
+    "campus": "Geral",
+    "categoria": "unidades-academicas"
+  },
+  {
+    "id": "cead",
+    "termo": "CEAD",
+    "tipo": "sigla",
+    "significado": "Centro de Educação a Distância",
+    "definicao": "Unidade voltada ao desenvolvimento e apoio de atividades de educação a distância.",
+    "exemplo_uso": "O CEAD abriu novas vagas para os cursos a distância.",
+    "fonte": "https://cead.unb.br/",
+    "campus": "Geral",
+    "categoria": "administracao",
+    "relacionados": [
+      "ead"
+    ]
+  },
+  {
+    "id": "cet",
+    "termo": "CET",
+    "tipo": "sigla",
+    "significado": "Centro de Excelência em Turismo",
+    "definicao": "Centro da UnB dedicado ao ensino, pesquisa e extensão relacionados ao turismo.",
+    "exemplo_uso": "Vi um cartaz do CET sobre uma palestra de turismo no corredor.",
+    "fonte": "https://cet.unb.br/",
+    "campus": "Geral",
+    "categoria": "unidades-academicas"
+  },
+  {
+    "id": "ceam",
+    "termo": "CEAM",
+    "tipo": "sigla",
+    "significado": "Centro de Estudos Avançados Multidisciplinares",
+    "definicao": "Centro que reúne estudos e atividades acadêmicas de caráter multidisciplinar.",
+    "exemplo_uso": "O CEAM está com inscrições abertas para um projeto sobre desenvolvimento sustentável.",
+    "fonte": "https://ceam.unb.br/",
+    "campus": "Geral",
+    "categoria": "unidades-academicas"
+  },
+  {
+    "id": "dac",
+    "termo": "DAC",
+    "tipo": "sigla",
+    "categoria": "administracao",
+    "significado": "Decanato de Assuntos Comunitários",
+    "definicao": "Decanato responsável por políticas e ações relacionadas à assistência, permanência, saúde, esporte, acessibilidade e assuntos comunitários.",
+    "exemplo_uso": "Fui ao DAC tirar uma dúvida sobre assistência estudantil.",
+    "fonte": "https://dac.unb.br/",
+    "campus": "Geral"
+  },
+  {
+    "id": "deg",
+    "termo": "DEG",
+    "tipo": "sigla",
+    "categoria": "administracao",
+    "significado": "Decanato de Ensino de Graduação",
+    "definicao": "Órgão executivo da Reitoria responsável pelo planejamento, supervisão, coordenação e acompanhamento das atividades de ensino de graduação da UnB.",
+    "exemplo_uso": "Minha dúvida sobre matrícula foi encaminhada para o DEG.",
+    "fonte": "https://deg.unb.br/",
+    "campus": "Geral"
+  },
+  {
+    "id": "dpo",
+    "termo": "DPO",
+    "tipo": "sigla",
+    "significado": "Decanato de Planejamento, Orçamento e Avaliação Institucional",
+    "definicao": "Decanato responsável pelo planejamento institucional, orçamento e avaliação da UnB",
+    "exemplo_uso": "Os dados do Anuário Estatístico são organizados pelo DPO.",
+    "fonte": "https://dpo.unb.br/",
+    "campus": "Geral",
+    "categoria": "administracao"
+  },
+  {
+    "id": "dex",
+    "termo": "DEX",
+    "tipo": "sigla",
+    "significado": "Decanato de Extensão",
+    "definicao": "Unidade responsável pela política de extensão universitária e pelo desenvolvimento de ações de extensão da UnB.",
+    "exemplo_uso": "Achei um projeto de extensão interessante no site do DEX.",
+    "fonte": "https://dex.unb.br/",
+    "campus": "Geral",
+    "categoria": "administracao"
+  },
+  {
+    "id": "fav",
+    "termo": "FAV",
+    "tipo": "sigla",
+    "significado": "Faculdade de Agronomia e Medicina Veterinária",
+    "definicao": "Unidade acadêmica dedicada ao ensino, pesquisa e extensão nas áreas de agronomia e medicina veterinária.",
+    "exemplo_uso": "Meu colega faz Agronomia na FAV.",
+    "fonte": "https://fav.unb.br/",
+    "campus": "Geral",
+    "categoria": "unidades-academicas"
+  },
+  {
+    "id": "fau",
+    "termo": "FAU",
+    "tipo": "sigla",
+    "significado": "Faculdade de Arquitetura e Urbanismo",
+    "definicao": "Unidade acadêmica dedicada ao ensino, pesquisa e extensão em arquitetura e urbanismo.",
+    "exemplo_uso": "A palestra de arquitetura vai acontecer na FAU.",
+    "fonte": "https://fau.unb.br/",
+    "campus": "Geral",
+    "categoria": "unidades-academicas",
+    "localizacao": {
+      "lat": -15.7618765,
+      "lng": -47.8699451,
+      "link_como_chegar": "https://www.google.com/maps/search/?api=1&query=-15.7618765,-47.8699451"
+    }
+  },
+  {
+    "id": "fci",
+    "termo": "FCI",
+    "tipo": "sigla",
+    "significado": "Faculdade de Ciência da Informação",
+    "definicao": "Unidade acadêmica voltada ao ensino e pesquisa nas áreas de ciência da informação, biblioteconomia e áreas relacionadas.",
+    "exemplo_uso": "Tive aula de Arquivologia na FCI.",
+    "fonte": "https://fci.unb.br/",
+    "campus": "Geral",
+    "categoria": "unidades-academicas",
+    "localizacao": {
+      "lat": -15.7606873,
+      "lng": -47.8674561,
+      "link_como_chegar": "https://www.google.com/maps/search/?api=1&query=-15.7606873,-47.8674561"
+    }
+  },
+  {
+    "id": "fs",
+    "termo": "FS",
+    "tipo": "sigla",
+    "significado": "Faculdade de Ciências da Saúde",
+    "definicao": "Unidade acadêmica que reúne atividades de ensino, pesquisa e extensão relacionadas às ciências da saúde.",
+    "exemplo_uso": "Minha amiga estuda na FS e faz um curso da área da saúde.",
+    "fonte": "https://fs.unb.br/",
+    "campus": "Geral",
+    "categoria": "unidades-academicas",
+    "localizacao": {
+      "lat": -15.768518,
+      "lng": -47.866821,
+      "link_como_chegar": "https://www.google.com/maps/search/?api=1&query=-15.768518,-47.866821"
+    }
+  },
+  {
+    "id": "fac",
+    "termo": "FAC",
+    "tipo": "sigla",
+    "significado": "Faculdade de Comunicação",
+    "definicao": "Unidade acadêmica dedicada ao ensino, pesquisa e extensão nas áreas de comunicação",
+    "exemplo_uso": "A apresentação do trabalho será na FAC.",
+    "fonte": "https://fac.unb.br/",
+    "campus": "Geral",
+    "categoria": "unidades-academicas",
+    "localizacao": {
+      "lat": -15.7609033,
+      "lng": -47.8702321,
+      "link_como_chegar": "https://www.google.com/maps/search/?api=1&query=-15.7609033,-47.8702321"
+    }
+  },
+  {
+    "id": "fd",
+    "termo": "FD",
+    "tipo": "sigla",
+    "significado": "Faculdade de Direito",
+    "definicao": "Unidade acadêmica responsável pelo ensino, pesquisa e extensão na área do Direito.",
+    "exemplo_uso": "Meu amigo estuda Direito na FD.",
+    "fonte": "https://direito.unb.br/",
+    "campus": "Geral",
+    "categoria": "unidades-academicas",
+    "localizacao": {
+      "lat": -15.75956,
+      "lng": -47.872137,
+      "link_como_chegar": "https://www.google.com/maps/search/?api=1&query=-15.75956,-47.872137"
+    }
+  },
+  {
+    "id": "fe",
+    "termo": "FE",
+    "tipo": "sigla",
+    "significado": "Faculdade de Educação",
+    "definicao": "Unidade acadêmica dedicada ao ensino, pesquisa e extensão na área da educação.",
+    "exemplo_uso": "Professores da FE desenvolveram uma pesquisa sobre educação.",
+    "fonte": "https://fe.unb.br/",
+    "campus": "Geral",
+    "categoria": "unidades-academicas",
+    "localizacao": {
+      "lat": -15.7681715,
+      "lng": -47.8710255,
+      "link_como_chegar": "https://www.google.com/maps/search/?api=1&query=-15.7681715,-47.8710255"
+    }
+  },
+  {
+    "id": "fef",
+    "termo": "FEF",
+    "tipo": "sigla",
+    "significado": "Faculdade de Educação Física",
+    "definicao": "Unidade acadêmica voltada ao ensino, pesquisa e extensão relacionados à educação física e às atividades esportivas.",
+    "exemplo_uso": "Amanhã de manhã tenho uma atividade na FEF.",
+    "fonte": "https://fef.unb.br/",
+    "campus": "Geral",
+    "categoria": "unidades-academicas",
+    "localizacao": {
+      "lat": -15.7632445,
+      "lng": -47.8604995,
+      "link_como_chegar": "https://www.google.com/maps/search/?api=1&query=-15.7632445,-47.8604995"
+    }
+  },
+  {
+    "id": "fm",
+    "termo": "FM",
+    "tipo": "sigla",
+    "significado": "Faculdade de Medicina",
+    "definicao": "Unidade acadêmica dedicada ao ensino, pesquisa e extensão na área da medicina.",
+    "exemplo_uso": "Meu colega está cursando Medicina na FM.",
+    "fonte": "https://fm.unb.br/",
+    "campus": "Geral",
+    "categoria": "unidades-academicas",
+    "localizacao": {
+      "lat": -15.7687199,
+      "lng": -47.8662138,
+      "link_como_chegar": "https://www.google.com/maps/search/?api=1&query=-15.7687199,-47.8662138"
+    }
+  },
+  {
+    "id": "fup",
+    "termo": "FUP",
+    "tipo": "sigla",
+    "significado": "Faculdade de Planaltina",
+    "definicao": "Campus da UnB localizado em Planaltina, voltado ao ensino, pesquisa e extensão na área de agrárias.",
+    "exemplo_uso": "Hoje tenho uma atividade da universidade na FUP.",
+    "fonte": "https://fup.unb.br/",
+    "campus": "Planaltina",
+    "categoria": "unidades-academicas",
+    "localizacao": {
+      "lat": -15.6006434,
+      "lng": -47.6593387,
+      "link_como_chegar": "https://www.google.com/maps/search/?api=1&query=-15.6006434,-47.6593387"
+    }
+  },
+  {
+    "id": "ft",
+    "termo": "FT",
+    "tipo": "sigla",
+    "significado": "Faculdade de Tecnologia",
+    "definicao": "Unidade acadêmica que reúne cursos e atividades de ensino, pesquisa e extensão nas áreas de engenharia e tecnologia.",
+    "exemplo_uso": "Depois do almoço tenho aula na FT.",
+    "fonte": "http://ft.unb.br/",
+    "campus": "Geral",
+    "categoria": "unidades-academicas",
+    "localizacao": {
+      "lat": -15.7635595,
+      "lng": -47.872531,
+      "link_como_chegar": "https://www.google.com/maps/search/?api=1&query=-15.7635595,-47.872531"
+    }
+  },
+  {
+    "id": "face",
+    "termo": "FACE",
+    "tipo": "sigla",
+    "significado": "Faculdade de Economia, Administração, Contabilidade e Gestão de Políticas Públicas",
+    "definicao": "Unidade acadêmica que reúne áreas relacionadas à economia, administração, contabilidade e gestão de políticas públicas.",
+    "exemplo_uso": "A palestra de economia será realizada na FACE.",
+    "fonte": "https://face.unb.br/",
+    "campus": "Geral",
+    "categoria": "unidades-academicas",
+    "localizacao": {
+      "lat": -15.7585155,
+      "lng": -47.87186,
+      "link_como_chegar": "https://www.google.com/maps/search/?api=1&query=-15.7585155,-47.87186"
+    }
+  },
+  {
+    "id": "ida",
+    "termo": "IDA",
+    "tipo": "sigla",
+    "significado": "Instituto de Artes",
+    "definicao": "Unidade acadêmica dedicada ao ensino, pesquisa e extensão nas áreas de artes.",
+    "exemplo_uso": "Minha amiga participa de um projeto artístico no IdA.",
+    "fonte": "https://ida.unb.br/",
+    "campus": "Geral",
+    "categoria": "unidades-academicas"
+  },
+  {
+    "id": "ipol",
+    "termo": "IPOL",
+    "tipo": "sigla",
+    "significado": "Instituto de Ciência Política",
+    "definicao": "Unidade acadêmica dedicada ao ensino e pesquisa em ciência política.",
+    "exemplo_uso": "Li um artigo publicado por pesquisadores do IPOL.",
+    "fonte": "https://ipol.unb.br/",
+    "campus": "Geral",
+    "categoria": "unidades-academicas",
+    "localizacao": {
+      "lat": -15.758246,
+      "lng": -47.869597,
+      "link_como_chegar": "https://www.google.com/maps/search/?api=1&query=-15.758246,-47.869597"
+    }
+  },
+  {
+    "id": "ib",
+    "termo": "IB",
+    "tipo": "sigla",
+    "significado": "Instituto de Ciências Biológicas",
+    "definicao": "Unidade acadêmica voltada ao ensino, pesquisa e extensão nas áreas das ciências biológicas.",
+    "exemplo_uso": "A aula prática de Biologia será no IB.",
+    "fonte": "https://icb.unb.br/",
+    "campus": "Geral",
+    "categoria": "unidades-academicas",
+    "localizacao": {
+      "lat": -15.7665232,
+      "lng": -47.8651056,
+      "link_como_chegar": "https://www.google.com/maps/search/?api=1&query=-15.7665232,-47.8651056"
+    }
+  },
+  {
+    "id": "ie",
+    "termo": "IE",
+    "tipo": "sigla",
+    "significado": "Instituto de Ciências Exatas",
+    "definicao": "Unidade acadêmica relacionada às áreas de matemática, estatística e computação.",
+    "exemplo_uso": "Vou estudar Cálculo no IE antes da prova.",
+    "fonte": "https://exatas.unb.br/",
+    "campus": "Geral",
+    "categoria": "unidades-academicas"
+  },
+  {
+    "id": "ich",
+    "termo": "ICH",
+    "tipo": "sigla",
+    "significado": "Instituto de Ciências Humanas",
+    "definicao": "Unidade acadêmica que reúne atividades de ensino e pesquisa nas áreas das ciências humanas.",
+    "exemplo_uso": "O evento de História vai acontecer no ICH.",
+    "fonte": "https://ich.unb.br/",
+    "campus": "Geral",
+    "categoria": "unidades-academicas",
+    "localizacao": {
+      "lat": -15.7615562,
+      "lng": -47.8705674,
+      "link_como_chegar": "https://www.google.com/maps/search/?api=1&query=-15.7615562,-47.8705674"
+    }
+  },
+  {
+    "id": "ics",
+    "termo": "ICS",
+    "tipo": "sigla",
+    "significado": "Instituto de Ciências Sociais",
+    "definicao": "Unidade acadêmica voltada ao ensino e à pesquisa nas áreas das ciências sociais.",
+    "exemplo_uso": "Uma palestra organizada pelo ICS acontece amanhã.",
+    "fonte": "https://ics.unb.br/",
+    "campus": "Geral",
+    "categoria": "unidades-academicas",
+    "localizacao": {
+      "lat": -15.757409,
+      "lng": -47.8728705,
+      "link_como_chegar": "https://www.google.com/maps/search/?api=1&query=-15.757409,-47.8728705"
+    }
+  },
+  {
+    "id": "if",
+    "termo": "IF",
+    "tipo": "sigla",
+    "significado": "Instituto de Física",
+    "definicao": "Unidade acadêmica dedicada ao ensino, pesquisa e extensão na área de física.",
+    "exemplo_uso": "Preciso estudar Física no IF antes da prova.",
+    "fonte": "https://if.unb.br/",
+    "campus": "Geral",
+    "categoria": "unidades-academicas"
+  },
+  {
+    "id": "ig",
+    "termo": "IG",
+    "tipo": "sigla",
+    "significado": "Instituto de Geociências",
+    "definicao": "Unidade acadêmica dedicada ao estudo e à pesquisa nas áreas relacionadas às geociências.",
+    "exemplo_uso": "Meu colega está fazendo uma pesquisa no IG.",
+    "fonte": "https://ig.unb.br/",
+    "campus": "Geral",
+    "categoria": "unidades-academicas"
+  },
+  {
+    "id": "il",
+    "termo": "IL",
+    "tipo": "sigla",
+    "significado": "Instituto de Letras",
+    "definicao": "Unidade acadêmica dedicada ao ensino, pesquisa e extensão nas áreas de letras e linguística.",
+    "exemplo_uso": "Tenho aula de uma disciplina de Letras no IL.",
+    "fonte": "https://il.unb.br/",
+    "campus": "Geral",
+    "categoria": "unidades-academicas"
+  },
+  {
+    "id": "ip",
+    "termo": "IP",
+    "tipo": "sigla",
+    "significado": "Instituto de Psicologia",
+    "definicao": "Unidade acadêmica voltada ao ensino, pesquisa e extensão na área de psicologia.",
+    "exemplo_uso": "Um projeto de pesquisa foi desenvolvido no IP.",
+    "fonte": "https://ip.unb.br/",
+    "campus": "Geral",
+    "categoria": "unidades-academicas",
+    "localizacao": {
+      "lat": -15.7650488,
+      "lng": -47.8674345,
+      "link_como_chegar": "https://www.google.com/maps/search/?api=1&query=-15.7650488,-47.8674345"
+    }
+  },
+  {
+    "id": "iq",
+    "termo": "IQ",
+    "tipo": "sigla",
+    "significado": "Instituto de Química",
+    "definicao": "Unidade acadêmica dedicada ao ensino, pesquisa e extensão na área de química.",
+    "exemplo_uso": "A aula prática de Química será realizada no IQ.",
+    "fonte": "https://iq.unb.br/",
+    "campus": "Geral",
+    "categoria": "unidades-academicas",
+    "localizacao": {
+      "lat": -15.7685537,
+      "lng": -47.8647793,
+      "link_como_chegar": "https://www.google.com/maps/search/?api=1&query=-15.7685537,-47.8647793"
+    }
+  },
+  {
+    "id": "irel",
+    "termo": "IREL",
+    "tipo": "sigla",
+    "significado": "Instituto de Relações Internacionais",
+    "definicao": "Unidade acadêmica dedicada ao ensino e à pesquisa em relações internacionais.",
+    "exemplo_uso": "Uma palestra do IREL foi divulgada no mural do departamento.",
+    "fonte": "https://irel.unb.br/",
+    "campus": "Geral",
+    "categoria": "unidades-academicas",
+    "localizacao": {
+      "lat": -15.758246,
+      "lng": -47.869597,
+      "link_como_chegar": "https://www.google.com/maps/search/?api=1&query=-15.758246,-47.869597"
+    }
+  },
+  {
+    "id": "pctec",
+    "termo": "PCTec",
+    "tipo": "sigla",
+    "significado": "Parque Científico e Tecnológico da UnB",
+    "definicao": "Estrutura destinada a promover inovação, pesquisa, desenvolvimento tecnológico e interação entre universidade e sociedade.",
+    "exemplo_uso": "Uma startup desenvolveu um projeto em parceria com o PCTEC.",
+    "fonte": "https://pctec.unb.br/",
+    "campus": "Geral",
+    "categoria": "administracao"
+  },
+  {
+    "id": "unbtv",
+    "termo": "UnBTV",
+    "tipo": "sigla",
+    "significado": "Rádio e Televisão Universitárias",
+    "definicao": "Estrutura de comunicação universitária responsável pela produção e divulgação de conteúdos relacionados à UnB.",
+    "exemplo_uso": "A UnBTV fez uma reportagem sobre um projeto da universidade.",
+    "fonte": "https://unbtv.unb.br/",
+    "campus": "Geral",
+    "categoria": "administracao"
+  },
+  {
+    "id": "infra",
+    "termo": "INFRA",
+    "tipo": "sigla",
+    "significado": "Secretaria de Infraestrutura",
+    "definicao": "Secretaria responsável por atividades relacionadas à infraestrutura física, manutenção e gestão de espaços da Universidade.",
+    "exemplo_uso": "Avisei a INFRA sobre uma lâmpada queimada no prédio.",
+    "fonte": "https://infra.unb.br/",
+    "campus": "Geral",
+    "categoria": "administracao"
+  },
+  {
+    "id": "sema",
+    "termo": "SEMA",
+    "tipo": "sigla",
+    "significado": "Secretaria de Meio Ambiente",
+    "definicao": "Secretaria responsável por ações relacionadas à gestão ambiental e sustentabilidade na UnB.",
+    "exemplo_uso": "A SEMA está promovendo uma ação de sustentabilidade no campus.",
+    "fonte": "https://sema.unb.br/",
+    "campus": "Geral",
+    "categoria": "administracao"
+  },
+  {
+    "id": "ceubinho",
+    "termo": "Ceubinho",
+    "tipo": "giria",
+    "categoria": "locais-campus",
+    "significado": "Ala norte do Instituto Central de Ciências (ICC)",
+    "definicao": "Apelido do vão da ala norte do ICC (Instituto Central de Ciências), no campus Darcy Ribeiro, onde acontecem atos e eventos dos estudantes. O vão da ala sul é chamado de Udefinho.",
+    "exemplo_uso": "A feira vai ser no Ceubinho, no ICC Norte.",
+    "fonte": "https://noticias.unb.br/112-extensao-e-comunidade/753-comunidade-academica-repudia-atos-violentos-na-unb",
+    "campus": "Darcy Ribeiro",
+    "localizacao": {
+      "lat": -15.7625073,
+      "lng": -47.8700207,
+      "link_como_chegar": "https://www.google.com/maps/search/?api=1&query=-15.7625073,-47.8700207"
+    },
+    "relacionados": [
+      "icc"
+    ]
+  },
+  {
+    "id": "ru",
+    "termo": "RU",
+    "tipo": "sigla",
+    "categoria": "locais-campus",
+    "significado": "Restaurante Universitário",
+    "definicao": "Restaurante da UnB, com unidades no Darcy Ribeiro, em Ceilândia, no Gama, em Planaltina e na Fazenda Água Limpa. O cardápio de cada unidade e o valor da refeição de cada grupo de acesso ficam no site do RU.",
+    "exemplo_uso": "Bora almoçar no RU antes da aula das duas?",
+    "fonte": "https://ru.unb.br/",
+    "campus": "Geral",
+    "relacionados": [
+      "fal"
+    ]
+  },
+  {
+    "id": "icc",
+    "termo": "ICC",
+    "tipo": "sigla",
+    "categoria": "locais-campus",
+    "significado": "Instituto Central de Ciências",
+    "definicao": "Prédio do campus Darcy Ribeiro onde ficam salas de aula e departamentos, como o de Matemática. Os endereços de sala citam a ala do prédio, como \"ICC Centro\".",
+    "exemplo_uso": "A monitoria de Cálculo 1 é no ICC Centro, no subsolo do Departamento de Matemática.",
+    "fonte": "https://deg.unb.br/wp-content/uploads/manual_do_calouro_2026_2.pdf#page=84",
+    "campus": "Darcy Ribeiro",
+    "localizacao": {
+      "lat": -15.763137,
+      "lng": -47.868831,
+      "link_como_chegar": "https://www.google.com/maps/search/?api=1&query=-15.763137,-47.868831"
+    }
+  },
+  {
+    "id": "minhocao",
+    "termo": "Minhocão",
+    "tipo": "giria",
+    "categoria": "locais-campus",
+    "significado": "Instituto Central de Ciências (ICC)",
+    "definicao": "Apelido do ICC, o prédio mais conhecido do campus Darcy Ribeiro, por causa do formato: linear, com cerca de 700 metros de comprimento. Projetado por Oscar Niemeyer e começado em 1963, abriga institutos, faculdades, salas de aula e auditórios.",
+    "exemplo_uso": "Minha primeira aula é no Minhocão, no ICC Sul.",
+    "fonte": "https://ceplan.unb.br/campus-universitario-darcy-ribeiro/",
+    "campus": "Darcy Ribeiro",
+    "relacionados": [
+      "icc"
+    ],
+    "localizacao": {
+      "lat": -15.763137,
+      "lng": -47.868831,
+      "link_como_chegar": "https://www.google.com/maps/search/?api=1&query=-15.763137,-47.868831"
+    }
+  },
+  {
+    "id": "beijodromo",
+    "termo": "Beijódromo",
+    "tipo": "giria",
+    "categoria": "locais-campus",
+    "significado": "Memorial Darcy Ribeiro",
+    "definicao": "Nome popular do Memorial Darcy Ribeiro, o prédio circular a cerca de 100 metros da Reitoria, no campus Darcy Ribeiro. Inaugurado em 2010, abriga um auditório, um restaurante e o acervo de Darcy Ribeiro, e é uma das Casas Universitárias de Cultura.",
+    "exemplo_uso": "A recepção dos calouros vai ser no auditório do Beijódromo.",
+    "fonte": "https://ceplan.unb.br/campus-universitario-darcy-ribeiro/",
+    "campus": "Darcy Ribeiro",
+    "relacionados": [
+      "cuc"
+    ],
+    "localizacao": {
+      "lat": -15.7640276,
+      "lng": -47.8659081,
+      "link_como_chegar": "https://www.google.com/maps/search/?api=1&query=-15.7640276,-47.8659081"
+    }
+  },
+  {
+    "id": "mencao",
+    "termo": "Menção",
+    "tipo": "expressao",
+    "categoria": "vida-academica",
+    "definicao": "Na UnB, o histórico registra menções, e não notas: SS (de 9 a 10), MS (de 7 a 8,9), MM (de 5 a 6,9), MI (de 3 a 4,9), II (abaixo de 3) e SR (zero). Passa na disciplina quem tira MM ou mais e tem pelo menos 75% de presença.",
+    "exemplo_uso": "Fiquei com MS em Cálculo 1, então passei.",
+    "fonte": "https://deg.unb.br/wp-content/uploads/manual_do_calouro_2026_2.pdf#page=46",
+    "campus": "Geral",
+    "relacionados": [
+      "sr"
+    ]
+  },
+  {
+    "id": "sr",
+    "termo": "SR",
+    "tipo": "sigla",
+    "categoria": "vida-academica",
+    "significado": "Sem Rendimento",
+    "definicao": "Menção que vale zero. Aparece quando o estudante reprova por falta (menos de 75% de presença) ou abandona a disciplina.",
+    "exemplo_uso": "Parei de ir às aulas no meio do semestre e fiquei com SR.",
+    "fonte": "https://deg.unb.br/wp-content/uploads/manual_do_calouro_2026_2.pdf#page=46",
+    "campus": "Geral",
+    "relacionados": [
+      "mencao"
+    ]
+  },
+  {
+    "id": "ira",
+    "termo": "IRA",
+    "tipo": "sigla",
+    "categoria": "vida-academica",
+    "significado": "Índice de Rendimento Acadêmico",
+    "definicao": "Número de 0 a 5 que resume o desempenho no curso inteiro, calculado a partir das menções, com pesos diferentes para disciplinas obrigatórias, optativas e de módulo livre. Serve em seleções internas e para desempatar pedidos de matrícula.",
+    "exemplo_uso": "Meu IRA subiu depois que passei em todas as disciplinas do semestre.",
+    "fonte": "https://deg.unb.br/wp-content/uploads/manual_do_calouro_2026_2.pdf#page=49",
+    "campus": "Geral",
+    "relacionados": [
+      "matricula"
+    ]
+  },
+  {
+    "id": "sigaa",
+    "termo": "SIGAA",
+    "tipo": "sigla",
+    "categoria": "sistemas",
+    "significado": "Sistema Integrado de Gestão de Atividades Acadêmicas",
+    "definicao": "Sistema onde o estudante faz a matrícula nas disciplinas e consulta notas, frequência, turmas e histórico. Também emite documentos, como o atestado de matrícula.",
+    "exemplo_uso": "A matrícula abre amanhã cedo no SIGAA.",
+    "fonte": "https://deg.unb.br/wp-content/uploads/manual_do_calouro_2026_2.pdf#page=15",
+    "campus": "Geral",
+    "relacionados": [
+      "matricula"
+    ]
+  },
+  {
+    "id": "aprender-3",
+    "termo": "Aprender 3",
+    "tipo": "expressao",
+    "categoria": "sistemas",
+    "definicao": "Ambiente virtual da UnB, feito no Moodle, com os materiais, as atividades e os fóruns das disciplinas. O acesso é com o e-mail institucional.",
+    "exemplo_uso": "O professor postou a lista de exercícios no Aprender 3.",
+    "fonte": "https://deg.unb.br/wp-content/uploads/manual_do_calouro_2026_2.pdf#page=14",
+    "campus": "Geral",
+    "relacionados": [
+      "email-institucional"
+    ]
+  },
+  {
+    "id": "email-institucional",
+    "termo": "E-mail institucional",
+    "tipo": "expressao",
+    "categoria": "sistemas",
+    "definicao": "E-mail que a UnB dá a cada estudante, formado pelo número de matrícula seguido de @aluno.unb.br. É o principal canal de comunicação com a universidade e dá acesso aos sistemas, como o Aprender 3.",
+    "exemplo_uso": "O aviso da coordenação chegou no meu e-mail institucional.",
+    "fonte": "https://deg.unb.br/wp-content/uploads/manual_do_calouro_2026_2.pdf#page=14",
+    "campus": "Geral",
+    "relacionados": [
+      "aprender-3"
+    ]
+  },
+  {
+    "id": "matricula",
+    "termo": "Matrícula",
+    "tipo": "expressao",
+    "categoria": "vida-academica",
+    "definicao": "Pedido de vaga nas turmas do semestre, feito no SIGAA em etapas: matrícula, rematrícula (com as vagas que sobraram) e matrícula extraordinária. As datas ficam no calendário acadêmico. No semestre de ingresso, a SAA matricula o calouro automaticamente.",
+    "exemplo_uso": "Não consegui a turma na matrícula, vou tentar na rematrícula.",
+    "fonte": "https://deg.unb.br/wp-content/uploads/manual_do_calouro_2026_2.pdf#page=38",
+    "campus": "Geral",
+    "relacionados": [
+      "sigaa",
+      "saa"
+    ]
+  },
+  {
+    "id": "fluxo",
+    "termo": "Fluxo",
+    "tipo": "expressao",
+    "categoria": "vida-academica",
+    "definicao": "O mapa oficial das disciplinas do curso, semestre por semestre, com a sequência recomendada para montar a grade. No SIGAA, aparece como estrutura curricular.",
+    "exemplo_uso": "Pelo fluxo, Cálculo 2 fica no segundo semestre.",
+    "fonte": "https://deg.unb.br/wp-content/uploads/manual_do_calouro_2026_2.pdf#page=24",
+    "campus": "Geral",
+    "relacionados": [
+      "sigaa"
+    ]
+  },
+  {
+    "id": "tgm",
+    "termo": "TGM",
+    "tipo": "sigla",
+    "categoria": "vida-academica",
+    "significado": "Trancamento Geral de Matrícula",
+    "definicao": "Pedido para suspender o curso por um tempo sem perder o vínculo com a UnB. É feito no SIGAA, e o DEG recomenda conversar antes com a coordenação do curso. Também existe o trancamento parcial, de só algumas disciplinas.",
+    "exemplo_uso": "Pensei em pedir TGM, mas a coordenação me ajudou a reorganizar as disciplinas.",
+    "fonte": "https://deg.unb.br/wp-content/uploads/manual_do_calouro_2026_2.pdf#page=58",
+    "campus": "Geral",
+    "relacionados": [
+      "deg",
+      "sigaa"
+    ]
+  },
+  {
+    "id": "saa",
+    "termo": "SAA",
+    "tipo": "sigla",
+    "categoria": "administracao",
+    "significado": "Secretaria de Administração Acadêmica",
+    "definicao": "Secretaria que cuida do registro acadêmico dos estudantes. No semestre de ingresso, é ela que matricula o calouro nas disciplinas.",
+    "exemplo_uso": "Mandei a dúvida sobre o meu histórico para a SAA.",
+    "fonte": "https://deg.unb.br/wp-content/uploads/manual_do_calouro_2026_2.pdf#page=18",
+    "campus": "Geral"
+  },
+  {
+    "id": "dds",
+    "termo": "DDS",
+    "tipo": "sigla",
+    "categoria": "assistencia-estudantil",
+    "significado": "Diretoria de Desenvolvimento Social",
+    "definicao": "Diretoria do DAC que cuida da assistência estudantil: publica os editais dos auxílios e faz a avaliação socioeconômica. O primeiro passo para pedir um auxílio é o cadastro único no SIGAA.",
+    "exemplo_uso": "Saiu o edital da DDS para o auxílio transporte.",
+    "fonte": "https://deg.unb.br/wp-content/uploads/manual_do_calouro_2026_2.pdf#page=87",
+    "campus": "Geral",
+    "relacionados": [
+      "dac",
+      "sigaa"
+    ]
+  },
+  {
+    "id": "auxilio-socioeconomico",
+    "termo": "Auxílio Socioeconômico",
+    "tipo": "expressao",
+    "categoria": "assistencia-estudantil",
+    "definicao": "Apoio mensal (PASeUnB) para estudantes de graduação em situação de vulnerabilidade socioeconômica, um dos auxílios da assistência estudantil. A inscrição é pelo SIGAA, depois do edital da DDS.",
+    "exemplo_uso": "Fui aprovado no Auxílio Socioeconômico e agora recebo todo mês.",
+    "fonte": "https://deg.unb.br/wp-content/uploads/manual_do_calouro_2026_2.pdf#page=86",
+    "campus": "Geral",
+    "sinonimos": [
+      "PASeUnB",
+      "assistência econômica"
+    ],
+    "relacionados": [
+      "sigaa",
+      "dds"
+    ]
+  },
+  {
+    "id": "dasu",
+    "termo": "DASU",
+    "tipo": "sigla",
+    "categoria": "assistencia-estudantil",
+    "significado": "Diretoria de Atenção à Saúde da Comunidade Universitária",
+    "definicao": "Diretoria do DAC que cuida da saúde da comunidade da UnB, com atenção psicossocial, prevenção e promoção da saúde.",
+    "exemplo_uso": "Procurei a DASU para conversar sobre a ansiedade com as provas.",
+    "fonte": "https://dasu.unb.br/",
+    "campus": "Geral",
+    "relacionados": [
+      "dac"
+    ]
+  },
+  {
+    "id": "daf",
+    "termo": "DAF",
+    "tipo": "sigla",
+    "significado": "Decanato de Administração",
+    "definicao": "Decanato que coordena e fiscaliza a gestão de materiais, as licitações e contratos, a contabilidade e as finanças e a importação e exportação de bens e serviços da UnB.",
+    "exemplo_uso": "Esse processo administrativo precisa passar pelo DAF.",
+    "fonte": "https://daf.unb.br/institucional/a-unidade",
+    "campus": "Geral",
+    "categoria": "administracao"
+  },
+  {
+    "id": "dpg",
+    "termo": "DPG",
+    "tipo": "sigla",
+    "significado": "Decanato de Pós-Graduação",
+    "definicao": "Setor da Reitoria da UnB que cuida da pós-graduação. Junto com o DPI, coordena internamente a avaliação dos cursos de pós-graduação e apoia os programas.",
+    "exemplo_uso": "Minha dúvida sobre a pós-graduação foi encaminhada ao DPG.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=144",
+    "campus": "Geral",
+    "categoria": "administracao",
+    "relacionados": [
+      "dpi"
+    ]
+  },
+  {
+    "id": "dpi",
+    "termo": "DPI",
+    "tipo": "sigla",
+    "significado": "Decanato de Pesquisa e Inovação",
+    "definicao": "Setor da Reitoria da UnB que cuida da pesquisa e da inovação. Junto com o DPG, coordena internamente a avaliação dos cursos de pós-graduação.",
+    "exemplo_uso": "Procurei o DPI para saber mais sobre pesquisa na UnB.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=144",
+    "campus": "Geral",
+    "categoria": "administracao",
+    "relacionados": [
+      "dpg"
+    ]
+  },
+  {
+    "id": "dgp",
+    "termo": "DGP",
+    "tipo": "sigla",
+    "significado": "Decanato de Gestão de Pessoas",
+    "definicao": "Setor da Reitoria da UnB que cuida da gestão de pessoas e publica todo mês dados abertos sobre quem trabalha na universidade.",
+    "exemplo_uso": "Esse assunto de servidor é com o DGP.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=161",
+    "campus": "Geral",
+    "categoria": "administracao"
+  },
+  {
+    "id": "ceri",
+    "termo": "Ceri",
+    "tipo": "sigla",
+    "significado": "Coordenação de Cerimonial",
+    "definicao": "Coordenação responsável pelas principais cerimônias da UnB e pelos eventos presididos pela Reitoria ou pelos decanos.",
+    "exemplo_uso": "A Ceri cuida dessa cerimônia.",
+    "fonte": "https://cerimonial.unb.br/",
+    "campus": "Geral",
+    "categoria": "administracao"
+  },
+  {
+    "id": "soc",
+    "termo": "SOC",
+    "tipo": "sigla",
+    "significado": "Secretaria dos Órgãos Colegiados",
+    "definicao": "Secretaria ligada à Reitoria que atua junto aos conselhos superiores da UnB, como o Consuni, o Cepe e o CAD.",
+    "exemplo_uso": "A pauta do conselho passa pela SOC.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=182",
+    "campus": "Geral",
+    "categoria": "administracao",
+    "relacionados": [
+      "cad",
+      "consuni",
+      "cepe"
+    ]
+  },
+  {
+    "id": "sdh",
+    "termo": "SDH",
+    "tipo": "sigla",
+    "significado": "Secretaria de Direitos Humanos",
+    "definicao": "Secretaria ligada ao Gabinete da Reitoria, responsável pelo cumprimento da Política de Direitos Humanos da UnB.",
+    "exemplo_uso": "Procurei a SDH para entender a Política de Direitos Humanos da UnB.",
+    "fonte": "https://sdh.unb.br/quem-somos/",
+    "campus": "Geral",
+    "categoria": "administracao"
+  },
+  {
+    "id": "secom",
+    "termo": "Secom",
+    "tipo": "sigla",
+    "significado": "Secretaria de Comunicação",
+    "definicao": "Secretaria que informa a comunidade interna e externa sobre as atividades de ensino, pesquisa e extensão da UnB.",
+    "exemplo_uso": "Essa notícia sobre a UnB foi divulgada pela Secom.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=173",
+    "campus": "Geral",
+    "categoria": "administracao"
+  },
+  {
+    "id": "int",
+    "termo": "INT",
+    "tipo": "sigla",
+    "significado": "Secretaria de Assuntos Internacionais",
+    "definicao": "Secretaria que atua diretamente na internacionalização da UnB, ao lado dos decanatos de ensino, pesquisa e extensão.",
+    "exemplo_uso": "Fui à INT perguntar sobre assuntos internacionais da UnB.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=101",
+    "campus": "Geral",
+    "categoria": "administracao"
+  },
+  {
+    "id": "spi",
+    "termo": "SPI",
+    "tipo": "sigla",
+    "significado": "Secretaria de Patrimônio Imobiliário",
+    "definicao": "Secretaria que administra os imóveis residenciais e comerciais da UnB.",
+    "exemplo_uso": "Esse imóvel da UnB é administrado pela SPI.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=160",
+    "campus": "Geral",
+    "categoria": "administracao"
+  },
+  {
+    "id": "sti",
+    "termo": "STI",
+    "tipo": "sigla",
+    "significado": "Secretaria de Tecnologia da Informação",
+    "definicao": "Secretaria que busca soluções de tecnologia da informação para manter disponíveis e seguras as informações dos sistemas da UnB.",
+    "exemplo_uso": "Esse problema no sistema é com a STI.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=125",
+    "campus": "Geral",
+    "categoria": "administracao"
+  },
+  {
+    "id": "a3m",
+    "termo": "A3M",
+    "tipo": "sigla",
+    "significado": "Programa Aprendizagem para o Terceiro Milênio",
+    "definicao": "Programa da UnB que identifica, valoriza e promove ações educacionais inovadoras, com metodologias, processos e aplicativos para os cursos.",
+    "exemplo_uso": "Meu professor participa de ações do A3M.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=56",
+    "campus": "Geral",
+    "categoria": "vida-academica"
+  },
+  {
+    "id": "admbce",
+    "termo": "ADM-BCE",
+    "tipo": "sigla",
+    "significado": "Coordenadoria de Administração e Orçamento da BCE",
+    "definicao": "Coordenadoria da Biblioteca Central (BCE) que cuida dos serviços gerais, da segurança, do prédio e do patrimônio da biblioteca e ajuda a executar o orçamento dela.",
+    "exemplo_uso": "Esse assunto de orçamento da biblioteca é com a ADM-BCE.",
+    "fonte": "https://repositorioadm.unb.br/wp-content/uploads/tainacan-items/12644/12763/Regimento-Interno-da-BCE_UnB-2022.pdf#page=10",
+    "campus": "Geral",
+    "categoria": "administracao",
+    "relacionados": [
+      "bce"
+    ]
+  },
+  {
+    "id": "andifes",
+    "termo": "Andifes",
+    "tipo": "sigla",
+    "significado": "Associação Nacional dos Dirigentes das Instituições Federais de Ensino Superior",
+    "definicao": "Associação dos dirigentes das instituições federais de ensino superior. Coordena o Programa Promover, em que estudantes da UnB podem cursar disciplinas em outras federais.",
+    "exemplo_uso": "O Programa Promover é coordenado pela Andifes.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=100",
+    "campus": "Geral",
+    "categoria": "administracao",
+    "relacionados": [
+      "ifes"
+    ]
+  },
+  {
+    "id": "arata",
+    "termo": "ARATA",
+    "tipo": "sigla",
+    "significado": "Aquisição de Recursos de Acessibilidade e Tecnologia Assistiva",
+    "definicao": "Projeto de acessibilidade da UnB que contempla estudantes com recursos de acessibilidade e tecnologia assistiva.",
+    "exemplo_uso": "Perguntei se o ARATA poderia me ajudar com um recurso de acessibilidade.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=114",
+    "campus": "Geral",
+    "categoria": "assistencia-estudantil"
+  },
+  {
+    "id": "ascom",
+    "termo": "ASCOM",
+    "tipo": "sigla",
+    "significado": "Assessoria de Comunicação Institucional UnB",
+    "definicao": "Assessoria que participa da comunicação institucional da UnB, ao lado da Secom e de outras unidades.",
+    "exemplo_uso": "A ASCOM também participa da comunicação da UnB.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=172",
+    "campus": "Geral",
+    "categoria": "administracao",
+    "relacionados": [
+      "secom"
+    ]
+  },
+  {
+    "id": "atom",
+    "termo": "AtoM",
+    "tipo": "sigla",
+    "significado": "Access to Memory",
+    "definicao": "Sistema da UnB que divulga os documentos da universidade e ajuda a conhecer as formas de acesso ao acervo. O nome vem de Access to Memory (Acesso à Memória).",
+    "exemplo_uso": "Encontrei esse documento histórico da UnB no AtoM.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=184",
+    "campus": "Geral",
+    "categoria": "sistemas"
+  },
+  {
+    "id": "aud",
+    "termo": "AUD",
+    "tipo": "sigla",
+    "significado": "Auditoria Interna",
+    "definicao": "Unidade da UnB responsável por assessorar o Conselho de Administração (CAD) no controle interno da universidade.",
+    "exemplo_uso": "Esse tipo de verificação é feito pela AUD.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=156",
+    "campus": "Geral",
+    "categoria": "administracao",
+    "relacionados": [
+      "cad"
+    ]
+  },
+  {
+    "id": "augm",
+    "termo": "AUGM",
+    "tipo": "sigla",
+    "significado": "Associação de Universidades do Grupo Montevidéu",
+    "definicao": "Associação de universidades que a UnB integra. Por meio dela, a UnB participa de um programa de mobilidade virtual na pós-graduação.",
+    "exemplo_uso": "Vi um programa de mobilidade virtual da AUGM.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=103",
+    "campus": "Geral",
+    "categoria": "administracao"
+  },
+  {
+    "id": "aulp",
+    "termo": "AULP",
+    "tipo": "sigla",
+    "significado": "Associação das Universidades de Língua Portuguesa",
+    "definicao": "Associação das universidades de língua portuguesa, uma das redes que a UnB integra.",
+    "exemplo_uso": "A AULP é uma das redes internacionais da UnB.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=103",
+    "campus": "Geral",
+    "categoria": "administracao"
+  },
+  {
+    "id": "aus",
+    "termo": "AUS",
+    "tipo": "sigla",
+    "significado": "Coordenadoria de Atendimento aos Usuários da BCE",
+    "definicao": "Coordenadoria da Biblioteca Central (BCE) que coordena o atendimento aos usuários, presencial e remoto, e a circulação e o empréstimo de materiais.",
+    "exemplo_uso": "Para resolver isso na biblioteca, procure a AUS.",
+    "fonte": "https://repositorioadm.unb.br/wp-content/uploads/tainacan-items/12644/12763/Regimento-Interno-da-BCE_UnB-2022.pdf#page=12",
+    "campus": "Geral",
+    "categoria": "administracao",
+    "relacionados": [
+      "bce"
+    ]
+  },
+  {
+    "id": "ava",
+    "termo": "AVA",
+    "tipo": "sigla",
+    "significado": "Ambiente Virtual de Aprendizagem",
+    "definicao": "Sistema com recursos para o ensino online, onde ficam os conteúdos, a entrega e a avaliação de trabalhos e o rendimento no curso.",
+    "exemplo_uso": "O professor colocou o material da aula no AVA.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=129",
+    "campus": "Geral",
+    "categoria": "sistemas"
+  },
+  {
+    "id": "bdce",
+    "termo": "BDCE",
+    "tipo": "sigla",
+    "significado": "Biblioteca Digital de Coleções Especiais",
+    "definicao": "Acervo especializado da UnB com coleções especiais, como fotos, documentação histórica, discos de vinil e partituras.",
+    "exemplo_uso": "Achei fotos antigas da UnB na BDCE.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=87",
+    "campus": "Geral",
+    "categoria": "sistemas"
+  },
+  {
+    "id": "bdm",
+    "termo": "BDM",
+    "tipo": "sigla",
+    "significado": "Biblioteca Digital da Produção Intelectual Discente da UnB",
+    "definicao": "Biblioteca digital mantida pelo Sistema de Bibliotecas da UnB que guarda, preserva e divulga a produção intelectual de estudantes de graduação e especialização. Os trabalhos de conclusão desses cursos precisam ser depositados nela.",
+    "exemplo_uso": "Procurei trabalhos antigos de estudantes na BDM.",
+    "fonte": "https://bdm.unb.br/",
+    "campus": "Geral",
+    "categoria": "sistemas"
+  },
+  {
+    "id": "bds",
+    "termo": "BDS",
+    "tipo": "sigla",
+    "significado": "Biblioteca Digital e Sonora",
+    "definicao": "Biblioteca que atende pessoas com deficiência visual, da UnB e da comunidade, reunindo materiais em formato digital.",
+    "exemplo_uso": "A BDS tem materiais em formato digital.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=106",
+    "campus": "Geral",
+    "categoria": "locais-campus"
+  },
+  {
+    "id": "bdtd",
+    "termo": "BDTD",
+    "tipo": "sigla",
+    "significado": "Biblioteca Digital de Teses e Dissertações",
+    "definicao": "Catálogo nacional de teses e dissertações em texto integral, uma iniciativa do IBICT. Ele coleta as teses e dissertações guardadas no Repositório Institucional da UnB (RIUnB).",
+    "exemplo_uso": "Achei a dissertação que eu precisava na BDTD.",
+    "fonte": "https://bce.unb.br/bibliotecas-digitais/repositorio-institucional-da-unb/",
+    "campus": "Geral",
+    "categoria": "sistemas"
+  },
+  {
+    "id": "bepa",
+    "termo": "BEPA",
+    "tipo": "sigla",
+    "significado": "Banca Examinadora de Professor Associado",
+    "definicao": "Banca que analisava a promoção de docentes a professor associado. Desde a Resolução do Cepe 179/2017, essa análise cabe às comissões de cada unidade acadêmica.",
+    "exemplo_uso": "Esse caso de carreira docente foi para a BEPA.",
+    "fonte": "https://noticias.unb.br/institucional/1798-resolucao-para-progressao-docente-e-atualizada",
+    "campus": "Geral",
+    "categoria": "administracao"
+  },
+  {
+    "id": "bibliodex",
+    "termo": "BibliodEx",
+    "tipo": "sigla",
+    "significado": "Biblioteca Digital de Extensão da UnB",
+    "definicao": "Ambiente digital da UnB que reúne, organiza e divulga para a sociedade a produção intelectual ligada às atividades de extensão.",
+    "exemplo_uso": "Procurei material de extensão na BibliodEx.",
+    "fonte": "https://bdce.unb.br/bibliodex-biblioteca-digital-de-extensao-da-unb/",
+    "campus": "Geral",
+    "categoria": "sistemas",
+    "relacionados": [
+      "bce"
+    ]
+  },
+  {
+    "id": "bsan",
+    "termo": "BSAN",
+    "tipo": "sigla",
+    "significado": "Bloco de Salas de Aula Norte",
+    "definicao": "Bloco de salas de aula no Setor Norte do campus Darcy Ribeiro, inaugurado em outubro de 2015.",
+    "exemplo_uso": "Minha aula de hoje é no BSAN.",
+    "fonte": "https://ceplan.unb.br/campus-universitario-darcy-ribeiro/",
+    "campus": "Darcy Ribeiro",
+    "categoria": "locais-campus",
+    "localizacao": {
+      "lat": -15.7570575,
+      "lng": -47.871219,
+      "link_como_chegar": "https://www.google.com/maps/search/?api=1&query=-15.7570575,-47.871219"
+    }
+  },
+  {
+    "id": "bsas",
+    "termo": "BSAS",
+    "tipo": "sigla",
+    "significado": "Bloco de Salas de Aula Sul",
+    "definicao": "Bloco de salas de aula Luiz Fernando Gouvêa Labouriau, no Setor Sul do campus Darcy Ribeiro, inaugurado em 2012.",
+    "exemplo_uso": "Minha próxima aula é no BSAS.",
+    "fonte": "https://ceplan.unb.br/campus-universitario-darcy-ribeiro/",
+    "campus": "Darcy Ribeiro",
+    "categoria": "locais-campus",
+    "localizacao": {
+      "lat": -15.7669225,
+      "lng": -47.86672,
+      "link_como_chegar": "https://www.google.com/maps/search/?api=1&query=-15.7669225,-47.86672"
+    }
+  },
+  {
+    "id": "ca",
+    "termo": "CA",
+    "tipo": "sigla",
+    "significado": "Centros Acadêmicos",
+    "definicao": "Grupo que representa os estudantes de cada curso. Todo ano, chapas de estudantes concorrem para assumir a gestão do CA.",
+    "exemplo_uso": "Vou passar no CA do meu curso depois da aula.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=82",
+    "campus": "Geral",
+    "categoria": "representacao-estudantil"
+  },
+  {
+    "id": "cad",
+    "termo": "CAD",
+    "tipo": "sigla",
+    "significado": "Conselho de Administração",
+    "definicao": "Conselho superior da UnB, com papel deliberativo, normativo e consultivo, que decide sobre administração, economia, finanças, planejamento, orçamento e gestão de pessoas.",
+    "exemplo_uso": "Essa decisão precisa passar pelo CAD.",
+    "fonte": "https://sig.unb.br/sigrh/public/colegiados/anexos/Estatuto_da_UnB_Atualizado_05.11.19.pdf#page=4",
+    "campus": "Geral",
+    "categoria": "colegiados"
+  },
+  {
+    "id": "caep",
+    "termo": "Caep",
+    "tipo": "sigla",
+    "significado": "Centro de Atendimento e Estudos Psicológicos",
+    "definicao": "Centro da UnB que apoia as atividades práticas de formação dos estudantes de Psicologia e oferece atendimento psicológico, com inscrição online.",
+    "exemplo_uso": "Vi a inscrição para atendimento psicológico no site do Caep.",
+    "fonte": "https://caep.unb.br/",
+    "campus": "Geral",
+    "categoria": "assistencia-estudantil"
+  },
+  {
+    "id": "cal",
+    "termo": "CAL",
+    "tipo": "sigla",
+    "significado": "Casa da Cultura da América Latina",
+    "definicao": "Espaço cultural ligado ao Decanato de Extensão (DEX), uma das três Casas Universitárias de Cultura da UnB.",
+    "exemplo_uso": "Vai ter um evento na CAL.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=117",
+    "campus": "Geral",
+    "categoria": "locais-campus",
+    "relacionados": [
+      "dex",
+      "cuc"
+    ]
+  },
+  {
+    "id": "capes",
+    "termo": "CAPES",
+    "tipo": "sigla",
+    "significado": "Coordenação de Aperfeiçoamento de Pessoal de Nível Superior",
+    "definicao": "Órgão nacional cujo sistema avalia a entrada e a permanência dos cursos de mestrado e doutorado na pós-graduação do país.",
+    "exemplo_uso": "Meu orientador comentou sobre a avaliação da CAPES.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=144",
+    "campus": "Geral",
+    "categoria": "vida-academica"
+  },
+  {
+    "id": "capro",
+    "termo": "CAPRO",
+    "tipo": "sigla",
+    "significado": "Câmara de Projetos, Convênios, Contratos e Instrumentos Correlatos",
+    "definicao": "Câmara ligada ao Consuni que aprimora a formalização e a tramitação de projetos que envolvem convênios, contratos e instrumentos parecidos.",
+    "exemplo_uso": "Esse convênio precisa passar pela CAPRO.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=73",
+    "campus": "Geral",
+    "categoria": "colegiados",
+    "relacionados": [
+      "consuni"
+    ]
+  },
+  {
+    "id": "cbdu",
+    "termo": "CBDU",
+    "tipo": "sigla",
+    "significado": "Confederação Brasileira do Desporto Universitário",
+    "definicao": "Confederação do esporte universitário brasileiro, que concede o Troféu Eficiência.",
+    "exemplo_uso": "A equipe quer pontuar no Troféu Eficiência da CBDU.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=137",
+    "campus": "Geral",
+    "categoria": "vida-academica"
+  },
+  {
+    "id": "ccd",
+    "termo": "CCD",
+    "tipo": "sigla",
+    "significado": "Câmara de Carreira Docente",
+    "definicao": "Câmara do Conselho de Ensino, Pesquisa e Extensão (Cepe), presidida pelo vice-reitor, que trata da carreira dos professores: emite pareceres, analisa propostas e aprecia recursos.",
+    "exemplo_uso": "Esse assunto de carreira docente vai para a CCD.",
+    "fonte": "https://unb.br/images/Documentos/Estatuto_e_Regimento_Geral_UnB.pdf#page=36",
+    "campus": "Geral",
+    "categoria": "colegiados",
+    "relacionados": [
+      "cepe"
+    ]
+  },
+  {
+    "id": "ccn",
+    "termo": "CCN",
+    "tipo": "sigla",
+    "significado": "Centro de Convivência Negra",
+    "definicao": "Ambiente da UnB com atividades sobre as demandas e os impactos da presença da população negra e de grupos afins na universidade.",
+    "exemplo_uso": "Tem uma atividade hoje no CCN.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=107",
+    "campus": "Geral",
+    "categoria": "locais-campus",
+    "localizacao": {
+      "lat": -15.760446,
+      "lng": -47.8737127,
+      "link_como_chegar": "https://www.google.com/maps/search/?api=1&query=-15.760446,-47.8737127"
+    }
+  },
+  {
+    "id": "ccpgs",
+    "termo": "CCPGS",
+    "tipo": "sigla",
+    "significado": "Comissão Consultiva Permanente para a Gestão de Segurança",
+    "definicao": "Comissão presidida pela Vice-Reitoria que assessora a Reitoria e o CAD no planejamento e na execução de ações de segurança.",
+    "exemplo_uso": "Esse tema de segurança foi levado à CCPGS.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=181",
+    "campus": "Geral",
+    "categoria": "administracao",
+    "relacionados": [
+      "cad",
+      "vrt"
+    ]
+  },
+  {
+    "id": "cgd",
+    "termo": "CGD",
+    "tipo": "sigla",
+    "significado": "Comitê de Governança Digital",
+    "definicao": "Comitê da UnB que decide sobre ações de governo digital e uso de tecnologias da informação.",
+    "exemplo_uso": "Esse assunto de governo digital é com o CGD.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=126",
+    "campus": "Geral",
+    "categoria": "administracao"
+  },
+  {
+    "id": "cdh",
+    "termo": "CDH",
+    "tipo": "sigla",
+    "significado": "Câmara de Direitos Humanos",
+    "definicao": "Câmara do Consuni que propõe, decide e avalia políticas de promoção e proteção dos direitos humanos na UnB.",
+    "exemplo_uso": "Essa política de direitos humanos foi discutida na CDH.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=148",
+    "campus": "Geral",
+    "categoria": "colegiados",
+    "relacionados": [
+      "consuni"
+    ]
+  },
+  {
+    "id": "cdhunb",
+    "termo": "CDHUnB",
+    "tipo": "sigla",
+    "significado": "Conselho de Direitos Humanos da UnB",
+    "definicao": "Conselho de Direitos Humanos criado na UnB em 2017 como espaço consultivo. A partir dele surgiu a Câmara de Direitos Humanos (CDH).",
+    "exemplo_uso": "O CDHUnB deu origem à Câmara de Direitos Humanos.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=148",
+    "campus": "Geral",
+    "categoria": "colegiados",
+    "relacionados": [
+      "cdh"
+    ]
+  },
+  {
+    "id": "cdt",
+    "termo": "CDT",
+    "tipo": "sigla",
+    "significado": "Centro de Apoio ao Desenvolvimento Tecnológico",
+    "definicao": "Centro da UnB que apoia o desenvolvimento tecnológico, a inovação e o empreendedorismo, integrando a universidade, as empresas e a sociedade.",
+    "exemplo_uso": "Procurei o CDT para conversar sobre a minha ideia de empresa.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=74",
+    "campus": "Geral",
+    "categoria": "unidades-academicas",
+    "localizacao": {
+      "lat": -15.774485,
+      "lng": -47.8668475,
+      "link_como_chegar": "https://www.google.com/maps/search/?api=1&query=-15.774485,-47.8668475"
+    }
+  },
+  {
+    "id": "cediarte",
+    "termo": "Cediarte",
+    "tipo": "sigla",
+    "significado": "Centro de Documentação Edgar Graeff",
+    "definicao": "Biblioteca setorial da UnB vinculada à Faculdade de Arquitetura e Urbanismo (FAU).",
+    "exemplo_uso": "Fui ao Cediarte procurar material de arquitetura.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=85",
+    "campus": "Geral",
+    "categoria": "locais-campus",
+    "relacionados": [
+      "fau"
+    ]
+  },
+  {
+    "id": "cedunb",
+    "termo": "CEDUnB",
+    "tipo": "sigla",
+    "significado": "Comitê de Educação a Distância da Universidade de Brasília",
+    "definicao": "Comitê constituído na UnB para o processo decisório das políticas de educação a distância e do uso de tecnologias digitais.",
+    "exemplo_uso": "Esse assunto de educação a distância foi levado ao CEDUnB.",
+    "fonte": "https://sig.unb.br/sigrh/public/colegiados/anexos/PlanoGeralDeAcaoGestao-UnB-2018-2022_Atualizado.pdf#page=87",
+    "campus": "Geral",
+    "categoria": "administracao",
+    "relacionados": [
+      "ead"
+    ]
+  },
+  {
+    "id": "ceg",
+    "termo": "CEG",
+    "tipo": "sigla",
+    "significado": "Câmara de Ensino de Graduação",
+    "definicao": "Câmara da UnB com competência na área acadêmica, que participa da atualização dos currículos dos cursos de graduação.",
+    "exemplo_uso": "A mudança no currículo ainda vai passar pela CEG.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=46",
+    "campus": "Geral",
+    "categoria": "colegiados"
+  },
+  {
+    "id": "cel",
+    "termo": "CEL",
+    "tipo": "sigla",
+    "significado": "Coordenação de Esporte e Lazer",
+    "definicao": "Coordenação que encaminha as reservas de espaços para treinos das equipes e dos atletas que representam a UnB.",
+    "exemplo_uso": "Para reservar o espaço do treino, fale com a CEL.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=136",
+    "campus": "Geral",
+    "categoria": "administracao"
+  },
+  {
+    "id": "cepe",
+    "termo": "CEPE",
+    "tipo": "sigla",
+    "significado": "Conselho de Ensino, Pesquisa e Extensão",
+    "definicao": "Conselho superior da UnB, com papel deliberativo, normativo e consultivo, que decide sobre as matérias acadêmica, científica, cultural e artística.",
+    "exemplo_uso": "Essa mudança acadêmica precisa passar pelo CEPE.",
+    "fonte": "https://sig.unb.br/sigrh/public/colegiados/anexos/Estatuto_da_UnB_Atualizado_05.11.19.pdf#page=4",
+    "campus": "Geral",
+    "categoria": "colegiados"
+  },
+  {
+    "id": "cest",
+    "termo": "CEST",
+    "tipo": "sigla",
+    "significado": "Coordenadoria de Engenharia e Segurança do Trabalho",
+    "definicao": "Coordenadoria do Decanato de Gestão de Pessoas que faz laudos de avaliação ambiental e relatórios de inspeção de segurança do trabalho.",
+    "exemplo_uso": "Essa dúvida de segurança do trabalho é com a CEST.",
+    "fonte": "https://dgp.unb.br/images/Documentos/RELATORIO_DE_GESTAO_18_1_21__1_.pdf#page=23",
+    "campus": "Geral",
+    "categoria": "administracao",
+    "relacionados": [
+      "dsqvt"
+    ]
+  },
+  {
+    "id": "cgp",
+    "termo": "CGP",
+    "tipo": "sigla",
+    "significado": "Câmara de Gestão de Pessoas",
+    "definicao": "Órgão colegiado ligado ao Conselho de Administração (CAD) que trata da gestão de pessoas na UnB.",
+    "exemplo_uso": "Esse tema de gestão de pessoas vai para a CGP.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=168",
+    "campus": "Geral",
+    "categoria": "colegiados",
+    "relacionados": [
+      "cad"
+    ]
+  },
+  {
+    "id": "cig",
+    "termo": "CIG",
+    "tipo": "sigla",
+    "significado": "Comitê Institucional Gestor",
+    "definicao": "Comitê de professores das três grandes áreas da UnB, consultado na elaboração dos editais de iniciação científica.",
+    "exemplo_uso": "O edital de iniciação científica passou por consulta ao CIG.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=51",
+    "campus": "Geral",
+    "categoria": "administracao"
+  },
+  {
+    "id": "cip",
+    "termo": "CIP",
+    "tipo": "sigla",
+    "significado": "Centros Integrados de Pesquisa",
+    "definicao": "Um dos nove tipos de infraestrutura de pesquisa e inovação da UnB, definidos pela Resolução do Cepe n. 0054/2022.",
+    "exemplo_uso": "Esse laboratório faz parte de um CIP.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=72",
+    "campus": "Geral",
+    "categoria": "administracao",
+    "relacionados": [
+      "cepe"
+    ]
+  },
+  {
+    "id": "citi",
+    "termo": "CITI",
+    "tipo": "sigla",
+    "significado": "Centros Integrados de Tecnologia e Inovação",
+    "definicao": "Um dos nove tipos de infraestrutura de pesquisa e inovação da UnB, definidos pela Resolução do Cepe n. 0054/2022.",
+    "exemplo_uso": "Esse projeto de inovação está ligado a um CITI.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=72",
+    "campus": "Geral",
+    "categoria": "administracao",
+    "relacionados": [
+      "cepe"
+    ]
+  },
+  {
+    "id": "cne",
+    "termo": "CNE",
+    "tipo": "sigla",
+    "significado": "Conselho Nacional de Educação",
+    "definicao": "Conselho nacional de educação. Entre outras funções, delibera sobre a renovação do reconhecimento de cursos.",
+    "exemplo_uso": "O reconhecimento desse curso depende de uma deliberação do CNE.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=144",
+    "campus": "Geral",
+    "categoria": "colegiados"
+  },
+  {
+    "id": "cnpq",
+    "termo": "CNPq",
+    "tipo": "sigla",
+    "significado": "Conselho Nacional de Desenvolvimento Científico e Tecnológico",
+    "definicao": "Fundação pública ligada ao Ministério da Ciência, Tecnologia e Inovação que fomenta a pesquisa científica, tecnológica e de inovação e a formação de pessoas qualificadas para a pesquisa.",
+    "exemplo_uso": "Meu professor é pesquisador de produtividade do CNPq.",
+    "fonte": "https://www.gov.br/cnpq/pt-br/acesso-a-informacao/institucional/institucional",
+    "campus": "Geral",
+    "categoria": "vida-academica",
+    "relacionados": [
+      "pq"
+    ]
+  },
+  {
+    "id": "coac",
+    "termo": "CoAC",
+    "tipo": "sigla",
+    "significado": "Coordenação de Arte e Cultura",
+    "definicao": "Coordenação do DAC que executa a política artística e cultural da UnB e apoia iniciativas de estudantes, como as dos CAs e do DCE.",
+    "exemplo_uso": "Nosso CA pediu apoio à CoAC para um evento.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=115",
+    "campus": "Geral",
+    "categoria": "administracao",
+    "relacionados": [
+      "dac",
+      "dce",
+      "ca"
+    ]
+  },
+  {
+    "id": "coap",
+    "termo": "CoAP",
+    "tipo": "sigla",
+    "significado": "Coordenação de Atenção Psicossocial",
+    "definicao": "Coordenação da DASU que faz acolhimento psicossocial e atendimento psicológico e nutricional a estudantes, servidores técnicos e docentes da UnB, com prioridade para quem está em vulnerabilidade socioeconômica.",
+    "exemplo_uso": "Procurei a CoAP para pedir acolhimento.",
+    "fonte": "https://dasu.unb.br/coordenacao-de-atencao-psicossocial/",
+    "campus": "Geral",
+    "categoria": "assistencia-estudantil",
+    "relacionados": [
+      "dasu"
+    ]
+  },
+  {
+    "id": "coavs",
+    "termo": "CoAVS",
+    "tipo": "sigla",
+    "significado": "Coordenação de Atenção e Vigilância em Saúde",
+    "definicao": "Coordenação da DASU à qual está ligado o Núcleo de Vigilância em Saúde, que atua em riscos à saúde da comunidade universitária.",
+    "exemplo_uso": "Esse alerta de saúde é com a CoAVS.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=135",
+    "campus": "Geral",
+    "categoria": "administracao",
+    "relacionados": [
+      "dasu"
+    ]
+  },
+  {
+    "id": "codim",
+    "termo": "Codim",
+    "tipo": "sigla",
+    "significado": "Coordenação das Mulheres",
+    "definicao": "Coordenação da Secretaria de Direitos Humanos (SDH), chamada no PDI de Coordenação dos Direitos da Mulher, que promove o reconhecimento da diversidade de gênero e enfrenta o sexismo e as violências de gênero na comunidade universitária.",
+    "exemplo_uso": "Procurei a Codim para tirar uma dúvida.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=107",
+    "campus": "Geral",
+    "categoria": "administracao",
+    "relacionados": [
+      "sdh"
+    ]
+  },
+  {
+    "id": "codsex",
+    "termo": "Codsex",
+    "tipo": "sigla",
+    "significado": "Coordenação LGBTQIA+",
+    "definicao": "Coordenação vinculada à Secretaria de Direitos Humanos (SDH) que fomenta a inclusão social e o respeito à diversidade, com foco na comunidade LGBTQIA+.",
+    "exemplo_uso": "Procurei a Codsex para tirar uma dúvida.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=147",
+    "campus": "Geral",
+    "categoria": "administracao",
+    "relacionados": [
+      "sdh",
+      "lgbtqia"
+    ]
+  },
+  {
+    "id": "coes",
+    "termo": "Coes",
+    "tipo": "sigla",
+    "significado": "Comitê Gestor do Plano de Contingência da Covid-19 da UnB",
+    "definicao": "Comitê criado pelo Decanato de Assuntos Comunitários (DAC) para lidar com as questões da epidemia do novo coronavírus na UnB.",
+    "exemplo_uso": "Durante a pandemia, o Coes cuidava do plano de contingência da UnB.",
+    "fonte": "https://noticias.unb.br/125-saude/3989-com-aulas-prestes-a-comecar-comite-instituido-para-monitorar-o-coronavirus-na-unb-da-instrucoes",
+    "campus": "Geral",
+    "categoria": "administracao"
+  },
+  {
+    "id": "coged",
+    "termo": "COGED",
+    "tipo": "sigla",
+    "significado": "Coordenadoria de Gestão de Documentos",
+    "definicao": "Coordenação que orienta as unidades da UnB sobre a gestão de documentos de arquivo.",
+    "exemplo_uso": "Essa dúvida sobre arquivo de documentos é com a COGED.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=184",
+    "campus": "Geral",
+    "categoria": "administracao"
+  },
+  {
+    "id": "comeprnp",
+    "termo": "COMEP/RNP",
+    "tipo": "sigla",
+    "significado": "Rede Giga Candanga",
+    "definicao": "Rede Giga Candanga, à qual a rede própria da UnB está interligada.",
+    "exemplo_uso": "A rede da UnB está interligada à COMEP/RNP.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=128",
+    "campus": "Geral",
+    "categoria": "sistemas"
+  },
+  {
+    "id": "comut",
+    "termo": "COMUT",
+    "tipo": "sigla",
+    "significado": "Comutação Bibliográfica",
+    "definicao": "Serviço de acesso a conteúdos de bibliotecas parceiras do Programa Rede COMUT, do IBICT.",
+    "exemplo_uso": "Pedi pelo COMUT um material de outra biblioteca.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=89",
+    "campus": "Geral",
+    "categoria": "sistemas",
+    "relacionados": [
+      "ibict"
+    ]
+  },
+  {
+    "id": "consuni",
+    "termo": "Consuni",
+    "tipo": "sigla",
+    "significado": "Conselho Universitário",
+    "definicao": "Órgão máximo da UnB, com papel deliberativo, normativo e consultivo. Entre suas atribuições está formular as políticas globais da universidade.",
+    "exemplo_uso": "Essa política precisa passar pelo Consuni.",
+    "fonte": "https://sig.unb.br/sigrh/public/colegiados/anexos/Estatuto_da_UnB_Atualizado_05.11.19.pdf#page=4",
+    "campus": "Geral",
+    "categoria": "colegiados"
+  },
+  {
+    "id": "copei",
+    "termo": "Copei",
+    "tipo": "sigla",
+    "significado": "Comitê de Pesquisa, Inovação e Extensão de combate à Covid-19",
+    "definicao": "Comitê criado em 2020 para planejar e viabilizar ações de pesquisa, inovação e extensão da UnB contra a Covid-19.",
+    "exemplo_uso": "O Copei reuniu ações da UnB contra a Covid-19.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=73",
+    "campus": "Geral",
+    "categoria": "administracao"
+  },
+  {
+    "id": "coquen",
+    "termo": "Coquen",
+    "tipo": "sigla",
+    "significado": "Coordenação da Questão Negra",
+    "definicao": "Coordenação da SDH que busca construir espaços de acolhimento para estudantes negras e negros e fortalecer as ações afirmativas da UnB.",
+    "exemplo_uso": "Procurei a Coquen para conhecer os espaços de acolhimento.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=107",
+    "campus": "Geral",
+    "categoria": "administracao",
+    "relacionados": [
+      "sdh"
+    ]
+  },
+  {
+    "id": "coredes",
+    "termo": "CoRedes",
+    "tipo": "sigla",
+    "significado": "Coordenação de Articulação de Redes para Prevenção e Promoção da Saúde",
+    "definicao": "Coordenação da DASU que busca promover a saúde e prevenir agravos na UnB, com a participação ativa da comunidade universitária.",
+    "exemplo_uso": "Esse projeto de promoção da saúde está com a CoRedes.",
+    "fonte": "https://dasu.unb.br/coordenacao-de-articulacao-de-redes-para-prevencao-e-promocao-da-saude/",
+    "campus": "Geral",
+    "categoria": "administracao",
+    "relacionados": [
+      "dasu"
+    ]
+  },
+  {
+    "id": "cpa",
+    "termo": "CPA",
+    "tipo": "sigla",
+    "significado": "Comissão Própria de Avaliação",
+    "definicao": "Comissão que consolida a autoavaliação da UnB no Relatório de Autoavaliação Institucional, usado para melhorar a gestão e as ações acadêmicas.",
+    "exemplo_uso": "A CPA divulgou o relatório de autoavaliação da UnB.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=139",
+    "campus": "Geral",
+    "categoria": "administracao",
+    "relacionados": [
+      "raai"
+    ]
+  },
+  {
+    "id": "cpad",
+    "termo": "CPAD",
+    "tipo": "sigla",
+    "significado": "Coordenação de Processo Administrativo Disciplinar",
+    "definicao": "Coordenação dos processos administrativos disciplinares da UnB, com o objetivo de promover a ética e a integridade.",
+    "exemplo_uso": "Esse caso foi encaminhado à CPAD.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=183",
+    "campus": "Geral",
+    "categoria": "administracao"
+  },
+  {
+    "id": "cpag",
+    "termo": "CPAG",
+    "tipo": "sigla",
+    "significado": "Coordenadoria de Planejamento e Apoio à Governança",
+    "definicao": "Coordenadoria ligada à Diretoria de Planejamento do DPO, que coordenou a elaboração do PDI da UnB.",
+    "exemplo_uso": "A CPAG coordenou a elaboração do PDI.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=13",
+    "campus": "Geral",
+    "categoria": "administracao",
+    "relacionados": [
+      "dpo",
+      "pdi",
+      "dpl"
+    ]
+  },
+  {
+    "id": "cpc",
+    "termo": "CPC",
+    "tipo": "sigla",
+    "significado": "Conceito Preliminar de Curso",
+    "definicao": "Indicador de qualidade de um curso, conhecido como \"nota do curso\", numa escala de 1 a 5.",
+    "exemplo_uso": "Saiu a nota do meu curso no CPC.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=143",
+    "campus": "Geral",
+    "categoria": "vida-academica"
+  },
+  {
+    "id": "cplad",
+    "termo": "CPLAD",
+    "tipo": "sigla",
+    "significado": "Câmara de Planejamento e Administração",
+    "definicao": "Câmara da UnB que aprova resoluções de planejamento e administração, presidida em alternância anual pelo DPO e pelo DAF.",
+    "exemplo_uso": "Essa resolução foi aprovada pela CPLAD.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=159",
+    "campus": "Geral",
+    "categoria": "colegiados",
+    "relacionados": [
+      "dpo",
+      "daf"
+    ]
+  },
+  {
+    "id": "cpos",
+    "termo": "CPOS",
+    "tipo": "sigla",
+    "significado": "Coordenadoria de Perícia Oficial em Saúde",
+    "definicao": "Coordenadoria do Decanato de Gestão de Pessoas que faz as perícias oficiais em saúde, para avaliar a saúde e a capacidade de trabalho dos servidores.",
+    "exemplo_uso": "A perícia é feita pela CPOS.",
+    "fonte": "https://dgp.unb.br/images/Documentos/RELATORIO_DE_GESTAO_18_1_21__1_.pdf#page=25",
+    "campus": "Geral",
+    "categoria": "administracao",
+    "relacionados": [
+      "dsqvt"
+    ]
+  },
+  {
+    "id": "cpp",
+    "termo": "CPP",
+    "tipo": "sigla",
+    "significado": "Câmara de Pesquisa e Pós-Graduação",
+    "definicao": "Câmara da UnB que, com o Cepe, disciplina as ações acadêmico-administrativas da pós-graduação.",
+    "exemplo_uso": "Essa regra de pós-graduação passou pela CPP.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=50",
+    "campus": "Geral",
+    "categoria": "colegiados",
+    "relacionados": [
+      "cepe"
+    ]
+  },
+  {
+    "id": "cso",
+    "termo": "CSO",
+    "tipo": "sigla",
+    "significado": "Coordenadoria de Saúde Ocupacional",
+    "definicao": "Coordenadoria do Decanato de Gestão de Pessoas que analisa pedidos de adicionais ocupacionais e de aposentadoria especial dos servidores e acompanha perícias judiciais sobre saúde e segurança do trabalho.",
+    "exemplo_uso": "Esse assunto de saúde ocupacional é com a CSO.",
+    "fonte": "https://dgp.unb.br/images/Documentos/RELATORIO_DE_GESTAO_18_1_21__1_.pdf#page=24",
+    "campus": "Geral",
+    "categoria": "administracao",
+    "relacionados": [
+      "dsqvt"
+    ]
+  },
+  {
+    "id": "cti",
+    "termo": "CTI",
+    "tipo": "sigla",
+    "significado": "Comitê de Tecnologia da Informação",
+    "definicao": "Comitê que, com a STI, elabora todo ano o plano de contratações de tecnologia da UnB.",
+    "exemplo_uso": "O plano de contratações de tecnologia passa pelo CTI.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=130",
+    "campus": "Geral",
+    "categoria": "administracao",
+    "relacionados": [
+      "sti"
+    ]
+  },
+  {
+    "id": "ctgc",
+    "termo": "CTGC",
+    "tipo": "sigla",
+    "significado": "Coordenadoria de Transparência, Gestão Financeira e Custos",
+    "definicao": "Coordenadoria de transparência, gestão financeira e custos, vinculada à Diretoria de Contabilidade e Finanças (DCF).",
+    "exemplo_uso": "Essa dúvida sobre custos é com a CTGC.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=160",
+    "campus": "Geral",
+    "categoria": "administracao",
+    "relacionados": [
+      "dcf"
+    ]
+  },
+  {
+    "id": "cuc",
+    "termo": "CUC",
+    "tipo": "sigla",
+    "significado": "Casas Universitárias de Cultura",
+    "definicao": "Programa de difusão cultural com as três Casas Universitárias de Cultura da UnB: CAL, Casa Niemeyer e Memorial Darcy Ribeiro.",
+    "exemplo_uso": "A CAL faz parte das CUC.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=117",
+    "campus": "Geral",
+    "categoria": "vida-academica",
+    "relacionados": [
+      "cal",
+      "beijodromo"
+    ]
+  },
+  {
+    "id": "daces",
+    "termo": "DACES",
+    "tipo": "sigla",
+    "significado": "Diretoria de Acessibilidade",
+    "definicao": "Diretoria do DAC responsável por garantir e promover a inclusão e a acessibilidade na UnB.",
+    "exemplo_uso": "Procurei a DACES para pedir apoio de acessibilidade.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=110",
+    "campus": "Geral",
+    "categoria": "assistencia-estudantil",
+    "relacionados": [
+      "dac"
+    ]
+  },
+  {
+    "id": "dai",
+    "termo": "DAI",
+    "tipo": "sigla",
+    "significado": "Diretoria de Avaliação e Informações Gerenciais",
+    "definicao": "Diretoria do DPO que coordena a autoavaliação institucional da UnB.",
+    "exemplo_uso": "A DAI coordena a autoavaliação da UnB.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=139",
+    "campus": "Geral",
+    "categoria": "administracao",
+    "relacionados": [
+      "dpo"
+    ]
+  },
+  {
+    "id": "abtu",
+    "termo": "ABTU",
+    "tipo": "sigla",
+    "significado": "Associação Brasileira de Televisão Universitária",
+    "definicao": "Associação de televisões universitárias da qual a UnBTV faz parte.",
+    "exemplo_uso": "A UnBTV integra a ABTU.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=175",
+    "campus": "Geral",
+    "categoria": "administracao",
+    "relacionados": [
+      "unbtv"
+    ]
+  },
+  {
+    "id": "ceu",
+    "termo": "CEU",
+    "tipo": "sigla",
+    "significado": "Casa do Estudante Universitário",
+    "definicao": "Casa do Estudante da UnB, onde estudantes de graduação podem conseguir vaga em apartamento.",
+    "exemplo_uso": "Consegui uma vaga na CEU.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=79",
+    "campus": "Geral",
+    "categoria": "assistencia-estudantil"
+  },
+  {
+    "id": "cex",
+    "termo": "CEX",
+    "tipo": "sigla",
+    "significado": "Câmara de Extensão",
+    "definicao": "Instância deliberativa do Decanato de Extensão (DEX), presidida pelo decano e formada por representantes das unidades acadêmicas, de órgãos complementares e centros e dos estudantes.",
+    "exemplo_uso": "Esse projeto de extensão foi levado à CEX.",
+    "fonte": "https://dex.unb.br/camaraextensao/",
+    "campus": "Geral",
+    "categoria": "colegiados"
+  },
+  {
+    "id": "coquei",
+    "termo": "Coquei",
+    "tipo": "sigla",
+    "significado": "Coordenação da Questão Indígena",
+    "definicao": "Coordenação da SDH que acompanha os estudantes indígenas da UnB, com apoio psicopedagógico.",
+    "exemplo_uso": "Procurei a Coquei para pedir orientação.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=107",
+    "campus": "Geral",
+    "categoria": "administracao",
+    "relacionados": [
+      "sdh"
+    ]
+  },
+  {
+    "id": "dce",
+    "termo": "DCE",
+    "tipo": "sigla",
+    "significado": "Diretório Central dos Estudantes",
+    "definicao": "Instância máxima de representação dos estudantes na UnB. Levanta demandas, promove debates e reivindica melhorias para o dia a dia dos alunos.",
+    "exemplo_uso": "O DCE chamou uma assembleia de estudantes.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=82",
+    "campus": "Geral",
+    "categoria": "representacao-estudantil"
+  },
+  {
+    "id": "dcf",
+    "termo": "DCF",
+    "tipo": "sigla",
+    "significado": "Diretoria de Contabilidade e Finanças",
+    "definicao": "Diretoria do Decanato de Administração (DAF) responsável por coordenar a contabilidade orçamentária, financeira e patrimonial da Fundação Universidade de Brasília (FUB).",
+    "exemplo_uso": "Essa dúvida contábil é com a DCF.",
+    "fonte": "https://daf.unb.br/documentos/dcf",
+    "campus": "Geral",
+    "categoria": "administracao"
+  },
+  {
+    "id": "dcn",
+    "termo": "DCN",
+    "tipo": "sigla",
+    "significado": "Diretrizes Curriculares Nacionais",
+    "definicao": "Diretrizes nacionais para os cursos superiores, orientadas pelo Conselho Nacional de Educação (CNE).",
+    "exemplo_uso": "O currículo do curso precisa seguir as DCN.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=27",
+    "campus": "Geral",
+    "categoria": "vida-academica",
+    "relacionados": [
+      "cne"
+    ]
+  },
+  {
+    "id": "ddc",
+    "termo": "DDC",
+    "tipo": "sigla",
+    "significado": "Diretoria de Difusão Cultural",
+    "definicao": "Diretoria do Decanato de Extensão (DEX) que incentiva a difusão cultural e cuida das três Casas Universitárias de Cultura da UnB.",
+    "exemplo_uso": "A DDC cuida das Casas Universitárias de Cultura.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=117",
+    "campus": "Geral",
+    "categoria": "administracao",
+    "relacionados": [
+      "dex",
+      "cuc"
+    ]
+  },
+  {
+    "id": "deac",
+    "termo": "DEAC",
+    "tipo": "sigla",
+    "significado": "Diretoria de Esporte e Atividades Comunitárias",
+    "definicao": "Diretoria do DAC que planeja, coordena, divulga e avalia os programas e projetos comunitários da UnB.",
+    "exemplo_uso": "Esse projeto comunitário é acompanhado pela DEAC.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=115",
+    "campus": "Geral",
+    "categoria": "administracao",
+    "relacionados": [
+      "dac"
+    ]
+  },
+  {
+    "id": "dirpe",
+    "termo": "DIRPE",
+    "tipo": "sigla",
+    "significado": "Diretoria de Pesquisa",
+    "definicao": "Diretoria do DPI que formula projetos institucionais e coordena os editais internos.",
+    "exemplo_uso": "Esse edital interno é da DIRPE.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=71",
+    "campus": "Geral",
+    "categoria": "administracao",
+    "relacionados": [
+      "dpi"
+    ]
+  },
+  {
+    "id": "dpa",
+    "termo": "DPA",
+    "tipo": "sigla",
+    "significado": "Diretoria de Apoio a Projetos Acadêmicos",
+    "definicao": "Diretoria do Decanato de Pesquisa e Inovação (DPI) que apoia os projetos acadêmicos com contratos, convênios e acordos e ajuda na relação da UnB com as fundações de apoio.",
+    "exemplo_uso": "Esse projeto acadêmico passou pela DPA.",
+    "fonte": "https://dpi.unb.br/diretorias",
+    "campus": "Geral",
+    "categoria": "administracao"
+  },
+  {
+    "id": "dpl",
+    "termo": "DPL",
+    "tipo": "sigla",
+    "significado": "Diretoria de Planejamento",
+    "definicao": "Diretoria do Decanato de Planejamento, Orçamento e Avaliação Institucional (DPO) que coordena, acompanha e avalia o planejamento institucional e o Plano de Desenvolvimento Institucional (PDI) da UnB.",
+    "exemplo_uso": "A DPL participou da elaboração do PDI.",
+    "fonte": "https://dpo.unb.br/dpl/",
+    "campus": "Geral",
+    "categoria": "administracao",
+    "relacionados": [
+      "dpo",
+      "pdi"
+    ]
+  },
+  {
+    "id": "dsqvt",
+    "termo": "DSQVT",
+    "tipo": "sigla",
+    "significado": "Diretoria de Saúde, Segurança e Qualidade de Vida no Trabalho",
+    "definicao": "Diretoria do Decanato de Gestão de Pessoas que reúne as coordenadorias CSO, CEST e CPOS. Na página do DGP, ela hoje aparece com o nome Diretoria de Saúde e Segurança Ocupacional (DSO).",
+    "exemplo_uso": "Esse assunto de saúde no trabalho é com a DSQVT.",
+    "fonte": "https://dgp.unb.br/contatos",
+    "campus": "Geral",
+    "categoria": "administracao",
+    "sinonimos": [
+      "DSO"
+    ],
+    "relacionados": [
+      "cest",
+      "cpos",
+      "cso"
+    ]
+  },
+  {
+    "id": "ead",
+    "termo": "EaD",
+    "tipo": "sigla",
+    "significado": "Educação a Distância",
+    "definicao": "Educação a distância, modalidade em que o CEAD atua na UnB com ações de ensino, pesquisa e extensão.",
+    "exemplo_uso": "Meu curso tem disciplinas em EaD.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=129",
+    "campus": "Geral",
+    "categoria": "vida-academica",
+    "relacionados": [
+      "cead"
+    ]
+  },
+  {
+    "id": "ebserh",
+    "termo": "Ebserh",
+    "tipo": "sigla",
+    "significado": "Empresa Brasileira de Serviços Hospitalares",
+    "definicao": "Empresa que faz a gestão administrativa do Hospital Universitário de Brasília (HUB) desde 2013.",
+    "exemplo_uso": "A gestão do HUB é feita pela Ebserh.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=91",
+    "campus": "Geral",
+    "categoria": "administracao",
+    "relacionados": [
+      "hub"
+    ]
+  },
+  {
+    "id": "edu",
+    "termo": "EDU",
+    "tipo": "sigla",
+    "significado": "Editora UnB",
+    "definicao": "Editora da UnB, criada em 1962 como órgão complementar da universidade.",
+    "exemplo_uso": "Esse livro foi publicado pela EDU.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=96",
+    "campus": "Geral",
+    "categoria": "administracao"
+  },
+  {
+    "id": "emp",
+    "termo": "EMP",
+    "tipo": "sigla",
+    "significado": "Exames Médicos Periódicos",
+    "definicao": "Programa anual de exames médicos periódicos da UnB.",
+    "exemplo_uso": "Recebi o aviso dos EMP deste ano.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=167",
+    "campus": "Geral",
+    "categoria": "administracao"
+  },
+  {
+    "id": "enade",
+    "termo": "Enade",
+    "tipo": "sigla",
+    "significado": "Exame Nacional de Desempenho dos Estudantes",
+    "definicao": "Exame nacional de desempenho dos estudantes, um dos indicadores dos cursos de graduação.",
+    "exemplo_uso": "Minha turma vai fazer o Enade este ano.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=46",
+    "campus": "Geral",
+    "categoria": "vida-academica"
+  },
+  {
+    "id": "etir",
+    "termo": "ETIR",
+    "tipo": "sigla",
+    "significado": "Equipe de Tratamento e Resposta a Incidentes Cibernéticos",
+    "definicao": "Equipe que trata e responde a incidentes cibernéticos e ajuda a implementar a política de segurança da informação da UnB.",
+    "exemplo_uso": "O incidente no sistema foi encaminhado à ETIR.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=126",
+    "campus": "Geral",
+    "categoria": "administracao"
+  },
+  {
+    "id": "fal",
+    "termo": "FAL",
+    "tipo": "sigla",
+    "significado": "Fazenda Água Limpa",
+    "definicao": "Fazenda da UnB, que faz parte da estrutura da universidade além dos quatro campi.",
+    "exemplo_uso": "Hoje a aula prática é na FAL.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=119",
+    "campus": "Geral",
+    "categoria": "locais-campus",
+    "localizacao": {
+      "lat": -15.9486429,
+      "lng": -47.9339874,
+      "link_como_chegar": "https://www.google.com/maps/search/?api=1&query=-15.9486429,-47.9339874"
+    }
+  },
+  {
+    "id": "fapdf",
+    "termo": "FAP-DF",
+    "tipo": "sigla",
+    "significado": "Fundação de Apoio à Pesquisa do Distrito Federal",
+    "definicao": "Fundação do Distrito Federal que apoia a pesquisa, como agência de fomento.",
+    "exemplo_uso": "Meu projeto recebeu apoio da FAP-DF.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=97",
+    "campus": "Geral",
+    "categoria": "administracao"
+  },
+  {
+    "id": "faubai",
+    "termo": "FAUBAI",
+    "tipo": "sigla",
+    "significado": "Associação Brasileira de Educação Internacional",
+    "definicao": "Associação brasileira de educação internacional, uma das redes que a UnB integra.",
+    "exemplo_uso": "A FAUBAI é uma das redes internacionais da UnB.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=103",
+    "campus": "Geral",
+    "categoria": "administracao"
+  },
+  {
+    "id": "fda",
+    "termo": "FDA",
+    "tipo": "sigla",
+    "significado": "Coordenadoria de Formação e Desenvolvimento de Acervos",
+    "definicao": "Coordenadoria da Biblioteca Central (BCE) que seleciona, cataloga e conserva os acervos e mantém a política de formação das coleções.",
+    "exemplo_uso": "Essa sugestão de livro é com a FDA.",
+    "fonte": "https://repositorioadm.unb.br/wp-content/uploads/tainacan-items/12644/12763/Regimento-Interno-da-BCE_UnB-2022.pdf#page=10",
+    "campus": "Geral",
+    "categoria": "administracao",
+    "relacionados": [
+      "bce"
+    ]
+  },
+  {
+    "id": "fga",
+    "termo": "FGA",
+    "tipo": "sigla",
+    "significado": "Faculdade do Gama",
+    "definicao": "Nome antigo da FCTE, a Faculdade de Ciências e Tecnologias em Engenharia, no campus do Gama. Muita gente ainda usa a sigla FGA.",
+    "exemplo_uso": "Um veterano falou que estuda na FGA, que hoje se chama FCTE.",
+    "fonte": "https://fcte.unb.br/memoria-fga/",
+    "campus": "Gama",
+    "categoria": "unidades-academicas",
+    "relacionados": [
+      "fcte"
+    ],
+    "localizacao": {
+      "lat": -15.9899757,
+      "lng": -48.044871,
+      "link_como_chegar": "https://www.google.com/maps/search/?api=1&query=-15.9899757,-48.044871"
+    }
+  },
+  {
+    "id": "fub",
+    "termo": "FUB",
+    "tipo": "sigla",
+    "significado": "Fundação Universidade de Brasília",
+    "definicao": "Fundação criada por lei como mantenedora da Universidade de Brasília.",
+    "exemplo_uso": "Esse documento oficial está em nome da FUB.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=18",
+    "campus": "Geral",
+    "categoria": "administracao"
+  },
+  {
+    "id": "fundar",
+    "termo": "FUNDAR",
+    "tipo": "sigla",
+    "significado": "Fundação Darcy Ribeiro",
+    "definicao": "Fundação Darcy Ribeiro, parceira da UnB no Memorial Darcy Ribeiro e em ações de extensão.",
+    "exemplo_uso": "O Memorial Darcy Ribeiro tem parceria com a FUNDAR.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=117",
+    "campus": "Geral",
+    "categoria": "administracao",
+    "relacionados": [
+      "beijodromo"
+    ]
+  },
+  {
+    "id": "gcub",
+    "termo": "GCUB",
+    "tipo": "sigla",
+    "significado": "Grupo de Cooperação Internacional de Universidades Brasileiras",
+    "definicao": "Grupo de cooperação internacional de universidades brasileiras, uma das redes que a UnB integra.",
+    "exemplo_uso": "O edital do Pro-LAC é do GCUB.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=103",
+    "campus": "Geral",
+    "categoria": "administracao"
+  },
+  {
+    "id": "gefin",
+    "termo": "Gefin",
+    "tipo": "sigla",
+    "significado": "Grupo de Estudos em Fisioterapia nas Neurodisfunções",
+    "definicao": "Grupo de estudos da UnB que pesquisa disfunções motoras em pessoas com questões neurológicas e oferece, de forma voluntária, atendimentos e intervenções de reabilitação.",
+    "exemplo_uso": "Entrei no Gefin para estudar fisioterapia.",
+    "fonte": "https://noticias.unb.br/112-extensao-e-comunidade/6296-projeto-de-fisioterapia-da-fce-atende-criancas-e-adolescentes-com-dificuldades-motoras",
+    "campus": "Geral",
+    "categoria": "vida-academica"
+  },
+  {
+    "id": "gid",
+    "termo": "GID",
+    "tipo": "sigla",
+    "significado": "Coordenadoria de Gestão da Informação Digital da BCE",
+    "definicao": "Coordenadoria da Biblioteca Central (BCE) que gerencia as bibliotecas digitais e os portais de publicações eletrônicas e apoia a comunidade em digitalização e direitos autorais.",
+    "exemplo_uso": "Esse problema no acervo digital é com a GID.",
+    "fonte": "https://repositorioadm.unb.br/wp-content/uploads/tainacan-items/12644/12763/Regimento-Interno-da-BCE_UnB-2022.pdf#page=11",
+    "campus": "Geral",
+    "categoria": "administracao",
+    "relacionados": [
+      "bce"
+    ]
+  },
+  {
+    "id": "gta",
+    "termo": "GTA",
+    "tipo": "sigla",
+    "significado": "Grupo Técnico de Avaliação",
+    "definicao": "Grupo técnico que auxilia a CPA no processo de autoavaliação da UnB.",
+    "exemplo_uso": "O GTA ajuda a CPA na autoavaliação.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=140",
+    "campus": "Geral",
+    "categoria": "administracao",
+    "relacionados": [
+      "cpa"
+    ]
+  },
+  {
+    "id": "hub",
+    "termo": "HUB",
+    "tipo": "sigla",
+    "significado": "Hospital Universitário de Brasília",
+    "definicao": "Hospital vinculado à UnB, que atende de forma gratuita pelo SUS.",
+    "exemplo_uso": "Minha aula prática é no HUB.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=91",
+    "campus": "Geral",
+    "categoria": "locais-campus",
+    "localizacao": {
+      "lat": -15.771729,
+      "lng": -47.8736111,
+      "link_como_chegar": "https://www.google.com/maps/search/?api=1&query=-15.771729,-47.8736111"
+    }
+  },
+  {
+    "id": "hvet",
+    "termo": "HVET",
+    "tipo": "sigla",
+    "significado": "Hospital-Escola Veterinário",
+    "definicao": "Hospital ligado à FAV, com ensino, pesquisa, extensão e serviços na área de medicina veterinária.",
+    "exemplo_uso": "Levei meu cachorro ao HVET.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=94",
+    "campus": "Geral",
+    "categoria": "locais-campus",
+    "relacionados": [
+      "fav"
+    ],
+    "localizacao": {
+      "lat": -15.7491377,
+      "lng": -47.8768349,
+      "link_como_chegar": "https://www.google.com/maps/search/?api=1&query=-15.7491377,-47.8768349"
+    }
+  },
+  {
+    "id": "iberonex",
+    "termo": "IBERONEX",
+    "tipo": "sigla",
+    "significado": "Ibero International Higher Education",
+    "definicao": "Uma das redes internacionais de educação superior que a UnB integra.",
+    "exemplo_uso": "A IBERONEX é uma das redes da UnB.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=103",
+    "campus": "Geral",
+    "categoria": "administracao"
+  },
+  {
+    "id": "ibict",
+    "termo": "IBICT",
+    "tipo": "sigla",
+    "significado": "Instituto Brasileiro de Informação em Ciência e Tecnologia",
+    "definicao": "Instituto brasileiro de informação em ciência e tecnologia, responsável pelo Programa Rede COMUT.",
+    "exemplo_uso": "O COMUT é um programa do IBICT.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=89",
+    "campus": "Geral",
+    "categoria": "administracao",
+    "relacionados": [
+      "comut"
+    ]
+  },
+  {
+    "id": "ies",
+    "termo": "IES",
+    "tipo": "sigla",
+    "significado": "Instituição de Ensino Superior",
+    "definicao": "Instituição credenciada para oferecer cursos superiores de graduação. Pode ser faculdade, centro universitário ou universidade.",
+    "exemplo_uso": "A UnB é uma IES pública.",
+    "fonte": "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2017/decreto/d9235.htm",
+    "campus": "Geral",
+    "categoria": "vida-academica"
+  },
+  {
+    "id": "ifes",
+    "termo": "IFES",
+    "tipo": "sigla",
+    "significado": "Instituições Federais de Ensino Superior",
+    "definicao": "Instituições federais de ensino superior, vinculadas ao MEC, como a UnB.",
+    "exemplo_uso": "As IFES seguem o mesmo plano de carreira docente.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=33",
+    "campus": "Geral",
+    "categoria": "vida-academica",
+    "relacionados": [
+      "mec"
+    ]
+  },
+  {
+    "id": "igc",
+    "termo": "IGC",
+    "tipo": "sigla",
+    "significado": "Índice Geral de Cursos",
+    "definicao": "Indicador que faz uma média ponderada das notas dos cursos de graduação e dos conceitos CAPES da pós-graduação.",
+    "exemplo_uso": "O IGC resume a qualidade dos cursos da instituição.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=142",
+    "campus": "Geral",
+    "categoria": "vida-academica",
+    "relacionados": [
+      "capes"
+    ]
+  },
+  {
+    "id": "inep",
+    "termo": "INEP",
+    "tipo": "sigla",
+    "significado": "Instituto Nacional de Estudos e Pesquisas Educacionais Anísio Teixeira",
+    "definicao": "Instituto do MEC que recebe as informações de avaliação das instituições de ensino superior.",
+    "exemplo_uso": "A UnB envia dados de avaliação ao INEP.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=140",
+    "campus": "Geral",
+    "categoria": "vida-academica",
+    "relacionados": [
+      "mec"
+    ]
+  },
+  {
+    "id": "its",
+    "termo": "ITS",
+    "tipo": "sigla",
+    "significado": "Incubadora de Tecnologia Social",
+    "definicao": "Incubadora da UnB que apoia empreendimentos e negócios de impacto social e ambiental.",
+    "exemplo_uso": "Nosso projeto social entrou na ITS.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=74",
+    "campus": "Geral",
+    "categoria": "administracao"
+  },
+  {
+    "id": "jiunbs",
+    "termo": "JIUnBs",
+    "tipo": "sigla",
+    "significado": "Jogos Internos da Universidade de Brasília",
+    "definicao": "Competição esportiva interna da UnB, criada em 1984 e promovida pela Diretoria de Esporte e Atividades Comunitárias (Deac). Voltou em 2026, depois de quase dez anos.",
+    "exemplo_uso": "Meu curso vai competir nos JIUnBs.",
+    "fonte": "https://noticias.unb.br/extensao/8498-estao-abertos-os-jogos-internos-da-unb-2026",
+    "campus": "Geral",
+    "categoria": "vida-academica"
+  },
+  {
+    "id": "jubs",
+    "termo": "JUBs",
+    "tipo": "sigla",
+    "significado": "Jogos Universitários Brasileiros",
+    "definicao": "Jogos universitários brasileiros, competição em que as equipes esportivas da UnB participam.",
+    "exemplo_uso": "A atlética do meu curso quer ir aos JUBs.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=136",
+    "campus": "Geral",
+    "categoria": "vida-academica"
+  },
+  {
+    "id": "labgdp",
+    "termo": "LabGDP",
+    "tipo": "sigla",
+    "significado": "Laboratório de Garantia de Direitos Políticos",
+    "definicao": "Projeto de extensão do Departamento de Gestão de Políticas Públicas da UnB que forma servidores da Justiça Eleitoral para superar a exclusão de grupos marginalizados da política, como pessoas em situação de rua e encarcerados.",
+    "exemplo_uso": "O LabGDP tem atividades sobre direitos políticos.",
+    "fonte": "https://noticias.unb.br/112-extensao-e-comunidade/6380-laboratorio-da-unb-promove-direitos-politicos",
+    "campus": "Geral",
+    "categoria": "locais-campus"
+  },
+  {
+    "id": "lacore",
+    "termo": "LaCoRe",
+    "tipo": "sigla",
+    "significado": "Laboratório de Conservação e Restauração",
+    "definicao": "Laboratório de conservação e restauração da Biblioteca Central (BCE).",
+    "exemplo_uso": "Esse livro antigo foi para o LaCoRe.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=86",
+    "campus": "Geral",
+    "categoria": "locais-campus",
+    "relacionados": [
+      "bce"
+    ]
+  },
+  {
+    "id": "lad",
+    "termo": "LAD",
+    "tipo": "sigla",
+    "significado": "Laboratório de Acesso Digital",
+    "definicao": "Laboratórios de acesso digital da BCE, para professores, estudantes e técnicos da UnB.",
+    "exemplo_uso": "Usei um computador no LAD.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=89",
+    "campus": "Geral",
+    "categoria": "locais-campus",
+    "relacionados": [
+      "bce"
+    ]
+  },
+  {
+    "id": "ldtea",
+    "termo": "LDTEA",
+    "tipo": "sigla",
+    "significado": "Laboratório de Desenvolvimento de Transportes e Energias Alternativas",
+    "definicao": "Laboratório de desenvolvimento de transportes e energias alternativas da FCTE, no campus do Gama.",
+    "exemplo_uso": "Minha aula prática é no LDTEA.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=124",
+    "campus": "Gama",
+    "categoria": "locais-campus",
+    "relacionados": [
+      "fcte"
+    ],
+    "localizacao": {
+      "lat": -15.9904653,
+      "lng": -48.0442411,
+      "link_como_chegar": "https://www.google.com/maps/search/?api=1&query=-15.9904653,-48.0442411"
+    }
+  },
+  {
+    "id": "ldv",
+    "termo": "LDV",
+    "tipo": "sigla",
+    "significado": "Laboratório de Apoio às Pessoas com Deficiência Visual da Faculdade de Educação",
+    "definicao": "Laboratório da Faculdade de Educação que, com a BDS, produz material acadêmico para estudantes com deficiência visual.",
+    "exemplo_uso": "O LDV adaptou o meu material de aula.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=113",
+    "campus": "Geral",
+    "categoria": "locais-campus",
+    "relacionados": [
+      "bds",
+      "fe"
+    ]
+  },
+  {
+    "id": "ledoc",
+    "termo": "LEDOC",
+    "tipo": "sigla",
+    "significado": "Licenciatura em Educação do Campo",
+    "definicao": "Curso de licenciatura da UnB, com vestibular próprio, que forma professores para lecionar em áreas rurais do DF, de Goiás e de Minas Gerais.",
+    "exemplo_uso": "Conheço uma pessoa que faz LEDOC.",
+    "fonte": "https://noticias.unb.br/ensino/7233-inscricoes-abertas-para-licenciatura-em-educacao-do-campo",
+    "campus": "Geral",
+    "categoria": "vida-academica"
+  },
+  {
+    "id": "lgbtqia",
+    "termo": "LGBTQIA+",
+    "tipo": "sigla",
+    "significado": "Lésbicas, gays, bissexuais, transexuais, queer, intersexuais, assexuais",
+    "definicao": "Sigla para lésbicas, gays, bissexuais, transexuais, queer, intersexuais e assexuais. Na UnB, a Codsex promove os direitos dessas pessoas.",
+    "exemplo_uso": "A Codsex atende pessoas LGBTQIA+.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=107",
+    "campus": "Geral",
+    "categoria": "vida-academica",
+    "relacionados": [
+      "codsex"
+    ]
+  },
+  {
+    "id": "liap",
+    "termo": "LIAP",
+    "tipo": "sigla",
+    "significado": "Laboratórios e outras Infraestruturas de Apoio à Pesquisa",
+    "definicao": "Um dos nove tipos de infraestrutura de pesquisa e inovação da UnB, definidos pela Resolução do Cepe n. 0054/2022.",
+    "exemplo_uso": "Esse espaço de pesquisa é classificado como LIAP.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=72",
+    "campus": "Geral",
+    "categoria": "administracao",
+    "relacionados": [
+      "cepe"
+    ]
+  },
+  {
+    "id": "ll",
+    "termo": "LL",
+    "tipo": "sigla",
+    "significado": "Living Labs",
+    "definicao": "Um dos nove tipos de infraestrutura de pesquisa e inovação da UnB, definidos pela Resolução do Cepe n. 0054/2022.",
+    "exemplo_uso": "Esse projeto funciona como um LL.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=72",
+    "campus": "Geral",
+    "categoria": "administracao",
+    "relacionados": [
+      "cepe"
+    ]
+  },
+  {
+    "id": "lp",
+    "termo": "LP",
+    "tipo": "sigla",
+    "significado": "Laboratórios de Pesquisa",
+    "definicao": "Um dos nove tipos de infraestrutura de pesquisa e inovação da UnB, definidos pela Resolução do Cepe n. 0054/2022.",
+    "exemplo_uso": "Esse laboratório é classificado como LP.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=72",
+    "campus": "Geral",
+    "categoria": "administracao",
+    "relacionados": [
+      "cepe"
+    ]
+  },
+  {
+    "id": "lpm",
+    "termo": "LPM",
+    "tipo": "sigla",
+    "significado": "Laboratórios de Pesquisa Multiusuários",
+    "definicao": "Um dos nove tipos de infraestrutura de pesquisa e inovação da UnB, definidos pela Resolução do Cepe n. 0054/2022.",
+    "exemplo_uso": "Vários grupos usam esse LPM.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=72",
+    "campus": "Geral",
+    "categoria": "administracao",
+    "relacionados": [
+      "cepe"
+    ]
+  },
+  {
+    "id": "lpste",
+    "termo": "LPSTE",
+    "tipo": "sigla",
+    "significado": "Laboratórios de Prestação de Serviços Técnicos Especializados",
+    "definicao": "Um dos nove tipos de infraestrutura de pesquisa e inovação da UnB, definidos pela Resolução do Cepe n. 0054/2022.",
+    "exemplo_uso": "Esse laboratório é classificado como LPSTE.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=72",
+    "campus": "Geral",
+    "categoria": "administracao",
+    "relacionados": [
+      "cepe"
+    ]
+  },
+  {
+    "id": "lsb",
+    "termo": "LSB",
+    "tipo": "sigla",
+    "significado": "Licenciatura em Língua de Sinais Brasileira",
+    "definicao": "Curso de licenciatura da UnB que forma professores de Língua de Sinais Brasileira e de Português como Segunda Língua na modalidade escrita.",
+    "exemplo_uso": "Conheço uma pessoa que faz LSB.",
+    "fonte": "https://arquivos.unb.br/arquivos/20191220174d9e2029775320fd7d266fe/PPPC_LSB__PSL_07_03_2019Lngua_de_sinais.pdf#page=14",
+    "campus": "Geral",
+    "categoria": "vida-academica"
+  },
+  {
+    "id": "mec",
+    "termo": "MEC",
+    "tipo": "sigla",
+    "significado": "Ministério da Educação",
+    "definicao": "Ministério da Educação, ao qual as instituições federais de ensino superior são vinculadas.",
+    "exemplo_uso": "Essa política de assistência estudantil é do MEC.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=33",
+    "campus": "Geral",
+    "categoria": "vida-academica",
+    "relacionados": [
+      "ifes"
+    ]
+  },
+  {
+    "id": "mespt",
+    "termo": "Mespt",
+    "tipo": "sigla",
+    "significado": "Mestrado Profissional em Sustentabilidade junto a Povos e Territórios Tradicionais",
+    "definicao": "Mestrado profissional da UnB com turmas multiétnicas, formadas por profissionais indígenas, quilombolas, de outros povos e comunidades tradicionais e por aliados que atuam junto a eles.",
+    "exemplo_uso": "Conheço uma pessoa que faz o Mespt.",
+    "fonte": "https://mespt.unb.br/curso/",
+    "campus": "Geral",
+    "categoria": "vida-academica"
+  },
+  {
+    "id": "nacep",
+    "termo": "NACEP",
+    "tipo": "sigla",
+    "significado": "Núcleo de Apoio aos Comitês de Ética em Pesquisa",
+    "definicao": "Núcleo do DPI que dá apoio administrativo aos comitês e à comissão de ética em pesquisa da UnB.",
+    "exemplo_uso": "Essa dúvida sobre o comitê de ética é com o NACEP.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=63",
+    "campus": "Geral",
+    "categoria": "administracao",
+    "relacionados": [
+      "dpi"
+    ]
+  },
+  {
+    "id": "nats",
+    "termo": "NATS",
+    "tipo": "sigla",
+    "significado": "Núcleo de Avaliação de Tecnologias em Saúde",
+    "definicao": "Núcleo do HUB que promove a prática em saúde baseada em evidências e faz estudos de avaliação de tecnologias em saúde.",
+    "exemplo_uso": "Esse estudo foi feito pelo NATS do HUB.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=93",
+    "campus": "Geral",
+    "categoria": "administracao",
+    "relacionados": [
+      "hub"
+    ]
+  },
+  {
+    "id": "nde",
+    "termo": "NDE",
+    "tipo": "sigla",
+    "significado": "Núcleo Docente Estruturante",
+    "definicao": "Núcleo de professores de cada curso de graduação que participa da avaliação e da atualização do projeto pedagógico.",
+    "exemplo_uso": "O NDE do meu curso está revisando o currículo.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=46",
+    "campus": "Geral",
+    "categoria": "administracao"
+  },
+  {
+    "id": "np",
+    "termo": "NP",
+    "tipo": "sigla",
+    "significado": "Núcleos de Pesquisa",
+    "definicao": "Um dos nove tipos de infraestrutura de pesquisa e inovação da UnB, definidos pela Resolução do Cepe n. 0054/2022.",
+    "exemplo_uso": "Esse grupo faz parte de um NP.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=72",
+    "campus": "Geral",
+    "categoria": "administracao",
+    "relacionados": [
+      "cepe"
+    ]
+  },
+  {
+    "id": "ntaai",
+    "termo": "NTAAI",
+    "tipo": "sigla",
+    "significado": "Núcleo de Tecnologia Assistiva, Acessibilidade e Inovação",
+    "definicao": "Núcleo de pesquisa da UnB que reúne times para promover conhecimento e inovação em tecnologia assistiva no Brasil, com resultados em produtos e serviços.",
+    "exemplo_uso": "Esse recurso assistivo foi testado no NTAAI.",
+    "fonte": "https://fcts.unb.br/ntaai/",
+    "campus": "Geral",
+    "categoria": "administracao"
+  },
+  {
+    "id": "nupitec",
+    "termo": "NUPITEC",
+    "tipo": "sigla",
+    "significado": "Núcleo de Proteção Intelectual",
+    "definicao": "Núcleo que faz a gestão e a manutenção da propriedade intelectual da UnB, dentro do CDT.",
+    "exemplo_uso": "Para registrar a patente, procurei o NUPITEC.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=74",
+    "campus": "Geral",
+    "categoria": "administracao",
+    "relacionados": [
+      "cdt"
+    ]
+  },
+  {
+    "id": "omp",
+    "termo": "OMP",
+    "tipo": "sigla",
+    "significado": "Open Monograph Press",
+    "definicao": "Sistema implementado pela Editora UnB nos processos de submissão e trâmite de originais de livros.",
+    "exemplo_uso": "O original do livro foi enviado pelo OMP.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=97",
+    "campus": "Geral",
+    "categoria": "sistemas"
+  },
+  {
+    "id": "pac",
+    "termo": "PAC",
+    "tipo": "sigla",
+    "significado": "Programa Anual de Capacitação",
+    "definicao": "Programa divulgado todo ano com os cursos de capacitação oferecidos aos servidores técnico-administrativos.",
+    "exemplo_uso": "Esse curso de capacitação está no PAC.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=166",
+    "campus": "Geral",
+    "categoria": "administracao"
+  },
+  {
+    "id": "padiv",
+    "termo": "PADiv",
+    "tipo": "sigla",
+    "significado": "Programa de Atenção à Diversidade",
+    "definicao": "Programa que busca reduzir a vulnerabilidade socioeconômica e possibilitar a permanência e a diplomação de estudantes de graduação de grupos socialmente vulneráveis.",
+    "exemplo_uso": "Procurei saber se posso entrar no PADiv.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=106",
+    "campus": "Geral",
+    "categoria": "assistencia-estudantil"
+  },
+  {
+    "id": "paes",
+    "termo": "Paes",
+    "tipo": "sigla",
+    "significado": "Política de Assistência Estudantil da UnB",
+    "definicao": "Política de assistência estudantil da UnB, aprovada em 2023 pelo CAD, para garantir o acesso, a permanência e a conclusão de curso dos estudantes.",
+    "exemplo_uso": "Esse auxílio faz parte da Paes.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=77",
+    "campus": "Geral",
+    "categoria": "assistencia-estudantil",
+    "relacionados": [
+      "cad"
+    ]
+  },
+  {
+    "id": "paint",
+    "termo": "PAINT",
+    "tipo": "sigla",
+    "significado": "Plano Anual de Auditoria Interna",
+    "definicao": "Plano com as atividades que a Auditoria Interna da UnB vai realizar no ano. Precisa da aprovação do Conselho de Administração (CAD).",
+    "exemplo_uso": "As ações da auditoria estão no PAINT.",
+    "fonte": "https://auditoria.unb.br/noticias/211-reuniao-do-conselho-de-administracao-da-unb-aprova-o-plano-anual-de-auditoria-interna-para-2024",
+    "campus": "Geral",
+    "categoria": "administracao",
+    "relacionados": [
+      "aud"
+    ]
+  },
+  {
+    "id": "pca",
+    "termo": "PCA",
+    "tipo": "sigla",
+    "significado": "Plano de Contratações Anual",
+    "definicao": "Documento anual com as prioridades de contratação, aquisição, expansão e atualização da infraestrutura tecnológica da UnB.",
+    "exemplo_uso": "Essa compra de equipamentos está no PCA.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=130",
+    "campus": "Geral",
+    "categoria": "administracao"
+  },
+  {
+    "id": "pcctae",
+    "termo": "PCCTAE",
+    "tipo": "sigla",
+    "significado": "Plano de Carreira dos Cargos Técnico-Administrativos em Educação",
+    "definicao": "Plano de carreira dos técnico-administrativos em educação, instituído pela Lei nº 11.091/2005.",
+    "exemplo_uso": "A carreira dos técnicos segue o PCCTAE.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=165",
+    "campus": "Geral",
+    "categoria": "administracao"
+  },
+  {
+    "id": "pcd",
+    "termo": "PcD",
+    "tipo": "sigla",
+    "significado": "Pessoa com Deficiência",
+    "definicao": "Pessoa com impedimento de longo prazo de natureza física, mental, intelectual ou sensorial que, em interação com barreiras, pode ter obstruída sua participação plena na sociedade.",
+    "exemplo_uso": "Essa vaga é reservada para PcD.",
+    "fonte": "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13146.htm",
+    "campus": "Geral",
+    "categoria": "vida-academica"
+  },
+  {
+    "id": "pcom",
+    "termo": "PCOM",
+    "tipo": "sigla",
+    "significado": "Coordenadoria de Planejamento e Comunicação da BCE",
+    "definicao": "Coordenadoria da Biblioteca Central (BCE) que coordena o planejamento do Sistema de Bibliotecas da UnB e a comunicação institucional da BCE.",
+    "exemplo_uso": "Esse aviso da biblioteca é da PCOM.",
+    "fonte": "https://repositorioadm.unb.br/wp-content/uploads/tainacan-items/12644/12763/Regimento-Interno-da-BCE_UnB-2022.pdf#page=10",
+    "campus": "Geral",
+    "categoria": "administracao",
+    "relacionados": [
+      "bce"
+    ]
+  },
+  {
+    "id": "pda",
+    "termo": "PDA",
+    "tipo": "sigla",
+    "significado": "Plano de Dados Abertos",
+    "definicao": "Plano que promove a abertura dos dados da UnB, com publicidade e transparência.",
+    "exemplo_uso": "Esses dados estão previstos no PDA.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=178",
+    "campus": "Geral",
+    "categoria": "administracao"
+  },
+  {
+    "id": "pdp",
+    "termo": "PDP",
+    "tipo": "sigla",
+    "significado": "Plano de Desenvolvimento de Pessoas",
+    "definicao": "Plano da UnB com as necessidades de desenvolvimento de pessoas a atender no ano por meio de capacitação.",
+    "exemplo_uso": "Essa capacitação foi prevista no PDP.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=166",
+    "campus": "Geral",
+    "categoria": "administracao"
+  },
+  {
+    "id": "pdtic",
+    "termo": "PDTIC",
+    "tipo": "sigla",
+    "significado": "Plano Diretor de Tecnologia da Informação e Comunicação",
+    "definicao": "Plano que alinha os objetivos da UnB às metas dos serviços de tecnologia da informação.",
+    "exemplo_uso": "Essa melhoria de TI está no PDTIC.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=178",
+    "campus": "Geral",
+    "categoria": "administracao"
+  },
+  {
+    "id": "pdi",
+    "termo": "PDI",
+    "tipo": "sigla",
+    "significado": "Plano de Desenvolvimento Institucional",
+    "definicao": "Documento obrigatório para as instituições de ensino superior. O da UnB, para 2023 a 2028, reúne as metas e as iniciativas estratégicas da universidade.",
+    "exemplo_uso": "Essa meta está no PDI da UnB.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=13",
+    "campus": "Geral",
+    "categoria": "administracao"
+  },
+  {
+    "id": "peac",
+    "termo": "Peac",
+    "tipo": "sigla",
+    "significado": "Projeto de Extensão de Ação Contínua",
+    "definicao": "Projeto de extensão de ação contínua, com participação de estudantes da UnB.",
+    "exemplo_uso": "Participo de um Peac neste semestre.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=69",
+    "campus": "Geral",
+    "categoria": "vida-academica"
+  },
+  {
+    "id": "pecg",
+    "termo": "PEC-G",
+    "tipo": "sigla",
+    "significado": "Programa de Estudantes Convênio de Graduação",
+    "definicao": "Programa do governo federal que oferece graduação a cidadãos de países em desenvolvimento com os quais o Brasil tem acordos educacionais e culturais.",
+    "exemplo_uso": "Minha colega entrou na UnB pelo PEC-G.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=102",
+    "campus": "Geral",
+    "categoria": "vida-academica"
+  },
+  {
+    "id": "pet",
+    "termo": "PET",
+    "tipo": "sigla",
+    "significado": "Programa de Educação Tutorial",
+    "definicao": "Programa que envolve os estudantes numa formação integral, com uma compreensão ampla e aprofundada da sua área de estudos.",
+    "exemplo_uso": "Entrei no PET do meu curso.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=80",
+    "campus": "Geral",
+    "categoria": "vida-academica"
+  },
+  {
+    "id": "pgd",
+    "termo": "PGD",
+    "tipo": "sigla",
+    "significado": "Programa de Gestão de Desempenho",
+    "definicao": "Programa de gestão de desempenho, autorizado na UnB pela Portaria MEC nº 267/2021.",
+    "exemplo_uso": "Esse setor trabalha pelo PGD.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=168",
+    "campus": "Geral",
+    "categoria": "administracao",
+    "relacionados": [
+      "mec"
+    ]
+  },
+  {
+    "id": "pgtic",
+    "termo": "PGTIC",
+    "tipo": "sigla",
+    "significado": "Política de Governança de Tecnologia de Informação e Comunicação",
+    "definicao": "Política da UnB que promove o uso eficaz da tecnologia da informação e alinha sua gestão às estratégias da universidade.",
+    "exemplo_uso": "Essa regra de TI vem da PGTIC.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=126",
+    "campus": "Geral",
+    "categoria": "administracao"
+  },
+  {
+    "id": "pibic",
+    "termo": "PIBIC",
+    "tipo": "sigla",
+    "significado": "Programa Institucional de Bolsas de Iniciação Científica",
+    "definicao": "Programa de bolsas de iniciação científica, um dos editais de iniciação científica da UnB para estudantes de graduação.",
+    "exemplo_uso": "Vou me inscrever no PIBIC.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=51",
+    "campus": "Geral",
+    "categoria": "vida-academica"
+  },
+  {
+    "id": "pibicaf",
+    "termo": "PIBIC-AF",
+    "tipo": "sigla",
+    "significado": "Programa Institucional de Bolsas de Iniciação Científica Ações Afirmativas",
+    "definicao": "Edital de iniciação científica da UnB voltado às ações afirmativas.",
+    "exemplo_uso": "Vou me inscrever no PIBIC-AF.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=51",
+    "campus": "Geral",
+    "categoria": "vida-academica"
+  },
+  {
+    "id": "pibicem",
+    "termo": "PIBIC-EM",
+    "tipo": "sigla",
+    "significado": "Programa Institucional de Bolsas de Iniciação Científica Ensino Médio",
+    "definicao": "Edital de iniciação científica da UnB voltado ao ensino médio.",
+    "exemplo_uso": "Uma estudante da escola entrou no PIBIC-EM.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=51",
+    "campus": "Geral",
+    "categoria": "vida-academica"
+  },
+  {
+    "id": "pibex",
+    "termo": "Pibex",
+    "tipo": "sigla",
+    "significado": "Programa Institucional de Bolsas de Extensão",
+    "definicao": "Programa do Decanato de Extensão (DEX) que seleciona ações de extensão e oferece bolsas a estudantes.",
+    "exemplo_uso": "Consegui uma bolsa do Pibex.",
+    "fonte": "https://noticias.unb.br/extensao/7841-decanato-de-extensao-lanca-edital-pibex-2025",
+    "campus": "Geral",
+    "categoria": "vida-academica"
+  },
+  {
+    "id": "pibiti",
+    "termo": "PIBITI",
+    "tipo": "sigla",
+    "significado": "Programa Institucional de Bolsas de Iniciação em Desenvolvimento Tecnológico e Inovação",
+    "definicao": "Edital de iniciação científica da UnB em desenvolvimento tecnológico e inovação.",
+    "exemplo_uso": "Meu projeto de tecnologia foi para o PIBITI.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=51",
+    "campus": "Geral",
+    "categoria": "vida-academica"
+  },
+  {
+    "id": "pls",
+    "termo": "PLS",
+    "tipo": "sigla",
+    "significado": "Plano de Logística Sustentável",
+    "definicao": "Plano da UnB com ações estratégicas de sustentabilidade e de racionalização de gastos.",
+    "exemplo_uso": "Essa ação de economia de água está no PLS.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=132",
+    "campus": "Geral",
+    "categoria": "administracao"
+  },
+  {
+    "id": "pnaes",
+    "termo": "PNAES",
+    "tipo": "sigla",
+    "significado": "Programa Nacional de Assistência Estudantil",
+    "definicao": "Política do MEC que apoia a permanência de estudantes de baixa renda nos cursos de graduação presencial das instituições federais.",
+    "exemplo_uso": "Esse auxílio tem relação com o PNAES.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=76",
+    "campus": "Geral",
+    "categoria": "assistencia-estudantil",
+    "relacionados": [
+      "mec"
+    ]
+  },
+  {
+    "id": "pne",
+    "termo": "PNE",
+    "tipo": "sigla",
+    "significado": "Plano Nacional de Educação",
+    "definicao": "Plano nacional, definido pela Lei nº 13.005/2014, com políticas e metas para a educação, que orienta o PDI da UnB.",
+    "exemplo_uso": "Essa meta da UnB se relaciona com o PNE.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=23",
+    "campus": "Geral",
+    "categoria": "administracao",
+    "relacionados": [
+      "pdi"
+    ]
+  },
+  {
+    "id": "posic",
+    "termo": "PoSIC",
+    "tipo": "sigla",
+    "significado": "Política de Segurança da Informação e Comunicações",
+    "definicao": "Política de segurança da informação e comunicações da UnB, instituída por resolução da CPLAD.",
+    "exemplo_uso": "Essa regra de senha vem da PoSIC.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=126",
+    "campus": "Geral",
+    "categoria": "administracao",
+    "relacionados": [
+      "cplad"
+    ]
+  },
+  {
+    "id": "ppc",
+    "termo": "PPC",
+    "tipo": "sigla",
+    "significado": "Projeto Pedagógico do Curso",
+    "definicao": "Documento que orienta o currículo de um curso para o perfil de profissional desejado e define como ensinar, aprender e avaliar.",
+    "exemplo_uso": "A grade está descrita no PPC do curso.",
+    "fonte": "https://deg.unb.br/faq_ppc/",
+    "campus": "Geral",
+    "categoria": "vida-academica"
+  },
+  {
+    "id": "ppgs",
+    "termo": "PPGs",
+    "tipo": "sigla",
+    "significado": "Programas de Pós-Graduação",
+    "definicao": "Programas de pós-graduação da UnB, como os de mestrado e doutorado.",
+    "exemplo_uso": "Vários PPGs abriram seleção.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=144",
+    "campus": "Geral",
+    "categoria": "vida-academica"
+  },
+  {
+    "id": "libras",
+    "termo": "Libras",
+    "tipo": "sigla",
+    "significado": "Língua Brasileira de Sinais",
+    "definicao": "Língua Brasileira de Sinais. Na UnB, há licenciatura na área, com vestibular próprio.",
+    "exemplo_uso": "Vou fazer uma disciplina de Libras.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=162",
+    "campus": "Geral",
+    "categoria": "vida-academica"
+  },
+  {
+    "id": "pas",
+    "termo": "PAS",
+    "tipo": "sigla",
+    "significado": "Programa de Avaliação Seriada",
+    "definicao": "Programa de avaliação seriada, forma de ingresso na UnB aprovada em 1995, somando-se ao vestibular tradicional.",
+    "exemplo_uso": "Entrei na UnB pelo PAS.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=19",
+    "campus": "Geral",
+    "categoria": "vida-academica"
+  },
+  {
+    "id": "ppi",
+    "termo": "PPI",
+    "tipo": "sigla",
+    "significado": "Pretos, Pardos ou Indígenas",
+    "definicao": "Sigla para pretos, pardos ou indígenas, usada, por exemplo, nas categorias de cota.",
+    "exemplo_uso": "Essa vaga é da cota PPI.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=39",
+    "campus": "Geral",
+    "categoria": "vida-academica"
+  },
+  {
+    "id": "pppi",
+    "termo": "PPPI",
+    "tipo": "sigla",
+    "significado": "Projeto Político Pedagógico Institucional",
+    "definicao": "Documento que orienta a política acadêmica da UnB, com os princípios do currículo e as diretrizes de ensino.",
+    "exemplo_uso": "Essa diretriz de ensino vem do PPPI.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=44",
+    "campus": "Geral",
+    "categoria": "vida-academica"
+  },
+  {
+    "id": "prc",
+    "termo": "PRC",
+    "tipo": "sigla",
+    "significado": "Prefeitura da UnB",
+    "definicao": "Prefeitura da UnB, uma das unidades que coordenam a gestão e o desenvolvimento da infraestrutura da universidade.",
+    "exemplo_uso": "Esse problema no prédio é com a PRC.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=119",
+    "campus": "Geral",
+    "categoria": "administracao"
+  },
+  {
+    "id": "print",
+    "termo": "PrInt",
+    "tipo": "sigla",
+    "significado": "Programa de Internacionalização",
+    "definicao": "Programa de internacionalização da UnB com a CAPES.",
+    "exemplo_uso": "Esse edital de intercâmbio é do PrInt.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=51",
+    "campus": "Geral",
+    "categoria": "administracao",
+    "relacionados": [
+      "capes"
+    ]
+  },
+  {
+    "id": "proafri",
+    "termo": "Pro-Afri",
+    "tipo": "sigla",
+    "significado": "Programa de Formação de Professores de Educação Superior de Países Africanos",
+    "definicao": "Programa do GCUB para a formação de professores de educação superior de países africanos.",
+    "exemplo_uso": "A UnB aderiu ao edital do Pro-Afri.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=104",
+    "campus": "Geral",
+    "categoria": "administracao",
+    "relacionados": [
+      "gcub"
+    ]
+  },
+  {
+    "id": "procap",
+    "termo": "PROCAP",
+    "tipo": "sigla",
+    "significado": "Coordenadoria de Capacitação",
+    "definicao": "Coordenadoria do DGP que oferece ações de capacitação aos servidores técnico-administrativos e aos docentes.",
+    "exemplo_uso": "Esse curso para servidores é da PROCAP.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=166",
+    "campus": "Geral",
+    "categoria": "administracao",
+    "relacionados": [
+      "dgp"
+    ]
+  },
+  {
+    "id": "proic",
+    "termo": "PROIC",
+    "tipo": "sigla",
+    "significado": "Programa de Iniciação Científica",
+    "definicao": "Programa que oferece bolsas todo ano, por edital, para despertar a vocação científica de estudantes de graduação em projetos de pesquisa.",
+    "exemplo_uso": "Vou tentar uma bolsa do PROIC.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=51",
+    "campus": "Geral",
+    "categoria": "vida-academica"
+  },
+  {
+    "id": "profnit",
+    "termo": "PROFNIT",
+    "tipo": "sigla",
+    "significado": "Programa de Pós-Graduação em Propriedade Intelectual e Transferência de Tecnologia para a Inovação",
+    "definicao": "Rede nacional de pós-graduação em propriedade intelectual e transferência de tecnologia para a inovação, com participação da UnB.",
+    "exemplo_uso": "Quero fazer mestrado no PROFNIT.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=75",
+    "campus": "Geral",
+    "categoria": "vida-academica"
+  },
+  {
+    "id": "promisaes",
+    "termo": "PROMISAES",
+    "tipo": "sigla",
+    "significado": "Projeto Milton Santos de Acesso ao Ensino Superior",
+    "definicao": "Projeto do MEC que oferece auxílio financeiro a estudantes que entraram pelo PEC-G.",
+    "exemplo_uso": "Meu colega do PEC-G recebe o PROMISAES.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=102",
+    "campus": "Geral",
+    "categoria": "assistencia-estudantil",
+    "relacionados": [
+      "mec",
+      "pecg"
+    ]
+  },
+  {
+    "id": "pta",
+    "termo": "PTA",
+    "tipo": "sigla",
+    "significado": "Programa de Tutoria para Acessibilidade",
+    "definicao": "Programa de tutoria que busca eliminar barreiras à aprendizagem e à participação dos estudantes na vida universitária.",
+    "exemplo_uso": "Pedi um tutor pelo PTA.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=112",
+    "campus": "Geral",
+    "categoria": "assistencia-estudantil"
+  },
+  {
+    "id": "raai",
+    "termo": "RAAI",
+    "tipo": "sigla",
+    "significado": "Relatório de Autoavaliação Institucional",
+    "definicao": "Relatório elaborado pela CPA que consolida a autoavaliação da UnB.",
+    "exemplo_uso": "Esse dado está no RAAI.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=140",
+    "campus": "Geral",
+    "categoria": "administracao",
+    "relacionados": [
+      "cpa"
+    ]
+  },
+  {
+    "id": "raint",
+    "termo": "RAINT",
+    "tipo": "sigla",
+    "significado": "Relatório Anual de Auditoria Interna",
+    "definicao": "Relatório em que a Auditoria Interna da UnB presta contas das atividades do ano anterior, comunicado ao Conselho de Administração (CAD).",
+    "exemplo_uso": "O resultado da auditoria está no RAINT.",
+    "fonte": "https://auditoria.unb.br/noticias/211-reuniao-do-conselho-de-administracao-da-unb-aprova-o-plano-anual-de-auditoria-interna-para-2024",
+    "campus": "Geral",
+    "categoria": "administracao",
+    "relacionados": [
+      "aud"
+    ]
+  },
+  {
+    "id": "rea",
+    "termo": "REA",
+    "tipo": "sigla",
+    "significado": "Recursos Educacionais Abertos",
+    "definicao": "Recursos educacionais abertos. Na UnB, o CEAD orienta o uso de licenças Creative Commons para reutilizar e disponibilizar materiais digitais.",
+    "exemplo_uso": "Esse material da disciplina é um REA.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=56",
+    "campus": "Geral",
+    "categoria": "vida-academica",
+    "relacionados": [
+      "cead"
+    ]
+  },
+  {
+    "id": "repe",
+    "termo": "REPE",
+    "tipo": "sigla",
+    "significado": "Rede de Polos de Extensão",
+    "definicao": "Programa estratégico de extensão gerido pelo DEX, com polos da UnB no DF e Entorno.",
+    "exemplo_uso": "Nosso projeto de extensão atua num polo da REPE.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=68",
+    "campus": "Geral",
+    "categoria": "administracao",
+    "relacionados": [
+      "dex"
+    ]
+  },
+  {
+    "id": "ri",
+    "termo": "RI",
+    "tipo": "sigla",
+    "significado": "Representantes de Internacionalização",
+    "definicao": "Representantes em cada unidade acadêmica que ajudam a descentralizar as iniciativas de internacionalização e a divulgar informações da área.",
+    "exemplo_uso": "Procurei o RI da minha faculdade.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=104",
+    "campus": "Geral",
+    "categoria": "administracao"
+  },
+  {
+    "id": "riu",
+    "termo": "RIU",
+    "tipo": "sigla",
+    "significado": "Rotas de Inovação Universitária",
+    "definicao": "Projeto que estimula a formação de docentes e da comunidade acadêmica para criar diferentes desenhos pedagógicos.",
+    "exemplo_uso": "A professora fez uma formação do RIU.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=56",
+    "campus": "Geral",
+    "categoria": "vida-academica"
+  },
+  {
+    "id": "riunb",
+    "termo": "RIUnB",
+    "tipo": "sigla",
+    "significado": "Repositório Institucional",
+    "definicao": "Acervo digital da UnB com teses, dissertações, artigos, livros e trabalhos de congressos de docentes e discentes.",
+    "exemplo_uso": "Achei esse artigo no RIUnB.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=87",
+    "campus": "Geral",
+    "categoria": "sistemas"
+  },
+  {
+    "id": "rnp",
+    "termo": "RNP",
+    "tipo": "sigla",
+    "significado": "Rede Nacional de Ensino e Pesquisa",
+    "definicao": "Rede nacional de ensino e pesquisa, parceira do MEC na oferta de acesso à internet a estudantes da assistência estudantil.",
+    "exemplo_uso": "Esse auxílio de internet tem parceria com a RNP.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=79",
+    "campus": "Geral",
+    "categoria": "administracao",
+    "relacionados": [
+      "mec"
+    ]
+  },
+  {
+    "id": "saunb",
+    "termo": "SAUnB",
+    "tipo": "sigla",
+    "significado": "Sistema de Arquivos UnB",
+    "definicao": "Sistema de arquivos da UnB, coordenado pelo Arquivo Central (ACE).",
+    "exemplo_uso": "Esse documento faz parte do SAUnB.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=184",
+    "campus": "Geral",
+    "categoria": "administracao",
+    "relacionados": [
+      "ace"
+    ]
+  },
+  {
+    "id": "sinaes",
+    "termo": "Sinaes",
+    "tipo": "sigla",
+    "significado": "Sistema Nacional de Avaliação da Educação Superior",
+    "definicao": "Sistema nacional de avaliação externa da educação superior.",
+    "exemplo_uso": "O Enade faz parte do Sinaes.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=142",
+    "campus": "Geral",
+    "categoria": "vida-academica"
+  },
+  {
+    "id": "sibunb",
+    "termo": "SIB-UnB",
+    "tipo": "sigla",
+    "significado": "Sistema de Bibliotecas da UnB",
+    "definicao": "Sistema formado pela Biblioteca Central e pelas bibliotecas setoriais da UnB.",
+    "exemplo_uso": "A biblioteca do meu campus faz parte do SIB-UnB.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=85",
+    "campus": "Geral",
+    "categoria": "locais-campus",
+    "relacionados": [
+      "bce"
+    ]
+  },
+  {
+    "id": "sic",
+    "termo": "SIC",
+    "tipo": "sigla",
+    "significado": "Serviço de Informação ao Cidadão",
+    "definicao": "Serviço que garante o acesso às informações públicas da UnB, conforme a Lei de Acesso à Informação.",
+    "exemplo_uso": "Pedi esse dado público pelo SIC.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=178",
+    "campus": "Geral",
+    "categoria": "administracao"
+  },
+  {
+    "id": "sigrh",
+    "termo": "SIGRH",
+    "tipo": "sigla",
+    "significado": "Sistema Integrado de Gestão de Recursos Humanos",
+    "definicao": "Sistema de gestão de recursos humanos da UnB, um dos Sistemas Integrados de Gestão.",
+    "exemplo_uso": "Os dados do servidor ficam no SIGRH.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=128",
+    "campus": "Geral",
+    "categoria": "sistemas"
+  },
+  {
+    "id": "sigunb",
+    "termo": "SIG-UnB",
+    "tipo": "sigla",
+    "significado": "Sistemas Integrados de Gestão da UnB",
+    "definicao": "Conjunto de sistemas integrados de gestão da UnB, como o SIGAA, o SIPAC e o SIGRH.",
+    "exemplo_uso": "O SIGAA faz parte do SIG-UnB.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=128",
+    "campus": "Geral",
+    "categoria": "sistemas",
+    "relacionados": [
+      "sigaa",
+      "sigrh",
+      "sipac"
+    ]
+  },
+  {
+    "id": "sipac",
+    "termo": "SIPAC",
+    "tipo": "sigla",
+    "significado": "Sistema Integrado de Gestão de Patrimônio, Administração e Contratos",
+    "definicao": "Sistema da UnB para patrimônio, administração e contratos, um dos Sistemas Integrados de Gestão.",
+    "exemplo_uso": "Esse pedido administrativo tramita no SIPAC.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=128",
+    "campus": "Geral",
+    "categoria": "sistemas"
+  },
+  {
+    "id": "ued",
+    "termo": "UED",
+    "tipo": "sigla",
+    "significado": "Unidade de Ensino e Docência",
+    "definicao": "Unidade de Ensino e Docência, tipo de prédio da UnB, como a UED do ICS e a do IPOL/IREL.",
+    "exemplo_uso": "Minha aula de hoje é na UED.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=124",
+    "campus": "Geral",
+    "categoria": "locais-campus",
+    "relacionados": [
+      "ipol",
+      "ics",
+      "irel"
+    ]
+  },
+  {
+    "id": "uleg",
+    "termo": "ULEG",
+    "tipo": "sigla",
+    "significado": "Unidade de Laboratórios de Ensino de Graduação",
+    "definicao": "Espaço de laboratórios dedicado às práticas de ensino da graduação. Na UnB, há unidades na Faculdade de Tecnologia, na de Ciências da Saúde e na de Medicina.",
+    "exemplo_uso": "Minha aula de laboratório é na ULEG.",
+    "fonte": "https://fm.unb.br/",
+    "campus": "Geral",
+    "categoria": "locais-campus",
+    "relacionados": [
+      "fs",
+      "ft"
+    ]
+  },
+  {
+    "id": "unb",
+    "termo": "UnB",
+    "tipo": "sigla",
+    "significado": "Universidade de Brasília",
+    "definicao": "Universidade de Brasília, formada por quatro campi: Darcy Ribeiro, Planaltina, Ceilândia e Gama.",
+    "exemplo_uso": "Passei na UnB este semestre.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=119",
+    "campus": "Geral",
+    "categoria": "unidades-academicas"
+  },
+  {
+    "id": "unbae",
+    "termo": "UnB-AE",
+    "tipo": "sigla",
+    "significado": "Associação Esportiva Estudantil da UnB",
+    "definicao": "Associação esportiva estudantil da UnB, que representa a universidade no esporte universitário e organiza os Jogos Internos (JIUnBs).",
+    "exemplo_uso": "Meu clube é registrado na UnB-AE.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=136",
+    "campus": "Geral",
+    "categoria": "representacao-estudantil",
+    "relacionados": [
+      "jiunbs"
+    ]
+  },
+  {
+    "id": "uniser",
+    "termo": "UniSER",
+    "tipo": "sigla",
+    "significado": "Universidade do Envelhecer",
+    "definicao": "Programa de extensão da UnB com ações educativas e integrativas para ampliar as capacidades e habilidades de pessoas idosas.",
+    "exemplo_uso": "Minha avó participa da UniSER.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=108",
+    "campus": "Geral",
+    "categoria": "vida-academica"
+  },
+  {
+    "id": "ups",
+    "termo": "UPS",
+    "tipo": "sigla",
+    "significado": "Universidade Promotora de Saúde",
+    "definicao": "Princípios de promoção da saúde que a DASU busca aplicar na UnB, com parcerias e trabalho em rede.",
+    "exemplo_uso": "Essa ação da DASU segue a ideia de UPS.",
+    "fonte": "https://noticias.unb.br/artigos-main/5478-fortalecimento-de-redes-caminho-para-uma-universidade-promotora-da-saude",
+    "campus": "Geral",
+    "categoria": "vida-academica",
+    "relacionados": [
+      "dasu"
+    ]
+  },
+  {
+    "id": "vrt",
+    "termo": "VRT",
+    "tipo": "sigla",
+    "significado": "Vice-Reitoria",
+    "definicao": "Vice-Reitoria da UnB, que integra as áreas de apoio ao desenvolvimento institucional.",
+    "exemplo_uso": "Esse recurso foi encaminhado à VRT.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=180",
+    "campus": "Geral",
+    "categoria": "administracao"
+  },
+  {
+    "id": "pq",
+    "termo": "PQ",
+    "tipo": "sigla",
+    "significado": "Produtividade em pesquisa",
+    "definicao": "Categoria de pesquisadores de produtividade em pesquisa do CNPq.",
+    "exemplo_uso": "Minha orientadora é pesquisadora PQ.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=64",
+    "campus": "Geral",
+    "categoria": "vida-academica",
+    "relacionados": [
+      "cnpq"
+    ]
+  },
+  {
+    "id": "qrstae",
+    "termo": "QRSTAE",
+    "tipo": "sigla",
+    "significado": "Quadro de Referência do Servidor Técnico-Administrativo em Educação",
+    "definicao": "Quadro do governo federal que define quantos cargos técnico-administrativos em educação a instituição pode manter.",
+    "exemplo_uso": "O número de vagas de técnicos depende do QRSTAE.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=165",
+    "campus": "Geral",
+    "categoria": "administracao"
+  },
+  {
+    "id": "ritu",
+    "termo": "RITU",
+    "tipo": "sigla",
+    "significado": "Rede de Intercâmbio de Televisão Universitária",
+    "definicao": "Rede de televisões universitárias com a qual a UnBTV compartilha a programação.",
+    "exemplo_uso": "Esse programa da UnBTV passa também na RITU.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=175",
+    "campus": "Geral",
+    "categoria": "administracao",
+    "relacionados": [
+      "unbtv"
+    ]
+  },
+  {
+    "id": "sei",
+    "termo": "SEI",
+    "tipo": "sigla",
+    "significado": "Sistema Eletrônico de Informações",
+    "definicao": "Sistema de tramitação digital de documentos. Por ele, o estudante pode pedir atendimento à SAA sem ir até o local.",
+    "exemplo_uso": "Abri meu pedido para a SAA pelo SEI.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=98",
+    "campus": "Geral",
+    "categoria": "sistemas",
+    "relacionados": [
+      "saa"
+    ]
+  },
+  {
+    "id": "serex",
+    "termo": "SEREX",
+    "tipo": "sigla",
+    "significado": "Seminário Regional de Extensão Universitária da Região Centro-Oeste",
+    "definicao": "Seminário que promove o debate sobre as práticas de extensão universitária entre as instituições públicas e privadas do Centro-Oeste.",
+    "exemplo_uso": "Nosso projeto de extensão foi selecionado para o SEREX.",
+    "fonte": "https://noticias.unb.br/112-extensao-e-comunidade/5936-unb-publica-edital-do-xiii-seminario-de-extensao-universitaria-do-centro-oeste",
+    "campus": "Geral",
+    "categoria": "vida-academica"
+  },
+  {
+    "id": "sigeleicao",
+    "termo": "SIGEleição",
+    "tipo": "sigla",
+    "significado": "Controle de Processos Eleitorais",
+    "definicao": "Sistema de controle de processos eleitorais, um dos Sistemas Integrados de Gestão da UnB.",
+    "exemplo_uso": "A votação do conselho foi pelo SIGEleição.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=128",
+    "campus": "Geral",
+    "categoria": "sistemas",
+    "relacionados": [
+      "sigunb"
+    ]
+  },
+  {
+    "id": "uab",
+    "termo": "UAB",
+    "tipo": "sigla",
+    "significado": "Universidade Aberta do Brasil",
+    "definicao": "Sistema criado em 2006 para expandir a oferta de cursos superiores a distância pelo país.",
+    "exemplo_uso": "Minha prima faz um curso da UAB na UnB.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=57",
+    "campus": "Geral",
+    "categoria": "vida-academica"
+  },
+  {
+    "id": "uep",
+    "termo": "UEP",
+    "tipo": "sigla",
+    "significado": "Unidade de Ensino e Pesquisa",
+    "definicao": "Unidade de Ensino e Pesquisa, prédio da faculdade da UnB em Ceilândia.",
+    "exemplo_uso": "Minha aula de hoje é na UEP.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=124",
+    "campus": "Ceilândia",
+    "categoria": "locais-campus"
+  },
+  {
+    "id": "prolac",
+    "termo": "Pro-LAC",
+    "tipo": "sigla",
+    "significado": "Programa de Formação de Professores de Educação Superior para a América Latina e o Caribe",
+    "definicao": "Programa do GCUB para a formação de professores de educação superior da América Latina e do Caribe.",
+    "exemplo_uso": "A UnB aderiu ao edital do Pro-LAC.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=104",
+    "campus": "Geral",
+    "categoria": "administracao",
+    "relacionados": [
+      "gcub"
+    ]
+  },
+  {
+    "id": "semuni",
+    "termo": "Semuni",
+    "tipo": "sigla",
+    "significado": "Semana Universitária da UnB",
+    "definicao": "Programa anual organizado pelo Decanato de Extensão (DEX), com atividades de extensão, pesquisa, ensino e inovação propostas pelas unidades da UnB.",
+    "exemplo_uso": "Vou apresentar meu projeto na Semuni.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=68",
+    "campus": "Geral",
+    "categoria": "vida-academica",
+    "relacionados": [
+      "dex"
+    ]
+  },
+  {
+    "id": "cpl",
+    "termo": "CPL",
+    "tipo": "sigla",
+    "significado": "Chemical Propulsion Laboratory",
+    "definicao": "Laboratório de propulsão química da FCTE, no campus Gama, da área de Engenharia Aeroespacial. Fica no contêiner 07.",
+    "exemplo_uso": "Fui conhecer os projetos do CPL.",
+    "fonte": "https://fcte.unb.br/homologa_laboratorios/",
+    "campus": "Gama",
+    "categoria": "locais-campus"
+  },
+  {
+    "id": "cosmos",
+    "termo": "COSMOS",
+    "tipo": "sigla",
+    "significado": "Computational Aerospace Simulations & Modeling Laboratory",
+    "definicao": "Laboratório de simulação e modelagem computacional aeroespacial da FCTE, no campus Gama, da área de Engenharia Aeroespacial. Fica no prédio LDTEA, 2º andar, sala 304.",
+    "exemplo_uso": "Fui conhecer os projetos do COSMOS.",
+    "fonte": "https://fcte.unb.br/homologa_laboratorios/",
+    "campus": "Gama",
+    "categoria": "locais-campus"
+  },
+  {
+    "id": "lema",
+    "termo": "LEMA",
+    "tipo": "sigla",
+    "significado": "Laboratório de Estruturas e Materiais Aeroespaciais",
+    "definicao": "Laboratório da FCTE, no campus Gama, da área de Engenharia Aeroespacial. Fica no prédio LDTEA, térreo, sala 103.",
+    "exemplo_uso": "Fui conhecer os projetos do LEMA.",
+    "fonte": "https://fcte.unb.br/homologa_laboratorios/",
+    "campus": "Gama",
+    "categoria": "locais-campus"
+  },
+  {
+    "id": "lase",
+    "termo": "LaSE",
+    "tipo": "sigla",
+    "significado": "Laboratório de Sistemas Espaciais",
+    "definicao": "Laboratório da FCTE, no campus Gama, da área de Engenharia Aeroespacial. Fica no prédio LDTEA, térreo, salas 104 e 108.",
+    "exemplo_uso": "Fui conhecer os projetos do LaSE.",
+    "fonte": "https://fcte.unb.br/homologa_laboratorios/",
+    "campus": "Gama",
+    "categoria": "locais-campus"
+  },
+  {
+    "id": "arc",
+    "termo": "ARC",
+    "tipo": "sigla",
+    "significado": "Automotive Research Center",
+    "definicao": "Centro de pesquisa automotiva da FCTE, no campus Gama, da área de Engenharia Automotiva. Fica no prédio LDTEA, térreo, sala 111.",
+    "exemplo_uso": "Fui conhecer os projetos do ARC.",
+    "fonte": "https://fcte.unb.br/homologa_laboratorios/",
+    "campus": "Gama",
+    "categoria": "locais-campus"
+  },
+  {
+    "id": "labnvh",
+    "termo": "LabNVH",
+    "tipo": "sigla",
+    "significado": "Laboratório de Acústica e Vibrações",
+    "definicao": "Laboratório da FCTE, no campus Gama, da área de Engenharia Automotiva. Fica no prédio LDTEA, térreo, sala 109.",
+    "exemplo_uso": "Fui conhecer os projetos do LabNVH.",
+    "fonte": "https://fcte.unb.br/homologa_laboratorios/",
+    "campus": "Gama",
+    "categoria": "locais-campus"
+  },
+  {
+    "id": "lacem",
+    "termo": "LACEM",
+    "tipo": "sigla",
+    "significado": "Laboratório de Crashworthiness e Ensaios Mecânicos Automotivos",
+    "definicao": "Laboratório da FCTE, no campus Gama, da área de Engenharia Automotiva. Fica no prédio LDTEA, térreo, sala 111.",
+    "exemplo_uso": "Fui conhecer os projetos do LACEM.",
+    "fonte": "https://fcte.unb.br/homologa_laboratorios/",
+    "campus": "Gama",
+    "categoria": "locais-campus"
+  },
+  {
+    "id": "lem",
+    "termo": "LEM",
+    "tipo": "sigla",
+    "significado": "Laboratório de Ensaio de Motores",
+    "definicao": "Laboratório da FCTE, no campus Gama, da área de Engenharia Automotiva. Fica no contêiner 03.",
+    "exemplo_uso": "Fui conhecer os projetos do LEM.",
+    "fonte": "https://fcte.unb.br/homologa_laboratorios/",
+    "campus": "Gama",
+    "categoria": "locais-campus"
+  },
+  {
+    "id": "gmec",
+    "termo": "GMEC",
+    "tipo": "sigla",
+    "significado": "Laboratório do Grupo de Mecânica Experimental e Computacional",
+    "definicao": "Laboratório da FCTE, no campus Gama, da área de Engenharia Automotiva. Fica no prédio LDTEA, térreo, sala 102.",
+    "exemplo_uso": "Fui conhecer os projetos do GMEC.",
+    "fonte": "https://fcte.unb.br/homologa_laboratorios/",
+    "campus": "Gama",
+    "categoria": "locais-campus"
+  },
+  {
+    "id": "sisco",
+    "termo": "SISCO",
+    "tipo": "sigla",
+    "significado": "Laboratório de Sistemas e Controle",
+    "definicao": "Laboratório da FCTE, no campus Gama, da área de Engenharia Automotiva. Fica no contêiner 14.",
+    "exemplo_uso": "Fui conhecer os projetos do SISCO.",
+    "fonte": "https://fcte.unb.br/homologa_laboratorios/",
+    "campus": "Gama",
+    "categoria": "locais-campus"
+  },
+  {
+    "id": "ltbio",
+    "termo": "LTBIO",
+    "tipo": "sigla",
+    "significado": "Laboratório de Tecnologia da Biomassa",
+    "definicao": "Laboratório da FCTE, no campus Gama, da área de Engenharia Automotiva. Fica no prédio LDTEA, sala 204 e antessala 111, e no prédio UED, térreo, sala AT-14/7.",
+    "exemplo_uso": "Fui conhecer os projetos do LTBIO.",
+    "fonte": "https://fcte.unb.br/homologa_laboratorios/",
+    "campus": "Gama",
+    "categoria": "locais-campus"
+  },
+  {
+    "id": "labnanotec",
+    "termo": "LabNanotec",
+    "tipo": "sigla",
+    "significado": "Laboratório Compartilhado de Ensino e Pesquisa em Nanotecnologia",
+    "definicao": "Laboratório da FCTE, no campus Gama, da área de Engenharia de Energia. Fica no prédio LDTEA, térreo, sala 101.",
+    "exemplo_uso": "Fui conhecer os projetos do LabNanotec.",
+    "fonte": "https://fcte.unb.br/homologa_laboratorios/",
+    "campus": "Gama",
+    "categoria": "locais-campus"
+  },
+  {
+    "id": "lea",
+    "termo": "LEA",
+    "tipo": "sigla",
+    "significado": "Laboratório de Eletricidade Aplicada",
+    "definicao": "Laboratório da FCTE, no campus Gama, da área de Engenharia de Energia. Fica no prédio UED, térreo, sala AT-46/7.",
+    "exemplo_uso": "Fui conhecer os projetos do LEA.",
+    "fonte": "https://fcte.unb.br/homologa_laboratorios/",
+    "campus": "Gama",
+    "categoria": "locais-campus"
+  },
+  {
+    "id": "labenso",
+    "termo": "LABENSO",
+    "tipo": "sigla",
+    "significado": "Laboratório de Energia, Ambiente e Sociedade",
+    "definicao": "Laboratório da FCTE, no campus Gama, da área de Engenharia de Energia. Fica no prédio LDTEA, 2º andar, sala 307.",
+    "exemplo_uso": "Fui conhecer os projetos do LABENSO.",
+    "fonte": "https://fcte.unb.br/homologa_laboratorios/",
+    "campus": "Gama",
+    "categoria": "locais-campus"
+  },
+  {
+    "id": "laprren",
+    "termo": "LAPRREn",
+    "tipo": "sigla",
+    "significado": "Laboratório de Pesquisa em Recursos Renováveis e Energéticos",
+    "definicao": "Laboratório da FCTE, no campus Gama, da área de Engenharia de Energia. Fica no prédio LDTEA, 1º andar, sala 203.",
+    "exemplo_uso": "Fui conhecer os projetos do LAPRREn.",
+    "fonte": "https://fcte.unb.br/homologa_laboratorios/",
+    "campus": "Gama",
+    "categoria": "locais-campus"
+  },
+  {
+    "id": "lasee",
+    "termo": "LASEE",
+    "tipo": "sigla",
+    "significado": "Laboratório de Sistemas de Energia Elétrica",
+    "definicao": "Laboratório da FCTE, no campus Gama, da área de Engenharia de Energia. Fica no prédio LDTEA, 1º andar, sala 206.",
+    "exemplo_uso": "Fui conhecer os projetos do LASEE.",
+    "fonte": "https://fcte.unb.br/homologa_laboratorios/",
+    "campus": "Gama",
+    "categoria": "locais-campus"
+  },
+  {
+    "id": "latame",
+    "termo": "LATAME",
+    "tipo": "sigla",
+    "significado": "Laboratório de Tecnologias Ambientais, Materiais e Energia",
+    "definicao": "Laboratório da FCTE, no campus Gama, da área de Engenharia de Energia. Fica no prédio LDTEA, 1º andar, sala 202.",
+    "exemplo_uso": "Fui conhecer os projetos do LATAME.",
+    "fonte": "https://fcte.unb.br/homologa_laboratorios/",
+    "campus": "Gama",
+    "categoria": "locais-campus"
+  },
+  {
+    "id": "labtermo",
+    "termo": "LabTermo",
+    "tipo": "sigla",
+    "significado": "Laboratório de Termofluidos",
+    "definicao": "Laboratório da FCTE, no campus Gama, da área de Engenharia de Energia. Fica no prédio UED, térreo, salas AT-36/25 e AT-10/36.",
+    "exemplo_uso": "Fui conhecer os projetos do LabTermo.",
+    "fonte": "https://fcte.unb.br/homologa_laboratorios/",
+    "campus": "Gama",
+    "categoria": "locais-campus"
+  },
+  {
+    "id": "lmpie",
+    "termo": "LMPIE",
+    "tipo": "sigla",
+    "significado": "Laboratório Multidisciplinar de Pesquisa e Inovação em Energia",
+    "definicao": "Laboratório da FCTE, no campus Gama, da área de Engenharia de Energia. Fica no prédio LDTEA, 1º andar, sala 206.",
+    "exemplo_uso": "Fui conhecer os projetos do LMPIE.",
+    "fonte": "https://fcte.unb.br/homologa_laboratorios/",
+    "campus": "Gama",
+    "categoria": "locais-campus"
+  },
+  {
+    "id": "cedis",
+    "termo": "CEDIS",
+    "tipo": "sigla",
+    "significado": "Centro de Estudos Desenvolvimento e Inovação em Software",
+    "definicao": "Centro de estudos, desenvolvimento e inovação em software da FCTE, no campus Gama, da área de Engenharia de Software. Fica no prédio LDTEA, 2º andar, sala 310.",
+    "exemplo_uso": "Fui conhecer os projetos do CEDIS.",
+    "fonte": "https://fcte.unb.br/homologa_laboratorios/",
+    "campus": "Gama",
+    "categoria": "locais-campus"
+  },
+  {
+    "id": "itrac",
+    "termo": "ITRAC",
+    "tipo": "sigla",
+    "significado": "Information Technology Research and Application Center",
+    "definicao": "Centro de pesquisa e aplicação em tecnologia da informação da FCTE, no campus Gama, da área de Engenharia de Software. Fica no prédio LDTEA, 2º andar, sala 312 e no contêiner 16.",
+    "exemplo_uso": "Fui conhecer os projetos do ITRAC.",
+    "fonte": "https://fcte.unb.br/homologa_laboratorios/",
+    "campus": "Gama",
+    "categoria": "locais-campus"
+  },
+  {
+    "id": "lappis",
+    "termo": "LAPPIS",
+    "tipo": "sigla",
+    "significado": "Laboratório Avançado de Produção, Pesquisa e Inovação em Software",
+    "definicao": "Laboratório da FCTE, no campus Gama, da área de Engenharia de Software. Fica no prédio LDTEA, 2º andar, sala 313.",
+    "exemplo_uso": "Fui conhecer os projetos do LAPPIS.",
+    "fonte": "https://fcte.unb.br/homologa_laboratorios/",
+    "campus": "Gama",
+    "categoria": "locais-campus"
+  },
+  {
+    "id": "lds",
+    "termo": "LDS",
+    "tipo": "sigla",
+    "significado": "Laboratório de Desenvolvimento de Software",
+    "definicao": "Laboratório da FCTE, no campus Gama, da área de Engenharia de Software. Fica no prédio UED, térreo, sala AT-41/29.",
+    "exemplo_uso": "Fui conhecer os projetos do LDS.",
+    "fonte": "https://fcte.unb.br/homologa_laboratorios/",
+    "campus": "Gama",
+    "categoria": "locais-campus"
+  },
+  {
+    "id": "ailab",
+    "termo": "AILAB",
+    "tipo": "sigla",
+    "significado": "Laboratório de Inteligência Artificial",
+    "definicao": "Laboratório da FCTE, no campus Gama, da área de Engenharia de Software. Fica no prédio LDTEA, 2º andar, sala 311 e nos contêineres 01 e 13.",
+    "exemplo_uso": "Fui conhecer os projetos do AILAB.",
+    "fonte": "https://fcte.unb.br/homologa_laboratorios/",
+    "campus": "Gama",
+    "categoria": "locais-campus"
+  },
+  {
+    "id": "lated",
+    "termo": "LATEd",
+    "tipo": "sigla",
+    "significado": "Laboratório de Tecnologias Educacionais",
+    "definicao": "Laboratório da FCTE, no campus Gama, da área de Engenharia de Software. Fica no prédio LDTEA, 2º andar, sala 313.",
+    "exemplo_uso": "Fui conhecer os projetos do LATEd.",
+    "fonte": "https://fcte.unb.br/homologa_laboratorios/",
+    "campus": "Gama",
+    "categoria": "locais-campus"
+  },
+  {
+    "id": "list",
+    "termo": "LIST",
+    "tipo": "sigla",
+    "significado": "Laboratório de Tecnologia e Inovação em Software",
+    "definicao": "Laboratório da FCTE, no campus Gama, da área de Engenharia de Software. Fica no prédio LDTEA, 2º andar, sala 313.",
+    "exemplo_uso": "Fui conhecer os projetos do LIST.",
+    "fonte": "https://fcte.unb.br/homologa_laboratorios/",
+    "campus": "Gama",
+    "categoria": "locais-campus"
+  },
+  {
+    "id": "bioenglab",
+    "termo": "BioEngLab",
+    "tipo": "sigla",
+    "significado": "Laboratório de Engenharia e Biotecnologia",
+    "definicao": "Laboratório da FCTE, no campus Gama, da área de Engenharia Eletrônica. Fica no prédio LDTEA, 1º andar, sala 208.",
+    "exemplo_uso": "Fui conhecer os projetos do BioEngLab.",
+    "fonte": "https://fcte.unb.br/homologa_laboratorios/",
+    "campus": "Gama",
+    "categoria": "locais-campus"
+  },
+  {
+    "id": "magpie",
+    "termo": "MAGPIE",
+    "tipo": "sigla",
+    "significado": "Laboratório de Matemática Aplicada, Gestão e Problemas de Instrumentação de Engenharia",
+    "definicao": "Laboratório da FCTE, no campus Gama, da área de Engenharia Eletrônica. Fica no prédio LDTEA, 1º andar, sala 208.",
+    "exemplo_uso": "Fui conhecer os projetos do MAGPIE.",
+    "fonte": "https://fcte.unb.br/homologa_laboratorios/",
+    "campus": "Gama",
+    "categoria": "locais-campus"
+  },
+  {
+    "id": "labmicro",
+    "termo": "LabMicro",
+    "tipo": "sigla",
+    "significado": "Laboratório de Microeletrônica e Sistemas Embarcados",
+    "definicao": "Laboratório da FCTE, no campus Gama, da área de Engenharia Eletrônica. Fica no prédio LDTEA, 1º andar, sala 207.",
+    "exemplo_uso": "Fui conhecer os projetos do LabMicro.",
+    "fonte": "https://fcte.unb.br/homologa_laboratorios/",
+    "campus": "Gama",
+    "categoria": "locais-campus"
+  },
+  {
+    "id": "labmodsis",
+    "termo": "LABMODSIS",
+    "tipo": "sigla",
+    "significado": "Laboratório de Modelagem de Sistemas",
+    "definicao": "Laboratório da FCTE, no campus Gama, da área de Engenharia Eletrônica. Fica no prédio UAC, sala ao lado do CPD.",
+    "exemplo_uso": "Fui conhecer os projetos do LABMODSIS.",
+    "fonte": "https://fcte.unb.br/homologa_laboratorios/",
+    "campus": "Gama",
+    "categoria": "locais-campus"
+  },
+  {
+    "id": "larsis",
+    "termo": "LARSIS",
+    "tipo": "sigla",
+    "significado": "Laboratório de Robótica e Sistemas de Controle",
+    "definicao": "Laboratório da FCTE, no campus Gama, da área de Engenharia Eletrônica. Fica no prédio LDTEA, 1º andar, sala 208.",
+    "exemplo_uso": "Fui conhecer os projetos do LARSIS.",
+    "fonte": "https://fcte.unb.br/homologa_laboratorios/",
+    "campus": "Gama",
+    "categoria": "locais-campus"
+  },
+  {
+    "id": "labss",
+    "termo": "LAB SS",
+    "tipo": "sigla",
+    "significado": "Laboratório de Simulação e Software",
+    "definicao": "Laboratório da FCTE, no campus Gama, da área de Engenharia Eletrônica. Fica no prédio UED, térreo, sala AT-44/29.",
+    "exemplo_uso": "Fui conhecer os projetos do LAB SS.",
+    "fonte": "https://fcte.unb.br/homologa_laboratorios/",
+    "campus": "Gama",
+    "categoria": "locais-campus"
+  },
+  {
+    "id": "nei1",
+    "termo": "NEI1",
+    "tipo": "sigla",
+    "significado": "Laboratório Núcleo de Eletrônica e Instrumentação 1",
+    "definicao": "Laboratório da FCTE, no campus Gama, da área de Engenharia Eletrônica. Fica no prédio UED, térreo, sala AT-72/29.",
+    "exemplo_uso": "Fui conhecer os projetos do NEI1.",
+    "fonte": "https://fcte.unb.br/homologa_laboratorios/",
+    "campus": "Gama",
+    "categoria": "locais-campus"
+  },
+  {
+    "id": "nei2",
+    "termo": "NEI2",
+    "tipo": "sigla",
+    "significado": "Laboratório Núcleo de Eletrônica e Instrumentação 2",
+    "definicao": "Laboratório da FCTE, no campus Gama, da área de Engenharia Eletrônica. Fica no prédio UED, térreo, sala AT-69/29.",
+    "exemplo_uso": "Fui conhecer os projetos do NEI2.",
+    "fonte": "https://fcte.unb.br/homologa_laboratorios/",
+    "campus": "Gama",
+    "categoria": "locais-campus"
+  },
+  {
+    "id": "tgmj",
+    "termo": "TGMJ",
+    "tipo": "sigla",
+    "significado": "Trancamento Geral de Matrícula Justificado",
+    "definicao": "Trancamento de todas as disciplinas pedido com justificativa e comprovante, como um atestado médico. Pode ser pedido em até dois anos a partir do prazo original ou do fim do motivo, pelo peticionamento eletrônico da SAA.",
+    "exemplo_uso": "Perdi o prazo do trancamento por causa de uma cirurgia e pedi o TGMJ com o atestado.",
+    "fonte": "https://saa.unb.br/perguntas-frequentes/",
+    "campus": "Geral",
+    "categoria": "vida-academica"
+  },
+  {
+    "id": "tr",
+    "termo": "TR",
+    "tipo": "sigla",
+    "significado": "Trancamento Parcial de Matrícula",
+    "definicao": "Trancamento de uma ou mais disciplinas, sem afetar as outras em que a pessoa continua matriculada. É feito no SIGAA antes de completar 50% do semestre e não pode valer para todas as disciplinas ao mesmo tempo.",
+    "exemplo_uso": "Pedi TR em Cálculo 2 e continuei nas outras matérias.",
+    "fonte": "https://saa.unb.br/perguntas-frequentes/",
+    "campus": "Geral",
+    "categoria": "vida-academica"
+  },
+  {
+    "id": "tj",
+    "termo": "TJ",
+    "tipo": "sigla",
+    "significado": "Trancamento Parcial de Matrícula Justificado",
+    "definicao": "Trancamento de disciplina concedido em caráter excepcional, com justificativa apresentada pelo estudante. Suspende as atividades naquela disciplina sem perder o vínculo com a UnB e não afeta o IRA.",
+    "exemplo_uso": "Fiquei doente no meio do semestre e pedi TJ em uma disciplina.",
+    "fonte": "https://saa.unb.br/perguntas-frequentes/",
+    "campus": "Geral",
+    "categoria": "vida-academica"
+  },
+  {
+    "id": "mp",
+    "termo": "MP",
+    "tipo": "sigla",
+    "significado": "Média Ponderada",
+    "definicao": "Média ponderada do curso. Aparece no histórico escolar ao lado do IRA.",
+    "exemplo_uso": "No histórico aparecem o meu IRA e a MP.",
+    "fonte": "https://saa.unb.br/perguntas-frequentes/",
+    "campus": "Geral",
+    "categoria": "vida-academica"
+  },
+  {
+    "id": "ej",
+    "termo": "EJ",
+    "tipo": "sigla",
+    "significado": "Empresa Júnior",
+    "definicao": "Empresa formada por estudantes, que desenvolve os membros pela prática empresarial. Faz projetos para a sociedade a um custo abaixo do mercado, e o trabalho dos membros é voluntário.",
+    "exemplo_uso": "Entrei numa EJ do meu curso para ganhar experiência.",
+    "fonte": "https://saa.unb.br/perguntas-frequentes/",
+    "campus": "Geral",
+    "categoria": "vida-academica"
+  },
+  {
+    "id": "coest",
+    "termo": "COEST",
+    "tipo": "sigla",
+    "significado": "Coordenadoria de Estágio",
+    "definicao": "Coordenadoria de estágio da UnB. No site dela, estagio.unb.br, o estudante acompanha as oportunidades de estágio na UnB.",
+    "exemplo_uso": "Vi uma vaga de estágio no site da COEST.",
+    "fonte": "https://saa.unb.br/perguntas-frequentes/",
+    "campus": "Geral",
+    "categoria": "administracao"
+  },
+  {
+    "id": "daia",
+    "termo": "DAIA",
+    "tipo": "sigla",
+    "significado": "Diretoria de Acompanhamento e Integração Acadêmica",
+    "definicao": "Diretoria do Decanato de Ensino de Graduação (DEG) que divulga vagas de estágio fora da UnB. É com ela e com a Coordenação de Estágios de Graduação que se confere o andamento dos contratos de estágio.",
+    "exemplo_uso": "Perguntei à DAIA se o meu contrato de estágio já foi assinado.",
+    "fonte": "https://saa.unb.br/perguntas-frequentes/",
+    "campus": "Geral",
+    "categoria": "administracao"
+  },
+  {
+    "id": "ase",
+    "termo": "ASE",
+    "tipo": "sigla",
+    "significado": "Assessoria",
+    "definicao": "Assessoria da Secretaria de Administração Acadêmica (SAA). Assessora o secretário e cuida do planejamento, do orçamento, das pessoas e do patrimônio da secretaria.",
+    "exemplo_uso": "A ASE acompanha o orçamento da SAA.",
+    "fonte": "https://saa.unb.br/quem-somos/",
+    "campus": "Geral",
+    "categoria": "administracao"
+  },
+  {
+    "id": "coa",
+    "termo": "COA",
+    "tipo": "sigla",
+    "significado": "Coordenação de Atendimento",
+    "definicao": "Coordenação da SAA que atende o público, alunos e ex-alunos, ajuda a encaminhar as solicitações e acompanha os pedidos feitos.",
+    "exemplo_uso": "Tirei a dúvida do histórico com a COA, no atendimento da SAA.",
+    "fonte": "https://saa.unb.br/quem-somos/",
+    "campus": "Geral",
+    "categoria": "administracao"
+  },
+  {
+    "id": "ccc",
+    "termo": "CCC",
+    "tipo": "sigla",
+    "significado": "Coordenação de Cursos, Currículos e Oferta",
+    "definicao": "Coordenação da SAA que registra as estruturas curriculares dos cursos de graduação e pós-graduação e cuida da oferta de turmas das disciplinas.",
+    "exemplo_uso": "A oferta de turmas do semestre passa pela CCC.",
+    "fonte": "https://saa.unb.br/quem-somos/",
+    "campus": "Geral",
+    "categoria": "administracao"
+  },
+  {
+    "id": "cgr",
+    "termo": "CGR",
+    "tipo": "sigla",
+    "significado": "Coordenação de Graduação",
+    "definicao": "Coordenação da SAA que cuida dos sistemas e do atendimento à comunidade da graduação.",
+    "exemplo_uso": "Mandei a dúvida sobre a graduação para a CGR.",
+    "fonte": "https://saa.unb.br/quem-somos/",
+    "campus": "Geral",
+    "categoria": "administracao"
+  },
+  {
+    "id": "crpg",
+    "termo": "CRPG",
+    "tipo": "sigla",
+    "significado": "Coordenação de Pós-Graduação",
+    "definicao": "Coordenação da SAA que cuida dos sistemas e do atendimento à comunidade da pós-graduação.",
+    "exemplo_uso": "A dúvida sobre o mestrado foi para a CRPG.",
+    "fonte": "https://saa.unb.br/quem-somos/",
+    "campus": "Geral",
+    "categoria": "administracao"
+  },
+  {
+    "id": "crdc",
+    "termo": "CRDC",
+    "tipo": "sigla",
+    "significado": "Coordenação de Registro e Emissão de Diplomas",
+    "definicao": "Coordenação da SAA que registra e emite os diplomas e certificados de graduação e pós-graduação da UnB.",
+    "exemplo_uso": "Meu diploma está sendo emitido pela CRDC.",
+    "fonte": "https://saa.unb.br/quem-somos/",
+    "campus": "Geral",
+    "categoria": "administracao"
+  },
+  {
+    "id": "cri",
+    "termo": "CRI",
+    "tipo": "sigla",
+    "significado": "Coordenação de Relacionamento Interinstitucional",
+    "definicao": "Coordenação da SAA que reúne a unidade de diplomas de outras instituições de ensino superior.",
+    "exemplo_uso": "A CRI cuida de diplomas de outras instituições.",
+    "fonte": "https://saa.unb.br/quem-somos/",
+    "campus": "Geral",
+    "categoria": "administracao"
+  },
+  {
+    "id": "uac",
+    "termo": "UAC",
+    "tipo": "sigla",
+    "significado": "Unidade Acadêmica",
+    "definicao": "Prédio da FCTE, no campus Gama, com salas de aula, laboratórios de informática, biblioteca e auditório.",
+    "exemplo_uso": "A biblioteca da FCTE fica na UAC.",
+    "fonte": "https://fcte.unb.br/infraestrutura/",
+    "campus": "Gama",
+    "categoria": "locais-campus"
+  },
+  {
+    "id": "carelunb",
+    "termo": "CAREL-UnB",
+    "tipo": "sigla",
+    "significado": "Centro de Relações Internacionais UnB",
+    "definicao": "Centro de Relações Internacionais da UnB. O PDI cita o projeto RELeituras, da Editora UnB, feito em parceria com ele.",
+    "exemplo_uso": "O projeto RELeituras da Editora UnB foi feito em parceria com o CAREL-UnB.",
+    "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=97",
+    "campus": "Geral",
+    "categoria": "administracao"
+  }
+]

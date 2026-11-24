@@ -1,0 +1,35 @@
+[
+  {
+    "modulo": "frontend/js/planta.js",
+    "defeito": "o rótulo da sala não é escapado no SVG",
+    "arquivo": "frontend/js/planta.js",
+    "trocas": [
+      {
+        "de": "${escapar(curto)}</text>",
+        "para": "${curto}</text>"
+      }
+    ]
+  },
+  {
+    "modulo": "frontend/js/planta.js",
+    "defeito": "acharLugar nunca acha o termo ligado a uma sala",
+    "arquivo": "frontend/js/planta.js",
+    "trocas": [
+      {
+        "de": "if (item) return { predio: predio.id, andar: andar.id, item: item.id };",
+        "para": "if (item) return null;"
+      }
+    ]
+  },
+  {
+    "modulo": "frontend/js/planta.js",
+    "defeito": "conferirLigacoes não acusa o mesmo termo em dois lugares",
+    "arquivo": "frontend/js/planta.js",
+    "trocas": [
+      {
+        "de": "if (onde.length > 1) problemas.push",
+        "para": "if (onde.length > 99) problemas.push"
+      }
+    ]
+  }
+]

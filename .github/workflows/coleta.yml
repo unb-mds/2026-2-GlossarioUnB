@@ -1,0 +1,68 @@
+# Coleta semanal (#59): roda a coleta completa e abre ou atualiza o PR do robô com os termos coletados.
+# O robô nunca faz merge; o PR passa pela CI e pela revisão de uma pessoa.
+#
+# Por quê: um PR aberto com o GITHUB_TOKEN (a senha padrão do Actions) não dispara o CI, e sem o check
+# obrigatório "Testes e validação dos termos" ele nunca entra na main. Com a senha da conta de robô do
+# projeto, o PR aparece como eterno-calouro[bot] e o CI roda como em qualquer PR.
+#
+# Precisa dos segredos ROBO_APP_ID e ROBO_APP_PRIVATE_KEY (o Pedro cria) e, para o LLM, GEMINI_API_KEY.
+
+name: Coleta semanal
+
+on:
+  schedule:
+    - cron: "0 9 * * 1" # toda segunda, 06h de Brasília
+  workflow_dispatch:
+
+permissions:
+  contents: read # o GITHUB_TOKEN fica só de leitura; quem escreve é o robô
+
+concurrency:
+  group: coleta
+  cancel-in-progress: false
+
+jobs:
+  coleta:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Senha do robô (vale 1 hora)
+        id: robo
+        uses: actions/create-github-app-token@v2
+        with:
+          app-id: ${{ secrets.ROBO_APP_ID }}
+          private-key: ${{ secrets.ROBO_APP_PRIVATE_KEY }}
+
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ steps.robo.outputs.token }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci --omit=dev # o robô não precisa das bibliotecas de teste (ADR 0010)
+
+      - run: npm run coleta:completa
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+
+      - name: Abrir ou atualizar o PR do robô
+        env:
+          GH_TOKEN: ${{ steps.robo.outputs.token }}
+          SLUG: ${{ steps.robo.outputs.app-slug }}
+        run: |
+          if [ -z "$(git status --porcelain)" ]; then echo "Nada mudou nas fontes."; exit 0; fi
+          ID=$(gh api "/users/${SLUG}%5Bbot%5D" --jq .id)
+          git config user.name "${SLUG}[bot]"
+          git config user.email "${ID}+${SLUG}[bot]@users.noreply.github.com"
+          RAMO=robo/coleta-semanal
+          git switch -C "$RAMO"
+          git add -A
+          git commit -m "feat(dados): termos coletados em $(date -u +%d/%m/%Y)"
+          git push --force origin "$RAMO"
+          if gh pr view "$RAMO" --json state --jq .state 2>/dev/null | grep -q OPEN; then
+            gh pr edit "$RAMO" --body-file coleta/resumo.md
+          else
+            gh pr create --base main --head "$RAMO" --title "feat(dados): coleta semanal de termos" --body-file coleta/resumo.md
+          fi
