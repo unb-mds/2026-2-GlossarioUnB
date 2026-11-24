@@ -1,4 +1,4 @@
-# G10-2026-2 — Glossário UnB
+# Glossário UnB
 
 Grupo G10 - Métodos de Desenvolvimento de Software 2026/2
 
@@ -13,7 +13,7 @@ Dicionário colaborativo de siglas, gírias e jargões da UnB.
 
 - O site publicado tem **as mesmas pastas do repositório**. Por isso os links entre as duas páginas funcionam igual no GitHub Pages, no `npm run dev` ou abrindo pelo Live Server do VS Code.
 - A raiz do endereço ([`index.html`](index.html)) redireciona para a página Sobre.
-- A publicação é feita por [`.github/workflows/pages.yml`](.github/workflows/pages.yml) a cada push na `main` (ADR 0007). Ela precisa ser ativada uma vez em *Settings → Pages → Source: GitHub Actions*.
+- A publicação é feita automaticamente por [`.github/workflows/pages.yml`](.github/workflows/pages.yml) a cada push na `main` (ADR 0007), via *Settings → Pages → Source: GitHub Actions*.
 
 ## Como rodar
 
@@ -66,7 +66,7 @@ O relatório fica em `coleta/relatorio.json` e o corpo do PR em `coleta/resumo.m
 - [Fontes de dados de termos](docs/FONTES-DE-DADOS.md)
 - [Arquitetura do sistema](docs/ARQUITETURA.md) e [decisões (ADRs)](docs/adr/)
 - [Estratégia de testes](docs/estrategia-de-testes.md)
-- [Story Map](docs/storymap/story-map.md) e [quadro do Figma](https://www.figma.com/board/dk8nBcFiFEWo1AkOvn1554/Template-MDS--c%C3%B3pia-limpa---c%C3%B3pia---c%C3%B3pia-?node-id=0-1&t=IS5erq77oDUXUtei-1)
+- [Story Map](docs/storymap/story-map.png) e [quadro do Figma](https://www.figma.com/board/dk8nBcFiFEWo1AkOvn1554/Template-MDS--c%C3%B3pia-limpa---c%C3%B3pia---c%C3%B3pia-?node-id=0-1&t=IS5erq77oDUXUtei-1)
 - [Processo do time](docs/PROCESSO.md)
 - [Como contribuir](CONTRIBUTING.md)
 - [Guia de fluxo de trabalho (Git passo a passo)](docs/GUIA-FLUXO-DE-TRABALHO.md)

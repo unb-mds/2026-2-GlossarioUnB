@@ -113,16 +113,16 @@ C4Container
 ## Estrutura de pastas
 
 ```
-G10-2026-2/
+2026-2-GlossarioUnB/
 ├── index.html          # raiz do site publicado: redireciona para sobre/
 ├── frontend/           # GitPage 1: o glossário (PWA), sem build → /frontend/
-│   ├── data/           # termos.json — dataset (ADR 0001, proposta); trilha-calouro.json (ADR 0011)
+│   ├── data/           # termos.json — dataset (ADR 0001); trilha-calouro.json (ADR 0011)
 │   ├── js/             # termos.js, trilha.js, validacao-termo.js (domínio); busca.js, lista.js, ficha.js, tema.js (regras de cada página, com teste); app.js (só a tela)
 │   └── sw.js           # service worker (ADR 0003)
 ├── sobre/              # GitPage 2: apresentação do projeto, só HTML e CSS → /sobre/
 ├── coleta/             # o robô: fontes, coletor, deduplicação, classificador e atualização do termos.json; pode usar bibliotecas (ADR 0010)
-├── scripts/            # servidor-local.mjs (as duas páginas no mesmo layout do Pages), coletar.mjs (roda o robô) e coleta-automatica.mjs (pipeline completo da #59)
-├── tests/              # node:test — domínio, dataset, pipeline e página Sobre
+├── scripts/            # servidor-local.mjs (as duas páginas no mesmo layout do Pages), coletar.mjs (roda o robô), classificar.mjs e coleta-automatica.mjs (pipeline completo da #59)
+├── tests/              # node:test — domínio, dataset, pipeline, página Sobre e documentação
 ├── e2e/                # Playwright — fluxos no navegador + axe-core (ADR 0010)
 ├── docs/
 │   ├── adr/
@@ -145,9 +145,10 @@ O dataset fica dentro de `frontend/` para o glossário ser publicado copiando um
 > - [ADR 0007 — GitHub Pages e CI](adr/0007-github-pages-e-ci-com-actions.md)
 > - [ADR 0008 — Interface com CSS puro e tokens](adr/0008-interface-com-css-puro-e-tokens.md) (28/09)
 > - [ADR 0009 — Coleta automatizada por pipeline com PR revisado](adr/0009-coleta-automatizada-por-pipeline.md) (11/11)
-> - [ADR 0010 — Bibliotecas npm nos scripts do robô](adr/0010-bibliotecas-nos-scripts-do-robo.md) (13/11, proposta)
+> - [ADR 0010 — Bibliotecas npm nos scripts do robô](adr/0010-bibliotecas-nos-scripts-do-robo.md) (13/11, atualizada em 18/11)
 > - [ADR 0011 — Trilha do calouro num arquivo próprio](adr/0011-trilha-do-calouro-em-arquivo-proprio.md) (17/11)
 > - [ADR 0013 — Análise de qualidade com o SonarQube Cloud](adr/0013-analise-de-qualidade-com-sonarqube-cloud.md) (18/11)
+> - [ADR 0014 — Filtro de termos do robô](adr/0014-filtro-de-termos-do-robo.md) (21/11)
 
 ## Padrões de código (a manter desde o primeiro commit)
 
