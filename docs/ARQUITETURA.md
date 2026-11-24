@@ -115,20 +115,20 @@ C4Container
 ```
 G10-2026-2/
 ├── index.html          # raiz do site publicado: redireciona para sobre/
-├── frontend/           # GitPage 1: o glossário (PWA) → /frontend/
-│   ├── data/           # termos.json — dataset (ADR 0001)
-│   ├── js/             # termos.js, validacao-termo.js (domínio) + app.js (DOM)
+├── frontend/           # GitPage 1: o glossário (PWA), sem build → /frontend/
+│   ├── data/           # termos.json — dataset (ADR 0001, proposta); trilha-calouro.json (ADR 0011)
+│   ├── js/             # termos.js, trilha.js, validacao-termo.js (domínio); busca.js, lista.js, ficha.js, tema.js (regras de cada página, com teste); app.js (só a tela)
 │   └── sw.js           # service worker (ADR 0003)
 ├── sobre/              # GitPage 2: apresentação do projeto, só HTML e CSS → /sobre/
-├── coleta/             # pipeline: fontes, coletores, deduplicação e classificador (ADR 0009 e ADR 0010)
-├── scripts/            # servidor-local.mjs e os scripts do pipeline
+├── coleta/             # o robô: fontes, coletor, deduplicação, classificador e atualização do termos.json; pode usar bibliotecas (ADR 0010)
+├── scripts/            # servidor-local.mjs (as duas páginas no mesmo layout do Pages), coletar.mjs (roda o robô) e coleta-automatica.mjs (pipeline completo da #59)
 ├── tests/              # node:test — domínio, dataset, pipeline e página Sobre
 ├── docs/
 │   ├── adr/
 │   ├── scrum/
 │   └── skills/
 └── .github/
-    └── workflows/      # ci.yml (testes), sonar.yml (SonarQube Cloud, ADR 0013) e pages.yml (publicação)
+    └── workflows/      # ci.yml (testes em todo PR), coleta.yml (coleta semanal), lighthouse.yml (desempenho e acessibilidade), sonar.yml (SonarQube Cloud, ADR 0013) e pages.yml (publicação)
 ```
 
 O dataset fica dentro de `frontend/` para o glossário ser publicado copiando uma única pasta (ver ADR 0001). A pasta `coleta/` já tem o coletor de páginas (#56), a deduplicação (#57) e o classificador (#58); o coletor de PDF e o workflow que abre o PR são as issues #55 e #59.
@@ -145,6 +145,8 @@ O dataset fica dentro de `frontend/` para o glossário ser publicado copiando um
 > - [ADR 0008 — Interface com CSS puro e tokens](adr/0008-interface-com-css-puro-e-tokens.md) (28/09)
 > - [ADR 0009 — Coleta automatizada por pipeline com PR revisado](adr/0009-coleta-automatizada-por-pipeline.md) (11/11)
 > - [ADR 0010 — Bibliotecas npm nos scripts do robô](adr/0010-bibliotecas-nos-scripts-do-robo.md) (13/11, proposta)
+> - [ADR 0011 — Trilha do calouro num arquivo próprio](adr/0011-trilha-do-calouro-em-arquivo-proprio.md) (17/11)
+> - [ADR 0013 — Análise de qualidade com o SonarQube Cloud](adr/0013-analise-de-qualidade-com-sonarqube-cloud.md) (18/11)
 
 ## Padrões de código (a manter desde o primeiro commit)
 
@@ -156,5 +158,6 @@ O dataset fica dentro de `frontend/` para o glossário ser publicado copiando um
 ## Referências
 
 - Schema de termo: [`adr/0004-schema-unico-do-termo.md`](adr/0004-schema-unico-do-termo.md)
+- Modelo conceitual, dicionário de dados e disponibilidade das fontes: [`docs/modelo-conceitual-dados.md`](modelo-conceitual-dados.md)
 - Fluxo de contribuição: [`CONTRIBUTING.md`](../CONTRIBUTING.md)
 - Pipeline de coleta: [`adr/0009-coleta-automatizada-por-pipeline.md`](adr/0009-coleta-automatizada-por-pipeline.md)

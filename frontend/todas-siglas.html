@@ -9,6 +9,7 @@
   <meta name="theme-color" content="#0a3660">
   <script>try { var tema = localStorage.getItem("glossario-unb:tema"); if (tema) document.documentElement.setAttribute("data-tema", tema); } catch (erro) { /* sem localStorage: segue o tema do sistema */ }</script>
   <link rel="stylesheet" href="styles.css">
+  <link rel="preload" href="data/termos.json" as="fetch" crossorigin>
 </head>
 <body>
 
@@ -57,7 +58,7 @@
 
   <footer class="rodape">
     <div class="rodape-conteudo">
-      <p><strong>Não achou um termo?</strong> <a href="https://github.com/unb-mds/2026-2-GlossarioUnB/issues/new?template=adicionar-termo.md">Sugira pelo formulário no GitHub</a>.</p>
+      <p><strong>Não achou um termo?</strong> <a href="https://github.com/unb-mds/2026-2-GlossarioUnB/issues/new?template=adicionar-termo.yml">Sugira pelo formulário no GitHub</a>.</p>
       <p>Projeto aberto do grupo G10 · MDS/UnB 2026/2 · <a href="https://github.com/unb-mds/2026-2-GlossarioUnB">Código-fonte</a></p>
     </div>
   </footer>
