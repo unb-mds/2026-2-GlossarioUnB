@@ -819,6 +819,10 @@ h1, h2 { line-height: 1.2; }
   box-shadow: var(--sombra-1);
 }
 
+/* A ficha do termo só enche depois do carregamento (texto e "Veja também"): com a altura da tela reservada, o rodapé
+   nasce abaixo da primeira tela e não desce quando o termo chega (CLS, RNF02). */
+.ficha { min-height: 100vh; min-height: 100svh; }
+
 .ficha h1 {
   margin: 0;
   font-size: clamp(2.25rem, 8vw, 3.25rem);
@@ -859,6 +863,32 @@ h1, h2 { line-height: 1.2; }
 }
 
 .bloco a { overflow-wrap: anywhere; }
+
+/* "Veja também" (decisão 57): cada termo ligado é um cartão com a sigla e o nome. */
+.veja-tambem {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.veja-tambem a {
+  display: grid;
+  gap: 0.1rem;
+  min-height: 44px;
+  padding: 0.5rem 0.85rem;
+  color: var(--texto);
+  text-decoration: none;
+  background: var(--superficie-2);
+  border: 1px solid var(--borda);
+  border-radius: calc(var(--raio) - 4px);
+}
+
+.veja-tambem a:hover { border-color: var(--destaque); }
+.veja-tambem-sigla { font-weight: 700; color: var(--link); }
+.veja-tambem-nome { font-size: 0.9rem; color: var(--texto-suave); }
 
 .mapa {
   height: 280px;

@@ -4,7 +4,7 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 
 import {
-  atalhosPorTipo, gruposDaTrilha, proximoIndice, sugestoesPara, termoDoEnvio, textoDoStatus, textoSemResultado,
+  atalhosPorTipo, gruposDaTrilha, proximoIndice, rotuloDaSugestao, sugestoesPara, termoDoEnvio, textoDoStatus, textoSemResultado,
 } from "../frontend/js/busca.js";
 
 const termos = [
@@ -72,6 +72,13 @@ test("na trilha, id que não existe é pulado e grupo que fica vazio some (a se�
   const trilha = { grupos: [{ id: "a", nome: "A", termos: ["deg", "nao-existe"] }, { id: "b", nome: "B", termos: ["sumiu"] }] };
   assert.deepEqual(gruposDaTrilha(trilha, termos).map((g) => [g.idDoTitulo, g.termos.map((t) => t.nome)]), [["trilha-a", ["DEG"]]]);
   assert.deepEqual(gruposDaTrilha({}, termos), []);
+});
+
+test("a sugestão mostra o sinônimo só quando foi ele que combinou com a busca", () => {
+  const auxilio = { id: "auxilio", termo: "Auxílio Socioeconômico", sinonimos: ["assistência econômica"] };
+  assert.equal(rotuloDaSugestao(auxilio, "assistencia"), "Auxílio Socioeconômico (assistência econômica)");
+  assert.equal(rotuloDaSugestao(auxilio, "auxilio"), "Auxílio Socioeconômico");
+  assert.equal(rotuloDaSugestao({ id: "ru", termo: "RU" }, "ru"), "RU");
 });
 
 // ===== Mutantes sobreviventes (#82) =====

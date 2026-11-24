@@ -3,7 +3,7 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 
 import {
-  enderecoDosFiltros, etiquetasDoCartao, idDaLetra, montarLista, opcoesDeCampus, opcoesDeTipo, rotuloDaLetra, textoDaContagem,
+  enderecoDosFiltros, etiquetasDoCartao, idDaLetra, montarLista, opcoesDeCampus, opcoesDeCategoria, opcoesDeTipo, rotuloDaLetra, textoDaContagem,
 } from "../frontend/js/lista.js";
 
 const termos = [
@@ -53,6 +53,30 @@ test("o endereço guarda os filtros escolhidos, para o link poder ser compartilh
   assert.equal(enderecoDosFiltros({ tipo: "sigla", campus: "Gama" }, "/frontend/todas-siglas.html"), "?tipo=sigla&campus=Gama");
   assert.equal(enderecoDosFiltros({ tipo: "", campus: "Darcy Ribeiro" }, "/frontend/todas-siglas.html"), "?campus=Darcy+Ribeiro");
   assert.equal(enderecoDosFiltros({ tipo: "", campus: "" }, "/frontend/todas-siglas.html"), "/frontend/todas-siglas.html");
+});
+
+test("a categoria vai para o endereço e combina com os outros filtros", () => {
+  assert.equal(enderecoDosFiltros({ tipo: "", campus: "", categoria: "sistemas" }, "/x.html"), "?categoria=sistemas");
+  assert.equal(enderecoDosFiltros({ tipo: "sigla", campus: "Gama", categoria: "sistemas" }, "/x.html"), "?tipo=sigla&campus=Gama&categoria=sistemas");
+});
+
+test("o filtro de categoria chega ao domínio", () => {
+  const comCategoria = [
+    { id: "sigaa", termo: "SIGAA", tipo: "sigla", campus: "Geral", categoria: "sistemas" },
+    { id: "deg", termo: "DEG", tipo: "sigla", campus: "Geral", categoria: "administracao" },
+  ];
+  assert.deepEqual(ids(montarLista(comCategoria, { tipo: "", campus: "", categoria: "sistemas" })), ["sigaa"]);
+  assert.equal(montarLista(comCategoria, { tipo: "", campus: "", categoria: "" }).total, 2);
+});
+
+test("as opções de categoria seguem a taxonomia e omitem a categoria sem nenhum termo", () => {
+  const comCategoria = [
+    { id: "sigaa", termo: "SIGAA", categoria: "sistemas" },
+    { id: "deg", termo: "DEG", categoria: "administracao" },
+    { id: "dex", termo: "DEX", categoria: "administracao" },
+  ];
+  assert.deepEqual(opcoesDeCategoria(comCategoria), [["administracao", "Administração"], ["sistemas", "Sistemas"]]);
+  assert.deepEqual(opcoesDeCategoria([]), []);
 });
 
 test("o cartão mostra o tipo e o campus, menos quando o campus é Geral", () => {

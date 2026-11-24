@@ -6,9 +6,9 @@
 
 import { TIPOS, encontrarTermo, filtrosDaUrl, resumoDoTermo } from "./termos.js";
 import { validarTermo } from "./validacao-termo.js";
-import { atalhosPorTipo, gruposDaTrilha, proximoIndice, sugestoesPara, termoDoEnvio, textoDoStatus, textoSemResultado } from "./busca.js";
-import { enderecoDosFiltros, etiquetasDoCartao, montarLista, opcoesDeCampus, opcoesDeTipo, textoDaContagem } from "./lista.js";
-import { rotuloCampus, textoDaFonte, tituloDaFicha, urlDoTermo } from "./ficha.js";
+import { atalhosPorTipo, gruposDaTrilha, proximoIndice, rotuloDaSugestao, sugestoesPara, termoDoEnvio, textoDoStatus, textoSemResultado } from "./busca.js";
+import { enderecoDosFiltros, etiquetasDoCartao, montarLista, opcoesDeCampus, opcoesDeCategoria, opcoesDeTipo, textoDaContagem } from "./lista.js";
+import { relacionadosDe, rotuloCampus, textoDaFonte, textoDosSinonimos, tituloDaFicha, urlDoTermo } from "./ficha.js";
 import { boletimDaColeta } from "./origem.js";
 import { escuroAtivo, proximoTema, salvarTema } from "./tema.js";
 import { CHAVE_PROGRESSO, armazenamentoDisponivel, lerVistos, marcarVisto, progressoDaTrilha, recomecarTrilha, termosDaTrilha } from "./trilha.js";
@@ -168,7 +168,7 @@ function iniciarBusca(termos) {
         atributos: { id: `sugestao-${i}`, role: "option", "aria-selected": "false" },
       });
       opcao.append(
-        criarElemento("span", { classe: "sugestao-termo", texto: termo.termo }),
+        criarElemento("span", { classe: "sugestao-termo", texto: rotuloDaSugestao(termo, input.value) }),
         criarElemento("span", { classe: "sugestao-resumo", texto: resumoDoTermo(termo) }),
       );
       opcao.addEventListener("click", () => irParaTermo(termo));
@@ -331,7 +331,7 @@ async function marcarTermoNaTrilha(idDoTermo) {
   }
 }
 
-// ===== Todas as siglas: índice, filtros por tipo (RF02) e campus =====
+// ===== Todas as siglas: índice, filtros por tipo, categoria (RF02) e campus =====
 
 function criarCartaoTermo(termo) {
   const etiquetas = criarElemento("span", { classe: "etiquetas" });
@@ -350,19 +350,22 @@ function iniciarListaCompleta(termos) {
   const container = document.getElementById("lista-termos");
   const seletorCampus = document.getElementById("filtro-campus");
   const seletorTipo = document.getElementById("filtro-tipo");
+  const seletorCategoria = document.getElementById("filtro-categoria");
   const indice = document.getElementById("indice-letras");
   const status = document.getElementById("filtro-status");
-  if (!container || !seletorCampus || !seletorTipo) return;
+  if (!container || !seletorCampus || !seletorTipo || !seletorCategoria) return;
 
   preencherOpcoes(seletorTipo, opcoesDeTipo());
+  preencherOpcoes(seletorCategoria, opcoesDeCategoria(termos));
   preencherOpcoes(seletorCampus, opcoesDeCampus());
 
   // Filtros vêm da URL (atalhos da página inicial) e voltam para ela: o link pode ser compartilhado.
   const inicial = filtrosDaUrl(new URLSearchParams(window.location.search));
   seletorTipo.value = inicial.tipo ?? "";
+  seletorCategoria.value = inicial.categoria ?? "";
   seletorCampus.value = inicial.campus ?? "";
 
-  const filtrosEscolhidos = () => ({ tipo: seletorTipo.value, campus: seletorCampus.value });
+  const filtrosEscolhidos = () => ({ tipo: seletorTipo.value, categoria: seletorCategoria.value, campus: seletorCampus.value });
 
   function atualizarUrl() {
     history.replaceState(null, "", enderecoDosFiltros(filtrosEscolhidos(), window.location.pathname));
@@ -393,7 +396,7 @@ function iniciarListaCompleta(termos) {
     }
   }
 
-  for (const seletor of [seletorTipo, seletorCampus]) {
+  for (const seletor of [seletorTipo, seletorCategoria, seletorCampus]) {
     seletor.addEventListener("change", () => {
       atualizarUrl();
       renderizar();
@@ -494,6 +497,20 @@ function criarBloco(titulo, ...conteudo) {
   return bloco;
 }
 
+// "Veja também": um link por termo ligado, com a sigla e o nome visíveis (o nome do link é o próprio texto).
+function criarBlocoVejaTambem(relacionados) {
+  const lista = criarElemento("ul", { classe: "veja-tambem" });
+  for (const { termo, significado, href } of relacionados) {
+    const link = criarElemento("a", { atributos: { href } });
+    link.append(criarElemento("span", { classe: "veja-tambem-sigla", texto: termo }));
+    if (significado) link.append(criarElemento("span", { classe: "veja-tambem-nome", texto: significado }));
+    const item = criarElemento("li");
+    item.append(link);
+    lista.append(item);
+  }
+  return criarBloco("Veja também", lista);
+}
+
 // Fonte pode ser um link ou um texto; o texto e o endereço vêm do ficha.js.
 function criarFonte(fonte) {
   const { texto, href } = textoDaFonte(fonte);
@@ -571,6 +588,12 @@ function iniciarPaginaTermo(termos, planta) {
   const lugar = planta ? acharLugar(planta, termo.id) : null;
   const ondeFica = lugar ? criarBlocoOndeFica(planta, lugar) : null;
   if (ondeFica) container.append(ondeFica);
+
+  const sinonimos = textoDosSinonimos(termo);
+  if (sinonimos) container.append(criarBloco("Também conhecido como", criarElemento("p", { texto: sinonimos })));
+
+  const relacionados = relacionadosDe(termo, termos);
+  if (relacionados.length > 0) container.append(criarBlocoVejaTambem(relacionados));
 
   if (!termo.localizacao) return;
   const { bloco, montar } = criarBlocoMapa(termo.localizacao);
