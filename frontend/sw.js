@@ -1,17 +1,29 @@
 // Estratégias de cache: ver docs/adr/0003-pwa-com-service-worker-proprio.md.
 // Ao mudar qualquer arquivo do app shell, incremente VERSAO_CACHE.
 const PREFIXO_CACHE = "glossario-unb-";
-const VERSAO_CACHE = `${PREFIXO_CACHE}v14`;
+const VERSAO_CACHE = `${PREFIXO_CACHE}v23`;
 
 // Arquivos de dados: respondem do cache e se atualizam em segundo plano (stale-while-revalidate).
-const ARQUIVOS_DADOS = ["data/termos.json", "data/trilha-calouro.json"];
+const ARQUIVOS_DADOS = ["data/termos.json", "data/trilha-calouro.json", "data/planta-fcte.json"];
+
+// O boletim do robô (#74) fica fora de frontend/, no mesmo caminho do repositório.
+const URL_BOLETIM = "../coleta/relatorio.json";
+const CAMINHO_BOLETIM = "/coleta/relatorio.json";
 
 const ARQUIVOS_APP_SHELL = [
   "index.html",
   "todas-siglas.html",
   "termo.html",
+  "origem-dos-dados.html",
+  "planta.html",
   "styles.css",
   "js/app.js",
+  "js/busca.js",
+  "js/ficha.js",
+  "js/lista.js",
+  "js/origem.js",
+  "js/planta.js",
+  "js/tema.js",
   "js/termos.js",
   "js/trilha.js",
   "js/validacao-termo.js",
@@ -27,7 +39,11 @@ self.addEventListener("install", (evento) => {
   evento.waitUntil(
     caches
       .open(VERSAO_CACHE)
-      .then((cache) => cache.addAll(ARQUIVOS_APP_SHELL))
+      .then(async (cache) => {
+        await cache.addAll(ARQUIVOS_APP_SHELL);
+        // O boletim é um extra: se não vier, o aplicativo instala do mesmo jeito.
+        await cache.add(URL_BOLETIM).catch((erro) => console.info("Boletim fora do cache:", erro.message));
+      })
       .then(() => self.skipWaiting())
   );
 });
@@ -56,7 +72,7 @@ self.addEventListener("fetch", (evento) => {
   // Tiles de mapa e bibliotecas externas seguem direto pra rede.
   if (url.origin !== self.location.origin) return;
 
-  if (ARQUIVOS_DADOS.some((arquivo) => url.pathname.endsWith(arquivo))) {
+  if (url.pathname.endsWith(CAMINHO_BOLETIM) || ARQUIVOS_DADOS.some((arquivo) => url.pathname.endsWith(arquivo))) {
     // Stale-while-revalidate: responde rápido do cache, atualiza em segundo plano.
     const respostaCache = caches.open(VERSAO_CACHE).then((cache) => cache.match(evento.request));
     const buscaRede = fetch(evento.request).then(async (respostaRede) => {

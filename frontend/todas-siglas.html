@@ -9,6 +9,7 @@
   <meta name="theme-color" content="#0a3660">
   <script>try { var tema = localStorage.getItem("glossario-unb:tema"); if (tema) document.documentElement.setAttribute("data-tema", tema); } catch (erro) { /* sem localStorage: segue o tema do sistema */ }</script>
   <link rel="stylesheet" href="styles.css">
+  <link rel="preload" href="data/termos.json" as="fetch" crossorigin>
 </head>
 <body>
 
@@ -20,6 +21,7 @@
       </a>
       <nav class="barra-nav" aria-label="Principal">
         <a href="todas-siglas.html" aria-current="page"><span class="so-desktop">Todas as siglas</span><span class="so-celular">Siglas</span></a>
+        <a href="origem-dos-dados.html">Dados</a>
         <a href="../sobre/index.html">Sobre</a>
         <button id="botao-tema" class="botao-tema" type="button" aria-pressed="false" aria-label="Tema escuro">
           <svg class="icone icone-lua" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
@@ -43,6 +45,12 @@
         </select>
       </div>
       <div class="campo">
+        <label for="filtro-categoria">Categoria</label>
+        <select id="filtro-categoria">
+          <option value="">Todas</option>
+        </select>
+      </div>
+      <div class="campo">
         <label for="filtro-campus">Campus</label>
         <select id="filtro-campus">
           <option value="">Todos</option>
@@ -57,7 +65,7 @@
 
   <footer class="rodape">
     <div class="rodape-conteudo">
-      <p><strong>Não achou um termo?</strong> <a href="https://github.com/unb-mds/2026-2-GlossarioUnB/issues/new?template=adicionar-termo.md">Sugira pelo formulário no GitHub</a>.</p>
+      <p><strong>Não achou um termo?</strong> <a href="https://github.com/unb-mds/2026-2-GlossarioUnB/issues/new?template=adicionar-termo.yml">Sugira pelo formulário no GitHub</a>.</p>
       <p>Projeto aberto do grupo G10 · MDS/UnB 2026/2 · <a href="https://github.com/unb-mds/2026-2-GlossarioUnB">Código-fonte</a></p>
     </div>
   </footer>

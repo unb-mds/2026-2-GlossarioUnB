@@ -4,6 +4,8 @@ Obrigado por querer contribuir! Este projeto aceita dois tipos de contribuição
 a do **time G10** (acesso de escrita ao repositório) e a de **qualquer pessoa da
 UnB** que queira sugerir ou corrigir um termo (via fork).
 
+Ao participar, você concorda em seguir o [Código de Conduta](CODE_OF_CONDUCT.md). Para reportar uma vulnerabilidade, veja a [Política de Segurança](SECURITY.md) (não abra issue pública).
+
 ## Modelo de branches
 
 Adotamos o **GitHub Flow** — simplificado em relação ao Git-Flow completo, porque
@@ -47,6 +49,7 @@ Você não precisa e não tem acesso de escrita a este repositório, use fork:
   "id": "deg",
   "termo": "DEG",
   "tipo": "sigla",
+  "categoria": "administracao",
   "significado": "Decanato de Ensino de Graduação",
   "definicao": "Explicação em português simples do que é/faz.",
   "exemplo_uso": "Minha dúvida sobre matrícula foi encaminhada para o DEG.",
@@ -56,11 +59,28 @@ Você não precisa e não tem acesso de escrita a este repositório, use fork:
 ```
 
 - `tipo`: `sigla`, `giria` ou `expressao`. `significado` (por extenso) só é obrigatório para siglas.
+- `categoria`: `vida-academica`, `unidades-academicas`, `administracao`, `colegiados`, `locais-campus`, `sistemas`, `assistencia-estudantil`, `representacao-estudantil` ou `girias`.
 - `campus`: `Darcy Ribeiro`, `Ceilândia`, `Gama`, `Planaltina` ou `Geral`.
-- Opcionais: `categoria` (tema) e `localizacao` (`lat`, `lng`, `link_como_chegar`) para lugares físicos.
+- Opcional: `localizacao` (`lat`, `lng`, `link_como_chegar`) para lugares físicos.
+- Opcional: `sinonimos`, a lista de outros nomes do mesmo termo, com prova na fonte. Não use o nome de outro termo do glossário.
+- Opcional: `relacionados`, a lista de ids de outros termos que aparecem em "Veja também". Só ponha uma ligação depois de ler as duas definições e conferir que é o mesmo órgão ou assunto.
 
 Nenhum termo é aceito sem `fonte` preenchida. O CI valida todo PR contra esse schema;
 regras completas em [`docs/adr/0004-schema-unico-do-termo.md`](docs/adr/0004-schema-unico-do-termo.md).
+
+## Lint e cobertura
+
+O CI roda `npm run lint` e `npm run test:cobertura` em todo PR. Para rodar localmente:
+
+```bash
+npm ci                  # só na primeira vez; instala o ESLint e as bibliotecas do robô
+npm run lint            # ESLint
+npm run test:cobertura  # testes + cobertura mínima
+```
+
+- O lint usa ESLint com as regras recomendadas e o `eslint.config.js` versionado.
+- A cobertura mínima é de **90% de linhas, funções e branches** em `frontend/js/termos.js`, `frontend/js/validacao-termo.js` e `coleta/`.
+- A camada de tela (`frontend/js/app.js`) e o service worker (`frontend/sw.js`) ficam para os testes E2E da #78.
 
 ## Convenção de commits
 

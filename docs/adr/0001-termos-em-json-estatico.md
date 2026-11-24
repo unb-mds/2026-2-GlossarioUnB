@@ -1,5 +1,8 @@
 # ADR 0001 — Termos em JSON estático versionado no repositório
 
+## Status
+Aceito (em uso desde a Release 1, 28/09/2026; atualizado em 11/11/2026 pela ADR 0009).
+
 ## Contexto
 A escolha entre "JSON estático" e "backend com banco de dados" está registrada como pendente em `docs/ARQUITETURA.md` desde a reestruturação do repositório (PR #5, 14/09) e virou a issue #21 em 23/09. É a decisão que trava as demais.
 
@@ -15,7 +18,7 @@ O que pesa, extraído do material do time:
 - **Não há backend nem banco de dados** na Release 1.
 - Toda escrita acontece por Pull Request revisado. O Git faz o papel de "banco": histórico, revisão e autoria de cada termo.
 - A planilha colaborativa é só a **coleta inicial** (RF03) e é migrada para o JSON.
-- O arquivo fica em `frontend/data/` e não em `data/` na raiz (como no esboço do ARQUITETURA.md). Assim o site é publicado copiando uma única pasta, sem etapa de build. **PRECISA VALIDAÇÃO DA EQUIPE.**
+- O arquivo fica em `frontend/data/` e não em `data/` na raiz (como no esboço do ARQUITETURA.md). Assim o site é publicado copiando uma única pasta, sem etapa de build.
 
 ## Alternativas descartadas
 - **Backend + banco** (API REST com SQLite/PostgreSQL, temas dos estudos #1 e #7). Exigiria servidor hospedado, autenticação para escrita e sincronização para funcionar offline, e nenhuma história do MVP precisa de escrita em tempo real.

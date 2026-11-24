@@ -1,0 +1,189 @@
+[
+  {
+    "modulo": "frontend/js/termos.js",
+    "defeito": "a busca deixa de ignorar acentos",
+    "arquivo": "frontend/js/termos.js",
+    "trocas": [
+      {
+        "de": ".normalize(\"NFD\")",
+        "para": ".normalize(\"NFC\")"
+      }
+    ]
+  },
+  {
+    "modulo": "frontend/js/termos.js",
+    "defeito": "a busca não respeita o limite de sugestões",
+    "arquivo": "frontend/js/termos.js",
+    "trocas": [
+      {
+        "de": ".slice(0, limite);",
+        "para": ";"
+      }
+    ]
+  },
+  {
+    "modulo": "frontend/js/termos.js",
+    "defeito": "o termo que começa com a consulta não vem primeiro",
+    "arquivo": "frontend/js/termos.js",
+    "trocas": [
+      {
+        "de": ".sort((a, b) => pontuacao(a) - pontuacao(b))",
+        "para": ".sort(() => 0)"
+      }
+    ]
+  },
+  {
+    "modulo": "frontend/js/termos.js",
+    "defeito": "o filtro de campus esconde os termos Geral",
+    "arquivo": "frontend/js/termos.js",
+    "trocas": [
+      {
+        "de": " && termo.campus !== CAMPUS_GERAL",
+        "para": ""
+      }
+    ]
+  },
+  {
+    "modulo": "frontend/js/termos.js",
+    "defeito": "termo que começa com número ganha letra própria no índice",
+    "arquivo": "frontend/js/termos.js",
+    "trocas": [
+      {
+        "de": "/[A-Z]/.test(letra) ? letra : \"#\"",
+        "para": "letra || \"#\""
+      }
+    ]
+  },
+  {
+    "modulo": "frontend/js/validacao-termo.js",
+    "defeito": "link javascript: passa como seguro",
+    "arquivo": "frontend/js/validacao-termo.js",
+    "trocas": [
+      {
+        "de": "endereco.protocol === \"https:\" || endereco.protocol === \"http:\"",
+        "para": "true"
+      }
+    ]
+  },
+  {
+    "modulo": "frontend/js/validacao-termo.js",
+    "defeito": "a fonte deixa de ser obrigatória",
+    "arquivo": "frontend/js/validacao-termo.js",
+    "trocas": [
+      {
+        "de": "\"exemplo_uso\", \"fonte\", \"campus\"",
+        "para": "\"exemplo_uso\", \"campus\""
+      }
+    ]
+  },
+  {
+    "modulo": "frontend/js/validacao-termo.js",
+    "defeito": "sigla sem significado passa",
+    "arquivo": "frontend/js/validacao-termo.js",
+    "trocas": [
+      {
+        "de": "termo.tipo === \"sigla\" && !textoPreenchido(termo.significado)",
+        "para": "false"
+      }
+    ]
+  },
+  {
+    "modulo": "frontend/js/validacao-termo.js",
+    "defeito": "id duplicado passa",
+    "arquivo": "frontend/js/validacao-termo.js",
+    "trocas": [
+      {
+        "de": "if (idsVistos.has(termo.id)) erros.push(",
+        "para": "if (false) erros.push("
+      }
+    ]
+  },
+  {
+    "modulo": "frontend/js/validacao-termo.js",
+    "defeito": "latitude fora do mapa passa",
+    "arquivo": "frontend/js/validacao-termo.js",
+    "trocas": [
+      {
+        "de": "lat < -90 || lat > 90",
+        "para": "lat < -900 || lat > 900"
+      }
+    ]
+  },
+  {
+    "modulo": "frontend/js/termos.js",
+    "defeito": "o filtro de categoria é ignorado",
+    "arquivo": "frontend/js/termos.js",
+    "trocas": [
+      {
+        "de": "if (categoria && termo.categoria !== categoria) return false;",
+        "para": ""
+      }
+    ]
+  },
+  {
+    "modulo": "frontend/js/termos.js",
+    "defeito": "a busca ignora os sinônimos",
+    "arquivo": "frontend/js/termos.js",
+    "trocas": [
+      {
+        "de": "normalizar(termo.termo).includes(q) || sinonimosDe(termo).some((sinonimo) => normalizar(sinonimo).includes(q));",
+        "para": "normalizar(termo.termo).includes(q);"
+      }
+    ]
+  },
+  {
+    "modulo": "frontend/js/validacao-termo.js",
+    "defeito": "sinônimo repetido no mesmo termo passa",
+    "arquivo": "frontend/js/validacao-termo.js",
+    "trocas": [
+      {
+        "de": "if (vistos.has(normalizado)) erros.push(`sinonimos[${i}] sinônimo duplicado \"${sinonimo.trim()}\"`);",
+        "para": ""
+      }
+    ]
+  },
+  {
+    "modulo": "frontend/js/validacao-termo.js",
+    "defeito": "ligação do Veja também para um termo que não existe passa",
+    "arquivo": "frontend/js/validacao-termo.js",
+    "trocas": [
+      {
+        "de": "if (typeof idRel === \"string\" && !todosIds.has(idRel)) erros.push(`${rotulo}: id relacionado \"${idRel}\" não existe no glossário`);",
+        "para": ""
+      }
+    ]
+  },
+  {
+    "modulo": "frontend/js/ficha.js",
+    "defeito": "Veja também mostra uma ligação para termo que não existe",
+    "arquivo": "frontend/js/ficha.js",
+    "trocas": [
+      {
+        "de": "    .filter(Boolean)\n    .map((outro) => ({",
+        "para": "    .map((outro) => outro ?? { id: \"?\", termo: \"?\" })\n    .map((outro) => ({"
+      }
+    ]
+  },
+  {
+    "modulo": "frontend/js/trilha.js",
+    "defeito": "o progresso da trilha guarda qualquer termo aberto, mesmo fora da trilha",
+    "arquivo": "frontend/js/trilha.js",
+    "trocas": [
+      {
+        "de": "  if (!idsDaTrilha.includes(id)) return false;\n",
+        "para": ""
+      }
+    ]
+  },
+  {
+    "modulo": "frontend/js/trilha.js",
+    "defeito": "o progresso volta com ids que saíram da trilha",
+    "arquivo": "frontend/js/trilha.js",
+    "trocas": [
+      {
+        "de": "return new Set(salvo.filter((id) => validos.has(id)));",
+        "para": "return new Set(salvo);"
+      }
+    ]
+  }
+]

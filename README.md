@@ -22,7 +22,8 @@ aberto do Grupo G10, da disciplina Métodos de Desenvolvimento de Software
 * [Requisitos](docs/REQUISITOS.md), [arquitetura](docs/ARQUITETURA.md) e [decisões de arquitetura (ADRs)](docs/adr/)
 * [Processo do time](docs/PROCESSO.md), [guia do fluxo de trabalho (Git passo a passo)](docs/GUIA-FLUXO-DE-TRABALHO.md) e [planejamento das sprints](docs/scrum/sprint-planning.md)
 * [Story map](docs/storymap/story-map.png) e [quadro do Figma][figma]
-* [Contribuir com o Glossário UnB](CONTRIBUTING.md)
+* [Visão de produto](docs/VISAO-DE-PRODUTO.md), [estratégia de testes](docs/estrategia-de-testes.md) e [modelo conceitual de dados](docs/modelo-conceitual-dados.md)
+* [Contribuir com o Glossário UnB](CONTRIBUTING.md), [Código de Conduta](CODE_OF_CONDUCT.md) e [Política de Segurança](SECURITY.md)
 
 As datas das entregas (Release 1 e Release 2) estão na
 [seção 7 dos requisitos](docs/REQUISITOS.md#7-releases), e o que entra em cada
@@ -31,7 +32,7 @@ IA no projeto fica registrado no [AI-USAGE.md](AI-USAGE.md).
 
 ## Rodar no seu computador
 
-Pré-requisito: [Node.js](https://nodejs.org/) 22.9 ou mais novo. O site não tem
+Pré-requisito: [Node.js](https://nodejs.org/) 22.13 ou mais novo. O site não tem
 dependências; o robô de coleta usa as bibliotecas da [ADR 0010][ADR 0010], que o
 `npm ci` instala.
 
@@ -41,7 +42,9 @@ cd 2026-2-GlossarioUnB
 npm ci                  # instala as bibliotecas do robô, nas versões do package-lock.json
 npm run dev             # glossário em http://localhost:8080/frontend/ e Sobre em /sobre/
 npm test                # testes + validação de todos os termos
-npm run test:cobertura  # os mesmos testes, com relatório de cobertura
+npm run lint            # ESLint
+npm run test:cobertura  # os mesmos testes, com cobertura mínima de 90%
+npx playwright install chromium && npm run test:e2e  # E2E + acessibilidade (WCAG 2.1 AA)
 ```
 
 Para usar outra porta, copie o `.env.example` para `.env` e ajuste a `PORT`
@@ -77,7 +80,9 @@ npm run --silent coleta | node --env-file-if-exists=.env scripts/classificar.mjs
 
 Sem a chave, o comando roda do mesmo jeito e os termos saem "sem
 classificação". A sugestão nunca vira a definição sozinha: quem escreve o texto
-final é quem revisa o pull request.
+final é quem revisa o pull request. O pipeline completo (HTML + PDF da DPO +
+filtro + relatório) roda com `npm run coleta:completa` e também toda segunda-feira
+pelo workflow [`.github/workflows/coleta.yml`](.github/workflows/coleta.yml).
 
 ## Serviços externos
 
@@ -143,7 +148,7 @@ O Glossário UnB é distribuído sob a [licença MIT](LICENSE).
 
 [app]: https://unb-mds.github.io/2026-2-GlossarioUnB/frontend/
 [sobre]: https://unb-mds.github.io/2026-2-GlossarioUnB/sobre/
-[sugerir]: https://github.com/unb-mds/2026-2-GlossarioUnB/issues/new?template=sugerir-termo.md
+[sugerir]: https://github.com/unb-mds/2026-2-GlossarioUnB/issues/new?template=sugerir-termo.yml
 [CI]: https://github.com/unb-mds/2026-2-GlossarioUnB/actions/workflows/ci.yml
 [CI badge]: https://github.com/unb-mds/2026-2-GlossarioUnB/actions/workflows/ci.yml/badge.svg
 [Pages]: https://github.com/unb-mds/2026-2-GlossarioUnB/actions/workflows/pages.yml

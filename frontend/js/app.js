@@ -1,22 +1,25 @@
-// Camada de DOM das 3 páginas. Regras de busca/filtro ficam em termos.js e
-// o schema em validacao-termo.js (ADR 0002), para poderem ser testados no Node.
+// Camada de DOM das páginas: só cria elementos e ouve eventos. As regras ficam em módulos testados no Node
+// (ADR 0002): termos.js (busca e filtros), trilha.js, validacao-termo.js (schema) e um módulo por página:
+// busca.js (início), lista.js (todas as siglas), ficha.js (termo), planta.js (onde fica, ADR 0012) e tema.js (todas).
 // Todo dado de termo entra na página via textContent, nunca via innerHTML:
 // termos chegam por PR de terceiros (RF04) e não podem injetar HTML.
 
-import {
-  CAMPI, CAMPUS_GERAL, TIPOS, agruparPorLetra, buscarTermos, contarPorTipo, encontrarTermo,
-  filtrarTermos, filtrosDaUrl, normalizar, resumoDoTermo,
-} from "./termos.js";
-import { montarTrilha } from "./trilha.js";
-import { urlSegura, validarTermo } from "./validacao-termo.js";
+import { TIPOS, encontrarTermo, filtrosDaUrl, resumoDoTermo } from "./termos.js";
+import { validarTermo } from "./validacao-termo.js";
+import { atalhosPorTipo, gruposDaTrilha, proximoIndice, rotuloDaSugestao, sugestoesPara, termoDoEnvio, textoDoStatus, textoSemResultado } from "./busca.js";
+import { enderecoDosFiltros, etiquetasDoCartao, montarLista, opcoesDeCampus, opcoesDeCategoria, opcoesDeTipo, textoDaContagem } from "./lista.js";
+import { relacionadosDe, rotuloCampus, textoDaFonte, textoDosSinonimos, tituloDaFicha, urlDoTermo } from "./ficha.js";
+import { boletimDaColeta } from "./origem.js";
+import { escuroAtivo, proximoTema, salvarTema } from "./tema.js";
+import { CHAVE_PROGRESSO, armazenamentoDisponivel, lerVistos, marcarVisto, progressoDaTrilha, recomecarTrilha, termosDaTrilha } from "./trilha.js";
+import { AVISO_ANDAR_APROXIMADO, AVISO_SALA_APROXIMADA, acharLugar, descreverLugar, listaDeAndares, montarSvgAndar, montarSvgCampus, paginaDaPlanta, svgDoLugar } from "./planta.js";
 
 const URL_DADOS = "data/termos.json";
 const URL_TRILHA = "data/trilha-calouro.json";
+const URL_BOLETIM = "../coleta/relatorio.json";
+const URL_PLANTA = "data/planta-fcte.json";
 const URL_REPOSITORIO = "https://github.com/unb-mds/2026-2-GlossarioUnB";
 const MENSAGEM_ERRO_CARGA = "Não foi possível carregar os termos. Verifique sua conexão e tente de novo.";
-const TIPOS_NO_PLURAL = { sigla: "Siglas", giria: "Gírias", expressao: "Expressões" };
-// Com prefixo: unb-mds.github.io é uma origem compartilhada por todos os projetos da organização.
-const CHAVE_TEMA = "glossario-unb:tema";
 
 // Modelos de issue "Adicionar termo" e "Corrigir definição" (ADR 0006), já com o termo no título.
 function urlModeloIssue(modelo, prefixoTitulo, termo = "") {
@@ -24,8 +27,8 @@ function urlModeloIssue(modelo, prefixoTitulo, termo = "") {
   return termo ? `${base}&title=${encodeURIComponent(`${prefixoTitulo} ${termo}`)}` : base;
 }
 
-const urlAdicionarTermo = (termo) => urlModeloIssue("adicionar-termo.md", "[Adicionar Termo]", termo);
-const urlCorrigirDefinicao = (termo) => urlModeloIssue("corrigir-definicao.md", "[Corrigir Definição]", termo);
+const urlAdicionarTermo = (termo) => urlModeloIssue("adicionar-termo.yml", "[Adicionar Termo]", termo);
+const urlCorrigirDefinicao = (termo) => urlModeloIssue("corrigir-definicao.yml", "[Corrigir Definição]", termo);
 
 // ===== Utilidades de DOM =====
 
@@ -42,14 +45,6 @@ function preencherOpcoes(seletor, opcoes) {
   for (const [valor, rotulo] of opcoes) seletor.append(criarElemento("option", { texto: rotulo, atributos: { value: valor } }));
 }
 
-function rotuloCampus(campus) {
-  return campus === CAMPUS_GERAL ? "Todos os campi" : `Campus ${campus}`;
-}
-
-function urlDoTermo(termo) {
-  return `termo.html?id=${encodeURIComponent(termo.id)}`;
-}
-
 async function carregarTermos() {
   const resposta = await fetch(URL_DADOS);
   if (!resposta.ok) throw new Error(`Não foi possível carregar ${URL_DADOS} (HTTP ${resposta.status})`);
@@ -63,32 +58,34 @@ async function carregarTermos() {
   });
 }
 
+// A planta é um extra: se não carregar, a página do termo fica como era (sem o bloco "Onde fica").
+async function carregarPlanta() {
+  try {
+    const resposta = await fetch(URL_PLANTA);
+    if (!resposta.ok) return null;
+    const planta = await resposta.json();
+    return Array.isArray(planta?.predios) ? planta : null;
+  } catch (erro) {
+    console.warn("Planta da FCTE indisponível:", erro);
+    return null;
+  }
+}
+
 // ===== Tema claro/escuro =====
 // O tema salvo é aplicado por um script curto no <head> de cada página (evita piscar);
 // aqui só tratamos o botão. O ícone (lua/sol) é trocado pelo CSS.
-
-function salvarTema(tema) {
-  try {
-    localStorage.setItem(CHAVE_TEMA, tema);
-  } catch (erro) {
-    console.warn("Não foi possível salvar a preferência de tema:", erro);
-  }
-}
 
 function iniciarTema() {
   const botao = document.getElementById("botao-tema");
   if (!botao) return;
 
-  const escuroAtivo = () => {
-    const atual = document.documentElement.getAttribute("data-tema");
-    return atual === "escuro" || (!atual && window.matchMedia("(prefers-color-scheme: dark)").matches);
-  };
-  const atualizarBotao = () => botao.setAttribute("aria-pressed", String(escuroAtivo()));
+  const escuro = () => escuroAtivo(document.documentElement.getAttribute("data-tema"), window.matchMedia("(prefers-color-scheme: dark)").matches);
+  const atualizarBotao = () => botao.setAttribute("aria-pressed", String(escuro()));
 
   botao.addEventListener("click", () => {
-    const novo = escuroAtivo() ? "claro" : "escuro";
+    const novo = proximoTema(escuro());
     document.documentElement.setAttribute("data-tema", novo);
-    salvarTema(novo);
+    salvarTema(() => localStorage, novo);
     atualizarBotao();
   });
 
@@ -134,7 +131,7 @@ function iniciarBusca(termos) {
   // Fora da listbox, para o link "Sugerir" ser alcançável pelo teclado.
   function mostrarAvisoVazio(consulta) {
     const link = criarElemento("a", { texto: "Sugerir este termo", atributos: { href: urlAdicionarTermo(consulta.trim()) } });
-    avisoVazio.replaceChildren(`Nenhum termo encontrado para “${consulta.trim()}”. `, link);
+    avisoVazio.replaceChildren(textoSemResultado(consulta), link);
     avisoVazio.hidden = false;
   }
 
@@ -155,14 +152,12 @@ function iniciarBusca(termos) {
   function renderizarSugestoes() {
     fecharSugestoes();
     avisoVazio.hidden = true;
-    if (!normalizar(input.value)) {
-      status.textContent = "";
-      return;
-    }
+    const sugestoes = sugestoesPara(termos, input.value);
+    status.textContent = textoDoStatus(sugestoes);
+    if (sugestoes === null) return;
 
-    sugestoesAtuais = buscarTermos(termos, input.value);
+    sugestoesAtuais = sugestoes;
     if (sugestoesAtuais.length === 0) {
-      status.textContent = "Nenhum termo encontrado.";
       mostrarAvisoVazio(input.value);
       return;
     }
@@ -173,14 +168,13 @@ function iniciarBusca(termos) {
         atributos: { id: `sugestao-${i}`, role: "option", "aria-selected": "false" },
       });
       opcao.append(
-        criarElemento("span", { classe: "sugestao-termo", texto: termo.termo }),
+        criarElemento("span", { classe: "sugestao-termo", texto: rotuloDaSugestao(termo, input.value) }),
         criarElemento("span", { classe: "sugestao-resumo", texto: resumoDoTermo(termo) }),
       );
       opcao.addEventListener("click", () => irParaTermo(termo));
       lista.append(opcao);
     });
     input.setAttribute("aria-expanded", "true");
-    status.textContent = sugestoesAtuais.length === 1 ? "1 sugestão disponível." : `${sugestoesAtuais.length} sugestões disponíveis.`;
   }
 
   input.addEventListener("input", renderizarSugestoes);
@@ -190,24 +184,17 @@ function iniciarBusca(termos) {
       fecharSugestoes();
       return;
     }
-    if (evento.key !== "ArrowDown" && evento.key !== "ArrowUp") return;
-    if (sugestoesAtuais.length === 0) return;
+    const proximo = proximoIndice(indiceAtivo, evento.key, sugestoesAtuais.length);
+    if (proximo === null) return;
 
     evento.preventDefault();
-    const proximo = evento.key === "ArrowDown"
-      ? Math.min(indiceAtivo + 1, sugestoesAtuais.length - 1)
-      : Math.max(indiceAtivo - 1, 0);
     marcarAtiva(proximo);
   });
 
   form.addEventListener("submit", (evento) => {
     evento.preventDefault();
-    if (indiceAtivo >= 0 && sugestoesAtuais[indiceAtivo]) {
-      irParaTermo(sugestoesAtuais[indiceAtivo]);
-      return;
-    }
-    const [primeiro] = buscarTermos(termos, input.value);
-    if (primeiro) irParaTermo(primeiro);
+    const termo = termoDoEnvio(sugestoesAtuais, indiceAtivo, termos, input.value);
+    if (termo) irParaTermo(termo);
   });
 
   document.addEventListener("click", (evento) => {
@@ -224,9 +211,9 @@ function iniciarAtalhos(termos) {
 
   total.textContent = String(termos.length);
 
-  for (const [tipo, quantidade] of contarPorTipo(termos)) {
-    const link = criarElemento("a", { classe: "atalho", atributos: { href: `todas-siglas.html?tipo=${tipo}` } });
-    link.append(TIPOS_NO_PLURAL[tipo], criarElemento("span", { classe: "atalho-total", texto: String(quantidade) }));
+  for (const { rotulo, quantidade, href } of atalhosPorTipo(termos)) {
+    const link = criarElemento("a", { classe: "atalho", atributos: { href } });
+    link.append(rotulo, criarElemento("span", { classe: "atalho-total", texto: String(quantidade) }));
     const item = criarElemento("li");
     item.append(link);
     atalhos.append(item);
@@ -235,7 +222,8 @@ function iniciarAtalhos(termos) {
 
 // ===== Início: trilha do calouro (#70, ADR 0011) =====
 // A lista vem de data/trilha-calouro.json (ids), e os dados de cada termo do termos.json.
-// Se o arquivo não carregar, a seção continua escondida e o resto da página funciona.
+// A seção já vem visível no HTML, com altura reservada no CSS (sem deslocamento de layout, RNF02);
+// se o arquivo não carregar ou vier vazio, ela é escondida e o resto da página funciona.
 
 async function iniciarTrilha(termos) {
   const secao = document.getElementById("trilha-calouro");
@@ -245,18 +233,23 @@ async function iniciarTrilha(termos) {
   try {
     const resposta = await fetch(URL_TRILHA);
     if (!resposta.ok) throw new Error(`Não foi possível carregar ${URL_TRILHA} (HTTP ${resposta.status})`);
-    const grupos = montarTrilha(await resposta.json(), termos);
-    if (grupos.length === 0) return;
+    const trilha = await resposta.json();
+    const grupos = gruposDaTrilha(trilha, termos);
+    if (grupos.length === 0) {
+      secao.hidden = true;
+      return;
+    }
 
     for (const grupo of grupos) {
       const itemGrupo = criarElemento("li", { classe: "trilha-grupo" });
-      const titulo = criarElemento("h3", { classe: "trilha-grupo-nome", texto: grupo.nome, atributos: { id: `trilha-${grupo.id}` } });
-      const termosDoGrupo = criarElemento("ul", { classe: "trilha-termos", atributos: { "aria-labelledby": `trilha-${grupo.id}` } });
+      const titulo = criarElemento("h3", { classe: "trilha-grupo-nome", texto: grupo.nome, atributos: { id: grupo.idDoTitulo } });
+      const termosDoGrupo = criarElemento("ul", { classe: "trilha-termos", atributos: { "aria-labelledby": grupo.idDoTitulo } });
       for (const termo of grupo.termos) {
-        const link = criarElemento("a", { classe: "trilha-termo", atributos: { href: urlDoTermo(termo) } });
+        const link = criarElemento("a", { classe: "trilha-termo", atributos: { href: termo.href, "data-termo": termo.id } });
         link.append(
-          criarElemento("span", { classe: "trilha-termo-nome", texto: termo.termo }),
-          criarElemento("span", { classe: "trilha-termo-resumo", texto: resumoDoTermo(termo) }),
+          criarElemento("span", { classe: "trilha-termo-nome", texto: termo.nome }),
+          criarElemento("span", { classe: "trilha-termo-resumo", texto: termo.resumo }),
+          criarMarcaDeVisto(),
         );
         const item = criarElemento("li");
         item.append(link);
@@ -265,24 +258,85 @@ async function iniciarTrilha(termos) {
       itemGrupo.append(titulo, termosDoGrupo);
       lista.append(itemGrupo);
     }
-    secao.hidden = false;
+    iniciarProgressoDaTrilha(grupos.flatMap((grupo) => grupo.termos.map((termo) => termo.id)), lista);
   } catch (erro) {
+    secao.hidden = true;
     console.warn("Trilha do calouro não carregada:", erro);
   }
 }
 
-// ===== Todas as siglas: índice, filtros por tipo (RF02) e campus =====
-
-function idDaLetra(letra) {
-  return letra === "#" ? "letra-outros" : `letra-${letra}`;
+// A marca não é só cor: tem o ícone e, para o leitor de tela, o texto "já visto".
+function criarMarcaDeVisto() {
+  const marca = criarElemento("span", { classe: "trilha-termo-marca", atributos: { hidden: "" } });
+  marca.append(
+    criarElemento("span", { texto: "✓", atributos: { "aria-hidden": "true" } }),
+    criarElemento("span", { classe: "sr-only", texto: "já visto" }),
+  );
+  return marca;
 }
+
+// Progresso guardado só neste aparelho (decisão 58). Sem armazenamento, a trilha continua igual e sem marcas.
+const obterArmazenamento = () => window.localStorage;
+
+function iniciarProgressoDaTrilha(idsDaTrilha, lista) {
+  const contagem = document.getElementById("trilha-contagem");
+  const barra = document.getElementById("trilha-barra");
+  const botao = document.getElementById("trilha-recomecar");
+  const nota = document.getElementById("trilha-privacidade");
+  const caixa = document.getElementById("trilha-progresso");
+  if (!contagem || !barra || !botao || !nota || !caixa) return;
+
+  if (!armazenamentoDisponivel(obterArmazenamento)) {
+    caixa.setAttribute("data-sem-armazenamento", "");
+    contagem.textContent = "Progresso indisponível neste navegador";
+    nota.textContent = "A trilha funciona igual, só sem as marcas.";
+    return;
+  }
+
+  const atualizar = () => {
+    const vistos = lerVistos(obterArmazenamento, idsDaTrilha);
+    const progresso = progressoDaTrilha(idsDaTrilha, vistos);
+    contagem.textContent = progresso.texto;
+    barra.max = progresso.total;
+    barra.value = progresso.vistos;
+    botao.hidden = progresso.vistos === 0;
+    for (const link of lista.querySelectorAll(".trilha-termo")) {
+      link.querySelector(".trilha-termo-marca").hidden = !vistos.has(link.dataset.termo);
+    }
+  };
+
+  botao.addEventListener("click", () => {
+    recomecarTrilha(obterArmazenamento);
+    atualizar();
+    contagem.focus(); // o botão some: o foco do teclado não pode se perder junto com ele
+  });
+  // Ao voltar de um termo pelo botão do navegador, a página pode vir da memória, sem rodar este módulo de novo.
+  window.addEventListener("pageshow", (evento) => {
+    if (evento.persisted) atualizar();
+  });
+  window.addEventListener("storage", (evento) => {
+    if (evento.key === CHAVE_PROGRESSO || evento.key === null) atualizar();
+  });
+  atualizar();
+}
+
+// Abrir a página de um termo da trilha conta como visto. É um extra: se falhar, a página do termo não muda.
+async function marcarTermoNaTrilha(idDoTermo) {
+  try {
+    const resposta = await fetch(URL_TRILHA);
+    if (!resposta.ok) return;
+    marcarVisto(obterArmazenamento, idDoTermo, termosDaTrilha(await resposta.json()));
+  } catch (erro) {
+    console.warn("Não foi possível marcar o termo na trilha:", erro);
+  }
+}
+
+// ===== Todas as siglas: índice, filtros por tipo, categoria (RF02) e campus =====
 
 function criarCartaoTermo(termo) {
   const etiquetas = criarElemento("span", { classe: "etiquetas" });
-  etiquetas.append(criarElemento("span", { classe: "etiqueta", texto: TIPOS[termo.tipo] }));
-  // "Geral" vale para todos: repetir a etiqueta em todo cartão só gera ruído.
-  if (termo.campus !== CAMPUS_GERAL) {
-    etiquetas.append(criarElemento("span", { classe: "etiqueta etiqueta-contorno", texto: termo.campus }));
+  for (const { texto, contorno } of etiquetasDoCartao(termo)) {
+    etiquetas.append(criarElemento("span", { classe: contorno ? "etiqueta etiqueta-contorno" : "etiqueta", texto }));
   }
 
   const topo = criarElemento("span", { classe: "cartao-topo" });
@@ -296,45 +350,45 @@ function iniciarListaCompleta(termos) {
   const container = document.getElementById("lista-termos");
   const seletorCampus = document.getElementById("filtro-campus");
   const seletorTipo = document.getElementById("filtro-tipo");
+  const seletorCategoria = document.getElementById("filtro-categoria");
   const indice = document.getElementById("indice-letras");
   const status = document.getElementById("filtro-status");
-  if (!container || !seletorCampus || !seletorTipo) return;
+  if (!container || !seletorCampus || !seletorTipo || !seletorCategoria) return;
 
-  preencherOpcoes(seletorTipo, Object.entries(TIPOS));
-  preencherOpcoes(seletorCampus, CAMPI.map((campus) => [campus, campus]));
+  preencherOpcoes(seletorTipo, opcoesDeTipo());
+  preencherOpcoes(seletorCategoria, opcoesDeCategoria(termos));
+  preencherOpcoes(seletorCampus, opcoesDeCampus());
 
   // Filtros vêm da URL (atalhos da página inicial) e voltam para ela: o link pode ser compartilhado.
   const inicial = filtrosDaUrl(new URLSearchParams(window.location.search));
   seletorTipo.value = inicial.tipo ?? "";
+  seletorCategoria.value = inicial.categoria ?? "";
   seletorCampus.value = inicial.campus ?? "";
 
+  const filtrosEscolhidos = () => ({ tipo: seletorTipo.value, categoria: seletorCategoria.value, campus: seletorCampus.value });
+
   function atualizarUrl() {
-    const parametros = new URLSearchParams();
-    if (seletorTipo.value) parametros.set("tipo", seletorTipo.value);
-    if (seletorCampus.value) parametros.set("campus", seletorCampus.value);
-    const busca = parametros.toString();
-    history.replaceState(null, "", busca ? `?${busca}` : window.location.pathname);
+    history.replaceState(null, "", enderecoDosFiltros(filtrosEscolhidos(), window.location.pathname));
   }
 
   function renderizar() {
-    const filtrados = filtrarTermos(termos, { campus: seletorCampus.value || null, tipo: seletorTipo.value || null });
-    const grupos = agruparPorLetra(filtrados);
+    const { total, grupos } = montarLista(termos, filtrosEscolhidos());
     container.replaceChildren();
     indice?.replaceChildren();
-    if (status) status.textContent = filtrados.length === 1 ? "1 termo" : `${filtrados.length} termos`;
+    if (status) status.textContent = textoDaContagem(total);
 
-    if (filtrados.length === 0) {
+    if (total === 0) {
       container.append(criarElemento("p", { classe: "aviso-vazio", texto: "Nenhum termo encontrado para esse filtro." }));
       return;
     }
 
-    for (const [letra, doGrupo] of grupos) {
+    for (const { letra, id, rotulo, termos: doGrupo } of grupos) {
       indice?.append(criarElemento("a", {
         texto: letra,
-        atributos: { href: `#${idDaLetra(letra)}`, "aria-label": letra === "#" ? "Outros símbolos" : `Letra ${letra}` },
+        atributos: { href: `#${id}`, "aria-label": rotulo },
       }));
 
-      const secao = criarElemento("section", { classe: "grupo-letra", atributos: { id: idDaLetra(letra) } });
+      const secao = criarElemento("section", { classe: "grupo-letra", atributos: { id } });
       const grade = criarElemento("div", { classe: "grade" });
       grade.append(...doGrupo.map(criarCartaoTermo));
       secao.append(criarElemento("h2", { texto: letra }), grade);
@@ -342,13 +396,97 @@ function iniciarListaCompleta(termos) {
     }
   }
 
-  for (const seletor of [seletorTipo, seletorCampus]) {
+  for (const seletor of [seletorTipo, seletorCategoria, seletorCampus]) {
     seletor.addEventListener("change", () => {
       atualizarUrl();
       renderizar();
     });
   }
   renderizar();
+}
+
+// ===== Planta da FCTE (ADR 0012) =====
+
+// O SVG vem do planta.js com todo texto escapado; mesmo assim entra pelo parser de XML, nunca por innerHTML.
+function criarSvg(texto) {
+  if (!texto) return null;
+  const documento = new DOMParser().parseFromString(texto, "image/svg+xml");
+  if (documento.querySelector("parsererror")) return null;
+  return document.importNode(documento.documentElement, true);
+}
+
+// A moldura reserva a altura pelo CSS (aspect-ratio): o desenho entra sem empurrar o que está abaixo.
+function criarMoldura(texto) {
+  const svg = criarSvg(texto);
+  if (!svg) return null;
+  const moldura = criarElemento("div", { classe: "planta-moldura" });
+  moldura.append(svg);
+  return moldura;
+}
+
+function criarBlocoOndeFica(planta, lugar) {
+  const resumo = descreverLugar(planta, lugar);
+  const moldura = criarMoldura(svgDoLugar(planta, lugar));
+  if (!resumo || !moldura) return null;
+  const bloco = criarBloco("Onde fica", criarElemento("p", { classe: "onde-fica-local", texto: `${resumo.titulo} · ${resumo.local}` }), moldura);
+  bloco.classList.add("onde-fica");
+  if (resumo.aproximada) moldura.before(criarElemento("p", { classe: "aviso-planta", texto: AVISO_SALA_APROXIMADA }));
+  bloco.append(criarElemento("a", { classe: "link-como-chegar", texto: resumo.rotuloLink, atributos: { href: resumo.href } }));
+  return bloco;
+}
+
+function iniciarPaginaPlanta(termos, planta) {
+  const container = document.getElementById("conteudo-planta");
+  if (!container) return;
+  container.replaceChildren();
+  const pagina = paginaDaPlanta(planta, window.location.search);
+  if (!pagina) {
+    container.append(criarElemento("h1", { texto: "Planta indisponível" }), criarElemento("p", { texto: "Não foi possível carregar a planta da FCTE." }));
+    return;
+  }
+
+  const emAndar = pagina.modo === "andar";
+  const texto = emAndar ? montarSvgAndar(planta, pagina.predio, pagina.andar, { destaque: pagina.destaque, links: true }) : montarSvgCampus(planta, { links: true });
+  const predio = planta.predios.find((candidato) => candidato.id === pagina.predio);
+  const andar = predio?.andares.find((candidato) => candidato.id === pagina.andar);
+  document.title = emAndar && andar ? `${predio.sigla} · ${andar.nome} — Planta da FCTE — Glossário UnB` : "Planta da FCTE — Glossário UnB";
+  container.append(criarElemento("h1", { texto: emAndar && andar ? `${predio.sigla} · ${andar.nome}` : planta.campus?.nome || "Campus" }));
+  if (pagina.aviso) container.append(criarElemento("p", { classe: "aviso-planta", texto: pagina.aviso, atributos: { role: "status" } }));
+  if (pagina.nomeDaSala) container.append(criarElemento("p", { classe: "onde-fica-local", texto: pagina.nomeDaSala }));
+  if (pagina.aproximada || pagina.andarComAproximadas) {
+    container.append(criarElemento("p", { classe: "aviso-planta", texto: pagina.aproximada ? AVISO_SALA_APROXIMADA : AVISO_ANDAR_APROXIMADO }));
+  }
+  const moldura = criarMoldura(texto);
+  if (moldura) container.append(moldura);
+
+  // Uma sala pode abrigar vários laboratórios: um link para cada sigla que já existe no glossário.
+  const termosDaSala = (pagina.termos ?? []).map((id) => termos.find((termo) => termo.id === id)).filter(Boolean);
+  if (termosDaSala.length > 0) {
+    const links = criarElemento("div", { classe: "planta-termos" });
+    for (const termo of termosDaSala) {
+      links.append(criarElemento("a", { classe: "link-como-chegar", texto: `Ver ${termo.termo}`, atributos: { href: `termo.html?id=${encodeURIComponent(termo.id)}` } }));
+    }
+    container.append(links);
+  }
+  container.append(criarNavegacaoDaPlanta(planta));
+}
+
+function criarNavegacaoDaPlanta(planta) {
+  const navegacao = criarElemento("nav", { classe: "bloco planta-navegacao", atributos: { "aria-label": "Outros andares" } });
+  navegacao.append(criarElemento("h2", { texto: "Outros andares" }));
+  const lista = criarElemento("ul", { classe: "planta-andares" });
+  lista.append(criarItemDeLink("Campus (todos os prédios)", "planta.html"));
+  for (const predio of listaDeAndares(planta)) {
+    for (const andar of predio.andares) lista.append(criarItemDeLink(`${predio.sigla} · ${andar.nome}`, andar.href));
+  }
+  navegacao.append(lista);
+  return navegacao;
+}
+
+function criarItemDeLink(texto, href) {
+  const item = criarElemento("li");
+  item.append(criarElemento("a", { texto, atributos: { href } }));
+  return item;
 }
 
 // ===== Página de termo =====
@@ -359,16 +497,27 @@ function criarBloco(titulo, ...conteudo) {
   return bloco;
 }
 
-// Fonte pode ser um link ou um texto ("conhecimento comum verificado pelo grupo").
-// Links aparecem sem "https://" e sem a barra final, que só atrapalham a leitura.
-function criarFonte(fonte) {
-  const url = urlSegura(fonte);
-  if (!url) return criarElemento("p", { texto: fonte });
+// "Veja também": um link por termo ligado, com a sigla e o nome visíveis (o nome do link é o próprio texto).
+function criarBlocoVejaTambem(relacionados) {
+  const lista = criarElemento("ul", { classe: "veja-tambem" });
+  for (const { termo, significado, href } of relacionados) {
+    const link = criarElemento("a", { atributos: { href } });
+    link.append(criarElemento("span", { classe: "veja-tambem-sigla", texto: termo }));
+    if (significado) link.append(criarElemento("span", { classe: "veja-tambem-nome", texto: significado }));
+    const item = criarElemento("li");
+    item.append(link);
+    lista.append(item);
+  }
+  return criarBloco("Veja também", lista);
+}
 
-  const { hostname, pathname } = new URL(url);
-  const texto = `${hostname}${pathname === "/" ? "" : pathname}`;
+// Fonte pode ser um link ou um texto; o texto e o endereço vêm do ficha.js.
+function criarFonte(fonte) {
+  const { texto, href } = textoDaFonte(fonte);
+  if (!href) return criarElemento("p", { texto });
+
   const paragrafo = criarElemento("p");
-  paragrafo.append(criarElemento("a", { texto, atributos: { href: url, target: "_blank", rel: "noopener" } }));
+  paragrafo.append(criarElemento("a", { texto, atributos: { href, target: "_blank", rel: "noopener" } }));
   return paragrafo;
 }
 
@@ -400,7 +549,7 @@ function criarBlocoMapa(localizacao) {
   return { bloco, montar };
 }
 
-function iniciarPaginaTermo(termos) {
+function iniciarPaginaTermo(termos, planta) {
   const container = document.getElementById("conteudo-termo");
   if (!container) return;
 
@@ -418,7 +567,7 @@ function iniciarPaginaTermo(termos) {
     return;
   }
 
-  document.title = `${termo.termo} — Glossário UnB`;
+  document.title = tituloDaFicha(termo);
   document.getElementById("link-corrigir")?.setAttribute("href", urlCorrigirDefinicao(termo.termo));
   container.append(criarElemento("h1", { texto: termo.termo }));
   if (termo.significado) container.append(criarElemento("p", { classe: "subtitulo", texto: termo.significado }));
@@ -434,6 +583,17 @@ function iniciarPaginaTermo(termos) {
     criarBloco("Exemplo de uso", criarElemento("p", { classe: "exemplo-frase", texto: termo.exemplo_uso })),
     criarBloco("Fonte", criarFonte(termo.fonte)),
   );
+  void marcarTermoNaTrilha(termo.id);
+
+  const lugar = planta ? acharLugar(planta, termo.id) : null;
+  const ondeFica = lugar ? criarBlocoOndeFica(planta, lugar) : null;
+  if (ondeFica) container.append(ondeFica);
+
+  const sinonimos = textoDosSinonimos(termo);
+  if (sinonimos) container.append(criarBloco("Também conhecido como", criarElemento("p", { texto: sinonimos })));
+
+  const relacionados = relacionadosDe(termo, termos);
+  if (relacionados.length > 0) container.append(criarBlocoVejaTambem(relacionados));
 
   if (!termo.localizacao) return;
   const { bloco, montar } = criarBlocoMapa(termo.localizacao);
@@ -441,11 +601,53 @@ function iniciarPaginaTermo(termos) {
   montar();
 }
 
+// ===== De onde vêm os dados: o boletim do robô (#74) =====
+
+// O boletim é um extra da página: se não carregar, ela continua mostrando o que vem dos termos.
+async function carregarBoletim() {
+  try {
+    const resposta = await fetch(URL_BOLETIM);
+    return resposta.ok ? await resposta.json() : null;
+  } catch (erro) {
+    console.warn("Boletim do robô indisponível:", erro);
+    return null;
+  }
+}
+
+function criarLinhaDeTotal({ rotulo, total }, maior) {
+  const linha = criarElemento("li", { classe: "dados-linha" });
+  const trilho = criarElemento("span", { classe: "dados-trilho", atributos: { "aria-hidden": "true" } });
+  const barra = criarElemento("span", { classe: "dados-barra" });
+  barra.style.width = `${Math.max(2, (total / maior) * 100)}%`;
+  trilho.append(barra);
+  linha.append(criarElemento("span", { classe: "dados-linha-rotulo", texto: rotulo }), criarElemento("strong", { texto: String(total) }), trilho);
+  return linha;
+}
+
+function preencherTotais(idDaLista, grupos) {
+  const maior = Math.max(1, ...grupos.map((grupo) => grupo.total));
+  document.getElementById(idDaLista)?.replaceChildren(...grupos.map((grupo) => criarLinhaDeTotal(grupo, maior)));
+}
+
+async function iniciarPaginaDados(termos) {
+  const data = document.getElementById("dados-data");
+  if (!data) return;
+
+  const boletim = boletimDaColeta(await carregarBoletim(), termos);
+  data.textContent = boletim.textoDaData ?? "Não foi possível carregar o boletim do robô agora. Os totais abaixo vêm dos termos publicados.";
+  for (const [id, valor] of [["dados-lidas", boletim.numeros.lidas], ["dados-barradas", boletim.numeros.barradas], ["dados-publicados", boletim.numeros.publicados]]) {
+    const campo = document.getElementById(id);
+    if (campo) campo.textContent = valor === null ? "—" : String(valor);
+  }
+  preencherTotais("dados-fontes", boletim.fontes);
+  preencherTotais("dados-categorias", boletim.categorias);
+}
+
 // ===== Erro de carga: mostra aviso no lugar do conteúdo da página atual =====
 
 function mostrarErroDeCarga() {
   const aviso = criarElemento("p", { classe: "aviso-vazio", texto: MENSAGEM_ERRO_CARGA, atributos: { role: "alert" } });
-  const alvo = document.getElementById("conteudo-termo") ?? document.getElementById("lista-termos");
+  const alvo = document.getElementById("conteudo-termo") ?? document.getElementById("conteudo-planta") ?? document.getElementById("lista-termos") ?? document.getElementById("conteudo-dados");
   if (alvo) {
     alvo.replaceChildren(aviso);
     return;
@@ -459,12 +661,16 @@ iniciarTema();
 registrarServiceWorker();
 
 try {
-  const termos = await carregarTermos();
+  // A planta vem junto com os termos (só nas páginas que a usam) para o "Onde fica" entrar na mesma pintura da ficha.
+  const usaPlanta = Boolean(document.getElementById("conteudo-termo") || document.getElementById("conteudo-planta"));
+  const [termos, planta] = await Promise.all([carregarTermos(), usaPlanta ? carregarPlanta() : null]);
   iniciarBusca(termos);
   iniciarAtalhos(termos);
   await iniciarTrilha(termos);
   iniciarListaCompleta(termos);
-  iniciarPaginaTermo(termos);
+  iniciarPaginaTermo(termos, planta);
+  iniciarPaginaPlanta(termos, planta);
+  await iniciarPaginaDados(termos);
 } catch (erro) {
   console.error(erro);
   mostrarErroDeCarga();

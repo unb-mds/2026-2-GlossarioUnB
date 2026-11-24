@@ -5,6 +5,8 @@ Proposta em 13/11/2026 pelo Pedro; a aprovação deste PR é a decisão do grupo
 
 Atualizada em 18/11/2026 pelo Pedro: libera as bibliotecas de teste e de qualidade, numa segunda lista fechada (seção "Bibliotecas de desenvolvimento").
 
+Atualizada em 23/11/2026 pelo Pedro: acrescenta o `playwright-bdd` à segunda lista, para os testes de aceitação em Gherkin (#81).
+
 ## Contexto
 - **A ADR 0002 foi escrita para o front da R1:** "sem etapa de build e sem dependências npm em tempo de execução". O robô de coleta (ADR 0009) não existia, e mesmo assim seguiu a mesma regra.
 - **Crítica da professora (R1, 30/09):** "a complexidade não vai estar no front, vai estar no maquinário". O maquinário é o robô.
@@ -22,6 +24,7 @@ Atualizada em 18/11/2026 pelo Pedro: libera as bibliotecas de teste e de qualida
   - `cheerio`: lê o HTML das páginas da UnB com um parser de verdade e seletores CSS.
   - `robots-parser`: lê o robots.txt com curingas, no lugar de ~50 linhas próprias.
   - `@google/genai`: o SDK oficial do Gemini, usado só pelo script da #58.
+  - `pdfjs-dist`: lê o PDF da Lista de Siglas da DPO, com as coordenadas dos itens de texto (#55).
 - **Biblioteca nova:** entra só atualizando esta lista no mesmo PR, com o motivo.
 - **`package-lock.json` versionado** e `npm ci` no CI, para todo mundo instalar as mesmas versões.
 - **Os testes de unidade continuam com `node:test`.**
@@ -31,6 +34,7 @@ Atualizada em 18/11/2026 pelo Pedro: libera as bibliotecas de teste e de qualida
 - **Lista fechada, com o motivo de cada uma:**
   - `@playwright/test`: testes ponta a ponta no navegador (#78). É a cobertura da camada de tela.
   - `@axe-core/playwright`: auditoria WCAG 2.1 AA dentro dos testes do Playwright, nos temas claro e escuro (#78, RNF03).
+  - `playwright-bdd` (23/11): testes de aceitação BDD (#81). Lê os cenários em Gherkin (`tests/aceitacao/*.feature`) e os roda como testes do Playwright. Usa o mesmo Playwright do E2E (#153), uma biblioteca só e o CI não muda.
   - `@stryker-mutator/core`: teste de mutação (#82). Roda o `npm test` pelo executor `command`, que já vem nele, sem plugin.
   - `eslint`, `@eslint/js` e `globals`: lint no CI (#120).
 - **Biblioteca nova** (de qualquer uma das duas listas): entra só atualizando a lista certa no mesmo PR, com o motivo. Um plugin do Stryker, por exemplo, segue essa regra.
@@ -48,6 +52,8 @@ Atualizada em 18/11/2026 pelo Pedro: libera as bibliotecas de teste e de qualida
 - **jsdom ou navegador sem cabeça (Puppeteer) para o robô ler as páginas.** Pesados demais para páginas estáticas. O Playwright da atualização de 18/11 roda só nos testes, nunca no robô.
 - **Liberar qualquer `devDependency` (18/11).** É mais simples, mas perde o controle da cadeia de dependências que a lista fechada dá, e o teste da fronteira deixaria de proteger alguma coisa.
 - **Testar a tela e a mutação sem biblioteca (18/11).** O teste de sabotagem cobre defeitos escolhidos à mão, mas não cria mutantes sozinho nem roda um navegador. Testes ponta a ponta e a auditoria do axe-core precisam de um navegador.
+- **Cucumber com o Playwright como biblioteca, `@cucumber/cucumber` (23/11).** É o BDD mais conhecido, mas traz um executor próprio ao lado do Playwright: duas bibliotecas, dois relatórios e o navegador aberto à mão em cada passo.
+- **Testes de aceitação sem biblioteca, com o `.feature` só como documentação (23/11).** Não pede nada novo, mas o cenário deixa de rodar: o texto e o teste podem se afastar sem ninguém perceber, o que a #81 quer evitar.
 - **Chamar o Gemini por `fetch`, sem SDK.** Funciona e é o plano B; o SDK oficial já pede a resposta em JSON com schema.
 
 ## Consequências

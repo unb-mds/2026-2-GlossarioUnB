@@ -72,9 +72,52 @@ test("encontrarTermo busca pelo id e devolve undefined quando não existe", () =
 });
 
 test("filtrosDaUrl aceita só tipos e campi conhecidos", () => {
-  assert.deepEqual(filtrosDaUrl(new URLSearchParams("tipo=sigla&campus=Gama")), { tipo: "sigla", campus: "Gama" });
-  assert.deepEqual(filtrosDaUrl(new URLSearchParams("tipo=toString&campus=Asa%20Norte")), { tipo: null, campus: null });
-  assert.deepEqual(filtrosDaUrl(new URLSearchParams("")), { tipo: null, campus: null });
+  assert.deepEqual(filtrosDaUrl(new URLSearchParams("tipo=sigla&campus=Gama")), { tipo: "sigla", campus: "Gama", categoria: null });
+  assert.deepEqual(filtrosDaUrl(new URLSearchParams("tipo=toString&campus=Asa%20Norte")), { tipo: null, campus: null, categoria: null });
+  assert.deepEqual(filtrosDaUrl(new URLSearchParams("")), { tipo: null, campus: null, categoria: null });
+});
+
+test("filtrosDaUrl aceita só categorias da taxonomia", () => {
+  assert.equal(filtrosDaUrl(new URLSearchParams("categoria=sistemas")).categoria, "sistemas");
+  assert.equal(filtrosDaUrl(new URLSearchParams("categoria=toString")).categoria, null);
+  assert.equal(filtrosDaUrl(new URLSearchParams("categoria=inventada")).categoria, null);
+});
+
+test("filtrarTermos filtra por categoria e combina com tipo e campus", () => {
+  const termos = [
+    termo("sigaa", "SIGAA", { categoria: "sistemas" }),
+    termo("fcte", "FCTE", { categoria: "unidades-academicas", campus: "Gama" }),
+    termo("ceubinho", "Ceubinho", { categoria: "locais-campus", tipo: "giria", campus: "Darcy Ribeiro" }),
+  ];
+  assert.deepEqual(filtrarTermos(termos, { categoria: "sistemas" }).map((t) => t.id), ["sigaa"]);
+  assert.deepEqual(filtrarTermos(termos, { categoria: "locais-campus", tipo: "sigla" }), []);
+  assert.deepEqual(filtrarTermos(termos, { categoria: "unidades-academicas", campus: "Gama" }).map((t) => t.id), ["fcte"]);
+  assert.equal(filtrarTermos(termos, { categoria: null }).length, 3);
+});
+
+test("buscarTermos encontra termo pelos sinônimos, sem diferenciar acento e caixa", () => {
+  const termos = [
+    termo("auxilio", "Auxílio Socioeconômico", { sinonimos: ["assistência econômica"] }),
+    termo("fcts", "FCTS", { sinonimos: ["FCE"] }),
+    termo("ru", "RU"),
+  ];
+  assert.deepEqual(buscarTermos(termos, "assistencia economica").map((t) => t.id), ["auxilio"]);
+  assert.deepEqual(buscarTermos(termos, "ASSISTÊNCIA").map((t) => t.id), ["auxilio"]);
+  assert.deepEqual(buscarTermos(termos, "fce").map((t) => t.id), ["fcts"]);
+});
+
+test("buscarTermos prioriza nome que começa com a busca, seguido por sinônimo que começa", () => {
+  const termos = [
+    termo("outra-sigla", "XPTO", { sinonimos: ["Gama Faculdade"] }),
+    termo("fcte", "FCTE", { sinonimos: ["FGA"] }),
+    termo("gama-termo", "GAMA", {}),
+  ];
+  // "ga": GAMA começa com "ga", "Gama Faculdade" começa com "ga" e "FGA" só contém "ga".
+  assert.deepEqual(buscarTermos(termos, "ga").map((t) => t.id), ["gama-termo", "outra-sigla", "fcte"]);
+});
+
+test("buscarTermos não quebra com sinonimos que não é lista", () => {
+  assert.deepEqual(buscarTermos([termo("ru", "RU", { sinonimos: "bandejão" })], "bandejao"), []);
 });
 
 test("contarPorTipo segue a ordem dos tipos e omite os vazios", () => {
@@ -85,4 +128,18 @@ test("contarPorTipo segue a ordem dos tipos e omite os vazios", () => {
 test("resumoDoTermo usa o significado da sigla ou, sem ele, a definição", () => {
   assert.equal(resumoDoTermo(termo("ru", "RU", { significado: "Restaurante Universitário", definicao: "Onde se almoça." })), "Restaurante Universitário");
   assert.equal(resumoDoTermo(termo("bandejao", "Bandejão", { tipo: "giria", definicao: "Apelido do RU." })), "Apelido do RU.");
+});
+
+// ===== Mutantes sobreviventes (#82) =====
+
+test("buscarTermos: quem começa com a consulta vem antes de quem só a contém no fim", () => {
+  const termos = [termo("a", "Casapa"), termo("b", "Pasta")];
+  assert.deepEqual(buscarTermos(termos, "pa").map((t) => t.id), ["b", "a"]);
+});
+
+test("agruparPorLetra ordena os termos de cada letra pelo nome sem acento", () => {
+  const termos = [termo("b", "Bola"), termo("a2", "Ágora"), termo("a1", "Abacate")];
+  const [[letra, doGrupo]] = agruparPorLetra(termos);
+  assert.equal(letra, "A");
+  assert.deepEqual(doGrupo.map((t) => t.id), ["a1", "a2"]);
 });

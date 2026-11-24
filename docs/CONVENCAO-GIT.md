@@ -1,6 +1,6 @@
 # Convenção de Commits e Branches — Glossário UnB
 
-> **Status:** Proposta, aguardando aprovação do time (#17)  
+> **Status:** Aceito (PR #33, issue #17)  
 > **Referência:** Issue #17 — Convenção de commits e branches  
 > **Padrões adotados:** GitHub Flow e [Conventional Commits v1.0.0](https://www.conventionalcommits.org/pt-br/v1.0.0/)
 
@@ -55,7 +55,8 @@ Toda branch de desenvolvimento deve seguir o padrão:
    ```
 2. **Escopo limitado:** Uma branch deve resolver apenas o escopo da sua issue correspondente. Evite misturar múltiplos assuntos na mesma branch.
 3. **Proteção da `main`:** Nenhum integrante commita diretamente na `main`. Toda alteração entra exclusivamente via Pull Request.
-4. **Exclusão pós-merge:** Após a aprovação e o merge do PR na `main`, a branch remota deve ser excluída no GitHub para manter o repositório limpo.
+4. **Como o PR entra na `main`:** o padrão é *Squash and merge*. O PR vira um commit só na `main`, com o título do PR no padrão da seção 3 e o número do PR no fim, por exemplo `feat(coleta): filtro de termos fora da universidade (#161)`. Os commits de cada pessoa continuam na aba *Commits* do PR, e quem tem commit no PR além do autor aparece como coautor (`Co-authored-by`) no commit da `main`. Até 23/11/2026, antes desta regra, 20 PRs entraram por *merge commit*.
+5. **Exclusão pós-merge:** Após a aprovação e o merge do PR na `main`, a branch remota deve ser excluída no GitHub para manter o repositório limpo.
 
 ---
 

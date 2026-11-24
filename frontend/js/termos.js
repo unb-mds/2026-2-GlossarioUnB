@@ -11,6 +11,19 @@ export const TIPOS = {
   expressao: "Expressão",
 };
 
+// Valores aceitos em `categoria` (ADR 0004) e o rótulo exibido ao usuário.
+export const CATEGORIAS = {
+  "vida-academica": "Vida acadêmica",
+  "unidades-academicas": "Unidades acadêmicas",
+  administracao: "Administração",
+  colegiados: "Colegiados",
+  "locais-campus": "Locais do campus",
+  sistemas: "Sistemas",
+  "assistencia-estudantil": "Assistência estudantil",
+  "representacao-estudantil": "Representação estudantil",
+  girias: "Gírias",
+};
+
 export function normalizar(texto) {
   return texto
     .toString()
@@ -20,23 +33,33 @@ export function normalizar(texto) {
     .trim();
 }
 
-// Termos cujo nome contém a consulta; os que começam com ela vêm primeiro.
+export const sinonimosDe = (termo) => (Array.isArray(termo.sinonimos) ? termo.sinonimos : []);
+
+// Termos cujo nome ou sinônimos contêm a consulta; primeiro o nome que começa com ela, depois o sinônimo que começa.
 export function buscarTermos(termos, consulta, limite = 8) {
   const q = normalizar(consulta);
   if (!q) return [];
 
-  const naoComecaCom = (termo) => Number(!normalizar(termo.termo).startsWith(q));
+  const pontuacao = (termo) => {
+    if (normalizar(termo.termo).startsWith(q)) return 0;
+    if (sinonimosDe(termo).some((sinonimo) => normalizar(sinonimo).startsWith(q))) return 1;
+    return 2;
+  };
+  const corresponde = (termo) =>
+    normalizar(termo.termo).includes(q) || sinonimosDe(termo).some((sinonimo) => normalizar(sinonimo).includes(q));
+
   return termos
-    .filter((termo) => normalizar(termo.termo).includes(q))
-    .sort((a, b) => naoComecaCom(a) - naoComecaCom(b))
+    .filter(corresponde)
+    .sort((a, b) => pontuacao(a) - pontuacao(b))
     .slice(0, limite);
 }
 
 // Filtro por campus inclui os termos "Geral", que valem para os 4 campi.
-export function filtrarTermos(termos, { campus = null, tipo = null } = {}) {
+export function filtrarTermos(termos, { campus = null, tipo = null, categoria = null } = {}) {
   return termos.filter((termo) => {
     if (campus && termo.campus !== campus && termo.campus !== CAMPUS_GERAL) return false;
     if (tipo && termo.tipo !== tipo) return false;
+    if (categoria && termo.categoria !== categoria) return false;
     return true;
   });
 }
@@ -67,13 +90,15 @@ export function encontrarTermo(termos, id) {
   return termos.find((termo) => termo.id === id);
 }
 
-// Filtros vindos da URL (ex.: todas-siglas.html?tipo=sigla); valor desconhecido é ignorado.
+// Filtros vindos da URL (ex.: todas-siglas.html?categoria=sistemas); valor desconhecido é ignorado.
 export function filtrosDaUrl(parametros) {
   const campus = parametros.get("campus");
   const tipo = parametros.get("tipo");
+  const categoria = parametros.get("categoria");
   return {
     campus: CAMPI.includes(campus) ? campus : null,
     tipo: tipo && Object.hasOwn(TIPOS, tipo) ? tipo : null,
+    categoria: categoria && Object.hasOwn(CATEGORIAS, categoria) ? categoria : null,
   };
 }
 

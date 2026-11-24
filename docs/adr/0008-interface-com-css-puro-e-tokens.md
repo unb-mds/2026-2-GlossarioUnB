@@ -1,5 +1,8 @@
 # ADR 0008 — Interface com CSS puro, tokens de cor e fontes do sistema
 
+## Status
+Aceito (em uso desde a Release 1, 28/09/2026).
+
 ## Contexto
 O visual do MVP foi refeito em 28/09. Com a carga de 40 siglas reais, o problema deixou de ser "mostrar 5 termos" e passou a ser "achar e ler rápido um termo entre dezenas".
 
@@ -40,4 +43,4 @@ A interface precisava respeitar quatro coisas:
 - (+) Trocar a paleta, por exemplo para a identidade oficial da UnB, é mexer só nos tokens.
 - (−) A página "Sobre o projeto" (`sobre/`) é um site separado, com o próprio `estilo.css`. Os tokens estão **copiados** do glossário, então uma mudança de paleta precisa ser feita nos dois arquivos. Ela não tem JavaScript: o tema segue só a preferência do sistema.
 - (−) Barra e rodapé se repetem nas 3 páginas, como já previa a ADR 0002. Um script curto de tema também se repete no `<head>` de cada página, para evitar que a tela "pisque" no tema errado.
-- (−) As cores são inspiradas no azul e no verde da UnB, mas não seguem o manual da marca. Em 28/09 o ícone do app passou a ser o **logotipo oficial da UnB**. **[FALTA: conferir as regras de uso da marca em marca.unb.br]**
+- (−) As cores são inspiradas no azul e no verde da UnB, mantendo paleta própria por tokens CSS. Em 28/09 o ícone do app passou a ser o logotipo oficial da UnB, com referência às diretrizes de uso da marca em [marca.unb.br](https://marca.unb.br/).

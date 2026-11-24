@@ -7,7 +7,18 @@ Thumbs.db
 node_modules/
 _site/
 coverage/
+.lighthouseci/
+coleta/saida/
+coleta/resumo.md
 
 # Arquivo de variáveis de ambiente com dados sensíveis
 .env
 
+reports/
+.stryker-tmp/
+
+# Relatórios dos testes E2E (Playwright)
+playwright-report/
+test-results/
+.features-gen/
+# Teste de mutação (StrykerJS)

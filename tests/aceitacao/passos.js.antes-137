@@ -1,0 +1,77 @@
+// Passos dos cenários de aceitação (issue #81). Reaproveitam o Playwright, o servidor
+// local e os seletores dos testes E2E da #78 (e2e/busca.spec.js).
+import { expect } from "@playwright/test";
+import { createBdd } from "playwright-bdd";
+
+const { Given, When, Then } = createBdd();
+const CAMPO_BUSCA = "Pesquisar sigla, gíria ou expressão";
+
+Given("que o calouro abre a página inicial", async ({ page }) => {
+  await page.goto("/frontend/");
+  await expect(page.locator("#total-termos")).toHaveText(/^\d+$/);
+});
+
+// Confere o dado, não a tela: o cenário falha se o termos.json não tiver o sinônimo.
+Given("que {string} é um sinônimo de {string} no glossário", async ({ request }, sinonimo, termo) => {
+  const dados = await (await request.get("/frontend/data/termos.json")).json();
+  const encontrado = dados.find((item) => item.termo === termo);
+  expect(encontrado?.sinonimos ?? [], `"${termo}" precisa listar "${sinonimo}" em sinonimos`).toContain(sinonimo);
+});
+
+When("ele busca {string}", async ({ page }, texto) => {
+  await page.getByRole("combobox", { name: CAMPO_BUSCA }).fill(texto);
+});
+
+Then("a primeira sugestão é {string}", async ({ page }, termo) => {
+  await expect(page.getByRole("option").first()).toContainText(termo);
+});
+
+When("ele escolhe a primeira sugestão pelo teclado", async ({ page }) => {
+  const campo = page.getByRole("combobox", { name: CAMPO_BUSCA });
+  await campo.press("ArrowDown");
+  await campo.press("Enter");
+});
+
+Then("o glossário avisa que nenhum termo foi encontrado", async ({ page }) => {
+  await expect(page.locator("#busca-status")).toHaveText("Nenhum termo encontrado.");
+  await expect(page.locator("#busca-vazia")).toBeVisible();
+});
+
+Then("oferece o link {string}", async ({ page }, texto) => {
+  const link = page.locator("#busca-vazia").getByRole("link", { name: texto });
+  const url = new URL(await link.getAttribute("href"));
+  expect(url.pathname).toBe("/unb-mds/2026-2-GlossarioUnB/issues/new");
+  expect(url.searchParams.get("template")).toBe("adicionar-termo.md");
+});
+
+Then("ele vê a página do termo {string}", async ({ page }, termo) => {
+  await expect(page).toHaveURL(/\/frontend\/termo\.html\?id=/);
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText(termo);
+});
+
+Then("ela mostra o significado do termo", async ({ page }) => {
+  await expect(page.getByRole("heading", { name: "O que é" })).toBeVisible();
+});
+
+Then("ela menciona {string}", async ({ page }, texto) => {
+  await expect(page.getByRole("main")).toContainText(texto);
+});
+
+Then("ela mostra um exemplo de uso", async ({ page }) => {
+  await expect(page.getByRole("heading", { name: "Exemplo de uso" })).toBeVisible();
+});
+
+Then("ele vê a trilha {string}", async ({ page }, titulo) => {
+  await expect(page.getByRole("heading", { level: 2, name: titulo })).toBeVisible();
+});
+
+Then("a trilha traz os termos essenciais {string}, {string}, {string} e {string}", async ({ page }, termo1, termo2, termo3, termo4) => {
+  const trilha = page.locator("#trilha-calouro");
+  for (const termo of [termo1, termo2, termo3, termo4]) {
+    await expect(trilha.locator(".trilha-termo-nome", { hasText: new RegExp(`^${termo}$`) })).toBeVisible();
+  }
+});
+
+When("ele abre o termo {string} da trilha", async ({ page }, termo) => {
+  await page.locator("#trilha-calouro").getByRole("link", { name: new RegExp(`^${termo}`) }).click();
+});

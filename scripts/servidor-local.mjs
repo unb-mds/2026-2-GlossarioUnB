@@ -6,11 +6,14 @@
 //   /sobre/      → sobre/     (página de apresentação do projeto)
 import { createServer } from "node:http";
 import { readFile, stat } from "node:fs/promises";
+import { gzipSync } from "node:zlib";
 import { extname, join, normalize, sep } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const RAIZ = fileURLToPath(new URL("..", import.meta.url));
 const PASTAS_PUBLICADAS = ["frontend", "sobre"];
+// Da pasta coleta/, só o boletim do robô vai para o site (#74).
+const ARQUIVOS_AVULSOS = ["/coleta/relatorio.json"];
 const TIPOS = {
   ".html": "text/html; charset=utf-8",
   ".css": "text/css; charset=utf-8",
@@ -23,6 +26,9 @@ const TIPOS = {
 // Caminho do arquivo pedido, ou null se estiver fora do que é publicado (ex.: /../, /tests/).
 async function localizarArquivo(caminhoUrl) {
   if (caminhoUrl === "/" || caminhoUrl === "/index.html") return join(RAIZ, "index.html");
+
+  const avulso = ARQUIVOS_AVULSOS.find((arquivo) => arquivo === caminhoUrl);
+  if (avulso) return join(RAIZ, ...avulso.split("/"));
 
   const pasta = PASTAS_PUBLICADAS.find((nome) => caminhoUrl.startsWith(`/${nome}/`));
   if (!pasta) return null;
@@ -64,8 +70,16 @@ export async function atender(pedido, resposta) {
     return;
   }
   try {
-    const corpo = await readFile(arquivo);
-    resposta.writeHead(200, { "Content-Type": TIPOS[extname(arquivo)] ?? "application/octet-stream", "Cache-Control": "no-cache" });
+    let corpo = await readFile(arquivo);
+    const cabecalhos = { "Content-Type": TIPOS[extname(arquivo)] ?? "application/octet-stream", "Cache-Control": "no-cache" };
+    // O GitHub Pages comprime texto com gzip; o servidor local faz o mesmo para a medição de desempenho
+    // (Lighthouse CI, RNF02) refletir o site publicado. Imagens já vêm comprimidas.
+    if (/\bgzip\b/.test(pedido.headers?.["accept-encoding"] ?? "") && extname(arquivo) !== ".png") {
+      corpo = gzipSync(corpo);
+      cabecalhos["Content-Encoding"] = "gzip";
+      cabecalhos.Vary = "Accept-Encoding";
+    }
+    resposta.writeHead(200, cabecalhos);
     resposta.end(corpo);
   } catch (erro) {
     if (erro.code === "ENOENT") {

@@ -6,7 +6,7 @@ PWA de consulta a siglas, gírias e expressões da UnB, no estilo do glossario-u
 - página de cada termo com definição, exemplo de uso, fonte e, quando for um lugar físico, mapa;
 - link para sugerir um termo pelo GitHub no rodapé, e na busca quando nada é encontrado.
 
-Decisões de arquitetura em [`docs/adr/`](../docs/adr/) (status: propostas).
+Decisões de arquitetura registradas em [`docs/adr/`](../docs/adr/).
 
 ## Como rodar localmente
 
@@ -16,10 +16,18 @@ Service workers e módulos ES não funcionam abrindo o arquivo direto (`file://`
 npm run dev      # servidor local sem dependências (scripts/servidor-local.mjs)
 ```
 
-E acesse `http://localhost:8080/frontend/`. O servidor usa o mesmo layout do GitHub Pages, que é o das pastas do repositório: o glossário em `/frontend/` e a página "Sobre o projeto" em `/sobre/`. Também funciona abrir pelo Live Server do VS Code a partir da raiz do repositório. Para rodar os testes (Node 22 ou mais novo, sem dependências):
+E acesse `http://localhost:8080/frontend/`. O servidor usa o mesmo layout do GitHub Pages, que é o das pastas do repositório: o glossário em `/frontend/` e a página "Sobre o projeto" em `/sobre/`. Também funciona abrir pelo Live Server do VS Code a partir da raiz do repositório. Para rodar os testes de domínio (Node 22 ou mais novo):
 
 ```bash
 npm test
+```
+
+Os fluxos no navegador e a auditoria de acessibilidade ficam na raiz, em `e2e/`:
+
+```bash
+npm ci
+npx playwright install chromium   # só na primeira vez
+npm run test:e2e
 ```
 
 ## Estrutura
@@ -34,6 +42,10 @@ npm test
 | `js/termos.js` | Regras de busca, filtro e agrupamento (sem DOM, testadas em `tests/`) |
 | `js/trilha.js` | Monta e valida a trilha do calouro (sem DOM, testada em `tests/trilha.test.js`) |
 | `js/validacao-termo.js` | Validação do schema, usada pelo app e pelo CI |
+| `js/busca.js` | Regras da página inicial: sugestões da busca, setas e Enter, atalhos por tipo e a trilha pronta para a tela (sem DOM, testadas em `tests/busca.test.js`) |
+| `js/lista.js` | Regras de "Todas as siglas": filtros, grupos por letra, índice, contagem e etiquetas do cartão (sem DOM, testadas em `tests/lista.test.js`) |
+| `js/ficha.js` | Regras da página do termo: título da aba, campus, fonte (link ou texto) e endereço do termo (sem DOM, testadas em `tests/ficha.test.js`) |
+| `js/tema.js` | Tema claro/escuro: qual vale, o próximo e salvar a escolha mesmo sem `localStorage` (sem DOM, testadas em `tests/tema.test.js`) |
 | `js/app.js` | Liga as regras ao DOM das 3 páginas |
 | `styles.css` | Estilo compartilhado; cores só como tokens, temas claro/escuro ([ADR 0008](../docs/adr/0008-interface-com-css-puro-e-tokens.md)) |
 | `manifest.json` / `sw.js` | PWA e cache offline ([ADR 0003](../docs/adr/0003-pwa-com-service-worker-proprio.md)) |

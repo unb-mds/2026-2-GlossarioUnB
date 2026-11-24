@@ -1,5 +1,7 @@
 # ADR 0006 — Contribuição externa por Pull Request e por Issue, sem formulário com backend
 
+## Status
+Aceito (em uso desde a Release 1, 28/09/2026).
 
 ## Contexto
 - **Story Map (MVP, "Perspectiva Time"):**
@@ -15,13 +17,13 @@
   1. **Pull Request** editando `frontend/data/termos.json`, validado automaticamente pelo CI (ADR 0007);
   2. **Issue pelos modelos "Adicionar termo" e "Corrigir definição"**, que funcionam como o "formulário". Alguém do time converte a issue em termo. O site leva a esses modelos já com o termo no título.
 - **Não há formulário próprio no site**, porque exigiria um backend ou serviço para receber os dados, o que contraria a ADR 0001. A revisão dos requisitos de 28/09 confirma isso: o formulário no site virou RF10, planejado para R2+.
-- Sugestão: migrar o template `.md` para **Issue Form (YAML)**, com campos obrigatórios. **PRECISA VALIDAÇÃO DA EQUIPE.**
+- Os templates de contribuição (`adicionar-termo.yml` e `corrigir-definicao.yml`) usam **GitHub Issue Forms (YAML)** com campos obrigatórios (`definicao`, `fonte`, etc.) e menus alinhados ao schema (`TIPOS`, `CAMPI` e categorias da ADR 0004) — implementado na issue #71.
 
 ## Alternativas descartadas
 - **Formulário no site enviando para uma API própria.** Precisa de backend, hospedagem e proteção contra spam.
 - **Google Forms.** Não pede conta GitHub, mas os dados ficam fora do repositório e sem revisão rastreável até alguém copiá-los.
 
 ## Consequências
-- (−) **Tensão em aberto:** o canal por issue ainda exige uma conta no GitHub. A história "quem não saiba de GitHub" só fica atendida em parte. Se o time considerar isso inaceitável, o Google Forms volta a ser a alternativa. **PRECISA VALIDAÇÃO DA EQUIPE.**
+- (−) **Limitação aceita para o escopo atual:** o canal por issue ainda exige conta no GitHub, atendendo parcialmente a história "quem não saiba de GitHub"; caso a equipe decida ampliar o canal em releases futuras, uma alternativa externa (como formulário estático/Google Forms) pode ser reavaliada em nova ADR.
 - (+) Toda sugestão fica pública, rastreável e revisada antes de publicada.
 - (+) Desde 28/09 o próprio app leva ao formulário. Há link no rodapé de todas as páginas e, quando a busca não encontra nada, um "Sugerir este termo" com o termo já preenchido no título da issue.
