@@ -69,6 +69,7 @@ O relatório fica em `coleta/relatorio.json` e o corpo do PR em `coleta/resumo.m
 - [Story Map](docs/storymap/story-map.png) e [quadro do Figma](https://www.figma.com/board/dk8nBcFiFEWo1AkOvn1554/Template-MDS--c%C3%B3pia-limpa---c%C3%B3pia---c%C3%B3pia-?node-id=0-1&t=IS5erq77oDUXUtei-1)
 - [Processo do time](docs/PROCESSO.md)
 - [Como contribuir](CONTRIBUTING.md)
+- [Código de Conduta](CODE_OF_CONDUCT.md) e [Política de Segurança](SECURITY.md)
 - [Guia de fluxo de trabalho (Git passo a passo)](docs/GUIA-FLUXO-DE-TRABALHO.md)
 - [Planejamento de sprints](docs/scrum/sprint-planning.md)
 - [Planilha de coleta de termos](https://docs.google.com/spreadsheets/d/1XciIDY79FAyY32bC4GDgQAWgyy-B5UahVMKZvdry0WY/edit?usp=sharing)
