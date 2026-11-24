@@ -158,7 +158,7 @@ Métricas levantadas a partir do repositório no GitHub (`unb-mds/2026-2-Glossar
 
 ### Encaminhamento
 
-A Sprint 09 representou a maturidade técnica e organizacional definitiva da equipe G10. A superação das três falhas recorrentes (PRs represados, documentação atrasada e baixa velocidade) evidencia que a padronização do fluxo de trabalho e o compromisso coletivo transformaram radicalmente a dinâmica do grupo. O Glossário UnB chega à Release 2 com 100% dos requisitos atendidos, cobertura de testes abrangente, acessibilidade auditada e arquitetura estável.
+A Sprint 09 representou a consolidação técnica e organizacional da equipe G10. A superação das três falhas recorrentes (PRs represados, documentação atrasada e baixa velocidade) evidencia que a padronização do fluxo de trabalho e o compromisso coletivo transformaram a dinâmica do grupo. O Glossário UnB chega à Release 2 com o produto publicado, cobertura de testes abrangente, acessibilidade auditada e arquitetura estável, ficando fora apenas o RF10 opcional (#72) e a conclusão dos registros de validação com calouros (#69 e #76).
 
 ---
 
