@@ -450,6 +450,7 @@ code {
 }
 
 .status-revisao { color: var(--aviso); background: var(--aviso-fundo); }
+.status-ativo { color: var(--destaque); background: var(--destaque-fundo); }
 
 /* ===== Versões ===== */
 .linha-tempo {

@@ -87,12 +87,12 @@
             <p>Na <a href="../frontend/index.html">tela inicial do glossário</a>, digite a sigla, como DEG ou BCE. As sugestões aparecem enquanto você digita, já com o significado. Escolha uma para ver o que é, um exemplo de uso e a fonte.</p>
           </li>
           <li>
-            <h3>Filtre</h3>
-            <p>Em <a href="../frontend/todas-siglas.html">Todas as siglas</a>, os termos ficam em ordem alfabética. Filtre por tipo (sigla, gíria ou expressão) e por campus. Termos que são lugares, como o Ceubinho, mostram um mapa.</p>
+            <h3>Filtre e explore</h3>
+            <p>Em <a href="../frontend/todas-siglas.html">Todas as siglas</a>, filtre por categoria, tipo ou campus. A busca também reconhece sinônimos, cada ficha traz termos relacionados em “Veja também”, laboratórios da FCTE abrem a <a href="../frontend/planta.html">planta 2D do andar</a> e lugares do campus mostram mapa e rota no OpenStreetMap.</p>
           </li>
           <li>
             <h3>Use sem internet</h3>
-            <p>Depois da primeira visita, a busca, a lista e as páginas dos termos abrem sem internet. No celular, dá para instalar o glossário como um app, pelo menu do navegador. Só o mapa precisa de conexão.</p>
+            <p>Depois da primeira visita, a busca, a trilha “Primeiros passos na UnB”, a planta 2D da FCTE e as fichas abrem sem internet. No celular, dá para instalar o glossário como um app, pelo menu do navegador. Só o mapa do OpenStreetMap precisa de conexão.</p>
           </li>
         </ol>
       </section>
@@ -100,18 +100,18 @@
       <!-- ===== De onde vêm os termos ===== -->
       <section id="de-onde-vem" class="secao" aria-labelledby="titulo-de-onde-vem">
         <h2 id="titulo-de-onde-vem">De onde vêm os termos</h2>
-        <p>Todo termo tem fonte, e ela aparece na página do termo: um link oficial da UnB ou, para gírias e expressões, “conhecimento comum verificado pelo grupo”. Termo sem fonte não entra: um teste automático confere isso a cada mudança.</p>
-        <p>Os primeiros termos vieram de uma planilha preenchida pela equipe. Para o glossário crescer sem depender de alguém lembrar de preencher, a equipe está construindo um robô de coleta.</p>
+        <p>Todo termo tem fonte oficial, exibida na ficha: um link de página ou PDF da UnB ou, para gírias e expressões, uma referência oficial da universidade. Termo sem fonte não entra: o CI confere todos os termos contra o schema a cada mudança.</p>
+        <p>Para o glossário crescer e se manter em dia sem depender de edição manual em planilha, o projeto roda um robô de coleta semanal e um verificador periódico de links quebrados.</p>
         <article class="cartao-info cartao-robo" aria-labelledby="titulo-robo">
-          <h3 id="titulo-robo">O robô de coleta <span class="status status-revisao">em revisão</span></h3>
-          <p>Ainda não entrou no site. Quando entrar, cada termo novo vai passar por estes passos:</p>
+          <h3 id="titulo-robo">O robô de coleta <span class="status status-ativo">ativo</span></h3>
+          <p>Toda segunda-feira, o robô lê as fontes oficiais da UnB e passa cada termo por estas etapas:</p>
           <ol class="passos">
-            <li>O robô lê páginas oficiais da UnB, como as listas de decanatos e de secretarias, e guarda de onde saiu cada termo.</li>
-            <li>Compara com o que já está no glossário e separa o que é novo, o que mudou e o que é repetido.</li>
-            <li>Uma IA sugere a categoria e um rascunho da definição.</li>
-            <li>O robô abre um pedido de revisão no GitHub. Uma pessoa da equipe confere cada termo e escreve a definição antes de ele entrar no site.</li>
+            <li>Lê páginas oficiais da UnB (decanatos, secretarias, SAA, FCTE) e a lista de siglas do PDI em PDF, guardando a URL e o trecho de origem.</li>
+            <li>Compara com o glossário atual e separa o que é novo, o que mudou e o que já existe, sem sobrescrever textos revisados por pessoas.</li>
+            <li>Filtra siglas de fora da universidade em três camadas (lista fixa, avaliação do Gemini com modelo reserva e revisão humana).</li>
+            <li>Abre um Pull Request no GitHub: nenhuma sigla entra sozinha sem aprovação de uma pessoa da equipe.</li>
           </ol>
-          <p class="nota">O robô propõe, e quem decide é uma pessoa. A decisão está registrada na <a href="https://github.com/unb-mds/2026-2-GlossarioUnB/blob/main/docs/adr/0009-coleta-automatizada-por-pipeline.md">ADR 0009</a>.</p>
+          <p class="nota">O robô propõe, o filtro separa e uma pessoa decide (<a href="https://github.com/unb-mds/2026-2-GlossarioUnB/blob/main/docs/adr/0009-coleta-automatizada-por-pipeline.md">ADR 0009</a> e <a href="https://github.com/unb-mds/2026-2-GlossarioUnB/blob/main/docs/adr/0014-filtro-de-termos-do-robo.md">ADR 0014</a>). Veja os números da última rodada em <a href="../frontend/origem-dos-dados.html">De onde vêm os dados</a>.</p>
         </article>
       </section>
 
@@ -145,9 +145,9 @@
             <span class="quando">v1.0.0 · Release 1 · 28/09/2026</span>
             <span>A primeira versão: busca com autocompletar, lista com filtros por tipo e por campus, página de cada termo com a fonte e uso sem internet. <a href="https://github.com/unb-mds/2026-2-GlossarioUnB/releases/tag/v1.0.0">Notas da v1.0.0</a></span>
           </li>
-          <li class="futuro">
-            <span class="quando">v2.0.0 · Release 2 · prevista para 25/11/2026</span>
-            <span>Em preparação: o robô de coleta (em revisão) e esta página, reescrita para quem usa o glossário.</span>
+          <li class="marco">
+            <span class="quando">v2.0.0 · Release 2 · 24/11/2026</span>
+            <span>Coleta automatizada semanal com filtro em 3 camadas, verificação periódica de fontes, trilha “Primeiros passos na UnB”, categorias, sinônimos, “Veja também”, planta 2D da FCTE, 34 marcadores no OpenStreetMap, página “De onde vêm os dados”, novo visual V7 com logo “Entre aspas” e malha completa de testes e segurança. <a href="https://github.com/unb-mds/2026-2-GlossarioUnB/releases/tag/v2.0.0">Notas da v2.0.0</a> · <a href="https://github.com/unb-mds/2026-2-GlossarioUnB/blob/main/CHANGELOG.md">CHANGELOG</a></span>
           </li>
         </ol>
         <p><a href="https://github.com/unb-mds/2026-2-GlossarioUnB/releases">Todas as versões no GitHub</a></p>
@@ -159,7 +159,6 @@
         <p>O grupo G10 da disciplina <a href="https://mds.lappis.rocks/">Métodos de Desenvolvimento de Software</a> (MDS) da UnB, em 2026/2. O projeto se inspira no <a href="https://github.com/OpenDevUFCG/glossario-ufcg">glossario-ufcg</a>, da Universidade Federal de Campina Grande.</p>
         <ul class="equipe">
           <li><strong>Ítalo</strong><span>Scrum Master</span><a href="https://github.com/smitalo">@smitalo</a></li>
-          <li><strong>Jéssyca</strong><span>Product Owner</span><a href="https://github.com/Jessy2126">@Jessy2126</a></li>
           <li><strong>Pedro</strong><span>Desenvolvimento</span><a href="https://github.com/p-magno">@p-magno</a></li>
           <li><strong>Allan</strong><span>Desenvolvimento</span><a href="https://github.com/MrD4ntas">@MrD4ntas</a></li>
           <li><strong>José Gabriel</strong><span>Desenvolvimento</span><a href="https://github.com/josegabriel-iw">@josegabriel-iw</a></li>
@@ -172,32 +171,38 @@
         <p>O código é aberto, sob a licença MIT. O glossário é um site estático: HTML, CSS e JavaScript puros, com os termos num arquivo JSON, publicado no GitHub Pages. O processo da equipe está nos documentos do repositório.</p>
         <ul class="links-devs">
           <li><a href="https://github.com/unb-mds/2026-2-GlossarioUnB"><strong>Repositório</strong><span>unb-mds/2026-2-GlossarioUnB</span></a></li>
+          <li><a href="https://github.com/unb-mds/2026-2-GlossarioUnB/blob/main/CHANGELOG.md"><strong>Changelog</strong><span>histórico de mudanças por versão (Keep a Changelog)</span></a></li>
           <li><a href="https://github.com/unb-mds/2026-2-GlossarioUnB/blob/main/CONTRIBUTING.md"><strong>Como contribuir</strong><span>branches, commits e o formato do termo</span></a></li>
+          <li><a href="https://github.com/unb-mds/2026-2-GlossarioUnB/blob/main/CODE_OF_CONDUCT.md"><strong>Código de Conduta</strong><span>regras de convivência na comunidade</span></a></li>
+          <li><a href="https://github.com/unb-mds/2026-2-GlossarioUnB/blob/main/SECURITY.md"><strong>Política de Segurança</strong><span>relato privado de vulnerabilidades</span></a></li>
           <li><a href="https://github.com/unb-mds/2026-2-GlossarioUnB/blob/main/frontend/README.md"><strong>Rodar no seu computador</strong><span>Node 22 e <code>npm run dev</code></span></a></li>
-          <li><a href="https://github.com/unb-mds/2026-2-GlossarioUnB/blob/main/docs/REQUISITOS.md"><strong>Requisitos</strong><span>com a release de cada um</span></a></li>
+          <li><a href="https://github.com/unb-mds/2026-2-GlossarioUnB/blob/main/docs/REQUISITOS.md"><strong>Requisitos e Rastreabilidade</strong><span>RFs, RNFs mensuráveis e provas no CI</span></a></li>
           <li><a href="https://github.com/unb-mds/2026-2-GlossarioUnB/blob/main/docs/VISAO-DE-PRODUTO.md"><strong>Visão de produto</strong><span>problema, personas e histórias</span></a></li>
-          <li><a href="https://github.com/unb-mds/2026-2-GlossarioUnB/blob/main/docs/ARQUITETURA.md"><strong>Arquitetura</strong><span>visão geral e estrutura de pastas</span></a></li>
-          <li><a href="https://github.com/unb-mds/2026-2-GlossarioUnB/blob/main/docs/PROCESSO.md"><strong>Processo</strong><span>Git, issues, Pull Requests e ADRs</span></a></li>
-          <li><a href="https://github.com/unb-mds/2026-2-GlossarioUnB/blob/main/docs/CONVENCAO-GIT.md"><strong>Commits e branches</strong><span>a convenção da equipe</span></a></li>
-          <li><a href="https://github.com/unb-mds/2026-2-GlossarioUnB/tree/main/docs/scrum"><strong>Sprints</strong><span>planejamento, dailies e horários</span></a></li>
-          <li><a href="https://github.com/unb-mds/2026-2-GlossarioUnB/tree/main/.github"><strong>Modelos de issue e de PR</strong><span>e os workflows do CI</span></a></li>
-          <li><a href="https://github.com/unb-mds/2026-2-GlossarioUnB/blob/main/AI-USAGE.md"><strong>Uso de IA</strong><span>o registro pedido pela disciplina</span></a></li>
+          <li><a href="https://github.com/unb-mds/2026-2-GlossarioUnB/blob/main/docs/ARQUITETURA.md"><strong>Arquitetura</strong><span>visão geral, C4 e estrutura de pastas</span></a></li>
+          <li><a href="https://github.com/unb-mds/2026-2-GlossarioUnB/blob/main/docs/RELATORIO-DE-TESTES.md"><strong>Qualidade e testes</strong><span>cobertura, sabotagem, E2E, BDD, mutação e Lighthouse</span></a></li>
+          <li><a href="https://github.com/unb-mds/2026-2-GlossarioUnB/blob/main/docs/SEGURANCA.md"><strong>Segurança técnica</strong><span>SAST, npm audit, STRIDE e prompt injection</span></a></li>
+          <li><a href="https://github.com/unb-mds/2026-2-GlossarioUnB/blob/main/docs/PROCESSO.md"><strong>Processo</strong><span>Git, issues, Pull Requests, squash e ADRs</span></a></li>
+          <li><a href="https://github.com/unb-mds/2026-2-GlossarioUnB/tree/main/docs/scrum"><strong>Sprints</strong><span>planejamento, Sprints 04–09 e dailies</span></a></li>
+          <li><a href="https://github.com/unb-mds/2026-2-GlossarioUnB/blob/main/AGENTS.md"><strong>Guia para agentes (AGENTS.md)</strong><span>regras do repositório para uso de IA</span></a></li>
+          <li><a href="https://github.com/unb-mds/2026-2-GlossarioUnB/blob/main/AI-USAGE.md"><strong>Uso de IA</strong><span>registro transparente pedido pela disciplina</span></a></li>
         </ul>
 
         <h3>Decisões de arquitetura (ADRs)</h3>
         <ol class="lista-adr">
           <li><a href="https://github.com/unb-mds/2026-2-GlossarioUnB/blob/main/docs/adr/0001-termos-em-json-estatico.md"><span class="adr-numero">0001</span><span class="adr-texto"><strong>Termos em JSON estático</strong><span>Sem backend: o Git faz o papel de banco, com histórico e revisão.</span></span></a></li>
-          <li><a href="https://github.com/unb-mds/2026-2-GlossarioUnB/blob/main/docs/adr/0002-frontend-sem-framework.md"><span class="adr-numero">0002</span><span class="adr-texto"><strong>Frontend sem framework</strong><span>Front em HTML, CSS e JS puros; bibliotecas só nos scripts do robô (ADR 0010).</span></span></a></li>
+          <li><a href="https://github.com/unb-mds/2026-2-GlossarioUnB/blob/main/docs/adr/0002-frontend-sem-framework.md"><span class="adr-numero">0002</span><span class="adr-texto"><strong>Frontend sem framework</strong><span>Front em HTML, CSS e JS puros; bibliotecas só nos scripts do robô e testes (ADR 0010).</span></span></a></li>
           <li><a href="https://github.com/unb-mds/2026-2-GlossarioUnB/blob/main/docs/adr/0003-pwa-com-service-worker-proprio.md"><span class="adr-numero">0003</span><span class="adr-texto"><strong>PWA com service worker próprio</strong><span>Termos disponíveis offline desde a primeira visita.</span></span></a></li>
-          <li><a href="https://github.com/unb-mds/2026-2-GlossarioUnB/blob/main/docs/adr/0004-schema-unico-do-termo.md"><span class="adr-numero">0004</span><span class="adr-texto"><strong>Formato único do termo</strong><span>Um só modelo, validado pela mesma função no site e no CI.</span></span></a></li>
-          <li><a href="https://github.com/unb-mds/2026-2-GlossarioUnB/blob/main/docs/adr/0005-mapa-de-locais-com-leaflet.md"><span class="adr-numero">0005</span><span class="adr-texto"><strong>Mapa com Leaflet e OpenStreetMap</strong><span>Só para termos que são lugares físicos.</span></span></a></li>
+          <li><a href="https://github.com/unb-mds/2026-2-GlossarioUnB/blob/main/docs/adr/0004-schema-unico-do-termo.md"><span class="adr-numero">0004</span><span class="adr-texto"><strong>Formato único do termo</strong><span>Um só modelo, validado pela mesma função no site, no robô e no CI.</span></span></a></li>
+          <li><a href="https://github.com/unb-mds/2026-2-GlossarioUnB/blob/main/docs/adr/0005-mapa-de-locais-com-leaflet.md"><span class="adr-numero">0005</span><span class="adr-texto"><strong>Mapa com Leaflet e OpenStreetMap</strong><span>Só para termos que são lugares físicos, sem chave paga.</span></span></a></li>
           <li><a href="https://github.com/unb-mds/2026-2-GlossarioUnB/blob/main/docs/adr/0006-contribuicao-por-pr-e-issue.md"><span class="adr-numero">0006</span><span class="adr-texto"><strong>Contribuição por PR e por issue</strong><span>Dois caminhos, ambos no GitHub, sem formulário com servidor.</span></span></a></li>
           <li><a href="https://github.com/unb-mds/2026-2-GlossarioUnB/blob/main/docs/adr/0007-github-pages-e-ci-com-actions.md"><span class="adr-numero">0007</span><span class="adr-texto"><strong>GitHub Pages e CI com Actions</strong><span>Testes em todo PR; duas páginas publicadas com HTTPS.</span></span></a></li>
           <li><a href="https://github.com/unb-mds/2026-2-GlossarioUnB/blob/main/docs/adr/0008-interface-com-css-puro-e-tokens.md"><span class="adr-numero">0008</span><span class="adr-texto"><strong>Interface com CSS puro</strong><span>Cores em tokens, fontes do sistema, contraste WCAG AA.</span></span></a></li>
-          <li><a href="https://github.com/unb-mds/2026-2-GlossarioUnB/blob/main/docs/adr/0009-coleta-automatizada-por-pipeline.md"><span class="adr-numero">0009</span><span class="adr-texto"><strong>Coleta automatizada por pipeline</strong><span>O robô propõe termos com a fonte; uma pessoa revisa cada um num Pull Request. Aceita no Encontro 1 (11/11/2026).</span></span></a></li>
-          <li><a href="https://github.com/unb-mds/2026-2-GlossarioUnB/blob/main/docs/adr/0010-bibliotecas-nos-scripts-do-robo.md"><span class="adr-numero">0010</span><span class="adr-texto"><strong>Bibliotecas nos scripts do robô</strong><span>cheerio, robots-parser e @google/genai, só em coleta/ e scripts/; o front continua sem dependência. Proposta, em revisão.</span></span></a></li>
-          <li><a href="https://github.com/unb-mds/2026-2-GlossarioUnB/blob/main/docs/adr/0011-trilha-do-calouro-em-arquivo-proprio.md"><span class="adr-numero">0011</span><span class="adr-texto"><strong>Trilha do calouro num arquivo próprio</strong><span>A lista de "Primeiros passos na UnB" fica em trilha-calouro.json e cita os termos pelo id; um teste confere que todo id existe.</span></span></a></li>
-          <li><a href="https://github.com/unb-mds/2026-2-GlossarioUnB/blob/main/docs/adr/0013-analise-de-qualidade-com-sonarqube-cloud.md"><span class="adr-numero">0013</span><span class="adr-texto"><strong>Qualidade com o SonarQube Cloud</strong><span>Cada PR analisado ao lado do CI, com cobertura; a régua pede 80% de cobertura no código novo.</span></span></a></li>
+          <li><a href="https://github.com/unb-mds/2026-2-GlossarioUnB/blob/main/docs/adr/0009-coleta-automatizada-por-pipeline.md"><span class="adr-numero">0009</span><span class="adr-texto"><strong>Coleta automatizada por pipeline</strong><span>O robô propõe termos com a fonte; uma pessoa revisa cada um num Pull Request.</span></span></a></li>
+          <li><a href="https://github.com/unb-mds/2026-2-GlossarioUnB/blob/main/docs/adr/0010-bibliotecas-nos-scripts-do-robo.md"><span class="adr-numero">0010</span><span class="adr-texto"><strong>Bibliotecas nos scripts do robô e testes</strong><span>Duas listas fechadas (coleta e devDependencies); o front continua sem dependência.</span></span></a></li>
+          <li><a href="https://github.com/unb-mds/2026-2-GlossarioUnB/blob/main/docs/adr/0011-trilha-do-calouro-em-arquivo-proprio.md"><span class="adr-numero">0011</span><span class="adr-texto"><strong>Trilha do calouro num arquivo próprio</strong><span>“Primeiros passos na UnB” em trilha-calouro.json ligada aos termos por id e validada no CI.</span></span></a></li>
+          <li><a href="https://github.com/unb-mds/2026-2-GlossarioUnB/blob/main/docs/adr/0012-planta-da-fcte.md"><span class="adr-numero">0012</span><span class="adr-texto"><strong>Planta 2D da FCTE em SVG por JSON</strong><span>Desenho próprio offline a partir de planta-fcte.json, com a sala apontando para o termo.</span></span></a></li>
+          <li><a href="https://github.com/unb-mds/2026-2-GlossarioUnB/blob/main/docs/adr/0013-analise-de-qualidade-com-sonarqube-cloud.md"><span class="adr-numero">0013</span><span class="adr-texto"><strong>Qualidade com o SonarQube Cloud</strong><span>Cada PR analisado ao lado do CI, com cobertura, segurança e Quality Gate.</span></span></a></li>
+          <li><a href="https://github.com/unb-mds/2026-2-GlossarioUnB/blob/main/docs/adr/0014-filtro-de-termos-do-robo.md"><span class="adr-numero">0014</span><span class="adr-texto"><strong>Filtro de termos fora da universidade</strong><span>Três camadas (lista fixa, Gemini com modelo reserva automático em 503/429 e revisão humana).</span></span></a></li>
         </ol>
       </section>
 
