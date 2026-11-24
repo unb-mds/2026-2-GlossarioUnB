@@ -41,8 +41,9 @@ Cada entrada deve conter: data, pessoa, ferramenta usada, o que foi pedido, o qu
 | 13/11/2026 | Pedro | Claude Code | Classificador com LLM: `coleta/classificador.js`, `coleta/cliente-gemini.js`, o prompt versionado, as categorias provisórias, `scripts/classificar.mjs` e os testes com cliente simulado (#58) | Aceito após a minha revisão, com o `npm test` passando |
 | 13/11/2026 | Pedro | Claude Code | Página Sobre reescrita como página de produto, com o teste da página (#75) | Aceito após a minha revisão, com o `npm test` passando |
 | 13/11/2026 | Pedro | Claude Code | Configuração do SonarQube Cloud no CI (`sonar-project.properties` e `.github/workflows/sonar.yml`) e o texto da issue | Aceito após a minha revisão |
-| 17/11/2026 | Allan | opencode | Registro da Sprint 04 (`docs/scrum/sprints/sprint-04.md`): planning, review, retrospectiva e métricas, a partir do milestone, das issues, dos PRs, dos commits e do `dailies.md` (#42) | Aceito após a minha revisão |
 | 13/11/2026 | Allan | opencode (DeepSeek) | Elaboração do `docs/estrategia-de-testes.md` para a issue #43, com base nos testes e workflows reais do repositório; atualização em 17/11 para os 52 testes, a deduplicação, a página Sobre e o estado atual do CI | Aceito após revisão no PR |
+| 17/11/2026 | Allan | opencode | Registro da Sprint 04 (`docs/scrum/sprints/sprint-04.md`): planning, review, retrospectiva e métricas, a partir do milestone, das issues, dos PRs, dos commits e do `dailies.md` (#42) | Aceito após a minha revisão |
+| 17/11/2026 | Allan | opencode (DeepSeek) | `docs/VISAO-DE-PRODUTO.md`, histórias Gherkin e links no README/Sobre, a partir das issues #47–#51, do story map e do rascunho da constituição (#68) | Aceito após revisão |
 | 17/11/2026 | Allan | opencode | Revisão e correções do PR #104: caminho do script no Windows e remoção do `temperature` não suportado no Gemini 3.8 (#58) | Aceito após revisão no PR |
 | 17/11/2026 | Pedro | Claude Code | Catálogo das fontes de dados (`docs/FONTES-DE-DADOS.md`): cada endereço aberto, o `robots.txt` e a data de cada PDF conferidos (#52) | Aceito após a minha revisão |
 | 17/11/2026 | Pedro | Claude Code | Lista da trilha do calouro a partir do Manual do Calouro 2026/2 (`docs/TRILHA-CALOURO.md`, #69) | Aceito após a minha revisão; a validação com calouros fica registrada na issue |
@@ -73,6 +74,7 @@ Cada entrada deve conter: data, pessoa, ferramenta usada, o que foi pedido, o qu
 | 22/11/2026 | Allan | opencode (DeepSeek V4.1 Flash) | Atualização do `docs/RELATORIO-DE-TESTES.md` com os números da `main` em 22/11 (244 testes, cobertura de 98,18%, Sonar 86,0%) e com o resultado do Lighthouse do PR #148 | Aguardando a minha revisão |
 | 22/11/2026 | Italo | opencode | Correções da revisão do #158: `npm audit --omit=dev --audit-level=high` no `ci.yml`, teste de schema alinhado ao #161, teste de workflow estendido ao `coleta.yml`, merge da `main` e ajustes do `docs/SEGURANCA.md` (#83) | Aceito após a minha revisão |
 | 23/11/2026 | Allan | opencode (DeepSeek) | Ajustes no `docs/estrategia-de-testes.md` pedidos na revisão do PR #100: branch atualizada com a `main`, seção 4 e cobertura refeitas, dependências do robô, lacunas e seção 6 | Ajustado após revisão no PR #100 |
+| 23/11/2026 | Allan | opencode | Resolução do conflito do `AI-USAGE.md` no PR #119: restaurou as linhas de 17/11/2026 (Sprint 04) e 13/11/2026 (estratégia de testes) da `main` e manteve a linha do `docs/VISAO-DE-PRODUTO.md`; com o `npm test` passando | Aceito após revisão no PR |
 | | | | | |
 
 ## Observações gerais
