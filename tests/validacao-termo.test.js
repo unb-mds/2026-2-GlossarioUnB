@@ -83,6 +83,55 @@ test("urlSegura aceita só links absolutos http(s)", () => {
   assert.equal(urlSegura("conhecimento comum verificado pelo grupo"), null);
 });
 
+test("sinonimos: particionamento de equivalência e valores-limite", () => {
+  // Partições válidas: ausente, lista vazia, lista com 1 ou mais textos.
+  assert.deepEqual(validarTermo({ ...termoValido(), sinonimos: [] }), []);
+  assert.deepEqual(validarTermo({ ...termoValido(), sinonimos: ["FGA"] }), []);
+  assert.deepEqual(validarTermo({ ...termoValido(), sinonimos: ["FGA", "Faculdade do Gama"] }), []);
+
+  // Partições inválidas: o que não é lista.
+  for (const invalido of ["FGA", 123, {}, null]) {
+    assert.ok(validarTermo({ ...termoValido(), sinonimos: invalido }).some((e) => e.includes("sinonimos deve ser uma lista")));
+  }
+
+  // Valores-limite dentro da lista: vazio, só espaços e outros tipos.
+  for (const invalido of ["", "   ", null, 123]) {
+    assert.ok(validarTermo({ ...termoValido(), sinonimos: [invalido] }).some((e) => e.includes("texto não vazio")));
+  }
+
+  // O mesmo sinônimo duas vezes no termo, sem diferenciar maiúsculas.
+  assert.ok(validarTermo({ ...termoValido(), sinonimos: ["FGA", "fga"] }).some((e) => e.includes("duplicado")));
+});
+
+test("um sinônimo não pode ser o nome de outro termo do glossário (o robô ligaria a sigla ao termo errado)", () => {
+  const fcte = { ...termoValido(), id: "fcte", termo: "FCTE", sinonimos: ["FGA"] };
+  const fga = { ...termoValido(), id: "fga", termo: "FGA" };
+  assert.ok(validarGlossario([fcte, fga]).some((erro) => erro.includes("sinônimo \"FGA\"") && erro.includes("fga")));
+  assert.deepEqual(validarGlossario([{ ...fcte, sinonimos: ["Faculdade UnB Gama"] }, fga]), []);
+});
+
+// ===== relacionados ("Veja também", decisão 57 = C1): cada ligação foi conferida por uma pessoa =====
+
+test("relacionados: lista de ids no formato do glossário, sem repetir e sem apontar para o próprio termo", () => {
+  assert.deepEqual(validarTermo({ ...termoValido(), relacionados: [] }), []);
+  assert.deepEqual(validarTermo({ ...termoValido(), relacionados: ["dac", "sigaa"] }), []);
+  for (const invalido of ["dac", null, 3, { id: "dac" }]) {
+    assert.ok(validarTermo({ ...termoValido(), relacionados: invalido }).some((e) => e.includes("relacionados deve ser uma lista")));
+  }
+  for (const invalido of ["DAC", "", "a b", 7, null]) {
+    assert.ok(validarTermo({ ...termoValido(), relacionados: [invalido] }).some((e) => e.includes("relacionados[0]")));
+  }
+  assert.ok(validarTermo({ ...termoValido(), relacionados: ["ru"] }).some((e) => e.includes("próprio termo")));
+  assert.ok(validarTermo({ ...termoValido(), relacionados: ["dac", "dac"] }).some((e) => e.includes("duplicado")));
+});
+
+test("relacionados: o CI recusa a ligação para um id que não existe no glossário", () => {
+  const ru = { ...termoValido(), relacionados: ["dac"] };
+  const dac = { ...termoValido(), id: "dac", termo: "DAC", significado: "Decanato de Assuntos Comunitários" };
+  assert.deepEqual(validarGlossario([ru, dac]), []);
+  assert.ok(validarGlossario([{ ...ru, relacionados: ["dac", "inexistente"] }, dac]).some((e) => e.includes('"inexistente" não existe')));
+});
+
 // ===== Mutantes sobreviventes (#82): limites, mensagens exatas e rótulos =====
 
 const comLocalizacao = (extras) => ({

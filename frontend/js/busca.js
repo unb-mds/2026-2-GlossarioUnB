@@ -1,7 +1,7 @@
 // Regras da página inicial (index.html): a busca com autocomplete (padrão ARIA combobox), os atalhos por tipo e
 // a trilha do calouro. Sem DOM, para serem testadas no Node (tests/busca.test.js); o app.js só monta os
 // elementos e ouve as teclas.
-import { buscarTermos, contarPorTipo, normalizar, resumoDoTermo } from "./termos.js";
+import { buscarTermos, contarPorTipo, normalizar, resumoDoTermo, sinonimosDe } from "./termos.js";
 import { montarTrilha } from "./trilha.js";
 import { urlDoTermo } from "./ficha.js";
 
@@ -10,6 +10,14 @@ const TIPOS_NO_PLURAL = { sigla: "Siglas", giria: "Gírias", expressao: "Express
 // As sugestões para o que foi digitado, ou null quando a consulta está vazia (não há o que mostrar).
 export function sugestoesPara(termos, consulta) {
   return normalizar(consulta) ? buscarTermos(termos, consulta) : null;
+}
+
+// O nome na sugestão; quando foi um sinônimo que combinou com a busca, ele aparece entre parênteses.
+export function rotuloDaSugestao(termo, consulta) {
+  const q = normalizar(consulta);
+  if (normalizar(termo.termo).includes(q)) return termo.termo;
+  const sinonimo = sinonimosDe(termo).find((candidato) => normalizar(candidato).includes(q));
+  return sinonimo ? `${termo.termo} (${sinonimo})` : termo.termo;
 }
 
 // O texto que o leitor de tela anuncia (região aria-live).

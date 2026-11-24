@@ -36,6 +36,10 @@
     "fonte": "https://fcts.unb.br/",
     "campus": "Ceilândia",
     "categoria": "unidades-academicas",
+    "sinonimos": [
+      "FCE",
+      "Faculdade UnB Ceilândia"
+    ],
     "localizacao": {
       "lat": -15.844806,
       "lng": -48.0997828,
@@ -52,6 +56,9 @@
     "fonte": "https://fcte.unb.br/",
     "campus": "Gama",
     "categoria": "unidades-academicas",
+    "sinonimos": [
+      "Faculdade UnB Gama"
+    ],
     "localizacao": {
       "lat": -15.9899757,
       "lng": -48.044871,
@@ -78,7 +85,10 @@
     "exemplo_uso": "O CEAD abriu novas vagas para os cursos a distância.",
     "fonte": "https://cead.unb.br/",
     "campus": "Geral",
-    "categoria": "administracao"
+    "categoria": "administracao",
+    "relacionados": [
+      "ead"
+    ]
   },
   {
     "id": "cet",
@@ -122,8 +132,7 @@
     "definicao": "Órgão executivo da Reitoria responsável pelo planejamento, supervisão, coordenação e acompanhamento das atividades de ensino de graduação da UnB.",
     "exemplo_uso": "Minha dúvida sobre matrícula foi encaminhada para o DEG.",
     "fonte": "https://deg.unb.br/",
-    "campus": "Geral",
-    "categoria": "administracao"
+    "campus": "Geral"
   },
   {
     "id": "dpo",
@@ -559,7 +568,10 @@
       "lat": -15.7625073,
       "lng": -47.8700207,
       "link_como_chegar": "https://www.google.com/maps/search/?api=1&query=-15.7625073,-47.8700207"
-    }
+    },
+    "relacionados": [
+      "icc"
+    ]
   },
   {
     "id": "ru",
@@ -570,7 +582,10 @@
     "definicao": "Restaurante da UnB, com unidades no Darcy Ribeiro, em Ceilândia, no Gama, em Planaltina e na Fazenda Água Limpa. O cardápio de cada unidade e o valor da refeição de cada grupo de acesso ficam no site do RU.",
     "exemplo_uso": "Bora almoçar no RU antes da aula das duas?",
     "fonte": "https://ru.unb.br/",
-    "campus": "Geral"
+    "campus": "Geral",
+    "relacionados": [
+      "fal"
+    ]
   },
   {
     "id": "icc",
@@ -598,6 +613,9 @@
     "exemplo_uso": "Minha primeira aula é no Minhocão, no ICC Sul.",
     "fonte": "https://ceplan.unb.br/campus-universitario-darcy-ribeiro/",
     "campus": "Darcy Ribeiro",
+    "relacionados": [
+      "icc"
+    ],
     "localizacao": {
       "lat": -15.763137,
       "lng": -47.868831,
@@ -614,6 +632,9 @@
     "exemplo_uso": "A recepção dos calouros vai ser no auditório do Beijódromo.",
     "fonte": "https://ceplan.unb.br/campus-universitario-darcy-ribeiro/",
     "campus": "Darcy Ribeiro",
+    "relacionados": [
+      "cuc"
+    ],
     "localizacao": {
       "lat": -15.7640276,
       "lng": -47.8659081,
@@ -628,7 +649,10 @@
     "definicao": "Na UnB, o histórico registra menções, e não notas: SS (de 9 a 10), MS (de 7 a 8,9), MM (de 5 a 6,9), MI (de 3 a 4,9), II (abaixo de 3) e SR (zero). Passa na disciplina quem tira MM ou mais e tem pelo menos 75% de presença.",
     "exemplo_uso": "Fiquei com MS em Cálculo 1, então passei.",
     "fonte": "https://deg.unb.br/wp-content/uploads/manual_do_calouro_2026_2.pdf#page=46",
-    "campus": "Geral"
+    "campus": "Geral",
+    "relacionados": [
+      "sr"
+    ]
   },
   {
     "id": "sr",
@@ -639,7 +663,10 @@
     "definicao": "Menção que vale zero. Aparece quando o estudante reprova por falta (menos de 75% de presença) ou abandona a disciplina.",
     "exemplo_uso": "Parei de ir às aulas no meio do semestre e fiquei com SR.",
     "fonte": "https://deg.unb.br/wp-content/uploads/manual_do_calouro_2026_2.pdf#page=46",
-    "campus": "Geral"
+    "campus": "Geral",
+    "relacionados": [
+      "mencao"
+    ]
   },
   {
     "id": "ira",
@@ -650,7 +677,10 @@
     "definicao": "Número de 0 a 5 que resume o desempenho no curso inteiro, calculado a partir das menções, com pesos diferentes para disciplinas obrigatórias, optativas e de módulo livre. Serve em seleções internas e para desempatar pedidos de matrícula.",
     "exemplo_uso": "Meu IRA subiu depois que passei em todas as disciplinas do semestre.",
     "fonte": "https://deg.unb.br/wp-content/uploads/manual_do_calouro_2026_2.pdf#page=49",
-    "campus": "Geral"
+    "campus": "Geral",
+    "relacionados": [
+      "matricula"
+    ]
   },
   {
     "id": "sigaa",
@@ -661,7 +691,10 @@
     "definicao": "Sistema onde o estudante faz a matrícula nas disciplinas e consulta notas, frequência, turmas e histórico. Também emite documentos, como o atestado de matrícula.",
     "exemplo_uso": "A matrícula abre amanhã cedo no SIGAA.",
     "fonte": "https://deg.unb.br/wp-content/uploads/manual_do_calouro_2026_2.pdf#page=15",
-    "campus": "Geral"
+    "campus": "Geral",
+    "relacionados": [
+      "matricula"
+    ]
   },
   {
     "id": "aprender-3",
@@ -671,7 +704,10 @@
     "definicao": "Ambiente virtual da UnB, feito no Moodle, com os materiais, as atividades e os fóruns das disciplinas. O acesso é com o e-mail institucional.",
     "exemplo_uso": "O professor postou a lista de exercícios no Aprender 3.",
     "fonte": "https://deg.unb.br/wp-content/uploads/manual_do_calouro_2026_2.pdf#page=14",
-    "campus": "Geral"
+    "campus": "Geral",
+    "relacionados": [
+      "email-institucional"
+    ]
   },
   {
     "id": "email-institucional",
@@ -681,7 +717,10 @@
     "definicao": "E-mail que a UnB dá a cada estudante, formado pelo número de matrícula seguido de @aluno.unb.br. É o principal canal de comunicação com a universidade e dá acesso aos sistemas, como o Aprender 3.",
     "exemplo_uso": "O aviso da coordenação chegou no meu e-mail institucional.",
     "fonte": "https://deg.unb.br/wp-content/uploads/manual_do_calouro_2026_2.pdf#page=14",
-    "campus": "Geral"
+    "campus": "Geral",
+    "relacionados": [
+      "aprender-3"
+    ]
   },
   {
     "id": "matricula",
@@ -691,7 +730,11 @@
     "definicao": "Pedido de vaga nas turmas do semestre, feito no SIGAA em etapas: matrícula, rematrícula (com as vagas que sobraram) e matrícula extraordinária. As datas ficam no calendário acadêmico. No semestre de ingresso, a SAA matricula o calouro automaticamente.",
     "exemplo_uso": "Não consegui a turma na matrícula, vou tentar na rematrícula.",
     "fonte": "https://deg.unb.br/wp-content/uploads/manual_do_calouro_2026_2.pdf#page=38",
-    "campus": "Geral"
+    "campus": "Geral",
+    "relacionados": [
+      "sigaa",
+      "saa"
+    ]
   },
   {
     "id": "fluxo",
@@ -701,7 +744,10 @@
     "definicao": "O mapa oficial das disciplinas do curso, semestre por semestre, com a sequência recomendada para montar a grade. No SIGAA, aparece como estrutura curricular.",
     "exemplo_uso": "Pelo fluxo, Cálculo 2 fica no segundo semestre.",
     "fonte": "https://deg.unb.br/wp-content/uploads/manual_do_calouro_2026_2.pdf#page=24",
-    "campus": "Geral"
+    "campus": "Geral",
+    "relacionados": [
+      "sigaa"
+    ]
   },
   {
     "id": "tgm",
@@ -712,7 +758,11 @@
     "definicao": "Pedido para suspender o curso por um tempo sem perder o vínculo com a UnB. É feito no SIGAA, e o DEG recomenda conversar antes com a coordenação do curso. Também existe o trancamento parcial, de só algumas disciplinas.",
     "exemplo_uso": "Pensei em pedir TGM, mas a coordenação me ajudou a reorganizar as disciplinas.",
     "fonte": "https://deg.unb.br/wp-content/uploads/manual_do_calouro_2026_2.pdf#page=58",
-    "campus": "Geral"
+    "campus": "Geral",
+    "relacionados": [
+      "deg",
+      "sigaa"
+    ]
   },
   {
     "id": "saa",
@@ -734,7 +784,11 @@
     "definicao": "Diretoria do DAC que cuida da assistência estudantil: publica os editais dos auxílios e faz a avaliação socioeconômica. O primeiro passo para pedir um auxílio é o cadastro único no SIGAA.",
     "exemplo_uso": "Saiu o edital da DDS para o auxílio transporte.",
     "fonte": "https://deg.unb.br/wp-content/uploads/manual_do_calouro_2026_2.pdf#page=87",
-    "campus": "Geral"
+    "campus": "Geral",
+    "relacionados": [
+      "dac",
+      "sigaa"
+    ]
   },
   {
     "id": "auxilio-socioeconomico",
@@ -744,7 +798,15 @@
     "definicao": "Apoio mensal (PASeUnB) para estudantes de graduação em situação de vulnerabilidade socioeconômica, um dos auxílios da assistência estudantil. A inscrição é pelo SIGAA, depois do edital da DDS.",
     "exemplo_uso": "Fui aprovado no Auxílio Socioeconômico e agora recebo todo mês.",
     "fonte": "https://deg.unb.br/wp-content/uploads/manual_do_calouro_2026_2.pdf#page=86",
-    "campus": "Geral"
+    "campus": "Geral",
+    "sinonimos": [
+      "PASeUnB",
+      "assistência econômica"
+    ],
+    "relacionados": [
+      "sigaa",
+      "dds"
+    ]
   },
   {
     "id": "dasu",
@@ -755,7 +817,10 @@
     "definicao": "Diretoria do DAC que cuida da saúde da comunidade da UnB, com atenção psicossocial, prevenção e promoção da saúde.",
     "exemplo_uso": "Procurei a DASU para conversar sobre a ansiedade com as provas.",
     "fonte": "https://dasu.unb.br/",
-    "campus": "Geral"
+    "campus": "Geral",
+    "relacionados": [
+      "dac"
+    ]
   },
   {
     "id": "daf",
@@ -777,7 +842,10 @@
     "exemplo_uso": "Minha dúvida sobre a pós-graduação foi encaminhada ao DPG.",
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=144",
     "campus": "Geral",
-    "categoria": "administracao"
+    "categoria": "administracao",
+    "relacionados": [
+      "dpi"
+    ]
   },
   {
     "id": "dpi",
@@ -788,7 +856,10 @@
     "exemplo_uso": "Procurei o DPI para saber mais sobre pesquisa na UnB.",
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=144",
     "campus": "Geral",
-    "categoria": "administracao"
+    "categoria": "administracao",
+    "relacionados": [
+      "dpg"
+    ]
   },
   {
     "id": "dgp",
@@ -821,7 +892,12 @@
     "exemplo_uso": "A pauta do conselho passa pela SOC.",
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=182",
     "campus": "Geral",
-    "categoria": "administracao"
+    "categoria": "administracao",
+    "relacionados": [
+      "cad",
+      "consuni",
+      "cepe"
+    ]
   },
   {
     "id": "sdh",
@@ -898,7 +974,10 @@
     "exemplo_uso": "Esse assunto de orçamento da biblioteca é com a ADM-BCE.",
     "fonte": "https://repositorioadm.unb.br/wp-content/uploads/tainacan-items/12644/12763/Regimento-Interno-da-BCE_UnB-2022.pdf#page=10",
     "campus": "Geral",
-    "categoria": "administracao"
+    "categoria": "administracao",
+    "relacionados": [
+      "bce"
+    ]
   },
   {
     "id": "andifes",
@@ -909,7 +988,10 @@
     "exemplo_uso": "O Programa Promover é coordenado pela Andifes.",
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=100",
     "campus": "Geral",
-    "categoria": "administracao"
+    "categoria": "administracao",
+    "relacionados": [
+      "ifes"
+    ]
   },
   {
     "id": "arata",
@@ -931,7 +1013,10 @@
     "exemplo_uso": "A ASCOM também participa da comunicação da UnB.",
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=172",
     "campus": "Geral",
-    "categoria": "administracao"
+    "categoria": "administracao",
+    "relacionados": [
+      "secom"
+    ]
   },
   {
     "id": "atom",
@@ -953,7 +1038,10 @@
     "exemplo_uso": "Esse tipo de verificação é feito pela AUD.",
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=156",
     "campus": "Geral",
-    "categoria": "administracao"
+    "categoria": "administracao",
+    "relacionados": [
+      "cad"
+    ]
   },
   {
     "id": "augm",
@@ -986,7 +1074,10 @@
     "exemplo_uso": "Para resolver isso na biblioteca, procure a AUS.",
     "fonte": "https://repositorioadm.unb.br/wp-content/uploads/tainacan-items/12644/12763/Regimento-Interno-da-BCE_UnB-2022.pdf#page=12",
     "campus": "Geral",
-    "categoria": "administracao"
+    "categoria": "administracao",
+    "relacionados": [
+      "bce"
+    ]
   },
   {
     "id": "ava",
@@ -1063,7 +1154,10 @@
     "exemplo_uso": "Procurei material de extensão na BibliodEx.",
     "fonte": "https://bdce.unb.br/bibliodex-biblioteca-digital-de-extensao-da-unb/",
     "campus": "Geral",
-    "categoria": "sistemas"
+    "categoria": "sistemas",
+    "relacionados": [
+      "bce"
+    ]
   },
   {
     "id": "bsan",
@@ -1139,7 +1233,11 @@
     "exemplo_uso": "Vai ter um evento na CAL.",
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=117",
     "campus": "Geral",
-    "categoria": "locais-campus"
+    "categoria": "locais-campus",
+    "relacionados": [
+      "dex",
+      "cuc"
+    ]
   },
   {
     "id": "capes",
@@ -1161,7 +1259,10 @@
     "exemplo_uso": "Esse convênio precisa passar pela CAPRO.",
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=73",
     "campus": "Geral",
-    "categoria": "colegiados"
+    "categoria": "colegiados",
+    "relacionados": [
+      "consuni"
+    ]
   },
   {
     "id": "cbdu",
@@ -1183,7 +1284,10 @@
     "exemplo_uso": "Esse assunto de carreira docente vai para a CCD.",
     "fonte": "https://unb.br/images/Documentos/Estatuto_e_Regimento_Geral_UnB.pdf#page=36",
     "campus": "Geral",
-    "categoria": "colegiados"
+    "categoria": "colegiados",
+    "relacionados": [
+      "cepe"
+    ]
   },
   {
     "id": "ccn",
@@ -1210,7 +1314,11 @@
     "exemplo_uso": "Esse tema de segurança foi levado à CCPGS.",
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=181",
     "campus": "Geral",
-    "categoria": "administracao"
+    "categoria": "administracao",
+    "relacionados": [
+      "cad",
+      "vrt"
+    ]
   },
   {
     "id": "cgd",
@@ -1232,7 +1340,10 @@
     "exemplo_uso": "Essa política de direitos humanos foi discutida na CDH.",
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=148",
     "campus": "Geral",
-    "categoria": "colegiados"
+    "categoria": "colegiados",
+    "relacionados": [
+      "consuni"
+    ]
   },
   {
     "id": "cdhunb",
@@ -1243,7 +1354,10 @@
     "exemplo_uso": "O CDHUnB deu origem à Câmara de Direitos Humanos.",
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=148",
     "campus": "Geral",
-    "categoria": "colegiados"
+    "categoria": "colegiados",
+    "relacionados": [
+      "cdh"
+    ]
   },
   {
     "id": "cdt",
@@ -1270,7 +1384,10 @@
     "exemplo_uso": "Fui ao Cediarte procurar material de arquitetura.",
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=85",
     "campus": "Geral",
-    "categoria": "locais-campus"
+    "categoria": "locais-campus",
+    "relacionados": [
+      "fau"
+    ]
   },
   {
     "id": "cedunb",
@@ -1281,7 +1398,10 @@
     "exemplo_uso": "Esse assunto de educação a distância foi levado ao CEDUnB.",
     "fonte": "https://sig.unb.br/sigrh/public/colegiados/anexos/PlanoGeralDeAcaoGestao-UnB-2018-2022_Atualizado.pdf#page=87",
     "campus": "Geral",
-    "categoria": "administracao"
+    "categoria": "administracao",
+    "relacionados": [
+      "ead"
+    ]
   },
   {
     "id": "ceg",
@@ -1325,7 +1445,10 @@
     "exemplo_uso": "Essa dúvida de segurança do trabalho é com a CEST.",
     "fonte": "https://dgp.unb.br/images/Documentos/RELATORIO_DE_GESTAO_18_1_21__1_.pdf#page=23",
     "campus": "Geral",
-    "categoria": "administracao"
+    "categoria": "administracao",
+    "relacionados": [
+      "dsqvt"
+    ]
   },
   {
     "id": "cgp",
@@ -1336,7 +1459,10 @@
     "exemplo_uso": "Esse tema de gestão de pessoas vai para a CGP.",
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=168",
     "campus": "Geral",
-    "categoria": "colegiados"
+    "categoria": "colegiados",
+    "relacionados": [
+      "cad"
+    ]
   },
   {
     "id": "cig",
@@ -1358,7 +1484,10 @@
     "exemplo_uso": "Esse laboratório faz parte de um CIP.",
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=72",
     "campus": "Geral",
-    "categoria": "administracao"
+    "categoria": "administracao",
+    "relacionados": [
+      "cepe"
+    ]
   },
   {
     "id": "citi",
@@ -1369,7 +1498,10 @@
     "exemplo_uso": "Esse projeto de inovação está ligado a um CITI.",
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=72",
     "campus": "Geral",
-    "categoria": "administracao"
+    "categoria": "administracao",
+    "relacionados": [
+      "cepe"
+    ]
   },
   {
     "id": "cne",
@@ -1391,7 +1523,10 @@
     "exemplo_uso": "Meu professor é pesquisador de produtividade do CNPq.",
     "fonte": "https://www.gov.br/cnpq/pt-br/acesso-a-informacao/institucional/institucional",
     "campus": "Geral",
-    "categoria": "vida-academica"
+    "categoria": "vida-academica",
+    "relacionados": [
+      "pq"
+    ]
   },
   {
     "id": "coac",
@@ -1402,7 +1537,12 @@
     "exemplo_uso": "Nosso CA pediu apoio à CoAC para um evento.",
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=115",
     "campus": "Geral",
-    "categoria": "administracao"
+    "categoria": "administracao",
+    "relacionados": [
+      "dac",
+      "dce",
+      "ca"
+    ]
   },
   {
     "id": "coap",
@@ -1413,7 +1553,10 @@
     "exemplo_uso": "Procurei a CoAP para pedir acolhimento.",
     "fonte": "https://dasu.unb.br/coordenacao-de-atencao-psicossocial/",
     "campus": "Geral",
-    "categoria": "assistencia-estudantil"
+    "categoria": "assistencia-estudantil",
+    "relacionados": [
+      "dasu"
+    ]
   },
   {
     "id": "coavs",
@@ -1424,7 +1567,10 @@
     "exemplo_uso": "Esse alerta de saúde é com a CoAVS.",
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=135",
     "campus": "Geral",
-    "categoria": "administracao"
+    "categoria": "administracao",
+    "relacionados": [
+      "dasu"
+    ]
   },
   {
     "id": "codim",
@@ -1435,7 +1581,10 @@
     "exemplo_uso": "Procurei a Codim para tirar uma dúvida.",
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=107",
     "campus": "Geral",
-    "categoria": "administracao"
+    "categoria": "administracao",
+    "relacionados": [
+      "sdh"
+    ]
   },
   {
     "id": "codsex",
@@ -1446,7 +1595,11 @@
     "exemplo_uso": "Procurei a Codsex para tirar uma dúvida.",
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=147",
     "campus": "Geral",
-    "categoria": "administracao"
+    "categoria": "administracao",
+    "relacionados": [
+      "sdh",
+      "lgbtqia"
+    ]
   },
   {
     "id": "coes",
@@ -1490,7 +1643,10 @@
     "exemplo_uso": "Pedi pelo COMUT um material de outra biblioteca.",
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=89",
     "campus": "Geral",
-    "categoria": "sistemas"
+    "categoria": "sistemas",
+    "relacionados": [
+      "ibict"
+    ]
   },
   {
     "id": "consuni",
@@ -1523,7 +1679,10 @@
     "exemplo_uso": "Procurei a Coquen para conhecer os espaços de acolhimento.",
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=107",
     "campus": "Geral",
-    "categoria": "administracao"
+    "categoria": "administracao",
+    "relacionados": [
+      "sdh"
+    ]
   },
   {
     "id": "coredes",
@@ -1534,7 +1693,10 @@
     "exemplo_uso": "Esse projeto de promoção da saúde está com a CoRedes.",
     "fonte": "https://dasu.unb.br/coordenacao-de-articulacao-de-redes-para-prevencao-e-promocao-da-saude/",
     "campus": "Geral",
-    "categoria": "administracao"
+    "categoria": "administracao",
+    "relacionados": [
+      "dasu"
+    ]
   },
   {
     "id": "cpa",
@@ -1545,7 +1707,10 @@
     "exemplo_uso": "A CPA divulgou o relatório de autoavaliação da UnB.",
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=139",
     "campus": "Geral",
-    "categoria": "administracao"
+    "categoria": "administracao",
+    "relacionados": [
+      "raai"
+    ]
   },
   {
     "id": "cpad",
@@ -1567,7 +1732,12 @@
     "exemplo_uso": "A CPAG coordenou a elaboração do PDI.",
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=13",
     "campus": "Geral",
-    "categoria": "administracao"
+    "categoria": "administracao",
+    "relacionados": [
+      "dpo",
+      "pdi",
+      "dpl"
+    ]
   },
   {
     "id": "cpc",
@@ -1589,7 +1759,11 @@
     "exemplo_uso": "Essa resolução foi aprovada pela CPLAD.",
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=159",
     "campus": "Geral",
-    "categoria": "colegiados"
+    "categoria": "colegiados",
+    "relacionados": [
+      "dpo",
+      "daf"
+    ]
   },
   {
     "id": "cpos",
@@ -1600,7 +1774,10 @@
     "exemplo_uso": "A perícia é feita pela CPOS.",
     "fonte": "https://dgp.unb.br/images/Documentos/RELATORIO_DE_GESTAO_18_1_21__1_.pdf#page=25",
     "campus": "Geral",
-    "categoria": "administracao"
+    "categoria": "administracao",
+    "relacionados": [
+      "dsqvt"
+    ]
   },
   {
     "id": "cpp",
@@ -1611,7 +1788,10 @@
     "exemplo_uso": "Essa regra de pós-graduação passou pela CPP.",
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=50",
     "campus": "Geral",
-    "categoria": "colegiados"
+    "categoria": "colegiados",
+    "relacionados": [
+      "cepe"
+    ]
   },
   {
     "id": "cso",
@@ -1622,7 +1802,10 @@
     "exemplo_uso": "Esse assunto de saúde ocupacional é com a CSO.",
     "fonte": "https://dgp.unb.br/images/Documentos/RELATORIO_DE_GESTAO_18_1_21__1_.pdf#page=24",
     "campus": "Geral",
-    "categoria": "administracao"
+    "categoria": "administracao",
+    "relacionados": [
+      "dsqvt"
+    ]
   },
   {
     "id": "cti",
@@ -1633,7 +1816,10 @@
     "exemplo_uso": "O plano de contratações de tecnologia passa pelo CTI.",
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=130",
     "campus": "Geral",
-    "categoria": "administracao"
+    "categoria": "administracao",
+    "relacionados": [
+      "sti"
+    ]
   },
   {
     "id": "ctgc",
@@ -1644,7 +1830,10 @@
     "exemplo_uso": "Essa dúvida sobre custos é com a CTGC.",
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=160",
     "campus": "Geral",
-    "categoria": "administracao"
+    "categoria": "administracao",
+    "relacionados": [
+      "dcf"
+    ]
   },
   {
     "id": "cuc",
@@ -1655,7 +1844,11 @@
     "exemplo_uso": "A CAL faz parte das CUC.",
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=117",
     "campus": "Geral",
-    "categoria": "vida-academica"
+    "categoria": "vida-academica",
+    "relacionados": [
+      "cal",
+      "beijodromo"
+    ]
   },
   {
     "id": "daces",
@@ -1666,7 +1859,10 @@
     "exemplo_uso": "Procurei a DACES para pedir apoio de acessibilidade.",
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=110",
     "campus": "Geral",
-    "categoria": "assistencia-estudantil"
+    "categoria": "assistencia-estudantil",
+    "relacionados": [
+      "dac"
+    ]
   },
   {
     "id": "dai",
@@ -1677,7 +1873,10 @@
     "exemplo_uso": "A DAI coordena a autoavaliação da UnB.",
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=139",
     "campus": "Geral",
-    "categoria": "administracao"
+    "categoria": "administracao",
+    "relacionados": [
+      "dpo"
+    ]
   },
   {
     "id": "abtu",
@@ -1688,7 +1887,10 @@
     "exemplo_uso": "A UnBTV integra a ABTU.",
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=175",
     "campus": "Geral",
-    "categoria": "administracao"
+    "categoria": "administracao",
+    "relacionados": [
+      "unbtv"
+    ]
   },
   {
     "id": "ceu",
@@ -1721,7 +1923,10 @@
     "exemplo_uso": "Procurei a Coquei para pedir orientação.",
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=107",
     "campus": "Geral",
-    "categoria": "administracao"
+    "categoria": "administracao",
+    "relacionados": [
+      "sdh"
+    ]
   },
   {
     "id": "dce",
@@ -1754,7 +1959,10 @@
     "exemplo_uso": "O currículo do curso precisa seguir as DCN.",
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=27",
     "campus": "Geral",
-    "categoria": "vida-academica"
+    "categoria": "vida-academica",
+    "relacionados": [
+      "cne"
+    ]
   },
   {
     "id": "ddc",
@@ -1765,7 +1973,11 @@
     "exemplo_uso": "A DDC cuida das Casas Universitárias de Cultura.",
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=117",
     "campus": "Geral",
-    "categoria": "administracao"
+    "categoria": "administracao",
+    "relacionados": [
+      "dex",
+      "cuc"
+    ]
   },
   {
     "id": "deac",
@@ -1776,7 +1988,10 @@
     "exemplo_uso": "Esse projeto comunitário é acompanhado pela DEAC.",
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=115",
     "campus": "Geral",
-    "categoria": "administracao"
+    "categoria": "administracao",
+    "relacionados": [
+      "dac"
+    ]
   },
   {
     "id": "dirpe",
@@ -1787,7 +2002,10 @@
     "exemplo_uso": "Esse edital interno é da DIRPE.",
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=71",
     "campus": "Geral",
-    "categoria": "administracao"
+    "categoria": "administracao",
+    "relacionados": [
+      "dpi"
+    ]
   },
   {
     "id": "dpa",
@@ -1809,7 +2027,11 @@
     "exemplo_uso": "A DPL participou da elaboração do PDI.",
     "fonte": "https://dpo.unb.br/dpl/",
     "campus": "Geral",
-    "categoria": "administracao"
+    "categoria": "administracao",
+    "relacionados": [
+      "dpo",
+      "pdi"
+    ]
   },
   {
     "id": "dsqvt",
@@ -1820,7 +2042,15 @@
     "exemplo_uso": "Esse assunto de saúde no trabalho é com a DSQVT.",
     "fonte": "https://dgp.unb.br/contatos",
     "campus": "Geral",
-    "categoria": "administracao"
+    "categoria": "administracao",
+    "sinonimos": [
+      "DSO"
+    ],
+    "relacionados": [
+      "cest",
+      "cpos",
+      "cso"
+    ]
   },
   {
     "id": "ead",
@@ -1831,7 +2061,10 @@
     "exemplo_uso": "Meu curso tem disciplinas em EaD.",
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=129",
     "campus": "Geral",
-    "categoria": "vida-academica"
+    "categoria": "vida-academica",
+    "relacionados": [
+      "cead"
+    ]
   },
   {
     "id": "ebserh",
@@ -1842,7 +2075,10 @@
     "exemplo_uso": "A gestão do HUB é feita pela Ebserh.",
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=91",
     "campus": "Geral",
-    "categoria": "administracao"
+    "categoria": "administracao",
+    "relacionados": [
+      "hub"
+    ]
   },
   {
     "id": "edu",
@@ -1935,7 +2171,10 @@
     "exemplo_uso": "Essa sugestão de livro é com a FDA.",
     "fonte": "https://repositorioadm.unb.br/wp-content/uploads/tainacan-items/12644/12763/Regimento-Interno-da-BCE_UnB-2022.pdf#page=10",
     "campus": "Geral",
-    "categoria": "administracao"
+    "categoria": "administracao",
+    "relacionados": [
+      "bce"
+    ]
   },
   {
     "id": "fga",
@@ -1947,6 +2186,9 @@
     "fonte": "https://fcte.unb.br/memoria-fga/",
     "campus": "Gama",
     "categoria": "unidades-academicas",
+    "relacionados": [
+      "fcte"
+    ],
     "localizacao": {
       "lat": -15.9899757,
       "lng": -48.044871,
@@ -1973,7 +2215,10 @@
     "exemplo_uso": "O Memorial Darcy Ribeiro tem parceria com a FUNDAR.",
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=117",
     "campus": "Geral",
-    "categoria": "administracao"
+    "categoria": "administracao",
+    "relacionados": [
+      "beijodromo"
+    ]
   },
   {
     "id": "gcub",
@@ -2006,7 +2251,10 @@
     "exemplo_uso": "Esse problema no acervo digital é com a GID.",
     "fonte": "https://repositorioadm.unb.br/wp-content/uploads/tainacan-items/12644/12763/Regimento-Interno-da-BCE_UnB-2022.pdf#page=11",
     "campus": "Geral",
-    "categoria": "administracao"
+    "categoria": "administracao",
+    "relacionados": [
+      "bce"
+    ]
   },
   {
     "id": "gta",
@@ -2017,7 +2265,10 @@
     "exemplo_uso": "O GTA ajuda a CPA na autoavaliação.",
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=140",
     "campus": "Geral",
-    "categoria": "administracao"
+    "categoria": "administracao",
+    "relacionados": [
+      "cpa"
+    ]
   },
   {
     "id": "hub",
@@ -2045,6 +2296,9 @@
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=94",
     "campus": "Geral",
     "categoria": "locais-campus",
+    "relacionados": [
+      "fav"
+    ],
     "localizacao": {
       "lat": -15.7491377,
       "lng": -47.8768349,
@@ -2071,7 +2325,10 @@
     "exemplo_uso": "O COMUT é um programa do IBICT.",
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=89",
     "campus": "Geral",
-    "categoria": "administracao"
+    "categoria": "administracao",
+    "relacionados": [
+      "comut"
+    ]
   },
   {
     "id": "ies",
@@ -2093,7 +2350,10 @@
     "exemplo_uso": "As IFES seguem o mesmo plano de carreira docente.",
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=33",
     "campus": "Geral",
-    "categoria": "vida-academica"
+    "categoria": "vida-academica",
+    "relacionados": [
+      "mec"
+    ]
   },
   {
     "id": "igc",
@@ -2104,7 +2364,10 @@
     "exemplo_uso": "O IGC resume a qualidade dos cursos da instituição.",
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=142",
     "campus": "Geral",
-    "categoria": "vida-academica"
+    "categoria": "vida-academica",
+    "relacionados": [
+      "capes"
+    ]
   },
   {
     "id": "inep",
@@ -2115,7 +2378,10 @@
     "exemplo_uso": "A UnB envia dados de avaliação ao INEP.",
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=140",
     "campus": "Geral",
-    "categoria": "vida-academica"
+    "categoria": "vida-academica",
+    "relacionados": [
+      "mec"
+    ]
   },
   {
     "id": "its",
@@ -2170,7 +2436,10 @@
     "exemplo_uso": "Esse livro antigo foi para o LaCoRe.",
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=86",
     "campus": "Geral",
-    "categoria": "locais-campus"
+    "categoria": "locais-campus",
+    "relacionados": [
+      "bce"
+    ]
   },
   {
     "id": "lad",
@@ -2181,7 +2450,10 @@
     "exemplo_uso": "Usei um computador no LAD.",
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=89",
     "campus": "Geral",
-    "categoria": "locais-campus"
+    "categoria": "locais-campus",
+    "relacionados": [
+      "bce"
+    ]
   },
   {
     "id": "ldtea",
@@ -2193,6 +2465,9 @@
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=124",
     "campus": "Gama",
     "categoria": "locais-campus",
+    "relacionados": [
+      "fcte"
+    ],
     "localizacao": {
       "lat": -15.9904653,
       "lng": -48.0442411,
@@ -2208,7 +2483,11 @@
     "exemplo_uso": "O LDV adaptou o meu material de aula.",
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=113",
     "campus": "Geral",
-    "categoria": "locais-campus"
+    "categoria": "locais-campus",
+    "relacionados": [
+      "bds",
+      "fe"
+    ]
   },
   {
     "id": "ledoc",
@@ -2230,7 +2509,10 @@
     "exemplo_uso": "A Codsex atende pessoas LGBTQIA+.",
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=107",
     "campus": "Geral",
-    "categoria": "vida-academica"
+    "categoria": "vida-academica",
+    "relacionados": [
+      "codsex"
+    ]
   },
   {
     "id": "liap",
@@ -2241,7 +2523,10 @@
     "exemplo_uso": "Esse espaço de pesquisa é classificado como LIAP.",
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=72",
     "campus": "Geral",
-    "categoria": "administracao"
+    "categoria": "administracao",
+    "relacionados": [
+      "cepe"
+    ]
   },
   {
     "id": "ll",
@@ -2252,7 +2537,10 @@
     "exemplo_uso": "Esse projeto funciona como um LL.",
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=72",
     "campus": "Geral",
-    "categoria": "administracao"
+    "categoria": "administracao",
+    "relacionados": [
+      "cepe"
+    ]
   },
   {
     "id": "lp",
@@ -2263,7 +2551,10 @@
     "exemplo_uso": "Esse laboratório é classificado como LP.",
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=72",
     "campus": "Geral",
-    "categoria": "administracao"
+    "categoria": "administracao",
+    "relacionados": [
+      "cepe"
+    ]
   },
   {
     "id": "lpm",
@@ -2274,7 +2565,10 @@
     "exemplo_uso": "Vários grupos usam esse LPM.",
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=72",
     "campus": "Geral",
-    "categoria": "administracao"
+    "categoria": "administracao",
+    "relacionados": [
+      "cepe"
+    ]
   },
   {
     "id": "lpste",
@@ -2285,7 +2579,10 @@
     "exemplo_uso": "Esse laboratório é classificado como LPSTE.",
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=72",
     "campus": "Geral",
-    "categoria": "administracao"
+    "categoria": "administracao",
+    "relacionados": [
+      "cepe"
+    ]
   },
   {
     "id": "lsb",
@@ -2307,7 +2604,10 @@
     "exemplo_uso": "Essa política de assistência estudantil é do MEC.",
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=33",
     "campus": "Geral",
-    "categoria": "vida-academica"
+    "categoria": "vida-academica",
+    "relacionados": [
+      "ifes"
+    ]
   },
   {
     "id": "mespt",
@@ -2329,7 +2629,10 @@
     "exemplo_uso": "Essa dúvida sobre o comitê de ética é com o NACEP.",
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=63",
     "campus": "Geral",
-    "categoria": "administracao"
+    "categoria": "administracao",
+    "relacionados": [
+      "dpi"
+    ]
   },
   {
     "id": "nats",
@@ -2340,7 +2643,10 @@
     "exemplo_uso": "Esse estudo foi feito pelo NATS do HUB.",
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=93",
     "campus": "Geral",
-    "categoria": "administracao"
+    "categoria": "administracao",
+    "relacionados": [
+      "hub"
+    ]
   },
   {
     "id": "nde",
@@ -2362,7 +2668,10 @@
     "exemplo_uso": "Esse grupo faz parte de um NP.",
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=72",
     "campus": "Geral",
-    "categoria": "administracao"
+    "categoria": "administracao",
+    "relacionados": [
+      "cepe"
+    ]
   },
   {
     "id": "ntaai",
@@ -2384,7 +2693,10 @@
     "exemplo_uso": "Para registrar a patente, procurei o NUPITEC.",
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=74",
     "campus": "Geral",
-    "categoria": "administracao"
+    "categoria": "administracao",
+    "relacionados": [
+      "cdt"
+    ]
   },
   {
     "id": "omp",
@@ -2428,7 +2740,10 @@
     "exemplo_uso": "Esse auxílio faz parte da Paes.",
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=77",
     "campus": "Geral",
-    "categoria": "assistencia-estudantil"
+    "categoria": "assistencia-estudantil",
+    "relacionados": [
+      "cad"
+    ]
   },
   {
     "id": "paint",
@@ -2439,7 +2754,10 @@
     "exemplo_uso": "As ações da auditoria estão no PAINT.",
     "fonte": "https://auditoria.unb.br/noticias/211-reuniao-do-conselho-de-administracao-da-unb-aprova-o-plano-anual-de-auditoria-interna-para-2024",
     "campus": "Geral",
-    "categoria": "administracao"
+    "categoria": "administracao",
+    "relacionados": [
+      "aud"
+    ]
   },
   {
     "id": "pca",
@@ -2483,7 +2801,10 @@
     "exemplo_uso": "Esse aviso da biblioteca é da PCOM.",
     "fonte": "https://repositorioadm.unb.br/wp-content/uploads/tainacan-items/12644/12763/Regimento-Interno-da-BCE_UnB-2022.pdf#page=10",
     "campus": "Geral",
-    "categoria": "administracao"
+    "categoria": "administracao",
+    "relacionados": [
+      "bce"
+    ]
   },
   {
     "id": "pda",
@@ -2571,7 +2892,10 @@
     "exemplo_uso": "Esse setor trabalha pelo PGD.",
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=168",
     "campus": "Geral",
-    "categoria": "administracao"
+    "categoria": "administracao",
+    "relacionados": [
+      "mec"
+    ]
   },
   {
     "id": "pgtic",
@@ -2659,7 +2983,10 @@
     "exemplo_uso": "Esse auxílio tem relação com o PNAES.",
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=76",
     "campus": "Geral",
-    "categoria": "assistencia-estudantil"
+    "categoria": "assistencia-estudantil",
+    "relacionados": [
+      "mec"
+    ]
   },
   {
     "id": "pne",
@@ -2670,7 +2997,10 @@
     "exemplo_uso": "Essa meta da UnB se relaciona com o PNE.",
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=23",
     "campus": "Geral",
-    "categoria": "administracao"
+    "categoria": "administracao",
+    "relacionados": [
+      "pdi"
+    ]
   },
   {
     "id": "posic",
@@ -2681,7 +3011,10 @@
     "exemplo_uso": "Essa regra de senha vem da PoSIC.",
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=126",
     "campus": "Geral",
-    "categoria": "administracao"
+    "categoria": "administracao",
+    "relacionados": [
+      "cplad"
+    ]
   },
   {
     "id": "ppc",
@@ -2769,7 +3102,10 @@
     "exemplo_uso": "Esse edital de intercâmbio é do PrInt.",
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=51",
     "campus": "Geral",
-    "categoria": "administracao"
+    "categoria": "administracao",
+    "relacionados": [
+      "capes"
+    ]
   },
   {
     "id": "proafri",
@@ -2780,7 +3116,10 @@
     "exemplo_uso": "A UnB aderiu ao edital do Pro-Afri.",
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=104",
     "campus": "Geral",
-    "categoria": "administracao"
+    "categoria": "administracao",
+    "relacionados": [
+      "gcub"
+    ]
   },
   {
     "id": "procap",
@@ -2791,7 +3130,10 @@
     "exemplo_uso": "Esse curso para servidores é da PROCAP.",
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=166",
     "campus": "Geral",
-    "categoria": "administracao"
+    "categoria": "administracao",
+    "relacionados": [
+      "dgp"
+    ]
   },
   {
     "id": "proic",
@@ -2824,7 +3166,11 @@
     "exemplo_uso": "Meu colega do PEC-G recebe o PROMISAES.",
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=102",
     "campus": "Geral",
-    "categoria": "assistencia-estudantil"
+    "categoria": "assistencia-estudantil",
+    "relacionados": [
+      "mec",
+      "pecg"
+    ]
   },
   {
     "id": "pta",
@@ -2846,7 +3192,10 @@
     "exemplo_uso": "Esse dado está no RAAI.",
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=140",
     "campus": "Geral",
-    "categoria": "administracao"
+    "categoria": "administracao",
+    "relacionados": [
+      "cpa"
+    ]
   },
   {
     "id": "raint",
@@ -2857,7 +3206,10 @@
     "exemplo_uso": "O resultado da auditoria está no RAINT.",
     "fonte": "https://auditoria.unb.br/noticias/211-reuniao-do-conselho-de-administracao-da-unb-aprova-o-plano-anual-de-auditoria-interna-para-2024",
     "campus": "Geral",
-    "categoria": "administracao"
+    "categoria": "administracao",
+    "relacionados": [
+      "aud"
+    ]
   },
   {
     "id": "rea",
@@ -2868,7 +3220,10 @@
     "exemplo_uso": "Esse material da disciplina é um REA.",
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=56",
     "campus": "Geral",
-    "categoria": "vida-academica"
+    "categoria": "vida-academica",
+    "relacionados": [
+      "cead"
+    ]
   },
   {
     "id": "repe",
@@ -2879,7 +3234,10 @@
     "exemplo_uso": "Nosso projeto de extensão atua num polo da REPE.",
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=68",
     "campus": "Geral",
-    "categoria": "administracao"
+    "categoria": "administracao",
+    "relacionados": [
+      "dex"
+    ]
   },
   {
     "id": "ri",
@@ -2923,7 +3281,10 @@
     "exemplo_uso": "Esse auxílio de internet tem parceria com a RNP.",
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=79",
     "campus": "Geral",
-    "categoria": "administracao"
+    "categoria": "administracao",
+    "relacionados": [
+      "mec"
+    ]
   },
   {
     "id": "saunb",
@@ -2934,7 +3295,10 @@
     "exemplo_uso": "Esse documento faz parte do SAUnB.",
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=184",
     "campus": "Geral",
-    "categoria": "administracao"
+    "categoria": "administracao",
+    "relacionados": [
+      "ace"
+    ]
   },
   {
     "id": "sinaes",
@@ -2956,7 +3320,10 @@
     "exemplo_uso": "A biblioteca do meu campus faz parte do SIB-UnB.",
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=85",
     "campus": "Geral",
-    "categoria": "locais-campus"
+    "categoria": "locais-campus",
+    "relacionados": [
+      "bce"
+    ]
   },
   {
     "id": "sic",
@@ -2989,7 +3356,12 @@
     "exemplo_uso": "O SIGAA faz parte do SIG-UnB.",
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=128",
     "campus": "Geral",
-    "categoria": "sistemas"
+    "categoria": "sistemas",
+    "relacionados": [
+      "sigaa",
+      "sigrh",
+      "sipac"
+    ]
   },
   {
     "id": "sipac",
@@ -3011,7 +3383,12 @@
     "exemplo_uso": "Minha aula de hoje é na UED.",
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=124",
     "campus": "Geral",
-    "categoria": "locais-campus"
+    "categoria": "locais-campus",
+    "relacionados": [
+      "ipol",
+      "ics",
+      "irel"
+    ]
   },
   {
     "id": "uleg",
@@ -3022,7 +3399,11 @@
     "exemplo_uso": "Minha aula de laboratório é na ULEG.",
     "fonte": "https://fm.unb.br/",
     "campus": "Geral",
-    "categoria": "locais-campus"
+    "categoria": "locais-campus",
+    "relacionados": [
+      "fs",
+      "ft"
+    ]
   },
   {
     "id": "unb",
@@ -3044,7 +3425,10 @@
     "exemplo_uso": "Meu clube é registrado na UnB-AE.",
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=136",
     "campus": "Geral",
-    "categoria": "representacao-estudantil"
+    "categoria": "representacao-estudantil",
+    "relacionados": [
+      "jiunbs"
+    ]
   },
   {
     "id": "uniser",
@@ -3066,7 +3450,10 @@
     "exemplo_uso": "Essa ação da DASU segue a ideia de UPS.",
     "fonte": "https://noticias.unb.br/artigos-main/5478-fortalecimento-de-redes-caminho-para-uma-universidade-promotora-da-saude",
     "campus": "Geral",
-    "categoria": "vida-academica"
+    "categoria": "vida-academica",
+    "relacionados": [
+      "dasu"
+    ]
   },
   {
     "id": "vrt",
@@ -3088,7 +3475,10 @@
     "exemplo_uso": "Minha orientadora é pesquisadora PQ.",
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=64",
     "campus": "Geral",
-    "categoria": "vida-academica"
+    "categoria": "vida-academica",
+    "relacionados": [
+      "cnpq"
+    ]
   },
   {
     "id": "qrstae",
@@ -3110,7 +3500,10 @@
     "exemplo_uso": "Esse programa da UnBTV passa também na RITU.",
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=175",
     "campus": "Geral",
-    "categoria": "administracao"
+    "categoria": "administracao",
+    "relacionados": [
+      "unbtv"
+    ]
   },
   {
     "id": "sei",
@@ -3121,7 +3514,10 @@
     "exemplo_uso": "Abri meu pedido para a SAA pelo SEI.",
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=98",
     "campus": "Geral",
-    "categoria": "sistemas"
+    "categoria": "sistemas",
+    "relacionados": [
+      "saa"
+    ]
   },
   {
     "id": "serex",
@@ -3143,7 +3539,10 @@
     "exemplo_uso": "A votação do conselho foi pelo SIGEleição.",
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=128",
     "campus": "Geral",
-    "categoria": "sistemas"
+    "categoria": "sistemas",
+    "relacionados": [
+      "sigunb"
+    ]
   },
   {
     "id": "uab",
@@ -3176,7 +3575,10 @@
     "exemplo_uso": "A UnB aderiu ao edital do Pro-LAC.",
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=104",
     "campus": "Geral",
-    "categoria": "administracao"
+    "categoria": "administracao",
+    "relacionados": [
+      "gcub"
+    ]
   },
   {
     "id": "semuni",
@@ -3187,7 +3589,10 @@
     "exemplo_uso": "Vou apresentar meu projeto na Semuni.",
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=68",
     "campus": "Geral",
-    "categoria": "vida-academica"
+    "categoria": "vida-academica",
+    "relacionados": [
+      "dex"
+    ]
   },
   {
     "id": "cpl",

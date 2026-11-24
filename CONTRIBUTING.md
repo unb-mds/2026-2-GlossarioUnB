@@ -60,6 +60,8 @@ Você não precisa e não tem acesso de escrita a este repositório, use fork:
 - `categoria`: `vida-academica`, `unidades-academicas`, `administracao`, `colegiados`, `locais-campus`, `sistemas`, `assistencia-estudantil`, `representacao-estudantil` ou `girias`.
 - `campus`: `Darcy Ribeiro`, `Ceilândia`, `Gama`, `Planaltina` ou `Geral`.
 - Opcional: `localizacao` (`lat`, `lng`, `link_como_chegar`) para lugares físicos.
+- Opcional: `sinonimos`, a lista de outros nomes do mesmo termo, com prova na fonte. Não use o nome de outro termo do glossário.
+- Opcional: `relacionados`, a lista de ids de outros termos que aparecem em "Veja também". Só ponha uma ligação depois de ler as duas definições e conferir que é o mesmo órgão ou assunto.
 
 Nenhum termo é aceito sem `fonte` preenchida. O CI valida todo PR contra esse schema;
 regras completas em [`docs/adr/0004-schema-unico-do-termo.md`](docs/adr/0004-schema-unico-do-termo.md).
