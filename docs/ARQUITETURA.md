@@ -131,7 +131,7 @@ G10-2026-2/
     └── workflows/      # ci.yml (testes), sonar.yml (SonarQube Cloud, ADR 0013) e pages.yml (publicação)
 ```
 
-O dataset fica dentro de `frontend/` para o glossário ser publicado copiando uma única pasta (ver ADR 0001). A pasta `coleta/` já tem a deduplicação (#57); os coletores, o classificador e o workflow que abre o PR são as issues #55, #56, #58 e #59.
+O dataset fica dentro de `frontend/` para o glossário ser publicado copiando uma única pasta (ver ADR 0001). A pasta `coleta/` já tem o coletor de páginas (#56), a deduplicação (#57) e o classificador (#58); o coletor de PDF e o workflow que abre o PR são as issues #55 e #59.
 
 ## Decisões de arquitetura (ADRs)
 
