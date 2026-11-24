@@ -81,6 +81,10 @@ Cada entrada deve conter: data, pessoa, ferramenta usada, o que foi pedido, o qu
 | 22/11/2026 | Italo | opencode | Correções da revisão do #158: `npm audit --omit=dev --audit-level=high` no `ci.yml`, teste de schema alinhado ao #161, teste de workflow estendido ao `coleta.yml`, merge da `main` e ajustes do `docs/SEGURANCA.md` (#83) | Aceito após a minha revisão |
 | 23/11/2026 | Allan | opencode (DeepSeek) | Ajustes no `docs/estrategia-de-testes.md` pedidos na revisão do PR #100: branch atualizada com a `main`, seção 4 e cobertura refeitas, dependências do robô, lacunas e seção 6 | Ajustado após revisão no PR #100 |
 | 23/11/2026 | Allan | opencode | Resolução do conflito do `AI-USAGE.md` no PR #119: restaurou as linhas de 17/11/2026 (Sprint 04) e 13/11/2026 (estratégia de testes) da `main` e manteve a linha do `docs/VISAO-DE-PRODUTO.md`; com o `npm test` passando | Aceito após revisão no PR |
+| 09/11/2026 | José Gabriel | Antigravity | Elaboração do README.md completo para a Release 2 (arquitetura, tecnologias, guia de instalação, .env e seção de coleta de termos) para a issue #97 | Aceito |
+| 16/11/2026 | Pedro | Claude | README.md reescrito no padrão do README do Flutter (badges de CI e Pages, Documentação, Serviços externos, Sobre por qualidades), a partir da versão do José Gabriel, para a issue #97 | Aceito; a escolha do Flutter como modelo (a professora indicou os badges dele) e de fazer o commit no PR #99 foi minha |
+| 18/11/2026 | Pedro | Claude Code | Seção "Rodar a coleta", `npm ci`, Node 22.9 e links da documentação no README, a partir da revisão do Allan no PR #99, para a issue #97 | Aceito após a minha revisão |
+| 18/11/2026 | José Gabriel | Antigravity | Sincronização do PR #99 com a `main`, inclusão de `GEMINI_API_KEY=` no `.env.example` e atualização do `README.md` com a Trilha do calouro (ADR 0011) e o SonarQube Cloud (ADR 0013) (#97) | Aceito após revisão |
 | | | | | |
 
 ## Observações gerais
