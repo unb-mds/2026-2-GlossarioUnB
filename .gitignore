@@ -18,3 +18,7 @@ test-results/
 # Arquivo de variáveis de ambiente com dados sensíveis
 .env
 
+
+# Teste de mutação (StrykerJS)
+reports/
+.stryker-tmp/
