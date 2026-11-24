@@ -28,4 +28,5 @@ test("sem localStorage (modo privado, bloqueio), o tema continua funcionando e s
   const semArmazenamento = () => { throw new Error("SecurityError"); };
   assert.equal(salvarTema(semArmazenamento, "claro", (...aviso) => avisos.push(aviso)), false);
   assert.equal(avisos.length, 1);
+  assert.equal(avisos[0][0], "Não foi possível salvar a preferência de tema:");
 });

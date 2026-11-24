@@ -17,14 +17,24 @@ Dicionário colaborativo de siglas, gírias e jargões da UnB.
 
 ## Como rodar
 
-Pré-requisito: Node 22.9 ou mais novo. O site não usa dependências; os testes e a coleta usam as bibliotecas da ADR 0010, instaladas com `npm ci`.
+Pré-requisito: Node 22.13 ou mais novo. O app não tem dependências de runtime; o robô de coleta e o lint usam as bibliotecas da ADR 0010, instaladas com `npm ci`.
 
 ```bash
-npm ci                  # bibliotecas da coleta e dos testes
+npm ci                  # bibliotecas da coleta, do robô, do ESLint e dos testes E2E (Playwright)
 npm run dev             # glossário em http://localhost:8080/frontend/ e Sobre em /sobre/
 npm test                # testes de domínio + validação de todos os termos
-npm run test:cobertura  # os mesmos testes, com relatório de cobertura
+npm run lint            # ESLint
+npm run test:cobertura  # os mesmos testes, com cobertura mínima de 90%
 ```
+
+Os testes ponta a ponta usam Playwright e axe-core (pasta `e2e/`). Na primeira vez, baixe o navegador:
+
+```bash
+npx playwright install chromium
+npm run test:e2e        # fluxos no navegador + auditoria de acessibilidade (WCAG 2.1 AA)
+```
+
+O job `e2e` do CI roda os mesmos testes em todo PR e anexa o relatório HTML como artefato.
 
 Para usar outra porta, copie `.env.example` para `.env` e ajuste `PORT` (o `npm run dev` lê o `.env` automaticamente).
 
@@ -52,6 +62,7 @@ O relatório fica em `coleta/relatorio.json` e o corpo do PR em `coleta/resumo.m
 ## Documentação
 
 - [Requisitos do sistema](docs/REQUISITOS.md)
+- [Visão de produto e histórias de usuário](docs/VISAO-DE-PRODUTO.md)
 - [Fontes de dados de termos](docs/FONTES-DE-DADOS.md)
 - [Arquitetura do sistema](docs/ARQUITETURA.md) e [decisões (ADRs)](docs/adr/)
 - [Estratégia de testes](docs/estrategia-de-testes.md)
