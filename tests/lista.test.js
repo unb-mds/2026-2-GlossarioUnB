@@ -3,7 +3,7 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 
 import {
-  enderecoDosFiltros, etiquetasDoCartao, idDaLetra, montarLista, opcoesDeCampus, opcoesDeCategoria, opcoesDeTipo, rotuloDaLetra, textoDaContagem,
+  OPCAO_COM_LOCALIZACAO, enderecoDosFiltros, etiquetasDoCartao, filtroLocalizacaoDaUrl, idDaLetra, idsComPlanta, montarLista, opcoesDeCampus, opcoesDeCategoria, opcoesDeLocalizacao, opcoesDeTipo, rotuloDaLetra, temLocalizacao, textoDaContagem,
 } from "../frontend/js/lista.js";
 
 const termos = [
@@ -87,4 +87,41 @@ test("o cartão mostra o tipo e o campus, menos quando o campus é Geral", () =>
 test("as opções dos filtros vêm dos tipos e dos campi do schema", () => {
   assert.deepEqual(opcoesDeTipo(), [["sigla", "Sigla"], ["giria", "Gíria"], ["expressao", "Expressão"]]);
   assert.deepEqual(opcoesDeCampus(), [["Darcy Ribeiro", "Darcy Ribeiro"], ["Ceilândia", "Ceilândia"], ["Gama", "Gama"], ["Planaltina", "Planaltina"]]);
+  assert.deepEqual(opcoesDeLocalizacao(), [[OPCAO_COM_LOCALIZACAO, "Só com mapa ou planta"]]);
+});
+
+test("idsComPlanta reúne termos ligados ao campus, prédios e salas da planta 2D", () => {
+  const planta = {
+    campus: { termo: "fcte" },
+    predios: [
+      {
+        termo: "uac",
+        andares: [{ itens: [{ id: "lds", termos: ["lds"] }, { id: "S10" }] }],
+      },
+    ],
+  };
+  assert.deepEqual([...idsComPlanta(planta)].sort(), ["fcte", "lds", "uac"]);
+  assert.equal(idsComPlanta(null).size, 0);
+});
+
+test("filtro de localização une termos com mapa OSM e termos ligados à planta da FCTE", () => {
+  const comLoc = [
+    { id: "bce", termo: "BCE", tipo: "sigla", campus: "Darcy Ribeiro", localizacao: { lat: -15.76, lng: -47.86 } },
+    { id: "lds", termo: "LDS", tipo: "sigla", campus: "Gama" },
+    { id: "deg", termo: "DEG", tipo: "sigla", campus: "Geral" },
+  ];
+  const naPlanta = new Set(["lds"]);
+  assert.equal(temLocalizacao(comLoc[0], naPlanta), true);
+  assert.equal(temLocalizacao(comLoc[1], naPlanta), true);
+  assert.equal(temLocalizacao(comLoc[2], naPlanta), false);
+  assert.deepEqual(ids(montarLista(comLoc, { tipo: "", campus: "", categoria: "", localizacao: "1" }, naPlanta)), ["bce", "lds"]);
+  assert.deepEqual(ids(montarLista(comLoc, { tipo: "", campus: "Gama", categoria: "", localizacao: "1" }, naPlanta)), ["lds"]);
+});
+
+test("parâmetro localizacao vai e volta da URL ignorando valores desconhecidos", () => {
+  assert.equal(filtroLocalizacaoDaUrl(new URLSearchParams("localizacao=1")), "1");
+  assert.equal(filtroLocalizacaoDaUrl(new URLSearchParams("localizacao=sim")), "");
+  assert.equal(filtroLocalizacaoDaUrl(new URLSearchParams("")), "");
+  assert.equal(enderecoDosFiltros({ tipo: "", campus: "", categoria: "", localizacao: "1" }, "/x.html"), "?localizacao=1");
+  assert.equal(enderecoDosFiltros({ tipo: "sigla", campus: "Gama", categoria: "", localizacao: "1" }, "/x.html"), "?tipo=sigla&campus=Gama&localizacao=1");
 });
