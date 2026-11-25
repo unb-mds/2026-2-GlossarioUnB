@@ -4143,5 +4143,315 @@
     "fonte": "https://planejamento.unb.br/images/Central_de_Conte%C3%BAdos/PDI_UnB__2023_2028.pdf#page=97",
     "campus": "Geral",
     "categoria": "administracao"
+  },
+  {
+    "id": "bandejao",
+    "termo": "Bandejão",
+    "tipo": "giria",
+    "definicao": "Apelido tradicional dado pela comunidade acadêmica ao Restaurante Universitário (RU) da UnB, surgido nos anos 1970 no campus Darcy Ribeiro por causa das bandejas metálicas divididas em compartimentos.",
+    "exemplo_uso": "Vamos almoçar no Bandejão depois da aula no ICC.",
+    "fonte": "https://ru.unb.br/galeria-e-historico/",
+    "campus": "Darcy Ribeiro",
+    "categoria": "locais-campus",
+    "relacionados": [
+      "ru"
+    ]
+  },
+  {
+    "id": "modulo-livre",
+    "termo": "Módulo Livre",
+    "tipo": "expressao",
+    "definicao": "Parcela de créditos totalmente aberta no currículo de graduação em que o estudante pode cursar qualquer disciplina da UnB sem pré-requisitos, inclusive de outros cursos.",
+    "exemplo_uso": "Peguei uma disciplina de fotografia na FAC para completar meu Módulo Livre.",
+    "fonte": "https://deg.unb.br/wp-content/uploads/manual_do_calouro_2026_2.pdf#page=23",
+    "campus": "Geral",
+    "categoria": "vida-academica",
+    "relacionados": [
+      "credito",
+      "pre-requisito",
+      "fluxo"
+    ]
+  },
+  {
+    "id": "credito",
+    "termo": "Crédito",
+    "tipo": "expressao",
+    "definicao": "Unidade padrão de medida da carga horária das disciplinas na UnB: cada crédito equivale a 15 horas-aula (de 55 minutos no período diurno ou 50 minutos no noturno).",
+    "exemplo_uso": "Cálculo 1 vale 6 créditos, ou seja, 90 horas-aula no semestre.",
+    "fonte": "https://deg.unb.br/wp-content/uploads/manual_do_calouro_2026_2.pdf#page=25",
+    "campus": "Geral",
+    "categoria": "vida-academica",
+    "relacionados": [
+      "fluxo",
+      "matricula"
+    ]
+  },
+  {
+    "id": "atividades-complementares",
+    "termo": "Atividades Complementares",
+    "tipo": "expressao",
+    "definicao": "Experiências acadêmicas fora das disciplinas regulares — como eventos, cursos, projetos de extensão, iniciação científica e estágios — exigidas para integralizar o currículo e obter o diploma.",
+    "exemplo_uso": "Preciso registrar meus certificados de eventos para cumprir as Atividades Complementares.",
+    "fonte": "https://deg.unb.br/wp-content/uploads/manual_do_calouro_2026_2.pdf#page=25",
+    "campus": "Geral",
+    "categoria": "vida-academica",
+    "relacionados": [
+      "ppc",
+      "iniciacao-cientifica"
+    ]
+  },
+  {
+    "id": "monitoria",
+    "termo": "Monitoria",
+    "tipo": "expressao",
+    "definicao": "Atividade acadêmica em que um estudante já aprovado em uma disciplina apoia os colegas sob orientação docente; pode ser remunerada ou voluntária e conta como componente eletivo.",
+    "exemplo_uso": "Fiz monitoria de Algoritmos no segundo semestre e ganhei créditos no histórico.",
+    "fonte": "https://deg.unb.br/wp-content/uploads/manual_do_calouro_2026_2.pdf#page=29",
+    "campus": "Geral",
+    "categoria": "vida-academica",
+    "relacionados": [
+      "ppc",
+      "credito"
+    ]
+  },
+  {
+    "id": "pre-requisito",
+    "termo": "Pré-requisito",
+    "tipo": "expressao",
+    "definicao": "Disciplina na qual o estudante precisa ter sido aprovado previamente para poder se matricular em outra matéria mais avançada do fluxo curricular.",
+    "exemplo_uso": "Cálculo 1 é pré-requisito para cursar Cálculo 2.",
+    "fonte": "https://deg.unb.br/wp-content/uploads/manual_do_calouro_2026_2.pdf#page=32",
+    "campus": "Geral",
+    "categoria": "vida-academica",
+    "relacionados": [
+      "fluxo",
+      "matricula"
+    ]
+  },
+  {
+    "id": "revisao-de-mencao",
+    "termo": "Revisão de Menção",
+    "tipo": "expressao",
+    "definicao": "Solicitação formal para reavaliar a menção final registrada em uma disciplina, feita dentro do prazo previsto no calendário acadêmico da graduação.",
+    "exemplo_uso": "Notei um erro na soma da prova e pedi revisão de menção no prazo do calendário.",
+    "fonte": "https://deg.unb.br/wp-content/uploads/manual_do_calouro_2026_2.pdf#page=40",
+    "campus": "Geral",
+    "categoria": "vida-academica",
+    "relacionados": [
+      "mencao",
+      "saa"
+    ]
+  },
+  {
+    "id": "reintegracao",
+    "termo": "Reintegração",
+    "tipo": "expressao",
+    "definicao": "Solicitação formal aberta via SEI para retornar ao curso de graduação após desligamento, sujeita às normas e prazos definidos pela UnB.",
+    "exemplo_uso": "Depois de ficar afastado, protocolei o pedido de reintegração pelo SEI.",
+    "fonte": "https://deg.unb.br/wp-content/uploads/manual_do_calouro_2026_2.pdf#page=51",
+    "campus": "Geral",
+    "categoria": "vida-academica",
+    "relacionados": [
+      "desligamento",
+      "sei",
+      "saa"
+    ]
+  },
+  {
+    "id": "trancamento-parcial",
+    "termo": "Trancamento Parcial",
+    "tipo": "expressao",
+    "definicao": "Suspensão da matrícula em uma ou mais disciplinas específicas no semestre sem interromper o curso inteiro, realizada como trancamento automático (TR) ou justificado (TJ).",
+    "exemplo_uso": "Pedi trancamento parcial em uma disciplina para conseguir focar nas demais.",
+    "fonte": "https://deg.unb.br/wp-content/uploads/manual_do_calouro_2026_2.pdf#page=61",
+    "campus": "Geral",
+    "categoria": "vida-academica",
+    "relacionados": [
+      "tr",
+      "tj",
+      "tgm"
+    ]
+  },
+  {
+    "id": "aproveitamento-de-estudos",
+    "termo": "Aproveitamento de Estudos",
+    "tipo": "expressao",
+    "definicao": "Processo formal pelo qual a UnB analisa e dispensa disciplinas já cursadas com aprovação em outra instituição ou curso quando há equivalência de conteúdo e carga horária.",
+    "exemplo_uso": "Pedi aproveitamento de estudos para aproveitar Cálculo cursado na outra faculdade.",
+    "fonte": "https://deg.unb.br/wp-content/uploads/manual_do_calouro_2026_2.pdf#page=62",
+    "campus": "Geral",
+    "categoria": "vida-academica",
+    "relacionados": [
+      "sei",
+      "saa",
+      "sigaa"
+    ]
+  },
+  {
+    "id": "desligamento",
+    "termo": "Desligamento",
+    "tipo": "expressao",
+    "definicao": "Encerramento do vínculo do estudante com o curso de graduação na UnB, podendo ser voluntário ou compulsório (por esgotar o prazo máximo de permanência ou baixo rendimento).",
+    "exemplo_uso": "Para evitar o desligamento por falta de rendimento, acompanhe o prazo e as menções no SIGAA.",
+    "fonte": "https://deg.unb.br/wp-content/uploads/manual_do_calouro_2026_2.pdf#page=65",
+    "campus": "Geral",
+    "categoria": "vida-academica",
+    "sinonimos": [
+      "Jubilamento"
+    ],
+    "relacionados": [
+      "reintegracao",
+      "tgm"
+    ]
+  },
+  {
+    "id": "iniciacao-cientifica",
+    "termo": "Iniciação Científica",
+    "tipo": "expressao",
+    "definicao": "Participação de estudantes de graduação em projetos de pesquisa orientados por professores pesquisadores, de forma voluntária ou com bolsa via editais do ProIC.",
+    "exemplo_uso": "Me inscrevi na Iniciação Científica pelo edital do ProIC para pesquisar no laboratório.",
+    "fonte": "https://deg.unb.br/wp-content/uploads/manual_do_calouro_2026_2.pdf#page=77",
+    "campus": "Geral",
+    "categoria": "vida-academica",
+    "relacionados": [
+      "proic",
+      "dpg",
+      "diric"
+    ]
+  },
+  {
+    "id": "anfiteatro-9",
+    "termo": "Anfiteatro 9",
+    "tipo": "expressao",
+    "definicao": "Um dos principais anfiteatros do ICC Sul, no campus Darcy Ribeiro, administrado pela CoAC/DEAC e usado para palestras, assembleias, debates e eventos culturais da UnB.",
+    "exemplo_uso": "A aula inaugural do semestre vai acontecer no Anfiteatro 9 do ICC Sul.",
+    "fonte": "https://deg.unb.br/wp-content/uploads/manual_do_calouro_2026_2.pdf#page=98",
+    "campus": "Darcy Ribeiro",
+    "categoria": "locais-campus",
+    "relacionados": [
+      "icc",
+      "coac",
+      "deac"
+    ]
+  },
+  {
+    "id": "calourada",
+    "termo": "Calourada",
+    "tipo": "expressao",
+    "definicao": "Programação de boas-vindas, integração e acolhimento aos novos estudantes no início do semestre letivo, reunindo atividades institucionais e ações do DCE e dos centros acadêmicos.",
+    "exemplo_uso": "Participei da calourada na primeira semana para conhecer os veteranos e os laboratórios.",
+    "fonte": "https://boasvindas.unb.br/category/noticias/",
+    "campus": "Geral",
+    "categoria": "vida-academica",
+    "relacionados": [
+      "dce",
+      "ca",
+      "inspiraunb"
+    ]
+  },
+  {
+    "id": "inspiraunb",
+    "termo": "InspiraUnB",
+    "tipo": "expressao",
+    "definicao": "Evento institucional de aula inaugural promovido pela UnB a cada semestre para dar as boas-vindas aos calouros com palestras, apresentações culturais e orientações acadêmicas.",
+    "exemplo_uso": "No primeiro dia de aula assisti à palestra de abertura do InspiraUnB.",
+    "fonte": "https://noticias.unb.br/ensino/6332-passo-a-passo-prepara-calouros-para-inicio-das-aulas",
+    "campus": "Geral",
+    "categoria": "vida-academica",
+    "relacionados": [
+      "deg",
+      "calourada"
+    ]
+  },
+  {
+    "id": "tcc",
+    "termo": "TCC",
+    "tipo": "sigla",
+    "significado": "Trabalho de Conclusão de Curso",
+    "definicao": "Trabalho acadêmico final (como monografia, artigo ou projeto de engenharia) exigido na maioria dos cursos de graduação da UnB para obtenção do diploma.",
+    "exemplo_uso": "Vou defender meu TCC no último semestre para me formar.",
+    "fonte": "https://deg.unb.br/wp-content/uploads/manual_do_calouro_2026_2.pdf#page=100",
+    "campus": "Geral",
+    "categoria": "vida-academica",
+    "relacionados": [
+      "ppc"
+    ]
+  },
+  {
+    "id": "tce",
+    "termo": "TCE",
+    "tipo": "sigla",
+    "significado": "Termo de Compromisso de Estágio",
+    "definicao": "Contrato formal assinado pelo estudante, pela empresa concedente e pela UnB para oficializar e regularizar o estágio obrigatório ou não obrigatório.",
+    "exemplo_uso": "Enviei o TCE assinado pelo SIGAA para a COEST validar meu estágio.",
+    "fonte": "https://deg.unb.br/wp-content/uploads/manual_do_calouro_2026_2.pdf#page=100",
+    "campus": "Geral",
+    "categoria": "vida-academica",
+    "relacionados": [
+      "coest",
+      "sigaa"
+    ]
+  },
+  {
+    "id": "diric",
+    "termo": "DIRIC",
+    "tipo": "sigla",
+    "significado": "Diretoria de Fomento à Iniciação Científica",
+    "definicao": "Diretoria vinculada ao Decanato de Pós-Graduação (DPG) responsável pela gestão dos editais e bolsas do Programa de Iniciação Científica (ProIC) na UnB.",
+    "exemplo_uso": "Consultei o edital da DIRIC para saber o calendário de bolsas do ProIC.",
+    "fonte": "https://deg.unb.br/wp-content/uploads/manual_do_calouro_2026_2.pdf#page=98",
+    "campus": "Geral",
+    "categoria": "administracao",
+    "relacionados": [
+      "dpg",
+      "proic",
+      "iniciacao-cientifica"
+    ]
+  },
+  {
+    "id": "coc",
+    "termo": "COC",
+    "tipo": "sigla",
+    "significado": "Coordenação de Organizações Comunitárias",
+    "definicao": "Coordenação da DEAC/DAC que apoia diretamente as entidades estudantis da UnB, especialmente os Centros Acadêmicos (CAs) e o DCE, cuidando do suporte institucional e memória.",
+    "exemplo_uso": "O centro acadêmico registrou sua nova gestão na COC.",
+    "fonte": "https://deg.unb.br/wp-content/uploads/manual_do_calouro_2026_2.pdf#page=98",
+    "campus": "Geral",
+    "categoria": "administracao",
+    "relacionados": [
+      "deac",
+      "ca",
+      "dce"
+    ]
+  },
+  {
+    "id": "pat",
+    "termo": "PAT",
+    "tipo": "sigla",
+    "significado": "Pavilhão Anísio Teixeira",
+    "definicao": "Prédio de salas de aula e auditórios localizado no campus Darcy Ribeiro, muito utilizado para disciplinas de graduação e grandes eventos como a Mostra de Cursos.",
+    "exemplo_uso": "Minha aula de segunda-feira de manhã é no PAT.",
+    "fonte": "https://noticias.unb.br/ensino/8782-mostra-de-cursos-aproxima-escolas-da-universidade",
+    "campus": "Darcy Ribeiro",
+    "categoria": "locais-campus",
+    "relacionados": [
+      "pjc",
+      "icc"
+    ]
+  },
+  {
+    "id": "pjc",
+    "termo": "PJC",
+    "tipo": "sigla",
+    "significado": "Pavilhão João Calmon",
+    "definicao": "Prédio de salas de aula no campus Darcy Ribeiro, ao lado do PAT, que recebe aulas de diversos cursos de graduação e atividades institucionais da UnB.",
+    "exemplo_uso": "A prova de sábado foi marcada no PJC.",
+    "fonte": "https://noticias.unb.br/ensino/8782-mostra-de-cursos-aproxima-escolas-da-universidade",
+    "campus": "Darcy Ribeiro",
+    "categoria": "locais-campus",
+    "relacionados": [
+      "pat",
+      "icc"
+    ]
   }
 ]
