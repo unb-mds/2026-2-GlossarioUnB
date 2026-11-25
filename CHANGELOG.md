@@ -5,6 +5,20 @@ O formato segue o [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/) e 
 
 ## [Não lançado]
 
+## [2.1.0] - 2026-11-25
+
+Evolução pós-Release 2 nascida do uso real do site e do feedback do teste com calouro (#76 / #172).
+
+### Adicionado
+
+- **Busca por assunto nas definições e sinônimos das menções (#172, #190):** `buscarTermos()` agora também encontra termos pelo significado e pela definição quando a consulta tem ≥ 4 letras ou ≥ 2 palavras (sempre abaixo de nome e sinônimo, evitando ruído em siglas curtas como `RU`), e a ficha `Menção` passa a aceitar `SS`, `MS`, `MM`, `MI` e `II` como sinônimos.
+- **Filtro "Só com mapa ou planta" em Todas as siglas (#191):** novo seletor acessível **Localização** (`?localizacao=1`) que une os 34 termos com mapa OpenStreetMap e os 33 termos ligados à Planta 2D da FCTE (~65 termos no total), com testes unitários, sabotagem e E2E + `axe-core`.
+- **Busca de salas da Planta da FCTE na capa e em `planta.html` (#192):** digitar `S10`, `S-10`, `I-10` ou `Auditório` na página inicial ou na nova caixa **Buscar sala** em `planta.html` leva direto ao prédio/andar certo com a sala destacada (ignorando hífens/acentos e sem poluir `termos.json`), com cache offline atualizado para `sw.js v26`.
+
+### Documentação
+
+- Atualização em cascata da matriz de rastreabilidade (`docs/RASTREABILIDADE.md`), do relatório de testes (`docs/RELATORIO-DE-TESTES.md`), da tabela de sabotagem (`docs/TESTE-DE-SABOTAGEM.md`), da página `/sobre/` e do `CHANGELOG.md` para a v2.1.0 (446 testes unitários/integração, 42/42 sabotagens, 17/17 E2E + `axe-core`, 5/5 BDD e 0 issues no SonarQube).
+
 ## [2.0.0] - 2026-11-24
 
 Segunda versão: Release 2. Reúne todos os PRs mesclados na `main` depois da v1.0.0 (29/09/2026).
@@ -72,6 +86,7 @@ Segunda versão: Release 2. Reúne todos os PRs mesclados na `main` depois da v1
 
 Nenhuma para quem usa o glossário. Para quem desenvolve: `npm ci` instala as bibliotecas dos scripts do robô (`cheerio`, `robots-parser`, `@google/genai`, `pdfjs-dist`) e das ferramentas de teste/qualidade (`eslint`, `@playwright/test`, `playwright-bdd`, `@axe-core/playwright`, `@stryker-mutator/core`). O front (`frontend/`, `sobre/`) continua sem framework, sem build e sem dependência.
 
-[Não lançado]: https://github.com/unb-mds/2026-2-GlossarioUnB/compare/v2.0.0...HEAD
+[Não lançado]: https://github.com/unb-mds/2026-2-GlossarioUnB/compare/v2.1.0...HEAD
+[2.1.0]: https://github.com/unb-mds/2026-2-GlossarioUnB/compare/v2.0.0...v2.1.0
 [2.0.0]: https://github.com/unb-mds/2026-2-GlossarioUnB/compare/v1.0.0...v2.0.0
 [1.0.0]: https://github.com/unb-mds/2026-2-GlossarioUnB/releases/tag/v1.0.0

@@ -1,53 +1,52 @@
 # Rastreabilidade dos requisitos
 
-Matriz que liga cada requisito de [`REQUISITOS.md`](REQUISITOS.md) à história, à issue, ao PR e ao arquivo ou teste que o prova. Dados conferidos na `main` em 20/11/2026 (`gh issue list --state all`, `gh pr list --state merged` e `grep` em `tests/`). Para o avaliador seguir o caminho: **requisito, história, issue, PR, prova**.
+Matriz que liga cada requisito de [`REQUISITOS.md`](REQUISITOS.md) à história, à issue, ao PR e ao arquivo ou teste que o prova. Atualizada em **25/11/2026** para a consolidação da **Release `v2.0.0`** e das evoluções da **`v2.1.0`** (`#190`, `#191`, `#192`). Para o avaliador seguir o caminho: **requisito, história, issue, PR, prova**.
 
-- **História:** as histórias Gherkin US01 a US06 estão no [PR #119](https://github.com/unb-mds/2026-2-GlossarioUnB/pull/119) (`docs/VISAO-DE-PRODUTO.md`), ainda aberto. Este documento só cita o código de cada uma.
-- **PR:** só os mergeados. Quando o trabalho está em PR aberto, aparece como "aberto" e não conta como prova.
-- **Prova:** o arquivo de teste e o assunto do teste (`tests/<arquivo>`). "Sem teste" quer dizer que nenhum teste da `main` cobre o requisito.
+- **História:** as histórias Gherkin `US01` a `US06` estão em [`VISAO-DE-PRODUTO.md`](VISAO-DE-PRODUTO.md) (PR [#119]).
+- **Prova:** arquivo de teste e escopo coberto (`tests/<arquivo>`, `e2e/<arquivo>` ou workflow).
 - **Épicos:** E1 [#47], E2 [#48], E3 [#49], E4 [#50], E5 [#51].
 
 ## Requisitos funcionais
 
-| Requisito | História | Issue (épico) | PR mergeado | Prova | Situação |
+| Requisito | História | Issue (épico) | PRs | Prova | Situação |
 | --- | --- | --- | --- | --- | --- |
-| RF01 Buscar termo pelo nome | US02 | [#38], [#20] (E3) | [#39] (R1), [#138] (módulo com teste) | `tests/termos.test.js` (buscarTermos: sem acento e caixa, começa com, limite, vazia); `tests/busca.test.js` (sugestões) | Pronto |
-| RF02 Filtrar a lista por tipo e campus | US02 | [#38], [#66] (E2), [#63] (E2) | [#39], [#138] | `tests/termos.test.js` (filtrarTermos, filtrosDaUrl, agruparPorLetra); `tests/lista.test.js` (filtros, endereço, vazia) | Pronto (taxonomia: [#63] aberta) |
-| RF03 Publicar os termos em JSON estático | US05 | [#37], [#21] (ADR 0004) | [#39] | `tests/dados.test.js` (termos.json segue o schema) | Pronto |
-| RF04 Receber sugestão por Issue ou Pull Request | US04 | [#24], [#71] (E3) | [#5] (templates), [#39] (CONTRIBUTING) | Sem teste: `.github/ISSUE_TEMPLATE/sugerir-termo.md` e `CONTRIBUTING.md` | Pronto, sem teste |
-| RF05 Exibir a ficha do termo | US02 | [#38], [#35] | [#39], [#138] | `tests/ficha.test.js` (endereço, aba, campus Geral, fonte com e sem link); `tests/validacao-termo.test.js` (localizacao, urlSegura) | Pronto (id inexistente e mapa sem teste) |
-| RF06 Validar o termo contra o schema antes do merge | US05 | [#11], [#44] (E4) | [#39], [#41] (texto do RF) | `tests/validacao-termo.test.js` (12 testes); `tests/dados.test.js`; `tests/deduplicar.test.js` (repetidosNoGlossario); `.github/workflows/ci.yml` (`npm test`) | Pronto |
-| RF07 Sinalizar termo desatualizado | US05 | [#60] (E1) | PR [#187](https://github.com/unb-mds/2026-2-GlossarioUnB/pull/187) | `tests/verificacao.test.js` (agrupamento por fonte, status, redirecionamento, Last-Modified, deduplicação das issues, robots e espera); `tests/ficha.test.js` (data na ficha); `tests/workflow-verificacao.test.js` | Pronto (PR [#187](https://github.com/unb-mds/2026-2-GlossarioUnB/pull/187)) |
-| RF08 Sugerir termos ao digitar | US02 | [#38] | [#39], [#138] | `tests/busca.test.js` (setas, Enter, status do leitor de tela, sem resultado) | Pronto |
-| RF09 Termos parecidos e busca sem resultado | US02 | [#66] (E2) | [#138] (aviso) | `tests/busca.test.js` ("sem resultado, o aviso repete o que foi digitado"); parecidos: sem teste | Parcial |
-| RF10 Enviar sugestão pelo site | US04 | [#72] (E3) | nenhum | Sem teste | Pendente (opcional) |
-| RF11 Coletar candidatos de páginas oficiais | US01 | [#56], [#52], [#53], [#61] (E1) | [#111], [#122] (fontes), [#102] (ADR 0009), [#142](https://github.com/unb-mds/2026-2-GlossarioUnB/pull/142) (PDF da DPO) | `tests/coletor-html.test.js` (decanatos, secretarias, estrutura mudou, validarFontes, fonte com erro); `tests/coletor-dpo.test.js` (lista de siglas em PDF) | Parcial ([#61] fontes novas pendentes) |
-| RF12 Separar candidatos em novo, alterado e conflito | US01 | [#57] (E1) | [#101] | `tests/deduplicar.test.js` (casos novo, igual, alterado, conflito, valor-limite 60%, mesclar) | Pronto |
-| RF13 Sugerir categoria e rascunho com LLM, marcando para revisão | US01 | [#58] (E1) | [#104] | `tests/classificador.test.js` (validarResposta, montarPrompt, sem chave, erro da API, limite) | Pronto |
-| RF14 Abrir PR com os termos coletados | US01 | [#59] (E1) | [#144] | `tests/workflow-coleta.test.js`, `tests/atualizar-termos.test.js`, `tests/relatorio.test.js`; execução real no [#162](https://github.com/unb-mds/2026-2-GlossarioUnB/pull/162) | Pronto |
-| RF15 Exibir a trilha "Primeiros passos na UnB" | US03 | [#69], [#70] (E3) | [#123], [#124] | `tests/trilha.test.js` (ids existem, 15 termos ou mais, fonte oficial, validarTrilha, montarTrilha); `tests/busca.test.js` (gruposDaTrilha) | Pronto |
+| RF01 Buscar termo pelo nome, sinônimo, assunto e sala | US02 | [#38], [#20] (E3), [#172] | [#39], [#138], [#180], [#190], [#192] | `tests/termos.test.js` (nome, sinônimos, assunto com corte de ruído); `tests/busca.test.js`; `tests/planta.test.js`; `e2e/busca.spec.js`; `e2e/busca-salas.spec.js`; `tests/aceitacao/busca.feature` | Pronto |
+| RF02 Filtrar a lista por tipo, categoria, campus e localização | US02 | [#38], [#63] (E2), [#66] (E2) | [#39], [#136], [#138], [#180], [#191] | `tests/termos.test.js`; `tests/lista.test.js` (filtros + `?localizacao=1`); `e2e/lista.spec.js`; `e2e/filtro-localizacao.spec.js` | Pronto |
+| RF03 Publicar os termos em JSON estático | US05 | [#37], [#21] (ADR 0004) | [#39], [#162], [#181] | `tests/dados.test.js` (325 termos conferidos contra o schema) | Pronto |
+| RF04 Receber sugestão por Issue ou Pull Request | US04 | [#24], [#71] (E3) | [#5], [#39], [#137] (Issue Forms YAML) | `tests/issue-templates.test.js`; `e2e/busca.spec.js` (link "Sugerir este termo"); `tests/aceitacao/busca.feature` | Pronto |
+| RF05 Exibir a ficha do termo (com Veja também, mapa OSM e planta 2D) | US02 | [#38], [#35], [#65] | [#39], [#138], [#174], [#180], [#184] | `tests/ficha.test.js`; `tests/validacao-termo.test.js` (`localizacao`, `urlSegura`, `relacionados`); `tests/planta.test.js`; `tests/planta-dados.test.js` | Pronto |
+| RF06 Validar o termo contra o schema antes do merge | US05 | [#11], [#44] (E4) | [#39], [#41], [#180] | `tests/validacao-termo.test.js` (schema, `relacionados`, `sinonimosQueSaoOutroTermo`); `tests/dados.test.js`; `tests/deduplicar.test.js`; `.github/workflows/ci.yml` | Pronto |
+| RF07 Sinalizar termo desatualizado | US05 | [#60] (E1) | [#187] | `tests/verificacao.test.js` (HTTP, redirect, `Last-Modified`, deduplicação de issues, `robots.txt`); `tests/ficha.test.js` (`verificado_em`); `tests/workflow-verificacao.test.js` | Pronto |
+| RF08 Sugerir termos ao digitar | US02 | [#38] | [#39], [#138], [#180], [#190], [#192] | `tests/busca.test.js` (teclado, Enter, status ARIA, sinônimos, salas); `e2e/busca.spec.js`; `e2e/busca-salas.spec.js` | Pronto |
+| RF09 Sinônimos, termos relacionados ("Veja também") e busca sem resultado | US02 | [#66] (E2), [#172] | [#138], [#180], [#190] | `tests/termos.test.js`; `tests/ficha.test.js` (`relacionadosDe`); `tests/busca.test.js`; `e2e/busca.spec.js` | Pronto |
+| RF10 Enviar sugestão pelo site sem conta GitHub | US04 | [#72] (E3) | nenhum | Opcional pós-R2 (coberto hoje por Issue Forms em RF04) | Pendente (opcional) |
+| RF11 Coletar candidatos de páginas oficiais e PDF da DPO | US01 | [#52], [#53], [#56], [#61] (E1) | [#102], [#111], [#122], [#142], [#175] | `tests/coletor-html.test.js`; `tests/coletor-dpo.test.js`; `tests/fontes-saa-fcte.test.js`; `tests/fontes-girias.test.js` | Pronto |
+| RF12 Separar candidatos em novo, alterado e conflito | US01 | [#57] (E1) | [#101] | `tests/deduplicar.test.js` (novo, igual, alterado, conflito, limite 60%, merge preservando texto humano) | Pronto |
+| RF13 Sugerir categoria, filtrar escopo e gerar rascunho com LLM | US01 | [#58] (E1) | [#104], [#161] (ADR 0014) | `tests/classificador.test.js`; `tests/filtro-de-termos.test.js` (lista fixa + Gemini com fallback 503/429 + revisão humana) | Pronto |
+| RF14 Abrir PR semanal com os termos coletados | US01 | [#59] (E1) | [#144], [#162], [#181] | `tests/workflow-coleta.test.js`; `tests/atualizar-termos.test.js`; `tests/relatorio.test.js`; PRs reais [#162] e [#181] | Pronto |
+| RF15 Exibir a trilha "Primeiros passos na UnB" com progresso local | US03 | [#69], [#70] (E3) | [#123], [#124], [#179] | `tests/trilha.test.js` (25 termos em 6 grupos, progresso em `localStorage`); `tests/busca.test.js`; `tests/aceitacao/trilha-do-calouro.feature` | Pronto (validação com 5 calouros em aberto: [#76], 1/5) |
 
 ## Requisitos não funcionais
 
-| Requisito | História | Issue (épico) | PR mergeado | Prova | Situação |
+| Requisito | História | Issue (épico) | PRs | Prova | Situação |
 | --- | --- | --- | --- | --- | --- |
-| RNF01 Consulta offline | US05 | [#34], [#78] (E4) | [#39] (service worker) | Sem teste: `frontend/sw.js`; E2E offline na [#78] (aberta) | Implementado, sem teste |
-| RNF02 Desempenho | US05 | [#80] (E4) | nenhum (PR [#148] aberto) | Sem prova na `main` | Pendente |
-| RNF03 Acessibilidade | US05 | [#78], [#80] (E4) | nenhum | `tests/sobre.test.js` cobre só a página Sobre (h1, alt, títulos, âncoras); axe-core pendente | Parcial |
-| RNF04 Usabilidade | US05 | [#78] (E4) | nenhum | Sem prova na `main` | Pendente |
-| RNF05 Qualidade dos dados | US05 | [#77], [#60] (E4, E1) | [#112] | `tests/dados.test.js`; `tests/verificacao.test.js` (links quebrados e redirecionamentos) | Pronto (verificação da #60; PR [#187](https://github.com/unb-mds/2026-2-GlossarioUnB/pull/187)) |
-| RNF06 Manutenibilidade | US05 | [#79], [#106] (E4) | [#107] (SonarQube Cloud) | `npm run test:cobertura` mede; mínimo de 90% no CI está em [#79] (PR [#120] aberto) | Parcial |
-| RNF07 Segurança | US05 | [#83], [#106] (E4) | [#107], [#128] | `tests/validacao-termo.test.js` (urlSegura); `tests/classificador.test.js` (link e HTML recusados, prompt injection); `tests/servidor-local.test.js`; `tests/fronteira-dependencias.test.js` | Parcial (SAST [#83] pendente) |
-| RNF08 Privacidade | US01 | [#134] (E4) | [#135] | `tests/coletor-html.test.js` ("decanatos: o link do menu fora do trecho (LGPD) não vira candidato"); revisão no PR | Parcial |
-| RNF09 Coleta responsável | US01 | [#134] (E1) | [#111], [#135] | `tests/coletor-html.test.js` (robots.txt, 1 s entre pedidos, user-agent, fonte com erro) | Pronto |
+| RNF01 Consulta offline (PWA) | US05 | [#34], [#78] (E4) | [#39], [#153], [#189], [#192] | `frontend/sw.js` (`v26`); `e2e/offline.spec.js` (consulta offline após 1ª visita) | Pronto |
+| RNF02 Desempenho (LCP, CLS e orçamento) | US05 | [#80] (E4) | [#148], [#155] | `.github/workflows/lighthouse.yml`; `tests/layout-estavel.test.js`; `tests/lighthouse.test.js` | Pronto |
+| RNF03 Acessibilidade (WCAG 2.1 AA claro e escuro) | US05 | [#78], [#80] (E4) | [#153], [#186], [#191], [#192] | `e2e/acessibilidade.spec.js`; `e2e/filtro-localizacao.spec.js`; `e2e/busca-salas.spec.js` (0 violações `axe-core`); `tests/sobre.test.js` | Pronto |
+| RNF04 Usabilidade e aceitação (BDD) | US05 | [#78], [#81] (E4), [#76] (E3) | [#153], [#179], [#183] | `tests/aceitacao/busca.feature` e `trilha-do-calouro.feature` (5/5 BDD verdes); 1/5 testes presenciais com calouros em [#76] | Parcial (testes automáticos prontos; 4/5 calouros em aberto) |
+| RNF05 Qualidade dos dados e proveniência | US05 | [#77], [#60] (E4, E1) | [#112], [#178], [#187] | `tests/dados.test.js`; `tests/origem-dos-dados.test.js`; `tests/verificacao.test.js`; página `origem-dos-dados.html` | Pronto |
+| RNF06 Manutenibilidade (cobertura, sabotagem, mutação, lint) | US05 | [#79], [#82], [#106] (E4) | [#107], [#120], [#146], [#157], [#185] | `npm run lint` (0 erros); `npm run test:cobertura` (99,48% domínio); `npm run test:sabotagem` (42/42); `npm run test:mutacao` (~90,9% StrykerJS); SonarQube `Passed · 0 Issues` | Pronto |
+| RNF07 Segurança (SAST, `npm audit`, prompt injection, segredos) | US05 | [#83], [#106] (E4) | [#45], [#107], [#128], [#158], [#176] | `tests/seguranca.test.js`; `tests/servidor-local.test.js` (S5146); `tests/classificador.test.js`; `tests/fronteira-dependencias.test.js`; `npm audit`; `SECURITY.md` | Pronto |
+| RNF08 Privacidade (LGPD, sem rastreamento, progresso local) | US01 | [#134] (E4) | [#135], [#179] | `tests/coletor-html.test.js` (recorte LGPD); `tests/trilha.test.js` (`localStorage` só no aparelho); zero analytics/login | Pronto |
+| RNF09 Coleta responsável (`robots.txt`, RFC 9309, pausa 1 s) | US01 | [#134] (E1) | [#111], [#135] | `tests/coletor-html.test.js` (`robots.txt`, erro 5xx pela RFC 9309, 1 s entre pedidos, user-agent); sabotagem em `tests/sabotagens/robo.json` | Pronto |
 
 ## Resumo
 
-- **RF:** 15 no total. 11 prontos (10 com teste; RF04 pronto sem teste), 2 parciais (RF09, RF11) e 1 pendente (RF10).
-- **Sem teste:** RF04, RF10, RNF01, RNF02, RNF04.
-- Quando um PR aberto entrar na `main` (por exemplo [#148], [#120]), a linha correspondente muda de "pendente" para "pronto" com o número do PR.
+- **RF:** 15 no total — **14 prontos e testados**, **1 opcional pós-R2** (`RF10`, [#72]).
+- **RNF:** 9 no total — **8 prontos com prova automática no CI**, **1 parcial** (`RNF04`: BDD/E2E prontos, faltam 4 de 5 calouros em [#76]).
 
 [#5]: https://github.com/unb-mds/2026-2-GlossarioUnB/pull/5
+[#11]: https://github.com/unb-mds/2026-2-GlossarioUnB/issues/11
 [#20]: https://github.com/unb-mds/2026-2-GlossarioUnB/issues/20
 [#21]: https://github.com/unb-mds/2026-2-GlossarioUnB/issues/21
 [#24]: https://github.com/unb-mds/2026-2-GlossarioUnB/issues/24
@@ -58,7 +57,7 @@ Matriz que liga cada requisito de [`REQUISITOS.md`](REQUISITOS.md) à história,
 [#39]: https://github.com/unb-mds/2026-2-GlossarioUnB/pull/39
 [#41]: https://github.com/unb-mds/2026-2-GlossarioUnB/pull/41
 [#44]: https://github.com/unb-mds/2026-2-GlossarioUnB/issues/44
-[#11]: https://github.com/unb-mds/2026-2-GlossarioUnB/issues/11
+[#45]: https://github.com/unb-mds/2026-2-GlossarioUnB/pull/45
 [#47]: https://github.com/unb-mds/2026-2-GlossarioUnB/issues/47
 [#48]: https://github.com/unb-mds/2026-2-GlossarioUnB/issues/48
 [#49]: https://github.com/unb-mds/2026-2-GlossarioUnB/issues/49
@@ -66,7 +65,6 @@ Matriz que liga cada requisito de [`REQUISITOS.md`](REQUISITOS.md) à história,
 [#51]: https://github.com/unb-mds/2026-2-GlossarioUnB/issues/51
 [#52]: https://github.com/unb-mds/2026-2-GlossarioUnB/issues/52
 [#53]: https://github.com/unb-mds/2026-2-GlossarioUnB/issues/53
-[#55]: https://github.com/unb-mds/2026-2-GlossarioUnB/issues/55
 [#56]: https://github.com/unb-mds/2026-2-GlossarioUnB/issues/56
 [#57]: https://github.com/unb-mds/2026-2-GlossarioUnB/issues/57
 [#58]: https://github.com/unb-mds/2026-2-GlossarioUnB/issues/58
@@ -74,15 +72,19 @@ Matriz que liga cada requisito de [`REQUISITOS.md`](REQUISITOS.md) à história,
 [#60]: https://github.com/unb-mds/2026-2-GlossarioUnB/issues/60
 [#61]: https://github.com/unb-mds/2026-2-GlossarioUnB/issues/61
 [#63]: https://github.com/unb-mds/2026-2-GlossarioUnB/issues/63
+[#65]: https://github.com/unb-mds/2026-2-GlossarioUnB/issues/65
 [#66]: https://github.com/unb-mds/2026-2-GlossarioUnB/issues/66
 [#69]: https://github.com/unb-mds/2026-2-GlossarioUnB/issues/69
 [#70]: https://github.com/unb-mds/2026-2-GlossarioUnB/issues/70
 [#71]: https://github.com/unb-mds/2026-2-GlossarioUnB/issues/71
 [#72]: https://github.com/unb-mds/2026-2-GlossarioUnB/issues/72
+[#76]: https://github.com/unb-mds/2026-2-GlossarioUnB/issues/76
 [#77]: https://github.com/unb-mds/2026-2-GlossarioUnB/issues/77
 [#78]: https://github.com/unb-mds/2026-2-GlossarioUnB/issues/78
 [#79]: https://github.com/unb-mds/2026-2-GlossarioUnB/issues/79
 [#80]: https://github.com/unb-mds/2026-2-GlossarioUnB/issues/80
+[#81]: https://github.com/unb-mds/2026-2-GlossarioUnB/issues/81
+[#82]: https://github.com/unb-mds/2026-2-GlossarioUnB/issues/82
 [#83]: https://github.com/unb-mds/2026-2-GlossarioUnB/issues/83
 [#101]: https://github.com/unb-mds/2026-2-GlossarioUnB/pull/101
 [#102]: https://github.com/unb-mds/2026-2-GlossarioUnB/pull/102
@@ -91,6 +93,7 @@ Matriz que liga cada requisito de [`REQUISITOS.md`](REQUISITOS.md) à história,
 [#107]: https://github.com/unb-mds/2026-2-GlossarioUnB/pull/107
 [#111]: https://github.com/unb-mds/2026-2-GlossarioUnB/pull/111
 [#112]: https://github.com/unb-mds/2026-2-GlossarioUnB/pull/112
+[#119]: https://github.com/unb-mds/2026-2-GlossarioUnB/pull/119
 [#120]: https://github.com/unb-mds/2026-2-GlossarioUnB/pull/120
 [#122]: https://github.com/unb-mds/2026-2-GlossarioUnB/pull/122
 [#123]: https://github.com/unb-mds/2026-2-GlossarioUnB/pull/123
@@ -98,6 +101,33 @@ Matriz que liga cada requisito de [`REQUISITOS.md`](REQUISITOS.md) à história,
 [#128]: https://github.com/unb-mds/2026-2-GlossarioUnB/pull/128
 [#134]: https://github.com/unb-mds/2026-2-GlossarioUnB/issues/134
 [#135]: https://github.com/unb-mds/2026-2-GlossarioUnB/pull/135
+[#136]: https://github.com/unb-mds/2026-2-GlossarioUnB/pull/136
+[#137]: https://github.com/unb-mds/2026-2-GlossarioUnB/pull/137
 [#138]: https://github.com/unb-mds/2026-2-GlossarioUnB/pull/138
+[#142]: https://github.com/unb-mds/2026-2-GlossarioUnB/pull/142
 [#144]: https://github.com/unb-mds/2026-2-GlossarioUnB/pull/144
+[#146]: https://github.com/unb-mds/2026-2-GlossarioUnB/pull/146
 [#148]: https://github.com/unb-mds/2026-2-GlossarioUnB/pull/148
+[#153]: https://github.com/unb-mds/2026-2-GlossarioUnB/pull/153
+[#155]: https://github.com/unb-mds/2026-2-GlossarioUnB/pull/155
+[#157]: https://github.com/unb-mds/2026-2-GlossarioUnB/pull/157
+[#158]: https://github.com/unb-mds/2026-2-GlossarioUnB/pull/158
+[#161]: https://github.com/unb-mds/2026-2-GlossarioUnB/pull/161
+[#162]: https://github.com/unb-mds/2026-2-GlossarioUnB/pull/162
+[#172]: https://github.com/unb-mds/2026-2-GlossarioUnB/issues/172
+[#174]: https://github.com/unb-mds/2026-2-GlossarioUnB/pull/174
+[#175]: https://github.com/unb-mds/2026-2-GlossarioUnB/pull/175
+[#176]: https://github.com/unb-mds/2026-2-GlossarioUnB/pull/176
+[#178]: https://github.com/unb-mds/2026-2-GlossarioUnB/pull/178
+[#179]: https://github.com/unb-mds/2026-2-GlossarioUnB/pull/179
+[#180]: https://github.com/unb-mds/2026-2-GlossarioUnB/pull/180
+[#181]: https://github.com/unb-mds/2026-2-GlossarioUnB/pull/181
+[#183]: https://github.com/unb-mds/2026-2-GlossarioUnB/pull/183
+[#184]: https://github.com/unb-mds/2026-2-GlossarioUnB/pull/184
+[#185]: https://github.com/unb-mds/2026-2-GlossarioUnB/pull/185
+[#186]: https://github.com/unb-mds/2026-2-GlossarioUnB/pull/186
+[#187]: https://github.com/unb-mds/2026-2-GlossarioUnB/pull/187
+[#189]: https://github.com/unb-mds/2026-2-GlossarioUnB/pull/189
+[#190]: https://github.com/unb-mds/2026-2-GlossarioUnB/pull/190
+[#191]: https://github.com/unb-mds/2026-2-GlossarioUnB/pull/191
+[#192]: https://github.com/unb-mds/2026-2-GlossarioUnB/pull/192

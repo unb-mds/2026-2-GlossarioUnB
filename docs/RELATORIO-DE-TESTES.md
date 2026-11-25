@@ -1,6 +1,19 @@
-# Relatório de testes e cobertura (R2)
+# Relatório de testes e cobertura (R2 · v2.0.0 e v2.1.0)
 
-Números medidos na `main` no commit `bab79b5` (22/11/2026), com Node 24 (o do CI) e `npm ci`. Para refazer: `npm ci && npm test && npm run test:cobertura`. A estratégia (camadas, ferramentas e convenções) está nas ADRs [0010](adr/0010-bibliotecas-nos-scripts-do-robo.md) e [0013](adr/0013-analise-de-qualidade-com-sonarqube-cloud.md) e em [`TESTE-DE-SABOTAGEM.md`](TESTE-DE-SABOTAGEM.md); este documento traz só os números. Onde o número depende de um PR ainda aberto, aparece o PR de onde vem; quando o resultado ainda não foi medido, aparece **Pendente**.
+> **Consolidação final (25/11/2026 · v2.0.0 `2768289` + PRs da v2.1.0 `#190`, `#191`, `#192`):**
+> - **Testes unitários e de integração (`node --test`):** **437** na `v2.0.0` → **446** na `v2.1.0` (0 falhas).
+> - **Cobertura (`npm run test:cobertura` nos 13 módulos de domínio):** **99,48%** de linhas, **94,64%** de ramos e **98,19%** de funções (régua do plano: ≥ 70%; meta do RNF06: ≥ 90%).
+> - **SonarQube Cloud (projeto inteiro, incluindo `app.js`):** **86,4%** de cobertura (83,0% linhas / 95,0% ramos), **0 bugs**, **0 vulnerabilidades**, **0 code smells** e **Quality Gate: `Passed`** (`#185`).
+> - **Teste de sabotagem (`npm run test:sabotagem`):** **36/36** na `v2.0.0` → **42/42** defeitos barrados na `v2.1.0` (`dominio`, `robo`, `servidor`, `tela`, `origem`, `planta`).
+> - **Teste de mutação (`StrykerJS`, `#157` mesclado):** **90,90%** no total e **99,20%** no domínio (régua: ≥ 50%).
+> - **E2E + Acessibilidade (`Playwright` + `axe-core`, `#153`, `#190`–`#192`):** **17/17 testes E2E** verdes com **0 violações WCAG 2.1 AA** nos temas claro e escuro.
+> - **Aceitação BDD (`playwright-bdd`, `#183` mesclado):** **5/5 cenários Gherkin** verdes.
+> - **Lighthouse CI (`#148` + `#155` mesclados):** verde nas 4 páginas (CLS corrigido e `gzip` no servidor local).
+> - **Segurança (`#158` mesclado):** `npm audit` com **0 vulnerabilidades** e testes de defesa contra *prompt injection* verdes.
+>
+> *Abaixo fica preservado o detalhamento completo por arquivo da medição intermediária de 22/11/2026 (`bab79b5`), base histórica da Sprint 09.*
+
+Números medidos na `main` no commit `bab79b5` (22/11/2026), com Node 24 (o do CI) e `npm ci`. Para refazer: `npm ci && npm test && npm run test:cobertura`. A estratégia (camadas, ferramentas e convenções) está nas ADRs [0010](adr/0010-bibliotecas-nos-scripts-do-robo.md) e [0013](adr/0013-analise-de-qualidade-com-sonarqube-cloud.md) e em [`TESTE-DE-SABOTAGEM.md`](TESTE-DE-SABOTAGEM.md).
 
 ## 1. Resumo contra a régua do plano de ensino
 
