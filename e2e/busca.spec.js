@@ -60,4 +60,13 @@ test.describe("busca com autocomplete", () => {
     expect(url.searchParams.get("template")).toBe("adicionar-termo.yml");
     expect(url.searchParams.get("title")).toBe("[Adicionar Termo] xilofonequimico");
   });
+
+  test("busca por menção (MM) encontra Menção pelo sinônimo", async ({ page }) => {
+    await page.goto("/frontend/");
+    await aguardarTermos(page);
+
+    const campo = page.getByRole("combobox", { name: CAMPO_BUSCA });
+    await campo.fill("MM");
+    await expect(page.getByRole("option").first()).toContainText("Menção (MM)");
+  });
 });
