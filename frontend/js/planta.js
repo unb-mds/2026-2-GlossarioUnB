@@ -384,3 +384,78 @@ export function listaDeAndares(planta) {
     andares: listaDe(predio.andares).map((andar) => ({ id: andar.id, nome: maiuscula(andar.nome), href: enderecoAndar(predio.id, andar.id) })),
   }));
 }
+
+// ===== Busca de salas na planta (capa e página planta.html) =====
+
+const TIPOS_NAO_BUSCAVEIS = new Set(["escada", "elevador", "bebedouro", "banheiro-feminino", "banheiro-masculino", "hall", "servico"]);
+
+const chaveDaSala = (texto) =>
+  String(texto ?? "")
+    .normalize("NFD")
+    .replace(/\p{M}/gu, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "");
+
+const normalizarTextoSala = (texto) =>
+  String(texto ?? "")
+    .normalize("NFD")
+    .replace(/\p{M}/gu, "")
+    .toLowerCase()
+    .trim();
+
+export function listarSalasBuscaveis(planta) {
+  const salas = [];
+  for (const predio of prediosDa(planta)) {
+    const sigla = predio.sigla || predio.id;
+    for (const andar of listaDe(predio.andares)) {
+      const nomeAndar = maiuscula(andar.nome);
+      for (const item of listaDe(andar.itens)) {
+        if (TIPOS_NAO_BUSCAVEIS.has(item.tipo)) continue;
+        const rotulo = item.rotulo || item.nome || item.id;
+        const nome = item.nome || rotulo;
+        salas.push({
+          id: `sala:${predio.id}:${andar.id}:${item.id}`,
+          itemId: item.id,
+          rotulo,
+          nome,
+          termo: nome,
+          significado: `${sigla} · ${nomeAndar} · Planta da FCTE`,
+          predio: predio.id,
+          siglaPredio: sigla,
+          andar: andar.id,
+          nomeAndar,
+          termos: listaDe(item.termos),
+          href: enderecoAndar(predio.id, andar.id, item.id),
+          tipo: "sala-planta",
+        });
+      }
+    }
+  }
+  return salas;
+}
+
+// Acha salas ignorando acento, caixa e hífens/espaços: "S10", "S-10" e "Sala S10" apontam para a mesma sala.
+export function buscarSalas(planta, consulta, limite = 6) {
+  const qTexto = normalizarTextoSala(consulta);
+  const qChave = chaveDaSala(consulta);
+  if (!qChave || qChave.length < 2) return [];
+
+  const pontuacao = (sala) => {
+    const cRotulo = chaveDaSala(sala.rotulo);
+    const cId = chaveDaSala(sala.itemId);
+    const cNome = chaveDaSala(sala.nome);
+    if (cRotulo === qChave || cId === qChave) return 0;
+    if (cRotulo.startsWith(qChave) || cId.startsWith(qChave)) return 1;
+    if (cNome.startsWith(qChave) || normalizarTextoSala(sala.nome).includes(qTexto)) return 2;
+    return 3;
+  };
+  const corresponde = (sala) =>
+    chaveDaSala(sala.rotulo).includes(qChave) ||
+    chaveDaSala(sala.itemId).includes(qChave) ||
+    chaveDaSala(sala.nome).includes(qChave);
+
+  return listarSalasBuscaveis(planta)
+    .filter(corresponde)
+    .sort((a, b) => pontuacao(a) - pontuacao(b) || a.nome.localeCompare(b.nome))
+    .slice(0, limite);
+}

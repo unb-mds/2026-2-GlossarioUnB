@@ -4,16 +4,26 @@
 import { buscarTermos, contarPorTipo, normalizar, resumoDoTermo, sinonimosDe } from "./termos.js";
 import { montarTrilha } from "./trilha.js";
 import { urlDoTermo } from "./ficha.js";
+import { buscarSalas } from "./planta.js";
 
 const TIPOS_NO_PLURAL = { sigla: "Siglas", giria: "Gírias", expressao: "Expressões" };
+const LIMITE_SUGESTOES = 8;
 
-// As sugestões para o que foi digitado, ou null quando a consulta está vazia (não há o que mostrar).
-export function sugestoesPara(termos, consulta) {
-  return normalizar(consulta) ? buscarTermos(termos, consulta) : null;
+// As sugestões para o que foi digitado (termos do glossário + salas da planta), ou null quando vazia.
+export function sugestoesPara(termos, consulta, planta = null) {
+  if (!normalizar(consulta)) return null;
+  const encontrados = buscarTermos(termos, consulta, LIMITE_SUGESTOES);
+  if (!planta || encontrados.length >= LIMITE_SUGESTOES) return encontrados;
+
+  const idsDosTermos = new Set(encontrados.map((termo) => termo.id));
+  const salas = buscarSalas(planta, consulta, LIMITE_SUGESTOES - encontrados.length)
+    .filter((sala) => !sala.termos.some((id) => idsDosTermos.has(id)));
+  return [...encontrados, ...salas];
 }
 
 // O nome na sugestão; quando foi um sinônimo que combinou com a busca, ele aparece entre parênteses.
 export function rotuloDaSugestao(termo, consulta) {
+  if (termo.tipo === "sala-planta") return termo.nome;
   const q = normalizar(consulta);
   if (normalizar(termo.termo).includes(q)) return termo.termo;
   const sinonimo = sinonimosDe(termo).find((candidato) => normalizar(candidato).includes(q));
@@ -39,9 +49,9 @@ export function proximoIndice(atual, tecla, total) {
 }
 
 // O Enter abre a sugestão marcada; sem marcação, a primeira da busca; sem nenhuma, nada.
-export function termoDoEnvio(sugestoes, indiceAtivo, termos, consulta) {
+export function termoDoEnvio(sugestoes, indiceAtivo, termos, consulta, planta = null) {
   if (indiceAtivo >= 0 && sugestoes[indiceAtivo]) return sugestoes[indiceAtivo];
-  return buscarTermos(termos, consulta)[0] ?? null;
+  return (sugestoesPara(termos, consulta, planta) ?? [])[0] ?? null;
 }
 
 export function atalhosPorTipo(termos) {

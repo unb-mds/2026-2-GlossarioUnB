@@ -1539,6 +1539,36 @@ html:has(.indice) { scroll-padding-top: 7.5rem; }
 .onde-fica .planta { border: 1px solid var(--borda); border-radius: var(--raio); }
 .planta-andares a { font-weight: 600; transition: background 0.15s, border-color 0.15s; }
 .planta-andares a:hover { background: var(--sugestao-ativa); border-color: var(--primaria); }
+.planta-busca-form { display: flex; flex-direction: column; gap: 0.4rem; }
+.planta-busca-form label { font-size: 0.9rem; font-weight: 600; color: var(--texto-suave); }
+.planta-busca-campo {
+  width: 100%;
+  padding: 0.65rem 0.9rem;
+  font: inherit;
+  color: var(--texto);
+  background: var(--superficie-2);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+}
+.planta-busca-campo:focus-visible { outline: 2px solid var(--foco); outline-offset: 2px; border-color: var(--primaria); }
+.planta-resultados { display: grid; gap: 0.45rem; margin: 0.6rem 0 0; padding: 0; list-style: none; }
+.planta-resultados a {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.25rem 0.75rem;
+  padding: 0.6rem 0.85rem;
+  color: var(--texto);
+  text-decoration: none;
+  background: var(--superficie-2);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  transition: border-color 0.15s;
+}
+.planta-resultados a:hover, .planta-resultados a:focus-visible { background: var(--sugestao-ativa); border-color: var(--primaria); }
+.planta-resultado-nome { font-weight: 700; color: var(--link); }
+.planta-resultado-local { font-size: 0.9rem; color: var(--texto-suave); }
+.planta-sem-resultado { font-size: 0.92rem; color: var(--texto-suave); }
 
 /* De onde vêm os dados (21st.dev · Bento Stats Cards + barras com gradiente) */
 .dados-secao {

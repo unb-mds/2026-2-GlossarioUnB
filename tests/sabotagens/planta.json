@@ -31,5 +31,27 @@
         "para": "if (onde.length > 99) problemas.push"
       }
     ]
+  },
+  {
+    "modulo": "frontend/js/planta.js",
+    "defeito": "buscarSalas deixa de ignorar hífen e não encontra S10 quando digitado S-10",
+    "arquivo": "frontend/js/planta.js",
+    "trocas": [
+      {
+        "de": ".replace(/[^a-z0-9]+/g, \"\");",
+        "para": ";"
+      }
+    ]
+  },
+  {
+    "modulo": "frontend/js/planta.js",
+    "defeito": "listarSalasBuscaveis mistura escadas e banheiros nas sugestões",
+    "arquivo": "frontend/js/planta.js",
+    "trocas": [
+      {
+        "de": "if (TIPOS_NAO_BUSCAVEIS.has(item.tipo)) continue;",
+        "para": ""
+      }
+    ]
   }
 ]
