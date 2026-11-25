@@ -23,10 +23,14 @@ O CI falha se algum defeito passar, ou se o trecho de algum item não existir ma
 
 | Lista | Módulos | Por que são críticos |
 |---|---|---|
-| `dominio.json` | `frontend/js/termos.js`, `frontend/js/validacao-termo.js` | A busca, os filtros e o schema que o CI usa para barrar termo inválido (RNF06) |
+| `dominio.json` | `frontend/js/termos.js`, `frontend/js/validacao-termo.js`, `frontend/js/ficha.js`, `frontend/js/trilha.js` | A busca (nome e sinônimos), os filtros, a trilha e o schema que o CI usa para barrar termo inválido (RNF06) |
 | `robo.json` | `coleta/coletor-html.js`, `coleta/deduplicar.js`, `coleta/classificador.js` | A coleta responsável (robots.txt, 1 s entre pedidos, user-agent) e a deduplicação que decide o que vira PR (ADR 0009) |
 | `servidor.json` | `scripts/servidor-local.mjs` | Segurança: o redirecionamento aberto apontado pelo SonarQube (regra S5146) |
-| `tela.json` (vem com o PR dos módulos por página) | `frontend/js/busca.js`, `lista.js`, `ficha.js`, `tema.js` | As regras de cada página, tiradas do `app.js` |
+| `tela.json` | `frontend/js/busca.js`, `lista.js`, `ficha.js`, `tema.js` | As regras de cada página (incluindo o filtro "Só com mapa ou planta"), tiradas do `app.js` |
+| `origem.json` | `frontend/js/origem.js` | O boletim público "De onde vêm os dados" e a checagem de origem oficial da UnB |
+| `planta.json` | `frontend/js/planta.js` | Escape de SVG, ligação termo-sala, detecção de duplicata e busca de salas na planta 2D da FCTE |
+
+Na Release `v2.0.0` eram **36 de 36** defeitos barrados; com os PRs `#191` e `#192` da `v2.1.0`, a suíte passa a barrar **40 de 40** defeitos propositais.
 
 **Fora da lista, de propósito:** o `app.js` e o `sw.js` só rodam no navegador e não têm teste unitário. Um defeito neles (texto do termo entrando como HTML, Enter que não abre o termo) passa pela suíte: quem pega são os testes ponta a ponta da #78.
 

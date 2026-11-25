@@ -9,6 +9,8 @@
 [![GitHub Pages][Pages badge]][Pages]
 [![Quality Gate Status][Sonar badge]][Sonar]
 [![Coverage][Sonar coverage badge]][Sonar]
+[![Security Rating][Sonar security badge]][Sonar]
+[![Bugs][Sonar bugs badge]][Sonar]
 
 O Glossário UnB é um dicionário das siglas, gírias e expressões da Universidade
 de Brasília, feito para quem chega à UnB e tropeça em DEG, BCE, FCTE, "menção SR"
@@ -170,6 +172,8 @@ O Glossário UnB é distribuído sob a [licença MIT](LICENSE).
 [Sonar]: https://sonarcloud.io/summary/new_code?id=p-magno_glossario-unb
 [Sonar badge]: https://sonarcloud.io/api/project_badges/measure?project=p-magno_glossario-unb&metric=alert_status
 [Sonar coverage badge]: https://sonarcloud.io/api/project_badges/measure?project=p-magno_glossario-unb&metric=coverage
+[Sonar security badge]: https://sonarcloud.io/api/project_badges/measure?project=p-magno_glossario-unb&metric=security_rating
+[Sonar bugs badge]: https://sonarcloud.io/api/project_badges/measure?project=p-magno_glossario-unb&metric=bugs
 [Leaflet]: https://leafletjs.com/
 [OpenStreetMap]: https://www.openstreetmap.org/copyright
 [OSM tiles]: https://operations.osmfoundation.org/policies/tiles/
