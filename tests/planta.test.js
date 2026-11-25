@@ -6,12 +6,14 @@ import { readFileSync } from "node:fs";
 
 import {
   acharLugar,
+  buscarSalas,
   conferirLigacoes,
   descreverLugar,
   enderecoAndar,
   enderecoCampus,
   lerEnderecoAndar,
   listaDeAndares,
+  listarSalasBuscaveis,
   montarSvgAndar,
   montarSvgCampus,
   paginaDaPlanta,
@@ -422,4 +424,27 @@ test("conferirLigacoes recusa um valor desconhecido em posicao", () => {
   p.predios[0].andares[0].itens[1].posicao = "exata";
   assert.ok(conferirLigacoes(p).some((problema) => problema.includes("posicao")));
   assert.deepEqual(conferirLigacoes(plantaComAproximada()), []);
+});
+
+// ===== Busca de salas na planta =====
+
+test("listarSalasBuscaveis ignora escadas/banheiros e monta o endereço da sala", () => {
+  const p = copia();
+  p.predios[0].andares[0].itens.push({ id: "esc1", rotulo: "Escada", nome: "Escada", tipo: "escada", cantos: [[0, 0], [1, 0], [1, 1]] });
+  const salas = listarSalasBuscaveis(p);
+  assert.ok(salas.every((s) => s.itemId !== "esc1"));
+  assert.equal(salas[0].href, "planta.html?predio=pt&andar=terreo&sala=s1");
+  assert.equal(salas[0].tipo, "sala-planta");
+});
+
+test("buscarSalas acha sala ignorando hífen, acento e caixa (ex.: S10 e S-10)", () => {
+  const p = copia();
+  p.predios[0].andares[0].itens.push({ id: "S10", rotulo: "S-10", nome: "Sala S10", tipo: "sala", cantos: [[0, 0], [1, 0], [1, 1]] });
+  assert.equal(buscarSalas(p, "S10")[0].itemId, "S10");
+  assert.equal(buscarSalas(p, "s-10")[0].itemId, "S10");
+  assert.equal(buscarSalas(p, "s 10")[0].itemId, "S10");
+  assert.equal(buscarSalas(p, "sala-s10")[0].itemId, "S10");
+  assert.equal(buscarSalas(p, "Sala S10")[0].itemId, "S10");
+  assert.deepEqual(buscarSalas(p, "s"), []);
+  assert.deepEqual(buscarSalas(null, "S10"), []);
 });

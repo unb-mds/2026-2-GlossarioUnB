@@ -93,3 +93,29 @@ test("os atalhos por tipo usam o rótulo no plural", () => {
   assert.deepEqual(atalhosPorTipo([termos[2]]).map((a) => a.rotulo), ["Gírias"]);
   assert.deepEqual(atalhosPorTipo([{ ...termos[0], tipo: "expressao" }]).map((a) => a.rotulo), ["Expressões"]);
 });
+
+test("a busca da capa inclui salas da planta (ex.: S10) quando a planta é informada e não duplica termos já encontrados", () => {
+  const plantaTeste = {
+    predios: [{
+      id: "uac",
+      sigla: "UAC",
+      andares: [{
+        id: "superior",
+        nome: "andar de cima",
+        itens: [
+          { id: "S10", rotulo: "S-10", nome: "Sala S10", tipo: "sala" },
+          { id: "deg-sala", rotulo: "DEG", nome: "Sala DEG", tipo: "sala", termos: ["deg"] },
+        ],
+      }],
+    }],
+  };
+  const achadas = sugestoesPara(termos, "S-10", plantaTeste);
+  assert.equal(achadas.length, 1);
+  assert.equal(achadas[0].href, "planta.html?predio=uac&andar=superior&sala=S10");
+  assert.equal(rotuloDaSugestao(achadas[0], "s-10"), "Sala S10");
+  assert.equal(termoDoEnvio([], -1, termos, "S10", plantaTeste).href, "planta.html?predio=uac&andar=superior&sala=S10");
+
+  // Não duplica quando o termo "deg" já apareceu nos termos do glossário
+  const comDeg = sugestoesPara(termos, "deg", plantaTeste);
+  assert.deepEqual(comDeg.map((x) => x.id), ["deg"]);
+});

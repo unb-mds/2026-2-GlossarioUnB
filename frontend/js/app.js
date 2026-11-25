@@ -14,7 +14,7 @@ import { relacionadosDe, rotuloCampus, textoDaFonte, textoDosSinonimos, textoVer
 import { boletimDaColeta } from "./origem.js";
 import { escuroAtivo, proximoTema, salvarTema } from "./tema.js";
 import { CHAVE_PROGRESSO, armazenamentoDisponivel, lerVistos, marcarVisto, progressoDaTrilha, recomecarTrilha, termosDaTrilha } from "./trilha.js";
-import { AVISO_ANDAR_APROXIMADO, AVISO_SALA_APROXIMADA, acharLugar, descreverLugar, listaDeAndares, montarSvgAndar, montarSvgCampus, paginaDaPlanta, svgDoLugar } from "./planta.js";
+import { AVISO_ANDAR_APROXIMADO, AVISO_SALA_APROXIMADA, acharLugar, buscarSalas, descreverLugar, listaDeAndares, montarSvgAndar, montarSvgCampus, paginaDaPlanta, svgDoLugar } from "./planta.js";
 
 const URL_DADOS = "data/termos.json";
 const URL_TRILHA = "data/trilha-calouro.json";
@@ -117,9 +117,10 @@ function iniciarBusca(termos) {
 
   let sugestoesAtuais = [];
   let indiceAtivo = -1;
+  let plantaCarregada = null;
 
   function irParaTermo(termo) {
-    window.location.href = urlDoTermo(termo);
+    window.location.href = termo.href ?? urlDoTermo(termo);
   }
 
   function fecharSugestoes() {
@@ -154,7 +155,7 @@ function iniciarBusca(termos) {
   function renderizarSugestoes() {
     fecharSugestoes();
     avisoVazio.hidden = true;
-    const sugestoes = sugestoesPara(termos, input.value);
+    const sugestoes = sugestoesPara(termos, input.value, plantaCarregada);
     status.textContent = textoDoStatus(sugestoes);
     if (sugestoes === null) return;
 
@@ -195,12 +196,18 @@ function iniciarBusca(termos) {
 
   form.addEventListener("submit", (evento) => {
     evento.preventDefault();
-    const termo = termoDoEnvio(sugestoesAtuais, indiceAtivo, termos, input.value);
+    const termo = termoDoEnvio(sugestoesAtuais, indiceAtivo, termos, input.value, plantaCarregada);
     if (termo) irParaTermo(termo);
   });
 
   document.addEventListener("click", (evento) => {
     if (!form.contains(evento.target)) fecharSugestoes();
+  });
+
+  // Carrega a planta em segundo plano para incluir salas (ex.: S-10, I-10) sem atrasar a pintura inicial.
+  void carregarPlanta().then((planta) => {
+    plantaCarregada = planta;
+    if (input.value.trim()) renderizarSugestoes();
   });
 }
 
@@ -487,7 +494,58 @@ function iniciarPaginaPlanta(termos, planta) {
     }
     container.append(links);
   }
+  container.append(criarBuscaDaPlanta(planta));
   container.append(criarNavegacaoDaPlanta(planta));
+}
+
+function criarBuscaDaPlanta(planta) {
+  const secao = criarElemento("section", { classe: "bloco planta-busca", atributos: { "aria-label": "Buscar sala na planta" } });
+  const rotulo = criarElemento("label", { texto: "Encontrar sala na planta", atributos: { for: "busca-sala-planta" } });
+  const form = criarElemento("form", { classe: "planta-busca-form", atributos: { role: "search" } });
+  const campo = criarElemento("input", {
+    classe: "planta-busca-campo",
+    atributos: { id: "busca-sala-planta", type: "search", placeholder: "Ex.: S-10, I-10, LDS, Auditório…", autocomplete: "off" },
+  });
+  const status = criarElemento("p", { classe: "sr-only", atributos: { role: "status", "aria-live": "polite" } });
+  const resultados = criarElemento("ul", { classe: "planta-resultados" });
+  let ultimasSalas = [];
+
+  const atualizar = () => {
+    resultados.replaceChildren();
+    const texto = campo.value.trim();
+    if (!texto) {
+      ultimasSalas = [];
+      status.textContent = "";
+      return;
+    }
+    ultimasSalas = buscarSalas(planta, texto, 10);
+    if (ultimasSalas.length === 0) {
+      status.textContent = "Nenhuma sala encontrada.";
+      resultados.append(criarElemento("li", { classe: "planta-sem-resultado", texto: `Nenhuma sala encontrada para “${texto}”.` }));
+      return;
+    }
+    status.textContent = ultimasSalas.length === 1 ? "1 sala encontrada." : `${ultimasSalas.length} salas encontradas.`;
+    for (const sala of ultimasSalas) {
+      const item = criarElemento("li");
+      const link = criarElemento("a", { atributos: { href: sala.href } });
+      link.append(
+        criarElemento("span", { classe: "planta-resultado-nome", texto: sala.nome }),
+        criarElemento("span", { classe: "planta-resultado-local", texto: `${sala.siglaPredio} · ${sala.nomeAndar}` }),
+      );
+      item.append(link);
+      resultados.append(item);
+    }
+  };
+
+  campo.addEventListener("input", atualizar);
+  form.addEventListener("submit", (evento) => {
+    evento.preventDefault();
+    if (ultimasSalas[0]) window.location.href = ultimasSalas[0].href;
+  });
+
+  form.append(rotulo, campo);
+  secao.append(criarElemento("h2", { texto: "Buscar sala" }), form, status, resultados);
+  return secao;
 }
 
 function criarNavegacaoDaPlanta(planta) {
