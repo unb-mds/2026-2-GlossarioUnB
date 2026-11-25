@@ -1,9 +1,9 @@
 # Relatório de testes e cobertura (R2 · v2.0.0 e v2.1.0)
 
-> **Consolidação final (25/11/2026 · v2.0.0 `2768289` + PRs da v2.1.0 `#194`, `#191`, `#192`):**
+> **Consolidação final (25/11/2026 · v2.0.0 `2768289` + PRs da v2.1.0 `#194`, `#195`, `#191`, `#192`):**
 > - **Testes unitários e de integração (`node --test`):** **437** na `v2.0.0` → **444** na `v2.1.0` (0 falhas).
 > - **Cobertura (`npm run test:cobertura` nos 13 módulos de domínio):** **99,47%** de linhas, **94,67%** de ramos e **98,16%** de funções (régua do plano: ≥ 70%; meta do RNF06: ≥ 90%).
-> - **SonarQube Cloud (projeto inteiro, incluindo `app.js`):** **86,4%** de cobertura (83,0% linhas / 95,0% ramos), **0 bugs**, **0 vulnerabilidades**, **0 code smells** e **Quality Gate: `Passed`** (`#185`).
+> - **SonarQube Cloud (`p-magno_glossario-unb`, projeto inteiro incluindo `app.js`):** **86,4%** de cobertura combinada (**83,0%** linhas / **95,0%** ramos), **0 bugs** (nota A), **0 vulnerabilidades** (nota A), **0 code smells** (nota A), **0 security hotspots**, **0,5%** duplicação, **15.861 ncloc** e **Quality Gate: `Passed`** (`#185`).
 > - **Teste de sabotagem (`npm run test:sabotagem`):** **36/36** na `v2.0.0` → **40/40** defeitos barrados na `v2.1.0` (`dominio`, `robo`, `servidor`, `tela`, `origem`, `planta`).
 > - **Teste de mutação (`StrykerJS`, `#157` mesclado):** **90,90%** no total e **99,20%** no domínio (régua: ≥ 50%).
 > - **E2E + Acessibilidade (`Playwright` + `axe-core`, `#153`, `#191`, `#192`, `#194`):** **17/17 testes E2E** verdes com **0 violações WCAG 2.1 AA** nos temas claro e escuro.
