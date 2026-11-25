@@ -185,5 +185,27 @@
         "para": "return new Set(salvo);"
       }
     ]
+  },
+  {
+    "modulo": "frontend/js/termos.js",
+    "defeito": "a busca deixa de procurar por assunto nas definições",
+    "arquivo": "frontend/js/termos.js",
+    "trocas": [
+      {
+        "de": "correspondeNomeOuSinonimo(termo) || (palavrasDeAssunto !== null && correspondeAoAssunto(termo, palavrasDeAssunto));",
+        "para": "correspondeNomeOuSinonimo(termo);"
+      }
+    ]
+  },
+  {
+    "modulo": "frontend/js/termos.js",
+    "defeito": "a busca por assunto ativa para siglas curtas e gera ruído (ex.: RU)",
+    "arquivo": "frontend/js/termos.js",
+    "trocas": [
+      {
+        "de": "return palavras.length >= 2 || q.length >= MINIMO_BUSCA_ASSUNTO ? palavras : null;",
+        "para": "return palavras;"
+      }
+    ]
   }
 ]

@@ -143,3 +143,34 @@ test("agruparPorLetra ordena os termos de cada letra pelo nome sem acento", () =
   assert.equal(letra, "A");
   assert.deepEqual(doGrupo.map((t) => t.id), ["a1", "a2"]);
 });
+
+// ===== Busca por assunto nas definições (#172) e menções =====
+
+test("buscarTermos encontra por assunto no significado e na definição quando a consulta tem >= 4 letras ou >= 2 palavras", () => {
+  const termos = [
+    termo("tgm", "TGM", { significado: "Trancamento Geral de Matrícula", definicao: "Interrompe todas as disciplinas no semestre." }),
+    termo("dds", "DDS", { significado: "Diretoria de Desenvolvimento Social", definicao: "Cuida da assistência estudantil na UnB." }),
+    termo("ru", "RU", { significado: "Restaurante Universitário", definicao: "Onde se almoça no campus." }),
+  ];
+  assert.deepEqual(buscarTermos(termos, "assistência estudantil").map((t) => t.id), ["dds"]);
+  assert.deepEqual(buscarTermos(termos, "trancamento").map((t) => t.id), ["tgm"]);
+  assert.deepEqual(buscarTermos(termos, "almoça").map((t) => t.id), ["ru"]);
+});
+
+test("buscarTermos não dispara busca na definição em consulta curta de 1 palavra (corte de ruído)", () => {
+  const termos = [
+    termo("ru", "RU", { significado: "Restaurante Universitário", definicao: "Refeitório da UnB." }),
+    termo("ceubinho", "Ceubinho", { definicao: "Fica perto do RU no Darcy Ribeiro." }),
+  ];
+  assert.deepEqual(buscarTermos(termos, "ru").map((t) => t.id), ["ru"]);
+  assert.deepEqual(buscarTermos(termos, "unb").map((t) => t.id), []);
+});
+
+test("buscarTermos mantém nome e sinônimo sempre antes de resultado encontrado só na definição", () => {
+  const termos = [
+    termo("sobre-fluxo", "SIGAA", { definicao: "Mostra o fluxo curricular do estudante." }),
+    termo("aux", "Auxílio", { sinonimos: ["fluxo financeiro"] }),
+    termo("fluxo", "Fluxo", { definicao: "Grade sugerida de disciplinas." }),
+  ];
+  assert.deepEqual(buscarTermos(termos, "fluxo").map((t) => t.id), ["fluxo", "aux", "sobre-fluxo"]);
+});

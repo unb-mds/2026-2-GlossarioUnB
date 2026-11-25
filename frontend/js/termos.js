@@ -35,18 +35,38 @@ export function normalizar(texto) {
 
 export const sinonimosDe = (termo) => (Array.isArray(termo.sinonimos) ? termo.sinonimos : []);
 
-// Termos cujo nome ou sinônimos contêm a consulta; primeiro o nome que começa com ela, depois o sinônimo que começa.
+const MINIMO_BUSCA_ASSUNTO = 4;
+
+// Busca por assunto na definição/significado (#172): só ativa com >= 4 letras ou >= 2 palavras,
+// evitando ruído em consultas curtas como "RU" ou "CA".
+function palavrasParaBuscaDeAssunto(q) {
+  const palavras = q.split(" ").filter(Boolean);
+  return palavras.length >= 2 || q.length >= MINIMO_BUSCA_ASSUNTO ? palavras : null;
+}
+
+function correspondeAoAssunto(termo, palavras) {
+  const texto = normalizar(`${termo.termo ?? ""} ${termo.significado ?? ""} ${termo.definicao ?? ""}`);
+  return palavras.every((palavra) => texto.includes(palavra));
+}
+
+// Termos cujo nome, sinônimos ou assunto (significado/definição) contêm a consulta;
+// primeiro nome que começa, depois sinônimo que começa, depois nome/sinônimo no meio, por fim assunto.
 export function buscarTermos(termos, consulta, limite = 8) {
   const q = normalizar(consulta);
   if (!q) return [];
+  const palavrasDeAssunto = palavrasParaBuscaDeAssunto(q);
+
+  const correspondeNomeOuSinonimo = (termo) =>
+    normalizar(termo.termo).includes(q) || sinonimosDe(termo).some((sinonimo) => normalizar(sinonimo).includes(q));
 
   const pontuacao = (termo) => {
     if (normalizar(termo.termo).startsWith(q)) return 0;
     if (sinonimosDe(termo).some((sinonimo) => normalizar(sinonimo).startsWith(q))) return 1;
-    return 2;
+    if (correspondeNomeOuSinonimo(termo)) return 2;
+    return 3;
   };
   const corresponde = (termo) =>
-    normalizar(termo.termo).includes(q) || sinonimosDe(termo).some((sinonimo) => normalizar(sinonimo).includes(q));
+    correspondeNomeOuSinonimo(termo) || (palavrasDeAssunto !== null && correspondeAoAssunto(termo, palavrasDeAssunto));
 
   return termos
     .filter(corresponde)
