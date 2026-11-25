@@ -7,7 +7,9 @@
 import { TIPOS, encontrarTermo, filtrosDaUrl, resumoDoTermo } from "./termos.js";
 import { validarTermo } from "./validacao-termo.js";
 import { atalhosPorTipo, gruposDaTrilha, proximoIndice, rotuloDaSugestao, sugestoesPara, termoDoEnvio, textoDoStatus, textoSemResultado } from "./busca.js";
-import { enderecoDosFiltros, etiquetasDoCartao, montarLista, opcoesDeCampus, opcoesDeCategoria, opcoesDeTipo, textoDaContagem } from "./lista.js";
+import {
+  enderecoDosFiltros, etiquetasDoCartao, filtroLocalizacaoDaUrl, idsComPlanta, montarLista, opcoesDeCampus, opcoesDeCategoria, opcoesDeLocalizacao, opcoesDeTipo, textoDaContagem,
+} from "./lista.js";
 import { relacionadosDe, rotuloCampus, textoDaFonte, textoDosSinonimos, textoVerificadoEm, tituloDaFicha, urlDoTermo } from "./ficha.js";
 import { boletimDaColeta } from "./origem.js";
 import { escuroAtivo, proximoTema, salvarTema } from "./tema.js";
@@ -351,6 +353,7 @@ function iniciarListaCompleta(termos) {
   const seletorCampus = document.getElementById("filtro-campus");
   const seletorTipo = document.getElementById("filtro-tipo");
   const seletorCategoria = document.getElementById("filtro-categoria");
+  const seletorLocalizacao = document.getElementById("filtro-localizacao");
   const indice = document.getElementById("indice-letras");
   const status = document.getElementById("filtro-status");
   if (!container || !seletorCampus || !seletorTipo || !seletorCategoria) return;
@@ -358,21 +361,31 @@ function iniciarListaCompleta(termos) {
   preencherOpcoes(seletorTipo, opcoesDeTipo());
   preencherOpcoes(seletorCategoria, opcoesDeCategoria(termos));
   preencherOpcoes(seletorCampus, opcoesDeCampus());
+  if (seletorLocalizacao) preencherOpcoes(seletorLocalizacao, opcoesDeLocalizacao());
 
   // Filtros vêm da URL (atalhos da página inicial) e voltam para ela: o link pode ser compartilhado.
-  const inicial = filtrosDaUrl(new URLSearchParams(window.location.search));
+  const parametros = new URLSearchParams(window.location.search);
+  const inicial = filtrosDaUrl(parametros);
   seletorTipo.value = inicial.tipo ?? "";
   seletorCategoria.value = inicial.categoria ?? "";
   seletorCampus.value = inicial.campus ?? "";
+  if (seletorLocalizacao) seletorLocalizacao.value = filtroLocalizacaoDaUrl(parametros);
 
-  const filtrosEscolhidos = () => ({ tipo: seletorTipo.value, categoria: seletorCategoria.value, campus: seletorCampus.value });
+  let idsNaPlanta = new Set();
+
+  const filtrosEscolhidos = () => ({
+    tipo: seletorTipo.value,
+    categoria: seletorCategoria.value,
+    campus: seletorCampus.value,
+    localizacao: seletorLocalizacao?.value ?? "",
+  });
 
   function atualizarUrl() {
     history.replaceState(null, "", enderecoDosFiltros(filtrosEscolhidos(), window.location.pathname));
   }
 
   function renderizar() {
-    const { total, grupos } = montarLista(termos, filtrosEscolhidos());
+    const { total, grupos } = montarLista(termos, filtrosEscolhidos(), idsNaPlanta);
     container.replaceChildren();
     indice?.replaceChildren();
     if (status) status.textContent = textoDaContagem(total);
@@ -396,13 +409,19 @@ function iniciarListaCompleta(termos) {
     }
   }
 
-  for (const seletor of [seletorTipo, seletorCategoria, seletorCampus]) {
+  const seletores = [seletorTipo, seletorCategoria, seletorCampus, ...(seletorLocalizacao ? [seletorLocalizacao] : [])];
+  for (const seletor of seletores) {
     seletor.addEventListener("change", () => {
       atualizarUrl();
       renderizar();
     });
   }
-  renderizar();
+
+  if (!seletorLocalizacao?.value) renderizar();
+  void carregarPlanta().then((planta) => {
+    idsNaPlanta = idsComPlanta(planta);
+    if (seletorLocalizacao?.value) renderizar();
+  });
 }
 
 // ===== Planta da FCTE (ADR 0012) =====

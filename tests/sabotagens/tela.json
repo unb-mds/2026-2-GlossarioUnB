@@ -64,5 +64,27 @@
         "para": "const url = fonte.startsWith(\"javascript:\") ? fonte : urlSegura(fonte);"
       }
     ]
+  },
+  {
+    "modulo": "frontend/js/lista.js",
+    "defeito": "filtro de localização ignora termos da planta 2D da FCTE",
+    "arquivo": "frontend/js/lista.js",
+    "trocas": [
+      {
+        "de": "return Boolean(termo?.localizacao) || idsNaPlanta.has(termo?.id);",
+        "para": "return Boolean(termo?.localizacao);"
+      }
+    ]
+  },
+  {
+    "modulo": "frontend/js/lista.js",
+    "defeito": "filtro de localização ignora termos com mapa OpenStreetMap",
+    "arquivo": "frontend/js/lista.js",
+    "trocas": [
+      {
+        "de": "return Boolean(termo?.localizacao) || idsNaPlanta.has(termo?.id);",
+        "para": "return idsNaPlanta.has(termo?.id);"
+      }
+    ]
   }
 ]
