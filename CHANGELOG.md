@@ -7,17 +7,17 @@ O formato segue o [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/) e 
 
 ## [2.1.0] - 2026-11-25
 
-Evolução pós-Release 2 nascida do uso real do site e do feedback do teste com calouro (#76 / #172).
+Evolução pós-Release 2 nascida da revisão do uso do site para a apresentação.
 
 ### Adicionado
 
-- **Busca por assunto nas definições e sinônimos das menções (#172, #190):** `buscarTermos()` agora também encontra termos pelo significado e pela definição quando a consulta tem ≥ 4 letras ou ≥ 2 palavras (sempre abaixo de nome e sinônimo, evitando ruído em siglas curtas como `RU`), e a ficha `Menção` passa a aceitar `SS`, `MS`, `MM`, `MI` e `II` como sinônimos.
+- **Sinônimos das menções em `Menção` (#194):** a ficha `Menção` passa a aceitar `SS`, `MS`, `MM`, `MI` e `II` como sinônimos diretos (mantendo `SR` como ficha própria ligada em "Veja também" e sem colidir com nenhum outro termo do catálogo).
 - **Filtro "Só com mapa ou planta" em Todas as siglas (#191):** novo seletor acessível **Localização** (`?localizacao=1`) que une os 34 termos com mapa OpenStreetMap e os 33 termos ligados à Planta 2D da FCTE (~65 termos no total), com testes unitários, sabotagem e E2E + `axe-core`.
 - **Busca de salas da Planta da FCTE na capa e em `planta.html` (#192):** digitar `S10`, `S-10`, `I-10` ou `Auditório` na página inicial ou na nova caixa **Buscar sala** em `planta.html` leva direto ao prédio/andar certo com a sala destacada (ignorando hífens/acentos e sem poluir `termos.json`), com cache offline atualizado para `sw.js v26`.
 
 ### Documentação
 
-- Atualização em cascata da matriz de rastreabilidade (`docs/RASTREABILIDADE.md`), do relatório de testes (`docs/RELATORIO-DE-TESTES.md`), da tabela de sabotagem (`docs/TESTE-DE-SABOTAGEM.md`), da página `/sobre/` e do `CHANGELOG.md` para a v2.1.0 (446 testes unitários/integração, 42/42 sabotagens, 17/17 E2E + `axe-core`, 5/5 BDD e 0 issues no SonarQube).
+- Atualização em cascata da matriz de rastreabilidade (`docs/RASTREABILIDADE.md`), do relatório de testes (`docs/RELATORIO-DE-TESTES.md`), da tabela de sabotagem (`docs/TESTE-DE-SABOTAGEM.md`), da página `/sobre/` e do `CHANGELOG.md` para a v2.1.0 (444 testes unitários/integração, 40/40 sabotagens, 17/17 E2E + `axe-core`, 5/5 BDD e 0 issues no SonarQube).
 
 ## [2.0.0] - 2026-11-24
 
