@@ -143,3 +143,10 @@ test("agruparPorLetra ordena os termos de cada letra pelo nome sem acento", () =
   assert.equal(letra, "A");
   assert.deepEqual(doGrupo.map((t) => t.id), ["a1", "a2"]);
 });
+
+test("buscarTermos encontra Menção pelos sinônimos das notas da UnB (SS, MS, MM, MI, II)", () => {
+  const mencao = termo("mencao", "Menção", { tipo: "expressao", sinonimos: ["SS", "MS", "MM", "MI", "II"] });
+  for (const nota of ["ss", "ms", "mm", "mi", "ii"]) {
+    assert.deepEqual(buscarTermos([mencao], nota).map((t) => t.id), ["mencao"]);
+  }
+});
